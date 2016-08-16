@@ -1,0 +1,562 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 4471880586,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.startUp()"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "Verify that login is successful with valid username and password",
+        "description": "",
+        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;verify-that-login-is-successful-with-valid-username-and-password",
+        "after": [
+          {
+            "result": {
+              "duration": 4314432399,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 75798045,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I am on login page",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAmOnLoginPage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2529618814,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I enter valid username and password",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iEnterValidUsernameAndPassword()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 395006367,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "Login is successful",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.LoginIsSuccessful()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 3567756768,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.startUp()"
+            }
+          }
+        ],
+        "line": 15,
+        "name": ": Login with invalid credentials",
+        "description": "",
+        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;:-login-with-invalid-credentials;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 704490171,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 5566527,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I am on login page",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAmOnLoginPage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 453342905,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I enter invalid \"john\" and \"abcdef\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "john",
+                  "offset": 17
+                },
+                {
+                  "val": "abcdef",
+                  "offset": 28
+                }
+              ],
+              "location": "NxTier_smokePack_stepDefs.iEnterInvalidAnd(String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 6204987,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "The login should fail",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.TheLoginShouldFail()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 3889608284,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.startUp()"
+            }
+          }
+        ],
+        "line": 17,
+        "name": "Creating a new Business Customer",
+        "description": "",
+        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;creating-a-new-business-customer",
+        "after": [
+          {
+            "result": {
+              "duration": 697687175,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4065611964,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I am logged into the account as admin",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 718727982,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "I access add new business customer page",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAccessAddNewBusinessCustomerPage()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3595972478,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "Provide all the required info",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.provideAllTheRequiredInfo()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1339866053,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "A new customer should be successfully created",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.aNewCustomerShouldBeSuccessfullyCreated()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 3871744986,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.startUp()"
+            }
+          }
+        ],
+        "line": 23,
+        "name": "Adding invoice details and billing information to a newly created customer",
+        "description": "",
+        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;adding-invoice-details-and-billing-information-to-a-newly-created-customer",
+        "after": [
+          {
+            "result": {
+              "duration": 754067881,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4104588822,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "I am logged into the account as admin",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3971815382,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "I have added a new business customer",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 11501282355,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "I access invoicing and billing details section under company menu and provide all required info",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAccessInvoicingAndBillingDetailsSectionUnderCompanyMenuAndProvideAllRequiredInfo()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 283750994,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "Invoice details and billing details of that particular customer should be updated, respectively",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.invoiceDetailsAndBillingDetailsOfThatParticularCustomerShouldBeUpdatedRespectively()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 3492913847,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.startUp()"
+            }
+          }
+        ],
+        "line": 29,
+        "name": "Adding pricing details, service charges (one off and recurring) and CLI to the newly created customer",
+        "description": "",
+        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;adding-pricing-details,-service-charges-(one-off-and-recurring)-and-cli-to-the-newly-created-customer",
+        "after": [
+          {
+            "result": {
+              "duration": 760961137,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2784758945,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "I am logged into the account as admin",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4258432956,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "I have added a new business customer",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 16971688294,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "I access CLIs and service charges section under company menu and provide all required info",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAccessCLIsAndServiceChargesSectionUnderCompanyMenuAndProvideAllRequiredInfo()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2374255055,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "CLIs and service charges of that particular customer should be updated, respectively",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.clisAndServiceChargesOfThatParticularCustomerShouldBeUpdatedRespectively()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 3853510082,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.startUp()"
+            }
+          }
+        ],
+        "line": 35,
+        "name": "Adding orders to the customer account",
+        "description": "",
+        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;adding-orders-to-the-customer-account",
+        "after": [
+          {
+            "result": {
+              "duration": 742524583,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2380382158,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "I am logged into the account as admin",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4209040898,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "I have added a new business customer",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 10769972331,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "I access orders under company menu and provide all required details",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAccessOrdersUnderCompanyMenuAndProvideAllRequiredDetails()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 11591746567,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "I should be able to generate a quote",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iShouldBeAbleToGenerateAQuote()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 3445897222,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.startUp()"
+            }
+          }
+        ],
+        "line": 41,
+        "name": "Adding pricing details to a newly created customer",
+        "description": "",
+        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;adding-pricing-details-to-a-newly-created-customer",
+        "after": [
+          {
+            "result": {
+              "duration": 742203089,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2425894251,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "I am logged into the account as admin",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4897473871,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "I have added a new business customer",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8609281127,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "I access pricing details under company menu and provide all required info",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAccessPricingDetailsUnderCompanyMenuAndProvideAllRequiredInfo()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 206741837,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "Pricing details of that particular cusotmer  should be updated",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.pricingDetailsOfThatParticularCusotmerShouldBeUpdated()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Creating new business customer and assigning all the required inputs to generate an invoice bill",
+    "description": "",
+    "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill",
+    "keyword": "Feature",
+    "uri": "com.unionstreet.NxTier_smokePack/NxTier_smokePack.feature"
+  }
+]
