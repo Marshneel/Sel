@@ -1,2 +1,3 @@
+com\unionstreet\NxTier\stepDefs\WLR3\WLR3_permissions_stepdefs.class
+com\unionstreet\NxTier\stepDefs\smokePack\NxTier_smokePack_stepDefs.class
 RunnerTest.class
-com\unionstreet\NxTier_smokePack\NxTier_smokePack_stepDefs.class

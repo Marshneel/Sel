@@ -1,495 +1,489 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("com.unionstreet.NxTier_smokePack/NxTier_smokePack.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/WLR3_permissions.feature");
 formatter.feature({
   "line": 1,
-  "name": "Creating new business customer and assigning all the required inputs to generate an invoice bill",
+  "name": "WLR3_permissions",
   "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill",
+  "id": "wlr3-permissions",
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 4471880586,
+  "duration": 6700599035,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 3,
-  "name": "Verify that login is successful with valid username and password",
-  "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;verify-that-login-is-successful-with-valid-username-and-password",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
   "line": 4,
-  "name": "I am on login page",
-  "keyword": "Given "
+  "name": "Creating an agent permission group and assigning it to an agent",
+  "description": "",
+  "id": "wlr3-permissions;creating-an-agent-permission-group-and-assigning-it-to-an-agent",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 3,
+      "name": "@sprint"
+    }
+  ]
 });
 formatter.step({
   "line": 5,
-  "name": "I enter valid username and password",
-  "keyword": "When "
+  "name": "I am logged in as an admin",
+  "keyword": "Given "
 });
 formatter.step({
   "line": 6,
-  "name": "Login is successful",
-  "keyword": "Then "
+  "name": "have added a new business customer with required contact type",
+  "keyword": "And "
 });
-formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iAmOnLoginPage()"
+formatter.step({
+  "line": 7,
+  "name": "have created a new agent permission group",
+  "keyword": "And "
 });
-formatter.result({
-  "duration": 75798045,
-  "status": "passed"
-});
-formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iEnterValidUsernameAndPassword()"
-});
-formatter.result({
-  "duration": 2529618814,
-  "status": "passed"
-});
-formatter.match({
-  "location": "NxTier_smokePack_stepDefs.LoginIsSuccessful()"
-});
-formatter.result({
-  "duration": 395006367,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 4314432399,
-  "status": "passed"
-});
-formatter.scenarioOutline({
+formatter.step({
   "line": 8,
-  "name": ": Login with invalid credentials",
-  "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;:-login-with-invalid-credentials",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "line": 9,
-  "name": "I am on login page",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 10,
-  "name": "I enter invalid \"\u003cuserName\u003e\" and \"\u003cpassWord\u003e\"",
+  "name": "I wish to create agent contact with valid login credentials",
   "keyword": "When "
 });
 formatter.step({
-  "line": 11,
-  "name": "The login should fail",
-  "keyword": "Then "
-});
-formatter.examples({
-  "line": 13,
-  "name": "",
-  "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;:-login-with-invalid-credentials;",
-  "rows": [
-    {
-      "cells": [
-        "userName",
-        "passWord"
-      ],
-      "line": 14,
-      "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;:-login-with-invalid-credentials;;1"
-    },
-    {
-      "cells": [
-        "john",
-        "abcdef"
-      ],
-      "line": 15,
-      "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;:-login-with-invalid-credentials;;2"
-    }
-  ],
-  "keyword": "Examples"
-});
-formatter.before({
-  "duration": 3567756768,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 15,
-  "name": ": Login with invalid credentials",
-  "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;:-login-with-invalid-credentials;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
   "line": 9,
-  "name": "I am on login page",
-  "keyword": "Given "
+  "name": "the agent permission group should be available for selection under drop down under agentUser creation",
+  "keyword": "Then "
 });
 formatter.step({
   "line": 10,
-  "name": "I enter invalid \"john\" and \"abcdef\"",
-  "matchedColumns": [
-    0,
-    1
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 11,
-  "name": "The login should fail",
-  "keyword": "Then "
+  "name": "I should be able to login with agent credentials",
+  "keyword": "And "
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iAmOnLoginPage()"
+  "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
 });
 formatter.result({
-  "duration": 5566527,
+  "duration": 4680560747,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "john",
-      "offset": 17
-    },
-    {
-      "val": "abcdef",
-      "offset": 28
-    }
-  ],
-  "location": "NxTier_smokePack_stepDefs.iEnterInvalidAnd(String,String)"
+  "location": "WLR3_permissions_stepdefs.haveAddedANewBusinessCustomerWithRequiredContactType()"
 });
 formatter.result({
-  "duration": 453342905,
+  "duration": 8029384561,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.TheLoginShouldFail()"
+  "location": "WLR3_permissions_stepdefs.haveCreatedANewAgentPermissionGroup()"
 });
 formatter.result({
-  "duration": 6204987,
+  "duration": 23493745204,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WLR3_permissions_stepdefs.iWishToCreateAgentContactWithValidLoginCredentials()"
+});
+formatter.result({
+  "duration": 17055136390,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WLR3_permissions_stepdefs.theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderAgentUserCreation()"
+});
+formatter.result({
+  "duration": 2776671181,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WLR3_permissions_stepdefs.iShouldBeAbleToLoginWithAgentCredentials()"
+});
+formatter.result({
+  "duration": 7149536414,
   "status": "passed"
 });
 formatter.after({
-  "duration": 704490171,
+  "duration": 1652143385,
   "status": "passed"
 });
 formatter.before({
-  "duration": 3889608284,
+  "duration": 4820328269,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 17,
-  "name": "Creating a new Business Customer",
+  "line": 14,
+  "name": "creating a reseller with agent permission group",
   "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;creating-a-new-business-customer",
+  "id": "wlr3-permissions;creating-a-reseller-with-agent-permission-group",
   "type": "scenario",
-  "keyword": "Scenario"
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 13,
+      "name": "@sprint"
+    }
+  ]
+});
+formatter.step({
+  "line": 15,
+  "name": "I am logged in as an admin",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 16,
+  "name": "have added a new business customer with required contact type",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 17,
+  "name": "have created a new agent permission group",
+  "keyword": "And "
 });
 formatter.step({
   "line": 18,
-  "name": "I am logged into the account as admin",
-  "keyword": "Given "
+  "name": "I wish to create a business reseller contact with valid login credentials",
+  "keyword": "When "
 });
 formatter.step({
   "line": 19,
-  "name": "I access add new business customer page",
-  "keyword": "When "
+  "name": "the agent permission group should be available for selection under drop down under business reseller contact creation",
+  "keyword": "Then "
 });
 formatter.step({
   "line": 20,
-  "name": "Provide all the required info",
+  "name": "I should be able to login with reseller credentials",
   "keyword": "And "
 });
-formatter.step({
-  "line": 21,
-  "name": "A new customer should be successfully created",
-  "keyword": "Then "
-});
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
+  "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
 });
 formatter.result({
-  "duration": 4065611964,
+  "duration": 4653376231,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iAccessAddNewBusinessCustomerPage()"
+  "location": "WLR3_permissions_stepdefs.haveAddedANewBusinessCustomerWithRequiredContactType()"
 });
 formatter.result({
-  "duration": 718727982,
+  "duration": 8029544252,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.provideAllTheRequiredInfo()"
+  "location": "WLR3_permissions_stepdefs.haveCreatedANewAgentPermissionGroup()"
 });
 formatter.result({
-  "duration": 3595972478,
+  "duration": 22814807928,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.aNewCustomerShouldBeSuccessfullyCreated()"
+  "location": "WLR3_permissions_stepdefs.iWishToCreateABusinessResellerContactWithValidLoginCredentials()"
 });
 formatter.result({
-  "duration": 1339866053,
+  "duration": 13865514942,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WLR3_permissions_stepdefs.theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderBusinessResellerContactCreation()"
+});
+formatter.result({
+  "duration": 2389373427,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WLR3_permissions_stepdefs.iShouldBeAbleToLoginWithResellerCredentials()"
+});
+formatter.result({
+  "duration": 4605559644,
   "status": "passed"
 });
 formatter.after({
-  "duration": 697687175,
+  "duration": 628225129,
   "status": "passed"
 });
 formatter.before({
-  "duration": 3871744986,
+  "duration": 5167730868,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 23,
-  "name": "Adding invoice details and billing information to a newly created customer",
-  "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;adding-invoice-details-and-billing-information-to-a-newly-created-customer",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
   "line": 24,
-  "name": "I am logged into the account as admin",
-  "keyword": "Given "
+  "name": "Creating a CP permission group and assigning it a CP",
+  "description": "",
+  "id": "wlr3-permissions;creating-a-cp-permission-group-and-assigning-it-a-cp",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 23,
+      "name": "@sprint"
+    }
+  ]
 });
 formatter.step({
   "line": 25,
-  "name": "I have added a new business customer",
-  "keyword": "And "
+  "name": "I am logged in as an admin",
+  "keyword": "Given "
 });
 formatter.step({
   "line": 26,
-  "name": "I access invoicing and billing details section under company menu and provide all required info",
-  "keyword": "When "
+  "name": "Have created a new CP permission group under settings",
+  "keyword": "And "
 });
 formatter.step({
   "line": 27,
-  "name": "Invoice details and billing details of that particular customer should be updated, respectively",
+  "name": "I wish to create new CP under login users sub-menu",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 28,
+  "name": "the CP permission should be available for selection under drop down during the CP creation",
   "keyword": "Then "
 });
+formatter.step({
+  "line": 29,
+  "name": "I should be able to login with CP credentials",
+  "keyword": "And "
+});
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
+  "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
 });
 formatter.result({
-  "duration": 4104588822,
+  "duration": 3854884809,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
+  "location": "WLR3_permissions_stepdefs.haveCreatedANewCPPermissionGroupUnderSettings()"
 });
 formatter.result({
-  "duration": 3971815382,
+  "duration": 24382529679,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iAccessInvoicingAndBillingDetailsSectionUnderCompanyMenuAndProvideAllRequiredInfo()"
+  "location": "WLR3_permissions_stepdefs.iWishToCreateNewCPUnderLoginUsersSubMenu()"
 });
 formatter.result({
-  "duration": 11501282355,
+  "duration": 11822906560,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.invoiceDetailsAndBillingDetailsOfThatParticularCustomerShouldBeUpdatedRespectively()"
+  "location": "WLR3_permissions_stepdefs.theCPPermissionShouldBeAvailableForSelectionUnderDropDownDuringTheCPCreation()"
 });
 formatter.result({
-  "duration": 283750994,
+  "duration": 2765060867,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WLR3_permissions_stepdefs.iShouldBeAbleToLoginWithCPCredentials()"
+});
+formatter.result({
+  "duration": 5307073655,
   "status": "passed"
 });
 formatter.after({
-  "duration": 754067881,
+  "duration": 515787323,
   "status": "passed"
 });
 formatter.before({
-  "duration": 3492913847,
+  "duration": 5437084058,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 29,
-  "name": "Adding pricing details, service charges (one off and recurring) and CLI to the newly created customer",
-  "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;adding-pricing-details,-service-charges-(one-off-and-recurring)-and-cli-to-the-newly-created-customer",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 30,
-  "name": "I am logged into the account as admin",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 31,
-  "name": "I have added a new business customer",
-  "keyword": "And "
-});
-formatter.step({
   "line": 32,
-  "name": "I access CLIs and service charges section under company menu and provide all required info",
-  "keyword": "When "
+  "name": "creating an order quote by logged in as an agent and verifying all required fields are visible on the quote screen",
+  "description": "",
+  "id": "wlr3-permissions;creating-an-order-quote-by-logged-in-as-an-agent-and-verifying-all-required-fields-are-visible-on-the-quote-screen",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 31,
+      "name": "@sprint"
+    }
+  ]
 });
 formatter.step({
   "line": 33,
-  "name": "CLIs and service charges of that particular customer should be updated, respectively",
-  "keyword": "Then "
+  "name": "I am logged in as an agent",
+  "keyword": "Given "
 });
-formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
+formatter.step({
+  "line": 34,
+  "name": "I  access agent create Quote tab",
+  "keyword": "When "
 });
-formatter.result({
-  "duration": 2784758945,
-  "status": "passed"
-});
-formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
-});
-formatter.result({
-  "duration": 4258432956,
-  "status": "passed"
-});
-formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iAccessCLIsAndServiceChargesSectionUnderCompanyMenuAndProvideAllRequiredInfo()"
-});
-formatter.result({
-  "duration": 16971688294,
-  "status": "passed"
-});
-formatter.match({
-  "location": "NxTier_smokePack_stepDefs.clisAndServiceChargesOfThatParticularCustomerShouldBeUpdatedRespectively()"
-});
-formatter.result({
-  "duration": 2374255055,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 760961137,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 3853510082,
-  "status": "passed"
-});
-formatter.scenario({
+formatter.step({
   "line": 35,
-  "name": "Adding orders to the customer account",
-  "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;adding-orders-to-the-customer-account",
-  "type": "scenario",
-  "keyword": "Scenario"
+  "name": "All required fields pertaining to an agent should be visible on the create quote window",
+  "keyword": "Then "
 });
 formatter.step({
   "line": 36,
-  "name": "I am logged into the account as admin",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 37,
-  "name": "I have added a new business customer",
+  "name": "Only the quotes created by me and the ones created for my company should be visible",
   "keyword": "And "
 });
-formatter.step({
-  "line": 38,
-  "name": "I access orders under company menu and provide all required details",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 39,
-  "name": "I should be able to generate a quote",
-  "keyword": "Then "
-});
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
+  "location": "WLR3_permissions_stepdefs.iAmLoggedInAsAnAgent()"
 });
 formatter.result({
-  "duration": 2380382158,
+  "duration": 4046681547,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
+  "location": "WLR3_permissions_stepdefs.iAccessAgentCreateQuoteTab()"
 });
 formatter.result({
-  "duration": 4209040898,
+  "duration": 7122325636,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iAccessOrdersUnderCompanyMenuAndProvideAllRequiredDetails()"
+  "location": "WLR3_permissions_stepdefs.allRequiredFieldsPertainingToAnAgentShouldBeVisibleOnTheCreateQuoteWindow()"
 });
 formatter.result({
-  "duration": 10769972331,
+  "duration": 5815085047,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iShouldBeAbleToGenerateAQuote()"
+  "location": "WLR3_permissions_stepdefs.onlyTheQuotesCreatedByMeAndTheOnesCreatedForMyCompanyShouldBeVisible()"
 });
 formatter.result({
-  "duration": 11591746567,
+  "duration": 3289211866,
   "status": "passed"
 });
 formatter.after({
-  "duration": 742524583,
+  "duration": 430405131,
   "status": "passed"
 });
 formatter.before({
-  "duration": 3445897222,
+  "duration": 4860653590,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 41,
-  "name": "Adding pricing details to a newly created customer",
+  "line": 40,
+  "name": "creating an order quote by logged in as a reseller and verifying all required fields are visible on the quote screen",
   "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;adding-pricing-details-to-a-newly-created-customer",
+  "id": "wlr3-permissions;creating-an-order-quote-by-logged-in-as-a-reseller-and-verifying-all-required-fields-are-visible-on-the-quote-screen",
   "type": "scenario",
-  "keyword": "Scenario"
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 39,
+      "name": "@sprint"
+    }
+  ]
 });
 formatter.step({
-  "line": 42,
-  "name": "I am logged into the account as admin",
+  "line": 41,
+  "name": "I am logged in as a reseller",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 43,
-  "name": "I have added a new business customer",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 44,
-  "name": "I access pricing details under company menu and provide all required info",
+  "line": 42,
+  "name": "I  access reseller create quote tab",
   "keyword": "When "
 });
 formatter.step({
-  "line": 45,
-  "name": "Pricing details of that particular cusotmer  should be updated",
+  "line": 43,
+  "name": "All required fields pertaining to a reseller should be visible on the create quote window",
   "keyword": "Then "
 });
+formatter.step({
+  "line": 44,
+  "name": "Only the quotes created by me and the ones created for companies under my contact list should be visible",
+  "keyword": "And "
+});
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
+  "location": "WLR3_permissions_stepdefs.iAmLoggedInAsAReseller()"
 });
 formatter.result({
-  "duration": 2425894251,
+  "duration": 4217650902,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
+  "location": "WLR3_permissions_stepdefs.iAccessResellerCreateQuoteTab()"
 });
 formatter.result({
-  "duration": 4897473871,
+  "duration": 7481536881,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iAccessPricingDetailsUnderCompanyMenuAndProvideAllRequiredInfo()"
+  "location": "WLR3_permissions_stepdefs.allRequiredFieldsPertainingToAResellerShouldBeVisibleOnTheCreateQuoteWindow()"
 });
 formatter.result({
-  "duration": 8609281127,
+  "duration": 5718540821,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.pricingDetailsOfThatParticularCusotmerShouldBeUpdated()"
+  "location": "WLR3_permissions_stepdefs.onlyTheQuotesCreatedByMeAndTheOnesCreatedForCompaniesUnderMyContactListShouldBeVisible()"
 });
 formatter.result({
-  "duration": 206741837,
+  "duration": 3272898681,
   "status": "passed"
 });
 formatter.after({
-  "duration": 742203089,
+  "duration": 492073737,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 4965953322,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 48,
+  "name": "creating an order quote by logged in as a CP and verifying all required fields are visible on the quote screen",
+  "description": "",
+  "id": "wlr3-permissions;creating-an-order-quote-by-logged-in-as-a-cp-and-verifying-all-required-fields-are-visible-on-the-quote-screen",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 47,
+      "name": "@sprint"
+    }
+  ]
+});
+formatter.step({
+  "line": 49,
+  "name": "I am logged in as a CP",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 50,
+  "name": "I  access create Quote tab for CP",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 51,
+  "name": "All required fields pertaining to a CP should be visible on the create quote window",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 52,
+  "name": "all the quotes including that of the resellers and agents should be visible",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "WLR3_permissions_stepdefs.iAmLoggedInAsACP()"
+});
+formatter.result({
+  "duration": 4451152820,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WLR3_permissions_stepdefs.iAccessCreateQuoteTabForCP()"
+});
+formatter.result({
+  "duration": 7106470695,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WLR3_permissions_stepdefs.allRequiredFieldsPertainingToACPShouldBeVisibleOnTheCreateQuoteWindow()"
+});
+formatter.result({
+  "duration": 6299961240,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WLR3_permissions_stepdefs.allTheQuotesIncludingThatOfTheResellersAndAgentsShouldBeVisible()"
+});
+formatter.result({
+  "duration": 3276188185,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 473118264,
   "status": "passed"
 });
 });
