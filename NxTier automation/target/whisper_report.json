@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 4471880586,
+              "duration": 6700599035,
               "status": "passed"
             },
             "match": {
@@ -14,14 +14,14 @@
             }
           }
         ],
-        "line": 3,
-        "name": "Verify that login is successful with valid username and password",
+        "line": 4,
+        "name": "Creating an agent permission group and assigning it to an agent",
         "description": "",
-        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;verify-that-login-is-successful-with-valid-username-and-password",
+        "id": "wlr3-permissions;creating-an-agent-permission-group-and-assigning-it-to-an-agent",
         "after": [
           {
             "result": {
-              "duration": 4314432399,
+              "duration": 1652143385,
               "status": "passed"
             },
             "match": {
@@ -34,121 +34,81 @@
         "steps": [
           {
             "result": {
-              "duration": 75798045,
-              "status": "passed"
-            },
-            "line": 4,
-            "name": "I am on login page",
-            "match": {
-              "location": "NxTier_smokePack_stepDefs.iAmOnLoginPage()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 2529618814,
+              "duration": 4680560747,
               "status": "passed"
             },
             "line": 5,
-            "name": "I enter valid username and password",
+            "name": "I am logged in as an admin",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.iEnterValidUsernameAndPassword()"
+              "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
             },
-            "keyword": "When "
+            "keyword": "Given "
           },
           {
             "result": {
-              "duration": 395006367,
+              "duration": 8029384561,
               "status": "passed"
             },
             "line": 6,
-            "name": "Login is successful",
+            "name": "have added a new business customer with required contact type",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.LoginIsSuccessful()"
+              "location": "WLR3_permissions_stepdefs.haveAddedANewBusinessCustomerWithRequiredContactType()"
             },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "before": [
+            "keyword": "And "
+          },
           {
             "result": {
-              "duration": 3567756768,
+              "duration": 23493745204,
               "status": "passed"
             },
+            "line": 7,
+            "name": "have created a new agent permission group",
             "match": {
-              "location": "BaseClass.startUp()"
-            }
-          }
-        ],
-        "line": 15,
-        "name": ": Login with invalid credentials",
-        "description": "",
-        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;:-login-with-invalid-credentials;;2",
-        "after": [
+              "location": "WLR3_permissions_stepdefs.haveCreatedANewAgentPermissionGroup()"
+            },
+            "keyword": "And "
+          },
           {
             "result": {
-              "duration": 704490171,
+              "duration": 17055136390,
               "status": "passed"
             },
+            "line": 8,
+            "name": "I wish to create agent contact with valid login credentials",
             "match": {
-              "location": "BaseClass.tearDown()"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario Outline",
-        "steps": [
+              "location": "WLR3_permissions_stepdefs.iWishToCreateAgentContactWithValidLoginCredentials()"
+            },
+            "keyword": "When "
+          },
           {
             "result": {
-              "duration": 5566527,
+              "duration": 2776671181,
               "status": "passed"
             },
             "line": 9,
-            "name": "I am on login page",
+            "name": "the agent permission group should be available for selection under drop down under agentUser creation",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.iAmOnLoginPage()"
+              "location": "WLR3_permissions_stepdefs.theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderAgentUserCreation()"
             },
-            "keyword": "Given "
+            "keyword": "Then "
           },
           {
             "result": {
-              "duration": 453342905,
+              "duration": 7149536414,
               "status": "passed"
             },
             "line": 10,
-            "name": "I enter invalid \"john\" and \"abcdef\"",
+            "name": "I should be able to login with agent credentials",
             "match": {
-              "arguments": [
-                {
-                  "val": "john",
-                  "offset": 17
-                },
-                {
-                  "val": "abcdef",
-                  "offset": 28
-                }
-              ],
-              "location": "NxTier_smokePack_stepDefs.iEnterInvalidAnd(String,String)"
+              "location": "WLR3_permissions_stepdefs.iShouldBeAbleToLoginWithAgentCredentials()"
             },
-            "matchedColumns": [
-              0,
-              1
-            ],
-            "keyword": "When "
-          },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
           {
-            "result": {
-              "duration": 6204987,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "The login should fail",
-            "match": {
-              "location": "NxTier_smokePack_stepDefs.TheLoginShouldFail()"
-            },
-            "keyword": "Then "
+            "line": 3,
+            "name": "@sprint"
           }
         ]
       },
@@ -156,7 +116,7 @@
         "before": [
           {
             "result": {
-              "duration": 3889608284,
+              "duration": 4820328269,
               "status": "passed"
             },
             "match": {
@@ -164,14 +124,14 @@
             }
           }
         ],
-        "line": 17,
-        "name": "Creating a new Business Customer",
+        "line": 14,
+        "name": "creating a reseller with agent permission group",
         "description": "",
-        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;creating-a-new-business-customer",
+        "id": "wlr3-permissions;creating-a-reseller-with-agent-permission-group",
         "after": [
           {
             "result": {
-              "duration": 697687175,
+              "duration": 628225129,
               "status": "passed"
             },
             "match": {
@@ -184,51 +144,81 @@
         "steps": [
           {
             "result": {
-              "duration": 4065611964,
+              "duration": 4653376231,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "I am logged in as an admin",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 8029544252,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "have added a new business customer with required contact type",
+            "match": {
+              "location": "WLR3_permissions_stepdefs.haveAddedANewBusinessCustomerWithRequiredContactType()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 22814807928,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "have created a new agent permission group",
+            "match": {
+              "location": "WLR3_permissions_stepdefs.haveCreatedANewAgentPermissionGroup()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 13865514942,
               "status": "passed"
             },
             "line": 18,
-            "name": "I am logged into the account as admin",
+            "name": "I wish to create a business reseller contact with valid login credentials",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
+              "location": "WLR3_permissions_stepdefs.iWishToCreateABusinessResellerContactWithValidLoginCredentials()"
             },
-            "keyword": "Given "
+            "keyword": "When "
           },
           {
             "result": {
-              "duration": 718727982,
+              "duration": 2389373427,
               "status": "passed"
             },
             "line": 19,
-            "name": "I access add new business customer page",
+            "name": "the agent permission group should be available for selection under drop down under business reseller contact creation",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.iAccessAddNewBusinessCustomerPage()"
+              "location": "WLR3_permissions_stepdefs.theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderBusinessResellerContactCreation()"
             },
-            "keyword": "When "
+            "keyword": "Then "
           },
           {
             "result": {
-              "duration": 3595972478,
+              "duration": 4605559644,
               "status": "passed"
             },
             "line": 20,
-            "name": "Provide all the required info",
+            "name": "I should be able to login with reseller credentials",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.provideAllTheRequiredInfo()"
+              "location": "WLR3_permissions_stepdefs.iShouldBeAbleToLoginWithResellerCredentials()"
             },
             "keyword": "And "
-          },
+          }
+        ],
+        "tags": [
           {
-            "result": {
-              "duration": 1339866053,
-              "status": "passed"
-            },
-            "line": 21,
-            "name": "A new customer should be successfully created",
-            "match": {
-              "location": "NxTier_smokePack_stepDefs.aNewCustomerShouldBeSuccessfullyCreated()"
-            },
-            "keyword": "Then "
+            "line": 13,
+            "name": "@sprint"
           }
         ]
       },
@@ -236,7 +226,7 @@
         "before": [
           {
             "result": {
-              "duration": 3871744986,
+              "duration": 5167730868,
               "status": "passed"
             },
             "match": {
@@ -244,14 +234,14 @@
             }
           }
         ],
-        "line": 23,
-        "name": "Adding invoice details and billing information to a newly created customer",
+        "line": 24,
+        "name": "Creating a CP permission group and assigning it a CP",
         "description": "",
-        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;adding-invoice-details-and-billing-information-to-a-newly-created-customer",
+        "id": "wlr3-permissions;creating-a-cp-permission-group-and-assigning-it-a-cp",
         "after": [
           {
             "result": {
-              "duration": 754067881,
+              "duration": 515787323,
               "status": "passed"
             },
             "match": {
@@ -264,51 +254,69 @@
         "steps": [
           {
             "result": {
-              "duration": 4104588822,
-              "status": "passed"
-            },
-            "line": 24,
-            "name": "I am logged into the account as admin",
-            "match": {
-              "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 3971815382,
+              "duration": 3854884809,
               "status": "passed"
             },
             "line": 25,
-            "name": "I have added a new business customer",
+            "name": "I am logged in as an admin",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
+              "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
             },
-            "keyword": "And "
+            "keyword": "Given "
           },
           {
             "result": {
-              "duration": 11501282355,
+              "duration": 24382529679,
               "status": "passed"
             },
             "line": 26,
-            "name": "I access invoicing and billing details section under company menu and provide all required info",
+            "name": "Have created a new CP permission group under settings",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.iAccessInvoicingAndBillingDetailsSectionUnderCompanyMenuAndProvideAllRequiredInfo()"
+              "location": "WLR3_permissions_stepdefs.haveCreatedANewCPPermissionGroupUnderSettings()"
             },
-            "keyword": "When "
+            "keyword": "And "
           },
           {
             "result": {
-              "duration": 283750994,
+              "duration": 11822906560,
               "status": "passed"
             },
             "line": 27,
-            "name": "Invoice details and billing details of that particular customer should be updated, respectively",
+            "name": "I wish to create new CP under login users sub-menu",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.invoiceDetailsAndBillingDetailsOfThatParticularCustomerShouldBeUpdatedRespectively()"
+              "location": "WLR3_permissions_stepdefs.iWishToCreateNewCPUnderLoginUsersSubMenu()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2765060867,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "the CP permission should be available for selection under drop down during the CP creation",
+            "match": {
+              "location": "WLR3_permissions_stepdefs.theCPPermissionShouldBeAvailableForSelectionUnderDropDownDuringTheCPCreation()"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 5307073655,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "I should be able to login with CP credentials",
+            "match": {
+              "location": "WLR3_permissions_stepdefs.iShouldBeAbleToLoginWithCPCredentials()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 23,
+            "name": "@sprint"
           }
         ]
       },
@@ -316,7 +324,7 @@
         "before": [
           {
             "result": {
-              "duration": 3492913847,
+              "duration": 5437084058,
               "status": "passed"
             },
             "match": {
@@ -324,14 +332,14 @@
             }
           }
         ],
-        "line": 29,
-        "name": "Adding pricing details, service charges (one off and recurring) and CLI to the newly created customer",
+        "line": 32,
+        "name": "creating an order quote by logged in as an agent and verifying all required fields are visible on the quote screen",
         "description": "",
-        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;adding-pricing-details,-service-charges-(one-off-and-recurring)-and-cli-to-the-newly-created-customer",
+        "id": "wlr3-permissions;creating-an-order-quote-by-logged-in-as-an-agent-and-verifying-all-required-fields-are-visible-on-the-quote-screen",
         "after": [
           {
             "result": {
-              "duration": 760961137,
+              "duration": 430405131,
               "status": "passed"
             },
             "match": {
@@ -344,131 +352,57 @@
         "steps": [
           {
             "result": {
-              "duration": 2784758945,
-              "status": "passed"
-            },
-            "line": 30,
-            "name": "I am logged into the account as admin",
-            "match": {
-              "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 4258432956,
-              "status": "passed"
-            },
-            "line": 31,
-            "name": "I have added a new business customer",
-            "match": {
-              "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 16971688294,
-              "status": "passed"
-            },
-            "line": 32,
-            "name": "I access CLIs and service charges section under company menu and provide all required info",
-            "match": {
-              "location": "NxTier_smokePack_stepDefs.iAccessCLIsAndServiceChargesSectionUnderCompanyMenuAndProvideAllRequiredInfo()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 2374255055,
+              "duration": 4046681547,
               "status": "passed"
             },
             "line": 33,
-            "name": "CLIs and service charges of that particular customer should be updated, respectively",
+            "name": "I am logged in as an agent",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.clisAndServiceChargesOfThatParticularCustomerShouldBeUpdatedRespectively()"
+              "location": "WLR3_permissions_stepdefs.iAmLoggedInAsAnAgent()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 7122325636,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "I  access agent create Quote tab",
+            "match": {
+              "location": "WLR3_permissions_stepdefs.iAccessAgentCreateQuoteTab()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 5815085047,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "All required fields pertaining to an agent should be visible on the create quote window",
+            "match": {
+              "location": "WLR3_permissions_stepdefs.allRequiredFieldsPertainingToAnAgentShouldBeVisibleOnTheCreateQuoteWindow()"
             },
             "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "before": [
+          },
           {
             "result": {
-              "duration": 3853510082,
-              "status": "passed"
-            },
-            "match": {
-              "location": "BaseClass.startUp()"
-            }
-          }
-        ],
-        "line": 35,
-        "name": "Adding orders to the customer account",
-        "description": "",
-        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;adding-orders-to-the-customer-account",
-        "after": [
-          {
-            "result": {
-              "duration": 742524583,
-              "status": "passed"
-            },
-            "match": {
-              "location": "BaseClass.tearDown()"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 2380382158,
+              "duration": 3289211866,
               "status": "passed"
             },
             "line": 36,
-            "name": "I am logged into the account as admin",
+            "name": "Only the quotes created by me and the ones created for my company should be visible",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 4209040898,
-              "status": "passed"
-            },
-            "line": 37,
-            "name": "I have added a new business customer",
-            "match": {
-              "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
+              "location": "WLR3_permissions_stepdefs.onlyTheQuotesCreatedByMeAndTheOnesCreatedForMyCompanyShouldBeVisible()"
             },
             "keyword": "And "
-          },
+          }
+        ],
+        "tags": [
           {
-            "result": {
-              "duration": 10769972331,
-              "status": "passed"
-            },
-            "line": 38,
-            "name": "I access orders under company menu and provide all required details",
-            "match": {
-              "location": "NxTier_smokePack_stepDefs.iAccessOrdersUnderCompanyMenuAndProvideAllRequiredDetails()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 11591746567,
-              "status": "passed"
-            },
-            "line": 39,
-            "name": "I should be able to generate a quote",
-            "match": {
-              "location": "NxTier_smokePack_stepDefs.iShouldBeAbleToGenerateAQuote()"
-            },
-            "keyword": "Then "
+            "line": 31,
+            "name": "@sprint"
           }
         ]
       },
@@ -476,7 +410,7 @@
         "before": [
           {
             "result": {
-              "duration": 3445897222,
+              "duration": 4860653590,
               "status": "passed"
             },
             "match": {
@@ -484,14 +418,14 @@
             }
           }
         ],
-        "line": 41,
-        "name": "Adding pricing details to a newly created customer",
+        "line": 40,
+        "name": "creating an order quote by logged in as a reseller and verifying all required fields are visible on the quote screen",
         "description": "",
-        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;adding-pricing-details-to-a-newly-created-customer",
+        "id": "wlr3-permissions;creating-an-order-quote-by-logged-in-as-a-reseller-and-verifying-all-required-fields-are-visible-on-the-quote-screen",
         "after": [
           {
             "result": {
-              "duration": 742203089,
+              "duration": 492073737,
               "status": "passed"
             },
             "match": {
@@ -504,59 +438,151 @@
         "steps": [
           {
             "result": {
-              "duration": 2425894251,
+              "duration": 4217650902,
               "status": "passed"
             },
-            "line": 42,
-            "name": "I am logged into the account as admin",
+            "line": 41,
+            "name": "I am logged in as a reseller",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.iAmLoggedIntoTheAccountAsAdmin()"
+              "location": "WLR3_permissions_stepdefs.iAmLoggedInAsAReseller()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 4897473871,
+              "duration": 7481536881,
               "status": "passed"
             },
-            "line": 43,
-            "name": "I have added a new business customer",
+            "line": 42,
+            "name": "I  access reseller create quote tab",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 8609281127,
-              "status": "passed"
-            },
-            "line": 44,
-            "name": "I access pricing details under company menu and provide all required info",
-            "match": {
-              "location": "NxTier_smokePack_stepDefs.iAccessPricingDetailsUnderCompanyMenuAndProvideAllRequiredInfo()"
+              "location": "WLR3_permissions_stepdefs.iAccessResellerCreateQuoteTab()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 206741837,
+              "duration": 5718540821,
               "status": "passed"
             },
-            "line": 45,
-            "name": "Pricing details of that particular cusotmer  should be updated",
+            "line": 43,
+            "name": "All required fields pertaining to a reseller should be visible on the create quote window",
             "match": {
-              "location": "NxTier_smokePack_stepDefs.pricingDetailsOfThatParticularCusotmerShouldBeUpdated()"
+              "location": "WLR3_permissions_stepdefs.allRequiredFieldsPertainingToAResellerShouldBeVisibleOnTheCreateQuoteWindow()"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3272898681,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "Only the quotes created by me and the ones created for companies under my contact list should be visible",
+            "match": {
+              "location": "WLR3_permissions_stepdefs.onlyTheQuotesCreatedByMeAndTheOnesCreatedForCompaniesUnderMyContactListShouldBeVisible()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 39,
+            "name": "@sprint"
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 4965953322,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.startUp()"
+            }
+          }
+        ],
+        "line": 48,
+        "name": "creating an order quote by logged in as a CP and verifying all required fields are visible on the quote screen",
+        "description": "",
+        "id": "wlr3-permissions;creating-an-order-quote-by-logged-in-as-a-cp-and-verifying-all-required-fields-are-visible-on-the-quote-screen",
+        "after": [
+          {
+            "result": {
+              "duration": 473118264,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4451152820,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "I am logged in as a CP",
+            "match": {
+              "location": "WLR3_permissions_stepdefs.iAmLoggedInAsACP()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 7106470695,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "I  access create Quote tab for CP",
+            "match": {
+              "location": "WLR3_permissions_stepdefs.iAccessCreateQuoteTabForCP()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 6299961240,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "All required fields pertaining to a CP should be visible on the create quote window",
+            "match": {
+              "location": "WLR3_permissions_stepdefs.allRequiredFieldsPertainingToACPShouldBeVisibleOnTheCreateQuoteWindow()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3276188185,
+              "status": "passed"
+            },
+            "line": 52,
+            "name": "all the quotes including that of the resellers and agents should be visible",
+            "match": {
+              "location": "WLR3_permissions_stepdefs.allTheQuotesIncludingThatOfTheResellersAndAgentsShouldBeVisible()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 47,
+            "name": "@sprint"
           }
         ]
       }
     ],
-    "name": "Creating new business customer and assigning all the required inputs to generate an invoice bill",
+    "name": "WLR3_permissions",
     "description": "",
-    "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill",
+    "id": "wlr3-permissions",
     "keyword": "Feature",
-    "uri": "com.unionstreet.NxTier_smokePack/NxTier_smokePack.feature"
+    "uri": "com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/WLR3_permissions.feature"
   }
 ]
