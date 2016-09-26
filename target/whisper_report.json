@@ -1,0 +1,116 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 5432772284,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.startUp()"
+            }
+          }
+        ],
+        "line": 73,
+        "name": "Creating a tariff under different tariff types and its verification under search tariff",
+        "description": "",
+        "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;creating-a-tariff-under-different-tariff-types-and-its-verification-under-search-tariff;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 575942468,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 3784003122,
+              "status": "passed"
+            },
+            "line": 67,
+            "name": "I am logged in as an admin",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 7191118978,
+              "status": "passed"
+            },
+            "line": 68,
+            "name": "I have added a new business customer",
+            "match": {
+              "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5339064177,
+              "status": "passed"
+            },
+            "line": 69,
+            "name": "I create tariff under different \"0\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "0",
+                  "offset": 33
+                }
+              ],
+              "location": "NxTier_smokePack_stepDefs.iCreateTariffUnderDifferent(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3079186237,
+              "status": "passed"
+            },
+            "line": 70,
+            "name": "that particular tariff should be available for selection in \"Sell\" under its tariff_type",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Sell",
+                  "offset": 61
+                }
+              ],
+              "location": "NxTier_smokePack_stepDefs.thatParticularTariffShouldBeAvailableForSelectionInUnderItsTariff_type(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 65,
+            "name": "@smokePack1"
+          }
+        ]
+      }
+    ],
+    "name": "Creating new business customer and assigning all the required inputs to generate an invoice bill",
+    "description": "",
+    "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill",
+    "keyword": "Feature",
+    "uri": "com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature"
+  }
+]
