@@ -214,10 +214,13 @@ public class DashBoardPage {
     public void assertInvalidQuoteBeforeSubmitting() {
         utils.waitForElementVisible(By.xpath(REDCROSS));
     }
-
-    public void assertInvalidQuoteAfterSubmitting() {
+    public void orderContactAndSaveButton(){
         utils.selectByIndex(By.id(ORDERCONTACT), 1);
         utils.clickBtn(By.xpath(SAVEANDSUBMITORDER));
+    }
+
+    public void assertInvalidQuoteAfterSubmitting() {
+        orderContactAndSaveButton();
         utils.waitForElementVisible(By.xpath(SERVICENOTCOMPLETEDMESSAGE));
     }
 
@@ -239,8 +242,7 @@ public class DashBoardPage {
     }
 
     public void assertValidQuoteAfterSubmitting() {
-        utils.selectByIndex(By.id(ORDERCONTACT), 1);
-        utils.clickBtn(By.xpath(SAVEANDSUBMITORDER));
+       orderContactAndSaveButton();
         utils.waitForElementVisible(By.xpath(PAGEERRORMESSAGE));
     }
 }

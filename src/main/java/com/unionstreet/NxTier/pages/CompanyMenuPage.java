@@ -86,7 +86,7 @@ public class CompanyMenuPage {
 
     public void addNewSite() {
         try {
-            accessCompanyMenu();
+            commonMethods.accessCompanyMenuNew(newBusinessCustomerPage.RanName);
             clickCompanySitesButton();
             utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
             utils.switchToNewWindow();
@@ -109,8 +109,7 @@ public class CompanyMenuPage {
         try {
             utils.sendText(By.id(SITEDETAILS_POSTCODE), utils.getProperty("postCode"));
             utils.sendText(By.id(SITEDETAILS_TELEPHONE), (RanNumber));
-            utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF), (RanNumber));
-        } catch (Exception e) {
+         } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -133,7 +132,8 @@ public class CompanyMenuPage {
 
     public void assertNewSite() throws InterruptedException {
         driver.switchTo().window(utils.parentWindow);
-        utils.verifyStringMatch(By.linkText(newBusinessCustomerPage.RanName + RanNumber), newBusinessCustomerPage.RanName + RanNumber);
+        commonMethods.search(newBusinessCustomerPage.RanName + RanNumber);
+        utils.compareStrings(newBusinessCustomerPage.RanName + RanNumber,commonMethods.LOCATED_COMPANY_NAME);
     }
 
     public void clickCompanySitesButton() {
