@@ -1,156 +1,79 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature");
 formatter.feature({
   "line": 1,
-  "name": "Creating new business customer and assigning all the required inputs to generate an invoice bill",
+  "name": "order service automation for agent, reseller and CP. includes CP only and mandatory fields under select service.",
   "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill",
+  "id": "order-service-automation-for-agent,-reseller-and-cp.-includes-cp-only-and-mandatory-fields-under-select-service.",
   "keyword": "Feature"
 });
-formatter.scenarioOutline({
-  "line": 66,
-  "name": "Creating a tariff under different tariff types and its verification under search tariff",
-  "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;creating-a-tariff-under-different-tariff-types-and-its-verification-under-search-tariff",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 65,
-      "name": "@smokePack1"
-    }
-  ]
-});
-formatter.step({
-  "line": 67,
-  "name": "I am logged in as an admin",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 68,
-  "name": "I have added a new business customer",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 69,
-  "name": "I create tariff under different \"\u003ctariff_types\u003e\"",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 70,
-  "name": "that particular tariff should be available for selection in \"\u003ctariff_search\u003e\" under its tariff_type",
-  "keyword": "Then "
-});
-formatter.examples({
-  "line": 71,
-  "name": "",
-  "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;creating-a-tariff-under-different-tariff-types-and-its-verification-under-search-tariff;",
-  "rows": [
-    {
-      "cells": [
-        "tariff_types",
-        "tariff_search"
-      ],
-      "line": 72,
-      "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;creating-a-tariff-under-different-tariff-types-and-its-verification-under-search-tariff;;1"
-    },
-    {
-      "cells": [
-        "0",
-        "Sell"
-      ],
-      "line": 73,
-      "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;creating-a-tariff-under-different-tariff-types-and-its-verification-under-search-tariff;;2"
-    }
-  ],
-  "keyword": "Examples"
-});
 formatter.before({
-  "duration": 5432772284,
+  "duration": 5222041871,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 73,
-  "name": "Creating a tariff under different tariff types and its verification under search tariff",
+  "line": 10,
+  "name": "Login as an agent, create a quote, add a service and verify the behaviour of CP only control",
   "description": "",
-  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;creating-a-tariff-under-different-tariff-types-and-its-verification-under-search-tariff;;2",
+  "id": "order-service-automation-for-agent,-reseller-and-cp.-includes-cp-only-and-mandatory-fields-under-select-service.;login-as-an-agent,-create-a-quote,-add-a-service-and-verify-the-behaviour-of-cp-only-control",
   "type": "scenario",
-  "keyword": "Scenario Outline",
+  "keyword": "Scenario",
   "tags": [
     {
-      "line": 65,
-      "name": "@smokePack1"
+      "line": 9,
+      "name": "@NA49b"
     }
   ]
 });
 formatter.step({
-  "line": 67,
-  "name": "I am logged in as an admin",
+  "line": 11,
+  "name": "I am logged in as an agent",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 68,
-  "name": "I have added a new business customer",
+  "line": 12,
+  "name": "Have created a quote",
   "keyword": "And "
 });
 formatter.step({
-  "line": 69,
-  "name": "I create tariff under different \"0\"",
-  "matchedColumns": [
-    0
-  ],
+  "line": 13,
+  "name": "I add a service from the quote details page",
   "keyword": "When "
 });
 formatter.step({
-  "line": 70,
-  "name": "that particular tariff should be available for selection in \"Sell\" under its tariff_type",
-  "matchedColumns": [
-    1
-  ],
+  "line": 14,
+  "name": "the control that is CP only should be invisible",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
+  "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAnAgent()"
 });
 formatter.result({
-  "duration": 3784003122,
+  "duration": 4164786656,
   "status": "passed"
 });
 formatter.match({
-  "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
+  "location": "NA49_OrderServiceAutomation_stepDefs.haveCreatedAQuote()"
 });
 formatter.result({
-  "duration": 7191118978,
+  "duration": 19381736847,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "0",
-      "offset": 33
-    }
-  ],
-  "location": "NxTier_smokePack_stepDefs.iCreateTariffUnderDifferent(String)"
+  "location": "NA49_OrderServiceAutomation_stepDefs.iAddAServiceFromTheQuoteDetailsPage()"
 });
 formatter.result({
-  "duration": 5339064177,
+  "duration": 10099166863,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "Sell",
-      "offset": 61
-    }
-  ],
-  "location": "NxTier_smokePack_stepDefs.thatParticularTariffShouldBeAvailableForSelectionInUnderItsTariff_type(String)"
+  "location": "NA49_OrderServiceAutomation_stepDefs.theControlThatIsCPOnlyShouldBeInvisible()"
 });
 formatter.result({
-  "duration": 3079186237,
+  "duration": 1891483548,
   "status": "passed"
 });
 formatter.after({
-  "duration": 575942468,
+  "duration": 549869154,
   "status": "passed"
 });
 });

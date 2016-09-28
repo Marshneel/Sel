@@ -5,5 +5,6 @@ com\unionstreet\NxTier\pages\ContactManagerPage.class
 com\unionstreet\NxTier\pages\DashBoardPage.class
 com\unionstreet\NxTier\pages\LoginPage.class
 com\unionstreet\NxTier\support\ElementUtils.class
+com\unionstreet\NxTier\pages\CommonMethods.class
 com\unionstreet\NxTier\support\BaseClass.class
 com\unionstreet\NxTier\support\WebModel.class

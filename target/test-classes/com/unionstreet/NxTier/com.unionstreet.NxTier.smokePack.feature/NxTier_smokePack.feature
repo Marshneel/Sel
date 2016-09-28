@@ -62,7 +62,7 @@ Feature: Creating new business customer and assigning all the required inputs to
       | tariff_Categories |
       | Mobile            |
 
-  @smokePack1
+  @smokePack
   Scenario Outline: Creating a tariff under different tariff types and its verification under search tariff
     Given I am logged in as an admin
     And   I have added a new business customer

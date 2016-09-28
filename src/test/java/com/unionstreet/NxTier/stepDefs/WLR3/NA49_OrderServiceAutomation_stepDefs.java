@@ -9,8 +9,9 @@ import cucumber.api.java.en.When;
  * Created by rajeshg on 22/09/2016.
  */
 public class NA49_OrderServiceAutomation_stepDefs {
-    WebModel webModel=new WebModel();
-   NA44_Agent_Login_stepDefs na44_agent_login_stepDefs=new NA44_Agent_Login_stepDefs();
+    WebModel webModel = new WebModel();
+    NA44_Agent_Login_stepDefs na44_agent_login_stepDefs = new NA44_Agent_Login_stepDefs();
+
     @And("^Have created a quote$")
     public void haveCreatedAQuote() throws InterruptedException {
         na44_agent_login_stepDefs.haveCreatedANewCustomer();
@@ -23,17 +24,14 @@ public class NA49_OrderServiceAutomation_stepDefs {
     public void iAddAServiceFromTheQuoteDetailsPage() {
         webModel.getDashBoardPage().searchQuoteByBcRN();
         webModel.getDashBoardPage().clickOnQuoteID();
-        webModel.getDashBoardPage().clickAddServicesButton();
-
-
+        webModel.getDashBoardPage().clickAddProductsAndServicesButton();
     }
 
     @Then("^the control that is CP only should be visible$")
     public void theControlThatIsCPOnlyShouldBeVisible() throws InterruptedException {
         webModel.getDashBoardPage().assertCPonlyValuePresent();
-///////////////////////////////////////////////////////////////////////////////////////////
     }
-
+///////////////////////////////////////////////////////////////////////////////////////////
 
     @Then("^the control that is CP only should be invisible$")
     public void theControlThatIsCPOnlyShouldBeInvisible() throws InterruptedException {
@@ -44,7 +42,7 @@ public class NA49_OrderServiceAutomation_stepDefs {
     @When("^I access quote details and add a service without selecting the mandatory control$")
     public void iAccessQuoteDetailsAndAddAServiceWithoutSelectingTheMandatoryControl() {
         iAddAServiceFromTheQuoteDetailsPage();
-        webModel.getDashBoardPage().searchAndsSelectService();
+        webModel.getDashBoardPage().searchAndSelectService();
     }
 
     @Then("^The quote should become invalid$")
@@ -59,9 +57,6 @@ public class NA49_OrderServiceAutomation_stepDefs {
         webModel.getDashBoardPage().populateMandatoryField();
         webModel.getDashBoardPage().assertValidQuoteBeforeSubmitting();
         webModel.getDashBoardPage().assertValidQuoteAfterSubmitting();
-
     }
-
-
 
 }

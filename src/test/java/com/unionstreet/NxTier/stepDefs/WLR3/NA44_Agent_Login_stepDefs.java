@@ -32,7 +32,7 @@ public class NA44_Agent_Login_stepDefs {
         webModel.getDashBoardPage().assertCompanyIsAccessibleFromCompanyAndSiteDropDown();
     }
 
-////////////////////////////////////////two///////////////////////////////////////////////////////
+    ////////////////////////////////////////two///////////////////////////////////////////////////////
     @Given("^I am logged in as an agent after the CP has created a quote for a \"([^\"]*)\" assigned to me$")
     public void iAmLoggedInAsAnAgentAfterTheCPHasCreatedAQuoteForAAssignedToMe(String customer_name) throws InterruptedException {
         webModel.getLoginPage().loginAsCP();

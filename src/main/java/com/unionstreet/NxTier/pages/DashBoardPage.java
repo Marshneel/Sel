@@ -3,7 +3,6 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
-import static com.unionstreet.NxTier.support.BaseClass.driver;
 
 public class DashBoardPage {
     private static String QUOTE_RanName;
@@ -17,12 +16,26 @@ public class DashBoardPage {
     public final String QUOTE = "bodyContent";
     private final String QUOTEBOX = "StartQuote";
     private final String QUOTENUMBER = "//div[@class='quote__order-number']";
-    private final String QUOTEID = "//a[@target='_blank']";
+    private final String QUOTEID = "//a[contains(@href,'Orders/EditOrder')]";
+    private final String ADDPRODUCTANDSERVICEBUTTON = "//span[text()='Add a product or service']";
+    private final String CUSTOMSERVICEONADDSERVICEPAGE = "//div[text()='customService']";
+    private final String REDCROSS = "//td[@class='red-cross']";
+    private final String GREENTICK = "//td[@class='green-tick']";
+    private final String MANDATORYCONTROLFIELD = "//input[@controlid='mandatoryControl']";
+    private final String SAVEANDSUBMITORDER = "//span[text()='Save & Submit Order']";
+    private final String CPONLY = "//label[@class='helpIcon'][contains(text(),'CPonly')]";
+    private final String SERVICENOTCOMPLETEDMESSAGE = "//div[text()='Services are not completed']";
+    private final String PAGEERRORMESSAGE = "//div[@class='error_msg_invalid']";
+    private final String SERVICEONQUOTEPAGE = "//a[text()='customService']";
+    private final String ORDERCONTACT = "Order_order_contact_id";
+    private final String AGENT = "//td[text()='agent']";
+    private final String RESELLER = "//td[text()='reseller']";
+    private final String CLOSE_BUTTON = ".close";
+
     ElementUtils utils = new ElementUtils();
     ContactManagerPage contactManagerPage = new ContactManagerPage();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
     CommonMethods commonMethods = new CommonMethods();
-
 
     public void assertLogin() throws InterruptedException {
         utils.verifyStringMatch(By.id(DASHBOARD_TITLE), "DASHBOARD");
@@ -56,8 +69,7 @@ public class DashBoardPage {
             utils.searchAndAssertTextNotPresent(By.id(QUOTEBOX), "Select Owner");
             utils.searchAndAssertTextNotPresent(By.id(QUOTEBOX), "Select Team");
             utils.jumpToPopUpWindow(By.id(ORDERS_SAVEQUOTE_BUTTON));
-            String pageURL = driver.getCurrentUrl();
-            driver.get(pageURL);
+            utils.refreshCurrentURL();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,7 +80,7 @@ public class DashBoardPage {
             utils.searchAndAssertTextPresent(By.id(QUOTEBOX), "Order Owner");
             utils.searchAndAssertTextPresent(By.id(QUOTEBOX), "Team");
             utils.jumpToPopUpWindow(By.id(ORDERS_SAVEQUOTE_BUTTON));
-            driver.get(utils.getProperty("ordersURL"));
+            utils.refreshCurrentURL();
         } catch (Exception e) {
         }
     }
@@ -92,7 +104,7 @@ public class DashBoardPage {
             utils.searchAndAssertTextNotPresent(By.id(QUOTE), "aBILLIty");
             utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
             utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
-           utils.searchAndAssertTextNotPresent(By.id(QUOTE), "agent");
+            utils.searchAndAssertTextNotPresent(By.id(QUOTE), "agent");
         } catch (Exception e) {
         }
     }
@@ -101,12 +113,12 @@ public class DashBoardPage {
         try {
             utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
             utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
-          utils.assertTheElementAndTextPresent(By.xpath("//tr[@class='table_row_alt_subchild']/td[3]"),"agent");
+            utils.assertTheElementAndTextPresent(By.xpath(AGENT), "agent");
             utils.searchAndAssertTextPresent(By.id(QUOTE), "agent");
             utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
             utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
-            utils.assertTheElementAndTextPresent(By.xpath("//tr[@class='table_row_alt_subchild']/td[3]"),"reseller");
-          utils.searchAndAssertTextPresent(By.id(QUOTE), "reseller");
+            utils.assertTheElementAndTextPresent(By.xpath(RESELLER), "reseller");
+            utils.searchAndAssertTextPresent(By.id(QUOTE), "reseller");
         } catch (Exception e) {
         }
     }
@@ -134,8 +146,7 @@ public class DashBoardPage {
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), business_customer);
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.clickBtn(By.id(ORDERS_SAVEQUOTE_BUTTON));
-        String pageURL = driver.getCurrentUrl();
-        driver.get(pageURL);
+        utils.refreshCurrentURL();
     }
 
     public void searchQuoteByQRN() throws InterruptedException {
@@ -155,10 +166,9 @@ public class DashBoardPage {
         utils.clickBtn(By.id(ORDERQUOTE_DESCRIPTION_FIELD));
         utils.sendText(By.id(ORDERQUOTE_DESCRIPTION_FIELD), newBusinessCustomerPage.RanName);
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY), newBusinessCustomerPage.RanName);
-        utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), "vodafone");
+        utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), utils.getProperty("shortName"));
         utils.clickBtn(By.id(ORDERS_SAVEQUOTE_BUTTON));
-        String pageURL = driver.getCurrentUrl();
-        driver.get(pageURL);
+        utils.refreshCurrentURL();
     }
 
     public void searchQuoteByBcRN() {
@@ -172,55 +182,65 @@ public class DashBoardPage {
         utils.switchToNewWindow();
     }
 
-    public void clickAddServicesButton() {
-        utils.clickBtn(By.xpath("//span[@class='icon icon--box']"));
+    public void clickAddProductsAndServicesButton() {
+        utils.clickBtn(By.xpath(ADDPRODUCTANDSERVICEBUTTON));
 
     }
 
     public void assertCPonlyValuePresent() throws InterruptedException {
-        commonMethods.search("customService");
-        utils.clickBtn(By.id("S_4"));
+        commonMethods.search(utils.getProperty("serviceName_CustomService"));
+        utils.clickBtn(By.xpath(CUSTOMSERVICEONADDSERVICEPAGE));
         utils.switchToNewWindow();
-        utils.searchAndAssertTextPresent(By.xpath("//div[@class='tab_contentEmpty clearfix']"),"CPonly");
+        utils.searchAndAssertTextPresent(By.xpath(CPONLY), "CPonly");
 
     }
+
     public void assertCPonlyValueNotPresent() throws InterruptedException {
-    commonMethods.search("customService");
-    utils.clickBtn(By.id("S_4"));
-    utils.switchToNewWindow();
-    utils.searchAndAssertTextNotPresent(By.xpath("//div[@class='tab_contentEmpty clearfix']"),"CPonly");
-}
-    public void searchAndsSelectService(){
-    commonMethods.search("customService");
-    utils.clickBtn(By.id("S_4"));
-    utils.switchToNewWindow();
-    utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-    utils.switchToParentWindow();}
-
-    public void assertInvalidQuoteBeforeSubmitting(){
-        utils.waitForElementVisible(By.xpath("//td[@class='red-cross']"));
-        }
-    public void assertInvalidQuoteAfterSubmitting(){
-        utils.clickBtn(By.xpath("//span[@class='icon icon--save']"));
-        utils.waitForElementVisible(By.id("Message_Info"));
+        commonMethods.search(utils.getProperty("serviceName_CustomService"));
+        utils.clickBtn(By.xpath(CUSTOMSERVICEONADDSERVICEPAGE));
+        utils.switchToNewWindow();
+        utils.assertElementNotPresent(By.xpath(CPONLY));
     }
-    public void clickService(){
-        utils.clickBtn(By.xpath("//a[contains(@href,'Orders/EditOrderServiceDetails')]"));
-        utils.switchToNewWindow();}
 
-    public void populateMandatoryField(){
-        utils.clickBtn(By.xpath("//input[@controlid='mandatoryControl']"));
-        utils.sendText(By.xpath("//input[@controlid='mandatoryControl']"),"hello");
+
+    public void searchAndSelectService() {
+        commonMethods.search(utils.getProperty("serviceName_CustomService"));
+        utils.clickBtn(By.xpath(CUSTOMSERVICEONADDSERVICEPAGE));
+        utils.switchToNewWindow();
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.switchToParentWindow();}
-
-    public void assertValidQuoteBeforeSubmitting(){
-        utils.waitForElementVisible(By.xpath("//td[@class='green-tick']"));
-
+        utils.switchToParentWindow();
     }
-    public void assertValidQuoteAfterSubmitting(){
-        utils.selectByIndex(By.id("Order_order_contact_id"),1);
-        utils.clickBtn(By.xpath("//span[@class='icon icon--save']"));
-        utils.waitForElementVisible(By.xpath("//div[@class='error_msg_invalid']"));
+
+    public void assertInvalidQuoteBeforeSubmitting() {
+        utils.waitForElementVisible(By.xpath(REDCROSS));
+    }
+
+    public void assertInvalidQuoteAfterSubmitting() {
+        utils.selectByIndex(By.id(ORDERCONTACT), 1);
+        utils.clickBtn(By.xpath(SAVEANDSUBMITORDER));
+        utils.waitForElementVisible(By.xpath(SERVICENOTCOMPLETEDMESSAGE));
+    }
+
+    public void clickService() {
+        utils.clickBtn(By.xpath(SERVICEONQUOTEPAGE));
+        utils.switchToNewWindow();
+    }
+
+    public void populateMandatoryField() {
+        utils.clickBtn(By.xpath(MANDATORYCONTROLFIELD));
+        utils.sendText(By.xpath(MANDATORYCONTROLFIELD), "hello");
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(CLOSE_BUTTON));
+        utils.switchToParentWindow();
+    }
+
+    public void assertValidQuoteBeforeSubmitting() {
+        utils.waitForElementVisible(By.xpath(GREENTICK));
+    }
+
+    public void assertValidQuoteAfterSubmitting() {
+        utils.selectByIndex(By.id(ORDERCONTACT), 1);
+        utils.clickBtn(By.xpath(SAVEANDSUBMITORDER));
+        utils.waitForElementVisible(By.xpath(PAGEERRORMESSAGE));
     }
 }

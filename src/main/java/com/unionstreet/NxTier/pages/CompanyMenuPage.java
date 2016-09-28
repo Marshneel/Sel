@@ -100,7 +100,7 @@ public class CompanyMenuPage {
             utils.sendText(By.id(SITEDETAILS_SITE_NAME), (newBusinessCustomerPage.RanName + RanNumber));
             utils.sendText(By.id(SITEDETAILS_SHORT_NAME), (newBusinessCustomerPage.RanName + RanNumber));
             utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF), (RanNumber));
-        }  catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -133,7 +133,7 @@ public class CompanyMenuPage {
 
     public void assertNewSite() throws InterruptedException {
         driver.switchTo().window(utils.parentWindow);
-        utils.verifyStringMatch(By.linkText(newBusinessCustomerPage.RanName + RanNumber),newBusinessCustomerPage.RanName + RanNumber);
+        utils.verifyStringMatch(By.linkText(newBusinessCustomerPage.RanName + RanNumber), newBusinessCustomerPage.RanName + RanNumber);
     }
 
     public void clickCompanySitesButton() {
@@ -219,8 +219,8 @@ public class CompanyMenuPage {
             utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
             utils.verifyStringMatch(By.cssSelector(ADDED_CLI_CHECK_FIELD), RanNumber);
             //TODO
-           utils.closeCurrentPage();
-           utils.switchToParentWindow();
+            utils.closeCurrentPage();
+            utils.switchToParentWindow();
         } catch (Exception e) {
             e.printStackTrace();
         }

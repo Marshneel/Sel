@@ -10,11 +10,13 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.*;
 
 import java.io.FileInputStream;
+import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
 import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.junit.Assert.assertTrue;
 
 public class ElementUtils {
 
@@ -229,6 +231,16 @@ public class ElementUtils {
         }
 
     }
+    public void refreshCurrentURL(){
+        String pageURL = driver.getCurrentUrl();
+        driver.get(pageURL);
+
+    }
+    public void assertElementNotPresent(By by){
+        List<WebElement> element = driver.findElements(by);
+        assertTrue(element.isEmpty());
+    }
+
 }
 
 
