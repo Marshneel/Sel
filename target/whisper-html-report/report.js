@@ -7,85 +7,73 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5655278433,
+  "duration": 5222041871,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 40,
-  "name": "Login as a reseller, create a quote, add a service without selecting the mandatory control and check the behaviour",
+  "line": 10,
+  "name": "Login as an agent, create a quote, add a service and verify the behaviour of CP only control",
   "description": "",
-  "id": "order-service-automation-for-agent,-reseller-and-cp.-includes-cp-only-and-mandatory-fields-under-select-service.;login-as-a-reseller,-create-a-quote,-add-a-service-without-selecting-the-mandatory-control-and-check-the-behaviour",
+  "id": "order-service-automation-for-agent,-reseller-and-cp.-includes-cp-only-and-mandatory-fields-under-select-service.;login-as-an-agent,-create-a-quote,-add-a-service-and-verify-the-behaviour-of-cp-only-control",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
     {
-      "line": 39,
-      "name": "@NA49f"
+      "line": 9,
+      "name": "@NA49b"
     }
   ]
 });
 formatter.step({
-  "line": 41,
-  "name": "I am logged in as a reseller",
+  "line": 11,
+  "name": "I am logged in as an agent",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 42,
+  "line": 12,
   "name": "Have created a quote",
   "keyword": "And "
 });
 formatter.step({
-  "line": 43,
-  "name": "I access quote details and add a service without selecting the mandatory control",
+  "line": 13,
+  "name": "I add a service from the quote details page",
   "keyword": "When "
 });
 formatter.step({
-  "line": 44,
-  "name": "The quote should become invalid",
+  "line": 14,
+  "name": "the control that is CP only should be invisible",
   "keyword": "Then "
 });
-formatter.step({
-  "line": 45,
-  "name": "When I add the omitted control, the quote should become valid",
-  "keyword": "And "
-});
 formatter.match({
-  "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAReseller()"
+  "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAnAgent()"
 });
 formatter.result({
-  "duration": 4265529293,
+  "duration": 4164786656,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.haveCreatedAQuote()"
 });
 formatter.result({
-  "duration": 20082338085,
+  "duration": 19381736847,
   "status": "passed"
 });
 formatter.match({
-  "location": "NA49_OrderServiceAutomation_stepDefs.iAccessQuoteDetailsAndAddAServiceWithoutSelectingTheMandatoryControl()"
+  "location": "NA49_OrderServiceAutomation_stepDefs.iAddAServiceFromTheQuoteDetailsPage()"
 });
 formatter.result({
-  "duration": 13071004894,
+  "duration": 10099166863,
   "status": "passed"
 });
 formatter.match({
-  "location": "NA49_OrderServiceAutomation_stepDefs.theQuoteShouldBecomeInvalid()"
+  "location": "NA49_OrderServiceAutomation_stepDefs.theControlThatIsCPOnlyShouldBeInvisible()"
 });
 formatter.result({
-  "duration": 948340894,
-  "status": "passed"
-});
-formatter.match({
-  "location": "NA49_OrderServiceAutomation_stepDefs.whenIAddTheOmittedControlTheQuoteShouldBecomeValid()"
-});
-formatter.result({
-  "duration": 3402297369,
+  "duration": 1891483548,
   "status": "passed"
 });
 formatter.after({
-  "duration": 604490230,
+  "duration": 549869154,
   "status": "passed"
 });
 });

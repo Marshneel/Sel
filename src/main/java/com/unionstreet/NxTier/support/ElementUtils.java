@@ -24,11 +24,6 @@ public class ElementUtils {
     private Properties prop;
     private FileInputStream fileInputStream;
 
-    //compare two string
-    public boolean compareStrings(String string1, String string2) {
-        string1.equals(string2);
-        return true;
-    }
 
     //method to find the element, clear the box if needed and send text
     public void sendText(By by, String txt) {
@@ -245,6 +240,7 @@ public class ElementUtils {
         List<WebElement> element = driver.findElements(by);
         assertTrue(element.isEmpty());
     }
+
 }
 
 
