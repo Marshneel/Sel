@@ -10,6 +10,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.*;
 
 import java.io.FileInputStream;
+import java.sql.*;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
@@ -231,14 +232,46 @@ public class ElementUtils {
         }
 
     }
-    public void refreshCurrentURL(){
+
+    public void refreshCurrentURL() {
         String pageURL = driver.getCurrentUrl();
         driver.get(pageURL);
 
     }
-    public void assertElementNotPresent(By by){
+
+    public void assertElementNotPresent(By by) {
         List<WebElement> element = driver.findElements(by);
         assertTrue(element.isEmpty());
+    }
+
+    public void sqlQuery(String query, String actualResult, String queryResult) throws ClassNotFoundException, SQLException {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
+            String userName = "portal";
+            String password = "Password1";
+            String url = "jdbc:sqlserver://troy" + ";databaseName=Team3_Automation";
+            Connection con = DriverManager.getConnection(url, userName, password);
+            String selectSql = query;
+            Statement statement = null;
+            ResultSet resultSet = null;
+            statement = con.createStatement();
+            resultSet = statement.executeQuery(selectSql);
+            String arr = "";
+            while (resultSet.next()) {
+                String em = resultSet.getString(actualResult);
+                if (arr != "") {
+                    arr += ", ";
+                }
+                arr += em.replace("\n", ",");
+            }
+            Assert.assertTrue(arr.contains(queryResult));
+            System.out.println();
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

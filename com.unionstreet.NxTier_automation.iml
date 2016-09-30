@@ -44,5 +44,23 @@
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna:3.4.0" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jna:platform:3.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.4" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../jdbc/sqljdbc_4.2/enu/sqljdbc41.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../jdbc/sqljdbc_4.2/enu/sqljdbc42.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

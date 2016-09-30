@@ -4,7 +4,7 @@ import com.unionstreet.NxTier.pages.*;
 
 public class WebModel {
 
-    private ElementUtils Utils;
+    private ElementUtils utils;
     private LoginPage loginPage;
     private DashBoardPage dashBoardPage;
     private NewBusinessCustomerPage newBusinessCustomerPage;
@@ -14,7 +14,7 @@ public class WebModel {
     private CommonMethods commonMethods;
 
     public WebModel() {
-        Utils = new ElementUtils();
+        utils = new ElementUtils();
         loginPage = new LoginPage();
         dashBoardPage = new DashBoardPage();
         newBusinessCustomerPage = new NewBusinessCustomerPage();
@@ -24,7 +24,9 @@ public class WebModel {
         commonMethods = new CommonMethods();
     }
 
-
+    public ElementUtils getUtils(){
+        return utils;
+    }
 
     public LoginPage getLoginPage() {
         return loginPage;

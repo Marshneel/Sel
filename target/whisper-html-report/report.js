@@ -1,79 +1,67 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature");
 formatter.feature({
   "line": 1,
-  "name": "order service automation for agent, reseller and CP. includes CP only and mandatory fields under select service.",
+  "name": "Creating new business customer and assigning all the required inputs to generate an invoice bill",
   "description": "",
-  "id": "order-service-automation-for-agent,-reseller-and-cp.-includes-cp-only-and-mandatory-fields-under-select-service.",
+  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill",
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5222041871,
+  "duration": 5788417209,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 10,
-  "name": "Login as an agent, create a quote, add a service and verify the behaviour of CP only control",
+  "line": 4,
+  "name": "Verify that login is successful with valid username and password",
   "description": "",
-  "id": "order-service-automation-for-agent,-reseller-and-cp.-includes-cp-only-and-mandatory-fields-under-select-service.;login-as-an-agent,-create-a-quote,-add-a-service-and-verify-the-behaviour-of-cp-only-control",
+  "id": "creating-new-business-customer-and-assigning-all-the-required-inputs-to-generate-an-invoice-bill;verify-that-login-is-successful-with-valid-username-and-password",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
     {
-      "line": 9,
-      "name": "@NA49b"
+      "line": 3,
+      "name": "@smokePack1"
     }
   ]
 });
 formatter.step({
-  "line": 11,
-  "name": "I am logged in as an agent",
+  "line": 5,
+  "name": "I am on login page",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 12,
-  "name": "Have created a quote",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 13,
-  "name": "I add a service from the quote details page",
+  "line": 6,
+  "name": "I enter valid username and password",
   "keyword": "When "
 });
 formatter.step({
-  "line": 14,
-  "name": "the control that is CP only should be invisible",
+  "line": 7,
+  "name": "Login is successful",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAnAgent()"
+  "location": "NxTier_smokePack_stepDefs.iAmOnLoginPage()"
 });
 formatter.result({
-  "duration": 4164786656,
+  "duration": 555661077,
   "status": "passed"
 });
 formatter.match({
-  "location": "NA49_OrderServiceAutomation_stepDefs.haveCreatedAQuote()"
+  "location": "NxTier_smokePack_stepDefs.iEnterValidUsernameAndPassword()"
 });
 formatter.result({
-  "duration": 19381736847,
+  "duration": 21735,
   "status": "passed"
 });
 formatter.match({
-  "location": "NA49_OrderServiceAutomation_stepDefs.iAddAServiceFromTheQuoteDetailsPage()"
+  "location": "NxTier_smokePack_stepDefs.LoginIsSuccessful()"
 });
 formatter.result({
-  "duration": 10099166863,
-  "status": "passed"
-});
-formatter.match({
-  "location": "NA49_OrderServiceAutomation_stepDefs.theControlThatIsCPOnlyShouldBeInvisible()"
-});
-formatter.result({
-  "duration": 1891483548,
+  "duration": 26263,
   "status": "passed"
 });
 formatter.after({
-  "duration": 549869154,
+  "duration": 354997923,
   "status": "passed"
 });
 });
