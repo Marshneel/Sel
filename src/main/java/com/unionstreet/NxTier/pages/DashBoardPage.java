@@ -41,7 +41,7 @@ public class DashBoardPage {
     private final String AGENTANDRESELLER_SERVICE = "//a[text()='ServiceForAgent&Reseller']";
     private final String ASSIGNSERVICEINVENTORY = "HrefAssignServiceInventory";
     private final String AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER = "checkbox4";
-    public String id;
+    public String OrderServiceID;
 
 
     ElementUtils utils = new ElementUtils();
@@ -281,7 +281,11 @@ public class DashBoardPage {
         utils.javaScriptExecutorClick(By.id(SERVICECHARGES_CHECKBOX));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(INVISIBLEORDERSERVICESID));
-        utils.getAttributeOfElement(By.xpath(INVISIBLEORDERSERVICESID), "value");
+
+    }
+    public String getServiceOrderID(){
+        OrderServiceID= utils.getAttributeOfElement(By.xpath(INVISIBLEORDERSERVICESID), "value");
+    return OrderServiceID;
     }
 
     public void removingChargeOnTheQuote() throws InterruptedException {

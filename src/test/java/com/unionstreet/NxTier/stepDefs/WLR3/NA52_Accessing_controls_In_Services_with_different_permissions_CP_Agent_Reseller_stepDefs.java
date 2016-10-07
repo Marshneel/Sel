@@ -34,7 +34,7 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
 
     @And("^this should be verified by checking the back end$")
     public void thisShouldBeVerifiedByCheckingTheBackEnd() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getUtils().sqlQuery("select SellPrice from Order_Services_Products where OrderServicesID="+webModel.getUtils().id+"");
+        webModel.getUtils().sqlQuery("select SellPrice from Order_Services_Products where OrderServicesID="+webModel.getDashBoardPage().getServiceOrderID()+"");
         webModel.getUtils().assertThereIsCharge("SellPrice",600);
     }
 

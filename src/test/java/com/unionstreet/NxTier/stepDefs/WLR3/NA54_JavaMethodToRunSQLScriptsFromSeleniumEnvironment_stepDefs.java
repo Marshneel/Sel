@@ -11,7 +11,7 @@ import java.sql.SQLException;
 /**
  * Created by rajeshg on 03/10/2016.
  */
-public class NA54_CreateAjavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs {
+public class NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs {
     WebModel webModel = new WebModel();
     NA44_Agent_Login_stepDefs na44_agent_login_stepDefs = new NA44_Agent_Login_stepDefs();
 
@@ -33,7 +33,7 @@ public class NA54_CreateAjavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDe
 
     @And("^query the database$")
     public void queryTheDatabase() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getUtils().sqlQuery("select SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getUtils().id + "");
+        webModel.getUtils().sqlQuery("select SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getDashBoardPage().getServiceOrderID() + "");
     }
 
     @Then("^the charge should be visible$")

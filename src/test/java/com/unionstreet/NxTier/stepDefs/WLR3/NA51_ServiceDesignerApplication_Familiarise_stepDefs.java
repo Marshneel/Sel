@@ -18,22 +18,18 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getDashBoardPage().clickOnQuoteID();
         webModel.getDashBoardPage().accessAdd_ViewNotes();
-
     }
 
     @Then("^customer and internal tabs should be present and accessible$")
     public void customerAndInternalTabsShouldBePresentAndAccessible() {
         webModel.getDashBoardPage().assertCustomer_InternalTabsPresent();
-
     }
 
 
     @Then("^customer and internal tabs should be absent$")
     public void customerAndInternalTabsShouldBeAbsent() {
         webModel.getDashBoardPage().assertCustomer_InternalTabsNotPresent();
-
     }
-
 
     @Given("^I am logged in as agent and there is a service unassigned to me$")
     public void iAmLoggedInAsAgentAndThereIsAServiceUnassignedToMe() {
@@ -50,7 +46,6 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getDashBoardPage().clickOnQuoteID();
         webModel.getDashBoardPage().clickAddAProductOrService();
-
     }
 
     @Then("^I should not be able to see that particular service$")

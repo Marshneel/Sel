@@ -276,8 +276,8 @@ public class ElementUtils {
         Assert.assertFalse(result.next());
     }
     public String getAttributeOfElement(By by, String attribute){
-    id = driver.findElement(by).getAttribute(attribute);
-        return attribute;
+     return driver.findElement(by).getAttribute(attribute);
+
 
 }
 
