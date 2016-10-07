@@ -28,7 +28,7 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
     @Then("^the CP only control should be visible and accessible$")
     public void theCPOnlyControlShouldBeVisibleAndAccessible() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getDashBoardPage().assertCPonlyCheckBoxPresentAndAccessible();
-
+        webModel.getDashBoardPage().saveTheServiceAndGetTheOrderServicesID();
 
     }
 

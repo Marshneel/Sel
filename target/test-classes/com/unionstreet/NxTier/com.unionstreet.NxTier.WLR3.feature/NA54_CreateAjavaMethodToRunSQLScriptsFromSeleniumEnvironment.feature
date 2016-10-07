@@ -1,6 +1,6 @@
 Feature: creation of method to run sql queries to check database inserts
 
-  Scenario: logging in as CP, adding a charge to quote and checking if its implemented in the back-end
+   Scenario: logging in as CP, adding a charge to quote and checking if its implemented in the back-end
     Given I am logged in as CP
     And create a new quote and add a service that contains a service charge
     When I add the charge

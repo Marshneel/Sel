@@ -281,6 +281,7 @@ public class DashBoardPage {
         utils.javaScriptExecutorClick(By.id(SERVICECHARGES_CHECKBOX));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(INVISIBLEORDERSERVICESID));
+        utils.getAttributeOfElement(By.xpath(INVISIBLEORDERSERVICESID), "value");
     }
 
     public void removingChargeOnTheQuote() throws InterruptedException {
@@ -312,13 +313,18 @@ public class DashBoardPage {
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(CPONLY_CHECKBOX));
         utils.javaScriptExecutorClick(By.id(CPONLY_CHECKBOX));
+    }
+
+    public void saveTheServiceAndGetTheOrderServicesID() {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(INVISIBLEORDERSERVICESID));
         utils.getAttributeOfElement(By.xpath(INVISIBLEORDERSERVICESID), "value");
     }
 
     public void assertCPonlyCheckBoxIsAbsent() {
+        utils.switchToNewWindow();
         utils.assertElementNotPresent(By.id(CPONLY_CHECKBOX));
+        saveTheServiceAndGetTheOrderServicesID();
     }
 
     public void assertServiceNotPresent(String serviceName) {

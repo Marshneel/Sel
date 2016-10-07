@@ -277,7 +277,8 @@ public class ElementUtils {
     }
     public String getAttributeOfElement(By by, String attribute){
     id = driver.findElement(by).getAttribute(attribute);
-    return attribute;
+        return attribute;
+
 }
 
 }
