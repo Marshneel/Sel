@@ -2,7 +2,7 @@ Feature: Agent login
 
 @NA44a
   Scenario: Login as an agent, create a business customer and verify the created customer from the company and site drop downs on create quote page
-    Given I am logged in as an agent
+    Given I am logged in as agent
     And  Have created a new customer
     When I access create Quote window
     Then the newly created customer details should appear under the company and site drop downs

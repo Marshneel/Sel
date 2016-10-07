@@ -122,8 +122,8 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
 
-    @Given("^I am logged in as an agent$")
-    public void iAmLoggedInAsAnAgent() throws InterruptedException {
+    @Given("^I am logged in as agent$")
+    public void iAmLoggedInAsAgent() throws InterruptedException {
         webModel.getLoginPage().loginAsAgent();
     }
 
@@ -149,8 +149,8 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
 
-    @Given("^I am logged in as a reseller$")
-    public void iAmLoggedInAsAReseller() {
+    @Given("^I am logged in as reseller$")
+    public void iAmLoggedInAsReseller() {
         webModel.getLoginPage().loginAsReseller();
     }
 
@@ -168,8 +168,8 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
         webModel.getDashBoardPage().logOut();
     }
 
-    @Given("^I am logged in as a CP$")
-    public void iAmLoggedInAsACP() {
+    @Given("^I am logged in as CP$")
+    public void iAmLoggedInAsCP() {
         webModel.getLoginPage().loginAsCP();
     }
 

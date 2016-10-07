@@ -7,7 +7,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5788417209,
+  "duration": 5714202441,
   "status": "passed"
 });
 formatter.scenario({
@@ -43,25 +43,25 @@ formatter.match({
   "location": "NxTier_smokePack_stepDefs.iAmOnLoginPage()"
 });
 formatter.result({
-  "duration": 555661077,
+  "duration": 419048341,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.iEnterValidUsernameAndPassword()"
 });
 formatter.result({
-  "duration": 21735,
+  "duration": 16603,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.LoginIsSuccessful()"
 });
 formatter.result({
-  "duration": 26263,
+  "duration": 21132,
   "status": "passed"
 });
 formatter.after({
-  "duration": 354997923,
+  "duration": 311826824,
   "status": "passed"
 });
 });

@@ -3,6 +3,7 @@ package com.unionstreet.NxTier.stepDefs.smokePack;
 import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.*;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
 
@@ -11,20 +12,20 @@ public class NxTier_smokePack_stepDefs {
     WebModel webModel = new WebModel();
 
     @Given("^I am on login page$")
-    public void iAmOnLoginPage() throws SQLException, ClassNotFoundException {
-        webModel.getUtils().sqlQuery("select top 10 name from company", "name", "aaaron");
-        //webModel.getLoginPage().OnLoginPage();
+    public void iAmOnLoginPage() throws SQLException, ClassNotFoundException, UnsupportedEncodingException {
+
+        webModel.getLoginPage().OnLoginPage();
     }
 
     @When("^I enter valid username and password$")
     public void iEnterValidUsernameAndPassword() {
-        //webModel.getLoginPage().doLogin();
+        webModel.getLoginPage().doLogin();
     }
 
     @Then("^Login is successful$")
     public void LoginIsSuccessful() throws InterruptedException {
-//        webModel.getDashBoardPage().assertLogin();
-//        webModel.getDashBoardPage().logOut();
+        webModel.getDashBoardPage().assertLogin();
+        webModel.getDashBoardPage().logOut();
     }
 
 

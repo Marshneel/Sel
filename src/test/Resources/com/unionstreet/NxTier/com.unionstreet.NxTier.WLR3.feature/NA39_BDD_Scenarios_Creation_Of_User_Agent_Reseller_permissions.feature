@@ -30,7 +30,7 @@ Feature: WLR3_permissions
 
   @sprint
   Scenario: creating an order quote by logged in as an agent and verifying all required fields are visible on the quote screen
-    Given I am logged in as an agent
+    Given I am logged in as agent
     When I access create Quote tab
     Then All required fields pertaining to an agent should be visible on the create quote window
     And Only the quotes created by me and the ones created for my company should be visible
@@ -38,14 +38,14 @@ Feature: WLR3_permissions
 
   @sprint1
   Scenario: creating an order quote by logged in as a reseller and verifying all required fields are visible on the quote screen
-    Given I am logged in as a reseller
+    Given I am logged in as reseller
     When I access create Quote tab
     Then All required fields pertaining to a reseller should be visible on the create quote window
     And Only the quotes created by me and the ones created for companies under my contact list should be visible
 
   @one
   Scenario: creating an order quote by logged in as a CP and verifying all required fields are visible on the quote screen
-    Given I am logged in as a CP
+    Given I am logged in as CP
     When I access create Quote tab
     Then All required fields pertaining to a CP should be visible on the create quote window
     And all the quotes including that of the resellers and agents should be visible

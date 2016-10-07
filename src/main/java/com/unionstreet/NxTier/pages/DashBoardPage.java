@@ -31,11 +31,25 @@ public class DashBoardPage {
     private final String AGENT = "//td[text()='agent']";
     private final String RESELLER = "//td[text()='reseller']";
     private final String CLOSE_BUTTON = ".close";
+    private final String SERVICECHARGES_CHECKBOX = "Checkbox0";
+    private final String INVISIBLEORDERSERVICESID = "//input[@id='Service_ID']";
+    private final String ADD_VIEW_NOTES = "//span[text()='Add / View Notes']";
+    private final String CUSTOMER_RADIOBUTTON = "SendToCustomer";
+    private final String INTERNAL_RADIOBUTTON = "SendToInternal";
+    private final String CPONLY_CHECKBOX = "Checkbox2";
+    private final String SERVICEINVENTORY_MANAGER = "//a[contains(@href,'ServiceInventoryManager')]";
+    private final String AGENTANDRESELLER_SERVICE = "//a[text()='ServiceForAgent&Reseller']";
+    private final String ASSIGNSERVICEINVENTORY = "HrefAssignServiceInventory";
+    private final String AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER = "checkbox4";
+    public String id;
+
 
     ElementUtils utils = new ElementUtils();
     ContactManagerPage contactManagerPage = new ContactManagerPage();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
     CommonMethods commonMethods = new CommonMethods();
+    LoginPage loginPage = new LoginPage();
+    CompanyMenuPage companyMenuPage = new CompanyMenuPage();
 
     public void assertLogin() throws InterruptedException {
         utils.verifyStringMatch(By.id(DASHBOARD_TITLE), "DASHBOARD");
@@ -192,7 +206,6 @@ public class DashBoardPage {
         utils.clickBtn(By.xpath(CUSTOMSERVICEONADDSERVICEPAGE));
         utils.switchToNewWindow();
         utils.searchAndAssertTextPresent(By.xpath(CPONLY), "CPonly");
-
     }
 
     public void assertCPonlyValueNotPresent() throws InterruptedException {
@@ -201,7 +214,6 @@ public class DashBoardPage {
         utils.switchToNewWindow();
         utils.assertElementNotPresent(By.xpath(CPONLY));
     }
-
 
     public void searchAndSelectService() {
         commonMethods.search(utils.getProperty("serviceName_CustomService"));
@@ -243,4 +255,109 @@ public class DashBoardPage {
         utils.clickBtn(By.xpath(SAVEANDSUBMITORDER));
         utils.waitForElementVisible(By.xpath(PAGEERRORMESSAGE));
     }
+
+    public void addServiceToQuote(String serviceName) {
+        utils.jumpToPopUpWindow(By.xpath(ADDPRODUCTANDSERVICEBUTTON));
+        utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
+
+
+    }
+
+    public void clickAddAProductOrService() {
+        utils.jumpToPopUpWindow(By.xpath(ADDPRODUCTANDSERVICEBUTTON));
+    }
+
+    public void savingQuoteAndExtractingOrderServiceID() {
+        utils.switchToNewWindow();
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.waitForElementVisible(By.xpath(INVISIBLEORDERSERVICESID));
+        utils.getAttributeOfElement(By.xpath(INVISIBLEORDERSERVICESID), "value");
+    }
+
+    public void addingChargeOnTheQuote(String serviceName) throws InterruptedException {
+        utils.jumpToPopUpWindow(By.xpath(ADDPRODUCTANDSERVICEBUTTON));
+        utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
+        utils.switchToNewWindow();
+        utils.javaScriptExecutorClick(By.id(SERVICECHARGES_CHECKBOX));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.waitForElementVisible(By.xpath(INVISIBLEORDERSERVICESID));
+    }
+
+    public void removingChargeOnTheQuote() throws InterruptedException {
+        utils.javaScriptExecutorClick(By.id(SERVICECHARGES_CHECKBOX));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+    }
+
+    public void accessAdd_ViewNotes() {
+        utils.waitForElementVisible(By.xpath(ADD_VIEW_NOTES));
+        utils.jumpToPopUpWindow(By.xpath(ADD_VIEW_NOTES));
+        utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
+    }
+
+    public void assertCustomer_InternalTabsPresent() {
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.waitForElementVisible(By.id(CUSTOMER_RADIOBUTTON));
+        utils.clickBtn(By.id(CUSTOMER_RADIOBUTTON));
+        utils.waitForElementVisible(By.id(INTERNAL_RADIOBUTTON));
+        utils.clickBtn(By.id(INTERNAL_RADIOBUTTON));
+    }
+
+    public void assertCustomer_InternalTabsNotPresent() {
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.assertElementNotPresent(By.id(CUSTOMER_RADIOBUTTON));
+        utils.assertElementNotPresent(By.id(INTERNAL_RADIOBUTTON));
+    }
+
+    public void assertCPonlyCheckBoxPresentAndAccessible() {
+        utils.switchToNewWindow();
+        utils.waitForElementVisible(By.id(CPONLY_CHECKBOX));
+        utils.javaScriptExecutorClick(By.id(CPONLY_CHECKBOX));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.waitForElementVisible(By.xpath(INVISIBLEORDERSERVICESID));
+        utils.getAttributeOfElement(By.xpath(INVISIBLEORDERSERVICESID), "value");
+    }
+
+    public void assertCPonlyCheckBoxIsAbsent() {
+        utils.assertElementNotPresent(By.id(CPONLY_CHECKBOX));
+    }
+
+    public void assertServiceNotPresent(String serviceName) {
+        utils.assertElementNotPresent(By.xpath("//div[text()='" + serviceName + "']"));
+    }
+
+    public void assertServicePresent(String serviceName) {
+        utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
+    }
+
+    public void accessingAssignServicePage() {
+        utils.clickBtn(By.xpath(SERVICEINVENTORY_MANAGER));
+        utils.clickBtn(By.xpath(AGENTANDRESELLER_SERVICE));
+        utils.switchToNewWindow();
+        utils.clickBtn(By.id(ASSIGNSERVICEINVENTORY));
+    }
+
+    public void makeSureAgentDoesNotHaveAgentAndResellerService() {
+        utils.waitForElementVisible(By.id(AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER));
+        utils.makeSureBoxIsUnChecked(By.id(AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER), By.id(AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER));
+    }
+
+    public void saveAssignServicePage() {
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.switchToParentWindow();
+        logOut();
+    }
+
+    public void makeSureAgentHasAgentAndResellerService() {
+        utils.closeCurrentPage();
+        utils.switchToParentWindow();
+        logOut();
+        loginPage.loginAsCP();
+        companyMenuPage.clickConfigManager();
+        accessingAssignServicePage();
+        utils.waitForElementVisible(By.id(AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER));
+        utils.makeSureBoxIsChecked(By.id(AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER), By.id(AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER));
+    }
 }
+
+
+

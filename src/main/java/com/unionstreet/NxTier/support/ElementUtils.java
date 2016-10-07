@@ -10,6 +10,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.*;
 
 import java.io.FileInputStream;
+import java.io.UnsupportedEncodingException;
 import java.sql.*;
 import java.util.List;
 import java.util.Properties;
@@ -24,6 +25,8 @@ public class ElementUtils {
     public String parentWindow;
     private Properties prop;
     private FileInputStream fileInputStream;
+    public ResultSet result;
+    public static String id;
 
 
     //method to find the element, clear the box if needed and send text
@@ -75,7 +78,8 @@ public class ElementUtils {
     //explicit wait element to be present
     public void waitForElementVisible(By by) {
         WebDriverWait wait = new WebDriverWait(driver, 1000);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+       // wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
 
@@ -244,36 +248,36 @@ public class ElementUtils {
         assertTrue(element.isEmpty());
     }
 
-    public void sqlQuery(String query, String actualResult, String queryResult) throws ClassNotFoundException, SQLException {
+    public void sqlQuery(String query) throws ClassNotFoundException, SQLException, UnsupportedEncodingException {
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
 
             String userName = "portal";
             String password = "Password1";
             String url = "jdbc:sqlserver://troy" + ";databaseName=Team3_Automation";
             Connection con = DriverManager.getConnection(url, userName, password);
-            String selectSql = query;
-            Statement statement = null;
-            ResultSet resultSet = null;
+            Statement statement;
             statement = con.createStatement();
-            resultSet = statement.executeQuery(selectSql);
-            String arr = "";
-            while (resultSet.next()) {
-                String em = resultSet.getString(actualResult);
-                if (arr != "") {
-                    arr += ", ";
-                }
-                arr += em.replace("\n", ",");
-            }
-            Assert.assertTrue(arr.contains(queryResult));
-            System.out.println();
-            con.close();
-        } catch (Exception e) {
+            result = statement.executeQuery(query);
+           }
+         catch (Exception e) {
             e.printStackTrace();
         }
 
-    }
 
+    }
+    public void assertThereIsCharge(String column, double value) throws SQLException {
+        result.next();
+        double one=result.getDouble(column);
+        Assert.assertTrue(one== value);
+
+    }
+    public void assertThereIsNoCharge() throws SQLException {
+        Assert.assertFalse(result.next());
+    }
+    public String getAttributeOfElement(By by, String attribute){
+    id = driver.findElement(by).getAttribute(attribute);
+    return attribute;
 }
 
-
+}

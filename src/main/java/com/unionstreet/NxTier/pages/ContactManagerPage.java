@@ -73,4 +73,5 @@ public class ContactManagerPage {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.switchToParentWindow();
     }
+
 }
