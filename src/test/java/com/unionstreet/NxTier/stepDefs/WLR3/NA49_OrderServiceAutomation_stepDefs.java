@@ -10,11 +10,11 @@ import cucumber.api.java.en.When;
  */
 public class NA49_OrderServiceAutomation_stepDefs {
     WebModel webModel = new WebModel();
-    NA44_Agent_Login_stepDefs na44_agent_login_stepDefs = new NA44_Agent_Login_stepDefs();
+    NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
     @And("^Have created a quote$")
     public void haveCreatedAQuote() throws InterruptedException {
-        na44_agent_login_stepDefs.haveCreatedANewCustomer();
+        na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getDashBoardPage().clickCreateQuoteButton();
         webModel.getDashBoardPage().createQuote();

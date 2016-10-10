@@ -13,10 +13,10 @@ import java.sql.SQLException;
  */
 public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
     WebModel webModel=new WebModel();
-    NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs na_54_CreateAjavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs=new NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs();
+    NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs na_54=new NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs();
     @And("^I create a new quote and add a service with addOnActivation charge$")
     public void iCreateANewQuoteAndAddAServiceWithAddOnActivationCharge() throws InterruptedException {
-        na_54_CreateAjavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs.createANewQuoteAndAddAServiceThatContainsAServiceCharge();
+        na_54.createANewQuoteAndAddAServiceThatContainsAServiceCharge();
         webModel.getDashBoardPage().addServiceToQuote("addOnActivationCharge");
         webModel.getDashBoardPage().savingQuoteAndExtractingOrderServiceID();
     }
@@ -29,5 +29,6 @@ public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
     @Then("^The charge should be visible in the back end$")
     public void theChargeShouldBeVisibleInTheBackEnd() throws SQLException {
         webModel.getUtils().assertThereIsCharge("SellPrice",20);
+        webModel.getDashBoardPage().assertChargeOnGUI("£20.00");
     }
 }

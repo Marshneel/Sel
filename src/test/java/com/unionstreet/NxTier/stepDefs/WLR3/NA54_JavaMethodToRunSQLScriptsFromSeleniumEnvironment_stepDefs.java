@@ -13,11 +13,11 @@ import java.sql.SQLException;
  */
 public class NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs {
     WebModel webModel = new WebModel();
-    NA44_Agent_Login_stepDefs na44_agent_login_stepDefs = new NA44_Agent_Login_stepDefs();
+    NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
     @And("^create a new quote and add a service that contains a service charge$")
     public void createANewQuoteAndAddAServiceThatContainsAServiceCharge() throws InterruptedException {
-        na44_agent_login_stepDefs.haveCreatedANewCustomer();
+        na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getDashBoardPage().clickCreateQuoteButton();
         webModel.getDashBoardPage().createQuote();
@@ -39,11 +39,15 @@ public class NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs {
     @Then("^the charge should be visible$")
     public void theChargeShouldBeVisible() throws SQLException {
         webModel.getUtils().assertThereIsCharge("SellPrice", 600);
+        webModel.getDashBoardPage().assertChargeOnGUI("£600.00");
+
     }
 
     @And("^upon removing the charge the charge should disappear from the backend$")
-    public void uponRemovingTheChargeTheChargeShouldDisappearFromTheBackend() throws InterruptedException, SQLException {
+    public void uponRemovingTheChargeTheChargeShouldDisappearFromTheBackend() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
         webModel.getDashBoardPage().removingChargeOnTheQuote();
+        webModel.getDashBoardPage().assertChargeOnGUI("£0.00");
+        webModel.getUtils().sqlQuery("select SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getDashBoardPage().getServiceOrderID() + "");
         webModel.getUtils().assertThereIsNoCharge();
 
     }

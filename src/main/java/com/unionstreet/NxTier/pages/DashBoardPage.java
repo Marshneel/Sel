@@ -9,7 +9,7 @@ public class DashBoardPage {
     public final String DASHBOARD_TITLE = "menutitle";
     //TODO
     public final String LOGOUT_BUTTON = ".logout";
-    private final String ORDERQUOTE_DESCRIPTION_FIELD = "QuoteDescription";
+    private final String ORDER_QUOTE_DESCRIPTION_FIELD = "QuoteDescription";
     private final String ORDERS_SAVEQUOTE_BUTTON = "CreateQuoteButton";
     private final String ORDERSMANAGER_BUTTON = "HrefOrdersManager";
     private final String CREATEQUOTE_BUTTON = ".add";
@@ -17,31 +17,32 @@ public class DashBoardPage {
     private final String QUOTEBOX = "StartQuote";
     private final String QUOTENUMBER = "//div[@class='quote__order-number']";
     private final String QUOTEID = "//a[contains(@href,'Orders/EditOrder')]";
-    private final String ADDPRODUCTANDSERVICEBUTTON = "//span[text()='Add a product or service']";
-    private final String CUSTOMSERVICEONADDSERVICEPAGE = "//div[text()='customService']";
+    private final String ADD_PRODUCT_AND_SERVICE_BUTTON = "//span[text()='Add a product or service']";
+    private final String CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE = "//div[text()='customService']";
     private final String REDCROSS = "//td[@class='red-cross']";
     private final String GREENTICK = "//td[@class='green-tick']";
-    private final String MANDATORYCONTROLFIELD = "//input[@controlid='mandatoryControl']";
+    private final String MANDATORY_CONTROL_FIELD = "//input[@controlid='mandatoryControl']";
     private final String SAVEANDSUBMITORDER = "//span[text()='Save & Submit Order']";
     private final String CPONLY = "//label[@class='helpIcon'][contains(text(),'CPonly')]";
-    private final String SERVICENOTCOMPLETEDMESSAGE = "//div[text()='Services are not completed']";
-    private final String PAGEERRORMESSAGE = "//div[@class='error_msg_invalid']";
-    private final String SERVICEONQUOTEPAGE = "//a[text()='customService']";
-    private final String ORDERCONTACT = "Order_order_contact_id";
+    private final String SERVICE_NOT_COMPLETED_MESSAGE = "//div[text()='Services are not completed']";
+    private final String PAGE_ERROR_MESSAGE = "//div[@class='error_msg_invalid']";
+    private final String SERVICE_ON_QUOTE_PAGE = "//a[text()='customService']";
+    private final String ORDER_CONTACT = "Order_order_contact_id";
     private final String AGENT = "//td[text()='agent']";
     private final String RESELLER = "//td[text()='reseller']";
     private final String CLOSE_BUTTON = ".close";
-    private final String SERVICECHARGES_CHECKBOX = "Checkbox0";
-    private final String INVISIBLEORDERSERVICESID = "//input[@id='Service_ID']";
+    private final String SERVICE_CHARGES_CHECKBOX = "Checkbox0";
+    private final String INVISIBLE_ORDER_SERVICESID = "//input[@id='Service_ID']";
     private final String ADD_VIEW_NOTES = "//span[text()='Add / View Notes']";
     private final String CUSTOMER_RADIOBUTTON = "SendToCustomer";
     private final String INTERNAL_RADIOBUTTON = "SendToInternal";
     private final String CPONLY_CHECKBOX = "Checkbox2";
-    private final String SERVICEINVENTORY_MANAGER = "//a[contains(@href,'ServiceInventoryManager')]";
-    private final String AGENTANDRESELLER_SERVICE = "//a[text()='ServiceForAgent&Reseller']";
-    private final String ASSIGNSERVICEINVENTORY = "HrefAssignServiceInventory";
-    private final String AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER = "checkbox4";
-    public String OrderServiceID;
+    private final String SERVICE_INVENTORY_MANAGER = "//a[contains(@href,'ServiceInventoryManager')]";
+    private final String AGENT_AND_RESELLER_SERVICE = "//a[text()='ServiceForAgent&Reseller']";
+    private final String ASSIGN_SERVICE_INVENTORY = "HrefAssignServiceInventory";
+    private final String AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER = "checkbox0";
+    private final String AGENT_LINKTEXT="//a[@href='#'][contains(text(),'agent')]";
+
 
 
     ElementUtils utils = new ElementUtils();
@@ -70,9 +71,9 @@ public class DashBoardPage {
 
     public void onQuotePage() {
         try {
-            utils.clickBtn(By.id(ORDERQUOTE_DESCRIPTION_FIELD));
+            utils.clickBtn(By.id(ORDER_QUOTE_DESCRIPTION_FIELD));
             QUOTE_RanName = utils.randomName();
-            utils.sendText(By.id(ORDERQUOTE_DESCRIPTION_FIELD), QUOTE_RanName);
+            utils.sendText(By.id(ORDER_QUOTE_DESCRIPTION_FIELD), QUOTE_RanName);
             utils.selectByIndex(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY), 1);
         } catch (Exception e) {
         }
@@ -153,9 +154,9 @@ public class DashBoardPage {
     }
 
     public void createQuote(String business_customer) throws InterruptedException {
-        utils.clickBtn(By.id(ORDERQUOTE_DESCRIPTION_FIELD));
+        utils.clickBtn(By.id(ORDER_QUOTE_DESCRIPTION_FIELD));
         QUOTE_RanName = utils.randomName();
-        utils.sendText(By.id(ORDERQUOTE_DESCRIPTION_FIELD), QUOTE_RanName);
+        utils.sendText(By.id(ORDER_QUOTE_DESCRIPTION_FIELD), QUOTE_RanName);
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY), business_customer);
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), business_customer);
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
@@ -177,8 +178,8 @@ public class DashBoardPage {
     }
 
     public void createQuote() throws InterruptedException {
-        utils.clickBtn(By.id(ORDERQUOTE_DESCRIPTION_FIELD));
-        utils.sendText(By.id(ORDERQUOTE_DESCRIPTION_FIELD), newBusinessCustomerPage.RanName);
+        utils.clickBtn(By.id(ORDER_QUOTE_DESCRIPTION_FIELD));
+        utils.sendText(By.id(ORDER_QUOTE_DESCRIPTION_FIELD), newBusinessCustomerPage.RanName);
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY), newBusinessCustomerPage.RanName);
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), utils.getProperty("shortName"));
         utils.clickBtn(By.id(ORDERS_SAVEQUOTE_BUTTON));
@@ -197,27 +198,27 @@ public class DashBoardPage {
     }
 
     public void clickAddProductsAndServicesButton() {
-        utils.clickBtn(By.xpath(ADDPRODUCTANDSERVICEBUTTON));
+        utils.clickBtn(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
 
     }
 
     public void assertCPonlyValuePresent() throws InterruptedException {
         commonMethods.search(utils.getProperty("serviceName_CustomService"));
-        utils.clickBtn(By.xpath(CUSTOMSERVICEONADDSERVICEPAGE));
+        utils.clickBtn(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
         utils.switchToNewWindow();
         utils.searchAndAssertTextPresent(By.xpath(CPONLY), "CPonly");
     }
 
     public void assertCPonlyValueNotPresent() throws InterruptedException {
         commonMethods.search(utils.getProperty("serviceName_CustomService"));
-        utils.clickBtn(By.xpath(CUSTOMSERVICEONADDSERVICEPAGE));
+        utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
         utils.assertElementNotPresent(By.xpath(CPONLY));
     }
 
     public void searchAndSelectService() {
         commonMethods.search(utils.getProperty("serviceName_CustomService"));
-        utils.clickBtn(By.xpath(CUSTOMSERVICEONADDSERVICEPAGE));
+        utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.switchToParentWindow();
@@ -228,19 +229,19 @@ public class DashBoardPage {
     }
 
     public void assertInvalidQuoteAfterSubmitting() {
-        utils.selectByIndex(By.id(ORDERCONTACT), 1);
+        utils.selectByIndex(By.id(ORDER_CONTACT), 1);
         utils.clickBtn(By.xpath(SAVEANDSUBMITORDER));
-        utils.waitForElementVisible(By.xpath(SERVICENOTCOMPLETEDMESSAGE));
+        utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_MESSAGE));
     }
 
     public void clickService() {
-        utils.clickBtn(By.xpath(SERVICEONQUOTEPAGE));
+        utils.clickBtn(By.xpath(SERVICE_ON_QUOTE_PAGE));
         utils.switchToNewWindow();
     }
 
     public void populateMandatoryField() {
-        utils.clickBtn(By.xpath(MANDATORYCONTROLFIELD));
-        utils.sendText(By.xpath(MANDATORYCONTROLFIELD), "hello");
+        utils.clickBtn(By.xpath(MANDATORY_CONTROL_FIELD));
+        utils.sendText(By.xpath(MANDATORY_CONTROL_FIELD), "hello");
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.clickBtn(By.cssSelector(CLOSE_BUTTON));
         utils.switchToParentWindow();
@@ -251,45 +252,46 @@ public class DashBoardPage {
     }
 
     public void assertValidQuoteAfterSubmitting() {
-        utils.selectByIndex(By.id(ORDERCONTACT), 1);
+        utils.selectByIndex(By.id(ORDER_CONTACT), 1);
         utils.clickBtn(By.xpath(SAVEANDSUBMITORDER));
-        utils.waitForElementVisible(By.xpath(PAGEERRORMESSAGE));
+        utils.waitForElementVisible(By.xpath(PAGE_ERROR_MESSAGE));
     }
 
     public void addServiceToQuote(String serviceName) {
-        utils.jumpToPopUpWindow(By.xpath(ADDPRODUCTANDSERVICEBUTTON));
+        utils.jumpToPopUpWindow(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
         utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
 
 
     }
 
     public void clickAddAProductOrService() {
-        utils.jumpToPopUpWindow(By.xpath(ADDPRODUCTANDSERVICEBUTTON));
+        utils.jumpToPopUpWindow(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
     }
 
     public void savingQuoteAndExtractingOrderServiceID() {
         utils.switchToNewWindow();
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.waitForElementVisible(By.xpath(INVISIBLEORDERSERVICESID));
-        utils.getAttributeOfElement(By.xpath(INVISIBLEORDERSERVICESID), "value");
+        utils.waitForElementVisible(By.xpath(INVISIBLE_ORDER_SERVICESID));
+        utils.getAttributeOfElement(By.xpath(INVISIBLE_ORDER_SERVICESID), "value");
     }
 
     public void addingChargeOnTheQuote(String serviceName) throws InterruptedException {
-        utils.jumpToPopUpWindow(By.xpath(ADDPRODUCTANDSERVICEBUTTON));
+        utils.jumpToPopUpWindow(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
         utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
         utils.switchToNewWindow();
-        utils.javaScriptExecutorClick(By.id(SERVICECHARGES_CHECKBOX));
+        utils.javaScriptExecutorClick(By.id(SERVICE_CHARGES_CHECKBOX));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.waitForElementVisible(By.xpath(INVISIBLEORDERSERVICESID));
+        utils.waitForElementVisible(By.xpath(INVISIBLE_ORDER_SERVICESID));
 
     }
     public String getServiceOrderID(){
-        OrderServiceID= utils.getAttributeOfElement(By.xpath(INVISIBLEORDERSERVICESID), "value");
-    return OrderServiceID;
+        return utils.getAttributeOfElement(By.xpath(INVISIBLE_ORDER_SERVICESID), "value");
+
     }
 
     public void removingChargeOnTheQuote() throws InterruptedException {
-        utils.javaScriptExecutorClick(By.id(SERVICECHARGES_CHECKBOX));
+        utils.waitForElementVisible(By.id(SERVICE_CHARGES_CHECKBOX));
+        utils.javaScriptExecutorClick(By.id(SERVICE_CHARGES_CHECKBOX));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
     }
 
@@ -321,8 +323,8 @@ public class DashBoardPage {
 
     public void saveTheServiceAndGetTheOrderServicesID() {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.waitForElementVisible(By.xpath(INVISIBLEORDERSERVICESID));
-        utils.getAttributeOfElement(By.xpath(INVISIBLEORDERSERVICESID), "value");
+        utils.waitForElementVisible(By.xpath(INVISIBLE_ORDER_SERVICESID));
+        utils.getAttributeOfElement(By.xpath(INVISIBLE_ORDER_SERVICESID), "value");
     }
 
     public void assertCPonlyCheckBoxIsAbsent() {
@@ -340,15 +342,17 @@ public class DashBoardPage {
     }
 
     public void accessingAssignServicePage() {
-        utils.clickBtn(By.xpath(SERVICEINVENTORY_MANAGER));
-        utils.clickBtn(By.xpath(AGENTANDRESELLER_SERVICE));
+        utils.clickBtn(By.xpath(SERVICE_INVENTORY_MANAGER));
+        utils.clickBtn(By.xpath(AGENT_AND_RESELLER_SERVICE));
         utils.switchToNewWindow();
-        utils.clickBtn(By.id(ASSIGNSERVICEINVENTORY));
+        utils.clickBtn(By.id(ASSIGN_SERVICE_INVENTORY));
     }
 
     public void makeSureAgentDoesNotHaveAgentAndResellerService() {
-        utils.waitForElementVisible(By.id(AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER));
-        utils.makeSureBoxIsUnChecked(By.id(AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER), By.id(AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER));
+        commonMethods.search("agent");
+        utils.waitForElementVisible(By.xpath(AGENT_LINKTEXT));
+        utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
+        utils.makeSureBoxIsUnChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
     }
 
     public void saveAssignServicePage() {
@@ -364,8 +368,16 @@ public class DashBoardPage {
         loginPage.loginAsCP();
         companyMenuPage.clickConfigManager();
         accessingAssignServicePage();
-        utils.waitForElementVisible(By.id(AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER));
-        utils.makeSureBoxIsChecked(By.id(AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER), By.id(AGENTCHECKBOX_SERVICEFORAGENTANDRESELLER));
+        commonMethods.search("agent");
+        utils.waitForElementVisible(By.xpath(AGENT_LINKTEXT));
+        utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
+        utils.makeSureBoxIsChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
+    }
+    public void assertChargeOnGUI(String charge){
+        utils.waitForElementVisible(By.xpath("//td[@class='totalTotal'][text()='"+charge+"']"));
+
+
+
     }
 }
 
