@@ -20,9 +20,9 @@ public class DashBoardPage {
     private final String ADD_PRODUCT_AND_SERVICE_BUTTON = "//span[text()='Add a product or service']";
     private final String CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE = "//div[text()='customService']";
     private final String REDCROSS = "//td[@class='red-cross']";
-    private final String GREENTICK = "//td[@class='green-tick']";
+    private final String GREEN_TICK = "//td[@class='green-tick']";
     private final String MANDATORY_CONTROL_FIELD = "//input[@controlid='mandatoryControl']";
-    private final String SAVEANDSUBMITORDER = "//span[text()='Save & Submit Order']";
+    private final String SAVE_AND_SUBMIT_ORDER = "//span[text()='Save & Submit Order']";
     private final String CPONLY = "//label[@class='helpIcon'][contains(text(),'CPonly')]";
     private final String SERVICE_NOT_COMPLETED_MESSAGE = "//div[text()='Services are not completed']";
     private final String PAGE_ERROR_MESSAGE = "//div[@class='error_msg_invalid']";
@@ -230,7 +230,7 @@ public class DashBoardPage {
 
     public void assertInvalidQuoteAfterSubmitting() {
         utils.selectByIndex(By.id(ORDER_CONTACT), 1);
-        utils.clickBtn(By.xpath(SAVEANDSUBMITORDER));
+        utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_ORDER));
         utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_MESSAGE));
     }
 
@@ -248,12 +248,12 @@ public class DashBoardPage {
     }
 
     public void assertValidQuoteBeforeSubmitting() {
-        utils.waitForElementVisible(By.xpath(GREENTICK));
+        utils.waitForElementVisible(By.xpath(GREEN_TICK));
     }
 
     public void assertValidQuoteAfterSubmitting() {
         utils.selectByIndex(By.id(ORDER_CONTACT), 1);
-        utils.clickBtn(By.xpath(SAVEANDSUBMITORDER));
+        utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_ORDER));
         utils.waitForElementVisible(By.xpath(PAGE_ERROR_MESSAGE));
     }
 

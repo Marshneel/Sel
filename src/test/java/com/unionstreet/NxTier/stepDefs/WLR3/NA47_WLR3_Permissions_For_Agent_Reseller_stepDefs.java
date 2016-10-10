@@ -9,6 +9,7 @@ import cucumber.api.java.en.Then;
  * Created by rajeshg on 22/09/2016.
  */
 public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
+
     WebModel webModel = new WebModel();
 
     @Given("^CP has revoked my WLR order permissions$")

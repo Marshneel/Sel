@@ -11,6 +11,7 @@ import cucumber.api.java.en.When;
  * Created by rajeshg on 12/09/2016.
  */
 public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs {
+
     WebModel webModel = new WebModel();
 
 

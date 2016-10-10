@@ -9,6 +9,7 @@ import cucumber.api.java.en.When;
  * Created by rajeshg on 22/09/2016.
  */
 public class NA45_Reseller_Login_stepDefs {
+
     WebModel webModel = new WebModel();
 
 

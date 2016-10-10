@@ -12,6 +12,7 @@ import java.sql.SQLException;
  * Created by rajeshg on 03/10/2016.
  */
 public class NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs {
+
     WebModel webModel = new WebModel();
     NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
@@ -27,6 +28,7 @@ public class NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs {
 
     @When("^I add the charge$")
     public void iAddTheCharge() throws InterruptedException {
+//        TODO
         webModel.getDashBoardPage().addingChargeOnTheQuote("serviceCharges");
 
     }
