@@ -1,6 +1,6 @@
 Feature: Creating new business customer and assigning all the required inputs to generate an invoice bill
 
-  @smokePack1
+  @smokePack
   Scenario: Verify that login is successful with valid username and password
     Given I am on login page
     When I enter valid username and password
@@ -23,19 +23,19 @@ Feature: Creating new business customer and assigning all the required inputs to
     And  Provide all the required info
     Then A new customer should be successfully created
 
+#  @smokePack
+#  Scenario: Creating a sub-site for a newly created customer
+#    Given I am logged in as an admin
+#    And I have added a new business customer
+#    When I access Company Sites under the company menu and provide all the required info
+#    Then A new site should appear under the respective company's menu
 
-  Scenario: Creating a sub-site for a newly created customer
-    Given I am logged in as an admin
-    And I have added a new business customer
-    When I access Company Sites under the company menu and provide all the required info
-    Then A new site should appear under the respective company's menu
-
-  @smokePack
-  Scenario: Adding invoice details and billing information to a newly created customer
-    Given I am logged in as an admin
-    And   I have added a new business customer
-    When  I access invoicing and billing details section under company menu and provide all required info
-    Then  Invoice details and billing details of that particular customer should be updated, respectively
+#  @smokePack1
+#  Scenario: Adding invoice details and billing information to a newly created customer
+#    Given I am logged in as an admin
+#    And   I have added a new business customer
+#    When  I access invoicing and billing details section under company menu and provide all required info
+#    Then  Invoice details and billing details of that particular customer should be updated, respectively
 
   @smokePack
   Scenario: Adding pricing details, service charges (one off and recurring) and CLI to the newly created customer
@@ -52,7 +52,7 @@ Feature: Creating new business customer and assigning all the required inputs to
     When I access pricing details under company menu and provide all required info
     Then Pricing details of that particular customer  should be updated
 
-  @smokePack
+  @smokePack1
   Scenario Outline: Creating a Tariff under different Tariff Categories and verifying its presence under billing details of a business customer
     Given I am logged in as an admin
     And   I have added a new business customer
@@ -79,7 +79,7 @@ Feature: Creating new business customer and assigning all the required inputs to
     When I create a new service charge type
     Then I should be able to access it under service charge drop downs in one off and recurring charge types
 
-  @smokePack
+@smokePack
   Scenario: Adding a new billing package under package manager and verifying it under pricing details
     Given I am logged in as an admin
     And   I have added a new business customer
@@ -92,13 +92,5 @@ Feature: Creating new business customer and assigning all the required inputs to
     And   I have added a new business customer
     When I create a new free minutes plan with required details
     Then The plan should be available for selection under package and billing details
-
-  @smokePack
-  Scenario:  Creating a new charge group and verify it
-    Given I am logged in as an admin
-    And   I have added a new business customer
-    When I create a new charge_group as per the designation
-    Then I should be able to search for it and find it under specified designation
-
 
 

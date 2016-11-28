@@ -1,5 +1,5 @@
 Feature: Reseller Login
-@NA45
+  @smokePack
   Scenario: Login as a reseller, create a site and verify the created site from the site drop down on create quote page
     Given I am logged in as reseller
     And have created a new site for a company

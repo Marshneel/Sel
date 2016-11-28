@@ -13,10 +13,11 @@ import cucumber.api.java.en.When;
 public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs {
 
     WebModel webModel = new WebModel();
+    NA44_Agent_Login_stepDefs na44_agent_login_stepDefs=new NA44_Agent_Login_stepDefs();
 
 
     @And("^have added a new business customer with required contact type$")
-    public void haveAddedANewBusinessCustomerWithRequiredContactType() throws InterruptedException {
+    public void haveAddedANewBusinessCustomerWithRequiredContactType() {
         webModel.getNewBusinessCustomerPage().clickContactManagerButton();
         webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
         webModel.getNewBusinessCustomerPage().companyInfoForNewBusinessCustomer();
@@ -25,7 +26,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @And("^have created a new agent permission group$")
-    public void haveCreatedANewAgentPermissionGroup() throws InterruptedException {
+    public void haveCreatedANewAgentPermissionGroup() {
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().clickAddPermissionsButton();
         webModel.getSettingsPage().addAgentPermissionGroups_General();
@@ -42,7 +43,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @When("^I wish to create agent contact with valid login credentials$")
-    public void iWishToCreateAgentContactWithValidLoginCredentials() throws InterruptedException {
+    public void iWishToCreateAgentContactWithValidLoginCredentials() {
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().clickLoginUsers();
         webModel.getSettingsPage().clickAddLoginUsersButton();
@@ -51,20 +52,19 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @Then("^the agent permission group should be available for selection under drop down under agentUser creation$")
-    public void theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderAgentUserCreation() throws InterruptedException {
+    public void theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderAgentUserCreation()  {
         webModel.getSettingsPage().agentUserAddLoginDetails();
+        //webModel.getDashBoardPage().logOut();
     }
-
 
     @And("^I should be able to login with agent credentials$")
     public void iShouldBeAbleToLoginWithAgentCredentials() throws InterruptedException {
         webModel.getSettingsPage().loginAsAgent();
-        webModel.getDashBoardPage().logOut();
-
+        //webModel.getDashBoardPage().logOut();
     }
 
     @When("^I wish to create a business reseller contact with valid login credentials$")
-    public void iWishToCreateABusinessResellerContactWithValidLoginCredentials() throws InterruptedException {
+    public void iWishToCreateABusinessResellerContactWithValidLoginCredentials() {
         webModel.getCompanyMenuPage().accessCompanyMenu();
         webModel.getSettingsPage().clickCompanyContacts();
         webModel.getSettingsPage().addNewCompanyContactButton();
@@ -72,19 +72,19 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @Then("^the agent permission group should be available for selection under drop down under business reseller contact creation$")
-    public void theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderBusinessResellerContactCreation() throws InterruptedException {
+    public void theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderBusinessResellerContactCreation() {
         webModel.getSettingsPage().agentUserAddLoginDetails();
+
     }
 
     @And("^I should be able to login with reseller credentials$")
-    public void iShouldBeAbleToLoginWithResellerCredentials() throws Throwable {
+    public void iShouldBeAbleToLoginWithResellerCredentials()  {
         webModel.getSettingsPage().loginAsReseller();
         webModel.getDashBoardPage().logOut();
-
     }
 
     @And("^Have created a new CP permission group under settings$")
-    public void haveCreatedANewCPPermissionGroupUnderSettings() throws InterruptedException {
+    public void haveCreatedANewCPPermissionGroupUnderSettings() {
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().clickAddPermissionsButton();
         webModel.getSettingsPage().addCPPermissionGroups_General();
@@ -98,11 +98,10 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
         webModel.getSettingsPage().addPermissionGroups_Settings();
         webModel.getSettingsPage().addPermissionGroups_WorkPlace();
         webModel.getSettingsPage().saveAndCloseAddPermissions();
-
     }
 
     @When("^I wish to create new CP under login users sub-menu$")
-    public void iWishToCreateNewCPUnderLoginUsersSubMenu() throws InterruptedException {
+    public void iWishToCreateNewCPUnderLoginUsersSubMenu() {
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().clickLoginUsers();
         webModel.getSettingsPage().clickCPUserTab();
@@ -112,43 +111,42 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @Then("^the CP permission should be available for selection under drop down during the CP creation$")
-    public void theCPPermissionShouldBeAvailableForSelectionUnderDropDownDuringTheCPCreation() throws InterruptedException {
+    public void theCPPermissionShouldBeAvailableForSelectionUnderDropDownDuringTheCPCreation() {
         webModel.getSettingsPage().createCPUserAddLoginDetails();
+
     }
 
     @And("^I should be able to login with CP credentials$")
-    public void iShouldBeAbleToLoginWithCPCredentials() throws InterruptedException {
+    public void iShouldBeAbleToLoginWithCPCredentials()  {
         webModel.getSettingsPage().loginAsCpUser();
         webModel.getDashBoardPage().logOut();
     }
 
-
     @Given("^I am logged in as agent$")
-    public void iAmLoggedInAsAgent() throws InterruptedException {
+    public void iAmLoggedInAsAgent() {
         webModel.getLoginPage().loginAsAgent();
+        na44_agent_login_stepDefs.haveCreatedANewCustomer();
     }
-
     @When("^I access create Quote tab$")
     public void iAccessCreateQuoteTab() {
         webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getDashBoardPage().clickCreateQuoteButton();
-        webModel.getDashBoardPage().onQuotePage();
-
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().onQuotePage();
     }
 
     @Then("^All required fields pertaining to an agent should be visible on the create quote window$")
     public void allRequiredFieldsPertainingToAnAgentShouldBeVisibleOnTheCreateQuoteWindow() throws InterruptedException {
-        webModel.getDashBoardPage().assertQuotePageForAgentandReseller();
-
+        webModel.getOrdersManagerPage().assertQuotePageForAgentandReseller();
     }
 
     @And("^Only the quotes created by me and the ones created for my company should be visible$")
     public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForMyCompanyShouldBeVisible() throws InterruptedException {
-        webModel.getDashBoardPage().assertQuote();
-        webModel.getDashBoardPage().checkQuotesForAgent();
-        webModel.getDashBoardPage().logOut();
-    }
+        webModel.getOrdersManagerPage().assertQuote();
+        webModel.getOrdersManagerPage().checkQuotesForAgent();
 
+       // webModel.getDashBoardPage().logOut();
+
+    }
 
     @Given("^I am logged in as reseller$")
     public void iAmLoggedInAsReseller() {
@@ -158,15 +156,15 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
 
     @Then("^All required fields pertaining to a reseller should be visible on the create quote window$")
     public void allRequiredFieldsPertainingToAResellerShouldBeVisibleOnTheCreateQuoteWindow() throws InterruptedException {
-        webModel.getDashBoardPage().assertQuotePageForAgentandReseller();
-
+        webModel.getOrdersManagerPage().assertQuotePageForAgentandReseller();
     }
 
     @And("^Only the quotes created by me and the ones created for companies under my contact list should be visible$")
     public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForCompaniesUnderMyContactListShouldBeVisible() throws InterruptedException {
-        webModel.getDashBoardPage().assertQuote();
-        webModel.getDashBoardPage().checkQuoteForReseller();
-        webModel.getDashBoardPage().logOut();
+        webModel.getOrdersManagerPage().assertQuote();
+        webModel.getOrdersManagerPage().checkQuoteForReseller();
+//        webModel.getDashBoardPage().logOut();
+
     }
 
     @Given("^I am logged in as CP$")
@@ -177,15 +175,13 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
 
     @Then("^All required fields pertaining to a CP should be visible on the create quote window$")
     public void allRequiredFieldsPertainingToACPShouldBeVisibleOnTheCreateQuoteWindow() throws InterruptedException {
-        webModel.getDashBoardPage().assertCPQuotePage();
-
+        webModel.getOrdersManagerPage().assertCPQuotePage();
     }
 
     @And("^all the quotes including that of the resellers and agents should be visible$")
     public void allTheQuotesIncludingThatOfTheResellersAndAgentsShouldBeVisible() throws InterruptedException {
-        webModel.getDashBoardPage().assertQuote();
-        webModel.getDashBoardPage().checkQuotesForCP();
+        webModel.getOrdersManagerPage().assertQuote();
+        webModel.getOrdersManagerPage().checkQuotesForCP();
         webModel.getDashBoardPage().logOut();
     }
-
 }

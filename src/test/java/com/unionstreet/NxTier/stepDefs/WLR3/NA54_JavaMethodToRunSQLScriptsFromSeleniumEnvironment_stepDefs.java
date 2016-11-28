@@ -5,7 +5,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
 /**
@@ -17,40 +16,37 @@ public class NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs {
     NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
     @And("^create a new quote and add a service that contains a service charge$")
-    public void createANewQuoteAndAddAServiceThatContainsAServiceCharge() throws InterruptedException {
+    public void createANewQuoteAndAddAServiceThatContainsAServiceCharge() {
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getDashBoardPage().clickCreateQuoteButton();
-        webModel.getDashBoardPage().createQuote();
-        webModel.getDashBoardPage().searchQuoteByBcRN();
-        webModel.getDashBoardPage().clickOnQuoteID();
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().createQuote();
+        webModel.getOrdersManagerPage().searchQuoteByBcRN();
+        webModel.getOrdersManagerPage().clickOnQuoteID();
     }
 
     @When("^I add the charge$")
-    public void iAddTheCharge() throws InterruptedException {
+    public void iAddTheCharge() {
 //        TODO
-        webModel.getDashBoardPage().addingChargeOnTheQuote("serviceCharges");
-
+        webModel.getAddServicePage().addingChargeOnTheQuote("serviceCharges");
     }
 
     @And("^query the database$")
-    public void queryTheDatabase() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getUtils().sqlQuery("select SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getDashBoardPage().getServiceOrderID() + "");
+    public void queryTheDatabase() {
+        webModel.getUtils().sqlQuery("Nxtiere2e","autotest","test01-sql01","nxtiere2e","select sum(SellPrice) SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getOrdersManagerPage().getServiceOrderID() + "");
     }
 
     @Then("^the charge should be visible$")
     public void theChargeShouldBeVisible() throws SQLException {
-        webModel.getUtils().assertThereIsCharge("SellPrice", 600);
-        webModel.getDashBoardPage().assertChargeOnGUI("£600.00");
-
+        webModel.getOrdersManagerPage().assertThereIsCharge("SellPrice",80.00);
+        webModel.getOrdersManagerPage().assertChargeOnGUI("£80.00");
     }
 
     @And("^upon removing the charge the charge should disappear from the backend$")
-    public void uponRemovingTheChargeTheChargeShouldDisappearFromTheBackend() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
-        webModel.getDashBoardPage().removingChargeOnTheQuote();
-        webModel.getDashBoardPage().assertChargeOnGUI("£0.00");
-        webModel.getUtils().sqlQuery("select SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getDashBoardPage().getServiceOrderID() + "");
-        webModel.getUtils().assertThereIsNoCharge();
-
+    public void uponRemovingTheChargeTheChargeShouldDisappearFromTheBackend() {
+        webModel.getAddServicePage().removingChargeOnTheQuote();
+        webModel.getOrdersManagerPage().assertChargeOnGUI("£0.00");
+        webModel.getUtils().sqlQuery("Nxtiere2e","autotest","test01-sql01","nxtiere2e","select SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getOrdersManagerPage().getServiceOrderID() + "");
+        webModel.getOrdersManagerPage().assertThereIsNoCharge();
     }
 }

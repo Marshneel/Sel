@@ -11,13 +11,9 @@ public class LoginPage {
     ElementUtils utils = new ElementUtils();
 
     public void doLogin() {
-        try {
-            utils.sendText(By.id(USENAME_FIELD), utils.getProperty("userName"));
-            utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("passWord"));
-            utils.clickBtn(By.cssSelector(LOGINBUTTON));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        utils.sendText(By.id(USENAME_FIELD), utils.getProperty("userName"));
+        utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("passWord"));
+        utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
 
     public void failedLogin(String username, String password) {
@@ -28,47 +24,46 @@ public class LoginPage {
 
     //TODO
     public void assertFailedLogin() {
-        utils.assertURL("http://webtester:81/team3");
+        utils.assertURL("http://test01-web01/Nxtiere2e");
     }
 
     public void OnLoginPage() {
-        utils.assertURL("http://webtester:81/team3");
+        utils.assertURL("http://test01-web01/Nxtiere2e");
     }
 
 
     public void loginAsAgent() {
-        try {
-            utils.clickBtn(By.id(USENAME_FIELD));
-            utils.sendText(By.id(USENAME_FIELD), "agentlogin");
-            utils.clickBtn(By.id(PASSWORD_FIELD));
-            utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
-            utils.clickBtn(By.cssSelector(LOGINBUTTON));
-        } catch (Exception e) {
-        }
+        utils.clickBtn(By.id(USENAME_FIELD));
+        utils.sendText(By.id(USENAME_FIELD), "agentlogin");
+        utils.clickBtn(By.id(PASSWORD_FIELD));
+        utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
+        utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
 
     public void loginAsReseller() {
-        try {
-            utils.clickBtn(By.id(USENAME_FIELD));
-            utils.sendText(By.id(USENAME_FIELD), "resellerlogin");
-            utils.clickBtn(By.id(PASSWORD_FIELD));
-            utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
-            utils.clickBtn(By.cssSelector(LOGINBUTTON));
-        } catch (Exception e) {
-        }
+        utils.clickBtn(By.id(USENAME_FIELD));
+        utils.sendText(By.id(USENAME_FIELD), "resellerlogin");
+        utils.clickBtn(By.id(PASSWORD_FIELD));
+        utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
+        utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
 
     public void loginAsCP() {
-        try {
-            utils.clickBtn(By.id(USENAME_FIELD));
-            utils.sendText(By.id(USENAME_FIELD), "admin");
-            utils.clickBtn(By.id(PASSWORD_FIELD));
-            utils.sendText(By.id(PASSWORD_FIELD), "abcdef");
-            utils.clickBtn(By.cssSelector(LOGINBUTTON));
-        } catch (Exception e) {
-        }
+        utils.clickBtn(By.id(USENAME_FIELD));
+        utils.sendText(By.id(USENAME_FIELD), "cp");
+        utils.clickBtn(By.id(PASSWORD_FIELD));
+        utils.sendText(By.id(PASSWORD_FIELD), "password");
+        utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
 
+    public void login(String userName, String passWord) {
+        utils.clickBtn(By.id(USENAME_FIELD));
+        utils.sendText(By.id(USENAME_FIELD), userName);
+        utils.clickBtn(By.id(PASSWORD_FIELD));
+        utils.sendText(By.id(PASSWORD_FIELD), passWord);
+        utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
+
+}
 
 

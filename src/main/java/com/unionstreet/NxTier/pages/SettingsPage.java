@@ -14,8 +14,6 @@ public class SettingsPage {
     private final String CPPERMISSION_GROUPTYPE = "//input[@id='rdoGroupType'][@value='CP']";
     private final String ADDPERMISSION_CONFIGURATION = "//a[@href='#'][contains(text(),'Configuration')]";
     private final String CONFIGURATION_SELECTALL = "SelectAll_Configuration";
-    private final String CONFIGURATION_AUTOEXPORTER = "//a[@href='#'][contains(text(),'Auto Exporter')]";
-    private final String CONFIGURATION_AUTOEXPORTER_SELECTALL = "SelectAll_Configuration_AutoExporter";
     private final String CONFIGURATION_FREEMINUTES = "//a[@href='#'][contains(text(),'Free Minutes')]";
     private final String CONFIGURATION_FREEMINUTES_SELECTALL = "SelectAll_Configuration_FreeMinutes";
     private final String CONFIGURATION_PACKAGES = "//a[@href='#'][contains(text(),'Packages')]";
@@ -28,8 +26,6 @@ public class SettingsPage {
     private final String CONTACTMANAGER_SELECTALL = "SelectAll_ContactManager";
     private final String CONTACTMANAGER_AGENT = "//a[@href='#'][contains(text(),'Agent')]";
     private final String CONTACTMANAGER_AGENT_SELECTALL = "SelectAll_ContactManager_Agent";
-    private final String CONTACTMANAGER_AUTOEXPORTER = "//a[@href='#'][contains(text(),'Auto Exporter')]";
-    private final String CONTACTMANAGER_AUTOEXPORTER_SELECTALL = "SelectAll_ContactManager_AutoExporter";
     private final String CONTACTMANAGER_CARRIERS = "//a[@href='#'][contains(text(),'Carriers')]";
     private final String CONTACTMANAGER_CARRIERS_SELECTALL = "SelectAll_ContactManager_Carriers";
     private final String CONTACTMANAGER_CUSTOMERS = "//a[@href='#'][contains(text(),'Customers')]";
@@ -42,8 +38,6 @@ public class SettingsPage {
     private final String CONTACTMANAGER_SUPPLIERS_SELECTALL = "SelectAll_ContactManager_Suppliers";
     private final String ADDPERMISSIONS_IMPORTMANAGER = "//a[@href='#'][contains(text(),'Import Manager')]";
     private final String IMPORTMANAGER_SELECTALL = "SelectAll_ImportManager";
-    private final String IMPORTMANAGER_AUTOEXPORTER = "//a[@href='#'][contains(text(),'Auto Exporter')]";
-    private final String IMPORTMANAGER_AUTOEXPORTER_SELECTALL = "SelectAll_ImportManager_AutoExporter";
     private final String IMPORTMANAGER_DATAIMPORT = "//a[@href='#'][contains(text(),'Data Import')]";
     private final String DATAIMPORT_SELECTALL = "SelectAll_ImportManager_DataImport";
     private final String ADDPERMISSIONS_INVOICEMANAGER = "//a[@href='#'][contains(text(),'Invoice Manager')]";
@@ -52,6 +46,10 @@ public class SettingsPage {
     private final String ORDERSMANAGER_ORDERDETAILS = "//a[@href='#'][contains(text(),'Order Details')]";
     private final String ORDERDETAILS_SELECTALL = "SelectAll_OrdersManager_OrderDetails";
     private final String ORDERDETAILS_SELECTALL_WITHCHECKBOX = "//input[@type='checkbox'] [@id='SelectAll_OrdersManager_OrderDetails']";
+    private final String WLR3_ORDERS_VIEW = "OrdersManager_Orders_WLR3Orders_view";
+    private final String WLR3_ORDERS_ADD = "OrdersManager_Orders_WLR3Orders_add";
+    private final String WLR3_ORDERS_EDIT = "OrdersManager_Orders_WLR3Orders_edit";
+    private final String WLR3_ORDERS_DELETE = "OrdersManager_Orders_WLR3Orders_delete";
     private final String ORDERSMANAGER_ORDERS = "//a[@href='#'][contains(text(),'Orders')]";
     private final String ORDERS_SELECTALL = "SelectAll_OrdersManager_Orders";
     private final String ORDERS_UNCHECK_QUICKQUOTE = "OrdersManager_Orders_QuickQuoteOnly_view";
@@ -67,7 +65,7 @@ public class SettingsPage {
     private final String WORKPLACE_DASHBOARD = "//a[@href='#'][contains(text(),'Dashboard')]";
     private final String DASHBOARD_SELECTALL = "SelectAll_Workplace_Dashboard";
     public final String SAVEANDCLOSE = "//input[@value='Save & Close']";
-    private final String LOGINUSERS_BUTTON = "//a[@href='/team3/cpusers/agentuserslist']";
+    private final String LOGINUSERS_BUTTON = "//div[@id='subMenu']//li[5]";
     private final String ADDUSER_COMPANY = "CompanyList";
     private final String USERADD_LOGIN = "Add Login";
     private final String ADDUSERLOGIN_SITE = "siteContact_christian";
@@ -97,31 +95,23 @@ public class SettingsPage {
         utils.switchToNewWindow();
     }
 
-    public void addAgentPermissionGroups_General() throws InterruptedException {
-        try {
-            utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
-            utils.sendText(By.id(ADDPERMISSION_GROUPNAME), newBusinessCustomerPage.RanName);
-            utils.clickBtn(By.xpath(AGENTPERMISSION_GROUPTYPE));
-        } catch (Exception e) {
-        }
+    public void addAgentPermissionGroups_General() {
+        utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
+        utils.sendText(By.id(ADDPERMISSION_GROUPNAME), newBusinessCustomerPage.RanName);
+        utils.clickBtn(By.xpath(AGENTPERMISSION_GROUPTYPE));
     }
 
-    public void addPermissionGroups_Configuration() throws InterruptedException {
-        try {
-            utils.clickBtn(By.xpath(ADDPERMISSION_CONFIGURATION));
-            utils.javaScriptExecutorClick(By.id(CONFIGURATION_SELECTALL));
-            utils.clickBtn(By.xpath(CONFIGURATION_AUTOEXPORTER));
-            utils.javaScriptExecutorClick(By.id(CONFIGURATION_AUTOEXPORTER_SELECTALL));
-            utils.clickBtn(By.xpath(CONFIGURATION_FREEMINUTES));
-            utils.javaScriptExecutorClick(By.id(CONFIGURATION_FREEMINUTES_SELECTALL));
-            utils.clickBtn(By.xpath(CONFIGURATION_PACKAGES));
-            utils.javaScriptExecutorClick(By.id(CONFIGURATION_PACKAGES_SELECTALL));
-            utils.clickBtn(By.xpath(CONFIGURATION_SERVICEINVENTORY));
-            utils.javaScriptExecutorClick(By.id(CONFIGURATION_SERVICEINVENTORY_SELECTALL));
-            utils.clickBtn(By.xpath(CONFIGURATION_TARIFFMANAGER));
-            utils.javaScriptExecutorClick(By.id(CONFIGURATION_TARIFFMANAGER_SELECTALL));
-        } catch (Exception e) {
-        }
+    public void addPermissionGroups_Configuration() {
+        utils.clickBtn(By.xpath(ADDPERMISSION_CONFIGURATION));
+        utils.javaScriptExecutorClick(By.id(CONFIGURATION_SELECTALL));
+        utils.clickBtn(By.xpath(CONFIGURATION_FREEMINUTES));
+        utils.javaScriptExecutorClick(By.id(CONFIGURATION_FREEMINUTES_SELECTALL));
+        utils.clickBtn(By.xpath(CONFIGURATION_PACKAGES));
+        utils.javaScriptExecutorClick(By.id(CONFIGURATION_PACKAGES_SELECTALL));
+        utils.clickBtn(By.xpath(CONFIGURATION_SERVICEINVENTORY));
+        utils.javaScriptExecutorClick(By.id(CONFIGURATION_SERVICEINVENTORY_SELECTALL));
+        utils.clickBtn(By.xpath(CONFIGURATION_TARIFFMANAGER));
+        utils.javaScriptExecutorClick(By.id(CONFIGURATION_TARIFFMANAGER_SELECTALL));
     }
 
     public void addPermissionGroups_ContactManager() {
@@ -130,8 +120,6 @@ public class SettingsPage {
         utils.javaScriptExecutorClick(By.id(CONTACTMANAGER_SELECTALL));
         utils.clickBtn(By.xpath(CONTACTMANAGER_AGENT));
         utils.javaScriptExecutorClick(By.id(CONTACTMANAGER_AGENT_SELECTALL));
-        utils.clickBtn(By.xpath(CONTACTMANAGER_AUTOEXPORTER));
-        utils.javaScriptExecutorClick(By.id(CONTACTMANAGER_AUTOEXPORTER_SELECTALL));
         utils.clickBtn(By.xpath(CONTACTMANAGER_CARRIERS));
         utils.javaScriptExecutorClick(By.id(CONTACTMANAGER_CARRIERS_SELECTALL));
         utils.clickBtn(By.xpath(CONTACTMANAGER_CUSTOMERS));
@@ -148,8 +136,6 @@ public class SettingsPage {
 
         utils.clickBtn(By.xpath(ADDPERMISSIONS_IMPORTMANAGER));
         utils.javaScriptExecutorClick(By.id(IMPORTMANAGER_SELECTALL));
-        utils.clickBtn(By.xpath(IMPORTMANAGER_AUTOEXPORTER));
-        utils.javaScriptExecutorClick(By.id(IMPORTMANAGER_AUTOEXPORTER_SELECTALL));
         utils.clickBtn(By.xpath(IMPORTMANAGER_DATAIMPORT));
         utils.javaScriptExecutorClick(By.id(DATAIMPORT_SELECTALL));
     }
@@ -209,55 +195,43 @@ public class SettingsPage {
         utils.jumpToPopUpWindow(By.linkText(ADDLOGINUSERS));
     }
 
-    public void agentUserSelectCompany() throws InterruptedException {
-        try {
-            utils.selectByVisibleText(By.id(ADDUSER_COMPANY), newBusinessCustomerPage.RanName);
-            utils.clickBtn(By.linkText(USERADD_LOGIN));
-            utils.switchToNewWindow();
-        } catch (Exception e) {
-        }
+    public void agentUserSelectCompany() {
+        utils.selectByVisibleText(By.id(ADDUSER_COMPANY), newBusinessCustomerPage.RanName);
+        utils.clickBtn(By.linkText(USERADD_LOGIN));
+        utils.switchToNewWindow();
     }
 
-    public void agentUserAddContactDetails() throws InterruptedException {
-        try {
-            utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
-            utils.sendText(By.id(ADDUSERLOGIN_SITE), newBusinessCustomerPage.RanName);
-            utils.clickBtn(By.id(ADDUSERLOGIN_EMAIL));
-            utils.sendText(By.id(ADDUSERLOGIN_EMAIL), utils.getProperty("agentEmailAddress"));
-        } catch (Exception e) {
-        }
+    public void agentUserAddContactDetails() {
+        utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
+        utils.sendText(By.id(ADDUSERLOGIN_SITE), newBusinessCustomerPage.RanName);
+        utils.clickBtn(By.id(ADDUSERLOGIN_EMAIL));
+        utils.sendText(By.id(ADDUSERLOGIN_EMAIL), utils.getProperty("agentEmailAddress"));
     }
 
-    public void agentUserAddLoginDetails() throws InterruptedException {
+    public void agentUserAddLoginDetails() {
+        utils.clickBtn(By.id(ADDUSERLOGIN_LOGINTAB));
+        utils.clickBtn(By.id(ADDUSERLOGIN_USENAME));
+        utils.sendText(By.id(ADDUSERLOGIN_USENAME), newBusinessCustomerPage.RanName);
+        utils.clickBtn(By.id(ADDUSERLOGIN_PASSWORD));
+        utils.sendText(By.id(ADDUSERLOGIN_PASSWORD), utils.getProperty("userPassword"));
+        utils.selectByVisibleText(By.id(ADDUSERLOGIN_SELECTPERMISSION), newBusinessCustomerPage.RanName);
+        utils.javaScriptExecutorClick(By.id(ADDUSERLOGIN_ISLOGINALLOWED));
+        utils.waitForElementVisible(By.id("pg"));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
-            utils.clickBtn(By.id(ADDUSERLOGIN_LOGINTAB));
-            utils.clickBtn(By.id(ADDUSERLOGIN_USENAME));
-            utils.sendText(By.id(ADDUSERLOGIN_USENAME), newBusinessCustomerPage.RanName);
-            utils.clickBtn(By.id(ADDUSERLOGIN_PASSWORD));
-            utils.sendText(By.id(ADDUSERLOGIN_PASSWORD), utils.getProperty("userPassword"));
-            utils.selectByVisibleText(By.id(ADDUSERLOGIN_SELECTPERMISSION), newBusinessCustomerPage.RanName);
-            utils.javaScriptExecutorClick(By.id(ADDUSERLOGIN_ISLOGINALLOWED));
-            utils.clickBtn(By.xpath(SAVEANDCLOSE));
-            try {
-                utils.checkAlert();
-            } catch (Exception e) {
-            }
-
-            utils.switchToParentWindow();
+            utils.checkAlert();
         } catch (Exception e) {
-            e.printStackTrace();
         }
+        utils.switchToParentWindow();
     }
 
     public void loginAsAgent() throws InterruptedException {
-        try {
-            dashBoardPage.logOut();
-            utils.sendText(By.id(loginPage.USENAME_FIELD), newBusinessCustomerPage.RanName);
-            utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
-            utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
-            utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
-        } catch (Exception e) {
-        }
+        dashBoardPage.logOut();
+        utils.sendText(By.id(loginPage.USENAME_FIELD), newBusinessCustomerPage.RanName);
+        utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
+        utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
+        utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
     }
 
 /////////////////////////////////////Reseller//////////////////////////////////////////////////////////////////////
@@ -267,122 +241,108 @@ public class SettingsPage {
     }
 
     public void addNewCompanyContactButton() {
-        try {
-            utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-            utils.switchToNewWindow();
-        } catch (Exception e) {
-        }
+        utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+        utils.switchToNewWindow();
     }
 
-    public void loginAsReseller() throws InterruptedException {
-        try {
-            dashBoardPage.logOut();
-            utils.sendText(By.id(loginPage.USENAME_FIELD), newBusinessCustomerPage.RanName);
-            utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
-            utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
-            utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
-        } catch (Exception e) {
-        }
+    public void loginAsReseller()  {
+        dashBoardPage.logOut();
+        utils.sendText(By.id(loginPage.USENAME_FIELD), newBusinessCustomerPage.RanName);
+        utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
+        utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
+        utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
     }
 
     ///////////////////////////////////////////////////////CP///////////////////////////////////////////////////////////////
     public void addCPPermissionGroups_General() {
-        try {
-
-            utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
-            CP_RanName = utils.randomName();
-            utils.sendText(By.id(ADDPERMISSION_GROUPNAME), CP_RanName);
-            utils.clickBtn(By.xpath(CPPERMISSION_GROUPTYPE));
-        } catch (Exception e) {
-        }
+        utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
+        CP_RanName = utils.randomName();
+        utils.sendText(By.id(ADDPERMISSION_GROUPNAME), CP_RanName);
+        utils.clickBtn(By.xpath(CPPERMISSION_GROUPTYPE));
     }
 
     public void clickCPUserTab() {
         utils.clickBtn(By.linkText("CP Users"));
     }
 
-    public void addCPloginUserSelectCompanyandSite() throws InterruptedException {
-        try {
-            utils.selectByIndex(By.id(ADDUSER_COMPANY), 1);
-            utils.clickBtn(By.linkText(USERADD_LOGIN));
-            utils.switchToNewWindow();
-        } catch (Exception e) {
-        }
+    public void addCPloginUserSelectCompanyandSite() {
+        utils.selectByIndex(By.id(ADDUSER_COMPANY), 1);
+        utils.clickBtn(By.linkText(USERADD_LOGIN));
+        utils.switchToNewWindow();
     }
 
     public void createCPUserAddContactDetails() {
-        try {
-
-            utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
-            utils.sendText(By.id(ADDUSERLOGIN_SITE), CP_RanName);
-            utils.clickBtn(By.id(ADDUSERLOGIN_EMAIL));
-            utils.sendText(By.id(ADDUSERLOGIN_EMAIL), utils.getProperty("cpEmail"));
-
-        } catch (Exception e) {
-        }
+        utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
+        utils.sendText(By.id(ADDUSERLOGIN_SITE), CP_RanName);
+        utils.clickBtn(By.id(ADDUSERLOGIN_EMAIL));
+        utils.sendText(By.id(ADDUSERLOGIN_EMAIL), utils.getProperty("cpEmail"));
     }
 
-    public void createCPUserAddLoginDetails() throws InterruptedException {
-        try {
-            utils.clickBtn(By.id(ADDUSERLOGIN_LOGINTAB));
-            utils.clickBtn(By.id(ADDUSERLOGIN_USENAME));
-            utils.sendText(By.id(ADDUSERLOGIN_USENAME), CP_RanName);
-            utils.clickBtn(By.id(ADDUSERLOGIN_PASSWORD));
-            utils.sendText(By.id(ADDUSERLOGIN_PASSWORD), utils.getProperty("userPassword"));
-            utils.selectByVisibleText(By.id(ADDUSERLOGIN_SELECTPERMISSION), CP_RanName);
-            utils.javaScriptExecutorClick(By.id(ADDUSERLOGIN_ISLOGINALLOWED));
-            utils.clickBtn(By.xpath(SAVEANDCLOSE));
-
-            try {
-                utils.checkAlert();
-            } catch (Exception e) {
-            }
-            utils.switchToParentWindow();
-        } catch (Exception e) {
-        }
+    public void createCPUserAddLoginDetails() {
+        utils.clickBtn(By.id(ADDUSERLOGIN_LOGINTAB));
+        utils.clickBtn(By.id(ADDUSERLOGIN_USENAME));
+        utils.sendText(By.id(ADDUSERLOGIN_USENAME), CP_RanName);
+        utils.clickBtn(By.id(ADDUSERLOGIN_PASSWORD));
+        utils.sendText(By.id(ADDUSERLOGIN_PASSWORD), utils.getProperty("userPassword"));
+        utils.selectByVisibleText(By.id(ADDUSERLOGIN_SELECTPERMISSION), CP_RanName);
+        utils.javaScriptExecutorClick(By.id(ADDUSERLOGIN_ISLOGINALLOWED));
+        utils.waitForElementVisible(By.id("pg"));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtnWithWait(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.switchToParentWindow();
     }
 
-    public void loginAsCpUser() throws InterruptedException {
-        try {
-            dashBoardPage.logOut();
-            utils.sendText(By.id(loginPage.USENAME_FIELD), CP_RanName);
-            utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
-            utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
-            utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
-        } catch (Exception e) {
-        }
-
+    public void loginAsCpUser()  {
+        dashBoardPage.logOut();
+        utils.sendText(By.id(loginPage.USENAME_FIELD), CP_RanName);
+        utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
+        utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
+        utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
     }
 
     public void revokingAgentWLRPermissions() {
+        utils.waitForElementVisible(By.linkText("agent"));
         utils.clickBtn(By.linkText("agent"));
         utils.switchToNewWindow();
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERDETAILS));
         utils.makeSureBoxIsUnChecked(By.xpath(ORDERDETAILS_SELECTALL_WITHCHECKBOX), By.id(ORDERDETAILS_SELECTALL));
+        utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
+        utils.makeSureBoxIsUnChecked(By.id(WLR3_ORDERS_VIEW), By.id(WLR3_ORDERS_VIEW));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.switchToParentWindow();
     }
 
     public void assertingWLROrdersWithOutRights() {
         commonMethods.search("WLR3");
+        utils.waitForElementVisible(By.xpath("//td[text()='No Records']"));
         utils.searchAndAssertTextNotPresent(By.id(dashBoardPage.QUOTE), "WLR3 Quote");
+        utils.waitForElementVisible(By.xpath("//td[@colspan='9'][contains(text(),'No Record')]"));
 
     }
 
-    public void assertingWLROrdersWithRights() throws InterruptedException {
+    public void assertingWLROrdersWithRights() {
         commonMethods.search("WLR3 Quote");
         utils.waitForElementVisible(By.xpath(ASSERTINGWLR3));
         utils.searchAndAssertTextPresent(By.id(dashBoardPage.QUOTE), "WLR3 Quote");
         utils.clickBtn(By.cssSelector(dashBoardPage.LOGOUT_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
     }
 
     public void issuingWLRPermissions() {
+       utils.waitForElementVisible(By.linkText("agent"));
         utils.clickBtn(By.linkText("agent"));
         utils.switchToNewWindow();
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERDETAILS));
         utils.makeSureBoxIsChecked(By.xpath(ORDERDETAILS_SELECTALL_WITHCHECKBOX), By.id(ORDERDETAILS_SELECTALL));
+        utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
+        utils.makeSureBoxIsChecked(By.id(WLR3_ORDERS_VIEW), By.id(WLR3_ORDERS_VIEW));
+        utils.makeSureBoxIsChecked(By.id(WLR3_ORDERS_ADD), By.id(WLR3_ORDERS_ADD));
+        utils.makeSureBoxIsChecked(By.id(WLR3_ORDERS_EDIT), By.id(WLR3_ORDERS_EDIT));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.switchToParentWindow();
     }
