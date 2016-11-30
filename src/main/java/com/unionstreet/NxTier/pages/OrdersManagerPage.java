@@ -224,6 +224,10 @@ public class OrdersManagerPage {
         utils.clickBtn(By.xpath(MANDATORY_CONTROL_FIELD));
         utils.sendText(By.xpath(MANDATORY_CONTROL_FIELD), "hello");
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.switchToPreviousWindow();
     }
 
@@ -257,6 +261,10 @@ public class OrdersManagerPage {
 
     public void assertCustomer_InternalTabsPresent() throws InterruptedException {
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.waitForElementVisible(By.id(CUSTOMER_RADIOBUTTON));
        utils.clickBtnWithWait(By.id(CUSTOMER_RADIOBUTTON));
         utils.waitForElementVisible(By.id(INTERNAL_RADIOBUTTON));
@@ -265,6 +273,10 @@ public class OrdersManagerPage {
 
     public void assertCustomer_InternalTabsNotPresent() {
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.assertElementNotPresent(By.id(CUSTOMER_RADIOBUTTON));
         utils.assertElementNotPresent(By.id(INTERNAL_RADIOBUTTON));
     }
@@ -305,6 +317,10 @@ public class OrdersManagerPage {
 
     public void saveAssignServicePage()  {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.switchToParentWindow();
         dashBoardPage.logOut();
     }

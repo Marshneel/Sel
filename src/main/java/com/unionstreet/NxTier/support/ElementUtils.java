@@ -220,6 +220,10 @@ public class ElementUtils {
 
     public void closeCurrentPage() {
         driver.close();
+        try {
+            checkAlert();
+        } catch (Exception e) {
+        }
     }
 
     public String randomName() {

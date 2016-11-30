@@ -21,7 +21,10 @@ public class DashBoardPage {
 
     public void logOut() {
         utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
-
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
     }
 
     public void clickOrderManagerButton() {

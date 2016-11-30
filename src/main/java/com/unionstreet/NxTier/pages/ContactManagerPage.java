@@ -47,6 +47,10 @@ public class ContactManagerPage {
         utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME));
         utils.sendText(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME), newBusinessCustomerPage.RanName);
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.switchToParentWindow();
     }
 
@@ -72,6 +76,10 @@ public class ContactManagerPage {
         utils.clickBtn(By.id(COMPANYDETAILS_BUTTON));
         utils.selectByVisibleText(By.id(CHANNELDETAILS_AGENT), "agent");
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.switchToParentWindow();
     }
 

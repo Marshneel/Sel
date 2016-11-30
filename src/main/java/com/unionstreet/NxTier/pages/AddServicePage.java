@@ -22,6 +22,10 @@ public class AddServicePage {
         utils.clickBtn(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.switchToParentWindow();
     }
 

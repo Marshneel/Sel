@@ -22,6 +22,10 @@ public class CommonMethods {
 
     public void saveAndClosePage() {
         utils.clickBtn(By.cssSelector(SAVE_AND_CLOSE_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
     }
 
 }

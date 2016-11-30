@@ -184,6 +184,10 @@ public class SettingsPage {
 
     public void saveAndCloseAddPermissions() {
         utils.clickBtn(By.xpath(SAVEANDCLOSE));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.switchToParentWindow();
     }
 
@@ -291,6 +295,10 @@ public class SettingsPage {
         utils.waitForElementVisible(By.id("pg"));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.clickBtnWithWait(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.switchToParentWindow();
     }
 
@@ -312,6 +320,10 @@ public class SettingsPage {
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.makeSureBoxIsUnChecked(By.id(WLR3_ORDERS_VIEW), By.id(WLR3_ORDERS_VIEW));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.switchToParentWindow();
     }
 
@@ -348,6 +360,10 @@ public class SettingsPage {
         utils.makeSureBoxIsChecked(By.id(WLR3_ORDERS_ADD), By.id(WLR3_ORDERS_ADD));
         utils.makeSureBoxIsChecked(By.id(WLR3_ORDERS_EDIT), By.id(WLR3_ORDERS_EDIT));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.switchToParentWindow();
     }
 }
