@@ -13,7 +13,7 @@ public class NA49_OrderServiceAutomation_stepDefs {
     NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
     @And("^Have created a quote$")
-    public void haveCreatedAQuote() {
+    public void haveCreatedAQuote() throws InterruptedException {
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();

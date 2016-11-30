@@ -95,7 +95,6 @@ public class NxTier_smokePack_stepDefs {
     public void invoiceDetailsAndBillingDetailsOfThatParticularCustomerShouldBeUpdatedRespectively() throws InterruptedException {
         webModel.getCompanyMenuPage().assertSavedInvoiceDetails();
         webModel.getCompanyMenuPage().assertSavedBillingDetails();
-
         webModel.getDashBoardPage().logOut();
     }
 
@@ -126,68 +125,12 @@ public class NxTier_smokePack_stepDefs {
         webModel.getCompanyMenuPage().assertAddedPricingDetails();
         webModel.getDashBoardPage().logOut();
     }
-
-    @Given("^I am on home page$")
-    public void iAmOnHomePage() {
-
-    }
-
-    @When("^I create a tariff under one of \"([^\"]*)\"$")
-    public void iCreateATariffUnderOneOf(String tariff_Categories) {
-        webModel.getCompanyMenuPage().addNewTariffWithTariffCategory(tariff_Categories);
-    }
-
-
-    @Then("^That particular tariff should be available for selection under that particular category under pricing details of that customer$")
-    public void thatParticularTariffShouldBeAvailableForSelectionUnderThatParticularCategoryUnderPricingDetailsOfThatCustomer() throws InterruptedException {
-        webModel.getCompanyMenuPage().verifyNewlyAddedTariffCategory();
-        webModel.getDashBoardPage().logOut();
-    }
-
-    @When("^I create tariff under different \"([^\"]*)\"$")
-    public void iCreateTariffUnderDifferent(String tariff_types) {
-        webModel.getCompanyMenuPage().addTariffWithTariffTypes(tariff_types);
-    }
-
-    @Then("^that particular tariff should be available for selection in \"([^\"]*)\" under its tariff_type$")
-    public void thatParticularTariffShouldBeAvailableForSelectionInUnderItsTariff_type(String tariff_search)  {
-        webModel.getCompanyMenuPage().searchAndAssertNewlyAddedTariffType(tariff_search);
-        webModel.getDashBoardPage().logOut();
-    }
-
-    @When("^I create a new service charge type$")
-    public void iCreateANewServiceChargeType() {
-        webModel.getCompanyMenuPage().createNewServiceChargeType();
-    }
-
-    @Then("^I should be able to access it under service charge drop downs in one off and recurring charge types$")
-    public void iShouldBeAbleToAccessItUnderServiceChargeDropDownsInOneOffAndRecurringChargeTypes() {
-        webModel.getCompanyMenuPage().verifyServiceChargeTypes();
-
-    }
-
-    @When("^I create a new billing package under package manager$")
-    public void iCreateANewBillingPackageUnderPackageManager() {
-        webModel.getCompanyMenuPage().createBillingPackage();
-    }
-
-    @Then("^I should be able to access it under package drop down in billing details$")
-    public void iShouldBeAbleToAccessItUnderPackageDropDownInBillingDetails() {
-        webModel.getCompanyMenuPage().verifyBillingPackage();
-
-    }
-
-    @When("^I create a new free minutes plan with required details$")
-    public void iCreateANewFreeMinutesPlanWithRequiredDetails() {
-        webModel.getCompanyMenuPage().createNewFreeMinutePlan();
-    }
-
-    @Then("^The plan should be available for selection under package and billing details$")
-    public void thePlanShouldBeAvailableForSelectionUnderPackageAndBillingDetails() {
-        webModel.getCompanyMenuPage().verifyFreeMinutePlan();
-
-    }
 }
+
+
+
+
+
 
 
 

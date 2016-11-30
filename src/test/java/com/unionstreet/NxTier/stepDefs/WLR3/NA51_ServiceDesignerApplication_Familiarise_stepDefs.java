@@ -12,27 +12,24 @@ import cucumber.api.java.en.When;
 public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
 
     WebModel webModel = new WebModel();
-    NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs na_54=
+    NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs na_54 =
             new NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs();
 
 
     @When("^I access add_view notes on edit order page$")
-    public void iAccessAdd_viewNotesOnEditOrderPage() {
+    public void iAccessAdd_viewNotesOnEditOrderPage() throws InterruptedException {
         na_54.createANewQuoteAndAddAServiceThatContainsAServiceCharge();
         webModel.getOrdersManagerPage().accessAdd_ViewNotes();
     }
 
     @Then("^customer and internal tabs should be present and accessible$")
-    public void customerAndInternalTabsShouldBePresentAndAccessible() {
+    public void customerAndInternalTabsShouldBePresentAndAccessible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertCustomer_InternalTabsPresent();
-        //webModel.getDashBoardPage().logOut();
     }
-
 
     @Then("^customer and internal tabs should be absent$")
     public void customerAndInternalTabsShouldBeAbsent() {
         webModel.getOrdersManagerPage().assertCustomer_InternalTabsNotPresent();
-
     }
 
     @Given("^I am logged in as agent and there is a service unassigned to me$")

@@ -13,7 +13,6 @@ import cucumber.api.java.en.When;
 public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs {
 
     WebModel webModel = new WebModel();
-    NA44_Agent_Login_stepDefs na44_agent_login_stepDefs=new NA44_Agent_Login_stepDefs();
 
 
     @And("^have added a new business customer with required contact type$")
@@ -52,15 +51,13 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @Then("^the agent permission group should be available for selection under drop down under agentUser creation$")
-    public void theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderAgentUserCreation()  {
+    public void theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderAgentUserCreation() {
         webModel.getSettingsPage().agentUserAddLoginDetails();
-        //webModel.getDashBoardPage().logOut();
     }
 
     @And("^I should be able to login with agent credentials$")
     public void iShouldBeAbleToLoginWithAgentCredentials() throws InterruptedException {
         webModel.getSettingsPage().loginAsAgent();
-        //webModel.getDashBoardPage().logOut();
     }
 
     @When("^I wish to create a business reseller contact with valid login credentials$")
@@ -78,7 +75,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @And("^I should be able to login with reseller credentials$")
-    public void iShouldBeAbleToLoginWithResellerCredentials()  {
+    public void iShouldBeAbleToLoginWithResellerCredentials() {
         webModel.getSettingsPage().loginAsReseller();
         webModel.getDashBoardPage().logOut();
     }
@@ -113,11 +110,10 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     @Then("^the CP permission should be available for selection under drop down during the CP creation$")
     public void theCPPermissionShouldBeAvailableForSelectionUnderDropDownDuringTheCPCreation() {
         webModel.getSettingsPage().createCPUserAddLoginDetails();
-
     }
 
     @And("^I should be able to login with CP credentials$")
-    public void iShouldBeAbleToLoginWithCPCredentials()  {
+    public void iShouldBeAbleToLoginWithCPCredentials() {
         webModel.getSettingsPage().loginAsCpUser();
         webModel.getDashBoardPage().logOut();
     }
@@ -125,10 +121,10 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     @Given("^I am logged in as agent$")
     public void iAmLoggedInAsAgent() {
         webModel.getLoginPage().loginAsAgent();
-        na44_agent_login_stepDefs.haveCreatedANewCustomer();
     }
+
     @When("^I access create Quote tab$")
-    public void iAccessCreateQuoteTab() {
+    public void iAccessCreateQuoteTab() throws InterruptedException {
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().onQuotePage();
@@ -143,9 +139,6 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForMyCompanyShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuotesForAgent();
-
-       // webModel.getDashBoardPage().logOut();
-
     }
 
     @Given("^I am logged in as reseller$")
@@ -163,8 +156,6 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForCompaniesUnderMyContactListShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuoteForReseller();
-//        webModel.getDashBoardPage().logOut();
-
     }
 
     @Given("^I am logged in as CP$")
@@ -182,6 +173,5 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void allTheQuotesIncludingThatOfTheResellersAndAgentsShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuotesForCP();
-        webModel.getDashBoardPage().logOut();
     }
 }

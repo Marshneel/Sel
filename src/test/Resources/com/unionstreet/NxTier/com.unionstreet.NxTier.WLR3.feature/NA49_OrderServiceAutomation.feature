@@ -1,6 +1,6 @@
 Feature: order service automation for agent, reseller and CP. includes CP only and mandatory fields under select service.
 
-   @smokePack
+  @smokePack
   Scenario: Login as a CP, create a quote, add a service and verify the behaviour of CP only control
     Given I am logged in as CP
     And Have created a quote

@@ -6,6 +6,7 @@ Feature: Agent login
     And  Have created a new customer
     When I access create Quote window
     Then the newly created customer details should appear under the company and site drop downs
+
   @smokePack
   Scenario Outline: Login as a CP, create a business customer, assign an agent and create a quote for the customer. when logged in as the agent the created quote should appear on the orders manager
     Given I am logged in as an agent after the CP has created a quote for a "<customer_name>" assigned to me

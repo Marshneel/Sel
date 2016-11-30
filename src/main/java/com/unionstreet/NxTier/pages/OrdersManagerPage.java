@@ -15,12 +15,11 @@ public class OrdersManagerPage {
     public final String ADD_PRODUCT_AND_SERVICE_BUTTON = "//span[text()='Add a product or service']";
     public final String CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE = "//div[text()='customService']";
     public final String INVISIBLE_ORDER_SERVICESID = "//input[@id='Service_ID']";
-    private final String CREATEQUOTE_BUTTON = ".add";
+    private final String CREATEQUOTE_BUTTON = "//a[@href='#'][contains(@onclick,'OpenStartQuote')]";
     //TODO
-    private final String ORDER_QUOTE_DESCRIPTION_FIELD = "QuoteDescription";
+    private final String ORDER_QUOTE_DESCRIPTION_FIELD = "//input[@class='textfield']";
     private final String ORDERS_SAVEQUOTE_BUTTON = "CreateQuoteButton";
     private final String QUOTEBOX = "StartQuote";
-    private final String QUOTENUMBER = "//div[@class='quote__order-number']";
     private final String QUOTEID = "//a[contains(@href,'Orders/EditOrder')]";
     private final String REDCROSS = "//td[@class='red-cross']";
     private final String GREEN_TICK = "//td[@class='green-tick']";
@@ -29,7 +28,7 @@ public class OrdersManagerPage {
     private final String CPONLY = "//label[@class='helpIcon'][contains(text(),'CPonly')]";
     private final String SERVICE_NOT_COMPLETED_MESSAGE = "//div[text()='Services are not completed']";
     private final String ORDER_CONTACT = "Order_order_contact_id";
-    private final String AGENT = "//td[text()='agent']";
+    private final String AGENT = "//td[text()='agentCompany']";
     private final String RESELLER = "//td[text()='reseller']";
     private final String ADD_VIEW_NOTES = "//span[text()='Add / View Notes']";
     private final String CUSTOMER_RADIOBUTTON = "SendToCustomer";
@@ -40,6 +39,8 @@ public class OrdersManagerPage {
     private final String ASSIGN_SERVICE_INVENTORY = "HrefAssignServiceInventory";
     private final String AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER = "checkbox0";
     private final String AGENT_LINKTEXT = "//a[@href='#'][contains(text(),'agent')]";
+    private final String QUOTE_LINKTEST = ".box-title";
+    private final String LABEL_WITHIN_A_SERVICE="//label[@for='Service_Details']";
 
     ElementUtils utils = new ElementUtils();
     ContactManagerPage contactManagerPage = new ContactManagerPage();
@@ -48,32 +49,24 @@ public class OrdersManagerPage {
     DashBoardPage dashBoardPage = new DashBoardPage();
     LoginPage loginPage = new LoginPage();
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
+    SettingsPage settingsPage=new SettingsPage();
 
-    public void clickCreateQuoteButton() {
-        utils.jumpToPopUpWindow(By.cssSelector(CREATEQUOTE_BUTTON));
+    public void clickCreateQuoteButton() throws InterruptedException {
+
+      utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
+        utils.jumpToPopUpWindow(By.xpath(CREATEQUOTE_BUTTON));
     }
-public void addSiteFromQuotePage(){
-    utils.clickBtn(By.xpath("//a[@href='#'][@onclick='AddNewSite(); return false;']"));
-    utils.switchToNewWindow();
-    utils.clickBtn(By.id("SiteName"));
-    utils.sendText(By.id("SiteName"),QUOTE_RanName);
-    utils.clickBtn(By.id("ShortName"));
-    utils.sendText(By.id("ShortName"),QUOTE_RanName);
-    utils.clickBtn(By.xpath("//input[@class='save_close']"));
-    utils.switchToParentWindow();
-}
-    public void onQuotePage() {
-        utils.waitForElementVisible(By.id(ORDER_QUOTE_DESCRIPTION_FIELD));
-        utils.clickBtn(By.id(ORDER_QUOTE_DESCRIPTION_FIELD));
-        QUOTE_RanName = utils.randomName();
-        utils.sendText(By.id(ORDER_QUOTE_DESCRIPTION_FIELD), QUOTE_RanName);
-        utils.selectByIndex(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY), 1);
-       addSiteFromQuotePage();
 
+    public void onQuotePage() throws InterruptedException {
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+       utils.sendText(By.xpath(ORDER_QUOTE_DESCRIPTION_FIELD),newBusinessCustomerPage.RanName);
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.selectByVisibleText(By.id("CompanyId"),newBusinessCustomerPage.RanName);
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
 
     }
 
-    public void assertQuotePageForAgentandReseller() {
+    public void assertQuotePageForAgentandReseller() throws InterruptedException {
         utils.searchAndAssertTextNotPresent(By.id(QUOTEBOX), "Select Owner");
         utils.searchAndAssertTextNotPresent(By.id(QUOTEBOX), "Select Team");
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
@@ -87,58 +80,72 @@ public void addSiteFromQuotePage(){
         utils.searchAndAssertTextPresent(By.id(QUOTEBOX), "Team");
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.jumpToPopUpWindow(By.id(ORDERS_SAVEQUOTE_BUTTON));
+        utils.jumpToParentPopUp();
         utils.getOrdersPage();
     }
 
     public void checkQuotesForAgent() {
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLity");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.searchAndAssertTextNotPresent(By.id(QUOTE), "aBILLity");
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.searchAndAssertTextNotPresent(By.id(QUOTE), "reseller");
     }
 
     public void checkQuoteForReseller() {
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLIty");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.searchAndAssertTextNotPresent(By.id(QUOTE), "aBILLIty");
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.searchAndAssertTextNotPresent(By.id(QUOTE), "agent");
     }
 
     public void checkQuotesForCP() {
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
-        utils.assertTheElementAndTextPresent(By.xpath(AGENT), "agent");
-        utils.searchAndAssertTextPresent(By.id(QUOTE), "agent");
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+        utils.assertTheElementAndTextPresent(By.xpath(AGENT), "agentCompany");
+        utils.searchAndAssertTextPresent(By.id(QUOTE), "agentCompany");
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.assertTheElementAndTextPresent(By.xpath(RESELLER), "reseller");
         utils.searchAndAssertTextPresent(By.id(QUOTE), "reseller");
     }
 
     public void assertQuote() {
-        utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), QUOTE_RanName);
+        utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), newBusinessCustomerPage.RanName);
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
-        utils.searchAndAssertTextPresent(By.id(QUOTE), QUOTE_RanName);
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+        utils.searchAndAssertTextPresent(By.id(QUOTE), newBusinessCustomerPage.RanName);
     }
 
     public void assertCompanyIsAccessibleFromCompanyAndSiteDropDown() {
+        utils.waitForElementVisible(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY));
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY), newBusinessCustomerPage.RanName);
+        utils.waitForElementVisible(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE));
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), utils.getProperty("shortName"));
     }
 
-    public void createQuote(String business_customer) {
-        utils.waitForElementVisible(By.id(ORDER_QUOTE_DESCRIPTION_FIELD));
-        utils.clickBtn(By.id(ORDER_QUOTE_DESCRIPTION_FIELD));
+    public void createQuote(String business_customer) throws InterruptedException {
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         QUOTE_RanName = utils.randomName();
-        utils.sendText(By.id(ORDER_QUOTE_DESCRIPTION_FIELD), QUOTE_RanName);
+        utils.sendText(By.xpath(ORDER_QUOTE_DESCRIPTION_FIELD), QUOTE_RanName);
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY), business_customer);
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), business_customer);
-        utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
-        utils.clickBtn(By.id(ORDERS_SAVEQUOTE_BUTTON));
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.jumpToPopUpWindow(By.id(ORDERS_SAVEQUOTE_BUTTON));
+        utils.jumpToParentPopUp();
         utils.getOrdersPage();
     }
 
@@ -151,17 +158,24 @@ public void addSiteFromQuotePage(){
         utils.searchAndAssertTextNotPresent(By.id(QUOTE), QUOTE_RanName);
     }
 
-    public void createQuote() {
-        utils.clickBtn(By.id(ORDER_QUOTE_DESCRIPTION_FIELD));
-        utils.sendText(By.id(ORDER_QUOTE_DESCRIPTION_FIELD), newBusinessCustomerPage.RanName);
+    public void createQuote() throws InterruptedException {
+
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.sendText(By.xpath(ORDER_QUOTE_DESCRIPTION_FIELD), newBusinessCustomerPage.RanName);
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY), newBusinessCustomerPage.RanName);
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), utils.getProperty("shortName"));
-        utils.clickBtn(By.id(ORDERS_SAVEQUOTE_BUTTON));
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.jumpToPopUpWindow(By.id(ORDERS_SAVEQUOTE_BUTTON));
+        utils.jumpToParentPopUp();
         utils.getOrdersPage();
     }
 
     public void searchQuoteByBcRN() {
-        utils.waitForElementVisible(By.cssSelector(CREATEQUOTE_BUTTON));
+        utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), newBusinessCustomerPage.RanName);
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
     }
@@ -179,20 +193,20 @@ public void addSiteFromQuotePage(){
     public void assertCPonlyValuePresent() {
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         commonMethods.search(utils.getProperty("serviceName_CustomService"));
-        utils.waitForElementVisible(By.xpath("//div[text()='customService']"));
-        utils.clickBtn(By.xpath("//div[text()='customService']"));
+        utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
-        utils.waitForElementVisible(By.xpath("//label[@for='Service_Details']"));
+        utils.waitForElementVisible(By.xpath(LABEL_WITHIN_A_SERVICE));
         utils.waitForElementVisible(By.xpath(CPONLY));
     }
 
     public void assertCPonlyValueNotPresent() {
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         commonMethods.search(utils.getProperty("serviceName_CustomService"));
-        utils.waitForElementVisible(By.xpath("//div[text()='customService']"));
+        utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
-        utils.waitForElementVisible(By.xpath("//label[@for='Service_Details']"));
+        utils.waitForElementVisible(By.xpath(LABEL_WITHIN_A_SERVICE));
         utils.assertElementNotPresent(By.xpath(CPONLY));
     }
 
@@ -241,12 +255,12 @@ public void addSiteFromQuotePage(){
         utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
     }
 
-    public void assertCustomer_InternalTabsPresent() {
+    public void assertCustomer_InternalTabsPresent() throws InterruptedException {
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.waitForElementVisible(By.id(CUSTOMER_RADIOBUTTON));
-        utils.clickBtn(By.id(CUSTOMER_RADIOBUTTON));
+       utils.clickBtnWithWait(By.id(CUSTOMER_RADIOBUTTON));
         utils.waitForElementVisible(By.id(INTERNAL_RADIOBUTTON));
-        utils.clickBtn(By.id(INTERNAL_RADIOBUTTON));
+        utils.clickBtnWithWait(By.id(INTERNAL_RADIOBUTTON));
     }
 
     public void assertCustomer_InternalTabsNotPresent() {
@@ -277,11 +291,12 @@ public void addSiteFromQuotePage(){
         utils.clickBtn(By.xpath(SERVICE_INVENTORY_MANAGER));
         utils.clickBtn(By.xpath(AGENT_AND_RESELLER_SERVICE));
         utils.switchToNewWindow();
+        utils.waitForElementVisible(By.id(ASSIGN_SERVICE_INVENTORY));
         utils.clickBtn(By.id(ASSIGN_SERVICE_INVENTORY));
     }
 
     public void makeSureAgentDoesNotHaveAgentAndResellerService() {
-        utils.waitForElementVisible(By.xpath("//span[text()='Assign Service']"));
+        utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         commonMethods.search("agent");
         utils.waitForElementVisible(By.xpath(AGENT_LINKTEXT));
         utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));

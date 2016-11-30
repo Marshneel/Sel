@@ -31,17 +31,16 @@ public class ElementUtils {
     public static ResultSet result;
 
 
-    public void assertElementPresent(By by){
-        WebElement element=driver.findElement(by);
-       WebDriverWait wait=new WebDriverWait(driver,100);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
-        Assert.assertTrue(element.isDisplayed());
+    public void waitForFieldToBePopulated(By by,String text){
+       WebDriverWait wait=new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.textToBe(by,text));
+
     }
 
 
     public WebDriverWait waitForSomeTime() {
         WebDriverWait wait;
-        wait = new WebDriverWait(driver,1000);
+        wait = new WebDriverWait(driver,100);
         return wait;
     }
 
@@ -49,7 +48,7 @@ public class ElementUtils {
     public void sendText(By by, String txt) {
         waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
         driver.findElement(by).click();
-        driver.findElement(by).clear();
+       driver.findElement(by).clear();
         driver.findElement(by).sendKeys(txt);
     }
 
@@ -122,6 +121,7 @@ public class ElementUtils {
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).sendKeys(Keys.ENTER);
     }
+
 
     //select data by visible text
     public void selectByVisibleText(By by, String text) {
@@ -264,7 +264,7 @@ public class ElementUtils {
 
 
     public void getOrdersPage() {
-        driver.get("http://test01-web01/Nxtiere2e/orders/ordersmanager");
+        driver.get("http://test01-web01/nxtiere2e/orders/ordersmanager");
     }
 
     public void assertElementNotPresent(By by) {
@@ -368,4 +368,7 @@ public class ElementUtils {
 
 
 
+
 }
+
+

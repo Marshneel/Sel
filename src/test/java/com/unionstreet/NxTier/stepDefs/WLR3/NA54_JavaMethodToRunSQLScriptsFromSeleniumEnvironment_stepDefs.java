@@ -16,7 +16,7 @@ public class NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs {
     NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
     @And("^create a new quote and add a service that contains a service charge$")
-    public void createANewQuoteAndAddAServiceThatContainsAServiceCharge() {
+    public void createANewQuoteAndAddAServiceThatContainsAServiceCharge() throws InterruptedException {
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
@@ -33,12 +33,12 @@ public class NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs {
 
     @And("^query the database$")
     public void queryTheDatabase() {
-        webModel.getUtils().sqlQuery("Nxtiere2e","autotest","test01-sql01","nxtiere2e","select sum(SellPrice) SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getOrdersManagerPage().getServiceOrderID() + "");
+        webModel.getUtils().sqlQuery("Nxtiere2e", "autotest", "test01-sql01", "nxtiere2e", "select sum(SellPrice) SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getOrdersManagerPage().getServiceOrderID() + "");
     }
 
     @Then("^the charge should be visible$")
     public void theChargeShouldBeVisible() throws SQLException {
-        webModel.getOrdersManagerPage().assertThereIsCharge("SellPrice",80.00);
+        webModel.getOrdersManagerPage().assertThereIsCharge("SellPrice", 80.00);
         webModel.getOrdersManagerPage().assertChargeOnGUI("£80.00");
     }
 
@@ -46,7 +46,7 @@ public class NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs {
     public void uponRemovingTheChargeTheChargeShouldDisappearFromTheBackend() {
         webModel.getAddServicePage().removingChargeOnTheQuote();
         webModel.getOrdersManagerPage().assertChargeOnGUI("£0.00");
-        webModel.getUtils().sqlQuery("Nxtiere2e","autotest","test01-sql01","nxtiere2e","select SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getOrdersManagerPage().getServiceOrderID() + "");
+        webModel.getUtils().sqlQuery("Nxtiere2e", "autotest", "test01-sql01", "nxtiere2e", "select SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getOrdersManagerPage().getServiceOrderID() + "");
         webModel.getOrdersManagerPage().assertThereIsNoCharge();
     }
 }

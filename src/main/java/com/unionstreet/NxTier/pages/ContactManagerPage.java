@@ -27,7 +27,7 @@ public class ContactManagerPage {
     }
 
     public void clickCompanySite() {
-       utils.waitForElementVisible(By.id(COMPANYSITES));
+        utils.waitForElementVisible(By.id(COMPANYSITES));
         utils.clickBtn(By.id(COMPANYSITES));
     }
 
@@ -62,8 +62,8 @@ public class ContactManagerPage {
     public void searchForBusinessCustomer(String customer_name) {
         utils.sendText(By.id(SEARCH_BUTTON), customer_name);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
-        utils.waitForElementVisible(By.xpath("//a[text()='"+customer_name+"']"));
-        utils.clickBtn(By.xpath("//a[text()='"+customer_name+"']"));
+        utils.waitForElementVisible(By.xpath("//a[text()='" + customer_name + "']"));
+        utils.clickBtn(By.xpath("//a[text()='" + customer_name + "']"));
         utils.switchToNewWindow();
     }
 

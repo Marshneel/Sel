@@ -23,7 +23,7 @@ public class NA44_Agent_Login_stepDefs {
     }
 
     @When("^I access create Quote window$")
-    public void iAccessCreateQuoteWindow() {
+    public void iAccessCreateQuoteWindow() throws InterruptedException {
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
     }
@@ -31,7 +31,6 @@ public class NA44_Agent_Login_stepDefs {
     @Then("^the newly created customer details should appear under the company and site drop downs$")
     public void theNewlyCreatedCustomerDetailsShouldAppearUnderTheCompanyAndSiteDropDowns() {
         webModel.getOrdersManagerPage().assertCompanyIsAccessibleFromCompanyAndSiteDropDown();
-
     }
 
     ////////////////////////////////////////two///////////////////////////////////////////////////////

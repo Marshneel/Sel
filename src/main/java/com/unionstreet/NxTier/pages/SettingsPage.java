@@ -49,7 +49,6 @@ public class SettingsPage {
     private final String WLR3_ORDERS_VIEW = "OrdersManager_Orders_WLR3Orders_view";
     private final String WLR3_ORDERS_ADD = "OrdersManager_Orders_WLR3Orders_add";
     private final String WLR3_ORDERS_EDIT = "OrdersManager_Orders_WLR3Orders_edit";
-    private final String WLR3_ORDERS_DELETE = "OrdersManager_Orders_WLR3Orders_delete";
     private final String ORDERSMANAGER_ORDERS = "//a[@href='#'][contains(text(),'Orders')]";
     private final String ORDERS_SELECTALL = "SelectAll_OrdersManager_Orders";
     private final String ORDERS_UNCHECK_QUICKQUOTE = "OrdersManager_Orders_QuickQuoteOnly_view";
@@ -78,6 +77,8 @@ public class SettingsPage {
     private final String ADDLOGINUSERS = "Add";
     private final String COMPANYCONTACTS_BUTTON = "HrefCompanyContacts";
     private final String ASSERTINGWLR3 = "//tr[@class='table_row_alt_subchild']/td[2][contains(text(),'WLR3 Quote')]";
+    public final String AWAITING_PROCESS="DivProgress";
+    private final String NO_RECORDS_UNDER_ORDERS="//td[text()='No Records']";
     private static String CP_RanName;
 
     ElementUtils utils = new ElementUtils();
@@ -85,6 +86,7 @@ public class SettingsPage {
     DashBoardPage dashBoardPage = new DashBoardPage();
     LoginPage loginPage = new LoginPage();
     CommonMethods commonMethods = new CommonMethods();
+
 
     public void clickSettingsButton() {
         utils.clickBtnWithWait(By.id(SETTINGS_BUTTON));
@@ -245,7 +247,7 @@ public class SettingsPage {
         utils.switchToNewWindow();
     }
 
-    public void loginAsReseller()  {
+    public void loginAsReseller() {
         dashBoardPage.logOut();
         utils.sendText(By.id(loginPage.USENAME_FIELD), newBusinessCustomerPage.RanName);
         utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
@@ -292,7 +294,7 @@ public class SettingsPage {
         utils.switchToParentWindow();
     }
 
-    public void loginAsCpUser()  {
+    public void loginAsCpUser() {
         dashBoardPage.logOut();
         utils.sendText(By.id(loginPage.USENAME_FIELD), CP_RanName);
         utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
@@ -315,9 +317,11 @@ public class SettingsPage {
 
     public void assertingWLROrdersWithOutRights() {
         commonMethods.search("WLR3");
-        utils.waitForElementVisible(By.xpath("//td[text()='No Records']"));
+        utils.waitForElementToVanish(By.id(AWAITING_PROCESS));
+        utils.waitForElementVisible(By.xpath(NO_RECORDS_UNDER_ORDERS));
         utils.searchAndAssertTextNotPresent(By.id(dashBoardPage.QUOTE), "WLR3 Quote");
-        utils.waitForElementVisible(By.xpath("//td[@colspan='9'][contains(text(),'No Record')]"));
+        utils.waitForElementToVanish(By.id(AWAITING_PROCESS));
+        utils.waitForElementVisible(By.xpath(NO_RECORDS_UNDER_ORDERS));
 
     }
 
@@ -333,7 +337,7 @@ public class SettingsPage {
     }
 
     public void issuingWLRPermissions() {
-       utils.waitForElementVisible(By.linkText("agent"));
+        utils.waitForElementVisible(By.linkText("agent"));
         utils.clickBtn(By.linkText("agent"));
         utils.switchToNewWindow();
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));

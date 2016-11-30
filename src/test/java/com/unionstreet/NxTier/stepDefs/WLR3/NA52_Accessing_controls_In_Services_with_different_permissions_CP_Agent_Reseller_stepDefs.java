@@ -9,11 +9,11 @@ import cucumber.api.java.en.Then;
  */
 public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_Agent_Reseller_stepDefs {
 
-    WebModel webModel=new WebModel();
+    WebModel webModel = new WebModel();
     NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
     @And("^create a new quote and access a service$")
-    public void createANewQuoteAndAccessAService() {
+    public void createANewQuoteAndAccessAService() throws InterruptedException {
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();

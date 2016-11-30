@@ -32,6 +32,8 @@ public class AddServicePage {
 
     public void addServiceToQuote(String serviceName) {
         utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+        commonMethods.search(serviceName);
+        utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
         utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
     }
 

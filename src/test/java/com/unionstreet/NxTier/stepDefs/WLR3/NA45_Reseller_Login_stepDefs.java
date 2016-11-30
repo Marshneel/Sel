@@ -32,7 +32,7 @@ public class NA45_Reseller_Login_stepDefs {
     }
 
     @Then("^The newly created site should appear under the site drop down$")
-    public void theNewlyCreatedSiteShouldAppearUnderTheSiteDropDown() {
+    public void theNewlyCreatedSiteShouldAppearUnderTheSiteDropDown() throws InterruptedException {
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getContactManagerPage().assertNewlyCreatedSiteByResellerOnQuotePage();
 
