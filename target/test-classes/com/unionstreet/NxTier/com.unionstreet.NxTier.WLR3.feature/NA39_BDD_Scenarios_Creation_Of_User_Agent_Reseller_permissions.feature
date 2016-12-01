@@ -1,3 +1,4 @@
+
 Feature: WLR3_permissions@smokePack
 
   @smokePack
@@ -26,7 +27,6 @@ Feature: WLR3_permissions@smokePack
     Then the CP permission should be available for selection under drop down during the CP creation
     And I should be able to login with CP credentials
 
-
   @smokePack
   Scenario: creating an order quote by logged in as an agent and verifying all required fields are visible on the quote screen
     Given I am logged in as agent
@@ -34,7 +34,7 @@ Feature: WLR3_permissions@smokePack
     When I access create Quote tab
     Then All required fields pertaining to an agent should be visible on the create quote window
     And Only the quotes created by me and the ones created for my company should be visible
-#
+
   @smokePack
   Scenario: creating an order quote by logged in as a reseller and verifying all required fields are visible on the quote screen
     Given I am logged in as reseller
@@ -50,10 +50,3 @@ Feature: WLR3_permissions@smokePack
     When I access create Quote tab
     Then All required fields pertaining to a CP should be visible on the create quote window
     And all the quotes including that of the resellers and agents should be visible
-
-
-#
-#
-#
-#
-

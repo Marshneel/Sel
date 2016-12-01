@@ -38,9 +38,9 @@ public class OrdersManagerPage {
     private final String AGENT_AND_RESELLER_SERVICE = "//a[text()='ServiceForAgent&Reseller']";
     private final String ASSIGN_SERVICE_INVENTORY = "HrefAssignServiceInventory";
     private final String AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER = "checkbox0";
-    private final String AGENT_LINKTEXT = "//a[@href='#'][contains(text(),'agent')]";
     private final String QUOTE_LINKTEST = ".box-title";
     private final String LABEL_WITHIN_A_SERVICE="//label[@for='Service_Details']";
+    private final String LOCATOR_FOR_BOX_HEADER="contentPanel";
 
     ElementUtils utils = new ElementUtils();
     ContactManagerPage contactManagerPage = new ContactManagerPage();
@@ -181,6 +181,7 @@ public class OrdersManagerPage {
     }
 
     public void clickOnQuoteID() {
+        utils.waitForElementVisible(By.xpath(QUOTEID));
         utils.clickBtn(By.xpath(QUOTEID));
         utils.switchToNewWindow();
     }
@@ -307,10 +308,11 @@ public class OrdersManagerPage {
         utils.clickBtn(By.id(ASSIGN_SERVICE_INVENTORY));
     }
 
+
     public void makeSureAgentDoesNotHaveAgentAndResellerService() {
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         commonMethods.search("agent");
-        utils.waitForElementVisible(By.xpath(AGENT_LINKTEXT));
+        utils.waitForElementVisible(By.id(LOCATOR_FOR_BOX_HEADER));
         utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
         utils.makeSureBoxIsUnChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
     }
@@ -333,7 +335,7 @@ public class OrdersManagerPage {
         companyMenuPage.clickConfigManager();
         accessingAssignServicePage();
         commonMethods.search("agent");
-        utils.waitForElementVisible(By.xpath(AGENT_LINKTEXT));
+        utils.waitForElementVisible(By.id(LOCATOR_FOR_BOX_HEADER));
         utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
         utils.makeSureBoxIsChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
     }

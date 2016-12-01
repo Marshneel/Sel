@@ -95,6 +95,7 @@ public class CompanyMenuPage {
         newBusinessCustomerPage.clickContactManagerButton();
         utils.sendText(By.id(SEARCH_BUTTON), NewBusinessCustomerPage.RanName);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
+        utils.waitForElementVisible(By.linkText(NewBusinessCustomerPage.RanName));
         utils.clickBtn(By.linkText(NewBusinessCustomerPage.RanName));
         utils.switchToNewWindow();
     }
