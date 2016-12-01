@@ -39,8 +39,8 @@ public class OrdersManagerPage {
     private final String ASSIGN_SERVICE_INVENTORY = "HrefAssignServiceInventory";
     private final String AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER = "checkbox0";
     private final String QUOTE_LINKTEST = ".box-title";
-    private final String LABEL_WITHIN_A_SERVICE="//label[@for='Service_Details']";
-    private final String LOCATOR_FOR_BOX_HEADER="contentPanel";
+    private final String LABEL_WITHIN_A_SERVICE = "//label[@for='Service_Details']";
+    private final String LOCATOR_FOR_BOX_HEADER = "contentPanel";
 
     ElementUtils utils = new ElementUtils();
     ContactManagerPage contactManagerPage = new ContactManagerPage();
@@ -49,19 +49,19 @@ public class OrdersManagerPage {
     DashBoardPage dashBoardPage = new DashBoardPage();
     LoginPage loginPage = new LoginPage();
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
-    SettingsPage settingsPage=new SettingsPage();
+    SettingsPage settingsPage = new SettingsPage();
 
     public void clickCreateQuoteButton() throws InterruptedException {
 
-      utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
+        utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
         utils.jumpToPopUpWindow(By.xpath(CREATEQUOTE_BUTTON));
     }
 
     public void onQuotePage() throws InterruptedException {
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
-       utils.sendText(By.xpath(ORDER_QUOTE_DESCRIPTION_FIELD),newBusinessCustomerPage.RanName);
+        utils.sendText(By.xpath(ORDER_QUOTE_DESCRIPTION_FIELD), newBusinessCustomerPage.RanName);
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
-        utils.selectByVisibleText(By.id("CompanyId"),newBusinessCustomerPage.RanName);
+        utils.selectByVisibleText(By.id("CompanyId"), newBusinessCustomerPage.RanName);
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
 
     }
@@ -72,7 +72,7 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.jumpToPopUpWindow(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.jumpToParentPopUp();
-       utils.getOrdersPage();
+        utils.getOrdersPage();
     }
 
     public void assertCPQuotePage() {
@@ -120,9 +120,7 @@ public class OrdersManagerPage {
     }
 
     public void assertQuote() {
-        utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), newBusinessCustomerPage.RanName);
-        utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
-        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+        utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
         utils.searchAndAssertTextPresent(By.id(QUOTE), newBusinessCustomerPage.RanName);
     }
 
@@ -246,6 +244,10 @@ public class OrdersManagerPage {
     public void savingQuoteAndExtractingOrderServiceID() {
         utils.switchToNewWindow();
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.waitForElementVisible(By.xpath(INVISIBLE_ORDER_SERVICESID));
         utils.getAttributeOfElement(By.xpath(INVISIBLE_ORDER_SERVICESID), "value");
     }
@@ -267,7 +269,7 @@ public class OrdersManagerPage {
         } catch (Exception e) {
         }
         utils.waitForElementVisible(By.id(CUSTOMER_RADIOBUTTON));
-       utils.clickBtnWithWait(By.id(CUSTOMER_RADIOBUTTON));
+        utils.clickBtnWithWait(By.id(CUSTOMER_RADIOBUTTON));
         utils.waitForElementVisible(By.id(INTERNAL_RADIOBUTTON));
         utils.clickBtnWithWait(By.id(INTERNAL_RADIOBUTTON));
     }
@@ -317,7 +319,7 @@ public class OrdersManagerPage {
         utils.makeSureBoxIsUnChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
     }
 
-    public void saveAssignServicePage()  {
+    public void saveAssignServicePage() {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
             utils.checkAlert();

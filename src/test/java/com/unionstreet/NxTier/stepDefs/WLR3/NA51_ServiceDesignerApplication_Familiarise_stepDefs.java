@@ -12,13 +12,17 @@ import cucumber.api.java.en.When;
 public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
 
     WebModel webModel = new WebModel();
-    NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs na_54 =
-            new NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs();
+    NA44_Agent_Login_stepDefs na44=new NA44_Agent_Login_stepDefs();
 
 
     @When("^I access add_view notes on edit order page$")
     public void iAccessAdd_viewNotesOnEditOrderPage() throws InterruptedException {
-        na_54.createANewQuoteAndAddAServiceThatContainsAServiceCharge();
+        na44.haveCreatedANewCustomer();
+        webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().createQuote();
+        webModel.getOrdersManagerPage().searchQuoteByBcRN();
+        webModel.getOrdersManagerPage().clickOnQuoteID();
         webModel.getOrdersManagerPage().accessAdd_ViewNotes();
     }
 

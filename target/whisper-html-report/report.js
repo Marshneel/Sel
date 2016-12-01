@@ -7,7 +7,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 8273432533,
+  "duration": 6800472312,
   "status": "passed"
 });
 formatter.scenario({
@@ -58,50 +58,50 @@ formatter.match({
   "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
 });
 formatter.result({
-  "duration": 4969722922,
+  "duration": 5155195949,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.haveAddedANewBusinessCustomerWithRequiredContactType()"
 });
 formatter.result({
-  "duration": 7100202316,
+  "duration": 7415817545,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.haveCreatedANewAgentPermissionGroup()"
 });
 formatter.result({
-  "duration": 18079856899,
+  "duration": 18833514860,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iWishToCreateAgentContactWithValidLoginCredentials()"
 });
 formatter.result({
-  "duration": 11080817463,
+  "duration": 15949598477,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderAgentUserCreation()"
 });
 formatter.result({
-  "duration": 4042723654,
+  "duration": 4087291760,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iShouldBeAbleToLoginWithAgentCredentials()"
 });
 formatter.result({
-  "duration": 8286711980,
+  "duration": 7155761360,
   "status": "passed"
 });
 formatter.after({
-  "duration": 2278213617,
+  "duration": 647491214,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5500017509,
+  "duration": 5653925361,
   "status": "passed"
 });
 formatter.scenario({
@@ -152,50 +152,50 @@ formatter.match({
   "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
 });
 formatter.result({
-  "duration": 4658789763,
+  "duration": 4206109753,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.haveAddedANewBusinessCustomerWithRequiredContactType()"
 });
 formatter.result({
-  "duration": 7529253423,
+  "duration": 7191875780,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.haveCreatedANewAgentPermissionGroup()"
 });
 formatter.result({
-  "duration": 19599130059,
+  "duration": 19620931717,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iWishToCreateABusinessResellerContactWithValidLoginCredentials()"
 });
 formatter.result({
-  "duration": 12797593037,
+  "duration": 11182297311,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderBusinessResellerContactCreation()"
 });
 formatter.result({
-  "duration": 4014534942,
+  "duration": 4317357345,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iShouldBeAbleToLoginWithResellerCredentials()"
 });
 formatter.result({
-  "duration": 20743415972,
+  "duration": 13938451168,
   "status": "passed"
 });
 formatter.after({
-  "duration": 502977385,
+  "duration": 506503578,
   "status": "passed"
 });
 formatter.before({
-  "duration": 6427038210,
+  "duration": 5638644186,
   "status": "passed"
 });
 formatter.scenario({
@@ -241,43 +241,43 @@ formatter.match({
   "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
 });
 formatter.result({
-  "duration": 4280494881,
+  "duration": 5552122206,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.haveCreatedANewCPPermissionGroupUnderSettings()"
 });
 formatter.result({
-  "duration": 19489169659,
+  "duration": 20044569615,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iWishToCreateNewCPUnderLoginUsersSubMenu()"
 });
 formatter.result({
-  "duration": 16597848301,
+  "duration": 13799937090,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.theCPPermissionShouldBeAvailableForSelectionUnderDropDownDuringTheCPCreation()"
 });
 formatter.result({
-  "duration": 4968263359,
+  "duration": 4494958399,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iShouldBeAbleToLoginWithCPCredentials()"
 });
 formatter.result({
-  "duration": 9188991070,
+  "duration": 9392652321,
   "status": "passed"
 });
 formatter.after({
-  "duration": 402044533,
+  "duration": 553444717,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5126860526,
+  "duration": 7001244627,
   "status": "passed"
 });
 formatter.scenario({
@@ -323,43 +323,43 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent()"
 });
 formatter.result({
-  "duration": 4141110197,
+  "duration": 5184926334,
   "status": "passed"
 });
 formatter.match({
   "location": "NA44_Agent_Login_stepDefs.haveCreatedANewCustomer()"
 });
 formatter.result({
-  "duration": 6473181494,
+  "duration": 7094022649,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAccessCreateQuoteTab()"
 });
 formatter.result({
-  "duration": 7710103549,
+  "duration": 7998458329,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.allRequiredFieldsPertainingToAnAgentShouldBeVisibleOnTheCreateQuoteWindow()"
 });
 formatter.result({
-  "duration": 6755700744,
+  "duration": 6741297721,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.onlyTheQuotesCreatedByMeAndTheOnesCreatedForMyCompanyShouldBeVisible()"
 });
 formatter.result({
-  "duration": 3013205790,
+  "duration": 2937081565,
   "status": "passed"
 });
 formatter.after({
-  "duration": 447098657,
+  "duration": 445047421,
   "status": "passed"
 });
 formatter.before({
-  "duration": 11220405610,
+  "duration": 6295644438,
   "status": "passed"
 });
 formatter.scenario({
@@ -405,43 +405,43 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller()"
 });
 formatter.result({
-  "duration": 10093455427,
+  "duration": 9847662196,
   "status": "passed"
 });
 formatter.match({
   "location": "NA44_Agent_Login_stepDefs.haveCreatedANewCustomer()"
 });
 formatter.result({
-  "duration": 6325540551,
+  "duration": 7460172527,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAccessCreateQuoteTab()"
 });
 formatter.result({
-  "duration": 7355821554,
+  "duration": 8139688369,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.allRequiredFieldsPertainingToAResellerShouldBeVisibleOnTheCreateQuoteWindow()"
 });
 formatter.result({
-  "duration": 6387912896,
+  "duration": 5988432784,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.onlyTheQuotesCreatedByMeAndTheOnesCreatedForCompaniesUnderMyContactListShouldBeVisible()"
 });
 formatter.result({
-  "duration": 3271259642,
+  "duration": 2762203114,
   "status": "passed"
 });
 formatter.after({
-  "duration": 400862394,
+  "duration": 471577939,
   "status": "passed"
 });
 formatter.before({
-  "duration": 4909258120,
+  "duration": 5656615664,
   "status": "passed"
 });
 formatter.scenario({
@@ -487,39 +487,39 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsCP()"
 });
 formatter.result({
-  "duration": 9338744831,
+  "duration": 10080752560,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
 });
 formatter.result({
-  "duration": 12645499750,
+  "duration": 7602924919,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAccessCreateQuoteTab()"
 });
 formatter.result({
-  "duration": 6766058954,
+  "duration": 8157799615,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.allRequiredFieldsPertainingToACPShouldBeVisibleOnTheCreateQuoteWindow()"
 });
 formatter.result({
-  "duration": 6478581119,
+  "duration": 6235593204,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.allTheQuotesIncludingThatOfTheResellersAndAgentsShouldBeVisible()"
 });
 formatter.result({
-  "duration": 19721903208,
+  "duration": 14490625296,
   "status": "passed"
 });
 formatter.after({
-  "duration": 428277101,
+  "duration": 503515929,
   "status": "passed"
 });
 formatter.uri("com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA44_Agent_Login.feature");
@@ -531,7 +531,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5190589795,
+  "duration": 5375247461,
   "status": "passed"
 });
 formatter.scenario({
@@ -572,32 +572,32 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent()"
 });
 formatter.result({
-  "duration": 4654397794,
+  "duration": 4402124832,
   "status": "passed"
 });
 formatter.match({
   "location": "NA44_Agent_Login_stepDefs.haveCreatedANewCustomer()"
 });
 formatter.result({
-  "duration": 6844107929,
+  "duration": 6976742403,
   "status": "passed"
 });
 formatter.match({
   "location": "NA44_Agent_Login_stepDefs.iAccessCreateQuoteWindow()"
 });
 formatter.result({
-  "duration": 5755324609,
+  "duration": 6203552577,
   "status": "passed"
 });
 formatter.match({
   "location": "NA44_Agent_Login_stepDefs.theNewlyCreatedCustomerDetailsShouldAppearUnderTheCompanyAndSiteDropDowns()"
 });
 formatter.result({
-  "duration": 1297763293,
+  "duration": 879953680,
   "status": "passed"
 });
 formatter.after({
-  "duration": 466693312,
+  "duration": 419325927,
   "status": "passed"
 });
 formatter.scenarioOutline({
@@ -658,7 +658,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 5028867930,
+  "duration": 5581952209,
   "status": "passed"
 });
 formatter.scenario({
@@ -711,7 +711,7 @@ formatter.match({
   "location": "NA44_Agent_Login_stepDefs.iAmLoggedInAsAnAgentAfterTheCPHasCreatedAQuoteForAAssignedToMe(String)"
 });
 formatter.result({
-  "duration": 17483748903,
+  "duration": 15007097968,
   "status": "passed"
 });
 formatter.match({
@@ -724,25 +724,25 @@ formatter.match({
   "location": "NA44_Agent_Login_stepDefs.aQuoteBeenCreatedForMyByACP(String)"
 });
 formatter.result({
-  "duration": 16274246990,
+  "duration": 16168087186,
   "status": "passed"
 });
 formatter.match({
   "location": "NA44_Agent_Login_stepDefs.iAccessOrdersManager()"
 });
 formatter.result({
-  "duration": 9967858546,
+  "duration": 11051448725,
   "status": "passed"
 });
 formatter.match({
   "location": "NA44_Agent_Login_stepDefs.iShouldNotSeeThatParticularQuote()"
 });
 formatter.result({
-  "duration": 1082065411,
+  "duration": 1341033642,
   "status": "passed"
 });
 formatter.after({
-  "duration": 424894299,
+  "duration": 469727148,
   "status": "passed"
 });
 formatter.uri("com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA45_Reseller_Login.feature");
@@ -754,7 +754,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 6147480044,
+  "duration": 6501322812,
   "status": "passed"
 });
 formatter.scenario({
@@ -795,32 +795,32 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller()"
 });
 formatter.result({
-  "duration": 5793052848,
+  "duration": 4539336324,
   "status": "passed"
 });
 formatter.match({
   "location": "NA45_Reseller_Login_stepDefs.haveCreatedANewSiteForACompany()"
 });
 formatter.result({
-  "duration": 13660568103,
+  "duration": 13540664268,
   "status": "passed"
 });
 formatter.match({
   "location": "NA45_Reseller_Login_stepDefs.iAccessCreateQuoteTabAndSelectTheAboveCompanyFromTheCompanyDropdown()"
 });
 formatter.result({
-  "duration": 9253696298,
+  "duration": 8204157532,
   "status": "passed"
 });
 formatter.match({
   "location": "NA45_Reseller_Login_stepDefs.theNewlyCreatedSiteShouldAppearUnderTheSiteDropDown()"
 });
 formatter.result({
-  "duration": 1890843491,
+  "duration": 1496211177,
   "status": "passed"
 });
 formatter.after({
-  "duration": 426931648,
+  "duration": 499102226,
   "status": "passed"
 });
 formatter.uri("com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA47_WLR3_Permissions_For_Agent_Reseller.feature");
@@ -832,7 +832,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 4966931491,
+  "duration": 5358903086,
   "status": "passed"
 });
 formatter.scenario({
@@ -873,36 +873,36 @@ formatter.match({
   "location": "NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs.cpHasRevokedMyWLROrderPermissions()"
 });
 formatter.result({
-  "duration": 13575623416,
+  "duration": 18410121480,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent()"
 });
 formatter.result({
-  "duration": 3617183646,
+  "duration": 3518947135,
   "status": "passed"
 });
 formatter.match({
   "location": "NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs.iShouldNotBeAbleToSeeAndEditThem()"
 });
 formatter.result({
-  "duration": 7907564002,
+  "duration": 7895692194,
   "status": "passed"
 });
 formatter.match({
   "location": "NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs.theOrdersAreVisibleAndEditableOnceTheCPIssuesTheOrdersBack()"
 });
 formatter.result({
-  "duration": 44397383293,
+  "duration": 41291418199,
   "status": "passed"
 });
 formatter.after({
-  "duration": 443576690,
+  "duration": 565103702,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5463885580,
+  "duration": 4975664410,
   "status": "passed"
 });
 formatter.scenario({
@@ -943,32 +943,32 @@ formatter.match({
   "location": "NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs.cpHasRevokedMyWLROrderPermissions()"
 });
 formatter.result({
-  "duration": 18391265813,
+  "duration": 12952758194,
   "status": "passed"
 });
 formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller()"
 });
 formatter.result({
-  "duration": 3577621521,
+  "duration": 3725462607,
   "status": "passed"
 });
 formatter.match({
   "location": "NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs.iShouldNotBeAbleToSeeAndEditThem()"
 });
 formatter.result({
-  "duration": 7998532590,
+  "duration": 7884187768,
   "status": "passed"
 });
 formatter.match({
   "location": "NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs.theOrdersAreVisibleAndEditableOnceTheCPIssuesTheOrdersBackResellerRights()"
 });
 formatter.result({
-  "duration": 45115716538,
+  "duration": 39667839649,
   "status": "passed"
 });
 formatter.after({
-  "duration": 461473303,
+  "duration": 427414345,
   "status": "passed"
 });
 formatter.uri("com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature");
@@ -980,7 +980,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 4981109315,
+  "duration": 5259769102,
   "status": "passed"
 });
 formatter.scenario({
@@ -1021,36 +1021,36 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsCP()"
 });
 formatter.result({
-  "duration": 4087992108,
+  "duration": 3726612144,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.haveCreatedAQuote()"
 });
 formatter.result({
-  "duration": 20117205985,
+  "duration": 19377938670,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.iAddAServiceFromTheQuoteDetailsPage()"
 });
 formatter.result({
-  "duration": 2752421786,
+  "duration": 8589168814,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.theControlThatIsCPOnlyShouldBeVisible()"
 });
 formatter.result({
-  "duration": 6333344301,
+  "duration": 2188886924,
   "status": "passed"
 });
 formatter.after({
-  "duration": 592807304,
+  "duration": 430605457,
   "status": "passed"
 });
 formatter.before({
-  "duration": 4914893205,
+  "duration": 5268420818,
   "status": "passed"
 });
 formatter.scenario({
@@ -1091,36 +1091,36 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent()"
 });
 formatter.result({
-  "duration": 4086988074,
+  "duration": 3681938382,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.haveCreatedAQuote()"
 });
 formatter.result({
-  "duration": 21385631029,
+  "duration": 20186519626,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.iAddAServiceFromTheQuoteDetailsPage()"
 });
 formatter.result({
-  "duration": 9436035268,
+  "duration": 10082129711,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.theControlThatIsCPOnlyShouldBeInvisible()"
 });
 formatter.result({
-  "duration": 2372667343,
+  "duration": 1713326962,
   "status": "passed"
 });
 formatter.after({
-  "duration": 517591720,
+  "duration": 486147294,
   "status": "passed"
 });
 formatter.before({
-  "duration": 4894888303,
+  "duration": 5073694137,
   "status": "passed"
 });
 formatter.scenario({
@@ -1161,36 +1161,36 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller()"
 });
 formatter.result({
-  "duration": 4392588022,
+  "duration": 3982766303,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.haveCreatedAQuote()"
 });
 formatter.result({
-  "duration": 23847725891,
+  "duration": 20148023116,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.iAddAServiceFromTheQuoteDetailsPage()"
 });
 formatter.result({
-  "duration": 2995070092,
+  "duration": 9987595988,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.theControlThatIsCPOnlyShouldBeInvisible()"
 });
 formatter.result({
-  "duration": 6775094351,
+  "duration": 1673066903,
   "status": "passed"
 });
 formatter.after({
-  "duration": 551732184,
+  "duration": 510904602,
   "status": "passed"
 });
 formatter.before({
-  "duration": 4974527552,
+  "duration": 5341056886,
   "status": "passed"
 });
 formatter.scenario({
@@ -1236,43 +1236,43 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsCP()"
 });
 formatter.result({
-  "duration": 5576124225,
+  "duration": 3932055359,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.haveCreatedAQuote()"
 });
 formatter.result({
-  "duration": 19640746136,
+  "duration": 19573429092,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.iAccessQuoteDetailsAndAddAServiceWithoutSelectingTheMandatoryControl()"
 });
 formatter.result({
-  "duration": 12376931617,
+  "duration": 11366951958,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.theQuoteShouldBecomeInvalid()"
 });
 formatter.result({
-  "duration": 942896869,
+  "duration": 927708974,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.whenIAddTheOmittedControlTheQuoteShouldBecomeValid()"
 });
 formatter.result({
-  "duration": 4841115751,
+  "duration": 4982499446,
   "status": "passed"
 });
 formatter.after({
-  "duration": 587828794,
+  "duration": 466381476,
   "status": "passed"
 });
 formatter.before({
-  "duration": 6062096734,
+  "duration": 5262681585,
   "status": "passed"
 });
 formatter.scenario({
@@ -1318,43 +1318,43 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent()"
 });
 formatter.result({
-  "duration": 5102433167,
+  "duration": 3891290869,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.haveCreatedAQuote()"
 });
 formatter.result({
-  "duration": 21756027372,
+  "duration": 20236803720,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.iAccessQuoteDetailsAndAddAServiceWithoutSelectingTheMandatoryControl()"
 });
 formatter.result({
-  "duration": 13745851493,
+  "duration": 12092280533,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.theQuoteShouldBecomeInvalid()"
 });
 formatter.result({
-  "duration": 1053154616,
+  "duration": 1039995013,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.whenIAddTheOmittedControlTheQuoteShouldBecomeValid()"
 });
 formatter.result({
-  "duration": 6390626444,
+  "duration": 4995758366,
   "status": "passed"
 });
 formatter.after({
-  "duration": 558054035,
+  "duration": 599646264,
   "status": "passed"
 });
 formatter.before({
-  "duration": 6877895200,
+  "duration": 5271877881,
   "status": "passed"
 });
 formatter.scenario({
@@ -1400,39 +1400,39 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller()"
 });
 formatter.result({
-  "duration": 4541879915,
+  "duration": 4834082384,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.haveCreatedAQuote()"
 });
 formatter.result({
-  "duration": 22477258306,
+  "duration": 21113337769,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.iAccessQuoteDetailsAndAddAServiceWithoutSelectingTheMandatoryControl()"
 });
 formatter.result({
-  "duration": 13504855948,
+  "duration": 10208870091,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.theQuoteShouldBecomeInvalid()"
 });
 formatter.result({
-  "duration": 1232330246,
+  "duration": 1100823573,
   "status": "passed"
 });
 formatter.match({
   "location": "NA49_OrderServiceAutomation_stepDefs.whenIAddTheOmittedControlTheQuoteShouldBecomeValid()"
 });
 formatter.result({
-  "duration": 5529260668,
+  "duration": 4781244434,
   "status": "passed"
 });
 formatter.after({
-  "duration": 542346009,
+  "duration": 446202694,
   "status": "passed"
 });
 formatter.uri("com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA51_Service Designer application_Familiarise.feature");
@@ -1444,7 +1444,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5377176438,
+  "duration": 5469801409,
   "status": "passed"
 });
 formatter.scenario({
@@ -1480,29 +1480,29 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsCP()"
 });
 formatter.result({
-  "duration": 5787143660,
+  "duration": 3917562378,
   "status": "passed"
 });
 formatter.match({
   "location": "NA51_ServiceDesignerApplication_Familiarise_stepDefs.iAccessAdd_viewNotesOnEditOrderPage()"
 });
 formatter.result({
-  "duration": 29838423939,
+  "duration": 29372394750,
   "status": "passed"
 });
 formatter.match({
   "location": "NA51_ServiceDesignerApplication_Familiarise_stepDefs.customerAndInternalTabsShouldBePresentAndAccessible()"
 });
 formatter.result({
-  "duration": 3185969611,
+  "duration": 3054516370,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1005459697,
+  "duration": 745415285,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5592411848,
+  "duration": 5301964477,
   "status": "passed"
 });
 formatter.scenario({
@@ -1538,29 +1538,29 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller()"
 });
 formatter.result({
-  "duration": 4395577482,
+  "duration": 4598547140,
   "status": "passed"
 });
 formatter.match({
   "location": "NA51_ServiceDesignerApplication_Familiarise_stepDefs.iAccessAdd_viewNotesOnEditOrderPage()"
 });
 formatter.result({
-  "duration": 32660791188,
+  "duration": 31428243895,
   "status": "passed"
 });
 formatter.match({
   "location": "NA51_ServiceDesignerApplication_Familiarise_stepDefs.customerAndInternalTabsShouldBeAbsent()"
 });
 formatter.result({
-  "duration": 2721833476,
+  "duration": 2770005657,
   "status": "passed"
 });
 formatter.after({
-  "duration": 542173337,
+  "duration": 493131757,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5405433374,
+  "duration": 5024125485,
   "status": "passed"
 });
 formatter.scenario({
@@ -1596,29 +1596,29 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent()"
 });
 formatter.result({
-  "duration": 4059843243,
+  "duration": 3832851039,
   "status": "passed"
 });
 formatter.match({
   "location": "NA51_ServiceDesignerApplication_Familiarise_stepDefs.iAccessAdd_viewNotesOnEditOrderPage()"
 });
 formatter.result({
-  "duration": 31173142976,
+  "duration": 32181162566,
   "status": "passed"
 });
 formatter.match({
   "location": "NA51_ServiceDesignerApplication_Familiarise_stepDefs.customerAndInternalTabsShouldBeAbsent()"
 });
 formatter.result({
-  "duration": 2733725810,
+  "duration": 2719796730,
   "status": "passed"
 });
 formatter.after({
-  "duration": 488830051,
+  "duration": 489403008,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5153378063,
+  "duration": 5716373778,
   "status": "passed"
 });
 formatter.scenario({
@@ -1659,32 +1659,32 @@ formatter.match({
   "location": "NA51_ServiceDesignerApplication_Familiarise_stepDefs.iAmLoggedInAsAgentAndThereIsAServiceUnassignedToMe()"
 });
 formatter.result({
-  "duration": 17132095931,
+  "duration": 23291426350,
   "status": "passed"
 });
 formatter.match({
   "location": "NA51_ServiceDesignerApplication_Familiarise_stepDefs.iAccessTheServicesPage()"
 });
 formatter.result({
-  "duration": 9099411707,
+  "duration": 9053416039,
   "status": "passed"
 });
 formatter.match({
   "location": "NA51_ServiceDesignerApplication_Familiarise_stepDefs.iShouldNotBeAbleToSeeThatParticularService()"
 });
 formatter.result({
-  "duration": 23894854,
+  "duration": 128476459,
   "status": "passed"
 });
 formatter.match({
   "location": "NA51_ServiceDesignerApplication_Familiarise_stepDefs.iShouldBeAbleToSeeTheServiceOnceCPAssignsItToMe()"
 });
 formatter.result({
-  "duration": 27414035883,
+  "duration": 30247887937,
   "status": "passed"
 });
 formatter.after({
-  "duration": 446507587,
+  "duration": 611196876,
   "status": "passed"
 });
 formatter.uri("com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA52_Accessing_controls_In_Services_with_different_permissions_CP_Agent_Reseller.feature");
@@ -1696,7 +1696,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5377389260,
+  "duration": 5336231427,
   "status": "passed"
 });
 formatter.scenario({
@@ -1732,29 +1732,29 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsCP()"
 });
 formatter.result({
-  "duration": 4118123985,
+  "duration": 3840233976,
   "status": "passed"
 });
 formatter.match({
   "location": "NA52_Accessing_controls_In_Services_with_different_permissions_CP_Agent_Reseller_stepDefs.createANewQuoteAndAccessAService()"
 });
 formatter.result({
-  "duration": 29864913703,
+  "duration": 33242272775,
   "status": "passed"
 });
 formatter.match({
   "location": "NA52_Accessing_controls_In_Services_with_different_permissions_CP_Agent_Reseller_stepDefs.theCPOnlyControlShouldBeVisibleAndAccessible()"
 });
 formatter.result({
-  "duration": 700869217,
+  "duration": 718845525,
   "status": "passed"
 });
 formatter.after({
-  "duration": 505504978,
+  "duration": 629766066,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5378961118,
+  "duration": 5174586236,
   "status": "passed"
 });
 formatter.scenario({
@@ -1790,29 +1790,29 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent()"
 });
 formatter.result({
-  "duration": 4370097488,
+  "duration": 3636975426,
   "status": "passed"
 });
 formatter.match({
   "location": "NA52_Accessing_controls_In_Services_with_different_permissions_CP_Agent_Reseller_stepDefs.createANewQuoteAndAccessAService()"
 });
 formatter.result({
-  "duration": 31830527513,
+  "duration": 25523909343,
   "status": "passed"
 });
 formatter.match({
   "location": "NA52_Accessing_controls_In_Services_with_different_permissions_CP_Agent_Reseller_stepDefs.theCPOnlyControlShouldBeInvisible()"
 });
 formatter.result({
-  "duration": 1584480405,
+  "duration": 7311561964,
   "status": "passed"
 });
 formatter.after({
-  "duration": 586049849,
+  "duration": 556244600,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5203068672,
+  "duration": 5253520004,
   "status": "passed"
 });
 formatter.scenario({
@@ -1848,25 +1848,25 @@ formatter.match({
   "location": "NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller()"
 });
 formatter.result({
-  "duration": 4200076494,
+  "duration": 3734887120,
   "status": "passed"
 });
 formatter.match({
   "location": "NA52_Accessing_controls_In_Services_with_different_permissions_CP_Agent_Reseller_stepDefs.createANewQuoteAndAccessAService()"
 });
 formatter.result({
-  "duration": 34015075297,
+  "duration": 32382962461,
   "status": "passed"
 });
 formatter.match({
   "location": "NA52_Accessing_controls_In_Services_with_different_permissions_CP_Agent_Reseller_stepDefs.theCPOnlyControlShouldBeInvisible()"
 });
 formatter.result({
-  "duration": 1658688936,
+  "duration": 1547740200,
   "status": "passed"
 });
 formatter.after({
-  "duration": 581295934,
+  "duration": 577498055,
   "status": "passed"
 });
 formatter.uri("com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature");
@@ -1878,7 +1878,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 4948730287,
+  "duration": 5470814499,
   "status": "passed"
 });
 formatter.scenario({
@@ -1914,25 +1914,25 @@ formatter.match({
   "location": "NxTier_smokePack_stepDefs.iAmOnLoginPage()"
 });
 formatter.result({
-  "duration": 18693561,
+  "duration": 19949056,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.iEnterValidUsernameAndPassword()"
 });
 formatter.result({
-  "duration": 4046758505,
+  "duration": 3863820919,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.LoginIsSuccessful()"
 });
 formatter.result({
-  "duration": 3123934460,
+  "duration": 2619580528,
   "status": "passed"
 });
 formatter.after({
-  "duration": 665199458,
+  "duration": 596341345,
   "status": "passed"
 });
 formatter.scenarioOutline({
@@ -1990,7 +1990,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 5323425621,
+  "duration": 5597930109,
   "status": "passed"
 });
 formatter.scenario({
@@ -2030,7 +2030,7 @@ formatter.match({
   "location": "NxTier_smokePack_stepDefs.iAmOnLoginPage()"
 });
 formatter.result({
-  "duration": 19612767,
+  "duration": 17364711,
   "status": "passed"
 });
 formatter.match({
@@ -2047,22 +2047,22 @@ formatter.match({
   "location": "NxTier_smokePack_stepDefs.iEnterInvalidAnd(String,String)"
 });
 formatter.result({
-  "duration": 1117662721,
+  "duration": 1112909410,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.TheLoginShouldFail()"
 });
 formatter.result({
-  "duration": 24717461,
+  "duration": 20423300,
   "status": "passed"
 });
 formatter.after({
-  "duration": 434671703,
+  "duration": 444257416,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5280265457,
+  "duration": 5499122754,
   "status": "passed"
 });
 formatter.scenario({
@@ -2103,36 +2103,36 @@ formatter.match({
   "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
 });
 formatter.result({
-  "duration": 3981050450,
+  "duration": 4073846282,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.iAccessAddNewBusinessCustomerPage()"
 });
 formatter.result({
-  "duration": 3108329072,
+  "duration": 3725665164,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.provideAllTheRequiredInfo()"
 });
 formatter.result({
-  "duration": 4285427808,
+  "duration": 4239143244,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.aNewCustomerShouldBeSuccessfullyCreated()"
 });
 formatter.result({
-  "duration": 5433505261,
+  "duration": 5370239971,
   "status": "passed"
 });
 formatter.after({
-  "duration": 478758319,
+  "duration": 445192925,
   "status": "passed"
 });
 formatter.before({
-  "duration": 4936915232,
+  "duration": 4863761751,
   "status": "passed"
 });
 formatter.scenario({
@@ -2223,36 +2223,36 @@ formatter.match({
   "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
 });
 formatter.result({
-  "duration": 5741535295,
+  "duration": 4651903709,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
 });
 formatter.result({
-  "duration": 8926694978,
+  "duration": 7609199074,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.iAccessCLIsAndServiceChargesSectionUnderCompanyMenuAndProvideAllRequiredInfo()"
 });
 formatter.result({
-  "duration": 29987933182,
+  "duration": 28365093922,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.clisAndServiceChargesOfThatParticularCustomerShouldBeUpdatedRespectively()"
 });
 formatter.result({
-  "duration": 8137129381,
+  "duration": 8126487711,
   "status": "passed"
 });
 formatter.after({
-  "duration": 410953747,
+  "duration": 422670995,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5274475207,
+  "duration": 4699401504,
   "status": "passed"
 });
 formatter.scenario({
@@ -2293,32 +2293,32 @@ formatter.match({
   "location": "NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin()"
 });
 formatter.result({
-  "duration": 3955899800,
+  "duration": 5636620723,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.iHaveAddedANewBusinessCustomer()"
 });
 formatter.result({
-  "duration": 7320807465,
+  "duration": 7192478321,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.iAccessPricingDetailsUnderCompanyMenuAndProvideAllRequiredInfo()"
 });
 formatter.result({
-  "duration": 10691491193,
+  "duration": 11179764586,
   "status": "passed"
 });
 formatter.match({
   "location": "NxTier_smokePack_stepDefs.pricingDetailsOfThatParticularCustomerShouldBeUpdated()"
 });
 formatter.result({
-  "duration": 2655368924,
+  "duration": 2610202201,
   "status": "passed"
 });
 formatter.after({
-  "duration": 580887498,
+  "duration": 535517313,
   "status": "passed"
 });
 });

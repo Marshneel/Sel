@@ -14,12 +14,16 @@ import java.sql.SQLException;
 public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
     WebModel webModel = new WebModel();
 
-    NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs na_54
-            = new NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs();
+    NA44_Agent_Login_stepDefs na44=new NA44_Agent_Login_stepDefs();
 
     @And("^I create a new quote and add a service with addOnActivation charge$")
     public void iCreateANewQuoteAndAddAServiceWithAddOnActivationCharge() throws InterruptedException {
-        na_54.createANewQuoteAndAddAServiceThatContainsAServiceCharge();
+        na44.haveCreatedANewCustomer();
+        webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().createQuote();
+        webModel.getOrdersManagerPage().searchQuoteByBcRN();
+        webModel.getOrdersManagerPage().clickOnQuoteID();
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("addOnActivationCharge");
         webModel.getOrdersManagerPage().savingQuoteAndExtractingOrderServiceID();
@@ -35,4 +39,6 @@ public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
         webModel.getOrdersManagerPage().assertThereIsCharge("SellPrice", 80.00);
         webModel.getOrdersManagerPage().assertChargeOnGUI("£80.00");
     }
+
+
 }

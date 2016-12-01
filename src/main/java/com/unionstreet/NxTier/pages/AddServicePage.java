@@ -8,8 +8,7 @@ import org.openqa.selenium.By;
  */
 public class AddServicePage {
     private final String SERVICE_ON_QUOTE_PAGE = "//a[text()='customService']";
-    private final String SERVICE_CHARGES_CHECKBOX = "Checkbox0";
-    private final String TEXT_ON_THE_SELECTQUOTE_PAGE = "//input[@onclick='ShowSiteSelectionPopup();']";
+
 
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
@@ -43,28 +42,6 @@ public class AddServicePage {
 
     public void clickAddAProductOrService() {
         utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-    }
-
-    public void addingChargeOnTheQuote(String serviceName) {
-        utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-        utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
-        utils.switchToNewWindow();
-        utils.javaScriptExecutorClick(By.id(SERVICE_CHARGES_CHECKBOX));
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.waitForElementVisible(By.xpath(ordersManagerPage.INVISIBLE_ORDER_SERVICESID));
-    }
-
-    public void searchAndAddService(String service) {
-        utils.waitForElementVisible(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-        utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-        utils.waitForElementVisible(By.xpath(TEXT_ON_THE_SELECTQUOTE_PAGE));
-        utils.jumpToPopUpWindow(By.xpath("//div[text()='" + service + "']"));
-    }
-
-    public void removingChargeOnTheQuote() {
-        utils.waitForElementVisible(By.id(SERVICE_CHARGES_CHECKBOX));
-        utils.javaScriptExecutorClick(By.id(SERVICE_CHARGES_CHECKBOX));
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
     }
 
     public void assertServicePresent(String serviceName) {

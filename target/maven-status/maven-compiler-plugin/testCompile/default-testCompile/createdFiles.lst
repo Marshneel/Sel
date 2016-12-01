@@ -6,6 +6,5 @@ com\unionstreet\NxTier\stepDefs\smokePack\NxTier_smokePack_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA49_OrderServiceAutomation_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs.class
 RunnerTest.class
-com\unionstreet\NxTier\stepDefs\WLR3\NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA44_Agent_Login_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.class

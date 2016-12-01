@@ -12,7 +12,7 @@ public class DashBoardPage {
     public final String LOGOUT_BUTTON = ".logout";
     public final String QUOTE = "bodyContent";
     private final String ORDERSMANAGER_BUTTON = "HrefOrdersManager";
-    private final String CREATEQUOTE_BUTTON="//a[@href='#'][contains(@onclick,'OpenStartQuote')]";
+    private final String CREATEQUOTE_BUTTON = "//a[@href='#'][contains(@onclick,'OpenStartQuote')]";
     ElementUtils utils = new ElementUtils();
 
     public void assertLogin() {
