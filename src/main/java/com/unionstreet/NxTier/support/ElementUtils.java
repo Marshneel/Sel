@@ -38,9 +38,11 @@ public class ElementUtils {
     }
 
 
-    public WebDriverWait waitForSomeTime() {
-        WebDriverWait wait;
-        wait = new WebDriverWait(driver,100);
+    public Wait waitForSomeTime() {
+        Wait wait = new FluentWait(driver)
+         .withTimeout(50, SECONDS)
+                .pollingEvery(3, SECONDS)
+                .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
         return wait;
     }
 
@@ -55,7 +57,7 @@ public class ElementUtils {
     //method to click button with fluent wait
     public void clickBtnWithWait(By by) {
         Wait wait = new FluentWait(driver)
-                .withTimeout(30, SECONDS)
+                .withTimeout(50, SECONDS)
                 .pollingEvery(5, SECONDS)
                 .ignoring(NoSuchElementException.class);
         wait.until(ExpectedConditions.elementToBeClickable(by));
@@ -167,7 +169,7 @@ public class ElementUtils {
 
     public void jumpToPopUpWindow(By by) {
         Set parentWindow = driver.getWindowHandles();
-        driver.findElement(by).click();
+       clickBtnWithWait(by);
         Set afterPopup = driver.getWindowHandles();
         afterPopup.removeAll(parentWindow);
         if (afterPopup.size() == 1) {

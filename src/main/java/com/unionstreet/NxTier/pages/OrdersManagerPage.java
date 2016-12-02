@@ -70,6 +70,7 @@ public class OrdersManagerPage {
         utils.searchAndAssertTextNotPresent(By.id(QUOTEBOX), "Select Owner");
         utils.searchAndAssertTextNotPresent(By.id(QUOTEBOX), "Select Team");
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.jumpToPopUpWindow(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.jumpToParentPopUp();
         utils.getOrdersPage();
@@ -315,6 +316,7 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         commonMethods.search("agent");
         utils.waitForElementVisible(By.id(LOCATOR_FOR_BOX_HEADER));
+        utils.waitForElementVisible(By.xpath("//a[@href='#'][contains(text(),'agent')]"));
         utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
         utils.makeSureBoxIsUnChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
     }
@@ -337,6 +339,7 @@ public class OrdersManagerPage {
         companyMenuPage.clickConfigManager();
         accessingAssignServicePage();
         commonMethods.search("agent");
+        utils.waitForElementVisible(By.xpath("//a[@href='#'][contains(text(),'agent')]"));
         utils.waitForElementVisible(By.id(LOCATOR_FOR_BOX_HEADER));
         utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
         utils.makeSureBoxIsChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
