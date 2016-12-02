@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
     WebModel webModel = new WebModel();
 
-    NA44_Agent_Login_stepDefs na44=new NA44_Agent_Login_stepDefs();
+    NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
     @And("^I create a new quote and add a service with addOnActivation charge$")
     public void iCreateANewQuoteAndAddAServiceWithAddOnActivationCharge() throws InterruptedException {

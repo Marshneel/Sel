@@ -46,12 +46,12 @@ public class AddServicePage {
 
     public void assertServicePresent(String serviceName) {
         utils.waitForElementVisible(By.xpath("//label[@id='selectedSiteLabel'][contains(text(),'vodafone')]"));
-        utils.waitForElementVisible(By.xpath("//div[text()='"+serviceName+"']"));
+        utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
     }
 
     public void assertServiceNotPresent(String serviceName) {
         utils.waitForElementVisible(By.xpath("//label[@id='selectedSiteLabel'][contains(text(),'vodafone')]"));
-        utils.assertElementNotPresent(By.xpath("//div[text()='"+serviceName+"']"));
+        utils.assertElementNotPresent(By.xpath("//div[text()='" + serviceName + "']"));
     }
 
 }

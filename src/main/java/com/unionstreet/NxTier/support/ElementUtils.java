@@ -59,7 +59,7 @@ public class ElementUtils {
         Wait wait = new FluentWait(driver)
                 .withTimeout(50, SECONDS)
                 .pollingEvery(5, SECONDS)
-                .ignoring(NoSuchElementException.class);
+                .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
         wait.until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).click();
     }

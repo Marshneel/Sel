@@ -12,7 +12,7 @@ import cucumber.api.java.en.When;
 public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
 
     WebModel webModel = new WebModel();
-    NA44_Agent_Login_stepDefs na44=new NA44_Agent_Login_stepDefs();
+    NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
 
     @When("^I access add_view notes on edit order page$")

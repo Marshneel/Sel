@@ -1,4 +1,3 @@
-
 Feature: WLR3_permissions@smokePack
 
   @smokePack
