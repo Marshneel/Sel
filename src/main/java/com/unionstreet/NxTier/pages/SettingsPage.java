@@ -289,7 +289,7 @@ public class SettingsPage {
         utils.clickBtn(By.id(ADDUSERLOGIN_USENAME));
         utils.sendText(By.id(ADDUSERLOGIN_USENAME), CP_RanName);
         utils.clickBtn(By.id(ADDUSERLOGIN_PASSWORD));
-        utils.sendText(By.id(ADDUSERLOGIN_PASSWORD), utils.getProperty("userPasswor"));
+        utils.sendText(By.id(ADDUSERLOGIN_PASSWORD), utils.getProperty("userPassword"));
         utils.selectByVisibleText(By.id(ADDUSERLOGIN_SELECTPERMISSION), CP_RanName);
         utils.javaScriptExecutorClick(By.id(ADDUSERLOGIN_ISLOGINALLOWED));
         utils.waitForElementVisible(By.id("pg"));

@@ -8,7 +8,7 @@ Feature: WLR3_permissions@smokePack
     When I wish to create agent contact with valid login credentials
     Then the agent permission group should be available for selection under drop down under agentUser creation
     And I should be able to login with agent credentials
-
+#
   @smokePack
   Scenario: creating a reseller with agent permission group
     Given I am logged in as an admin
