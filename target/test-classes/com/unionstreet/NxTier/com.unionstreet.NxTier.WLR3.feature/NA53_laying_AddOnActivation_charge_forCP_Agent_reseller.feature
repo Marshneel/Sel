@@ -8,7 +8,7 @@ Feature: laying add on activation charge for quote created by CP, agent and rese
 #    Then The charge should be visible in the back end
 #
 #
-#  @smokePack1
+#  @smokePack
 #  Scenario: laying addOnActivation charge for quote created by agent
 #    Given I am logged in as agent
 #    And I create a new quote and add a service with addOnActivation charge

@@ -1,20 +1,20 @@
 Feature: order service automation for agent, reseller and CP. includes CP only and mandatory fields under select service.
 
-  @smokePack
+  @smokePack1
   Scenario: Login as a CP, create a quote, add a service and verify the behaviour of CP only control
     Given I am logged in as CP
     And Have created a quote
     When I add a service from the quote details page
     Then the control that is CP only should be visible
 
-  @smokePack
+  @smokePack1
   Scenario: Login as an agent, create a quote, add a service and verify the behaviour of CP only control
     Given I am logged in as agent
     And Have created a quote
     When I add a service from the quote details page
     Then the control that is CP only should be invisible
 
-  @smokePack
+  @smokePack1
   Scenario: Login as a reseller, create a quote, add a service and verify the behaviour of CP only control
     Given I am logged in as reseller
     And Have created a quote

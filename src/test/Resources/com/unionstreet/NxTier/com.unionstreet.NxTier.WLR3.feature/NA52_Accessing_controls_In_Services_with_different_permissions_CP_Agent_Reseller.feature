@@ -1,6 +1,6 @@
 Feature: Accessing controls in services with different permissions (CP, Agent and reseller)
 
-  @smokePack
+  @smokePack1
   Scenario: verify that a charge designated CP only is accessible by CP
     Given I am logged in as CP
     And create a new quote and access a service
