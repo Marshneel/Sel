@@ -10,6 +10,16 @@ public class BaseClass {
     public static WebDriver driver;
     static ElementUtils utils = new ElementUtils();
 
+
+//    @BeforeClass
+//    public static void databaseRollBack() {
+//        try {
+//            //utils.restoreDB();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
     @Before
     public void startUp() {
 
@@ -25,6 +35,7 @@ public class BaseClass {
 
     @After
     public void tearDown() {
-       driver.quit();
+        driver.quit();
+
     }
 }

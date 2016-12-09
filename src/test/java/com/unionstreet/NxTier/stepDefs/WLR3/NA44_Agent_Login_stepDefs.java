@@ -23,19 +23,19 @@ public class NA44_Agent_Login_stepDefs {
     }
 
     @When("^I access create Quote window$")
-    public void iAccessCreateQuoteWindow() {
+    public void iAccessCreateQuoteWindow() throws InterruptedException {
         webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getDashBoardPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
     }
 
     @Then("^the newly created customer details should appear under the company and site drop downs$")
-    public void theNewlyCreatedCustomerDetailsShouldAppearUnderTheCompanyAndSiteDropDowns() throws InterruptedException {
-        webModel.getDashBoardPage().assertCompanyIsAccessibleFromCompanyAndSiteDropDown();
+    public void theNewlyCreatedCustomerDetailsShouldAppearUnderTheCompanyAndSiteDropDowns() {
+        webModel.getOrdersManagerPage().assertCompanyIsAccessibleFromCompanyAndSiteDropDown();
     }
 
     ////////////////////////////////////////two///////////////////////////////////////////////////////
     @Given("^I am logged in as an agent after the CP has created a quote for a \"([^\"]*)\" assigned to me$")
-    public void iAmLoggedInAsAnAgentAfterTheCPHasCreatedAQuoteForAAssignedToMe(String customer_name) throws InterruptedException {
+    public void iAmLoggedInAsAnAgentAfterTheCPHasCreatedAQuoteForAAssignedToMe(String customer_name) {
         webModel.getLoginPage().loginAsCP();
         webModel.getNewBusinessCustomerPage().clickContactManagerButton();
         webModel.getContactManagerPage().searchForBusinessCustomer(customer_name);
@@ -45,8 +45,8 @@ public class NA44_Agent_Login_stepDefs {
     @And("^a quote been created for my \"([^\"]*)\" by a CP$")
     public void aQuoteBeenCreatedForMyByACP(String customer_name) throws InterruptedException {
         webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getDashBoardPage().clickCreateQuoteButton();
-        webModel.getDashBoardPage().createQuote(customer_name);
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().createQuote(customer_name);
         webModel.getDashBoardPage().logOut();
     }
 
@@ -56,11 +56,10 @@ public class NA44_Agent_Login_stepDefs {
         webModel.getDashBoardPage().clickOrderManagerButton();
     }
 
-    @Then("^I should be able to see and access that particular quote$")
-    public void iShouldBeAbleToSeeAndAccessThatParticularQuote() throws InterruptedException {
-        webModel.getDashBoardPage().searchQuoteByQRN();
-        webModel.getDashBoardPage().assertAgentCanViewAndEditQuotes();
+    @Then("^I should not see that particular quote$")
+    public void iShouldNotSeeThatParticularQuote() {
+        webModel.getOrdersManagerPage().searchQuoteByQRN();
+        webModel.getOrdersManagerPage().assertAgentCannotViewQuotes();
+
     }
-
-
 }

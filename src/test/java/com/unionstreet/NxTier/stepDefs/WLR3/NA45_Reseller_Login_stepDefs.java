@@ -16,6 +16,10 @@ public class NA45_Reseller_Login_stepDefs {
     @And("^have created a new site for a company$")
     public void haveCreatedANewSiteForACompany() {
         webModel.getNewBusinessCustomerPage().clickContactManagerButton();
+        webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
+        webModel.getNewBusinessCustomerPage().addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes();
+        webModel.getNewBusinessCustomerPage().addSiteInfoForNewBusinessCustomer();
+        webModel.getNewBusinessCustomerPage().addSiteContactInfoForNewBusinessCustomer();
         webModel.getContactManagerPage().clickOnResellerUnderCustomerDetails();
         webModel.getContactManagerPage().clickCompanySite();
         webModel.getContactManagerPage().addNewSiteForReseller();
@@ -29,7 +33,8 @@ public class NA45_Reseller_Login_stepDefs {
 
     @Then("^The newly created site should appear under the site drop down$")
     public void theNewlyCreatedSiteShouldAppearUnderTheSiteDropDown() throws InterruptedException {
-        webModel.getDashBoardPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getContactManagerPage().assertNewlyCreatedSiteByResellerOnQuotePage();
+
     }
 }

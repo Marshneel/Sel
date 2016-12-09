@@ -12,57 +12,62 @@ import cucumber.api.java.en.When;
 public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
 
     WebModel webModel = new WebModel();
+    NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
 
     @When("^I access add_view notes on edit order page$")
-    public void iAccessAdd_viewNotesOnEditOrderPage() {
+    public void iAccessAdd_viewNotesOnEditOrderPage() throws InterruptedException {
+        na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getDashBoardPage().clickOnQuoteID();
-        webModel.getDashBoardPage().accessAdd_ViewNotes();
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().createQuote();
+        webModel.getOrdersManagerPage().searchQuoteByBcRN();
+        webModel.getOrdersManagerPage().clickOnQuoteID();
+        webModel.getOrdersManagerPage().accessAdd_ViewNotes();
     }
 
     @Then("^customer and internal tabs should be present and accessible$")
-    public void customerAndInternalTabsShouldBePresentAndAccessible() {
-        webModel.getDashBoardPage().assertCustomer_InternalTabsPresent();
+    public void customerAndInternalTabsShouldBePresentAndAccessible() throws InterruptedException {
+        webModel.getOrdersManagerPage().assertCustomer_InternalTabsPresent();
     }
-
 
     @Then("^customer and internal tabs should be absent$")
     public void customerAndInternalTabsShouldBeAbsent() {
-        webModel.getDashBoardPage().assertCustomer_InternalTabsNotPresent();
+        webModel.getOrdersManagerPage().assertCustomer_InternalTabsNotPresent();
     }
 
     @Given("^I am logged in as agent and there is a service unassigned to me$")
-    public void iAmLoggedInAsAgentAndThereIsAServiceUnassignedToMe() {
+    public void iAmLoggedInAsAgentAndThereIsAServiceUnassignedToMe() throws InterruptedException {
         webModel.getLoginPage().loginAsCP();
         webModel.getCompanyMenuPage().clickConfigManager();
-        webModel.getDashBoardPage().accessingAssignServicePage();
-        webModel.getDashBoardPage().makeSureAgentDoesNotHaveAgentAndResellerService();
-        webModel.getDashBoardPage().saveAssignServicePage();
+        webModel.getOrdersManagerPage().accessingAssignServicePage();
+        webModel.getOrdersManagerPage().makeSureAgentDoesNotHaveAgentAndResellerService();
+        webModel.getOrdersManagerPage().saveAssignServicePage();
         webModel.getLoginPage().loginAsAgent();
     }
 
     @When("^I access the services page$")
     public void iAccessTheServicesPage() {
         webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getDashBoardPage().clickOnQuoteID();
-        webModel.getDashBoardPage().clickAddAProductOrService();
+        webModel.getOrdersManagerPage().clickOnQuoteID();
+        webModel.getAddServicePage().clickAddAProductOrService();
     }
 
     @Then("^I should not be able to see that particular service$")
     public void iShouldNotBeAbleToSeeThatParticularService() {
 //        TODO
-        webModel.getDashBoardPage().assertServiceNotPresent("ServiceForAgent&Reseller");
+        webModel.getAddServicePage().assertServiceNotPresent("ServiceForAgent&Reseller");
     }
 
     @And("^I should be able to see the service once CP assigns it to me$")
-    public void iShouldBeAbleToSeeTheServiceOnceCPAssignsItToMe() {
-        webModel.getDashBoardPage().makeSureAgentHasAgentAndResellerService();
-        webModel.getDashBoardPage().saveAssignServicePage();
+    public void iShouldBeAbleToSeeTheServiceOnceCPAssignsItToMe() throws InterruptedException {
+        webModel.getOrdersManagerPage().makeSureAgentHasAgentAndResellerService();
+        webModel.getOrdersManagerPage().saveAssignServicePage();
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getDashBoardPage().clickOnQuoteID();
-        webModel.getDashBoardPage().clickAddAProductOrService();
-        webModel.getDashBoardPage().assertServicePresent("ServiceForAgent&Reseller");
+        webModel.getOrdersManagerPage().clickOnQuoteID();
+        webModel.getAddServicePage().clickAddAProductOrService();
+        webModel.getAddServicePage().assertServicePresent("ServiceForAgent&Reseller");
+
     }
 }

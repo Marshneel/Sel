@@ -10,8 +10,11 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.*;
 
 import java.io.FileInputStream;
-import java.io.UnsupportedEncodingException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
@@ -25,44 +28,53 @@ public class ElementUtils {
     public String parentWindow;
     private Properties prop;
     private FileInputStream fileInputStream;
-    public ResultSet result;
-    public static String id;
+    public static ResultSet result;
 
+
+    public void waitForFieldToBePopulated(By by,String text){
+       WebDriverWait wait=new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.textToBe(by,text));
+
+    }
+
+
+    public Wait waitForSomeTime() {
+        Wait wait = new FluentWait(driver)
+         .withTimeout(50, SECONDS)
+                .pollingEvery(3, SECONDS)
+                .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
+        return wait;
+    }
 
     //method to find the element, clear the box if needed and send text
     public void sendText(By by, String txt) {
-        WebDriverWait wait = new WebDriverWait(driver, 100);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
         driver.findElement(by).click();
-        driver.findElement(by).clear();
+       driver.findElement(by).clear();
         driver.findElement(by).sendKeys(txt);
     }
 
     //method to click button with fluent wait
     public void clickBtnWithWait(By by) {
         Wait wait = new FluentWait(driver)
-                .withTimeout(30, SECONDS)
+                .withTimeout(50, SECONDS)
                 .pollingEvery(5, SECONDS)
-                .ignoring(NoSuchElementException.class);
+                .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
         wait.until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).click();
     }
 
-
     //method to click button
     public void clickBtn(By by) {
-        WebDriverWait wait = new WebDriverWait(driver, 100);
-        wait.until(ExpectedConditions.elementToBeClickable(by));
+        waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
         driver.findElement(by).click();
     }
 
     //method to assert element text
-    public void verifyStringMatch(By by, String expectedString) throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(by, expectedString));
+    public void verifyStringMatch(By by, String expectedString) {
+        waitForSomeTime().until(ExpectedConditions.textToBePresentInElementLocated(by, expectedString));
         String actualString = driver.findElement(by).getText();
         Assert.assertEquals(expectedString, actualString);
-
     }
 
     public void assertURL(String expectedURL) {
@@ -72,16 +84,13 @@ public class ElementUtils {
 
     //implicit wait
     public void timeOut() {
-        driver.manage().timeouts().implicitlyWait(100, SECONDS);
+        driver.manage().timeouts().implicitlyWait(1000, SECONDS);
     }
 
     //explicit wait element to be present
     public void waitForElementVisible(By by) {
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
-       // wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-        wait.until(ExpectedConditions.presenceOfElementLocated(by));
+        waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));
     }
-
 
     //switching to new window
     public void switchToNewWindow() {
@@ -111,23 +120,21 @@ public class ElementUtils {
 
     //simulate keyboard enter press
     public void keyBoardEnter(By by) {
-        WebDriverWait wait = new WebDriverWait(driver, 100);
-        wait.until(ExpectedConditions.elementToBeClickable(by));
+        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).sendKeys(Keys.ENTER);
     }
 
+
     //select data by visible text
-    public void selectByVisibleText(By by, String text) throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, 2000);
-        wait.until(ExpectedConditions.elementToBeClickable(by));
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(by, text));
+    public void selectByVisibleText(By by, String text) {
+        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
+        waitForSomeTime().until(ExpectedConditions.textToBePresentInElementLocated(by, text));
         Select select = new Select(driver.findElement(by));
         select.selectByVisibleText(text);
     }
 
     public void selectByIndex(By by, int number) {
-        WebDriverWait wait = new WebDriverWait(driver, 2000);
-        wait.until(ExpectedConditions.elementToBeClickable(by));
+        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
         Select select = new Select(driver.findElement(by));
         select.selectByIndex(number);
     }
@@ -136,17 +143,16 @@ public class ElementUtils {
     public void selectDay(By by, String number) {
         driver.findElement(by).sendKeys(number);
         driver.findElement(by).click();
-
     }
 
-    //    //browser selector
+    //browser selector
     public WebDriver browser() {
         try {
 
             if (getProperty("browser").equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--disable-extensions");
+               options.addArguments("--disable-extensions");
                 driver = new ChromeDriver(options);
             } else if (getProperty("browser").equalsIgnoreCase("IE")) {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
@@ -161,10 +167,9 @@ public class ElementUtils {
         return driver;
     }
 
-
     public void jumpToPopUpWindow(By by) {
         Set parentWindow = driver.getWindowHandles();
-        driver.findElement(by).click();
+       clickBtnWithWait(by);
         Set afterPopup = driver.getWindowHandles();
         afterPopup.removeAll(parentWindow);
         if (afterPopup.size() == 1) {
@@ -172,13 +177,34 @@ public class ElementUtils {
         }
     }
 
+    public void jumpToPopUpWindowByJavaExeClick(By by) {
+        Set parentWindow = driver.getWindowHandles();
+        javaScriptExecutorClick(by);
+        Set afterPopup = driver.getWindowHandles();
+        afterPopup.removeAll(parentWindow);
+        if (afterPopup.size() == 1) {
+            driver.switchTo().window((String) afterPopup.toArray()[0]);
+        }
+    }
+    public boolean isAlertPresent()
+    {
+        try
+        {
+            driver.switchTo().alert();
+            return true;
+        }   // try
+        catch (NoAlertPresentException Ex)
+        {
+            return false;
+        }   // catch
+    }
     //exception handling
     public void checkAlert() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 2);
-            wait.until(ExpectedConditions.alertIsPresent());
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
+            if(isAlertPresent()) {
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+            }
         } catch (Exception e) {
 
         }
@@ -190,13 +216,16 @@ public class ElementUtils {
         js.executeScript("arguments[0].click();", element);
     }
 
-
     public void switchToParentWindow() {
         driver.switchTo().window(parentWindow);
     }
 
     public void closeCurrentPage() {
         driver.close();
+        try {
+            checkAlert();
+        } catch (Exception e) {
+        }
     }
 
     public String randomName() {
@@ -204,8 +233,7 @@ public class ElementUtils {
     }
 
     public void assertTheElementAndTextPresent(By by, String expectedText) {
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
-        wait.until(ExpectedConditions.textToBe(by, expectedText));
+        waitForSomeTime().until(ExpectedConditions.textToBe(by, expectedText));
         String actualText = driver.findElement(by).getText();
         Assert.assertEquals(actualText, expectedText);
     }
@@ -215,7 +243,7 @@ public class ElementUtils {
         Assert.assertFalse(actualText.contains(searchText));
     }
 
-    public void searchAndAssertTextPresent(By by, String searchText) throws InterruptedException {
+    public void searchAndAssertTextPresent(By by, String searchText) {
         String actualText = driver.findElement(by).getText();
         Assert.assertTrue(actualText.contains(searchText));
     }
@@ -234,13 +262,15 @@ public class ElementUtils {
             javaScriptExecutorClick(by2);
         } else {
         }
-
     }
 
-    public void refreshCurrentURL() {
-        String pageURL = driver.getCurrentUrl();
-        driver.get(pageURL);
+    public void refreshPage(){
+        driver.navigate().refresh();
+    }
 
+
+    public void getOrdersPage() {
+        driver.get("http://test01-web01/nxtiere2e/orders/ordersmanager");
     }
 
     public void assertElementNotPresent(By by) {
@@ -248,37 +278,103 @@ public class ElementUtils {
         assertTrue(element.isEmpty());
     }
 
-    public void sqlQuery(String query) throws ClassNotFoundException, SQLException, UnsupportedEncodingException {
+    public void sqlQuery(String userN,String passWord, String server, String database, String query) {
         try {
-
-
-            String userName = "portal";
-            String password = "Password1";
-            String url = "jdbc:sqlserver://troy" + ";databaseName=Team3_Automation";
+            String userName = "" + userN + "";
+            String password = ""+passWord+"";
+            String url = "jdbc:sqlserver://" + server + "" + ";databaseName=" + database + "";
             Connection con = DriverManager.getConnection(url, userName, password);
             Statement statement;
             statement = con.createStatement();
             result = statement.executeQuery(query);
-           }
-         catch (Exception e) {
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void sqlExeQuery(String userN,String pasWord, String server, String database, String query) {
+        try {
+            String userName = "" + userN + "";
+            String password = ""+pasWord+"";
+            String url = "jdbc:sqlserver://" + server + "" + ";databaseName=" + database + "";
+            Connection con = DriverManager.getConnection(url, userName, password);
+            Statement statement;
+            statement = con.createStatement();
+            statement.execute(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getAttributeOfElement(By by, String attribute) {
+        return driver.findElement(by).getAttribute(attribute);
+    }
+
+    public void jumpToParentPopUp() {
+        driver.switchTo().parentFrame();
+    }
+
+    public void clearText(By by) {
+        driver.findElement(by).clear();
+    }
+
+    public void scrollUp(By by) throws InterruptedException {
+        WebElement element = driver.findElement(by);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        Thread.sleep(1000);
+    }
+
+    public void waitForElementToVanish(By by) {
+        waitForSomeTime().until(ExpectedConditions.invisibilityOfElementLocated(by));
+    }
+
+    public void restoreDB() {
+        try {
+            String str = "/*KILL CONNS*/  " +
+                    "USE master;   " +
+                    "  " +
+                    ";SET NOCOUNT ON;   " +
+                    "DECLARE @DBName varchar(50);   " +
+                    "DECLARE @spidstr varchar(8000);   " +
+                    "DECLARE @ConnKilled smallint;   " +
+                    "SET @ConnKilled=0;   " +
+                    "SET @spidstr = '';   " +
+                    "  " +
+                    "Set @DBName = 'Rajesh';   " +
+                    "IF db_id(@DBName) < 4  " +
+                    "BEGIN  " +
+                    "PRINT 'Connections to system databases cannot be killed';   " +
+                    "RETURN " +
+                    "END  " +
+                    ";SELECT @spidstr=coalesce(@spidstr,',' )+'kill '+convert(varchar, spid)+ '; '  " +
+                    "FROM master..sysprocesses WHERE dbid=db_id(@DBName);   " +
+                    "  " +
+                    "IF LEN(@spidstr) > 0  " +
+                    "BEGIN  " +
+                    "EXEC(@spidstr);   " +
+                    "\tSELECT @ConnKilled = COUNT(1)  " +
+                    "\tFROM master..sysprocesses WHERE dbid=db_id(@DBName);   " +
+                    "END  " +
+                    "  " +
+                    "/*RESTORE DB*/   " +
+                    "RESTORE DATABASE [Raj] FROM  DISK = N'F:\\Backups\\Raj\\Raj.bak' " +
+                    " WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 10;  " +
+                    " Select 1 As restored";
+            this.sqlQuery("Nxtiere2e","autotest", "test01-sql01", "nxtiere2e", str);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void switchToPreviousWindow() {
+        ArrayList <String> tabs = new ArrayList(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+    }
 
 
-    }
-    public void assertThereIsCharge(String column, double value) throws SQLException {
-        result.next();
-        double one=result.getDouble(column);
-        Assert.assertTrue(one== value);
-
-    }
-    public void assertThereIsNoCharge() throws SQLException {
-        Assert.assertFalse(result.next());
-    }
-    public String getAttributeOfElement(By by, String attribute){
-     return driver.findElement(by).getAttribute(attribute);
 
 
 }
 
-}
+
