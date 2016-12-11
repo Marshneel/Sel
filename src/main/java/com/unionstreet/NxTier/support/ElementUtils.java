@@ -210,6 +210,18 @@ public class ElementUtils {
         }
     }
 
+
+
+public void closeAllPopups(By by){
+    Set beforePopup = driver.getWindowHandles();
+driver.findElement(by).click();
+    Set afterPopup = driver.getWindowHandles();
+afterPopup.removeAll(beforePopup);
+if(afterPopup.size() == 1) {
+        driver.switchTo().window((String)afterPopup.toArray()[0]);
+
+    }}
+
     public void javaScriptExecutorClick(By by) {
         WebElement element = driver.findElement(by);
         JavascriptExecutor js = (JavascriptExecutor) driver;

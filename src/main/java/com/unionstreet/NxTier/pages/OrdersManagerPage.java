@@ -71,8 +71,9 @@ public class OrdersManagerPage {
         utils.searchAndAssertTextNotPresent(By.id(QUOTEBOX), "Select Team");
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
-        utils.jumpToPopUpWindow(By.id(ORDERS_SAVEQUOTE_BUTTON));
-        utils.jumpToParentPopUp();
+        utils.closeAllPopups(By.id(ORDERS_SAVEQUOTE_BUTTON));
+        //utils.jumpToPopUpWindow(By.id(ORDERS_SAVEQUOTE_BUTTON));
+       // utils.jumpToParentPopUp();
         utils.getOrdersPage();
     }
 
@@ -168,8 +169,8 @@ public class OrdersManagerPage {
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), utils.getProperty("shortName"));
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
-        utils.jumpToPopUpWindow(By.id(ORDERS_SAVEQUOTE_BUTTON));
-        utils.jumpToParentPopUp();
+        utils.closeAllPopups(By.id(ORDERS_SAVEQUOTE_BUTTON));
+       // utils.jumpToParentPopUp();
         utils.getOrdersPage();
     }
 
@@ -191,8 +192,8 @@ public class OrdersManagerPage {
     }
 
     public void assertCPonlyValuePresent() {
-        utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
-        commonMethods.search(utils.getProperty("serviceName_CustomService"));
+       // utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
+        //commonMethods.search(utils.getProperty("serviceName_CustomService"));
         utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
@@ -201,8 +202,8 @@ public class OrdersManagerPage {
     }
 
     public void assertCPonlyValueNotPresent() {
-        utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
-        commonMethods.search(utils.getProperty("serviceName_CustomService"));
+       // utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
+        //commonMethods.search(utils.getProperty("serviceName_CustomService"));
         utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
