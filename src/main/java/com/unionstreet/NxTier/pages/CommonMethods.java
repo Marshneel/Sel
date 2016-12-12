@@ -17,8 +17,8 @@ public class CommonMethods {
     public void search(String text) {
         utils.waitForElementVisible(By.id(SEARCH_BUTTON));
         utils.sendText(By.id(SEARCH_BUTTON), text);
-        //utils.keyBoardEnter(By.id(SEARCH_BUTTON));
-        utils.clickBtn(By.xpath("//input[contains(@onkeypress,'return checkSubmit')]"));
+        utils.keyBoardEnter(By.id(SEARCH_BUTTON));
+
     }
 
 

@@ -178,7 +178,7 @@ public class OrdersManagerPage {
        // utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), newBusinessCustomerPage.RanName);
-       // utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
+        utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
     }
 
     public void clickOnQuoteID() {
