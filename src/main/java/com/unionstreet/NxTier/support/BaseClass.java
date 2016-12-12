@@ -25,7 +25,7 @@ public class BaseClass {
 
         try {
             driver = utils.browser();
-            driver.manage().deleteAllCookies();
+            //driver.manage().deleteAllCookies();
             driver.get(utils.getProperty("url"));
             driver.manage().window().maximize();
             //driver.manage().timeouts().implicitlyWait(1000, TimeUnit.MILLISECONDS);

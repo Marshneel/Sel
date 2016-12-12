@@ -72,8 +72,6 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.closeAllPopups(By.id(ORDERS_SAVEQUOTE_BUTTON));
-        //utils.jumpToPopUpWindow(By.id(ORDERS_SAVEQUOTE_BUTTON));
-       // utils.jumpToParentPopUp();
         utils.getOrdersPage();
     }
 
@@ -81,8 +79,8 @@ public class OrdersManagerPage {
         utils.searchAndAssertTextPresent(By.id(QUOTEBOX), "Order Owner");
         utils.searchAndAssertTextPresent(By.id(QUOTEBOX), "Team");
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
-        utils.jumpToPopUpWindow(By.id(ORDERS_SAVEQUOTE_BUTTON));
-        utils.jumpToParentPopUp();
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.closeAllPopups(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.getOrdersPage();
     }
 
@@ -122,8 +120,8 @@ public class OrdersManagerPage {
     }
 
     public void assertQuote() {
-        utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
-        utils.searchAndAssertTextPresent(By.id(QUOTE), newBusinessCustomerPage.RanName);
+       utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
+
     }
 
     public void assertCompanyIsAccessibleFromCompanyAndSiteDropDown() {
@@ -144,8 +142,7 @@ public class OrdersManagerPage {
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), business_customer);
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
-        utils.jumpToPopUpWindow(By.id(ORDERS_SAVEQUOTE_BUTTON));
-        utils.jumpToParentPopUp();
+        utils.closeAllPopups(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.getOrdersPage();
     }
 
@@ -170,19 +167,18 @@ public class OrdersManagerPage {
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.closeAllPopups(By.id(ORDERS_SAVEQUOTE_BUTTON));
-       // utils.jumpToParentPopUp();
         utils.getOrdersPage();
     }
 
     public void searchQuoteByBcRN() {
-       // utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
-        utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
-        utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), newBusinessCustomerPage.RanName);
-        utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
+        //utils.waitForElementVisible(By.cssSelector(CREATEQUOTE_BUTTON));
+        commonMethods.search(newBusinessCustomerPage.RanName);
+        utils.waitForElementVisible(By.xpath("//td[text()='"+newBusinessCustomerPage.RanName+"']"));
     }
 
     public void clickOnQuoteID() {
-        utils.waitForElementVisible(By.xpath(QUOTEID));
+        utils.waitForElementVisible(By.xpath("//td[text()='"+newBusinessCustomerPage.RanName+"']"));
+        utils.clickBtn(By.xpath("//td[text()='"+newBusinessCustomerPage.RanName+"']"));
         utils.clickBtn(By.xpath(QUOTEID));
         utils.switchToNewWindow();
     }
@@ -193,8 +189,6 @@ public class OrdersManagerPage {
     }
 
     public void assertCPonlyValuePresent() {
-       // utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
-        //commonMethods.search(utils.getProperty("serviceName_CustomService"));
         utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
@@ -203,8 +197,6 @@ public class OrdersManagerPage {
     }
 
     public void assertCPonlyValueNotPresent() {
-       // utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
-        //commonMethods.search(utils.getProperty("serviceName_CustomService"));
         utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();

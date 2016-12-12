@@ -18,7 +18,7 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
-        webModel.getOrdersManagerPage().searchQuoteByBcRN();
+       // webModel.getOrdersManagerPage().searchQuoteByBcRN();
         webModel.getOrdersManagerPage().clickOnQuoteID();
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("permissions");

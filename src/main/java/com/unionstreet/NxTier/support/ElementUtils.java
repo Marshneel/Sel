@@ -20,6 +20,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertTrue;
 
@@ -40,7 +41,7 @@ public class ElementUtils {
 
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(driver)
-         .withTimeout(50, SECONDS)
+         .withTimeout(100, SECONDS)
                 .pollingEvery(3, SECONDS)
                 .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
         return wait;
@@ -84,12 +85,14 @@ public class ElementUtils {
 
     //implicit wait
     public void timeOut() {
-        driver.manage().timeouts().implicitlyWait(1000, SECONDS);
+        driver.manage().timeouts().implicitlyWait(1000, MILLISECONDS);
     }
 
     //explicit wait element to be present
     public void waitForElementVisible(By by) {
-        waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));
+        WebDriverWait wait = new WebDriverWait(driver, 100);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+
     }
 
     //switching to new window
@@ -256,6 +259,8 @@ if(afterPopup.size() == 1) {
     }
 
     public void searchAndAssertTextPresent(By by, String searchText) {
+        WebDriverWait wait = new WebDriverWait(driver, 100);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         String actualText = driver.findElement(by).getText();
         Assert.assertTrue(actualText.contains(searchText));
     }
