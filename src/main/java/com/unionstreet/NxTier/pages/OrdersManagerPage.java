@@ -120,8 +120,7 @@ public class OrdersManagerPage {
     }
 
     public void assertQuote() {
-       utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
-
+        utils.waitForElementVisible(By.xpath("//td[text()='"+newBusinessCustomerPage.RanName+"']"));
     }
 
     public void assertCompanyIsAccessibleFromCompanyAndSiteDropDown() {

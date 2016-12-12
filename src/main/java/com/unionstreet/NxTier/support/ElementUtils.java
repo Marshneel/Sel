@@ -90,9 +90,7 @@ public class ElementUtils {
 
     //explicit wait element to be present
     public void waitForElementVisible(By by) {
-        WebDriverWait wait = new WebDriverWait(driver, 100);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-
+        waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
     //switching to new window
