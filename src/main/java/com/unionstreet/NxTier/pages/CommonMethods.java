@@ -17,8 +17,10 @@ public class CommonMethods {
     public void search(String text) {
         utils.waitForElementVisible(By.id(SEARCH_BUTTON));
         utils.sendText(By.id(SEARCH_BUTTON), text);
-        utils.keyBoardEnter(By.id(SEARCH_BUTTON));
+        //utils.keyBoardEnter(By.id(SEARCH_BUTTON));
+        utils.clickBtn(By.xpath("//input[contains(@onkeypress,'return checkSubmit')]"));
     }
+
 
     public void saveAndClosePage() {
         utils.clickBtn(By.cssSelector(SAVE_AND_CLOSE_BUTTON));
