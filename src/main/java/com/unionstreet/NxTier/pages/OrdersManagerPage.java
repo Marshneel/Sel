@@ -261,6 +261,8 @@ public class OrdersManagerPage {
     public void accessAdd_ViewNotes() {
         utils.waitForElementVisible(By.xpath(ADD_VIEW_NOTES));
         utils.jumpToPopUpWindow(By.xpath(ADD_VIEW_NOTES));
+        utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
+        utils.clickBtn(By.id("OrderPopup"));
         utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
     }
 
@@ -271,8 +273,10 @@ public class OrdersManagerPage {
         } catch (Exception e) {
         }
         utils.waitForElementVisible(By.id(CUSTOMER_RADIOBUTTON));
+        utils.clickBtn(By.id("OrderPopup"));
         utils.clickBtnWithWait(By.id(CUSTOMER_RADIOBUTTON));
         utils.waitForElementVisible(By.id(INTERNAL_RADIOBUTTON));
+        utils.clickBtn(By.id("OrderPopup"));
         utils.clickBtnWithWait(By.id(INTERNAL_RADIOBUTTON));
     }
 
