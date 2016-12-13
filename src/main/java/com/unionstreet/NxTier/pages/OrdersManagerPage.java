@@ -96,6 +96,7 @@ public class OrdersManagerPage {
     }
 
     public void checkQuoteForReseller() {
+
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLIty");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
@@ -120,7 +121,8 @@ public class OrdersManagerPage {
     }
 
     public void assertQuote() {
-        utils.waitForElementVisible(By.xpath("//td[text()='"+newBusinessCustomerPage.RanName+"']"));
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+        utils.searchAndAssertTextPresent(By.id(QUOTE), newBusinessCustomerPage.RanName);
     }
 
     public void assertCompanyIsAccessibleFromCompanyAndSiteDropDown() {

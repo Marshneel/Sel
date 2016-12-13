@@ -215,7 +215,7 @@ public class ElementUtils {
 
 public void closeAllPopups(By by){
     Set beforePopup = driver.getWindowHandles();
-    clickBtnWithWait(by);
+   driver.findElement(by).click();
     Set afterPopup = driver.getWindowHandles();
 afterPopup.removeAll(beforePopup);
 if(afterPopup.size() == 1) {
