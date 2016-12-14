@@ -95,6 +95,8 @@ public class OrdersManagerPage {
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.searchAndAssertTextNotPresent(By.id(QUOTE), "reseller");
     }catch (Exception e){
+           utils.getProperty("url");
+           loginPage.loginAsAgent();
            utils.getOrdersPage();
            utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
            utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLity");
@@ -116,7 +118,10 @@ try{utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.searchAndAssertTextNotPresent(By.id(QUOTE), "agent");
-    }catch (Exception e){utils.getOrdersPage();
+    }catch (Exception e){
+    utils.getProperty("url");
+    loginPage.loginAsReseller();
+    utils.getOrdersPage();
     utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
     utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLIty");
     utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
@@ -140,6 +145,8 @@ try{utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         utils.assertTheElementAndTextPresent(By.xpath(RESELLER), "reseller");
         utils.searchAndAssertTextPresent(By.id(QUOTE), "reseller");
     }catch (Exception e){
+          utils.getProperty("url");
+          loginPage.loginAsCP();
           utils.getOrdersPage();
           utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
           utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");

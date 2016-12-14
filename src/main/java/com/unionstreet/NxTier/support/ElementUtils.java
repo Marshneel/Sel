@@ -285,7 +285,7 @@ if(afterPopup.size() == 1) {
 
 
     public void getOrdersPage() {
-        driver.get("http://localhost:9090/rajesh/orders/ordersmanager");
+        driver.get("http://test01-web01/nxtiere2e/orders/ordersmanager");
     }
 
     public void assertElementNotPresent(By by) {

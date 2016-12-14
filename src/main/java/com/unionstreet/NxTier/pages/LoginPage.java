@@ -24,11 +24,11 @@ public class LoginPage {
 
     //TODO
     public void assertFailedLogin() {
-        utils.assertURL("http://localhost:9090/rajesh");
+        utils.assertURL("http://test01-web01/nxtiere2e");
     }
 
     public void OnLoginPage() {
-        utils.assertURL("http://localhost:9090/rajesh");
+        utils.assertURL("http://test01-web01/nxtiere2e");
     }
 
 
