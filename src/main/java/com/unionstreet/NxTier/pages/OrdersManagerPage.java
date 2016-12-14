@@ -85,7 +85,8 @@ public class OrdersManagerPage {
     }
 
     public void checkQuotesForAgent() {
-        utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLity");
+       try{utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
+           utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLity");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.searchAndAssertTextNotPresent(By.id(QUOTE), "aBILLity");
@@ -93,10 +94,20 @@ public class OrdersManagerPage {
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.searchAndAssertTextNotPresent(By.id(QUOTE), "reseller");
-    }
+    }catch (Exception e){
+           utils.getOrdersPage();
+           utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
+           utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLity");
+           utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
+           utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+           utils.searchAndAssertTextNotPresent(By.id(QUOTE), "aBILLity");
+           utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
+           utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
+           utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+           utils.searchAndAssertTextNotPresent(By.id(QUOTE), "reseller");}}
 
     public void checkQuoteForReseller() {
-
+try{utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLIty");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
@@ -105,10 +116,20 @@ public class OrdersManagerPage {
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.searchAndAssertTextNotPresent(By.id(QUOTE), "agent");
-    }
+    }catch (Exception e){utils.getOrdersPage();
+    utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
+    utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLIty");
+    utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
+    utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+    utils.searchAndAssertTextNotPresent(By.id(QUOTE), "aBILLIty");
+    utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
+    utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
+    utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+    utils.searchAndAssertTextNotPresent(By.id(QUOTE), "agent");}}
 
     public void checkQuotesForCP() {
-        utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
+      try{  utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
+          utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.assertTheElementAndTextPresent(By.xpath(AGENT), "agentCompany");
@@ -118,7 +139,19 @@ public class OrdersManagerPage {
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.assertTheElementAndTextPresent(By.xpath(RESELLER), "reseller");
         utils.searchAndAssertTextPresent(By.id(QUOTE), "reseller");
-    }
+    }catch (Exception e){
+          utils.getOrdersPage();
+          utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
+          utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
+          utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
+          utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+          utils.assertTheElementAndTextPresent(By.xpath(AGENT), "agentCompany");
+          utils.searchAndAssertTextPresent(By.id(QUOTE), "agentCompany");
+          utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
+          utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
+          utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+          utils.assertTheElementAndTextPresent(By.xpath(RESELLER), "reseller");
+          utils.searchAndAssertTextPresent(By.id(QUOTE), "reseller");}}
 
     public void assertQuote() {
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
@@ -178,11 +211,15 @@ public class OrdersManagerPage {
     }
 
     public void clickOnQuoteID() {
-        utils.waitForElementVisible(By.xpath("//td[text()='"+newBusinessCustomerPage.RanName+"']"));
+       try{ utils.waitForElementVisible(By.xpath("//td[text()='"+newBusinessCustomerPage.RanName+"']"));
         utils.clickBtn(By.xpath("//td[text()='"+newBusinessCustomerPage.RanName+"']"));
         utils.clickBtn(By.xpath(QUOTEID));
         utils.switchToNewWindow();
-    }
+    }catch (Exception e){utils.getOrdersPage();
+           utils.waitForElementVisible(By.xpath("//td[text()='"+newBusinessCustomerPage.RanName+"']"));
+           utils.clickBtn(By.xpath("//td[text()='"+newBusinessCustomerPage.RanName+"']"));
+           utils.clickBtn(By.xpath(QUOTEID));
+           utils.switchToNewWindow();}}
 
     public void clickAddProductsAndServicesButton() {
         utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));

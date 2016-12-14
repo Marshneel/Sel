@@ -41,7 +41,7 @@ public class ElementUtils {
 
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(driver)
-         .withTimeout(100, SECONDS)
+         .withTimeout(10, SECONDS)
                 .pollingEvery(3, SECONDS)
                 .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
         return wait;
@@ -58,7 +58,7 @@ public class ElementUtils {
     //method to click button with fluent wait
     public void clickBtnWithWait(By by) {
         Wait wait = new FluentWait(driver)
-                .withTimeout(50, SECONDS)
+                .withTimeout(10, SECONDS)
                 .pollingEvery(5, SECONDS)
                 .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
         wait.until(ExpectedConditions.elementToBeClickable(by));
@@ -285,7 +285,7 @@ if(afterPopup.size() == 1) {
 
 
     public void getOrdersPage() {
-        driver.get("http://test01-web01/nxtiere2e/orders/ordersmanager");
+        driver.get("http://localhost:9090/rajesh/orders/ordersmanager");
     }
 
     public void assertElementNotPresent(By by) {
