@@ -3,6 +3,7 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 
 import java.sql.SQLException;
 
@@ -223,9 +224,15 @@ try{utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
            utils.switchToNewWindow();}}
 
     public void clickAddProductsAndServicesButton() {
-        utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
-        utils.clickBtn(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
-    }
+        try{utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
+            utils.clickBtn(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
+        }catch (NoSuchElementException e){
+            utils.getOrdersPage();
+            clickOnQuoteID();
+            utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
+            utils.clickBtn(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
+
+        }}
 
     public void assertCPonlyValuePresent() {
         utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
