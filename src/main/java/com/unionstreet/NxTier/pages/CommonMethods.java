@@ -18,9 +18,7 @@ public class CommonMethods {
         utils.waitForElementVisible(By.id(SEARCH_BUTTON));
         utils.sendText(By.id(SEARCH_BUTTON), text);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
-
     }
-
 
     public void saveAndClosePage() {
         utils.clickBtn(By.cssSelector(SAVE_AND_CLOSE_BUTTON));

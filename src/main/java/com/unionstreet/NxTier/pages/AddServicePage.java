@@ -16,8 +16,6 @@ public class AddServicePage {
 
     public void searchAndSelectService() {
         utils.waitForElementVisible(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
-        //commonMethods.search(utils.getProperty("serviceName_CustomService"));
-       // utils.waitForElementVisible(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
         utils.clickBtn(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
@@ -38,10 +36,8 @@ public class AddServicePage {
 
     public void addServiceToQuote(String serviceName) {
         utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-       // commonMethods.search(serviceName);
         utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
-       // utils.clickBtn(By.id("ServiceInventorySection"));
         utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
     }
 

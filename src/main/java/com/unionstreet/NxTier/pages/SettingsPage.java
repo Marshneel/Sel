@@ -77,8 +77,8 @@ public class SettingsPage {
     private final String ADDLOGINUSERS = "Add";
     private final String COMPANYCONTACTS_BUTTON = "HrefCompanyContacts";
     private final String ASSERTINGWLR3 = "//tr[@class='table_row_alt_subchild']/td[2][contains(text(),'WLR3 Quote')]";
-    public final String AWAITING_PROCESS="DivProgress";
-    private final String NO_RECORDS_UNDER_ORDERS="//td[text()='No Records']";
+    public final String AWAITING_PROCESS = "DivProgress";
+    private final String NO_RECORDS_UNDER_ORDERS = "//td[text()='No Records']";
     private static String CP_RanName;
 
     ElementUtils utils = new ElementUtils();

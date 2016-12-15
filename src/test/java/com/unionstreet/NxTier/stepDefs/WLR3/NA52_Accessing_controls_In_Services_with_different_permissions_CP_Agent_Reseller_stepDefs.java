@@ -15,18 +15,14 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
     @And("^create a new quote and access a service$")
     public void createANewQuoteAndAccessAService() throws InterruptedException {
 
-       na44.haveCreatedANewCustomer();
+        na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
-       // webModel.getOrdersManagerPage().searchQuoteByBcRN();
         webModel.getOrdersManagerPage().clickOnQuoteID();
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("permissions");
-
-
-
-      }
+    }
 
     @Then("^the CP only control should be visible and accessible$")
     public void theCPOnlyControlShouldBeVisibleAndAccessible() {

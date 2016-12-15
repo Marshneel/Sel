@@ -138,7 +138,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     @And("^Only the quotes created by me and the ones created for my company should be visible$")
     public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForMyCompanyShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
-       webModel.getOrdersManagerPage().checkQuotesForAgent();
+        webModel.getOrdersManagerPage().checkQuotesForAgent();
 
     }
 
@@ -158,7 +158,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuoteForReseller();
 
-}
+    }
 
     @Given("^I am logged in as CP$")
     public void iAmLoggedInAsCP() {
