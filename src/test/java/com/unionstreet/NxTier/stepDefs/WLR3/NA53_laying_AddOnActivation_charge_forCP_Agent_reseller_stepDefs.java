@@ -22,7 +22,6 @@ public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
-        webModel.getOrdersManagerPage().searchQuoteByBcRN();
         webModel.getOrdersManagerPage().clickOnQuoteID();
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("addOnActivationCharge");

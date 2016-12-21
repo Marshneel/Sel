@@ -15,11 +15,11 @@ public class AddServicePage {
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
 
     public void searchAndSelectService() {
-        utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
-        commonMethods.search(utils.getProperty("serviceName_CustomService"));
         utils.waitForElementVisible(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
         utils.clickBtn(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
             utils.checkAlert();
@@ -29,14 +29,15 @@ public class AddServicePage {
     }
 
     public void clickService() {
+
         utils.clickBtn(By.xpath(SERVICE_ON_QUOTE_PAGE));
         utils.switchToNewWindow();
     }
 
     public void addServiceToQuote(String serviceName) {
         utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-        commonMethods.search(serviceName);
         utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
+        utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
         utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
     }
 

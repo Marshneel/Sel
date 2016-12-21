@@ -1,6 +1,6 @@
 Feature: verify customer and internal fields by logging as CP, agent and reseller
 
-  @smokePack
+  @smokePack1
   Scenario: verify that the customer and internal tabs are present and accessible under add/view notes under edit order page
     Given I am logged in as CP
     When I access add_view notes on edit order page

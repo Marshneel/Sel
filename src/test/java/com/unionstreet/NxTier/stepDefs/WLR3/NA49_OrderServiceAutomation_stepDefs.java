@@ -22,7 +22,6 @@ public class NA49_OrderServiceAutomation_stepDefs {
 
     @When("^I add a service from the quote details page$")
     public void iAddAServiceFromTheQuoteDetailsPage() {
-        webModel.getOrdersManagerPage().searchQuoteByBcRN();
         webModel.getOrdersManagerPage().clickOnQuoteID();
         webModel.getOrdersManagerPage().clickAddProductsAndServicesButton();
     }

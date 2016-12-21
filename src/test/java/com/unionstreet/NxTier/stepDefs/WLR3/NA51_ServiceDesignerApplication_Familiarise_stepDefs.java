@@ -21,7 +21,6 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
-        webModel.getOrdersManagerPage().searchQuoteByBcRN();
         webModel.getOrdersManagerPage().clickOnQuoteID();
         webModel.getOrdersManagerPage().accessAdd_ViewNotes();
     }

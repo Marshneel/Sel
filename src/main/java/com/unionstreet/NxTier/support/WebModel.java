@@ -20,7 +20,6 @@ public class WebModel {
 //    private WLR3_OrderDetails_Page_Appointment wlr3OrderDetailsPageAppointment;
 
 
-
     public WebModel() {
         utils = new ElementUtils();
         loginPage = new LoginPage();
@@ -36,9 +35,6 @@ public class WebModel {
 //        wlr3_orderDetails_installation_address=new WLR3_OrderDetails_Installation_address();
 //        wlr3_orderDetails_lineNumbering=new WLR3_OrderDetails_lineNumbering();
 //        wlr3OrderDetailsPageAppointment=new WLR3_OrderDetails_Page_Appointment();
-
-
-
 
 
     }
@@ -95,7 +91,6 @@ public class WebModel {
 //    public WLR3_OrderDetails_Page_Appointment getWlr3OrderDetailsPageAppointment(){
 //        return wlr3OrderDetailsPageAppointment;
 //    }
-
 
 
 }

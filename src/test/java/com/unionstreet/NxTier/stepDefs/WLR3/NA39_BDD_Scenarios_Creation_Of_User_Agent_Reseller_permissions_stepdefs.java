@@ -139,6 +139,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForMyCompanyShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuotesForAgent();
+
     }
 
     @Given("^I am logged in as reseller$")
@@ -156,6 +157,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForCompaniesUnderMyContactListShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuoteForReseller();
+
     }
 
     @Given("^I am logged in as CP$")
@@ -173,5 +175,6 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void allTheQuotesIncludingThatOfTheResellersAndAgentsShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuotesForCP();
+
     }
 }

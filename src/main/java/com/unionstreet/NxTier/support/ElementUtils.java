@@ -20,6 +20,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertTrue;
 
@@ -40,7 +41,7 @@ public class ElementUtils {
 
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(driver)
-         .withTimeout(50, SECONDS)
+         .withTimeout(10, SECONDS)
                 .pollingEvery(3, SECONDS)
                 .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
         return wait;
@@ -57,7 +58,7 @@ public class ElementUtils {
     //method to click button with fluent wait
     public void clickBtnWithWait(By by) {
         Wait wait = new FluentWait(driver)
-                .withTimeout(50, SECONDS)
+                .withTimeout(10, SECONDS)
                 .pollingEvery(5, SECONDS)
                 .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
         wait.until(ExpectedConditions.elementToBeClickable(by));
@@ -84,7 +85,7 @@ public class ElementUtils {
 
     //implicit wait
     public void timeOut() {
-        driver.manage().timeouts().implicitlyWait(1000, SECONDS);
+        driver.manage().timeouts().implicitlyWait(1000, MILLISECONDS);
     }
 
     //explicit wait element to be present
@@ -210,6 +211,18 @@ public class ElementUtils {
         }
     }
 
+
+
+public void closeAllPopups(By by){
+    Set beforePopup = driver.getWindowHandles();
+   driver.findElement(by).click();
+    Set afterPopup = driver.getWindowHandles();
+afterPopup.removeAll(beforePopup);
+if(afterPopup.size() == 1) {
+        driver.switchTo().window((String)afterPopup.toArray()[0]);
+
+    }}
+
     public void javaScriptExecutorClick(By by) {
         WebElement element = driver.findElement(by);
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -244,6 +257,8 @@ public class ElementUtils {
     }
 
     public void searchAndAssertTextPresent(By by, String searchText) {
+        WebDriverWait wait = new WebDriverWait(driver, 100);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         String actualText = driver.findElement(by).getText();
         Assert.assertTrue(actualText.contains(searchText));
     }
