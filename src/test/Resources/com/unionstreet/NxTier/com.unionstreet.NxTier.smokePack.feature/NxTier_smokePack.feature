@@ -16,12 +16,12 @@ Feature: Creating new business customer and assigning all the required inputs to
       | userName | passWord |
       | john     | abcdef   |
 
-#  @smokePack
-#  Scenario: Creating a new Business Customer
-#    Given  I am logged in as an admin
-#    When I access add new business customer page
-#    And  Provide all the required info
-#    Then A new customer should be successfully created
+  @smokePack
+  Scenario: Creating a new Business Customer
+    Given  I am logged in as an admin
+    When I access add new business customer page
+    And  Provide all the required info
+    Then A new customer should be successfully created
 
   @smokePack
   Scenario: Creating a sub-site for a newly created customer
@@ -36,7 +36,7 @@ Feature: Creating new business customer and assigning all the required inputs to
     And   I have added a new business customer
     When  I access invoicing and billing details section under company menu and provide all required info
     Then  Invoice details and billing details of that particular customer should be updated, respectively
-#
+
   @smokePack
   Scenario: Adding service charges (one off and recurring) and CLI to the newly created customer
     Given I am logged in as an admin
