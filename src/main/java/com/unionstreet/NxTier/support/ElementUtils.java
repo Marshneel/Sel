@@ -32,18 +32,18 @@ public class ElementUtils {
     public static ResultSet result;
 
 
-    public void waitForFieldToBePopulated(By by,String text){
-       WebDriverWait wait=new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.textToBe(by,text));
+    public void waitForFieldToBePopulated(By by, String text) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.textToBe(by, text));
 
     }
 
 
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(driver)
-         .withTimeout(10, SECONDS)
+                .withTimeout(50, SECONDS)
                 .pollingEvery(3, SECONDS)
-                .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
+                .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
         return wait;
     }
 
@@ -51,16 +51,16 @@ public class ElementUtils {
     public void sendText(By by, String txt) {
         waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
         driver.findElement(by).click();
-       driver.findElement(by).clear();
+        driver.findElement(by).clear();
         driver.findElement(by).sendKeys(txt);
     }
 
     //method to click button with fluent wait
     public void clickBtnWithWait(By by) {
         Wait wait = new FluentWait(driver)
-                .withTimeout(10, SECONDS)
+                .withTimeout(50, SECONDS)
                 .pollingEvery(5, SECONDS)
-                .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
+                .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
         wait.until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).click();
     }
@@ -101,6 +101,9 @@ public class ElementUtils {
             if (!windowHandle.equals(parentWindow)) {
                 driver.switchTo().window(windowHandle);
                 driver.manage().window().maximize();
+
+
+
             }
         }
     }
@@ -154,10 +157,11 @@ public class ElementUtils {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
                options.addArguments("--disable-extensions");
+
                 driver = new ChromeDriver(options);
             } else if (getProperty("browser").equalsIgnoreCase("IE")) {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
-                driver = new InternetExplorerDriver();
+                 driver = new InternetExplorerDriver();
             } else if (getProperty("browser").equalsIgnoreCase("firefox")) {
                 driver = new FirefoxDriver();
             }
@@ -170,7 +174,7 @@ public class ElementUtils {
 
     public void jumpToPopUpWindow(By by) {
         Set parentWindow = driver.getWindowHandles();
-       clickBtnWithWait(by);
+        clickBtnWithWait(by);
         Set afterPopup = driver.getWindowHandles();
         afterPopup.removeAll(parentWindow);
         if (afterPopup.size() == 1) {
@@ -187,41 +191,70 @@ public class ElementUtils {
             driver.switchTo().window((String) afterPopup.toArray()[0]);
         }
     }
-    public boolean isAlertPresent()
-    {
-        try
-        {
+
+    public boolean isAlertPresent() {
+        try {
             driver.switchTo().alert();
             return true;
         }   // try
-        catch (NoAlertPresentException Ex)
-        {
+        catch (NoAlertPresentException Ex) {
             return false;
         }   // catch
     }
+
     //exception handling
     public void checkAlert() {
         try {
-            if(isAlertPresent()) {
+            if (isAlertPresent()) {
                 Alert alert = driver.switchTo().alert();
-                alert.accept();
-            }
+                alert.accept();}
         } catch (Exception e) {
 
         }
     }
 
 
+    public void closePopup(By by) throws InterruptedException {
+        String currentWindowHandle = driver.getWindowHandle();
+        driver.findElement(by).click();
+        Thread.sleep(2000);
+        ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+        for (String window : windowHandles) {
 
-public void closeAllPopups(By by){
-    Set beforePopup = driver.getWindowHandles();
-   driver.findElement(by).click();
-    Set afterPopup = driver.getWindowHandles();
-afterPopup.removeAll(beforePopup);
-if(afterPopup.size() == 1) {
-        driver.switchTo().window((String)afterPopup.toArray()[0]);
+            if (!window.equals(currentWindowHandle)) {
+                driver.switchTo().window(window);
+                driver.close();
+            }
+        }
+        driver.switchTo().window(currentWindowHandle);
+    }
+    public void closeCurrentWindowAndJump(By by) throws InterruptedException {
+        String currentWindowHandle = driver.getWindowHandle();
+        driver.findElement(by).click();
+        Thread.sleep(2000);
+        ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+        for (String window : windowHandles) {
+            if (!window.equals(currentWindowHandle)) {
+                driver.close();
+                driver.switchTo().window(window);
+                driver.manage().window().maximize();
+            }
 
-    }}
+        }
+    }
+    public void pageJumpWithoutClose(By by) throws InterruptedException {
+        String currentWindowHandle = driver.getWindowHandle();
+        driver.findElement(by).click();
+        Thread.sleep(2000);
+        ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+        for (String window : windowHandles) {
+
+            if (!window.equals(currentWindowHandle)) {
+                driver.switchTo().window(window);
+
+            }
+        }
+    }
 
     public void javaScriptExecutorClick(By by) {
         WebElement element = driver.findElement(by);
@@ -279,10 +312,9 @@ if(afterPopup.size() == 1) {
         }
     }
 
-    public void refreshPage(){
+    public void refreshPage() {
         driver.navigate().refresh();
     }
-
 
     public void getOrdersPage() {
         driver.get("http://test01-web01/nxtiere2e/orders/ordersmanager");
@@ -293,10 +325,10 @@ if(afterPopup.size() == 1) {
         assertTrue(element.isEmpty());
     }
 
-    public void sqlQuery(String userN,String passWord, String server, String database, String query) {
+    public void sqlQuery(String userN, String passWord, String server, String database, String query) {
         try {
             String userName = "" + userN + "";
-            String password = ""+passWord+"";
+            String password = "" + passWord + "";
             String url = "jdbc:sqlserver://" + server + "" + ";databaseName=" + database + "";
             Connection con = DriverManager.getConnection(url, userName, password);
             Statement statement;
@@ -308,10 +340,10 @@ if(afterPopup.size() == 1) {
         }
     }
 
-    public void sqlExeQuery(String userN,String pasWord, String server, String database, String query) {
+    public void sqlExeQuery(String userN, String pasWord, String server, String database, String query) {
         try {
             String userName = "" + userN + "";
-            String password = ""+pasWord+"";
+            String password = "" + pasWord + "";
             String url = "jdbc:sqlserver://" + server + "" + ";databaseName=" + database + "";
             Connection con = DriverManager.getConnection(url, userName, password);
             Statement statement;
@@ -376,17 +408,16 @@ if(afterPopup.size() == 1) {
                     "RESTORE DATABASE [Raj] FROM  DISK = N'F:\\Backups\\Raj\\Raj.bak' " +
                     " WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 10;  " +
                     " Select 1 As restored";
-            this.sqlQuery("Nxtiere2e","autotest", "test01-sql01", "nxtiere2e", str);
+            this.sqlQuery("Nxtiere2e", "autotest", "test01-sql01", "nxtiere2e", str);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void switchToPreviousWindow() {
-        ArrayList <String> tabs = new ArrayList(driver.getWindowHandles());
+        ArrayList<String> tabs = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
     }
-
 
 
 

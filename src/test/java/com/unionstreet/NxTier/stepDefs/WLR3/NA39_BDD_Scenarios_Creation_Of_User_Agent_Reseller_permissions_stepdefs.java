@@ -16,7 +16,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
 
 
     @And("^have added a new business customer with required contact type$")
-    public void haveAddedANewBusinessCustomerWithRequiredContactType() {
+    public void haveAddedANewBusinessCustomerWithRequiredContactType() throws InterruptedException {
         webModel.getNewBusinessCustomerPage().clickContactManagerButton();
         webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
         webModel.getNewBusinessCustomerPage().companyInfoForNewBusinessCustomer();
@@ -25,7 +25,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @And("^have created a new agent permission group$")
-    public void haveCreatedANewAgentPermissionGroup() {
+    public void haveCreatedANewAgentPermissionGroup() throws InterruptedException {
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().clickAddPermissionsButton();
         webModel.getSettingsPage().addAgentPermissionGroups_General();
@@ -42,7 +42,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @When("^I wish to create agent contact with valid login credentials$")
-    public void iWishToCreateAgentContactWithValidLoginCredentials() {
+    public void iWishToCreateAgentContactWithValidLoginCredentials() throws InterruptedException {
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().clickLoginUsers();
         webModel.getSettingsPage().clickAddLoginUsersButton();
@@ -61,7 +61,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @When("^I wish to create a business reseller contact with valid login credentials$")
-    public void iWishToCreateABusinessResellerContactWithValidLoginCredentials() {
+    public void iWishToCreateABusinessResellerContactWithValidLoginCredentials() throws InterruptedException {
         webModel.getCompanyMenuPage().accessCompanyMenu();
         webModel.getSettingsPage().clickCompanyContacts();
         webModel.getSettingsPage().addNewCompanyContactButton();
@@ -81,7 +81,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @And("^Have created a new CP permission group under settings$")
-    public void haveCreatedANewCPPermissionGroupUnderSettings() {
+    public void haveCreatedANewCPPermissionGroupUnderSettings() throws InterruptedException {
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().clickAddPermissionsButton();
         webModel.getSettingsPage().addCPPermissionGroups_General();
@@ -98,7 +98,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @When("^I wish to create new CP under login users sub-menu$")
-    public void iWishToCreateNewCPUnderLoginUsersSubMenu() {
+    public void iWishToCreateNewCPUnderLoginUsersSubMenu() throws InterruptedException {
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().clickLoginUsers();
         webModel.getSettingsPage().clickCPUserTab();

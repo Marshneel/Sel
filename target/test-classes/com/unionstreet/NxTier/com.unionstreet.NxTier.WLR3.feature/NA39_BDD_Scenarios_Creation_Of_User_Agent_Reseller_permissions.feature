@@ -18,7 +18,7 @@ Feature: WLR3_permissions@smokePack
     Then the agent permission group should be available for selection under drop down under business reseller contact creation
     And I should be able to login with reseller credentials
 
-  @smokePack1
+  @smokePack
   Scenario: Creating a CP permission group and assigning it a CP
     Given I am logged in as an admin
     And   Have created a new CP permission group under settings
@@ -26,7 +26,7 @@ Feature: WLR3_permissions@smokePack
     Then the CP permission should be available for selection under drop down during the CP creation
     And I should be able to login with CP credentials
 
-  @smokePack1
+  @smokePack
   Scenario: creating an order quote by logged in as an agent and verifying all required fields are visible on the quote screen
     Given I am logged in as agent
     And Have created a new customer
@@ -34,7 +34,7 @@ Feature: WLR3_permissions@smokePack
     Then All required fields pertaining to an agent should be visible on the create quote window
     And Only the quotes created by me and the ones created for my company should be visible
 
-  @smokePack1
+  @smokePack
   Scenario: creating an order quote by logged in as a reseller and verifying all required fields are visible on the quote screen
     Given I am logged in as reseller
     And Have created a new customer
@@ -42,7 +42,7 @@ Feature: WLR3_permissions@smokePack
     Then All required fields pertaining to a reseller should be visible on the create quote window
     And Only the quotes created by me and the ones created for companies under my contact list should be visible
 
-  @smokePack1
+  @smokePack
   Scenario: creating an order quote by logged in as a CP and verifying all required fields are visible on the quote screen
     Given I am logged in as CP
     And I have added a new business customer

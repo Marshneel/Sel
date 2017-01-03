@@ -89,100 +89,132 @@ public class SettingsPage {
 
 
     public void clickSettingsButton() {
-        utils.clickBtnWithWait(By.id(SETTINGS_BUTTON));
+        utils.clickBtn(By.id(SETTINGS_BUTTON));
     }
 
-    public void clickAddPermissionsButton() {
+    public void clickAddPermissionsButton() throws InterruptedException {
         utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindow();
     }
 
     public void addAgentPermissionGroups_General() {
-        utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
+      utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
         utils.sendText(By.id(ADDPERMISSION_GROUPNAME), newBusinessCustomerPage.RanName);
-        utils.clickBtn(By.xpath(AGENTPERMISSION_GROUPTYPE));
-    }
+        utils.clickBtn(By.xpath(AGENTPERMISSION_GROUPTYPE));}
 
-    public void addPermissionGroups_Configuration() {
+    public void addPermissionGroups_Configuration() throws InterruptedException {
+        utils.scrollUp(By.xpath(ADDPERMISSION_CONFIGURATION));
         utils.clickBtn(By.xpath(ADDPERMISSION_CONFIGURATION));
         utils.javaScriptExecutorClick(By.id(CONFIGURATION_SELECTALL));
+
+        utils.scrollUp(By.xpath(CONFIGURATION_FREEMINUTES));
         utils.clickBtn(By.xpath(CONFIGURATION_FREEMINUTES));
         utils.javaScriptExecutorClick(By.id(CONFIGURATION_FREEMINUTES_SELECTALL));
+
+        utils.scrollUp(By.xpath(CONFIGURATION_PACKAGES));
         utils.clickBtn(By.xpath(CONFIGURATION_PACKAGES));
         utils.javaScriptExecutorClick(By.id(CONFIGURATION_PACKAGES_SELECTALL));
+
+        utils.scrollUp(By.xpath(CONFIGURATION_SERVICEINVENTORY));
         utils.clickBtn(By.xpath(CONFIGURATION_SERVICEINVENTORY));
         utils.javaScriptExecutorClick(By.id(CONFIGURATION_SERVICEINVENTORY_SELECTALL));
+
+        utils.scrollUp(By.xpath(CONFIGURATION_TARIFFMANAGER));
         utils.clickBtn(By.xpath(CONFIGURATION_TARIFFMANAGER));
         utils.javaScriptExecutorClick(By.id(CONFIGURATION_TARIFFMANAGER_SELECTALL));
     }
 
-    public void addPermissionGroups_ContactManager() {
-
+    public void addPermissionGroups_ContactManager() throws InterruptedException {
+        utils.scrollUp(By.xpath(ADDPERMISSIONS_CONTACTMANAGER));
         utils.clickBtn(By.xpath(ADDPERMISSIONS_CONTACTMANAGER));
         utils.javaScriptExecutorClick(By.id(CONTACTMANAGER_SELECTALL));
+
+        utils.scrollUp(By.xpath(CONTACTMANAGER_AGENT));
         utils.clickBtn(By.xpath(CONTACTMANAGER_AGENT));
         utils.javaScriptExecutorClick(By.id(CONTACTMANAGER_AGENT_SELECTALL));
+
+        utils.scrollUp(By.xpath(CONTACTMANAGER_CARRIERS));
         utils.clickBtn(By.xpath(CONTACTMANAGER_CARRIERS));
         utils.javaScriptExecutorClick(By.id(CONTACTMANAGER_CARRIERS_SELECTALL));
+
+        utils.scrollUp(By.xpath(CONTACTMANAGER_CUSTOMERS));
         utils.clickBtn(By.xpath(CONTACTMANAGER_CUSTOMERS));
         utils.javaScriptExecutorClick(By.id(CONTACTMANAGER_CUSTOMERS_SELECTALL));
+
+        utils.scrollUp(By.xpath(CONTACTMANAGER_OPERATORS));
         utils.clickBtn(By.xpath(CONTACTMANAGER_OPERATORS));
         utils.javaScriptExecutorClick(By.id(CONTACTMANAGER_OPERATORS_SELECTALL));
+
+        utils.scrollUp(By.xpath(CONTACTMANAGER_RESELLERS));
         utils.clickBtn(By.xpath(CONTACTMANAGER_RESELLERS));
         utils.javaScriptExecutorClick(By.id(CONTACTMANAGER_RESELLERS_SELECTALL));
+
+        utils.scrollUp(By.xpath(CONTACTMANAGER_SUPPLIERS));
         utils.clickBtn(By.xpath(CONTACTMANAGER_SUPPLIERS));
         utils.javaScriptExecutorClick(By.id(CONTACTMANAGER_SUPPLIERS_SELECTALL));
     }
 
-    public void addPermissionGroups_ImportManager() {
-
+    public void addPermissionGroups_ImportManager() throws InterruptedException {
+        utils.scrollUp(By.xpath(ADDPERMISSIONS_IMPORTMANAGER));
         utils.clickBtn(By.xpath(ADDPERMISSIONS_IMPORTMANAGER));
         utils.javaScriptExecutorClick(By.id(IMPORTMANAGER_SELECTALL));
+
+        utils.scrollUp(By.xpath(IMPORTMANAGER_DATAIMPORT));
         utils.clickBtn(By.xpath(IMPORTMANAGER_DATAIMPORT));
         utils.javaScriptExecutorClick(By.id(DATAIMPORT_SELECTALL));
     }
 
-    public void addPermissionGroups_InvoiceManager() {
-
+    public void addPermissionGroups_InvoiceManager() throws InterruptedException {
+        utils.scrollUp(By.xpath(ADDPERMISSIONS_INVOICEMANAGER));
         utils.clickBtn(By.xpath(ADDPERMISSIONS_INVOICEMANAGER));
         utils.javaScriptExecutorClick(By.id(INVOICEMANAGER_SELECTALL));
     }
 
-    public void addPermissionGroups_OrdersManager() {
+    public void addPermissionGroups_OrdersManager() throws InterruptedException {
         utils.javaScriptExecutorClick(By.xpath(ADDPERMISSIONS_ORDERSMANAGER));
+
+        utils.scrollUp(By.xpath(ORDERSMANAGER_ORDERDETAILS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERDETAILS));
         utils.javaScriptExecutorClick(By.id(ORDERDETAILS_SELECTALL));
+
+        utils.scrollUp(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.javaScriptExecutorClick(By.id(ORDERS_SELECTALL));
         utils.javaScriptExecutorClick(By.id(ORDERS_UNCHECK_QUICKQUOTE));
 
     }
 
-    public void addPermissionGroups_Reports() {
+    public void addPermissionGroups_Reports() throws InterruptedException {
+        utils.scrollUp(By.xpath(ADDPERMISSION_REPORTS));
         utils.clickBtn(By.xpath(ADDPERMISSION_REPORTS));
         utils.javaScriptExecutorClick(By.id(REPORTS_SELECTALL));
     }
 
-    public void addPermissionGroups_RevenueAssurance() {
-
+    public void addPermissionGroups_RevenueAssurance() throws InterruptedException {
+        utils.scrollUp(By.xpath(ADDPERMISSION_REVENUEASSURANCE));
         utils.clickBtn(By.xpath(ADDPERMISSION_REVENUEASSURANCE));
         utils.javaScriptExecutorClick(By.id(REVENUEASSURANCE_SELECTALL));
     }
 
-    public void addPermissionGroups_Settings() {
+    public void addPermissionGroups_Settings() throws InterruptedException {
+        utils.scrollUp(By.xpath(ADDPERMISSION_SETTINGS));
         utils.clickBtn(By.xpath(ADDPERMISSION_SETTINGS));
         utils.javaScriptExecutorClick(By.id(SETTINGS_SELECTALL));
+
+        utils.scrollUp(By.xpath(SETTINGS_PERMISSIONGROUP));
         utils.clickBtn(By.xpath(SETTINGS_PERMISSIONGROUP));
         utils.javaScriptExecutorClick(By.id(PERMISSIONGROUP_SELECTALL));
     }
 
-    public void addPermissionGroups_WorkPlace() {
+    public void addPermissionGroups_WorkPlace() throws InterruptedException {
         utils.javaScriptExecutorClick(By.xpath(ADDPERMISSIONS_WORKPLACE));
+        utils.scrollUp(By.xpath(WORKPLACE_DASHBOARD));
         utils.clickBtn(By.xpath(WORKPLACE_DASHBOARD));
         utils.javaScriptExecutorClick(By.id(DASHBOARD_SELECTALL));
     }
 
-    public void saveAndCloseAddPermissions() {
+    public void saveAndCloseAddPermissions() throws InterruptedException {
+        utils.scrollUp(By.xpath(SAVEANDCLOSE));
         utils.clickBtn(By.xpath(SAVEANDCLOSE));
         try {
             utils.checkAlert();
@@ -192,7 +224,7 @@ public class SettingsPage {
     }
 
     public void clickLoginUsers() {
-        utils.clickBtnWithWait(By.xpath(LOGINUSERS_BUTTON));
+        utils.clickBtn(By.xpath(LOGINUSERS_BUTTON));
     }
 
     public void clickAddLoginUsersButton() {
@@ -201,9 +233,9 @@ public class SettingsPage {
         utils.jumpToPopUpWindow(By.linkText(ADDLOGINUSERS));
     }
 
-    public void agentUserSelectCompany() {
+    public void agentUserSelectCompany() throws InterruptedException {
         utils.selectByVisibleText(By.id(ADDUSER_COMPANY), newBusinessCustomerPage.RanName);
-        utils.clickBtn(By.linkText(USERADD_LOGIN));
+       utils.clickBtn(By.linkText(USERADD_LOGIN));
         utils.switchToNewWindow();
     }
 
@@ -246,7 +278,7 @@ public class SettingsPage {
         utils.clickBtn(By.id(COMPANYCONTACTS_BUTTON));
     }
 
-    public void addNewCompanyContactButton() {
+    public void addNewCompanyContactButton() throws InterruptedException {
         utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindow();
     }
@@ -271,7 +303,7 @@ public class SettingsPage {
         utils.clickBtn(By.linkText("CP Users"));
     }
 
-    public void addCPloginUserSelectCompanyandSite() {
+    public void addCPloginUserSelectCompanyandSite() throws InterruptedException {
         utils.selectByIndex(By.id(ADDUSER_COMPANY), 1);
         utils.clickBtn(By.linkText(USERADD_LOGIN));
         utils.switchToNewWindow();
@@ -310,13 +342,14 @@ public class SettingsPage {
         utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
     }
 
-    public void revokingAgentWLRPermissions() {
-        utils.waitForElementVisible(By.linkText("agent"));
+    public void revokingAgentWLRPermissions() throws InterruptedException {
         utils.clickBtn(By.linkText("agent"));
         utils.switchToNewWindow();
+        utils.waitForElementVisible(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERDETAILS));
         utils.makeSureBoxIsUnChecked(By.xpath(ORDERDETAILS_SELECTALL_WITHCHECKBOX), By.id(ORDERDETAILS_SELECTALL));
+       utils.scrollUp(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.makeSureBoxIsUnChecked(By.id(WLR3_ORDERS_VIEW), By.id(WLR3_ORDERS_VIEW));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
@@ -335,6 +368,8 @@ public class SettingsPage {
         utils.waitForElementToVanish(By.id(AWAITING_PROCESS));
         utils.waitForElementVisible(By.xpath(NO_RECORDS_UNDER_ORDERS));
 
+
+
     }
 
     public void assertingWLROrdersWithRights() {
@@ -348,7 +383,8 @@ public class SettingsPage {
         }
     }
 
-    public void issuingWLRPermissions() {
+    public void issuingWLRPermissions() throws InterruptedException {
+        commonMethods.search("agent");
         utils.waitForElementVisible(By.linkText("agent"));
         utils.clickBtn(By.linkText("agent"));
         utils.switchToNewWindow();
@@ -364,6 +400,8 @@ public class SettingsPage {
             utils.checkAlert();
         } catch (Exception e) {
         }
+
         utils.switchToParentWindow();
+
     }
 }

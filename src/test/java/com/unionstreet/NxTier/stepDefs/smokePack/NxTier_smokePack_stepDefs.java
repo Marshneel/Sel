@@ -44,7 +44,7 @@ public class NxTier_smokePack_stepDefs {
     }
 
     @When("^I access add new business customer page$")
-    public void iAccessAddNewBusinessCustomerPage() {
+    public void iAccessAddNewBusinessCustomerPage() throws InterruptedException {
         webModel.getNewBusinessCustomerPage().clickContactManagerButton();
         webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
     }
@@ -63,7 +63,7 @@ public class NxTier_smokePack_stepDefs {
     }
 
     @And("^I have added a new business customer$")
-    public void iHaveAddedANewBusinessCustomer() {
+    public void iHaveAddedANewBusinessCustomer() throws InterruptedException {
         webModel.getNewBusinessCustomerPage().clickContactManagerButton();
         webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
         webModel.getNewBusinessCustomerPage().companyInfoForNewBusinessCustomer();
@@ -72,7 +72,7 @@ public class NxTier_smokePack_stepDefs {
     }
 
     @When("^I access Company Sites under the company menu and provide all the required info$")
-    public void iaccessinvoicingandbillingdetailssectionundercompanymenuandprovideallrequiredinfo() {
+    public void iaccessinvoicingandbillingdetailssectionundercompanymenuandprovideallrequiredinfo() throws InterruptedException {
         webModel.getCompanyMenuPage().addNewSite();
         webModel.getCompanyMenuPage().addNewSiteNames();
         webModel.getCompanyMenuPage().addNewSiteAddress();
@@ -86,7 +86,7 @@ public class NxTier_smokePack_stepDefs {
     }
 
     @When("^I access invoicing and billing details section under company menu and provide all required info$")
-    public void iAccessInvoicingAndBillingDetailsSectionUnderCompanyMenuAndProvideAllRequiredInfo() {
+    public void iAccessInvoicingAndBillingDetailsSectionUnderCompanyMenuAndProvideAllRequiredInfo() throws InterruptedException {
         webModel.getCompanyMenuPage().addInvoicingDetails();
         webModel.getCompanyMenuPage().addBillingDetails();
     }
@@ -99,7 +99,7 @@ public class NxTier_smokePack_stepDefs {
     }
 
     @When("^I access CLIs and service charges section under company menu and provide all required info$")
-    public void iAccessCLIsAndServiceChargesSectionUnderCompanyMenuAndProvideAllRequiredInfo() {
+    public void iAccessCLIsAndServiceChargesSectionUnderCompanyMenuAndProvideAllRequiredInfo() throws InterruptedException {
         webModel.getCompanyMenuPage().addCLIs();
         webModel.getCompanyMenuPage().addRecurringChargesPart1();
         webModel.getCompanyMenuPage().addRecurringChargesPart2();
@@ -116,7 +116,7 @@ public class NxTier_smokePack_stepDefs {
     }
 
     @When("^I access pricing details under company menu and provide all required info$")
-    public void iAccessPricingDetailsUnderCompanyMenuAndProvideAllRequiredInfo() {
+    public void iAccessPricingDetailsUnderCompanyMenuAndProvideAllRequiredInfo() throws InterruptedException {
         webModel.getCompanyMenuPage().addPricingDetails();
     }
 

@@ -5,6 +5,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.awt.*;
+
 /**
  * Created by rajeshg on 22/09/2016.
  */
@@ -21,37 +23,39 @@ public class NA49_OrderServiceAutomation_stepDefs {
     }
 
     @When("^I add a service from the quote details page$")
-    public void iAddAServiceFromTheQuoteDetailsPage() {
+    public void iAddAServiceFromTheQuoteDetailsPage() throws InterruptedException {
         webModel.getOrdersManagerPage().clickOnQuoteID();
         webModel.getOrdersManagerPage().clickAddProductsAndServicesButton();
     }
 
     @Then("^the control that is CP only should be visible$")
-    public void theControlThatIsCPOnlyShouldBeVisible() {
+    public void theControlThatIsCPOnlyShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertCPonlyValuePresent();
     }
 ///////////////////////////////////////////////////////////////////////////////////////////
 
     @Then("^the control that is CP only should be invisible$")
-    public void theControlThatIsCPOnlyShouldBeInvisible() {
+    public void theControlThatIsCPOnlyShouldBeInvisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertCPonlyValueNotPresent();
     }
 /////////////////////////////////////////////////////////////////////////////////////////////
 
     @When("^I access quote details and add a service without selecting the mandatory control$")
-    public void iAccessQuoteDetailsAndAddAServiceWithoutSelectingTheMandatoryControl() {
+    public void iAccessQuoteDetailsAndAddAServiceWithoutSelectingTheMandatoryControl() throws InterruptedException {
         iAddAServiceFromTheQuoteDetailsPage();
         webModel.getAddServicePage().searchAndSelectService();
     }
 
     @Then("^The quote should become invalid$")
-    public void theQuoteShouldBecomeInvalid() {
+    public void theQuoteShouldBecomeInvalid() throws InterruptedException {
         webModel.getOrdersManagerPage().assertInvalidQuoteBeforeSubmitting();
         webModel.getOrdersManagerPage().assertInvalidQuoteAfterSubmitting();
+
     }
 
     @And("^When I add the omitted control, the quote should become valid$")
-    public void whenIAddTheOmittedControlTheQuoteShouldBecomeValid() {
+    public void whenIAddTheOmittedControlTheQuoteShouldBecomeValid() throws InterruptedException, AWTException {
+       webModel.getAddServicePage().scrollToService();
         webModel.getAddServicePage().clickService();
         webModel.getOrdersManagerPage().populateMandatoryField();
         webModel.getOrdersManagerPage().assertValidQuoteBeforeSubmitting();

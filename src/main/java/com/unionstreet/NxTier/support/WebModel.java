@@ -5,6 +5,7 @@ import com.unionstreet.NxTier.pages.*;
 public class WebModel {
 
     private ElementUtils utils;
+    private BaseClass baseClass;
     private LoginPage loginPage;
     private DashBoardPage dashBoardPage;
     private NewBusinessCustomerPage newBusinessCustomerPage;
@@ -14,6 +15,7 @@ public class WebModel {
     private CommonMethods commonMethods;
     private OrdersManagerPage ordersManagerPage;
     private AddServicePage addServicePage;
+
 //    public WLR3_OrderDetails_Page wlr3_orderDetails_page;
 //    private WLR3_OrderDetails_Installation_address wlr3_orderDetails_installation_address;
 //    private WLR3_OrderDetails_lineNumbering wlr3_orderDetails_lineNumbering;
@@ -22,6 +24,7 @@ public class WebModel {
 
     public WebModel() {
         utils = new ElementUtils();
+        baseClass=new BaseClass();
         loginPage = new LoginPage();
         dashBoardPage = new DashBoardPage();
         newBusinessCustomerPage = new NewBusinessCustomerPage();
@@ -38,7 +41,9 @@ public class WebModel {
 
 
     }
-
+public BaseClass getBaseClass(){
+    return baseClass;
+}
     public ElementUtils getUtils() {
         return utils;
     }

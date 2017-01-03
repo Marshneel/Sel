@@ -31,7 +31,7 @@ public class ContactManagerPage {
         utils.clickBtn(By.id(COMPANYSITES));
     }
 
-    public void clickOnResellerUnderCustomerDetails() {
+    public void clickOnResellerUnderCustomerDetails() throws InterruptedException {
 
         commonMethods.search(newBusinessCustomerPage.RanName);
         utils.waitForElementVisible(By.linkText(newBusinessCustomerPage.RanName));
@@ -39,8 +39,8 @@ public class ContactManagerPage {
         utils.switchToNewWindow();
     }
 
-    public void addNewSiteForReseller() {
-        utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+    public void addNewSiteForReseller() throws InterruptedException {
+       utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindow();
         utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SITE_NAME));
         utils.sendText(By.id(companyMenuPage.SITEDETAILS_SITE_NAME), newBusinessCustomerPage.RanName);
@@ -63,11 +63,11 @@ public class ContactManagerPage {
         utils.selectByVisibleText(By.id(CREATEQUOTE_SELECTSITE), newBusinessCustomerPage.RanName);
     }
 
-    public void searchForBusinessCustomer(String customer_name) {
+    public void searchForBusinessCustomer(String customer_name) throws InterruptedException {
         utils.sendText(By.id(SEARCH_BUTTON), customer_name);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath("//a[text()='" + customer_name + "']"));
-        utils.clickBtn(By.xpath("//a[text()='" + customer_name + "']"));
+       utils.clickBtn(By.xpath("//a[text()='" + customer_name + "']"));
         utils.switchToNewWindow();
     }
 
@@ -81,6 +81,7 @@ public class ContactManagerPage {
         } catch (Exception e) {
         }
         utils.switchToParentWindow();
+        utils.getOrdersPage();
     }
 
 }
