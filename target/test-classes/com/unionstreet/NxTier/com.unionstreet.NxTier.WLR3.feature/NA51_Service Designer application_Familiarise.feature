@@ -1,5 +1,5 @@
 Feature: verify customer and internal fields by logging as CP, agent and reseller
-#
+
 #  @smokePack
 #  Scenario: verify that the customer and internal tabs are present and accessible under add/view notes under edit order page
 #    Given I am logged in as CP
