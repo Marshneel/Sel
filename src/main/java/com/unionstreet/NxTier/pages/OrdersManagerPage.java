@@ -205,6 +205,7 @@ public class OrdersManagerPage {
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.sendText(By.xpath(ORDER_QUOTE_DESCRIPTION_FIELD), newBusinessCustomerPage.RanName);
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.clickBtn(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY));
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY), newBusinessCustomerPage.RanName);
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
@@ -223,7 +224,7 @@ public class OrdersManagerPage {
 
     public void clickOnQuoteID() throws InterruptedException {
         try {
-            utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
+          //  utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
             // utils.clickBtn(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
             utils.clickBtn(By.xpath(QUOTEID));
             utils.switchToNewWindow();

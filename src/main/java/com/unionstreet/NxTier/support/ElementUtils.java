@@ -153,16 +153,15 @@ public class ElementUtils {
     public WebDriver browser() {
         try {
 
-            if (getProperty("browser").equalsIgnoreCase("chrome")) {
+            if (System.getProperty("browser").equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
                options.addArguments("--disable-extensions");
-
                 driver = new ChromeDriver(options);
-            } else if (getProperty("browser").equalsIgnoreCase("IE")) {
+            } else if (System.getProperty("browser").equalsIgnoreCase("IE")) {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
                  driver = new InternetExplorerDriver();
-            } else if (getProperty("browser").equalsIgnoreCase("firefox")) {
+            } else if (System.getProperty("browser").equalsIgnoreCase("firefox")) {
                 driver = new FirefoxDriver();
             }
 

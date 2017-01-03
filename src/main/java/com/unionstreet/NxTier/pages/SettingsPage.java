@@ -363,10 +363,11 @@ public class SettingsPage {
     public void assertingWLROrdersWithOutRights() {
         commonMethods.search("WLR3");
         utils.waitForElementToVanish(By.id(AWAITING_PROCESS));
-        utils.waitForElementVisible(By.xpath(NO_RECORDS_UNDER_ORDERS));
-        utils.searchAndAssertTextNotPresent(By.id(dashBoardPage.QUOTE), "WLR3 Quote");
-        utils.waitForElementToVanish(By.id(AWAITING_PROCESS));
-        utils.waitForElementVisible(By.xpath(NO_RECORDS_UNDER_ORDERS));
+        utils.waitForElementVisible(By.xpath("//td[@colspan='9'][contains(text(),'No Record')]"));
+        utils.waitForElementVisible(By.xpath("//td[@colspan='10'][contains(text(),'No Record')]"));
+       // utils.searchAndAssertTextNotPresent(By.id(dashBoardPage.QUOTE), "WLR3 Quote");
+       // utils.waitForElementToVanish(By.id(AWAITING_PROCESS));
+       // utils.waitForElementVisible(By.xpath(NO_RECORDS_UNDER_ORDERS));
 
 
 

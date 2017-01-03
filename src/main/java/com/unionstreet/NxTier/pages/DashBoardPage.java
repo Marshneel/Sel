@@ -28,8 +28,8 @@ public class DashBoardPage {
     }
 
     public void clickOrderManagerButton() {
-            utils.clickBtnWithWait(By.id(ORDERSMANAGER_BUTTON));
-            utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
+            utils.clickBtn(By.id(ORDERSMANAGER_BUTTON));
+          //  utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
 
 
         }

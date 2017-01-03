@@ -45,8 +45,9 @@ public class AddServicePage {
     }
 
     public void clickAddAProductOrService() {
-        utils.clickBtn(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-        utils.switchToNewWindow();
+        utils.waitForElementVisible(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+        utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+
     }
 
     public void assertServicePresent(String serviceName) {
