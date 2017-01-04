@@ -14,7 +14,6 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
 
     @And("^create a new quote and access a service$")
     public void createANewQuoteAndAccessAService() throws InterruptedException {
-
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
@@ -22,7 +21,7 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
         webModel.getOrdersManagerPage().clickOnQuoteID();
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("permissions");
-    }
+}
 
     @Then("^the CP only control should be visible and accessible$")
     public void theCPOnlyControlShouldBeVisibleAndAccessible() {
@@ -31,7 +30,7 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
     }
 
     @Then("^the CP only control should be invisible$")
-    public void theCPOnlyControlShouldBeInvisible() {
+    public void theCPOnlyControlShouldBeInvisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertCPonlyCheckBoxIsAbsent();
     }
 }

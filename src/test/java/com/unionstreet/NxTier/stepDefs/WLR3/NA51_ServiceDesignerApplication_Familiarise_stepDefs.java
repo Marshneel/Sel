@@ -46,7 +46,7 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
     }
 
     @When("^I access the services page$")
-    public void iAccessTheServicesPage() {
+    public void iAccessTheServicesPage() throws InterruptedException {
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickOnQuoteID();
         webModel.getAddServicePage().clickAddAProductOrService();

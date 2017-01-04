@@ -2,7 +2,6 @@ package com.unionstreet.NxTier.pages;
 
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 
 
 public class DashBoardPage {
@@ -29,13 +28,10 @@ public class DashBoardPage {
     }
 
     public void clickOrderManagerButton() {
-        try {
             utils.clickBtn(By.id(ORDERSMANAGER_BUTTON));
-            utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
+          //  utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
 
-        } catch (NoSuchElementException e) {
-            utils.getOrdersPage();
 
         }
-    }
+
 }

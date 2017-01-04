@@ -27,6 +27,8 @@ public class BaseClass {
             driver = utils.browser();
             driver.get(utils.getProperty("url"));
             driver.manage().window().maximize();
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -34,6 +36,7 @@ public class BaseClass {
 
     @After
     public void tearDown() {
+        driver.close();
         driver.quit();
 
     }

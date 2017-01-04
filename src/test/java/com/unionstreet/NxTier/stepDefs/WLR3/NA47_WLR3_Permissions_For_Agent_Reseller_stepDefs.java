@@ -13,7 +13,7 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
     WebModel webModel = new WebModel();
 
     @Given("^CP has revoked my WLR order permissions$")
-    public void cpHasRevokedMyWLROrderPermissions() {
+    public void cpHasRevokedMyWLROrderPermissions() throws InterruptedException {
         webModel.getLoginPage().loginAsCP();
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().revokingAgentWLRPermissions();
@@ -25,15 +25,16 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
         //login as agent///////
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getSettingsPage().assertingWLROrdersWithOutRights();
-        webModel.getDashBoardPage().logOut();
-    }
+       webModel.getDashBoardPage().logOut();
+
+           }
 
     @And("^the orders are visible and editable once the CP issues the orders back agent rights$")
-    public void theOrdersAreVisibleAndEditableOnceTheCPIssuesTheOrdersBack() {
+    public void theOrdersAreVisibleAndEditableOnceTheCPIssuesTheOrdersBack() throws InterruptedException {
         webModel.getLoginPage().loginAsCP();
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().issuingWLRPermissions();
-        webModel.getDashBoardPage().logOut();
+       webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getSettingsPage().assertingWLROrdersWithRights();
@@ -41,7 +42,7 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
 /////////////////////two//////////////////////////////////
 
     @And("^the orders are visible and editable once the CP issues the orders back reseller rights$")
-    public void theOrdersAreVisibleAndEditableOnceTheCPIssuesTheOrdersBackResellerRights() {
+    public void theOrdersAreVisibleAndEditableOnceTheCPIssuesTheOrdersBackResellerRights() throws InterruptedException {
         webModel.getLoginPage().loginAsCP();
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().issuingWLRPermissions();

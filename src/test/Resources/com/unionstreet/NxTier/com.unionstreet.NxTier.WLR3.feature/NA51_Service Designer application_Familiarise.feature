@@ -1,24 +1,24 @@
 Feature: verify customer and internal fields by logging as CP, agent and reseller
 
-  @smokePack
+  @E2ETests
   Scenario: verify that the customer and internal tabs are present and accessible under add/view notes under edit order page
     Given I am logged in as CP
     When I access add_view notes on edit order page
     Then customer and internal tabs should be present and accessible
 
-  @smokePack
+  @E2ETests
   Scenario: verify the customer and internal tabs are absent under add/view notes under edit order page
     Given I am logged in as reseller
     When I access add_view notes on edit order page
     Then customer and internal tabs should be absent
 
-  @smokePack
+  @E2ETests
   Scenario: verify the customer and internal tabs are absent under add/view notes under edit order page
     Given I am logged in as agent
     When I access add_view notes on edit order page
     Then customer and internal tabs should be absent
 
-  @smokePack
+  @Broken
   Scenario: assert that an assigned service is unavailable to agent and vice versa
     Given I am logged in as agent and there is a service unassigned to me
     When I access the services page

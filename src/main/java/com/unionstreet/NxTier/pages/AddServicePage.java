@@ -3,6 +3,8 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.awt.*;
+
 /**
  * Created by rajeshg on 24/10/2016.
  */
@@ -14,35 +16,38 @@ public class AddServicePage {
     CommonMethods commonMethods = new CommonMethods();
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
 
-    public void searchAndSelectService() {
+    public void searchAndSelectService() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
-        utils.clickBtn(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
-        utils.switchToNewWindow();
+      //  utils.clickBtn(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.pageJumpWithoutClose(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
             utils.checkAlert();
         } catch (Exception e) {
         }
-        utils.switchToParentWindow();
+        utils.switchToPreviousWindow();
     }
 
-    public void clickService() {
+    public void clickService() throws InterruptedException, AWTException {
 
+       utils.waitForElementVisible(By.xpath(SERVICE_ON_QUOTE_PAGE));
         utils.clickBtn(By.xpath(SERVICE_ON_QUOTE_PAGE));
         utils.switchToNewWindow();
     }
 
-    public void addServiceToQuote(String serviceName) {
+    public void addServiceToQuote(String serviceName) throws InterruptedException {
         utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
-        utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
+        utils.closeCurrentWindowAndJump(By.xpath("//div[text()='" + serviceName + "']"));
     }
 
     public void clickAddAProductOrService() {
+        utils.waitForElementVisible(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+
     }
 
     public void assertServicePresent(String serviceName) {
@@ -53,6 +58,9 @@ public class AddServicePage {
     public void assertServiceNotPresent(String serviceName) {
         utils.waitForElementVisible(By.xpath("//label[@id='selectedSiteLabel'][contains(text(),'vodafone')]"));
         utils.assertElementNotPresent(By.xpath("//div[text()='" + serviceName + "']"));
+    }
+    public void scrollToService() throws InterruptedException {
+        utils.scrollUp(By.xpath(SERVICE_ON_QUOTE_PAGE));
     }
 
 }

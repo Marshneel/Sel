@@ -2,6 +2,7 @@ package com.unionstreet.NxTier.pages;
 
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 
 public class NewBusinessCustomerPage {
     public static String RanName;
@@ -26,36 +27,32 @@ public class NewBusinessCustomerPage {
         utils.clickBtn(By.id(CONTACTMANAGER_BUTTON));
     }
 
-    public void clickAddNewCustomerButton() {
-        utils.waitForElementVisible(By.linkText(ADD_BUTTON));
+    public void clickAddNewCustomerButton() throws InterruptedException {
+       utils.waitForElementVisible(By.linkText(ADD_BUTTON));
         utils.clickBtn(By.linkText(ADD_BUTTON));
         utils.switchToNewWindow();
-    }
+         }
 
     public void companyInfoForNewBusinessCustomer() {
-        utils.clickBtnWithWait(By.id(COMPANYNAME_FIELD));
-        RanName = utils.randomName();
-        utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
+       RanName = utils.randomName();
+        try{ utils.sendText(By.id(COMPANYNAME_FIELD), RanName);}catch (TimeoutException e){
+           utils.sendText(By.id(COMPANYNAME_FIELD),RanName);}
         utils.clickBtn(By.xpath(CONTACTTYPE_AGENT));
         utils.jumpToPopUpWindow(By.xpath(CONTACTTYPE_RESELLER));
         utils.clickBtn(By.xpath(VATPOPUP));
     }
 
     public void addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes() {
-        utils.clickBtnWithWait(By.id(COMPANYNAME_FIELD));
         RanName = utils.randomName();
-        utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
-    }
+try{        utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
+    }catch (Exception e){ utils.sendText(By.id(COMPANYNAME_FIELD), RanName);}}
 
     public void addSiteInfoForNewBusinessCustomer() {
-
-        utils.clickBtn(By.id(SITENAME_FIELD));
         utils.sendText(By.id(SITENAME_FIELD), utils.getProperty("siteName"));
         utils.sendText(By.id(SHORTNAME_FIELD), utils.getProperty("shortName"));
     }
 
     public void addSiteContactInfoForNewBusinessCustomer() {
-        utils.clickBtn(By.id(FIRSTNAME));
         utils.sendText(By.id(FIRSTNAME), utils.getProperty("firstName"));
         utils.sendText(By.id(EMAIL_FIELD), utils.getProperty("email"));
         utils.clickBtn(By.cssSelector(SAVE_BUTTON));

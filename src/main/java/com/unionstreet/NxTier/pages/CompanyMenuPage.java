@@ -3,6 +3,7 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 
 import java.text.SimpleDateFormat;
 
@@ -57,7 +58,7 @@ public class CompanyMenuPage {
     CommonMethods commonMethods = new CommonMethods();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
 
-    public void addNewSite() {
+    public void addNewSite() throws InterruptedException {
         accessCompanyMenu();
         clickCompanySitesButton();
         utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
@@ -65,10 +66,12 @@ public class CompanyMenuPage {
     }
 
     public void addNewSiteNames() {
-        utils.sendText(By.id(SITEDETAILS_SITE_NAME), (newBusinessCustomerPage.RanName + RanNumber));
+       try{ utils.sendText(By.id(SITEDETAILS_SITE_NAME), (newBusinessCustomerPage.RanName + RanNumber));
         utils.sendText(By.id(SITEDETAILS_SHORT_NAME), (newBusinessCustomerPage.RanName + RanNumber));
         utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF), (RanNumber));
-    }
+    }catch (Exception e){utils.sendText(By.id(SITEDETAILS_SITE_NAME), (newBusinessCustomerPage.RanName + RanNumber));
+           utils.sendText(By.id(SITEDETAILS_SHORT_NAME), (newBusinessCustomerPage.RanName + RanNumber));
+           utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF), (RanNumber));}}
 
     public void addNewSiteAddress() {
         utils.sendText(By.id(SITEDETAILS_POSTCODE), utils.getProperty("postCode"));
@@ -91,7 +94,7 @@ public class CompanyMenuPage {
         utils.clickBtn(By.id(COMPANYSITES_BUTTON));
     }
 
-    public void accessCompanyMenu() {
+    public void accessCompanyMenu() throws InterruptedException {
         newBusinessCustomerPage.clickContactManagerButton();
         utils.sendText(By.id(SEARCH_BUTTON), NewBusinessCustomerPage.RanName);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
@@ -104,7 +107,7 @@ public class CompanyMenuPage {
         utils.clickBtn(By.id(INVOICINGDETAILS_BUTTON));
     }
 
-    public void addInvoicingDetails() {
+    public void addInvoicingDetails() throws InterruptedException {
         accessCompanyMenu();
         clickInvoicingDetailsButton();
         utils.selectByVisibleText(By.id(BILLING_REPORT_PROFILE_DROPDOWN), utils.getProperty("billingReportProfile"));
@@ -139,14 +142,15 @@ public class CompanyMenuPage {
         utils.clickBtn(By.id(CLI_BUTTON));
     }
 
-    public void addCLIs() {
+    public void addCLIs() throws InterruptedException {
         accessCompanyMenu();
         clickCLIButton();
         utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindow();
-
-        utils.clickBtn(By.id(CLI_NUMBER_FIELD));
-        utils.sendText(By.id(CLI_NUMBER_FIELD), RanNumber);
+       try{ utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));
+           utils.clickBtn(By.id(CLI_NUMBER_FIELD));
+        utils.sendText(By.id(CLI_NUMBER_FIELD), RanNumber);}catch (TimeoutException e){
+           utils.sendText(By.id(CLI_NUMBER_FIELD), RanNumber);}
         utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
         utils.verifyStringMatch(By.cssSelector(ADDED_CLI_CHECK_FIELD), RanNumber);
         //TODO
@@ -169,9 +173,9 @@ public class CompanyMenuPage {
 
     public void addRecurringChargesPart1() {
         clickServiceChargesButton();
-        utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-        utils.switchToNewWindow();
-        utils.clickBtn(By.id(SERVICECHARGE_DESC_FIELD));
+        utils.jumpToPopUpWindow(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+       // utils.switchToNewWindow();
+        utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
         utils.sendText(By.id(SERVICECHARGE_DESC_FIELD), utils.getProperty("serviceChargeRecurringDesc"));
         utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));
         today = new java.util.Date().getTime();
@@ -197,11 +201,11 @@ public class CompanyMenuPage {
         clickServiceChargesButton();
     }
 
-    public void addOneOffChargesPart1() {
+    public void addOneOffChargesPart1() throws InterruptedException {
         clickServiceChargesOneOffButton();
         utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindow();
-        utils.clickBtn(By.id(SERVICECHARGE_DESC_FIELD));
+       utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
         utils.sendText(By.id(SERVICECHARGE_DESC_FIELD), utils.getProperty("serviceChargeOneOffDesc"));
         utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));
         utils.selectByVisibleText(By.cssSelector(SELECT_MONTH_DROPDOWN), new SimpleDateFormat("MMM").format(today));
@@ -227,7 +231,7 @@ public class CompanyMenuPage {
         utils.verifyStringMatch(By.linkText("One Off"), "One Off");
     }
 
-    public void addPricingDetails() {
+    public void addPricingDetails() throws InterruptedException {
         accessCompanyMenu();
         clickPricingDetails();
         utils.selectByIndex(By.id(PRICING_DETAILS_PACKAGE_FIELD), 1);

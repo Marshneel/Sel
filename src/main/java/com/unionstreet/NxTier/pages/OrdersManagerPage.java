@@ -4,6 +4,7 @@ import com.unionstreet.NxTier.support.ElementUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 
 import java.sql.SQLException;
 
@@ -72,17 +73,16 @@ public class OrdersManagerPage {
         utils.searchAndAssertTextNotPresent(By.id(QUOTEBOX), "Select Team");
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
-        utils.closeAllPopups(By.id(ORDERS_SAVEQUOTE_BUTTON));
-        utils.getOrdersPage();
+        utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
     }
 
-    public void assertCPQuotePage() {
+    public void assertCPQuotePage() throws InterruptedException {
         utils.searchAndAssertTextPresent(By.id(QUOTEBOX), "Order Owner");
         utils.searchAndAssertTextPresent(By.id(QUOTEBOX), "Team");
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
-        utils.closeAllPopups(By.id(ORDERS_SAVEQUOTE_BUTTON));
-        utils.getOrdersPage();
+        utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
+
     }
 
     public void checkQuotesForAgent() {
@@ -187,7 +187,7 @@ public class OrdersManagerPage {
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), business_customer);
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
-        utils.closeAllPopups(By.id(ORDERS_SAVEQUOTE_BUTTON));
+        utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.getOrdersPage();
     }
 
@@ -205,14 +205,15 @@ public class OrdersManagerPage {
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.sendText(By.xpath(ORDER_QUOTE_DESCRIPTION_FIELD), newBusinessCustomerPage.RanName);
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.clickBtn(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY));
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY), newBusinessCustomerPage.RanName);
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), utils.getProperty("shortName"));
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
-        utils.closeAllPopups(By.id(ORDERS_SAVEQUOTE_BUTTON));
-        utils.getOrdersPage();
+        utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
+
     }
 
     public void searchQuoteByBcRN() {
@@ -221,46 +222,46 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
     }
 
-    public void clickOnQuoteID() {
+    public void clickOnQuoteID() throws InterruptedException {
         try {
-            utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
-            utils.clickBtn(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
+          //  utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
+            // utils.clickBtn(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
             utils.clickBtn(By.xpath(QUOTEID));
             utils.switchToNewWindow();
         } catch (Exception e) {
-            utils.getOrdersPage();
-            utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
-            utils.clickBtn(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
+           utils.getOrdersPage();
+         //   utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
+//            //   utils.clickBtn(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
             utils.clickBtn(By.xpath(QUOTEID));
-            utils.switchToNewWindow();
+           utils.switchToNewWindow();
         }
     }
 
-    public void clickAddProductsAndServicesButton() {
+    public void clickAddProductsAndServicesButton() throws InterruptedException {
         try {
             utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
-            utils.clickBtn(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
+            utils.clickBtnWithWait(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
         } catch (NoSuchElementException e) {
             utils.getOrdersPage();
             clickOnQuoteID();
             utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
-            utils.clickBtn(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
+            utils.clickBtnWithWait(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
 
         }
     }
 
-    public void assertCPonlyValuePresent() {
+    public void assertCPonlyValuePresent() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
-        utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
-        utils.switchToNewWindow();
+        // utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.pageJumpWithoutClose(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.waitForElementVisible(By.xpath(LABEL_WITHIN_A_SERVICE));
         utils.waitForElementVisible(By.xpath(CPONLY));
     }
 
-    public void assertCPonlyValueNotPresent() {
+    public void assertCPonlyValueNotPresent() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
-        utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
-        utils.switchToNewWindow();
+        // utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.pageJumpWithoutClose(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.waitForElementVisible(By.xpath(LABEL_WITHIN_A_SERVICE));
         utils.assertElementNotPresent(By.xpath(CPONLY));
     }
@@ -269,8 +270,9 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath(REDCROSS));
     }
 
-    public void assertInvalidQuoteAfterSubmitting() {
+    public void assertInvalidQuoteAfterSubmitting() throws InterruptedException {
         utils.selectByIndex(By.id(ORDER_CONTACT), 1);
+utils.scrollUp(By.xpath(SAVE_AND_SUBMIT_ORDER));
         utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_ORDER));
         utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_MESSAGE));
     }
@@ -297,7 +299,7 @@ public class OrdersManagerPage {
         utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_ORDER));
     }
 
-    public void savingQuoteAndExtractingOrderServiceID() {
+    public void savingQuoteAndExtractingOrderServiceID() throws InterruptedException {
         utils.switchToNewWindow();
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         try {
@@ -313,7 +315,7 @@ public class OrdersManagerPage {
     }
 
     public void accessAdd_ViewNotes() {
-        utils.waitForElementVisible(By.xpath(ADD_VIEW_NOTES));
+     utils.waitForElementVisible(By.xpath(ADD_VIEW_NOTES));
         utils.jumpToPopUpWindow(By.xpath(ADD_VIEW_NOTES));
         utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.clickBtn(By.id("OrderPopup"));
@@ -345,7 +347,7 @@ public class OrdersManagerPage {
     }
 
     public void assertCPonlyCheckBoxPresentAndAccessible() {
-        utils.switchToNewWindow();
+      // utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(CPONLY_CHECKBOX));
         utils.javaScriptExecutorClick(By.id(CPONLY_CHECKBOX));
     }
@@ -356,13 +358,13 @@ public class OrdersManagerPage {
         utils.getAttributeOfElement(By.xpath(INVISIBLE_ORDER_SERVICESID), "value");
     }
 
-    public void assertCPonlyCheckBoxIsAbsent() {
+    public void assertCPonlyCheckBoxIsAbsent() throws InterruptedException {
         utils.switchToNewWindow();
         utils.assertElementNotPresent(By.id(CPONLY_CHECKBOX));
         saveTheServiceAndGetTheOrderServicesID();
     }
 
-    public void accessingAssignServicePage() {
+    public void accessingAssignServicePage() throws InterruptedException {
         utils.clickBtn(By.xpath(SERVICE_INVENTORY_MANAGER));
         utils.clickBtn(By.xpath(AGENT_AND_RESELLER_SERVICE));
         utils.switchToNewWindow();
@@ -377,8 +379,8 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.id(LOCATOR_FOR_BOX_HEADER));
         utils.waitForElementVisible(By.xpath("//a[@href='#'][contains(text(),'agent')]"));
         utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
-        utils.makeSureBoxIsUnChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
-    }
+try{        utils.makeSureBoxIsUnChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
+    }catch (StaleElementReferenceException e){  utils.makeSureBoxIsUnChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));}}
 
     public void saveAssignServicePage() {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
@@ -390,7 +392,7 @@ public class OrdersManagerPage {
         dashBoardPage.logOut();
     }
 
-    public void makeSureAgentHasAgentAndResellerService() {
+    public void makeSureAgentHasAgentAndResellerService() throws InterruptedException {
         utils.closeCurrentPage();
         utils.switchToParentWindow();
         dashBoardPage.logOut();

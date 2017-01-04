@@ -14,7 +14,7 @@ public class NA44_Agent_Login_stepDefs {
     WebModel webModel = new WebModel();
 
     @And("^Have created a new customer$")
-    public void haveCreatedANewCustomer() {
+    public void haveCreatedANewCustomer() throws InterruptedException {
         webModel.getNewBusinessCustomerPage().clickContactManagerButton();
         webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
         webModel.getNewBusinessCustomerPage().addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes();
@@ -35,7 +35,7 @@ public class NA44_Agent_Login_stepDefs {
 
     ////////////////////////////////////////two///////////////////////////////////////////////////////
     @Given("^I am logged in as an agent after the CP has created a quote for a \"([^\"]*)\" assigned to me$")
-    public void iAmLoggedInAsAnAgentAfterTheCPHasCreatedAQuoteForAAssignedToMe(String customer_name) {
+    public void iAmLoggedInAsAnAgentAfterTheCPHasCreatedAQuoteForAAssignedToMe(String customer_name) throws InterruptedException {
         webModel.getLoginPage().loginAsCP();
         webModel.getNewBusinessCustomerPage().clickContactManagerButton();
         webModel.getContactManagerPage().searchForBusinessCustomer(customer_name);
@@ -44,7 +44,7 @@ public class NA44_Agent_Login_stepDefs {
 
     @And("^a quote been created for my \"([^\"]*)\" by a CP$")
     public void aQuoteBeenCreatedForMyByACP(String customer_name) throws InterruptedException {
-        webModel.getDashBoardPage().clickOrderManagerButton();
+       // webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote(customer_name);
         webModel.getDashBoardPage().logOut();
