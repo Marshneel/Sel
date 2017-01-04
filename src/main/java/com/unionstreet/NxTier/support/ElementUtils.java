@@ -157,6 +157,7 @@ public class ElementUtils {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
                options.addArguments("--disable-extensions");
+                options.addArguments("--dns-prefetch-disable");
                 driver = new ChromeDriver(options);
             } else if (browser.equalsIgnoreCase("IE")) {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
