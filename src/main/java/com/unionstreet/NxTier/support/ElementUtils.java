@@ -20,6 +20,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
+import static com.unionstreet.NxTier.support.BaseClass.utils;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertTrue;
@@ -153,15 +154,15 @@ public class ElementUtils {
     public WebDriver browser() {
         try {
 
-            if (System.getProperty("browser").equalsIgnoreCase("chrome")) {
+            if (utils.getProperty("browser").equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
                options.addArguments("--disable-extensions");
                 driver = new ChromeDriver(options);
-            } else if (System.getProperty("browser").equalsIgnoreCase("IE")) {
+            } else if (utils.getProperty("browser").equalsIgnoreCase("IE")) {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
                  driver = new InternetExplorerDriver();
-            } else if (System.getProperty("browser").equalsIgnoreCase("firefox")) {
+            } else if (utils.getProperty("browser").equalsIgnoreCase("firefox")) {
                 driver = new FirefoxDriver();
             }
 

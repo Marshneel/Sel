@@ -51,7 +51,7 @@ ExtentReports 2.0
 <i class='mdi-hardware-desktop-windows'></i>
 </li>
 <li>
-<span class='suite-started-time'>2017-01-03 17:16:14</span>
+<span class='suite-started-time'>2017-01-04 08:06:01</span>
 </li>
 <li>
 <span>v2.40.2</span>
@@ -81,25 +81,25 @@ ExtentReports 2.0
 <div class='col l2 m4 s12'>
 <div class='card suite-total-time-current'> 
 <span class='panel-name'>Total Time Taken (Current Run)</span> 
-<span class='suite-total-time-current-value panel-lead'>0h 0m 14s+302ms</span> 
+<span class='suite-total-time-current-value panel-lead'>0h 0m 2s+613ms</span> 
 </div> 
 </div>
 <div class='col l2 m4 s12'>
 <div class='card suite-total-time-overall'> 
 <span class='panel-name'>Total Time Taken (Overall)</span> 
-<span class='suite-total-time-overall-value panel-lead'>0h 0m 14s+302ms</span> 
+<span class='suite-total-time-overall-value panel-lead'>0h 0m 2s+613ms</span> 
 </div> 
 </div>
 <div class='col l2 m4 s6 suite-start-time'>
 <div class='card accent green-accent'> 
 <span class='panel-name'>Start</span> 
-<span class='panel-lead suite-started-time'>2017-01-03 17:16:00</span> 
+<span class='panel-lead suite-started-time'>2017-01-04 08:05:58</span> 
 </div> 
 </div>
 <div class='col l2 m4 s6 suite-end-time'>
 <div class='card accent pink-accent'> 
 <span class='panel-name'>End</span> 
-<span class='panel-lead suite-ended-time'>2017-01-03 17:16:14</span> 
+<span class='panel-lead suite-ended-time'>2017-01-04 08:06:01</span> 
 </div> 
 </div>
 </div>
@@ -256,17 +256,17 @@ ExtentReports 2.0
 <div class='card-panel no-padding-h no-padding-v no-margin-v'>
 <div class='wrapper'>
 <ul id='test-collection' class='test-collection'>
-<li class='collection-item test displayed active pass hasChildren' extentid='ec0f2ba5-17a4-4ddb-b653-8dad5d79ecef'>
+<li class='collection-item test displayed active fail hasChildren' extentid='7e326e31-8bf7-49da-a349-df8e2b8129fe'>
 <div class='test-head'>
-<span class='test-name'>Feature: Creating new business customer and assigning all the required inputs to generate an invoice bill </span>
-<span class='test-status label right outline capitalize pass'>pass</span>
+<span class='test-name'>Feature: WLR3_permissions@smokePack </span>
+<span class='test-status label right outline capitalize fail'>fail</span>
 <span class='category-assigned hide  @smokepack'></span>
 </div>
 <div class='test-body'>
 <div class='test-info'>
-<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2017-01-03 17:16:00</span>
-<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2017-01-03 17:16:14</span>
-<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 13s+980ms</span>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2017-01-04 08:05:58</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2017-01-04 08:05:59</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+422ms</span>
 </div>
 <div class='test-desc'></div>
 <div class='test-attributes'>
@@ -287,13 +287,1943 @@ ExtentReports 2.0
 </tbody>
 </table>
 <ul class='collapsible node-list' data-collapsible='accordion'>
-<li class='displayed pass node-1x'>
-<div class='collapsible-header test-node pass'>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
 <div class='right test-info'>
-<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-03 17:16:00</span>
-<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-03 17:16:14</span>
-<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 13s+980ms</span>
-<span class='test-status label outline capitalize pass'>pass</span>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:58</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:05:58</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+172ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Creating an agent permission group and assigning it to an agent</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>I am logged in as an admin</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.sendText(ElementUtils.java:52)
+at com.unionstreet.NxTier.pages.LoginPage.doLogin(LoginPage.java:14)
+at com.unionstreet.NxTier.stepDefs.smokePack.NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin(NxTier_smokePack_stepDefs.java:43)
+at ✽.Given I am logged in as an admin(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions.feature:5)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>have added a new business customer with required contact type</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>have created a new agent permission group</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>I wish to create agent contact with valid login credentials</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>the agent permission group should be available for selection under drop down under agentUser creation</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>I should be able to login with agent credentials</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:58</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:05:58</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: creating a reseller with agent permission group</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>I am logged in as an admin</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.sendText(ElementUtils.java:52)
+at com.unionstreet.NxTier.pages.LoginPage.doLogin(LoginPage.java:14)
+at com.unionstreet.NxTier.stepDefs.smokePack.NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin(NxTier_smokePack_stepDefs.java:43)
+at ✽.Given I am logged in as an admin(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions.feature:14)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>have added a new business customer with required contact type</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>have created a new agent permission group</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>I wish to create a business reseller contact with valid login credentials</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>the agent permission group should be available for selection under drop down under business reseller contact creation</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>I should be able to login with reseller credentials</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:58</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:05:58</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+63ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Creating a CP permission group and assigning it a CP</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>I am logged in as an admin</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.sendText(ElementUtils.java:52)
+at com.unionstreet.NxTier.pages.LoginPage.doLogin(LoginPage.java:14)
+at com.unionstreet.NxTier.stepDefs.smokePack.NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin(NxTier_smokePack_stepDefs.java:43)
+at ✽.Given I am logged in as an admin(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions.feature:23)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>Have created a new CP permission group under settings</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>I wish to create new CP under login users sub-menu</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>the CP permission should be available for selection under drop down during the CP creation</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>I should be able to login with CP credentials</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:58</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:05:58</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: creating an order quote by logged in as an agent and verifying all required fields are visible on the quote screen</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>I am logged in as agent</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsAgent(LoginPage.java:36)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:123)
+at ✽.Given I am logged in as agent(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions.feature:31)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>Have created a new customer</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>I access create Quote tab</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>All required fields pertaining to an agent should be visible on the create quote window</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>Only the quotes created by me and the ones created for my company should be visible</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:58</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+46ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: creating an order quote by logged in as a reseller and verifying all required fields are visible on the quote screen</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>I am logged in as reseller</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsReseller(LoginPage.java:49)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:147)
+at ✽.Given I am logged in as reseller(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions.feature:39)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>Have created a new customer</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>I access create Quote tab</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>All required fields pertaining to a reseller should be visible on the create quote window</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:58</td>
+<td class='step-name'>Only the quotes created by me and the ones created for companies under my contact list should be visible</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: creating an order quote by logged in as a CP and verifying all required fields are visible on the quote screen</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I am logged in as CP</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsCP(LoginPage.java:62)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsCP(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:165)
+at ✽.Given I am logged in as CP(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions.feature:47)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I have added a new business customer</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I access create Quote tab</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>All required fields pertaining to a CP should be visible on the create quote window</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>all the quotes including that of the resellers and agents should be visible</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class='collection-item test displayed active fail hasChildren' extentid='3b087d6f-ef26-4ebd-b8db-9e7e2b4016ad'>
+<div class='test-head'>
+<span class='test-name'>Feature: Agent login </span>
+<span class='test-status label right outline capitalize fail'>fail</span>
+<span class='category-assigned hide  @smokepack'></span>
+</div>
+<div class='test-body'>
+<div class='test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2017-01-04 08:05:59</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2017-01-04 08:05:59</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+109ms</span>
+</div>
+<div class='test-desc'></div>
+<div class='test-attributes'>
+<div class='categories'>
+<span class='category text-white'>@smokePack</span>
+</div>
+</div>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<ul class='collapsible node-list' data-collapsible='accordion'>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Login as an agent, create a business customer and verify the created customer from the company and site drop downs on create quote page</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I am logged in as agent</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsAgent(LoginPage.java:36)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:123)
+at ✽.Given I am logged in as agent(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA44_Agent_Login.feature:5)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>Have created a new customer</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I access create Quote window</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>the newly created customer details should appear under the company and site drop downs</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+62ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Login as a CP, create a business customer, assign an agent and create a quote for the customer. when logged in as the agent the created quote should appear on the orders manager</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I am logged in as an agent after the CP has created a quote for a "<customer_name>" assigned to me</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsCP(LoginPage.java:62)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA44_Agent_Login_stepDefs.iAmLoggedInAsAnAgentAfterTheCPHasCreatedAQuoteForAAssignedToMe(NA44_Agent_Login_stepDefs.java:39)
+at ✽.Given I am logged in as an agent after the CP has created a quote for a "businessCustomer" assigned to me(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA44_Agent_Login.feature:12)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>a quote been created for my "<customer_name>" by a CP</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I access orders manager</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I should not see that particular quote</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class='collection-item test displayed active fail hasChildren' extentid='4977e451-41c7-4de7-8877-b0aa1d6a1a3e'>
+<div class='test-head'>
+<span class='test-name'>Feature: Reseller Login </span>
+<span class='test-status label right outline capitalize fail'>fail</span>
+<span class='category-assigned hide  @smokepack'></span>
+</div>
+<div class='test-body'>
+<div class='test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2017-01-04 08:05:59</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2017-01-04 08:05:59</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+24ms</span>
+</div>
+<div class='test-desc'></div>
+<div class='test-attributes'>
+<div class='categories'>
+<span class='category text-white'>@smokePack</span>
+</div>
+</div>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<ul class='collapsible node-list' data-collapsible='accordion'>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+23ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Login as a reseller, create a site and verify the created site from the site drop down on create quote page</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I am logged in as an agent after the CP has created a quote for a "businessCustomer" assigned to me</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsReseller(LoginPage.java:49)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:147)
+at ✽.Given I am logged in as reseller(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA45_Reseller_Login.feature:5)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>a quote been created for my "businessCustomer" by a CP</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I access orders manager</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I should not see that particular quote</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class='collection-item test displayed active fail hasChildren' extentid='661c26b0-0055-480d-b64c-5c2054005398'>
+<div class='test-head'>
+<span class='test-name'>Feature: Granting and Revoking WLR3 permissions for Agent and Reseller </span>
+<span class='test-status label right outline capitalize fail'>fail</span>
+<span class='category-assigned hide  @smokepack'></span>
+</div>
+<div class='test-body'>
+<div class='test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2017-01-04 08:05:59</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2017-01-04 08:05:59</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+94ms</span>
+</div>
+<div class='test-desc'></div>
+<div class='test-attributes'>
+<div class='categories'>
+<span class='category text-white'>@smokePack</span>
+</div>
+</div>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<ul class='collapsible node-list' data-collapsible='accordion'>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: CP revokes the WLR3 order permissions for an agent so that the WLR3 orders are hidden from the agent when he logs in and vice versa</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I am logged in as reseller</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsCP(LoginPage.java:62)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs.cpHasRevokedMyWLROrderPermissions(NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs.java:17)
+at ✽.Given CP has revoked my WLR order permissions(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA47_WLR3_Permissions_For_Agent_Reseller.feature:5)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>have created a new site for a company</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I access create Quote tab and select the above company from the company dropdown</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>The newly created site should appear under the site drop down</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: CP revokes the WLR3 order permissions for a reseller so that the WLR3 orders are hidden from the reseller when he logs in and vice versa</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>CP has revoked my WLR order permissions</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsCP(LoginPage.java:62)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs.cpHasRevokedMyWLROrderPermissions(NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs.java:17)
+at ✽.Given CP has revoked my WLR order permissions(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA47_WLR3_Permissions_For_Agent_Reseller.feature:12)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I am logged in as agent</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I should not be able to see and edit them</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>the orders are visible and editable once the CP issues the orders back agent rights</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class='collection-item test displayed active fail hasChildren' extentid='ac329ae0-aef4-48a3-bf1e-06a08c022c8d'>
+<div class='test-head'>
+<span class='test-name'>Feature: order service automation for agent, reseller and CP. includes CP only and mandatory fields under select service. </span>
+<span class='test-status label right outline capitalize fail'>fail</span>
+<span class='category-assigned hide  @smokepack'></span>
+</div>
+<div class='test-body'>
+<div class='test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2017-01-04 08:05:59</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+282ms</span>
+</div>
+<div class='test-desc'></div>
+<div class='test-attributes'>
+<div class='categories'>
+<span class='category text-white'>@smokePack</span>
+</div>
+</div>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<ul class='collapsible node-list' data-collapsible='accordion'>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Login as a CP, create a quote, add a service and verify the behaviour of CP only control</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>CP has revoked my WLR order permissions</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsCP(LoginPage.java:62)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsCP(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:165)
+at ✽.Given I am logged in as CP(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature:5)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I am logged in as reseller</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I should not be able to see and edit them</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>the orders are visible and editable once the CP issues the orders back reseller rights</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Login as an agent, create a quote, add a service and verify the behaviour of CP only control</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I am logged in as CP</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsAgent(LoginPage.java:36)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:123)
+at ✽.Given I am logged in as agent(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature:12)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>Have created a quote</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I add a service from the quote details page</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>the control that is CP only should be visible</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:05:59</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Login as a reseller, create a quote, add a service and verify the behaviour of CP only control</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I am logged in as agent</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsReseller(LoginPage.java:49)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:147)
+at ✽.Given I am logged in as reseller(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature:19)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>Have created a quote</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>I add a service from the quote details page</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:05:59</td>
+<td class='step-name'>the control that is CP only should be invisible</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Login as a CP, create a quote, add a service without selecting the mandatory control and check the behaviour</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as reseller</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsCP(LoginPage.java:62)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsCP(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:165)
+at ✽.Given I am logged in as CP(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature:26)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>Have created a quote</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I add a service from the quote details page</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>the control that is CP only should be invisible</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as CP</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Login as an agent, create a quote, add a service without selecting the mandatory control and check the behaviour</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>Have created a quote</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsAgent(LoginPage.java:36)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:123)
+at ✽.Given I am logged in as agent(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature:34)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I access quote details and add a service without selecting the mandatory control</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>The quote should become invalid</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>When I add the omitted control, the quote should become valid</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as agent</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Login as a reseller, create a quote, add a service without selecting the mandatory control and check the behaviour</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>Have created a quote</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsReseller(LoginPage.java:49)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:147)
+at ✽.Given I am logged in as reseller(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature:42)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I access quote details and add a service without selecting the mandatory control</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>The quote should become invalid</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>When I add the omitted control, the quote should become valid</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as reseller</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class='collection-item test displayed active fail hasChildren' extentid='a7ce656d-9a9e-4f71-b52c-36b8970cc624'>
+<div class='test-head'>
+<span class='test-name'>Feature: verify customer and internal fields by logging as CP, agent and reseller </span>
+<span class='test-status label right outline capitalize fail'>fail</span>
+<span class='category-assigned hide  @smokepack'></span>
+</div>
+<div class='test-body'>
+<div class='test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+125ms</span>
+</div>
+<div class='test-desc'></div>
+<div class='test-attributes'>
+<div class='categories'>
+<span class='category text-white'>@smokePack</span>
+</div>
+</div>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<ul class='collapsible node-list' data-collapsible='accordion'>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+31ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: verify that the customer and internal tabs are present and accessible under add/view notes under edit order page</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>Have created a quote</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsCP(LoginPage.java:62)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsCP(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:165)
+at ✽.Given I am logged in as CP(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA51_Service Designer application_Familiarise.feature:5)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I access quote details and add a service without selecting the mandatory control</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>The quote should become invalid</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+31ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: verify the customer and internal tabs are absent under add/view notes under edit order page</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>When I add the omitted control, the quote should become valid</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsReseller(LoginPage.java:49)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:147)
+at ✽.Given I am logged in as reseller(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA51_Service Designer application_Familiarise.feature:11)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as CP</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I access add_view notes on edit order page</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+32ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: verify the customer and internal tabs are absent under add/view notes under edit order page</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>customer and internal tabs should be present and accessible</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsAgent(LoginPage.java:36)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:123)
+at ✽.Given I am logged in as agent(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA51_Service Designer application_Familiarise.feature:17)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as reseller</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I access add_view notes on edit order page</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+31ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: assert that an assigned service is unavailable to agent and vice versa</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>customer and internal tabs should be absent</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsCP(LoginPage.java:62)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA51_ServiceDesignerApplication_Familiarise_stepDefs.iAmLoggedInAsAgentAndThereIsAServiceUnassignedToMe(NA51_ServiceDesignerApplication_Familiarise_stepDefs.java:40)
+at ✽.Given I am logged in as agent and there is a service unassigned to me(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA51_Service Designer application_Familiarise.feature:23)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as agent</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I access add_view notes on edit order page</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>customer and internal tabs should be absent</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class='collection-item test displayed active fail hasChildren' extentid='e6d44336-6387-45ab-89ca-b583ba31700f'>
+<div class='test-head'>
+<span class='test-name'>Feature: Accessing controls in services with different permissions (CP, Agent and reseller) </span>
+<span class='test-status label right outline capitalize fail'>fail</span>
+<span class='category-assigned hide  @smokepack'></span>
+</div>
+<div class='test-body'>
+<div class='test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+94ms</span>
+</div>
+<div class='test-desc'></div>
+<div class='test-attributes'>
+<div class='categories'>
+<span class='category text-white'>@smokePack</span>
+</div>
+</div>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<ul class='collapsible node-list' data-collapsible='accordion'>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+31ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: verify that a charge designated CP only is accessible by CP</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as agent and there is a service unassigned to me</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsCP(LoginPage.java:62)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsCP(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:165)
+at ✽.Given I am logged in as CP(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA52_Accessing_controls_In_Services_with_different_permissions_CP_Agent_Reseller.feature:5)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I access the services page</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I should not be able to see that particular service</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+31ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: verify that a charge designated CP only is inaccessible by agent</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I should be able to see the service once CP assigns it to me</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsAgent(LoginPage.java:36)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:123)
+at ✽.Given I am logged in as agent(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA52_Accessing_controls_In_Services_with_different_permissions_CP_Agent_Reseller.feature:11)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as CP</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>create a new quote and access a service</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+32ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: verify that a charge designated CP only is inaccessible by reseller</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>the CP only control should be visible and accessible</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsReseller(LoginPage.java:49)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:147)
+at ✽.Given I am logged in as reseller(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA52_Accessing_controls_In_Services_with_different_permissions_CP_Agent_Reseller.feature:17)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as agent</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>create a new quote and access a service</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class='collection-item test displayed active fail hasChildren' extentid='6aa1961f-0e4c-47af-a837-e07874a09075'>
+<div class='test-head'>
+<span class='test-name'>Feature: laying add on activation charge for quote created by CP, agent and reseller </span>
+<span class='test-status label right outline capitalize fail'>fail</span>
+<span class='category-assigned hide  @smokepack'></span>
+</div>
+<div class='test-body'>
+<div class='test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+93ms</span>
+</div>
+<div class='test-desc'></div>
+<div class='test-attributes'>
+<div class='categories'>
+<span class='category text-white'>@smokePack</span>
+</div>
+</div>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<ul class='collapsible node-list' data-collapsible='accordion'>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+31ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: laying addOnActivation charge for quote created by CP</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>the CP only control should be invisible</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsCP(LoginPage.java:62)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsCP(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:165)
+at ✽.Given I am logged in as CP(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA53_laying_AddOnActivation_charge_forCP_Agent_reseller.feature:5)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as reseller</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>create a new quote and access a service</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>the CP only control should be invisible</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+31ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: laying addOnActivation charge for quote created by agent</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as CP</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsAgent(LoginPage.java:36)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsAgent(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:123)
+at ✽.Given I am logged in as agent(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA53_laying_AddOnActivation_charge_forCP_Agent_reseller.feature:13)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I create a new quote and add a service with addOnActivation charge</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I run SQL query</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>The charge should be visible in the back end</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+31ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: laying addOnActivation charge for quote created by reseller</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as agent</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.waitForElementVisible(ElementUtils.java:93)
+at com.unionstreet.NxTier.pages.LoginPage.loginAsReseller(LoginPage.java:49)
+at com.unionstreet.NxTier.stepDefs.WLR3.NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.iAmLoggedInAsReseller(NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java:147)
+at ✽.Given I am logged in as reseller(com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA53_laying_AddOnActivation_charge_forCP_Agent_reseller.feature:21)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I create a new quote and add a service with addOnActivation charge</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I run SQL query</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>The charge should be visible in the back end</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class='collection-item test displayed active fail hasChildren' extentid='dc846c0c-df7f-4d17-a457-ad3a585e4393'>
+<div class='test-head'>
+<span class='test-name'>Feature: Creating new business customer and assigning all the required inputs to generate an invoice bill </span>
+<span class='test-status label right outline capitalize fail'>fail</span>
+<span class='category-assigned hide  @smokepack'></span>
+</div>
+<div class='test-body'>
+<div class='test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2017-01-04 08:06:01</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+250ms</span>
+</div>
+<div class='test-desc'></div>
+<div class='test-attributes'>
+<div class='categories'>
+<span class='category text-white'>@smokePack</span>
+</div>
+</div>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<ul class='collapsible node-list' data-collapsible='accordion'>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+31ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
 </div>
 <div class='test-node-name'>Scenario: Verify that login is successful with valid username and password</div>
 <div class='test-node-desc'></div>
@@ -311,22 +2241,376 @@ ExtentReports 2.0
 </thead>
 <tbody>
 <tr>
-<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-<td class='timestamp'>17:16:07</td>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as reseller</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.unionstreet.NxTier.support.ElementUtils.assertURL(ElementUtils.java:82)
+at com.unionstreet.NxTier.pages.LoginPage.OnLoginPage(LoginPage.java:31)
+at com.unionstreet.NxTier.stepDefs.smokePack.NxTier_smokePack_stepDefs.iAmOnLoginPage(NxTier_smokePack_stepDefs.java:17)
+at ✽.Given I am on login page(com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature:5)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I create a new quote and add a service with addOnActivation charge</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I run SQL query</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+31ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: : Login with invalid credentials</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>The charge should be visible in the back end</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.unionstreet.NxTier.support.ElementUtils.assertURL(ElementUtils.java:82)
+at com.unionstreet.NxTier.pages.LoginPage.OnLoginPage(LoginPage.java:31)
+at com.unionstreet.NxTier.stepDefs.smokePack.NxTier_smokePack_stepDefs.iAmOnLoginPage(NxTier_smokePack_stepDefs.java:17)
+at ✽.Given I am on login page(com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature:11)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
 <td class='step-name'>I am on login page</td>
-<td class='step-details'>PASSED</td>
+<td class='step-details'>SKIPPED</td>
 </tr>
 <tr>
-<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-<td class='timestamp'>17:16:11</td>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
 <td class='step-name'>I enter valid username and password</td>
-<td class='step-details'>PASSED</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+32ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Creating a new Business Customer</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>Login is successful</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.sendText(ElementUtils.java:52)
+at com.unionstreet.NxTier.pages.LoginPage.doLogin(LoginPage.java:14)
+at com.unionstreet.NxTier.stepDefs.smokePack.NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin(NxTier_smokePack_stepDefs.java:43)
+at ✽.Given I am logged in as an admin(com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature:21)</td>
 </tr>
 <tr>
-<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-<td class='timestamp'>17:16:13</td>
-<td class='step-name'>Login is successful</td>
-<td class='step-details'>PASSED</td>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am on login page</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I enter invalid "<userName>" and "<passWord>"</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>The login should fail</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+31ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Creating a sub-site for a newly created customer</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am on login page</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.sendText(ElementUtils.java:52)
+at com.unionstreet.NxTier.pages.LoginPage.doLogin(LoginPage.java:14)
+at com.unionstreet.NxTier.stepDefs.smokePack.NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin(NxTier_smokePack_stepDefs.java:43)
+at ✽.Given I am logged in as an admin(com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature:28)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I enter invalid "john" and "abcdef"</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>The login should fail</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as an admin</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Adding invoice details and billing information to a newly created customer</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I access add new business customer page</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.sendText(ElementUtils.java:52)
+at com.unionstreet.NxTier.pages.LoginPage.doLogin(LoginPage.java:14)
+at com.unionstreet.NxTier.stepDefs.smokePack.NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin(NxTier_smokePack_stepDefs.java:43)
+at ✽.Given I am logged in as an admin(com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature:35)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>Provide all the required info</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>A new customer should be successfully created</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:00</td>
+<td class='step-name'>I am logged in as an admin</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:00</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:01</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+47ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Adding service charges (one off and recurring) and CLI to the newly created customer</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:01</td>
+<td class='step-name'>I have added a new business customer</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.sendText(ElementUtils.java:52)
+at com.unionstreet.NxTier.pages.LoginPage.doLogin(LoginPage.java:14)
+at com.unionstreet.NxTier.stepDefs.smokePack.NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin(NxTier_smokePack_stepDefs.java:43)
+at ✽.Given I am logged in as an admin(com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature:42)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:01</td>
+<td class='step-name'>I access Company Sites under the company menu and provide all the required info</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:01</td>
+<td class='step-name'>A new site should appear under the respective company's menu</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:01</td>
+<td class='step-name'>I am logged in as an admin</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class='displayed fail node-1x'>
+<div class='collapsible-header test-node fail'>
+<div class='right test-info'>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-04 08:06:01</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-04 08:06:01</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 0m 0s+31ms</span>
+<span class='test-status label outline capitalize fail'>fail</span>
+</div>
+<div class='test-node-name'>Scenario: Adding pricing details to a newly created customer</div>
+<div class='test-node-desc'></div>
+</div>
+<div class='collapsible-body'>
+<div class='test-steps'>
+<table class='bordered table-results'>
+<thead>
+<tr>
+<th>Status</th>
+<th>Timestamp</th>
+<th>StepName</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+<td class='timestamp'>08:06:01</td>
+<td class='step-name'>I have added a new business customer</td>
+<td class='step-details'>java.lang.NullPointerException
+at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:212)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:102)
+at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:93)
+at com.unionstreet.NxTier.support.ElementUtils.waitForSomeTime(ElementUtils.java:43)
+at com.unionstreet.NxTier.support.ElementUtils.sendText(ElementUtils.java:52)
+at com.unionstreet.NxTier.pages.LoginPage.doLogin(LoginPage.java:14)
+at com.unionstreet.NxTier.stepDefs.smokePack.NxTier_smokePack_stepDefs.iAmLoggedInAsAnAdmin(NxTier_smokePack_stepDefs.java:43)
+at ✽.Given I am logged in as an admin(com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature:49)</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:01</td>
+<td class='step-name'>I access invoicing and billing details section under company menu and provide all required info</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:01</td>
+<td class='step-name'>Invoice details and billing details of that particular customer should be updated, respectively</td>
+<td class='step-details'>SKIPPED</td>
+</tr>
+<tr>
+<td class='status skip' title='skip' alt='skip'><i class='mdi-content-redo'></i></td>
+<td class='timestamp'>08:06:01</td>
+<td class='step-name'>I am logged in as an admin</td>
+<td class='step-details'>SKIPPED</td>
 </tr>
 </tbody>
 </table>
@@ -377,13 +2661,13 @@ ExtentReports 2.0
 <span class='category-name'>@smokePack</span>
 </div>
 <div class='category-status-counts'>
-<span class='pass label dot'>Pass: 2</span>
+<span class='fail label dot'>Fail: 43</span>
 </div>
 <div class='cat-body'>
 <div class='category-status-counts'>
 <div class='button-group'>
-<a href='#!' class='pass label filter'>Pass <span class='icon'>2</span></a>
-<a href='#!' class='fail label filter'>Fail <span class='icon'>0</span></a>
+<a href='#!' class='pass label filter'>Pass <span class='icon'>0</span></a>
+<a href='#!' class='fail label filter'>Fail <span class='icon'>43</span></a>
 <a href='#!' class='other label filter'>Others <span class='icon'>0</span></a>
 </div>
 </div>
@@ -397,15 +2681,220 @@ ExtentReports 2.0
 </tr>
 </thead>
 <tbody>
-<tr class='pass'>
-<td>2017-01-03 17:16:00</td>
-<td><span class='category-link linked' extentid='5b222f7b-1781-48b9-8bde-3683495932a8'>Scenario: Verify that login is successful with valid username and password</span></td>
-<td><div class='status label capitalize pass'>pass</div></td>
+<tr class='fail'>
+<td>2017-01-04 08:05:58</td>
+<td><span class='category-link linked' extentid='9e2382a2-aa02-44ae-84f6-b75c56086f08'>Scenario: Creating an agent permission group and assigning it to an agent</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
 </tr>
-<tr class='pass'>
-<td>2017-01-03 17:16:00</td>
-<td><span class='category-link linked' extentid='ec0f2ba5-17a4-4ddb-b653-8dad5d79ecef'>Feature: Creating new business customer and assigning all the required inputs to generate an invoice bill</span></td>
-<td><div class='status label capitalize pass'>pass</div></td>
+<tr class='fail'>
+<td>2017-01-04 08:05:58</td>
+<td><span class='category-link linked' extentid='9c17dbab-597f-4b70-8b55-8adef6e72bd3'>Scenario: creating a reseller with agent permission group</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:58</td>
+<td><span class='category-link linked' extentid='fbc940bd-306b-45f9-a5ed-8556da1be870'>Scenario: Creating a CP permission group and assigning it a CP</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:58</td>
+<td><span class='category-link linked' extentid='e3aa20da-25e6-4940-8deb-bf2c9d5fd86b'>Scenario: creating an order quote by logged in as an agent and verifying all required fields are visible on the quote screen</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:58</td>
+<td><span class='category-link linked' extentid='8ea5e298-0ae6-450e-8f52-6e397edcd9e4'>Scenario: creating an order quote by logged in as a reseller and verifying all required fields are visible on the quote screen</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:59</td>
+<td><span class='category-link linked' extentid='6f2ca271-0531-405c-9c08-e8539ca0e109'>Scenario: creating an order quote by logged in as a CP and verifying all required fields are visible on the quote screen</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:58</td>
+<td><span class='category-link linked' extentid='7e326e31-8bf7-49da-a349-df8e2b8129fe'>Feature: WLR3_permissions@smokePack</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:59</td>
+<td><span class='category-link linked' extentid='e372d71d-8256-4ef2-852c-1273e85d2ebe'>Scenario: Login as an agent, create a business customer and verify the created customer from the company and site drop downs on create quote page</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:59</td>
+<td><span class='category-link linked' extentid='627f700c-8446-4dc0-ba65-507d504aed6f'>Scenario: Login as a CP, create a business customer, assign an agent and create a quote for the customer. when logged in as the agent the created quote should appear on the orders manager</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:59</td>
+<td><span class='category-link linked' extentid='3b087d6f-ef26-4ebd-b8db-9e7e2b4016ad'>Feature: Agent login</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:59</td>
+<td><span class='category-link linked' extentid='193843bf-25a1-44f3-b976-277c1f66b884'>Scenario: Login as a reseller, create a site and verify the created site from the site drop down on create quote page</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:59</td>
+<td><span class='category-link linked' extentid='4977e451-41c7-4de7-8877-b0aa1d6a1a3e'>Feature: Reseller Login</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:59</td>
+<td><span class='category-link linked' extentid='11973517-bb85-488c-929b-4260e9084dba'>Scenario: CP revokes the WLR3 order permissions for an agent so that the WLR3 orders are hidden from the agent when he logs in and vice versa</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:59</td>
+<td><span class='category-link linked' extentid='8e1ed174-c33a-4842-b9b6-e0e4cd4e5857'>Scenario: CP revokes the WLR3 order permissions for a reseller so that the WLR3 orders are hidden from the reseller when he logs in and vice versa</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:59</td>
+<td><span class='category-link linked' extentid='661c26b0-0055-480d-b64c-5c2054005398'>Feature: Granting and Revoking WLR3 permissions for Agent and Reseller</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:59</td>
+<td><span class='category-link linked' extentid='a9fd86b7-d991-45fc-8a3d-49ef21a7aa5b'>Scenario: Login as a CP, create a quote, add a service and verify the behaviour of CP only control</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:59</td>
+<td><span class='category-link linked' extentid='035c91dd-80ef-455f-acb0-f2c39bed2af0'>Scenario: Login as an agent, create a quote, add a service and verify the behaviour of CP only control</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:59</td>
+<td><span class='category-link linked' extentid='403778a6-ac62-446a-84be-67ff153df157'>Scenario: Login as a reseller, create a quote, add a service and verify the behaviour of CP only control</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='51e0dfdc-4a9f-4cf2-b878-e979f1a16d1f'>Scenario: Login as a CP, create a quote, add a service without selecting the mandatory control and check the behaviour</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='8cfaf413-6691-4da1-8290-5847b4d5608f'>Scenario: Login as an agent, create a quote, add a service without selecting the mandatory control and check the behaviour</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='fc45e524-e083-4a42-8b06-9a65d52ab8e8'>Scenario: Login as a reseller, create a quote, add a service without selecting the mandatory control and check the behaviour</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:05:59</td>
+<td><span class='category-link linked' extentid='ac329ae0-aef4-48a3-bf1e-06a08c022c8d'>Feature: order service automation for agent, reseller and CP. includes CP only and mandatory fields under select service.</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='c4784103-0c21-40dc-b12b-a3e14bbe7269'>Scenario: verify that the customer and internal tabs are present and accessible under add/view notes under edit order page</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='bdb20815-2a4e-4f17-a4ef-2d5dd97edd05'>Scenario: verify the customer and internal tabs are absent under add/view notes under edit order page</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='b38d9f3a-bebe-4c64-81fc-e689a78c92fa'>Scenario: verify the customer and internal tabs are absent under add/view notes under edit order page</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='fc1c1ab3-ff85-4eb7-a6f9-04feffa46963'>Scenario: assert that an assigned service is unavailable to agent and vice versa</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='a7ce656d-9a9e-4f71-b52c-36b8970cc624'>Feature: verify customer and internal fields by logging as CP, agent and reseller</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='b7523aa2-e6d9-4ba6-af09-99e54028cc89'>Scenario: verify that a charge designated CP only is accessible by CP</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='341bf4b9-170b-40ca-a930-c06502943f38'>Scenario: verify that a charge designated CP only is inaccessible by agent</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='a86a10a8-4e1a-49e4-88da-aa59b4c50956'>Scenario: verify that a charge designated CP only is inaccessible by reseller</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='e6d44336-6387-45ab-89ca-b583ba31700f'>Feature: Accessing controls in services with different permissions (CP, Agent and reseller)</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='452c9cd9-f578-4c48-b34f-2a21ce2da947'>Scenario: laying addOnActivation charge for quote created by CP</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='5260fab5-2c5d-4c1b-a924-7408bbd3f4ef'>Scenario: laying addOnActivation charge for quote created by agent</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='fb93fcf9-49fe-43e2-a301-42d931d90917'>Scenario: laying addOnActivation charge for quote created by reseller</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='6aa1961f-0e4c-47af-a837-e07874a09075'>Feature: laying add on activation charge for quote created by CP, agent and reseller</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='777d0763-1994-481b-85c6-51b199e601b4'>Scenario: Verify that login is successful with valid username and password</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='e5eb7c9f-425c-4c87-8f76-71682e48a01c'>Scenario: : Login with invalid credentials</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='99d04d71-179d-4cf5-8acd-b6be2f3add64'>Scenario: Creating a new Business Customer</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='69a9e1f0-b180-41ac-9cb1-bf0abdb41a6c'>Scenario: Creating a sub-site for a newly created customer</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='fd5aba8a-358a-4583-9347-e7c441bbdef6'>Scenario: Adding invoice details and billing information to a newly created customer</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='73d8226a-b187-4741-8151-8ef10a738dd8'>Scenario: Adding service charges (one off and recurring) and CLI to the newly created customer</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:01</td>
+<td><span class='category-link linked' extentid='473a9fa3-97fc-4773-bfae-6fc51332ddbe'>Scenario: Adding pricing details to a newly created customer</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
+</tr>
+<tr class='fail'>
+<td>2017-01-04 08:06:00</td>
+<td><span class='category-link linked' extentid='dc846c0c-df7f-4d17-a457-ad3a585e4393'>Feature: Creating new business customer and assigning all the required inputs to generate an invoice bill</span></td>
+<td><div class='status label capitalize fail'>fail</div></td>
 </tr>
 <tbody>
 </table>
