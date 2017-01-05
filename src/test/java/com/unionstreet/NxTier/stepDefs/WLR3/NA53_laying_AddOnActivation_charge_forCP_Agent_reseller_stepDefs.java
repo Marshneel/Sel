@@ -30,7 +30,7 @@ public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
 
     @When("^I run SQL query$")
     public void iRunSQLQuery() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getUtils().sqlQuery("Nxtiere2e", "autotest", "test01-sql01", "nxtiere2e", "select SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getOrdersManagerPage().getServiceOrderID() + "");
+        webModel.getUtils().sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getOrdersManagerPage().getServiceOrderID() + "");
     }
 
     @Then("^The charge should be visible in the back end$")

@@ -18,7 +18,7 @@ Feature: verify customer and internal fields by logging as CP, agent and reselle
     When I access add_view notes on edit order page
     Then customer and internal tabs should be absent
 
-  @Broken
+  @E2ETests
   Scenario: assert that an assigned service is unavailable to agent and vice versa
     Given I am logged in as agent and there is a service unassigned to me
     When I access the services page

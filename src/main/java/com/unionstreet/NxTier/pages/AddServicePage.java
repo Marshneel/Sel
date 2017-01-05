@@ -9,8 +9,10 @@ import java.awt.*;
  * Created by rajeshg on 24/10/2016.
  */
 public class AddServicePage {
-    private final String SERVICE_ON_QUOTE_PAGE = "//a[text()='customService']";
 
+    private final String TEXT_ON_THE_SELECTQUOTE_PAGE = "//input[@onclick='ShowSiteSelectionPopup();']";
+    private final String SERVICE_ON_QUOTE_PAGE = "//a[text()='customService']";
+    private final String SERVICE_CHARGES_DROPDOWN = "//select[@controlid='DropDown_1']";
 
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
@@ -19,7 +21,6 @@ public class AddServicePage {
     public void searchAndSelectService() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
-      //  utils.clickBtn(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.pageJumpWithoutClose(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
@@ -32,7 +33,7 @@ public class AddServicePage {
 
     public void clickService() throws InterruptedException, AWTException {
 
-       utils.waitForElementVisible(By.xpath(SERVICE_ON_QUOTE_PAGE));
+        utils.waitForElementVisible(By.xpath(SERVICE_ON_QUOTE_PAGE));
         utils.clickBtn(By.xpath(SERVICE_ON_QUOTE_PAGE));
         utils.switchToNewWindow();
     }
@@ -47,7 +48,6 @@ public class AddServicePage {
     public void clickAddAProductOrService() {
         utils.waitForElementVisible(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-
     }
 
     public void assertServicePresent(String serviceName) {
@@ -59,8 +59,30 @@ public class AddServicePage {
         utils.waitForElementVisible(By.xpath("//label[@id='selectedSiteLabel'][contains(text(),'vodafone')]"));
         utils.assertElementNotPresent(By.xpath("//div[text()='" + serviceName + "']"));
     }
+
     public void scrollToService() throws InterruptedException {
         utils.scrollUp(By.xpath(SERVICE_ON_QUOTE_PAGE));
+    }
+
+    public void searchAndAddService(String service) {
+        utils.waitForElementVisible(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+        utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+        utils.waitForElementVisible(By.xpath(TEXT_ON_THE_SELECTQUOTE_PAGE));
+        utils.jumpToPopUpWindow(By.xpath("//div[text()='" + service + "']"));
+    }
+
+    public void addingChargeOnTheQuote(String serviceName) throws InterruptedException {
+        utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+        utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
+        utils.switchToNewWindow();
+        utils.selectByIndex(By.xpath(SERVICE_CHARGES_DROPDOWN), 1);
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.waitForElementVisible(By.xpath(ordersManagerPage.INVISIBLE_ORDER_SERVICESID));
+    }
+
+    public void removingChargeOnTheQuote() throws InterruptedException {
+        utils.selectByVisibleText(By.xpath(SERVICE_CHARGES_DROPDOWN), "Select");
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
     }
 
 }

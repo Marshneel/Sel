@@ -1,12 +1,13 @@
 com\unionstreet\NxTier\pages\CompanyMenuPage.class
 com\unionstreet\NxTier\pages\NewBusinessCustomerPage.class
-com\unionstreet\NxTier\pages\SettingsPage.class
 com\unionstreet\NxTier\pages\AddServicePage.class
 com\unionstreet\NxTier\pages\ContactManagerPage.class
+com\unionstreet\NxTier\support\ElementUtils.class
+com\unionstreet\NxTier\support\BaseClass.class
+com\unionstreet\NxTier\support\WebModel.class
+com\unionstreet\NxTier\pages\SettingsPage.class
 com\unionstreet\NxTier\pages\DashBoardPage.class
 com\unionstreet\NxTier\pages\LoginPage.class
-com\unionstreet\NxTier\support\ElementUtils.class
+com\unionstreet\NxTier\pages\WLR3_OrderDetails_Page.class
 com\unionstreet\NxTier\pages\CommonMethods.class
-com\unionstreet\NxTier\support\BaseClass.class
 com\unionstreet\NxTier\pages\OrdersManagerPage.class
-com\unionstreet\NxTier\support\WebModel.class

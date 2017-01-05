@@ -2,7 +2,8 @@ package com.unionstreet.NxTier.pages;
 
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
+
+import static com.unionstreet.NxTier.support.BaseClass.driver;
 
 public class NewBusinessCustomerPage {
     public static String RanName;
@@ -35,7 +36,12 @@ public class NewBusinessCustomerPage {
 
     public void companyInfoForNewBusinessCustomer() {
        RanName = utils.randomName();
-        try{ utils.sendText(By.id(COMPANYNAME_FIELD), RanName);}catch (TimeoutException e){
+        try{ utils.clickBtn(By.id(COMPANYNAME_FIELD));
+            utils.sendText(By.id(COMPANYNAME_FIELD), RanName);}catch (Exception e){
+          driver.get("http://test01-web01/nxtiere2e/company/endcustomer?type=1");
+            utils.waitForElementVisible(By.linkText(ADD_BUTTON));
+            utils.clickBtn(By.linkText(ADD_BUTTON));
+            utils.switchToNewWindow();
            utils.sendText(By.id(COMPANYNAME_FIELD),RanName);}
         utils.clickBtn(By.xpath(CONTACTTYPE_AGENT));
         utils.jumpToPopUpWindow(By.xpath(CONTACTTYPE_RESELLER));
@@ -44,15 +50,18 @@ public class NewBusinessCustomerPage {
 
     public void addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes() {
         RanName = utils.randomName();
+        utils.clickBtn(By.id(COMPANYNAME_FIELD));
 try{        utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
     }catch (Exception e){ utils.sendText(By.id(COMPANYNAME_FIELD), RanName);}}
 
     public void addSiteInfoForNewBusinessCustomer() {
+        utils.clickBtn(By.id(SITENAME_FIELD));
         utils.sendText(By.id(SITENAME_FIELD), utils.getProperty("siteName"));
         utils.sendText(By.id(SHORTNAME_FIELD), utils.getProperty("shortName"));
     }
 
     public void addSiteContactInfoForNewBusinessCustomer() {
+       utils.clickBtn(By.id(FIRSTNAME));
         utils.sendText(By.id(FIRSTNAME), utils.getProperty("firstName"));
         utils.sendText(By.id(EMAIL_FIELD), utils.getProperty("email"));
         utils.clickBtn(By.cssSelector(SAVE_BUTTON));

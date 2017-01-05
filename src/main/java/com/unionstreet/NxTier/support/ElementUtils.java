@@ -10,10 +10,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.*;
 
 import java.io.FileInputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.io.UnsupportedEncodingException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -41,7 +39,7 @@ public class ElementUtils {
 
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(driver)
-                .withTimeout(50, SECONDS)
+                .withTimeout(20, SECONDS)
                 .pollingEvery(3, SECONDS)
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
         return wait;
@@ -58,7 +56,7 @@ public class ElementUtils {
     //method to click button with fluent wait
     public void clickBtnWithWait(By by) {
         Wait wait = new FluentWait(driver)
-                .withTimeout(50, SECONDS)
+                .withTimeout(20, SECONDS)
                 .pollingEvery(5, SECONDS)
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
         wait.until(ExpectedConditions.elementToBeClickable(by));
@@ -325,11 +323,12 @@ public class ElementUtils {
         assertTrue(element.isEmpty());
     }
 
-    public void sqlQuery(String userN, String passWord, String server, String database, String query) {
+    public void sqlQuery(String userN, String server, String database, String query) {
         try {
-            String userName = "" + userN + "";
-            String password = "" + passWord + "";
-            String url = "jdbc:sqlserver://" + server + "" + ";databaseName=" + database + "";
+
+            String userName = ""+userN+"";
+            String password = "Password1";
+            String url = "jdbc:sqlserver://"+server+"" + ";databaseName="+database+"";
             Connection con = DriverManager.getConnection(url, userName, password);
             Statement statement;
             statement = con.createStatement();
@@ -340,16 +339,17 @@ public class ElementUtils {
         }
     }
 
-    public void sqlExeQuery(String userN, String pasWord, String server, String database, String query) {
+    public void sqlExeQuery(String userN, String server, String database, String query) throws ClassNotFoundException, SQLException, UnsupportedEncodingException {
         try {
-            String userName = "" + userN + "";
-            String password = "" + pasWord + "";
-            String url = "jdbc:sqlserver://" + server + "" + ";databaseName=" + database + "";
+            String userName = ""+userN+"";
+            String password = "Password1";
+            String url = "jdbc:sqlserver://"+server+"" + ";databaseName="+database+"";
             Connection con = DriverManager.getConnection(url, userName, password);
             Statement statement;
             statement = con.createStatement();
             statement.execute(query);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -408,7 +408,7 @@ public class ElementUtils {
                     "RESTORE DATABASE [Raj] FROM  DISK = N'F:\\Backups\\Raj\\Raj.bak' " +
                     " WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 10;  " +
                     " Select 1 As restored";
-            this.sqlQuery("Nxtiere2e", "autotest", "test01-sql01", "nxtiere2e", str);
+            this.sqlQuery("Nxtiere2e", "test01-sql01", "nxtiere2e", str);
         } catch (Exception e) {
             e.printStackTrace();
         }

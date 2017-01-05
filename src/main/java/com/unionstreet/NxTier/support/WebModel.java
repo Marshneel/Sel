@@ -15,16 +15,12 @@ public class WebModel {
     private CommonMethods commonMethods;
     private OrdersManagerPage ordersManagerPage;
     private AddServicePage addServicePage;
-
-//    public WLR3_OrderDetails_Page wlr3_orderDetails_page;
-//    private WLR3_OrderDetails_Installation_address wlr3_orderDetails_installation_address;
-//    private WLR3_OrderDetails_lineNumbering wlr3_orderDetails_lineNumbering;
-//    private WLR3_OrderDetails_Page_Appointment wlr3OrderDetailsPageAppointment;
+    private WLR3_OrderDetails_Page wlr3_orderDetails_page;
 
 
     public WebModel() {
         utils = new ElementUtils();
-        baseClass=new BaseClass();
+        baseClass = new BaseClass();
         loginPage = new LoginPage();
         dashBoardPage = new DashBoardPage();
         newBusinessCustomerPage = new NewBusinessCustomerPage();
@@ -34,16 +30,11 @@ public class WebModel {
         commonMethods = new CommonMethods();
         ordersManagerPage = new OrdersManagerPage();
         addServicePage = new AddServicePage();
-//        wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
-//        wlr3_orderDetails_installation_address=new WLR3_OrderDetails_Installation_address();
-//        wlr3_orderDetails_lineNumbering=new WLR3_OrderDetails_lineNumbering();
-//        wlr3OrderDetailsPageAppointment=new WLR3_OrderDetails_Page_Appointment();
+        wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
 
     }
-public BaseClass getBaseClass(){
-    return baseClass;
-}
+
     public ElementUtils getUtils() {
         return utils;
     }
@@ -84,18 +75,10 @@ public BaseClass getBaseClass(){
         return addServicePage;
     }
 
-//    public WLR3_OrderDetails_Page getWlr3_orderDetails_page(){
-//        return wlr3_orderDetails_page;
-//    }
-//    public WLR3_OrderDetails_Installation_address getWlr3_orderDetails_installation_address(){
-//        return wlr3_orderDetails_installation_address;
-//    }
-//    public WLR3_OrderDetails_lineNumbering getWlr3_orderDetails_lineNumbering(){
-//        return wlr3_orderDetails_lineNumbering;
-//    }
-//    public WLR3_OrderDetails_Page_Appointment getWlr3OrderDetailsPageAppointment(){
-//        return wlr3OrderDetailsPageAppointment;
-//    }
-
+    public WLR3_OrderDetails_Page getWlr3_orderDetails_page() {
+        return wlr3_orderDetails_page;
+    }
 
 }
+
+
