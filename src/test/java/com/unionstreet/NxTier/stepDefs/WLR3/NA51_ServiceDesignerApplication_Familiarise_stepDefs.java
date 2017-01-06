@@ -22,24 +22,24 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
         webModel.getOrdersManagerPage().clickOnQuoteID();
-        webModel.getOrdersManagerPage().accessAdd_ViewNotes();
+        webModel.getEditOrderPage().accessAdd_ViewNotes();
     }
 
     @Then("^customer and internal tabs should be present and accessible$")
     public void customerAndInternalTabsShouldBePresentAndAccessible() throws InterruptedException {
-        webModel.getOrdersManagerPage().assertCustomer_InternalTabsPresent();
+        webModel.getEditOrderPage().assertCustomer_InternalTabsPresent();
     }
 
     @Then("^customer and internal tabs should be absent$")
     public void customerAndInternalTabsShouldBeAbsent() {
-        webModel.getOrdersManagerPage().assertCustomer_InternalTabsNotPresent();
+        webModel.getEditOrderPage().assertCustomer_InternalTabsNotPresent();
     }
 
     @Given("^I am logged in as agent and there is a service unassigned to me$")
     public void iAmLoggedInAsAgentAndThereIsAServiceUnassignedToMe() throws InterruptedException {
         webModel.getLoginPage().loginAsCP();
         webModel.getCompanyMenuPage().clickConfigManager();
-        webModel.getOrdersManagerPage().accessingAssignServicePage();
+        webModel.getWlr_and_nxTierServicesPage().accessingAssignServicePage();
         webModel.getOrdersManagerPage().makeSureAgentDoesNotHaveAgentAndResellerService();
         webModel.getOrdersManagerPage().saveAssignServicePage();
         webModel.getLoginPage().loginAsAgent();
@@ -67,6 +67,5 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
         webModel.getOrdersManagerPage().clickOnQuoteID();
         webModel.getAddServicePage().clickAddAProductOrService();
         webModel.getAddServicePage().assertServicePresent("ServiceForAgent&Reseller");
-
     }
 }

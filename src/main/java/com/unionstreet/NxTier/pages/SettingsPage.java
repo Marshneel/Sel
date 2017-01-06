@@ -78,7 +78,6 @@ public class SettingsPage {
     private final String COMPANYCONTACTS_BUTTON = "HrefCompanyContacts";
     private final String ASSERTINGWLR3 = "//tr[@class='table_row_alt_subchild']/td[2][contains(text(),'WLR3 Quote')]";
     public final String AWAITING_PROCESS = "DivProgress";
-    private final String NO_RECORDS_UNDER_ORDERS = "//td[text()='No Records']";
     private static String CP_RanName;
 
     ElementUtils utils = new ElementUtils();
@@ -98,9 +97,10 @@ public class SettingsPage {
     }
 
     public void addAgentPermissionGroups_General() {
-      utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
+        utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
         utils.sendText(By.id(ADDPERMISSION_GROUPNAME), newBusinessCustomerPage.RanName);
-        utils.clickBtn(By.xpath(AGENTPERMISSION_GROUPTYPE));}
+        utils.clickBtn(By.xpath(AGENTPERMISSION_GROUPTYPE));
+    }
 
     public void addPermissionGroups_Configuration() throws InterruptedException {
         utils.scrollUp(By.xpath(ADDPERMISSION_CONFIGURATION));
@@ -235,7 +235,7 @@ public class SettingsPage {
 
     public void agentUserSelectCompany() throws InterruptedException {
         utils.selectByVisibleText(By.id(ADDUSER_COMPANY), newBusinessCustomerPage.RanName);
-       utils.clickBtn(By.linkText(USERADD_LOGIN));
+        utils.clickBtn(By.linkText(USERADD_LOGIN));
         utils.switchToNewWindow();
     }
 
@@ -349,7 +349,7 @@ public class SettingsPage {
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERDETAILS));
         utils.makeSureBoxIsUnChecked(By.xpath(ORDERDETAILS_SELECTALL_WITHCHECKBOX), By.id(ORDERDETAILS_SELECTALL));
-       utils.scrollUp(By.xpath(ORDERSMANAGER_ORDERS));
+        utils.scrollUp(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.makeSureBoxIsUnChecked(By.id(WLR3_ORDERS_VIEW), By.id(WLR3_ORDERS_VIEW));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
@@ -365,12 +365,6 @@ public class SettingsPage {
         utils.waitForElementToVanish(By.id(AWAITING_PROCESS));
         utils.waitForElementVisible(By.xpath("//td[@colspan='9'][contains(text(),'No Record')]"));
         utils.waitForElementVisible(By.xpath("//td[@colspan='10'][contains(text(),'No Record')]"));
-       // utils.searchAndAssertTextNotPresent(By.id(dashBoardPage.QUOTE), "WLR3 Quote");
-       // utils.waitForElementToVanish(By.id(AWAITING_PROCESS));
-       // utils.waitForElementVisible(By.xpath(NO_RECORDS_UNDER_ORDERS));
-
-
-
     }
 
     public void assertingWLROrdersWithRights() {

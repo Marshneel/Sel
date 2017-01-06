@@ -27,5 +27,4 @@ public class CommonMethods {
         } catch (Exception e) {
         }
     }
-
 }

@@ -1,0 +1,24 @@
+package com.unionstreet.NxTier.pages;
+
+import com.unionstreet.NxTier.support.ElementUtils;
+import org.openqa.selenium.By;
+
+/**
+ * Created by RajeshG on 06/01/2017.
+ */
+public class WLR_and_NxTierServicesPage {
+
+    ElementUtils utils = new ElementUtils();
+
+    private final String SERVICE_INVENTORY_MANAGER = "//a[contains(@href,'ServiceInventoryManager')]";
+    private final String AGENT_AND_RESELLER_SERVICE = "//a[text()='ServiceForAgent&Reseller']";
+    private final String ASSIGN_SERVICE_INVENTORY = "HrefAssignServiceInventory";
+
+    public void accessingAssignServicePage() throws InterruptedException {
+        utils.clickBtn(By.xpath(SERVICE_INVENTORY_MANAGER));
+        utils.clickBtn(By.xpath(AGENT_AND_RESELLER_SERVICE));
+        utils.switchToNewWindow();
+        utils.waitForElementVisible(By.id(ASSIGN_SERVICE_INVENTORY));
+        utils.clickBtn(By.id(ASSIGN_SERVICE_INVENTORY));
+    }
+}

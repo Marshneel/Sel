@@ -28,20 +28,20 @@ public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
 
     @When("^I Access postcode search under installation address tab and enter incorrect post code$")
     public void iAccessPostcodeSearchUnderInstallationAddressTabAndEnterIncorrectPostCode() throws InterruptedException {
-        webModel.getWlr3_orderDetails_page().accessInstallationAddressPage();
-        webModel.getWlr3_orderDetails_page().EnterPostCodeInSearchAddressByPostCode("GU22 9DY");
-        webModel.getWlr3_orderDetails_page().EnterPostCodeInSearchAddressByPostCode("lu11dq");
+        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage();
+        webModel.getWlr3_installationAddressPage().EnterPostCodeInSearchAddressByPostCode("GU22 9DY");
+        webModel.getWlr3_installationAddressPage().EnterPostCodeInSearchAddressByPostCode("lu11dq");
     }
 
     @Then("^Error should be thrown for incorrect postCode$")
     public void errorShouldBeThrownForIncorrectPostCode() {
-        webModel.getWlr3_orderDetails_page().assertErrorMessageUponEnteringWrongPostCode();
-        webModel.getWlr3_orderDetails_page().assertErrorMessageUponEnteringInvalidPostCode();
+        webModel.getWlr3_installationAddressPage().assertErrorMessageUponEnteringWrongPostCode();
+        webModel.getWlr3_installationAddressPage().assertErrorMessageUponEnteringInvalidPostCode();
     }
 
     @And("^When i enter valid post code$")
     public void WhenIEnterValidPostCode() throws Throwable {
-        webModel.getWlr3_orderDetails_page().EnterPostCodeInSearchAddressByPostCode("lu1 1dq");
+        webModel.getWlr3_installationAddressPage().EnterPostCodeInSearchAddressByPostCode("lu1 1dq");
     }
 
     @Then("^I should be able to search and select the address by post code$")
@@ -52,9 +52,9 @@ public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
 
     @When("^Access addressKey search under installation address tab and enter invalid address key$")
     public void accessAddressKeySearchUnderInstallationAddressTabAndEnterInvalidAddressKey() throws InterruptedException {
-        webModel.getWlr3_orderDetails_page().accessInstallationAddressPage();
-        webModel.getWlr3_orderDetails_page().accessAddressKeyTab();
-        webModel.getWlr3_orderDetails_page().enterAddressKeyInSearchAddressByAddressKey("00001043137");
+        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage();
+        webModel.getWlr3_installationAddressPage().accessAddressKeyTab();
+        webModel.getWlr3_installationAddressPage().enterAddressKeyInSearchAddressByAddressKey("00001043137");
     }
 
     @Then("^Error should be thrown for invalid address key$")
@@ -64,7 +64,7 @@ public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
 
     @And("^When i enter valid address key$")
     public void whenIEnterValidAddrressKey() throws InterruptedException {
-        webModel.getWlr3_orderDetails_page().enterAddressKeyInSearchAddressByAddressKey("A00001043137");
+        webModel.getWlr3_installationAddressPage().enterAddressKeyInSearchAddressByAddressKey("A00001043137");
     }
 
     @Then("^I should be able to search and select the address by address key$")
@@ -75,9 +75,9 @@ public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
 
     @When("^I access advanced search under installation address tab and enter valid combinations$")
     public void iAccessAdvancedSearchUnderInstallationAddressTabAndEnterValidCombinations() throws InterruptedException {
-        webModel.getWlr3_orderDetails_page().accessInstallationAddressPage();
-        webModel.getWlr3_orderDetails_page().accessAdvancedSearchTab();
-        webModel.getWlr3_orderDetails_page().enterValidAddressSearchCombinations();
+        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage();
+        webModel.getWlr3_installationAddressPage().accessAdvancedSearchTab();
+        webModel.getWlr3_installationAddressPage().enterValidAddressSearchCombinations();
     }
 
     @Then("^I should be able to search and select the address$")

@@ -174,7 +174,6 @@ public class CompanyMenuPage {
     public void addRecurringChargesPart1() {
         clickServiceChargesButton();
         utils.jumpToPopUpWindow(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-       // utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
         utils.sendText(By.id(SERVICECHARGE_DESC_FIELD), utils.getProperty("serviceChargeRecurringDesc"));
         utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));

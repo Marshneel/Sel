@@ -71,7 +71,6 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     @Then("^the agent permission group should be available for selection under drop down under business reseller contact creation$")
     public void theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderBusinessResellerContactCreation() {
         webModel.getSettingsPage().agentUserAddLoginDetails();
-
     }
 
     @And("^I should be able to login with reseller credentials$")
@@ -139,7 +138,6 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForMyCompanyShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuotesForAgent();
-
     }
 
     @Given("^I am logged in as reseller$")
@@ -157,7 +155,6 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForCompaniesUnderMyContactListShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuoteForReseller();
-
     }
 
     @Given("^I am logged in as CP$")
@@ -175,6 +172,5 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void allTheQuotesIncludingThatOfTheResellersAndAgentsShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuotesForCP();
-
     }
 }

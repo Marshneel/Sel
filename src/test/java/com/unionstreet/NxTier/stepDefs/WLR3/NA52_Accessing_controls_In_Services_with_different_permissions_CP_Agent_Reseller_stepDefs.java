@@ -21,16 +21,15 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
         webModel.getOrdersManagerPage().clickOnQuoteID();
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("permissions");
-}
+    }
 
     @Then("^the CP only control should be visible and accessible$")
     public void theCPOnlyControlShouldBeVisibleAndAccessible() {
-        webModel.getOrdersManagerPage().assertCPonlyCheckBoxPresentAndAccessible();
+        webModel.getNxTierServicesPage().assertCPonlyCheckBoxPresentAndAccessible();
 
     }
-
     @Then("^the CP only control should be invisible$")
     public void theCPOnlyControlShouldBeInvisible() throws InterruptedException {
-        webModel.getOrdersManagerPage().assertCPonlyCheckBoxIsAbsent();
+        webModel.getNxTierServicesPage().assertCPonlyCheckBoxIsAbsent();
     }
 }

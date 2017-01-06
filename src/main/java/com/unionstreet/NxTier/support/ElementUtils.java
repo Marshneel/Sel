@@ -18,6 +18,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
+import static com.unionstreet.NxTier.support.BaseClass.utils;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertTrue;
@@ -101,7 +102,6 @@ public class ElementUtils {
                 driver.manage().window().maximize();
 
 
-
             }
         }
     }
@@ -150,17 +150,17 @@ public class ElementUtils {
     //browser selector
     public WebDriver browser() {
         try {
-            String browser=System.getProperty("browser");
-            if (browser.equalsIgnoreCase("chrome")) {
+
+            if (utils.getProperty("browser").equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
-               options.addArguments("--disable-extensions");
+                options.addArguments("--disable-extensions");
                 options.addArguments("--dns-prefetch-disable");
                 driver = new ChromeDriver(options);
-            } else if (browser.equalsIgnoreCase("IE")) {
+            } else if (utils.getProperty("browser").equalsIgnoreCase("IE")) {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
-                 driver = new InternetExplorerDriver();
-            } else if (browser.equalsIgnoreCase("firefox")) {
+                driver = new InternetExplorerDriver();
+            } else if (utils.getProperty("browser").equalsIgnoreCase("firefox")) {
                 driver = new FirefoxDriver();
             }
 
@@ -205,13 +205,12 @@ public class ElementUtils {
         try {
             if (isAlertPresent()) {
                 Alert alert = driver.switchTo().alert();
-                alert.accept();}
+                alert.accept();
+            }
         } catch (Exception e) {
 
         }
     }
-
-
     public void closePopup(By by) throws InterruptedException {
         String currentWindowHandle = driver.getWindowHandle();
         driver.findElement(by).click();
@@ -226,6 +225,7 @@ public class ElementUtils {
         }
         driver.switchTo().window(currentWindowHandle);
     }
+
     public void closeCurrentWindowAndJump(By by) throws InterruptedException {
         String currentWindowHandle = driver.getWindowHandle();
         driver.findElement(by).click();
@@ -240,6 +240,7 @@ public class ElementUtils {
 
         }
     }
+
     public void pageJumpWithoutClose(By by) throws InterruptedException {
         String currentWindowHandle = driver.getWindowHandle();
         driver.findElement(by).click();
@@ -249,7 +250,6 @@ public class ElementUtils {
 
             if (!window.equals(currentWindowHandle)) {
                 driver.switchTo().window(window);
-
             }
         }
     }
@@ -326,9 +326,9 @@ public class ElementUtils {
     public void sqlQuery(String userN, String server, String database, String query) {
         try {
 
-            String userName = ""+userN+"";
+            String userName = "" + userN + "";
             String password = "Password1";
-            String url = "jdbc:sqlserver://"+server+"" + ";databaseName="+database+"";
+            String url = "jdbc:sqlserver://" + server + "" + ";databaseName=" + database + "";
             Connection con = DriverManager.getConnection(url, userName, password);
             Statement statement;
             statement = con.createStatement();
@@ -341,15 +341,14 @@ public class ElementUtils {
 
     public void sqlExeQuery(String userN, String server, String database, String query) throws ClassNotFoundException, SQLException, UnsupportedEncodingException {
         try {
-            String userName = ""+userN+"";
+            String userName = "" + userN + "";
             String password = "Password1";
-            String url = "jdbc:sqlserver://"+server+"" + ";databaseName="+database+"";
+            String url = "jdbc:sqlserver://" + server + "" + ";databaseName=" + database + "";
             Connection con = DriverManager.getConnection(url, userName, password);
             Statement statement;
             statement = con.createStatement();
             statement.execute(query);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -418,9 +417,6 @@ public class ElementUtils {
         ArrayList<String> tabs = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
     }
-
-
-
 }
 
 

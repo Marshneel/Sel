@@ -32,7 +32,6 @@ public class NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs {
     public void iAddTheCharge() throws InterruptedException {
 //        TODO
         webModel.getAddServicePage().addingChargeOnTheQuote("serviceCharges");
-
     }
 
     @And("^query the database$")
@@ -42,18 +41,15 @@ public class NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs {
 
     @Then("^the charge should be visible$")
     public void theChargeShouldBeVisible() throws SQLException {
-        webModel.getOrdersManagerPage().assertThereIsCharge("SellPrice",80.00);
-        webModel.getOrdersManagerPage().assertChargeOnGUI("£80.00");
-
+        webModel.getNxTierServicesPage().assertThereIsCharge("SellPrice",80.00);
+        webModel.getNxTierServicesPage().assertChargeOnGUI("£80.00");
     }
 
     @And("^upon removing the charge the charge should disappear from the backend$")
     public void uponRemovingTheChargeTheChargeShouldDisappearFromTheBackend() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
         webModel.getAddServicePage().removingChargeOnTheQuote();
-        webModel.getOrdersManagerPage().assertChargeOnGUI("£0.00");
+        webModel.getNxTierServicesPage().assertChargeOnGUI("£0.00");
         webModel.getUtils().sqlQuery("portal","test01-sql01","NxTierE2E","select SellPrice from Order_Services_Products where OrderServicesID=" + webModel.getOrdersManagerPage().getServiceOrderID() + "");
-        webModel.getOrdersManagerPage().assertThereIsNoCharge();
-
+        webModel.getNxTierServicesPage().assertThereIsNoCharge();
     }
-
 }

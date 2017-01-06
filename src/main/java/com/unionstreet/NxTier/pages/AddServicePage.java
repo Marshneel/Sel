@@ -16,12 +16,14 @@ public class AddServicePage {
 
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
+    NxTierServicesPage nxTierServicesPage = new NxTierServicesPage();
+    EditOrderPage editOrderPage = new EditOrderPage();
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
 
     public void searchAndSelectService() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.waitForElementVisible(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
-        utils.pageJumpWithoutClose(By.xpath(ordersManagerPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.pageJumpWithoutClose(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
@@ -39,15 +41,15 @@ public class AddServicePage {
     }
 
     public void addServiceToQuote(String serviceName) throws InterruptedException {
-        utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+        utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
         utils.closeCurrentWindowAndJump(By.xpath("//div[text()='" + serviceName + "']"));
     }
 
     public void clickAddAProductOrService() {
-        utils.waitForElementVisible(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-        utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+        utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+        utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
     }
 
     public void assertServicePresent(String serviceName) {
@@ -65,14 +67,14 @@ public class AddServicePage {
     }
 
     public void searchAndAddService(String service) {
-        utils.waitForElementVisible(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-        utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+        utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+        utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         utils.waitForElementVisible(By.xpath(TEXT_ON_THE_SELECTQUOTE_PAGE));
         utils.jumpToPopUpWindow(By.xpath("//div[text()='" + service + "']"));
     }
 
     public void addingChargeOnTheQuote(String serviceName) throws InterruptedException {
-        utils.jumpToPopUpWindow(By.xpath(ordersManagerPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+        utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
         utils.switchToNewWindow();
         utils.selectByIndex(By.xpath(SERVICE_CHARGES_DROPDOWN), 1);

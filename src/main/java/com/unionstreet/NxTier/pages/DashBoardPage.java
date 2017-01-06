@@ -12,7 +12,7 @@ public class DashBoardPage {
     public final String LOGOUT_BUTTON = ".logout";
     public final String QUOTE = "bodyContent";
     private final String ORDERSMANAGER_BUTTON = "HrefOrdersManager";
-    private final String CREATEQUOTE_BUTTON = "//a[@href='#'][contains(@onclick,'OpenStartQuote')]";
+
     ElementUtils utils = new ElementUtils();
 
     public void assertLogin() {
@@ -29,9 +29,5 @@ public class DashBoardPage {
 
     public void clickOrderManagerButton() {
             utils.clickBtn(By.id(ORDERSMANAGER_BUTTON));
-          //  utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
-
-
-        }
-
+    }
 }

@@ -35,6 +35,5 @@ public class NA45_Reseller_Login_stepDefs {
     public void theNewlyCreatedSiteShouldAppearUnderTheSiteDropDown() throws InterruptedException {
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getContactManagerPage().assertNewlyCreatedSiteByResellerOnQuotePage();
-
     }
 }

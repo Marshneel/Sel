@@ -35,8 +35,8 @@ public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
 
     @Then("^The charge should be visible in the back end$")
     public void theChargeShouldBeVisibleInTheBackEnd() throws SQLException {
-        webModel.getOrdersManagerPage().assertThereIsCharge("SellPrice", 80.00);
-        webModel.getOrdersManagerPage().assertChargeOnGUI("£80.00");
+        webModel.getNxTierServicesPage().assertThereIsCharge("SellPrice", 80.00);
+        webModel.getNxTierServicesPage().assertChargeOnGUI("£80.00");
     }
 
 

@@ -1,4 +1,4 @@
-@Broken
+@NA53
 Feature: laying add on activation charge for quote created by CP, agent and reseller
 
   Scenario: laying addOnActivation charge for quote created by CP
