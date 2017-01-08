@@ -31,6 +31,7 @@ public class WLR3_InstallationAddressPage {
 
     public void accessInstallationAddressPage() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         utils.scrollUp(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(INSTALLATION_ADDRESS_BUTTON));
     }

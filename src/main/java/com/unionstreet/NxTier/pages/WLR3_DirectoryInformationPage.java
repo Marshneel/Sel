@@ -23,6 +23,7 @@ public class WLR3_DirectoryInformationPage {
 
     public void populatingDirectoryInformation(String name) throws InterruptedException {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+       utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         utils.scrollUp(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         utils.waitForElementVisible(By.id(TEXT_ON_DIR_INFO_PAGE_BEFORE_POP));

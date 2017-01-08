@@ -18,6 +18,7 @@ public class WLR3_SiteInformationPage {
 
     public void populatingSiteInformation() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         utils.scrollUp(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         utils.waitForElementVisible(By.xpath(TEXT_ON_SITE_INFORMATION));
@@ -29,6 +30,7 @@ public class WLR3_SiteInformationPage {
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         utils.waitForElementVisible(By.xpath(TEXT_ON_SITE_INFORMATION));
         utils.selectByVisibleText(By.id(SELECTCONTACT_UNDER_SITEINFO), "Select");
+       utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         utils.scrollUp(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         utils.javaScriptExecutorClick(By.id(SUBMIT_BUTTON));
     }

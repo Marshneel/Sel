@@ -86,6 +86,7 @@ public class WLR3_OrderDetails_Page {
     public void assertDepopulatedNetworkCallingFeaturesOnWlr3OrderPage() throws InterruptedException {
         utils.jumpToParentPopUp();
         utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisible(By.xpath(NETWORK_FEATURES_BUTTON));
         utils.scrollUp(By.xpath(NETWORK_FEATURES_BUTTON));
         utils.assertElementNotPresent(By.xpath(ADMIN_CONT_CAL_DIV_ON_ORDER_DETAIL_PAGE));
         utils.assertElementNotPresent(By.xpath(ANO_CAL_REJ_UNDER_ON_ORDER_DETAIL_PAGE));
@@ -98,6 +99,7 @@ public class WLR3_OrderDetails_Page {
     public void assertDepopulatedSiteInformationOnWLR3OrderPage() throws InterruptedException {
         utils.jumpToParentPopUp();
         utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
         utils.scrollUp(By.xpath(SITE_INFORMATION_BUTTON));
         utils.assertElementNotPresent(By.xpath(SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE));
         utils.assertElementNotPresent(By.xpath(SITE_EMAILID_ON_WLR3_ORDER_PAGE));
