@@ -12,12 +12,16 @@ import cucumber.api.java.en.When;
 public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
 
     WebModel webModel = new WebModel();
-    NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs na54
-            = new NA54_JavaMethodToRunSQLScriptsFromSeleniumEnvironment_stepDefs();
+    NA44_Agent_Login_stepDefs na44_agent_login_stepDefs=new NA44_Agent_Login_stepDefs();
 
     @And("^I create a new business customer and quote$")
     public void iCreateANewBusinessCustomerAndQuote() throws InterruptedException {
-        na54.createANewQuoteAndAddAServiceThatContainsAServiceCharge();
+        na44_agent_login_stepDefs.haveCreatedANewCustomer();
+        webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().createQuote();
+        webModel.getOrdersManagerPage().searchQuoteByBcRN();
+        webModel.getOrdersManagerPage().clickOnQuoteID();
     }
 
     @And("^I assign WLR transfer order service to the newly created quote$")

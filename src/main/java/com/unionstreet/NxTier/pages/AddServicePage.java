@@ -12,13 +12,13 @@ public class AddServicePage {
 
     private final String TEXT_ON_THE_SELECTQUOTE_PAGE = "//input[@onclick='ShowSiteSelectionPopup();']";
     private final String SERVICE_ON_QUOTE_PAGE = "//a[text()='customService']";
-    private final String SERVICE_CHARGES_DROPDOWN = "//select[@controlid='DropDown_1']";
+
 
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
     NxTierServicesPage nxTierServicesPage = new NxTierServicesPage();
     EditOrderPage editOrderPage = new EditOrderPage();
-    OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
+
 
     public void searchAndSelectService() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
@@ -73,19 +73,7 @@ public class AddServicePage {
         utils.jumpToPopUpWindow(By.xpath("//div[text()='" + service + "']"));
     }
 
-    public void addingChargeOnTheQuote(String serviceName) throws InterruptedException {
-        utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-        utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
-        utils.switchToNewWindow();
-        utils.selectByIndex(By.xpath(SERVICE_CHARGES_DROPDOWN), 1);
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.waitForElementVisible(By.xpath(ordersManagerPage.INVISIBLE_ORDER_SERVICESID));
-    }
 
-    public void removingChargeOnTheQuote() throws InterruptedException {
-        utils.selectByVisibleText(By.xpath(SERVICE_CHARGES_DROPDOWN), "Select");
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
-    }
 
 }
 

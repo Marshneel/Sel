@@ -2,7 +2,6 @@ package com.unionstreet.NxTier.pages;
 
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
 
 /**
  * Created by rajeshg on 24/10/2016.
@@ -245,18 +244,18 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
         try {
             utils.makeSureBoxIsUnChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
-        } catch (StaleElementReferenceException e) {
+        } catch (Exception e) {
             utils.makeSureBoxIsUnChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
         }
     }
 
     public void saveAssignServicePage() {
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        try {
-            utils.checkAlert();
-        } catch (Exception e) {
-        }
-        utils.switchToParentWindow();
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+//        try {
+//            utils.checkAlert();
+//        } catch (Exception e) {
+//        }
+      //  utils.switchToParentWindow();
         dashBoardPage.logOut();
     }
 

@@ -1,5 +1,5 @@
 Feature: scenarios for automatically assign number, specifying new number, selecting new number from the list and automatically assign by logging
-  @NA64
+  @E2ETests
   Scenario Outline: assigning specify new number, select from list, automatically assign now by logging as CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"
     And   I create a new business customer and quote
@@ -13,7 +13,7 @@ Feature: scenarios for automatically assign number, specifying new number, selec
       | CP           | password |
       | agentlogin   | password |
       | resellerlogin| password |
-  @NA64
+  @E2ETests
     Scenario Outline: : accessing No change, Automatically assign and automatically assign now features under line numbering by logging in as a CP, agent and reseller
       Given I am logged in with "<userName>" and "<passWord>"
       And   I create a new business customer and quote

@@ -64,12 +64,4 @@ public class NxTierServicesPage {
         double one = utils.result.getDouble(column);
         Assert.assertTrue(one == value);
     }
-
-    public void assertThereIsNoCharge() {
-        try {
-            Assert.assertFalse(utils.result.next());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }
