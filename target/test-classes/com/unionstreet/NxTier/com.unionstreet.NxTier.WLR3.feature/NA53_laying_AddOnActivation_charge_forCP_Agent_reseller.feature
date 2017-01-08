@@ -1,4 +1,4 @@
-@NA53
+@E2ETests
 Feature: laying add on activation charge for quote created by CP, agent and reseller
 
   Scenario: laying addOnActivation charge for quote created by CP
