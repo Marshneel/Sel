@@ -18,16 +18,17 @@ public class WLR3_DirectoryInformationPage {
     //// TODO: 06/01/2017  
     private final String SAVED_BUSINESSNAME_UNDER_DIRECTORYINFO = "//div[@style='display: block;'][contains(text(),'vodafone')]";
 
-    ElementUtils utils=new ElementUtils();
-    WLR3_OrderDetails_Page wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
+    ElementUtils utils = new ElementUtils();
+    WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
     public void populatingDirectoryInformation(String name) throws InterruptedException {
         utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
-       utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
-        utils.scrollUp(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
+        utils.scrollUp(By.id("directoryInformationSummaryPanel"));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         utils.waitForElementVisible(By.id(TEXT_ON_DIR_INFO_PAGE_BEFORE_POP));
         utils.clickBtn(By.xpath(ENABLE_CHANGE_DIRECTORY_INFO_BUTTON));
+        utils.waitForElementVisible(By.id(EDIT_DIRECTORY_INFO));
         utils.clickBtn(By.id(EDIT_DIRECTORY_INFO));
         utils.clickBtn(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION));
         utils.sendText(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION), name);
@@ -36,9 +37,11 @@ public class WLR3_DirectoryInformationPage {
         utils.javaScriptExecutorClick(By.id(wlr3_orderDetails_page.CLOSE));
         utils.jumpToParentPopUp();
     }
+
     public void editDirectoryInformation() throws InterruptedException {
+       utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
-       utils.waitForElementVisible(By.id(EDIT));
+        utils.waitForElementVisible(By.id(EDIT));
         utils.clickBtn(By.id(EDIT));
         utils.sendText(By.id(BUSINESSNAME_UNDER_DIRECTORYINFO), "vodafone");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));

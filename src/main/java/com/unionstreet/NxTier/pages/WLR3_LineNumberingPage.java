@@ -56,8 +56,9 @@ public class WLR3_LineNumberingPage {
         utils.waitForElementVisible(By.xpath("//h1[text()='" + number + "']"));
         utils.clickBtn(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
         utils.jumpToParentPopUp();
+        utils.scrollUp(By.id("lineNumberingSummaryPanel"));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
-        utils.scrollUp(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
+
     }
 
     public void lineNumberingSelectFromList(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
@@ -76,8 +77,9 @@ public class WLR3_LineNumberingPage {
         } catch (Exception e) {
         }
         utils.jumpToParentPopUp();
+        utils.waitForElementVisible(By.id("display_wlr3order_TelephoneNumber"));
+        utils.scrollUp(By.id("display_wlr3order_TelephoneNumber"));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
-        utils.scrollUp(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
     }
 
 
@@ -89,8 +91,10 @@ public class WLR3_LineNumberingPage {
             utils.waitForElementVisible(By.xpath("//h1[text()='" + number + "']"));
             utils.javaScriptExecutorClick(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
             utils.jumpToParentPopUp();
+            utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
+            utils.scrollUp(By.id("lineNumberingSummaryPanel"));
             utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
-            utils.scrollUp(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -58,8 +58,8 @@ public class WLR3_OrderDetails_Page {
         utils.javaScriptExecutorClick(By.xpath(CONTINUE_AFTER_ADDRESS_IS_CHOOSEN));
         utils.jumpToParentPopUp();
         utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
-        utils.waitForElementVisible(By.xpath(LINE_PLANT_TAB));
-        utils.scrollUp(By.xpath(LINE_PLANT_TAB));
+       utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
+        utils.scrollUp(By.id("installationAddressSummaryPanel"));
         utils.verifyStringMatch(By.xpath(ADDRESS_SEARCH_RESULT_FOR_LU1_1DQ_ON_WLR3_ORDER_PAGE), postCode);
     }
 
@@ -86,8 +86,9 @@ public class WLR3_OrderDetails_Page {
     public void assertDepopulatedNetworkCallingFeaturesOnWlr3OrderPage() throws InterruptedException {
         utils.jumpToParentPopUp();
         utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+      utils.waitForElementVisible(By.id("networkFeaturesSummaryPanel"));
+        utils.scrollUp(By.id("networkFeaturesSummaryPanel"));
         utils.waitForElementVisible(By.xpath(NETWORK_FEATURES_BUTTON));
-        utils.scrollUp(By.xpath(NETWORK_FEATURES_BUTTON));
         utils.assertElementNotPresent(By.xpath(ADMIN_CONT_CAL_DIV_ON_ORDER_DETAIL_PAGE));
         utils.assertElementNotPresent(By.xpath(ANO_CAL_REJ_UNDER_ON_ORDER_DETAIL_PAGE));
     }
@@ -99,8 +100,9 @@ public class WLR3_OrderDetails_Page {
     public void assertDepopulatedSiteInformationOnWLR3OrderPage() throws InterruptedException {
         utils.jumpToParentPopUp();
         utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+       utils.waitForElementVisible(By.id("siteInformationSummaryPanel"));
+        utils.scrollUp(By.id("siteInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
-        utils.scrollUp(By.xpath(SITE_INFORMATION_BUTTON));
         utils.assertElementNotPresent(By.xpath(SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE));
         utils.assertElementNotPresent(By.xpath(SITE_EMAILID_ON_WLR3_ORDER_PAGE));
     }
@@ -132,8 +134,9 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         utils.refreshPage();
         utils.jumpToPopUpWindow(By.xpath(ITEMID_ON_EDITORDER));
+        utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
+        utils.scrollUp(By.id("lineNumberingSummaryPanel"));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
-        utils.scrollUp(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
 
     public void assertNumberImportedWithVic(String importedNumber, String vic) {

@@ -40,7 +40,7 @@ public class ContactManagerPage {
     }
 
     public void addNewSiteForReseller() throws InterruptedException {
-       utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+        utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindow();
         utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SITE_NAME));
         utils.sendText(By.id(companyMenuPage.SITEDETAILS_SITE_NAME), newBusinessCustomerPage.RanName);
@@ -67,7 +67,7 @@ public class ContactManagerPage {
         utils.sendText(By.id(SEARCH_BUTTON), customer_name);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath("//a[text()='" + customer_name + "']"));
-       utils.clickBtn(By.xpath("//a[text()='" + customer_name + "']"));
+        utils.clickBtn(By.xpath("//a[text()='" + customer_name + "']"));
         utils.switchToNewWindow();
     }
 

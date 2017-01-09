@@ -372,7 +372,8 @@ public class SettingsPage {
     }
 
     public void assertingWLROrdersWithRights() {
-        try { utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
+        try {
+            utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
             commonMethods.search("WLR3 Quote");
         } catch (Exception e) {
             utils.getOrdersPage();

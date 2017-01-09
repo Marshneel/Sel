@@ -3,8 +3,6 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
-import static com.unionstreet.NxTier.support.BaseClass.driver;
-
 public class NewBusinessCustomerPage {
     public static String RanName;
     public final String ADD_BUTTON = "Add";
@@ -80,6 +78,4 @@ public class NewBusinessCustomerPage {
         utils.closeCurrentPage();
         utils.switchToParentWindow();
     }
-
-
 }

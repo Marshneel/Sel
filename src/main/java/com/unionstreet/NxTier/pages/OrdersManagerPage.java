@@ -38,7 +38,6 @@ public class OrdersManagerPage {
 
         utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
         utils.jumpToPopUpWindow(By.xpath(CREATEQUOTE_BUTTON));
-
     }
 
     public void onQuotePage() throws InterruptedException {
@@ -47,7 +46,6 @@ public class OrdersManagerPage {
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.selectByVisibleText(By.id("CompanyId"), newBusinessCustomerPage.RanName);
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
-
     }
 
     public void assertQuotePageForAgentandReseller() throws InterruptedException {
@@ -64,7 +62,6 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
-
     }
 
     public void checkQuotesForAgent() {
@@ -195,7 +192,6 @@ public class OrdersManagerPage {
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
-
     }
 
     public void searchQuoteByBcRN() {
@@ -230,7 +226,6 @@ public class OrdersManagerPage {
         return utils.getAttributeOfElement(By.xpath(INVISIBLE_ORDER_SERVICESID), "value");
     }
 
-
     public void saveTheServiceAndGetTheOrderServicesID() {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(INVISIBLE_ORDER_SERVICESID));
@@ -252,11 +247,6 @@ public class OrdersManagerPage {
 
     public void saveAssignServicePage() {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
-//        try {
-//            utils.checkAlert();
-//        } catch (Exception e) {
-//        }
-        //  utils.switchToParentWindow();
         dashBoardPage.logOut();
     }
 

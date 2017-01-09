@@ -12,8 +12,8 @@ import java.sql.SQLException;
 public class NxTierServicesPage {
 
     ElementUtils utils = new ElementUtils();
-    CommonMethods commonMethods=new CommonMethods();
-    OrdersManagerPage ordersManagerPage=new OrdersManagerPage();
+    CommonMethods commonMethods = new CommonMethods();
+    OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
 
     public final String CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE = "//div[text()='customService']";
     private final String MANDATORY_CONTROL_FIELD = "//input[@controlid='mandatoryControl']";
@@ -50,11 +50,13 @@ public class NxTierServicesPage {
         utils.waitForElementVisible(By.id(CPONLY_CHECKBOX));
         utils.javaScriptExecutorClick(By.id(CPONLY_CHECKBOX));
     }
+
     public void assertCPonlyCheckBoxIsAbsent() throws InterruptedException {
         utils.switchToNewWindow();
         utils.assertElementNotPresent(By.id(CPONLY_CHECKBOX));
         ordersManagerPage.saveTheServiceAndGetTheOrderServicesID();
     }
+
     public void assertChargeOnGUI(String charge) {
         utils.waitForElementVisible(By.xpath("//td[@class='totalTotal'][text()='" + charge + "']"));
     }

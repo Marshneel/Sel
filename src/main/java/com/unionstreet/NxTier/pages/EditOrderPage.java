@@ -95,7 +95,6 @@ public class EditOrderPage {
         utils.clickBtnWithWait(By.id(INTERNAL_RADIOBUTTON));
     }
 
-
     public void assertCustomer_InternalTabsNotPresent() {
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
@@ -105,5 +104,4 @@ public class EditOrderPage {
         utils.assertElementNotPresent(By.id(CUSTOMER_RADIOBUTTON));
         utils.assertElementNotPresent(By.id(INTERNAL_RADIOBUTTON));
     }
-
 }

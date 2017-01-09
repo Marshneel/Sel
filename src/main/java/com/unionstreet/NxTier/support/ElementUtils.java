@@ -30,13 +30,6 @@ public class ElementUtils {
     public static ResultSet result;
 
 
-    public void waitForFieldToBePopulated(By by, String text) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.textToBe(by, text));
-
-    }
-
-
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(driver)
                 .withTimeout(20, SECONDS)
@@ -44,7 +37,8 @@ public class ElementUtils {
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
         return wait;
     }
-    public Wait waitForSomeTimeForWLR3(){
+
+    public Wait waitForSomeTimeForWLR3() {
         Wait wait = new FluentWait(driver)
                 .withTimeout(50, SECONDS)
                 .pollingEvery(3, SECONDS)
@@ -97,11 +91,10 @@ public class ElementUtils {
     public void waitForElementVisible(By by) {
         waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));
     }
-    public void waitForElementVisibleForWLR3Page(By by){
+
+    public void waitForElementVisibleForWLR3Page(By by) {
         waitForSomeTimeForWLR3().until(ExpectedConditions.presenceOfElementLocated(by));
     }
-
-
 
     //switching to new window
     public void switchToNewWindow() {
@@ -111,8 +104,6 @@ public class ElementUtils {
             if (!windowHandle.equals(parentWindow)) {
                 driver.switchTo().window(windowHandle);
                 driver.manage().window().maximize();
-
-
             }
         }
     }
@@ -137,7 +128,6 @@ public class ElementUtils {
         driver.findElement(by).sendKeys(Keys.ENTER);
     }
 
-
     //select data by visible text
     public void selectByVisibleText(By by, String text) {
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
@@ -161,7 +151,7 @@ public class ElementUtils {
     //browser selector
     public WebDriver browser() {
         try {
-            String browser=System.getProperty("browser");
+            String browser = System.getProperty("browser");
             if (browser.equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
@@ -222,6 +212,7 @@ public class ElementUtils {
 
         }
     }
+
     public void closePopup(By by) throws InterruptedException {
         String currentWindowHandle = driver.getWindowHandle();
         driver.findElement(by).click();
@@ -248,7 +239,6 @@ public class ElementUtils {
                 driver.switchTo().window(window);
                 driver.manage().window().maximize();
             }
-
         }
     }
 
@@ -429,7 +419,7 @@ public class ElementUtils {
         driver.switchTo().window(tabs.get(1));
     }
 
-    public void getCreateCustomerPage(){
+    public void getCreateCustomerPage() {
         driver.get("http://test01-web01/nxtiere2e/company/endcustomer?type=1");
     }
 }

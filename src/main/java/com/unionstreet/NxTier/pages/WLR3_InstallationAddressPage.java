@@ -25,14 +25,14 @@ public class WLR3_InstallationAddressPage {
     private final String ADDRESSKEY_SEARCH_TAB = "//a[text()='Address Key']";
 
 
-    ElementUtils utils=new ElementUtils();
-    WLR3_OrderDetails_Page wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
+    ElementUtils utils = new ElementUtils();
+    WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
 
     public void accessInstallationAddressPage() throws InterruptedException {
         utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.scrollUp(By.id("installationAddressSummaryPanel"));
         utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
-        utils.scrollUp(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(INSTALLATION_ADDRESS_BUTTON));
     }
 
@@ -49,12 +49,14 @@ public class WLR3_InstallationAddressPage {
     public void assertErrorMessageUponEnteringInvalidPostCode() {
         utils.waitForElementVisible(By.xpath(INVALID_POSTCODE));
     }
+
     public void populateInstallationAddressPage() throws InterruptedException {
         utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         EnterPostCodeInSearchAddressByPostCode("lu1 1dq");
         wlr3_orderDetails_page.assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
     }
+
     public void enterAddressKeyInSearchAddressByAddressKey(String addressKey) {
         utils.clickBtn(By.id(ADDRESSKEY_FIELD));
         utils.sendText(By.id(ADDRESSKEY_FIELD), addressKey);
@@ -151,6 +153,7 @@ public class WLR3_InstallationAddressPage {
         enterPremiseNameRoadandTown("AppleGarth", "Kenilworth Road", "Luton");
         searchAndAssertResult("Kenilworth Road", "AppleGarth", "The Willows", "26", "LU1 1DQ");
     }
+
     public void searchAndAssertResult(String roadName, String premiseName, String subPremiseName, String premiseNumber, String postCode) throws InterruptedException {
         utils.clickBtn(By.xpath(ADVANCED_ADDRESS_SEARCH));
         utils.waitForElementVisible(By.xpath("//input[@id='Addresses_0__ThoroughfareName'][@value='" + roadName + "']"));
@@ -159,6 +162,7 @@ public class WLR3_InstallationAddressPage {
         utils.waitForElementVisible(By.xpath("//input[@id='Addresses_0__ThoroughfareNumber'][@value='" + premiseNumber + "']"));
         utils.waitForElementVisible(By.xpath("//input[@id='Addresses_0__Postcode'][@value='" + postCode + "']"));
     }
+
     public void accessAddressKeyTab() {
         utils.clickBtn(By.xpath(ADDRESSKEY_SEARCH_TAB));
     }

@@ -49,9 +49,6 @@ public class WebModel {
         wlr3_siteInformationPage =new WLR3_SiteInformationPage();
         wlr3_directoryInformationPage = new WLR3_DirectoryInformationPage();
         wlr3_networkCallingFeaturesPage=new WLR3_NetworkCallingFeaturesPage();
-
-
-
     }
 
     public ElementUtils getUtils() {
@@ -133,6 +130,4 @@ public class WebModel {
     public WLR3_NetworkCallingFeaturesPage getWlr3_networkCallingFeaturesPage(){
         return wlr3_networkCallingFeaturesPage;
     }
-
-
 }

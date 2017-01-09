@@ -42,7 +42,8 @@ public class LoginPage {
         try {
             utils.checkAlert();
         } catch (Exception e) {
-        }}
+        }
+    }
 
 
     public void loginAsReseller() {
@@ -55,12 +56,13 @@ public class LoginPage {
         try {
             utils.checkAlert();
         } catch (Exception e) {
-        }}
+        }
+    }
 
 
     public void loginAsCP() {
         utils.waitForElementVisible(By.id(USENAME_FIELD));
-       utils.clickBtn(By.id(USENAME_FIELD));
+        utils.clickBtn(By.id(USENAME_FIELD));
         utils.sendText(By.id(USENAME_FIELD), "cp");
         utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), "password");
@@ -68,7 +70,8 @@ public class LoginPage {
         try {
             utils.checkAlert();
         } catch (Exception e) {
-        }}
+        }
+    }
 
     public void login(String userName, String passWord) {
         utils.clickBtn(By.id(USENAME_FIELD));
@@ -77,7 +80,6 @@ public class LoginPage {
         utils.sendText(By.id(PASSWORD_FIELD), passWord);
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
-
 }
 
 
