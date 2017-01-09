@@ -50,7 +50,7 @@ public class NA44_Agent_Login_stepDefs {
     }
 
     @When("^I access orders manager$")
-    public void iAccessOrdersManager() {
+    public void iAccessOrdersManager() throws InterruptedException {
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickOrderManagerButton();
     }

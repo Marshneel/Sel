@@ -16,7 +16,7 @@ public class WLR3_NetworkCallingFeaturesPage {
 
 
     public void populateNetworkCallingFeatures() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         utils.scrollUp(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));

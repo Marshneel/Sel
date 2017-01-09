@@ -26,7 +26,7 @@ public class NA45_Reseller_Login_stepDefs {
     }
 
     @When("^I access create Quote tab and select the above company from the company dropdown$")
-    public void iAccessCreateQuoteTabAndSelectTheAboveCompanyFromTheCompanyDropdown() {
+    public void iAccessCreateQuoteTabAndSelectTheAboveCompanyFromTheCompanyDropdown() throws InterruptedException {
         webModel.getContactManagerPage().navigateToHomePage();
         webModel.getDashBoardPage().clickOrderManagerButton();
     }

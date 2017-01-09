@@ -61,7 +61,7 @@ public class WLR3_LineNumberingPage {
     }
 
     public void lineNumberingSelectFromList(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
-
+        utils.waitForElementVisible(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));
         utils.clickBtn(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from dbo.reserved_numbers where number='" + number + "'");
         utils.clickBtn(By.xpath(GET_NUMBERSTAB_UNDER_SELECT_FROM_LIST_LINE_INFO));
@@ -148,7 +148,7 @@ public class WLR3_LineNumberingPage {
         clickNoChangeTab();
         clickContinueUnderNoChange();
         utils.jumpToParentPopUp();
-        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         wlr3_orderDetails_page.clickLineNumbering();
         clickImportFromOtherNetwork();
     }

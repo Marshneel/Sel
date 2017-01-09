@@ -12,7 +12,6 @@ Feature: WLR3 Transfer order- address lookup by postcode, Address key and Advanc
     Examples:
       | userName     | passWord |
       | CP           | password |
-      | agentlogin   | password |
       | resellerlogin| password |
 
   Scenario Outline:  WLR3 address lookup based on Address key, by logging as CP, agent and reseller
@@ -26,7 +25,6 @@ Feature: WLR3 Transfer order- address lookup by postcode, Address key and Advanc
     Examples:
       | userName     | passWord |
       | CP           | password |
-      | agentlogin   | password |
       | resellerlogin| password |
 
   Scenario Outline:  WLR3 address lookup based on advanced search, by logging as CP, agent and reseller
@@ -38,7 +36,6 @@ Feature: WLR3 Transfer order- address lookup by postcode, Address key and Advanc
     Examples:
       | userName     | passWord |
       | CP           | password |
-      | agentlogin   | password |
       | resellerlogin| password |
 
 

@@ -57,7 +57,7 @@ public class WLR3_OrderDetails_Page {
         utils.clickBtn(By.id(ADDRESS_SEARCH_RESULT));
         utils.javaScriptExecutorClick(By.xpath(CONTINUE_AFTER_ADDRESS_IS_CHOOSEN));
         utils.jumpToParentPopUp();
-        utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         utils.waitForElementVisible(By.xpath(LINE_PLANT_TAB));
         utils.scrollUp(By.xpath(LINE_PLANT_TAB));
         utils.verifyStringMatch(By.xpath(ADDRESS_SEARCH_RESULT_FOR_LU1_1DQ_ON_WLR3_ORDER_PAGE), postCode);
@@ -69,7 +69,7 @@ public class WLR3_OrderDetails_Page {
 
     public void assertPopulatedNetworkCallingFeaturesOnWlr3OrderPage() throws InterruptedException {
         utils.jumpToParentPopUp();
-        utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         utils.waitForElementVisible(By.xpath(ADMIN_CONT_CAL_DIV_ON_ORDER_DETAIL_PAGE));
         utils.waitForElementVisible(By.xpath(ANO_CAL_REJ_UNDER_ON_ORDER_DETAIL_PAGE));
     }
@@ -85,7 +85,7 @@ public class WLR3_OrderDetails_Page {
 
     public void assertDepopulatedNetworkCallingFeaturesOnWlr3OrderPage() throws InterruptedException {
         utils.jumpToParentPopUp();
-        utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         utils.waitForElementVisible(By.xpath(NETWORK_FEATURES_BUTTON));
         utils.scrollUp(By.xpath(NETWORK_FEATURES_BUTTON));
         utils.assertElementNotPresent(By.xpath(ADMIN_CONT_CAL_DIV_ON_ORDER_DETAIL_PAGE));
@@ -98,7 +98,7 @@ public class WLR3_OrderDetails_Page {
 
     public void assertDepopulatedSiteInformationOnWLR3OrderPage() throws InterruptedException {
         utils.jumpToParentPopUp();
-        utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
         utils.scrollUp(By.xpath(SITE_INFORMATION_BUTTON));
         utils.assertElementNotPresent(By.xpath(SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE));
@@ -106,7 +106,7 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void clickLineNumbering() {
-        utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(LINE_NUMBERING_BUTTON));
         utils.waitForElementVisible(By.xpath(TEXT_ON_LINE_NUMBERING_PAGE));
     }
@@ -124,12 +124,12 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void assertImportedLineWithChangeOfPostCodeAndAidOfGoldAddress(String importedNumber) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
 
     public void assertImportedLineWithAidOfLetterOfAuthority(String importedNumber) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         utils.refreshPage();
         utils.jumpToPopUpWindow(By.xpath(ITEMID_ON_EDITORDER));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));

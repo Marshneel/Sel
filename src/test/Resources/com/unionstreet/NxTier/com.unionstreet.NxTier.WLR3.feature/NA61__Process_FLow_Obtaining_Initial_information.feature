@@ -12,7 +12,6 @@ Feature: WLR3 Transfer order- populating network calling features, directory inf
     Examples:
       | userName     | passWord |
       | CP           | password |
-      | agentlogin   | password |
       | resellerlogin| password |
 
   Scenario Outline: Populating site information by logging as a CP, agent and reseller
@@ -26,5 +25,4 @@ Feature: WLR3 Transfer order- populating network calling features, directory inf
     Examples:
       | userName     | passWord |
       | CP           | password |
-      | agentlogin   | password |
       | resellerlogin| password |

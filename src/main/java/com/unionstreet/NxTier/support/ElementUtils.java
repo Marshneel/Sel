@@ -44,6 +44,13 @@ public class ElementUtils {
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
         return wait;
     }
+    public Wait waitForSomeTimeForWLR3(){
+        Wait wait = new FluentWait(driver)
+                .withTimeout(50, SECONDS)
+                .pollingEvery(3, SECONDS)
+                .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
+        return wait;
+    }
 
     //method to find the element, clear the box if needed and send text
     public void sendText(By by, String txt) {
@@ -90,6 +97,11 @@ public class ElementUtils {
     public void waitForElementVisible(By by) {
         waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));
     }
+    public void waitForElementVisibleForWLR3Page(By by){
+        waitForSomeTimeForWLR3().until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
+
 
     //switching to new window
     public void switchToNewWindow() {

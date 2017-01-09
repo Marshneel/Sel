@@ -14,10 +14,12 @@ public class AddServicePage {
     private final String SERVICE_ON_QUOTE_PAGE = "//a[text()='customService']";
 
 
+
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
     NxTierServicesPage nxTierServicesPage = new NxTierServicesPage();
     EditOrderPage editOrderPage = new EditOrderPage();
+    OrdersManagerPage ordersManagerPage=new OrdersManagerPage();
 
 
     public void searchAndSelectService() throws InterruptedException {
@@ -52,10 +54,16 @@ public class AddServicePage {
         utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
     }
 
-    public void assertServicePresent(String serviceName) {
-        utils.waitForElementVisible(By.xpath("//label[@id='selectedSiteLabel'][contains(text(),'vodafone')]"));
+    public void assertServicePresent(String serviceName) throws InterruptedException {
+      try{  utils.waitForElementVisible(By.xpath("//label[@id='selectedSiteLabel'][contains(text(),'vodafone')]"));
         utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
-    }
+    }catch (Exception e){utils.getOrdersPage();
+          ordersManagerPage.clickOnQuoteID();
+          utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+          utils.clickBtnWithWait(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+          utils.waitForElementVisible(By.xpath("//label[@id='selectedSiteLabel'][contains(text(),'vodafone')]"));
+          utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
+      }}
 
     public void assertServiceNotPresent(String serviceName) {
         utils.waitForElementVisible(By.xpath("//label[@id='selectedSiteLabel'][contains(text(),'vodafone')]"));

@@ -27,7 +27,9 @@ public class DashBoardPage {
         }
     }
 
-    public void clickOrderManagerButton() {
+    public void clickOrderManagerButton() throws InterruptedException {
+        utils.waitForElementVisible(By.id(ORDERSMANAGER_BUTTON));
+        utils.scrollUp(By.id(ORDERSMANAGER_BUTTON));
             utils.clickBtn(By.id(ORDERSMANAGER_BUTTON));
     }
 }

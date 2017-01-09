@@ -21,7 +21,7 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
     }
 
     @Then("^I should not be able to see and edit them$")
-    public void iShouldNotBeAbleToSeeAndEditThem() {
+    public void iShouldNotBeAbleToSeeAndEditThem() throws InterruptedException {
         //login as agent///////
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getSettingsPage().assertingWLROrdersWithOutRights();
