@@ -8,6 +8,9 @@ import org.openqa.selenium.By;
  * Created by rajeshg on 01/09/2016.
  */
 public class SettingsPage {
+    private static String CP_RanName;
+    public final String SAVEANDCLOSE = "//input[@value='Save & Close']";
+    public final String AWAITING_PROCESS = "DivProgress";
     private final String SETTINGS_BUTTON = "HrefSettings";
     private final String ADDPERMISSION_GROUPNAME = "GroupName";
     private final String AGENTPERMISSION_GROUPTYPE = "//input[@id='rdoGroupType'][@value='Agent']";
@@ -63,7 +66,6 @@ public class SettingsPage {
     private final String ADDPERMISSIONS_WORKPLACE = "//a[@href='#'][contains(text(),'Workplace')]";
     private final String WORKPLACE_DASHBOARD = "//a[@href='#'][contains(text(),'Dashboard')]";
     private final String DASHBOARD_SELECTALL = "SelectAll_Workplace_Dashboard";
-    public final String SAVEANDCLOSE = "//input[@value='Save & Close']";
     private final String LOGINUSERS_BUTTON = "//div[@id='subMenu']//li[5]";
     private final String ADDUSER_COMPANY = "CompanyList";
     private final String USERADD_LOGIN = "Add Login";
@@ -77,9 +79,6 @@ public class SettingsPage {
     private final String ADDLOGINUSERS = "Add";
     private final String COMPANYCONTACTS_BUTTON = "HrefCompanyContacts";
     private final String ASSERTINGWLR3 = "//tr[@class='table_row_alt_subchild']/td[2][contains(text(),'WLR3 Quote')]";
-    public final String AWAITING_PROCESS = "DivProgress";
-    private static String CP_RanName;
-
     ElementUtils utils = new ElementUtils();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
     DashBoardPage dashBoardPage = new DashBoardPage();
@@ -361,14 +360,24 @@ public class SettingsPage {
     }
 
     public void assertingWLROrdersWithOutRights() {
-        commonMethods.search("WLR3");
+        try {
+            commonMethods.search("WLR3");
+        } catch (Exception e) {
+            utils.getURL("http://test01-web01/nxtiere2e/orders/ordersmanager");
+            commonMethods.search("WLR3 Quote");
+        }
         utils.waitForElementToVanish(By.id(AWAITING_PROCESS));
         utils.waitForElementVisible(By.xpath("//td[@colspan='9'][contains(text(),'No Record')]"));
         utils.waitForElementVisible(By.xpath("//td[@colspan='10'][contains(text(),'No Record')]"));
     }
 
     public void assertingWLROrdersWithRights() {
-        commonMethods.search("WLR3 Quote");
+        try {
+            commonMethods.search("WLR3 Quote");
+        } catch (Exception e) {
+            utils.getURL("http://test01-web01/nxtiere2e/orders/ordersmanager");
+            commonMethods.search("WLR3 Quote");
+        }
         utils.waitForElementVisible(By.xpath(ASSERTINGWLR3));
         utils.searchAndAssertTextPresent(By.id(dashBoardPage.QUOTE), "WLR3 Quote");
         utils.clickBtn(By.cssSelector(dashBoardPage.LOGOUT_BUTTON));

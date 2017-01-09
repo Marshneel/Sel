@@ -16,7 +16,7 @@ public class OrdersManagerPage {
     private final String ORDER_QUOTE_DESCRIPTION_FIELD = "//input[@class='textfield']";
     private final String ORDERS_SAVEQUOTE_BUTTON = "CreateQuoteButton";
     private final String QUOTEBOX = "StartQuote";
-    private final String QUOTEID = "//a[contains(@href,'Orders/EditOrder')]";
+    public final String QUOTEID = "//a[contains(@href,'Orders/EditOrder')]";
     private final String AGENT = "//td[text()='agentCompany']";
     private final String RESELLER = "//td[text()='reseller']";
     private final String AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER = "checkbox0";
@@ -24,7 +24,7 @@ public class OrdersManagerPage {
     private final String LOCATOR_FOR_BOX_HEADER = "contentPanel";
 
     ElementUtils utils = new ElementUtils();
-    WLR_and_NxTierServicesPage wlr_and_nxTierServicesPage=new WLR_and_NxTierServicesPage();
+    WLR_and_NxTierServicesPage wlr_and_nxTierServicesPage = new WLR_and_NxTierServicesPage();
 
     ContactManagerPage contactManagerPage = new ContactManagerPage();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
@@ -255,7 +255,7 @@ public class OrdersManagerPage {
 //            utils.checkAlert();
 //        } catch (Exception e) {
 //        }
-      //  utils.switchToParentWindow();
+        //  utils.switchToParentWindow();
         dashBoardPage.logOut();
     }
 

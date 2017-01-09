@@ -31,8 +31,8 @@ public class WLR3_OrderDetails_Page {
     public final String SAVE = "saveBtn";
     private final String ITEMID_ON_EDITORDER = "//a[@href='#'][starts-with(@onclick,'OpenNewWLR3OrderDetailPopup')]";
     private final String CONTINUETAB_UNDER_NOCHANGE_LINE_INFO = "//a[@onclick='lineNumbering.submitChanges(0);']";
-    private final String APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE="//a[@href='javascript:;'][starts-with(@onclick,'showNewBookAppointmentPopup')]";
-    private final String TEXT_ON_APPOINTMENT_PAGE="//legend[text()='Hazard and Warning Notes']";
+    private final String APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE = "//a[@href='javascript:;'][starts-with(@onclick,'showNewBookAppointmentPopup')]";
+    private final String TEXT_ON_APPOINTMENT_PAGE = "//legend[text()='Hazard and Warning Notes']";
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
 
@@ -133,6 +133,7 @@ public class WLR3_OrderDetails_Page {
         utils.refreshPage();
         utils.jumpToPopUpWindow(By.xpath(ITEMID_ON_EDITORDER));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
+        utils.scrollUp(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
 
     public void assertNumberImportedWithVic(String importedNumber, String vic) {

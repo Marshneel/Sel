@@ -10,8 +10,8 @@ import org.openqa.selenium.NoSuchElementException;
 public class EditOrderPage {
 
     ElementUtils utils = new ElementUtils();
-    CommonMethods commonMethods=new CommonMethods();
-    OrdersManagerPage ordersManagerPage=new OrdersManagerPage();
+    CommonMethods commonMethods = new CommonMethods();
+    OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
 
 
     public final String ADD_PRODUCT_AND_SERVICE_BUTTON = "//span[text()='Add a product or service']";
@@ -38,7 +38,14 @@ public class EditOrderPage {
     }
 
     public void assertInvalidQuoteBeforeSubmitting() {
-        utils.waitForElementVisible(By.xpath(REDCROSS));
+        try {
+            utils.waitForElementVisible(By.xpath(REDCROSS));
+        } catch (Exception e) {
+            utils.getOrdersPage();
+            utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
+            utils.switchToNewWindow();
+            utils.waitForElementVisible(By.xpath(REDCROSS));
+        }
     }
 
     public void assertInvalidQuoteAfterSubmitting() throws InterruptedException {
@@ -50,13 +57,22 @@ public class EditOrderPage {
 
     public void assertValidQuoteBeforeSubmitting() {
 
-        utils.waitForElementVisible(By.xpath(GREEN_TICK));
+        try {
+            utils.waitForElementVisible(By.xpath(GREEN_TICK));
+        } catch (Exception e) {
+            utils.getOrdersPage();
+            utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
+            utils.switchToNewWindow();
+            utils.waitForElementVisible(By.xpath(GREEN_TICK));
+        }
     }
+
     public void assertValidQuoteAfterSubmitting() {
         utils.waitForElementVisible(By.xpath(GREEN_TICK));
         utils.selectByIndex(By.id(ORDER_CONTACT), 1);
         utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_ORDER));
     }
+
     public void accessAdd_ViewNotes() {
         utils.waitForElementVisible(By.xpath(ADD_VIEW_NOTES));
         utils.jumpToPopUpWindow(By.xpath(ADD_VIEW_NOTES));

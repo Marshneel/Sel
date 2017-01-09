@@ -35,10 +35,10 @@ public class WLR3_LineNumberingPage {
     private final String SELECT_FROM_LISTTAB_UNDER_LINE_INFO = "//a[@href='#default-tab-Select_from_list']";
     private final String AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO = "//a[@href='#default-tab-Automatically_assign_now']";
     private final String ALERT_ON_LINE_INFO = "//div[@class='alert alert-danger']";
-    private final String CONTINUETAB_UNDER_IMPORT_FROM_OTHER_NETWORK_LINE_INFO="submitImportFromOtherNetworkContinue";
+    private final String CONTINUETAB_UNDER_IMPORT_FROM_OTHER_NETWORK_LINE_INFO = "submitImportFromOtherNetworkContinue";
 
-    ElementUtils utils=new ElementUtils();
-    WLR3_OrderDetails_Page wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
+    ElementUtils utils = new ElementUtils();
+    WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
     public void lineNumberingAutomaticallyAssignWithAssertions() {
         utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
@@ -46,7 +46,8 @@ public class WLR3_LineNumberingPage {
         utils.jumpToParentPopUp();
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ALLOCATED_TEXT_ON_WLR_ORDERDETAILS_PAGE));
     }
-    public void lineNumberingSpecifyNewNumber(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
+
+    public void lineNumberingSpecifyNewNumber(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from dbo.reserved_numbers where number='" + number + "'");
         utils.clickBtn(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
         utils.clickBtn(By.id(TEXTBOX_UNDER_SPECIFY_NEW_NUMBER_LINEINFO));
@@ -56,7 +57,9 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
         utils.jumpToParentPopUp();
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
+        utils.scrollUp(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
     }
+
     public void lineNumberingSelectFromList(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
 
         utils.clickBtn(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));
@@ -74,7 +77,10 @@ public class WLR3_LineNumberingPage {
         }
         utils.jumpToParentPopUp();
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
+        utils.scrollUp(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
     }
+
+
     public void lineNumberingAutomaticallyAssignNumber(String number) {
         try {
             utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
@@ -84,10 +90,12 @@ public class WLR3_LineNumberingPage {
             utils.javaScriptExecutorClick(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
             utils.jumpToParentPopUp();
             utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
+            utils.scrollUp(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void clickImportFromOtherNetwork() {
         utils.clickBtn(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
     }
@@ -109,6 +117,7 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(CONTINUE_AFTER_IMPORTING_FROM_ANOTHER_NETWORK));
         utils.jumpToParentPopUp();
     }
+
     public void clickContinueUnderNoChange() {
         utils.clickBtn(By.xpath(NO_CHANGES_TO_LINE_CONTINUE_BUTTON));
     }
@@ -130,6 +139,7 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.id(CONTINUETAB_UNDER_IMPORT_FROM_OTHER_NETWORK_LINE_INFO));
         utils.jumpToParentPopUp();
     }
+
     public void clickNoChangeTab() {
         utils.clickBtn(By.xpath(NO_CHANGE_TAB));
     }
@@ -156,6 +166,7 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
         utils.assertElementNotPresent(By.xpath(ALERT_ON_LINE_INFO));
     }
+
     public void assertionForLineNumberingWithOutAddress() {
         utils.clickBtn(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
         utils.waitForElementVisible(By.xpath(ALERT_ON_LINE_INFO));

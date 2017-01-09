@@ -29,20 +29,27 @@ public class NewBusinessCustomerPage {
     }
 
     public void clickAddNewCustomerButton() throws InterruptedException {
-       utils.waitForElementVisible(By.linkText(ADD_BUTTON));
+        try {
+            utils.waitForElementVisible(By.linkText(ADD_BUTTON));
+        } catch (Exception e) {
+            utils.getURL("http://test01-web01/nxtiere2e/company/endcustomer?type=1");
+        }
         utils.clickBtn(By.linkText(ADD_BUTTON));
         utils.switchToNewWindow();
-         }
+    }
 
     public void companyInfoForNewBusinessCustomer() {
-       RanName = utils.randomName();
-        try{ utils.clickBtn(By.id(COMPANYNAME_FIELD));
-            utils.sendText(By.id(COMPANYNAME_FIELD), RanName);}catch (Exception e){
-          driver.get("http://test01-web01/nxtiere2e/company/endcustomer?type=1");
+        RanName = utils.randomName();
+        try {
+            utils.clickBtn(By.id(COMPANYNAME_FIELD));
+            utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
+        } catch (Exception e) {
+            driver.get("http://test01-web01/nxtiere2e/company/endcustomer?type=1");
             utils.waitForElementVisible(By.linkText(ADD_BUTTON));
             utils.clickBtn(By.linkText(ADD_BUTTON));
             utils.switchToNewWindow();
-           utils.sendText(By.id(COMPANYNAME_FIELD),RanName);}
+            utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
+        }
         utils.clickBtn(By.xpath(CONTACTTYPE_AGENT));
         utils.jumpToPopUpWindow(By.xpath(CONTACTTYPE_RESELLER));
         utils.clickBtn(By.xpath(VATPOPUP));
@@ -51,8 +58,12 @@ public class NewBusinessCustomerPage {
     public void addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes() {
         RanName = utils.randomName();
         utils.clickBtn(By.id(COMPANYNAME_FIELD));
-try{        utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
-    }catch (Exception e){ utils.sendText(By.id(COMPANYNAME_FIELD), RanName);}}
+        try {
+            utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
+        } catch (Exception e) {
+            utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
+        }
+    }
 
     public void addSiteInfoForNewBusinessCustomer() {
         utils.clickBtn(By.id(SITENAME_FIELD));
@@ -61,7 +72,7 @@ try{        utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
     }
 
     public void addSiteContactInfoForNewBusinessCustomer() {
-       utils.clickBtn(By.id(FIRSTNAME));
+        utils.clickBtn(By.id(FIRSTNAME));
         utils.sendText(By.id(FIRSTNAME), utils.getProperty("firstName"));
         utils.sendText(By.id(EMAIL_FIELD), utils.getProperty("email"));
         utils.clickBtn(By.cssSelector(SAVE_BUTTON));
