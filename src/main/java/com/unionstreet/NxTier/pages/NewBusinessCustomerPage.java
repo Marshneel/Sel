@@ -32,7 +32,7 @@ public class NewBusinessCustomerPage {
         try {
             utils.waitForElementVisible(By.linkText(ADD_BUTTON));
         } catch (Exception e) {
-            utils.getURL("http://test01-web01/nxtiere2e/company/endcustomer?type=1");
+            utils.getCreateCustomerPage();
         }
         utils.clickBtn(By.linkText(ADD_BUTTON));
         utils.switchToNewWindow();
@@ -44,7 +44,7 @@ public class NewBusinessCustomerPage {
             utils.clickBtn(By.id(COMPANYNAME_FIELD));
             utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
         } catch (Exception e) {
-            driver.get("http://test01-web01/nxtiere2e/company/endcustomer?type=1");
+            utils.getCreateCustomerPage();
             utils.waitForElementVisible(By.linkText(ADD_BUTTON));
             utils.clickBtn(By.linkText(ADD_BUTTON));
             utils.switchToNewWindow();

@@ -363,7 +363,7 @@ public class SettingsPage {
         try {
             commonMethods.search("WLR3");
         } catch (Exception e) {
-            utils.getURL("http://test01-web01/nxtiere2e/orders/ordersmanager");
+            utils.getOrdersPage();
             commonMethods.search("WLR3 Quote");
         }
         utils.waitForElementToVanish(By.id(AWAITING_PROCESS));
@@ -372,10 +372,11 @@ public class SettingsPage {
     }
 
     public void assertingWLROrdersWithRights() {
-        try {
+        try { utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
             commonMethods.search("WLR3 Quote");
         } catch (Exception e) {
-            utils.getURL("http://test01-web01/nxtiere2e/orders/ordersmanager");
+            utils.getOrdersPage();
+
             commonMethods.search("WLR3 Quote");
         }
         utils.waitForElementVisible(By.xpath(ASSERTINGWLR3));
