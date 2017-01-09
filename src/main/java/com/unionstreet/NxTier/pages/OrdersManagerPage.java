@@ -36,8 +36,14 @@ public class OrdersManagerPage {
 
     public void clickCreateQuoteButton() throws InterruptedException {
 
-        utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
-        utils.jumpToPopUpWindow(By.xpath(CREATEQUOTE_BUTTON));
+        try {
+            utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
+            utils.jumpToPopUpWindow(By.xpath(CREATEQUOTE_BUTTON));
+        } catch (Exception e) {
+            utils.getOrdersPage();
+            utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
+            utils.jumpToPopUpWindow(By.xpath(CREATEQUOTE_BUTTON));
+        }
     }
 
     public void onQuotePage() throws InterruptedException {

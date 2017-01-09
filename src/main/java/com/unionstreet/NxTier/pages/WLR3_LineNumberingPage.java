@@ -40,7 +40,9 @@ public class WLR3_LineNumberingPage {
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
+
     public void lineNumberingAutomaticallyAssignWithAssertions() {
+        utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
         utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
         utils.clickBtn(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
         utils.jumpToParentPopUp();
@@ -49,6 +51,7 @@ public class WLR3_LineNumberingPage {
 
     public void lineNumberingSpecifyNewNumber(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from dbo.reserved_numbers where number='" + number + "'");
+        utils.waitForElementVisible(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
         utils.clickBtn(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
         utils.clickBtn(By.id(TEXTBOX_UNDER_SPECIFY_NEW_NUMBER_LINEINFO));
         utils.sendText(By.id(TEXTBOX_UNDER_SPECIFY_NEW_NUMBER_LINEINFO), "" + number + "");
@@ -85,6 +88,7 @@ public class WLR3_LineNumberingPage {
 
     public void lineNumberingAutomaticallyAssignNumber(String number) {
         try {
+            utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
             utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
             utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from dbo.reserved_numbers where number='" + number + "'");
             utils.clickBtn(By.xpath(ALLOCATENOW_TAB_UNDER_AUTOMATICALLY_ASSIGN_NOW_LINE_INFO));
@@ -104,13 +108,13 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
     }
 
-    public void enterNumberOnImportFromOtherNetworkPage(String number) {
+    public void enterNumberOnImportFromOtherNetworkPage(String number) throws InterruptedException {
         utils.waitForElementVisible(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.clickBtn(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.sendText(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK), number);
     }
 
-    public void importNumberWithChangeOfAddress(String number, String postCode) {
+    public void importNumberWithChangeOfAddress(String number, String postCode) throws InterruptedException {
         clickImportFromOtherNetwork();
         enterNumberOnImportFromOtherNetworkPage(number);
         utils.clickBtn(By.id(MOVE_NUMBER_FROM_ANOTHER_ADDRESS_CHECK_BOX));
@@ -126,7 +130,7 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(NO_CHANGES_TO_LINE_CONTINUE_BUTTON));
     }
 
-    public void importFromOtherNetworkWithLetterOfAuthority(String number) {
+    public void importFromOtherNetworkWithLetterOfAuthority(String number) throws InterruptedException {
         depopulateImportFromOtherNetworkFields();
         enterNumberOnImportFromOtherNetworkPage(number);
         utils.clickBtn(By.id(LETTER_OF_AUTHORITY_CHECKBOX));
@@ -134,7 +138,7 @@ public class WLR3_LineNumberingPage {
         utils.jumpToParentPopUp();
     }
 
-    public void importNumberWithVic(String number, String vic) {
+    public void importNumberWithVic(String number, String vic) throws InterruptedException {
         depopulateImportFromOtherNetworkFields();
         enterNumberOnImportFromOtherNetworkPage(number);
         utils.clickBtn(By.id(VIC_TEXTBOX_UNDER_LINE_INFO));
@@ -145,6 +149,7 @@ public class WLR3_LineNumberingPage {
     }
 
     public void clickNoChangeTab() {
+        utils.waitForElementVisible(By.xpath(NO_CHANGE_TAB));
         utils.clickBtn(By.xpath(NO_CHANGE_TAB));
     }
 

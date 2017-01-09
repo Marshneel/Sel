@@ -27,6 +27,7 @@ public class WLR3_InstallationAddressPage {
 
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
+    OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
 
 
     public void accessInstallationAddressPage() throws InterruptedException {
@@ -37,6 +38,7 @@ public class WLR3_InstallationAddressPage {
     }
 
     public void EnterPostCodeInSearchAddressByPostCode(String postCode) {
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD));
         utils.clickBtn(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD));
         utils.sendText(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD), postCode);
         utils.clickBtn(By.id(POSTCODE_SEARCH));
