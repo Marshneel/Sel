@@ -23,6 +23,7 @@ public class WLR3_DirectoryInformationPage {
 
     public void populatingDirectoryInformation(String name) throws InterruptedException {
         utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+       utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
         utils.scrollUp(By.id("directoryInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
@@ -42,6 +43,7 @@ public class WLR3_DirectoryInformationPage {
        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         utils.waitForElementVisible(By.id(EDIT));
+        utils.scrollUp(By.id(EDIT));
         utils.clickBtn(By.id(EDIT));
         utils.sendText(By.id(BUSINESSNAME_UNDER_DIRECTORYINFO), "vodafone");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));

@@ -27,7 +27,6 @@ public class WLR3_OrderDetails_Page {
     private final String SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_contact_name'][contains(text(),'Jeroen')]";
     private final String SITE_EMAILID_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_contact_email'][contains(text(),'Jeroen@vodafone.co.uk')]";
     private final String TEXT_ON_LINE_NUMBERING_PAGE = "//li[text()='vodafone']";
-    private final String LINE_PLANT_TAB = "//a[@id='lineplant']";
     public final String SAVE = "saveBtn";
     private final String ITEMID_ON_EDITORDER = "//a[@href='#'][starts-with(@onclick,'OpenNewWLR3OrderDetailPopup')]";
     private final String CONTINUETAB_UNDER_NOCHANGE_LINE_INFO = "//a[@onclick='lineNumbering.submitChanges(0);']";
@@ -70,15 +69,21 @@ public class WLR3_OrderDetails_Page {
     public void assertPopulatedNetworkCallingFeaturesOnWlr3OrderPage() throws InterruptedException {
         utils.jumpToParentPopUp();
         utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisible(By.id("networkFeaturesSummaryPanel"));
+        utils.scrollUp(By.id("networkFeaturesSummaryPanel"));
         utils.waitForElementVisible(By.xpath(ADMIN_CONT_CAL_DIV_ON_ORDER_DETAIL_PAGE));
         utils.waitForElementVisible(By.xpath(ANO_CAL_REJ_UNDER_ON_ORDER_DETAIL_PAGE));
     }
 
     public void assertPopulatedDirectoryInformationOnWlr3OrderPage() throws InterruptedException {
+        utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
+        utils.scrollUp(By.id("directoryInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(SURNAME_OF_DIRECTORY_INFO_ON_WLR3_ORDER_PAGE));
     }
 
-    public void assertPopulatedSiteContactsOnWLR3OrderPage() {
+    public void assertPopulatedSiteContactsOnWLR3OrderPage() throws InterruptedException {
+        utils.waitForElementVisible(By.id("siteInformationSummaryPanel"));
+        utils.scrollUp(By.id("siteInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE));
         utils.waitForElementVisible(By.xpath(SITE_EMAILID_ON_WLR3_ORDER_PAGE));
     }
@@ -93,7 +98,9 @@ public class WLR3_OrderDetails_Page {
         utils.assertElementNotPresent(By.xpath(ANO_CAL_REJ_UNDER_ON_ORDER_DETAIL_PAGE));
     }
 
-    public void assertDepopularedDirectoryInformationOnWlr3OrderPage() {
+    public void assertDepopularedDirectoryInformationOnWlr3OrderPage() throws InterruptedException {
+        utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
+        utils.scrollUp(By.id("directoryInformationSummaryPanel"));
         utils.assertElementNotPresent(By.xpath(SURNAME_OF_DIRECTORY_INFO_ON_WLR3_ORDER_PAGE));
     }
 
@@ -129,6 +136,8 @@ public class WLR3_OrderDetails_Page {
 
     public void assertImportedLineWithChangeOfPostCodeAndAidOfGoldAddress(String importedNumber) throws InterruptedException {
         utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
+        utils.scrollUp(By.id("lineNumberingSummaryPanel"));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
 
@@ -141,7 +150,10 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
 
-    public void assertNumberImportedWithVic(String importedNumber, String vic) {
+    public void assertNumberImportedWithVic(String importedNumber, String vic) throws InterruptedException {
+        utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
+        utils.scrollUp(By.id("lineNumberingSummaryPanel"));
         utils.waitForElementVisible(By.xpath("//p[@id='display_WLR3Order_vic'][contains(text(),'" + vic + "')]"));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }

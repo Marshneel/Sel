@@ -50,7 +50,7 @@ public class NA61_Process_FLow_Obtaining_Initial_information_stepdefs {
     }
 
     @Then("^The saved information should be seen under site information on the WLR order details page$")
-    public void theSavedInformationShouldBeSeenUnderSiteInformationOnTheWLROrderDetailsPage() {
+    public void theSavedInformationShouldBeSeenUnderSiteInformationOnTheWLROrderDetailsPage() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().assertPopulatedSiteContactsOnWLR3OrderPage();
     }
 
