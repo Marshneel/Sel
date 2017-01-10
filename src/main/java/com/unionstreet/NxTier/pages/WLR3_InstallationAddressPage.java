@@ -30,7 +30,7 @@ public class WLR3_InstallationAddressPage {
 
 
     public void accessInstallationAddressPage() throws InterruptedException {
-        utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
         utils.scrollUp(By.id("installationAddressSummaryPanel"));
         utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
@@ -53,7 +53,7 @@ public class WLR3_InstallationAddressPage {
     }
 
     public void populateInstallationAddressPage() throws InterruptedException {
-        utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
         utils.scrollUp(By.id("installationAddressSummaryPanel"));
         utils.jumpToPopUpWindow(By.xpath(INSTALLATION_ADDRESS_BUTTON));

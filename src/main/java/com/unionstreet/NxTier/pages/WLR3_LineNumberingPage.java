@@ -46,7 +46,7 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
         utils.clickBtn(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
         utils.jumpToParentPopUp();
-        utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
         utils.scrollUp(By.id("lineNumberingSummaryPanel"));
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ALLOCATED_TEXT_ON_WLR_ORDERDETAILS_PAGE));
@@ -62,7 +62,7 @@ public class WLR3_LineNumberingPage {
         utils.waitForElementVisible(By.xpath("//h1[text()='" + number + "']"));
         utils.clickBtn(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
         utils.jumpToParentPopUp();
-        utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
         utils.scrollUp(By.id("lineNumberingSummaryPanel"));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
@@ -84,7 +84,7 @@ public class WLR3_LineNumberingPage {
 
 
         utils.jumpToParentPopUp();
-        utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisibleForWLR3Page(By.id("lineNumberingSummaryPanel"));
         utils.scrollUp(By.id("lineNumberingSummaryPanel"));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
@@ -100,7 +100,7 @@ public class WLR3_LineNumberingPage {
             utils.waitForElementVisible(By.xpath("//h1[text()='" + number + "']"));
             utils.javaScriptExecutorClick(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
             utils.jumpToParentPopUp();
-            utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+            wlr3_orderDetails_page.textOnWLR3OrderPage();
             utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
             utils.scrollUp(By.id("lineNumberingSummaryPanel"));
             utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
@@ -164,7 +164,7 @@ public class WLR3_LineNumberingPage {
         clickNoChangeTab();
         clickContinueUnderNoChange();
         utils.jumpToParentPopUp();
-        utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
         utils.scrollUp(By.id("lineNumberingSummaryPanel"));
         wlr3_orderDetails_page.clickLineNumbering();
