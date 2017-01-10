@@ -377,7 +377,6 @@ public class SettingsPage {
             commonMethods.search("WLR3 Quote");
         } catch (Exception e) {
             utils.getOrdersPage();
-
             commonMethods.search("WLR3 Quote");
         }
         utils.waitForElementVisible(By.xpath(ASSERTINGWLR3));

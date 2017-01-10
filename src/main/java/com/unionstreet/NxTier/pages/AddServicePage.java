@@ -60,7 +60,7 @@ public class AddServicePage {
     }catch (Exception e){utils.getOrdersPage();
           ordersManagerPage.clickOnQuoteID();
           utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-          utils.clickBtnWithWait(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+          utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
           utils.waitForElementVisible(By.xpath("//label[@id='selectedSiteLabel'][contains(text(),'vodafone')]"));
           utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
       }}
@@ -74,14 +74,22 @@ public class AddServicePage {
         utils.scrollUp(By.xpath(SERVICE_ON_QUOTE_PAGE));
     }
 
-    public void searchAndAddService(String service) {
-        utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-        utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-        utils.waitForElementVisible(By.xpath(TEXT_ON_THE_SELECTQUOTE_PAGE));
-        utils.jumpToPopUpWindow(By.xpath("//div[text()='" + service + "']"));
+    public void searchAndAddService(String service) throws InterruptedException {
+        try {
+            utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+            utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+            utils.waitForElementVisible(By.xpath(TEXT_ON_THE_SELECTQUOTE_PAGE));
+            utils.jumpToPopUpWindow(By.xpath("//div[text()='" + service + "']"));
+        } catch (Exception e) {
+            utils.getOrdersPage();
+            ordersManagerPage.clickOnQuoteID();
+            utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+            utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+            utils.waitForElementVisible(By.xpath(TEXT_ON_THE_SELECTQUOTE_PAGE));
+            utils.jumpToPopUpWindow(By.xpath("//div[text()='" + service + "']"));
+        }
+
     }
-
-
 
 }
 
