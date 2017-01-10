@@ -16,13 +16,13 @@ public class WLR3_OrderDetails_Page {
     private final String INVALID_ADDRESSKEY = "//span[text()='Invalid Address Key']";
     private final String ADDRESS_SEARCH_RESULT_FOR_LU1_1DQ_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_addr_postcode'][contains(text(),'LU1 1DQ')]";
     public final String POSTCODE_SEARCH_POSTCODE_FIELD = "Postcode";
-    public final String NETWORK_FEATURES_BUTTON = "//a[@href='javascript:;'][starts-with(@onclick,'return showNetworkFeaturesPopup')]";
-    public final String SITE_INFORMATION_BUTTON = "//a[@href='javascript:;'][starts-with(@onclick,'return showSiteInformationPopup')]";
-    public final String DIRECTORY_INFORMATION_BUTTON = "//a[@href='javascript:;'][starts-with(@onclick,'loadDirectoryInformationPopup')]";
-    private final String LINE_NUMBERING_BUTTON = "//a[@href='javascript:;'][starts-with(@onclick,'loadLineNumberingPopup')]";
+    public final String NETWORK_FEATURES_BUTTON = "//a[contains(@onclick,'return showNetworkFeatures')]";
+    public final String SITE_INFORMATION_BUTTON = "//a[contains(@onclick,'return showSiteInformation')]";
+    public final String DIRECTORY_INFORMATION_BUTTON = "//a[contains(@onclick,'loadDirectoryInformationPopup')]";
+    private final String LINE_NUMBERING_BUTTON = "//a[contains(@onclick,'loadLineNumbering')]";
     private final String ADMIN_CONT_CAL_DIV_ON_ORDER_DETAIL_PAGE = "//label[@class='networkFeature'][contains(text(),'Admin Controlled Call Diversion')]";
     private final String SURNAME_OF_DIRECTORY_INFO_ON_WLR3_ORDER_PAGE = "//p[text()='Telecom ']";
-    private final String ANO_CAL_REJ_UNDER_ON_ORDER_DETAIL_PAGE = "//label[@class='networkFeatureAdd'][contains(text(),'Anonymous Call Reject')]";
+    private final String ANO_CAL_REJ_UNDER_ON_ORDER_DETAIL_PAGE = "//label[@class='text-success'][text()[contains(.,'Anonymous Call Reject')]]";
     public final String CLOSE = "closeBtn";
     private final String SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_contact_name'][contains(text(),'Jeroen')]";
     private final String SITE_EMAILID_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_contact_email'][contains(text(),'Jeroen@vodafone.co.uk')]";
@@ -30,7 +30,7 @@ public class WLR3_OrderDetails_Page {
     public final String SAVE = "saveBtn";
     private final String ITEMID_ON_EDITORDER = "//a[@href='#'][starts-with(@onclick,'OpenNewWLR3OrderDetailPopup')]";
     private final String CONTINUETAB_UNDER_NOCHANGE_LINE_INFO = "//a[@onclick='lineNumbering.submitChanges(0);']";
-    private final String APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE = "//a[@href='javascript:;'][starts-with(@onclick,'showNewBookAppointmentPopup')]";
+    private final String APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE = "//a[contains(@onclick,'showNewBookAppointment')]";
     private final String TEXT_ON_APPOINTMENT_PAGE = "//legend[text()='Hazard and Warning Notes']";
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
@@ -114,8 +114,10 @@ public class WLR3_OrderDetails_Page {
         utils.assertElementNotPresent(By.xpath(SITE_EMAILID_ON_WLR3_ORDER_PAGE));
     }
 
-    public void clickLineNumbering() {
+    public void clickLineNumbering() throws InterruptedException {
         utils.waitForElementVisibleForWLR3Page(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
+        utils.scrollUp(By.id("lineNumberingSummaryPanel"));
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(LINE_NUMBERING_BUTTON));
         utils.waitForElementVisible(By.xpath(TEXT_ON_LINE_NUMBERING_PAGE));
     }

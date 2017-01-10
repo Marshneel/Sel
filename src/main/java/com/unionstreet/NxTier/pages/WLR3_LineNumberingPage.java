@@ -79,15 +79,14 @@ public class WLR3_LineNumberingPage {
         utils.waitForElementVisible(By.xpath(RESERVETAB_UNDER_SELECT_FROM_LIST_LINE_INFO));
         utils.clickBtn(By.xpath(RESERVETAB_UNDER_SELECT_FROM_LIST_LINE_INFO));
         utils.waitForElementVisible(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
+        Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
-        try {
-            utils.checkAlert();
-        } catch (Exception e) {
-        }
+
+
         utils.jumpToParentPopUp();
         utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
-        utils.waitForElementVisibleForWLR3Page(By.id("display_wlr3order_TelephoneNumber"));
-        utils.scrollUp(By.id("display_wlr3order_TelephoneNumber"));
+        utils.waitForElementVisibleForWLR3Page(By.id("lineNumberingSummaryPanel"));
+        utils.scrollUp(By.id("lineNumberingSummaryPanel"));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
     }
 
@@ -112,11 +111,12 @@ public class WLR3_LineNumberingPage {
     }
 
     public void clickImportFromOtherNetwork() {
+        utils.waitForElementVisible(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
         utils.clickBtn(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
     }
 
     public void enterNumberOnImportFromOtherNetworkPage(String number) throws InterruptedException {
-        utils.waitForElementVisible(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
+        // utils.waitForElementVisible(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.clickBtn(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.sendText(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK), number);
     }
@@ -165,7 +165,7 @@ public class WLR3_LineNumberingPage {
         clickContinueUnderNoChange();
         utils.jumpToParentPopUp();
         utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
-       utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
+        utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
         utils.scrollUp(By.id("lineNumberingSummaryPanel"));
         wlr3_orderDetails_page.clickLineNumbering();
         clickImportFromOtherNetwork();

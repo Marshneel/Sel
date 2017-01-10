@@ -8,8 +8,8 @@ import org.openqa.selenium.By;
  */
 public class WLR3_DirectoryInformationPage {
 
-    private final String TEXT_ON_DIR_INFO_PAGE_BEFORE_POP = "retainDirInfoLabel";
-    private final String EDIT_DIRECTORY_INFO = "editBtn";
+
+    // private final String EDIT_DIRECTORY_INFO = "editBtn";
     private final String BUSINESS_NAME_DIRECTORY_INFORMATION = "DirectoryInfo_0__dir_TradingTitleSurname";
     //// TODO: 06/01/2017  
     private final String ENABLE_CHANGE_DIRECTORY_INFO_BUTTON = "//input[@value='Change'][starts-with(@onclick,'wlr3Directories.retainStateChanged')]";
@@ -23,14 +23,15 @@ public class WLR3_DirectoryInformationPage {
 
     public void populatingDirectoryInformation(String name) throws InterruptedException {
         utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
-       utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
+        utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
         utils.scrollUp(By.id("directoryInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
-        utils.jumpToPopUpWindowByJavaExeClick(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
-        utils.waitForElementVisible(By.id(TEXT_ON_DIR_INFO_PAGE_BEFORE_POP));
+        utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
+        utils.waitForElementVisible(By.xpath(ENABLE_CHANGE_DIRECTORY_INFO_BUTTON));
         utils.clickBtn(By.xpath(ENABLE_CHANGE_DIRECTORY_INFO_BUTTON));
-        utils.waitForElementVisible(By.id(EDIT_DIRECTORY_INFO));
-        utils.clickBtn(By.id(EDIT_DIRECTORY_INFO));
+        utils.waitForElementVisible(By.id(EDIT));
+        utils.scrollUp(By.id(EDIT));
+        utils.clickBtn(By.id(EDIT));
         utils.clickBtn(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION));
         utils.sendText(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION), name);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
@@ -40,8 +41,11 @@ public class WLR3_DirectoryInformationPage {
     }
 
     public void editDirectoryInformation() throws InterruptedException {
-       utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
-        utils.jumpToPopUpWindowByJavaExeClick(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
+        utils.waitForElementVisibleForWLR3Page(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
+        utils.scrollUp(By.id("directoryInformationSummaryPanel"));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
+        utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         utils.waitForElementVisible(By.id(EDIT));
         utils.scrollUp(By.id(EDIT));
         utils.clickBtn(By.id(EDIT));

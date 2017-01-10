@@ -20,16 +20,20 @@ public class WLR3_SiteInformationPage {
         utils.waitForElementVisible(By.id("siteInformationSummaryPanel"));
         utils.scrollUp(By.id("siteInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        utils.jumpToPopUpWindowByJavaExeClick(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+        utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         utils.waitForElementVisible(By.xpath(TEXT_ON_SITE_INFORMATION));
         utils.selectByIndex(By.id(SELECTCONTACT_UNDER_SITEINFO), 1);
-       utils.waitForElementVisible(By.id(SUBMIT_BUTTON));
+        utils.waitForElementVisible(By.id(SUBMIT_BUTTON));
         utils.scrollUp(By.id(SUBMIT_BUTTON));
         utils.javaScriptExecutorClick(By.id(SUBMIT_BUTTON));
     }
 
     public void depopulateSiteInformation() throws InterruptedException {
-        utils.jumpToPopUpWindowByJavaExeClick(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+        utils.waitForElementVisible(By.id("siteInformationSummaryPanel"));
+        utils.scrollUp(By.id("siteInformationSummaryPanel"));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+        utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         utils.waitForElementVisible(By.xpath(TEXT_ON_SITE_INFORMATION));
         utils.selectByVisibleText(By.id(SELECTCONTACT_UNDER_SITEINFO), "Select");
         utils.waitForElementVisible(By.id(SUBMIT_BUTTON));

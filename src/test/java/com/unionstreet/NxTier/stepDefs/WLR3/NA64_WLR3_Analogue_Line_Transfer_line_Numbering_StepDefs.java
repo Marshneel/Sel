@@ -16,7 +16,7 @@ public class NA64_WLR3_Analogue_Line_Transfer_line_Numbering_StepDefs {
 
 
     @When("^I access specify new number, select from list and automatically assign now with out populating installation address, an error should be thrown$")
-    public void iAccessSpecifyNewNumberSelectFromListAndAutomaticallyAssignNowWithOutPopulatingInstallationAddressAnErrorShouldBeThrown() {
+    public void iAccessSpecifyNewNumberSelectFromListAndAutomaticallyAssignNowWithOutPopulatingInstallationAddressAnErrorShouldBeThrown() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
         webModel.getWlr3_lineNumberingPage().assertionForLineNumberingWithOutAddress();
     }
@@ -29,7 +29,7 @@ public class NA64_WLR3_Analogue_Line_Transfer_line_Numbering_StepDefs {
     }
 
     @Then("^The error should not be seen$")
-    public void theErrorShouldNotBeSeen() {
+    public void theErrorShouldNotBeSeen() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
         webModel.getWlr3_lineNumberingPage().assertionForLineNumberingWithAddress();
     }
@@ -55,7 +55,7 @@ public class NA64_WLR3_Analogue_Line_Transfer_line_Numbering_StepDefs {
         //select from the list
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
         webModel.getWlr3_lineNumberingPage().lineNumberingSelectFromList("01582213000");
-        webModel.getWlr3_orderDetails_page().clickLineNumbering();
+        //webModel.getWlr3_orderDetails_page().clickLineNumbering();
         //importing number from other networks: move number from another address
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
         webModel.getWlr3_lineNumberingPage().importNumberWithChangeOfAddress("01777777777", "LU1 1DQ");
