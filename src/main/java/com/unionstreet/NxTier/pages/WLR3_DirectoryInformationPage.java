@@ -21,8 +21,8 @@ public class WLR3_DirectoryInformationPage {
 
     public void populatingDirectoryInformation(String name) throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
-        utils.scrollUp(By.id("lineNumberingSummaryPanel"));
+        utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
+        utils.scrollUp(By.id("directoryInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         try{utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));}
         catch (Exception e){
@@ -44,8 +44,8 @@ public class WLR3_DirectoryInformationPage {
 
     public void editDirectoryInformation() throws InterruptedException {
        wlr3_orderDetails_page.textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
-        utils.scrollUp(By.id("lineNumberingSummaryPanel"));
+        utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
+        utils.scrollUp(By.id("directoryInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         try{utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));}
         catch (Exception e){

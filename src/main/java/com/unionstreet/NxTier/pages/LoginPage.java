@@ -33,7 +33,12 @@ public class LoginPage {
 
 
     public void loginAsAgent() {
-        utils.waitForElementVisible(By.id(USENAME_FIELD));
+        try {
+            utils.waitForElementVisible(By.id(USENAME_FIELD));
+        } catch (Exception e) {
+            utils.getLoginPage();
+            utils.waitForElementVisible(By.id(USENAME_FIELD));
+        }
         utils.clickBtn(By.id(USENAME_FIELD));
         utils.sendText(By.id(USENAME_FIELD), "agentlogin");
         utils.clickBtn(By.id(PASSWORD_FIELD));
@@ -47,7 +52,12 @@ public class LoginPage {
 
 
     public void loginAsReseller() {
-        utils.waitForElementVisible(By.id(USENAME_FIELD));
+        try {
+            utils.waitForElementVisible(By.id(USENAME_FIELD));
+        } catch (Exception e) {
+            utils.getLoginPage();
+            utils.waitForElementVisible(By.id(USENAME_FIELD));
+        }
         utils.clickBtn(By.id(USENAME_FIELD));
         utils.sendText(By.id(USENAME_FIELD), "resellerlogin");
         utils.clickBtn(By.id(PASSWORD_FIELD));
@@ -61,7 +71,12 @@ public class LoginPage {
 
 
     public void loginAsCP() {
-        utils.waitForElementVisible(By.id(USENAME_FIELD));
+        try {
+            utils.waitForElementVisible(By.id(USENAME_FIELD));
+        } catch (Exception e) {
+            utils.getLoginPage();
+            utils.waitForElementVisible(By.id(USENAME_FIELD));
+        }
         utils.clickBtn(By.id(USENAME_FIELD));
         utils.sendText(By.id(USENAME_FIELD), "cp");
         utils.clickBtn(By.id(PASSWORD_FIELD));
@@ -74,6 +89,12 @@ public class LoginPage {
     }
 
     public void login(String userName, String passWord) {
+        try {
+            utils.waitForElementVisible(By.id(USENAME_FIELD));
+        } catch (Exception e) {
+            utils.getLoginPage();
+            utils.waitForElementVisible(By.id(USENAME_FIELD));
+        }
         utils.clickBtn(By.id(USENAME_FIELD));
         utils.sendText(By.id(USENAME_FIELD), userName);
         utils.clickBtn(By.id(PASSWORD_FIELD));
