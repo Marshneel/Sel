@@ -10,9 +10,8 @@ Feature: WLR3 Transfer order- populating network calling features, directory inf
     And   When i depopulate the network calling features and edit directory information
     Then  The changes should be manifested on the WLR order details page
     Examples:
-      | userName      | passWord |
-      | CP            | password |
-
+      | userName | passWord |
+      | CP       | password |
 
   Scenario Outline: Populating site information by logging as a CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"
@@ -23,5 +22,5 @@ Feature: WLR3 Transfer order- populating network calling features, directory inf
     And   When i depopulate the information page
     Then  The information should vanish under site information from the WLR order details page
     Examples:
-      | userName      | passWord |
-      | CP            | password |
+      | userName | passWord |
+      | CP       | password |

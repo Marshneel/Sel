@@ -10,9 +10,8 @@ Feature: WLR3 Transfer order- address lookup by postcode, Address key and Advanc
     And   When i enter valid post code
     Then  I should be able to search and select the address by post code
     Examples:
-      | userName      | passWord |
-      | CP            | password |
-
+      | userName | passWord |
+      | CP       | password |
 
   Scenario Outline:  WLR3 address lookup based on Address key, by logging as CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"
@@ -23,9 +22,8 @@ Feature: WLR3 Transfer order- address lookup by postcode, Address key and Advanc
     And   When i enter valid address key
     Then  I should be able to search and select the address by address key
     Examples:
-      | userName      | passWord |
-      | CP            | password |
-
+      | userName | passWord |
+      | CP       | password |
 
   Scenario Outline:  WLR3 address lookup based on advanced search, by logging as CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"
@@ -34,8 +32,8 @@ Feature: WLR3 Transfer order- address lookup by postcode, Address key and Advanc
     When I access advanced search under installation address tab and enter valid combinations
     Then  I should be able to search and select the address
     Examples:
-      | userName      | passWord |
-      | CP            | password |
+      | userName | passWord |
+      | CP       | password |
 
 
 

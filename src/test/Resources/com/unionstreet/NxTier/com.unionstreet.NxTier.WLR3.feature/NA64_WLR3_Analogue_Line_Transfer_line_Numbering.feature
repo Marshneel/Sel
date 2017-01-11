@@ -10,9 +10,8 @@ Feature: scenarios for automatically assign number, specifying new number, selec
     Then  The error should not be seen
 
     Examples:
-      | userName      | passWord |
-      | CP            | password |
-
+      | userName | passWord |
+      | CP       | password |
 
   Scenario Outline: : accessing No change, Automatically assign and automatically assign now features under line numbering by logging in as a CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"
@@ -21,8 +20,8 @@ Feature: scenarios for automatically assign number, specifying new number, selec
     When  I access line numbering page
     Then  I should be able to check all required validations
     Examples:
-      | userName      | passWord |
-      | CP            | password |
+      | userName | passWord |
+      | CP       | password |
 
 
 #  Scenario Outline: accessing appointments by logging as CP, Agent and Reseller

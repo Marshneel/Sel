@@ -64,7 +64,6 @@ public class WLR3_LineNumberingPage {
         utils.jumpToParentPopUp();
         wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
-        utils.scrollUp(By.id("lineNumberingSummaryPanel"));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
 
     }
@@ -116,7 +115,6 @@ public class WLR3_LineNumberingPage {
     }
 
     public void enterNumberOnImportFromOtherNetworkPage(String number) throws InterruptedException {
-        // utils.waitForElementVisible(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.clickBtn(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.sendText(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK), number);
     }

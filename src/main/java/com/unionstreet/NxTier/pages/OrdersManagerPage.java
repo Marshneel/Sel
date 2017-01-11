@@ -150,7 +150,7 @@ public class OrdersManagerPage {
     }
 
     public void assertQuote() {
-        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+        utils.getOrdersPage();
         utils.searchAndAssertTextPresent(By.id(QUOTE), newBusinessCustomerPage.RanName);
     }
 
