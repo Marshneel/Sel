@@ -96,7 +96,8 @@ public class WLR3_OrderDetails_Page {
 
     public void assertDepopularedDirectoryInformationOnWlr3OrderPage() throws InterruptedException {
         utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
-        utils.assertElementNotPresent(By.xpath(SURNAME_OF_DIRECTORY_INFO_ON_WLR3_ORDER_PAGE));
+        //Thread.sleep(1000);
+        utils.waitForElementToVanish(By.xpath(SURNAME_OF_DIRECTORY_INFO_ON_WLR3_ORDER_PAGE));
     }
 
     public void assertDepopulatedSiteInformationOnWLR3OrderPage() throws InterruptedException {
@@ -104,9 +105,9 @@ public class WLR3_OrderDetails_Page {
         textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id("siteInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
-         Thread.sleep(1000);
-        utils.assertElementNotPresent(By.xpath(SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE));
-        utils.assertElementNotPresent(By.xpath(SITE_EMAILID_ON_WLR3_ORDER_PAGE));
+        //  Thread.sleep(1000);
+        utils.waitForElementToVanish(By.xpath(SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE));
+        utils.waitForElementToVanish(By.xpath(SITE_EMAILID_ON_WLR3_ORDER_PAGE));
     }
 
     public void clickLineNumbering() throws InterruptedException {

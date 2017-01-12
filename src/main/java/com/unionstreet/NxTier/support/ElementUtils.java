@@ -320,7 +320,7 @@ public class ElementUtils {
         driver.get("http://test01-web01/nxtiere2e/orders/ordersmanager");
     }
 
-    public void getLoginPage(){
+    public void getLoginPage() {
         driver.get("http://test01-web01/nxtiere2e");
     }
 
@@ -428,7 +428,8 @@ public class ElementUtils {
         driver.get("http://test01-web01/nxtiere2e/company/endcustomer?type=1");
     }
 
-public void checkPoint(String text){
-    System.out.println(text);
-}
+    public void checkPoint(String text) {
+        System.out.println(text);
+    }
+
 }

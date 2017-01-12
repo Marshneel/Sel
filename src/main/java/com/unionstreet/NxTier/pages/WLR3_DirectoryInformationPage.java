@@ -44,7 +44,7 @@ public class WLR3_DirectoryInformationPage {
         utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
+       utils.javaScriptExecutorClick(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         utils.checkPoint("entered the directory info page to edit");
         utils.waitForElementVisible(By.xpath(ENABLE_CHANGE_DIRECTORY_INFO_BUTTON));
         utils.waitForElementVisible(By.id(EDIT));
