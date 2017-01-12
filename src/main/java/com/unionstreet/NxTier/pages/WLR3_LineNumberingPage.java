@@ -43,8 +43,14 @@ public class WLR3_LineNumberingPage {
 
     public void lineNumberingAutomaticallyAssignWithAssertions() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
-        utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
-        utils.clickBtn(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
+        try {
+            utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
+            utils.clickBtn(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
+        } catch (Exception e) {
+            utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
+            utils.clickBtn(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
+        }
+
         utils.jumpToParentPopUp();
         wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
@@ -54,8 +60,13 @@ public class WLR3_LineNumberingPage {
     public void lineNumberingSpecifyNewNumber(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from dbo.reserved_numbers where number='" + number + "'");
         utils.waitForElementVisible(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
-        utils.clickBtn(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
-        utils.clickBtn(By.id(TEXTBOX_UNDER_SPECIFY_NEW_NUMBER_LINEINFO));
+        try {
+            utils.clickBtn(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
+            utils.clickBtn(By.id(TEXTBOX_UNDER_SPECIFY_NEW_NUMBER_LINEINFO));
+        } catch (Exception e) {
+            utils.clickBtn(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
+            utils.clickBtn(By.id(TEXTBOX_UNDER_SPECIFY_NEW_NUMBER_LINEINFO));
+        }
         utils.sendText(By.id(TEXTBOX_UNDER_SPECIFY_NEW_NUMBER_LINEINFO), "" + number + "");
         utils.clickBtn(By.xpath(RESERVETAB_UNDER_SPECIFY_NEW_NUMBER_LINE_INFO));
         utils.waitForElementVisible(By.xpath("//h1[text()='" + number + "']"));
@@ -69,7 +80,11 @@ public class WLR3_LineNumberingPage {
 
     public void lineNumberingSelectFromList(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.waitForElementVisible(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));
-        utils.clickBtn(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));
+        try {
+            utils.clickBtn(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));
+        } catch (Exception e) {
+            utils.clickBtn(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));
+        }
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from dbo.reserved_numbers where number='" + number + "'");
         utils.clickBtn(By.xpath(GET_NUMBERSTAB_UNDER_SELECT_FROM_LIST_LINE_INFO));
         utils.waitForElementVisible(By.xpath("//label[text()='" + number + "']"));
@@ -88,27 +103,32 @@ public class WLR3_LineNumberingPage {
     }
 
 
-    public void lineNumberingAutomaticallyAssignNumber(String number) {
+    public void lineNumberingAutomaticallyAssignNumber(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
         try {
-            utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
             utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
-            utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from dbo.reserved_numbers where number='" + number + "'");
-            utils.clickBtn(By.xpath(ALLOCATENOW_TAB_UNDER_AUTOMATICALLY_ASSIGN_NOW_LINE_INFO));
-            utils.waitForElementVisible(By.xpath("//h1[text()='" + number + "']"));
-            utils.javaScriptExecutorClick(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
-            utils.jumpToParentPopUp();
-            wlr3_orderDetails_page.textOnWLR3OrderPage();
-            utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
-            utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
-
         } catch (Exception e) {
-            e.printStackTrace();
+            utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
         }
+        utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from dbo.reserved_numbers where number='" + number + "'");
+        utils.clickBtn(By.xpath(ALLOCATENOW_TAB_UNDER_AUTOMATICALLY_ASSIGN_NOW_LINE_INFO));
+        utils.waitForElementVisible(By.xpath("//h1[text()='" + number + "']"));
+        utils.javaScriptExecutorClick(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
+        utils.jumpToParentPopUp();
+        wlr3_orderDetails_page.textOnWLR3OrderPage();
+        utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
+        utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
+
+
     }
 
     public void clickImportFromOtherNetwork() {
         utils.waitForElementVisible(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
-        utils.clickBtn(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
+        try {
+            utils.clickBtn(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
+        } catch (Exception e) {
+            utils.clickBtn(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
+        }
     }
 
     public void enterNumberOnImportFromOtherNetworkPage(String number) throws InterruptedException {
