@@ -67,5 +67,6 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
         webModel.getOrdersManagerPage().clickOnQuoteID();
         webModel.getAddServicePage().clickAddAProductOrService();
         webModel.getAddServicePage().assertServicePresent("ServiceForAgent&Reseller");
+        webModel.getUtils().checkPoint("NA51 done");
     }
 }

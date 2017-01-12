@@ -49,5 +49,6 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
         webModel.getLoginPage().loginAsReseller();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getSettingsPage().assertingWLROrdersWithRights();
+        webModel.getUtils().checkPoint("NA47 done");
     }
 }

@@ -87,6 +87,7 @@ public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
     @Then("^I should be able to search and select the address$")
     public void iShouldBeAbleToSearchAndSelectTheAddress() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road","AppleGarth","The Willows","26");
+        webModel.getUtils().checkPoint("NA60 done");
 
     }
 }

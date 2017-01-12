@@ -62,6 +62,7 @@ public class NA61_Process_FLow_Obtaining_Initial_information_stepdefs {
     @Then("^The information should vanish under site information from the WLR order details page$")
     public void theInformationShouldVanishUnderSiteInformationFromTheWLROrderDetailsPage() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().assertDepopulatedSiteInformationOnWLR3OrderPage();
+        webModel.getUtils().checkPoint("NA61 done");
 
     }
 }

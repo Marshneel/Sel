@@ -83,6 +83,6 @@ public class NA64_WLR3_Analogue_Line_Transfer_line_Numbering_StepDefs {
 
     @Then("^I should be able to perform the required validations$")
     public void iShouldBeAbleToPerformTheRequiredValidations() {
-
+    webModel.getUtils().checkPoint("NA64 line numbering done");
     }
 }

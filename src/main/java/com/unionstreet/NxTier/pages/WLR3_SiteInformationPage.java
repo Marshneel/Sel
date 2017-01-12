@@ -18,7 +18,7 @@ public class WLR3_SiteInformationPage {
     public void populatingSiteInformation() throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id("siteInformationSummaryPanel"));
-        utils.scrollUp(By.id("siteInformationSummaryPanel"));
+     //   utils.scrollUp(By.id("siteInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         try {
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
@@ -36,7 +36,7 @@ public class WLR3_SiteInformationPage {
     public void depopulateSiteInformation() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         utils.waitForElementVisible(By.id("siteInformationSummaryPanel"));
-        utils.scrollUp(By.id("siteInformationSummaryPanel"));
+     //   utils.scrollUp(By.id("siteInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         try {
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));

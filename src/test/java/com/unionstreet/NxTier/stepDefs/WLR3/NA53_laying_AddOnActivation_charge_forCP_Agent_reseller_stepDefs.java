@@ -37,6 +37,7 @@ public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
     public void theChargeShouldBeVisibleInTheBackEnd() throws SQLException {
         webModel.getNxTierServicesPage().assertThereIsCharge("SellPrice", 80.00);
         webModel.getNxTierServicesPage().assertChargeOnGUI("£80.00");
+        webModel.getUtils().checkPoint("NA53 done");
     }
 
 

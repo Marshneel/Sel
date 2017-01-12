@@ -31,5 +31,6 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
     @Then("^the CP only control should be invisible$")
     public void theCPOnlyControlShouldBeInvisible() throws InterruptedException {
         webModel.getNxTierServicesPage().assertCPonlyCheckBoxIsAbsent();
+        webModel.getUtils().checkPoint("NA52 done");
     }
 }

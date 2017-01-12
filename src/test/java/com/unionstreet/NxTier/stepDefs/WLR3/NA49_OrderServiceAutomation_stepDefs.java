@@ -60,5 +60,6 @@ public class NA49_OrderServiceAutomation_stepDefs {
         webModel.getNxTierServicesPage().populateMandatoryField();
         webModel.getEditOrderPage().assertValidQuoteBeforeSubmitting();
         webModel.getEditOrderPage().assertValidQuoteAfterSubmitting();
+        webModel.getUtils().checkPoint("NA49 done");
     }
 }

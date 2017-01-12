@@ -172,5 +172,6 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void allTheQuotesIncludingThatOfTheResellersAndAgentsShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuotesForCP();
+        webModel.getUtils().checkPoint("NA39 done");
     }
 }

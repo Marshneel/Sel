@@ -58,5 +58,6 @@ public class NA44_Agent_Login_stepDefs {
     public void iShouldNotSeeThatParticularQuote() {
         webModel.getOrdersManagerPage().searchQuoteByQRN();
         webModel.getOrdersManagerPage().assertAgentCannotViewQuotes();
+        webModel.getUtils().checkPoint("NA44 done");
     }
 }

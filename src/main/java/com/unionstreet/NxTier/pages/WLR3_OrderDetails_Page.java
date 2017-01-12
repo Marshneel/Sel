@@ -113,7 +113,7 @@ public class WLR3_OrderDetails_Page {
     public void clickLineNumbering() throws InterruptedException {
         textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
-        utils.scrollUp(By.id("lineNumberingSummaryPanel"));
+       // utils.scrollUp(By.id("lineNumberingSummaryPanel"));
         utils.jumpToPopUpWindowByJavaExeClick(By.xpath(LINE_NUMBERING_BUTTON));
         utils.waitForElementVisible(By.xpath(TEXT_ON_LINE_NUMBERING_PAGE));
     }
