@@ -427,6 +427,8 @@ public class ElementUtils {
     public void getCreateCustomerPage() {
         driver.get("http://test01-web01/nxtiere2e/company/endcustomer?type=1");
     }
+
+public void checkPoint(String text){
+    System.out.println(text);
 }
-
-
+}
