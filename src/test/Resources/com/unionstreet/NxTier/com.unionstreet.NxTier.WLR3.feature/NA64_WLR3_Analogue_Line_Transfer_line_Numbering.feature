@@ -1,4 +1,4 @@
-@WLR3
+@E2ETests
 Feature: scenarios for automatically assign number, specifying new number, selecting new number from the list and automatically assign by logging
 
   Scenario Outline: assigning specify new number, select from list, automatically assign now by logging as CP, agent and reseller
