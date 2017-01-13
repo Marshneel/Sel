@@ -11,10 +11,10 @@ Feature: verify customer and internal fields by logging as CP, agent and reselle
     When I access add_view notes on edit order page
     Then customer and internal tabs should be absent
 
-  Scenario: verify the customer and internal tabs are absent under add/view notes under edit order page
-    Given I am logged in as agent
-    When I access add_view notes on edit order page
-    Then customer and internal tabs should be absent
+#  Scenario: verify the customer and internal tabs are absent under add/view notes under edit order page
+#    Given I am logged in as agent
+#    When I access add_view notes on edit order page
+#    Then customer and internal tabs should be absent
 
   Scenario: assert that an assigned service is unavailable to agent and vice versa
     Given I am logged in as agent and there is a service unassigned to me

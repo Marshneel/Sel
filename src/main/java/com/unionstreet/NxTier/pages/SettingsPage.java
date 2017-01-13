@@ -8,6 +8,9 @@ import org.openqa.selenium.By;
  * Created by rajeshg on 01/09/2016.
  */
 public class SettingsPage {
+    private static String CP_RanName;
+    public final String SAVEANDCLOSE = "//input[@value='Save & Close']";
+    public final String AWAITING_PROCESS = "DivProgress";
     private final String SETTINGS_BUTTON = "HrefSettings";
     private final String ADDPERMISSION_GROUPNAME = "GroupName";
     private final String AGENTPERMISSION_GROUPTYPE = "//input[@id='rdoGroupType'][@value='Agent']";
@@ -63,7 +66,6 @@ public class SettingsPage {
     private final String ADDPERMISSIONS_WORKPLACE = "//a[@href='#'][contains(text(),'Workplace')]";
     private final String WORKPLACE_DASHBOARD = "//a[@href='#'][contains(text(),'Dashboard')]";
     private final String DASHBOARD_SELECTALL = "SelectAll_Workplace_Dashboard";
-    public final String SAVEANDCLOSE = "//input[@value='Save & Close']";
     private final String LOGINUSERS_BUTTON = "//div[@id='subMenu']//li[5]";
     private final String ADDUSER_COMPANY = "CompanyList";
     private final String USERADD_LOGIN = "Add Login";
@@ -77,10 +79,6 @@ public class SettingsPage {
     private final String ADDLOGINUSERS = "Add";
     private final String COMPANYCONTACTS_BUTTON = "HrefCompanyContacts";
     private final String ASSERTINGWLR3 = "//tr[@class='table_row_alt_subchild']/td[2][contains(text(),'WLR3 Quote')]";
-    public final String AWAITING_PROCESS = "DivProgress";
-    private final String NO_RECORDS_UNDER_ORDERS = "//td[text()='No Records']";
-    private static String CP_RanName;
-
     ElementUtils utils = new ElementUtils();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
     DashBoardPage dashBoardPage = new DashBoardPage();
@@ -98,9 +96,10 @@ public class SettingsPage {
     }
 
     public void addAgentPermissionGroups_General() {
-      utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
+        utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
         utils.sendText(By.id(ADDPERMISSION_GROUPNAME), newBusinessCustomerPage.RanName);
-        utils.clickBtn(By.xpath(AGENTPERMISSION_GROUPTYPE));}
+        utils.clickBtn(By.xpath(AGENTPERMISSION_GROUPTYPE));
+    }
 
     public void addPermissionGroups_Configuration() throws InterruptedException {
         utils.scrollUp(By.xpath(ADDPERMISSION_CONFIGURATION));
@@ -235,7 +234,7 @@ public class SettingsPage {
 
     public void agentUserSelectCompany() throws InterruptedException {
         utils.selectByVisibleText(By.id(ADDUSER_COMPANY), newBusinessCustomerPage.RanName);
-       utils.clickBtn(By.linkText(USERADD_LOGIN));
+        utils.clickBtn(By.linkText(USERADD_LOGIN));
         utils.switchToNewWindow();
     }
 
@@ -349,7 +348,7 @@ public class SettingsPage {
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERDETAILS));
         utils.makeSureBoxIsUnChecked(By.xpath(ORDERDETAILS_SELECTALL_WITHCHECKBOX), By.id(ORDERDETAILS_SELECTALL));
-       utils.scrollUp(By.xpath(ORDERSMANAGER_ORDERS));
+        utils.scrollUp(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.makeSureBoxIsUnChecked(By.id(WLR3_ORDERS_VIEW), By.id(WLR3_ORDERS_VIEW));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
@@ -361,20 +360,25 @@ public class SettingsPage {
     }
 
     public void assertingWLROrdersWithOutRights() {
-        commonMethods.search("WLR3");
+        try {
+            commonMethods.search("WLR3");
+        } catch (Exception e) {
+            utils.getOrdersPage();
+            commonMethods.search("WLR3 Quote");
+        }
         utils.waitForElementToVanish(By.id(AWAITING_PROCESS));
         utils.waitForElementVisible(By.xpath("//td[@colspan='9'][contains(text(),'No Record')]"));
         utils.waitForElementVisible(By.xpath("//td[@colspan='10'][contains(text(),'No Record')]"));
-       // utils.searchAndAssertTextNotPresent(By.id(dashBoardPage.QUOTE), "WLR3 Quote");
-       // utils.waitForElementToVanish(By.id(AWAITING_PROCESS));
-       // utils.waitForElementVisible(By.xpath(NO_RECORDS_UNDER_ORDERS));
-
-
-
     }
 
     public void assertingWLROrdersWithRights() {
-        commonMethods.search("WLR3 Quote");
+        try {
+            utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
+            commonMethods.search("WLR3 Quote");
+        } catch (Exception e) {
+            utils.getOrdersPage();
+            commonMethods.search("WLR3 Quote");
+        }
         utils.waitForElementVisible(By.xpath(ASSERTINGWLR3));
         utils.searchAndAssertTextPresent(By.id(dashBoardPage.QUOTE), "WLR3 Quote");
         utils.clickBtn(By.cssSelector(dashBoardPage.LOGOUT_BUTTON));

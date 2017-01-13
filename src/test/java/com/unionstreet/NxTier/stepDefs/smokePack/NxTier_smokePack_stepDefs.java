@@ -33,6 +33,7 @@ public class NxTier_smokePack_stepDefs {
         webModel.getLoginPage().failedLogin(userName, passWord);
     }
 
+
     @Then("^The login should fail$")
     public void TheLoginShouldFail() {
         webModel.getLoginPage().assertFailedLogin();

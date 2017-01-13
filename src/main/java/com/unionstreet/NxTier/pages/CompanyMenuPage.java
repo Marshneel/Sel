@@ -66,12 +66,16 @@ public class CompanyMenuPage {
     }
 
     public void addNewSiteNames() {
-       try{ utils.sendText(By.id(SITEDETAILS_SITE_NAME), (newBusinessCustomerPage.RanName + RanNumber));
-        utils.sendText(By.id(SITEDETAILS_SHORT_NAME), (newBusinessCustomerPage.RanName + RanNumber));
-        utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF), (RanNumber));
-    }catch (Exception e){utils.sendText(By.id(SITEDETAILS_SITE_NAME), (newBusinessCustomerPage.RanName + RanNumber));
-           utils.sendText(By.id(SITEDETAILS_SHORT_NAME), (newBusinessCustomerPage.RanName + RanNumber));
-           utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF), (RanNumber));}}
+        try {
+            utils.sendText(By.id(SITEDETAILS_SITE_NAME), (newBusinessCustomerPage.RanName + RanNumber));
+            utils.sendText(By.id(SITEDETAILS_SHORT_NAME), (newBusinessCustomerPage.RanName + RanNumber));
+            utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF), (RanNumber));
+        } catch (Exception e) {
+            utils.sendText(By.id(SITEDETAILS_SITE_NAME), (newBusinessCustomerPage.RanName + RanNumber));
+            utils.sendText(By.id(SITEDETAILS_SHORT_NAME), (newBusinessCustomerPage.RanName + RanNumber));
+            utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF), (RanNumber));
+        }
+    }
 
     public void addNewSiteAddress() {
         utils.sendText(By.id(SITEDETAILS_POSTCODE), utils.getProperty("postCode"));
@@ -147,10 +151,13 @@ public class CompanyMenuPage {
         clickCLIButton();
         utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindow();
-       try{ utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));
-           utils.clickBtn(By.id(CLI_NUMBER_FIELD));
-        utils.sendText(By.id(CLI_NUMBER_FIELD), RanNumber);}catch (TimeoutException e){
-           utils.sendText(By.id(CLI_NUMBER_FIELD), RanNumber);}
+        try {
+            utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));
+            utils.clickBtn(By.id(CLI_NUMBER_FIELD));
+            utils.sendText(By.id(CLI_NUMBER_FIELD), RanNumber);
+        } catch (TimeoutException e) {
+            utils.sendText(By.id(CLI_NUMBER_FIELD), RanNumber);
+        }
         utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
         utils.verifyStringMatch(By.cssSelector(ADDED_CLI_CHECK_FIELD), RanNumber);
         //TODO
@@ -174,7 +181,6 @@ public class CompanyMenuPage {
     public void addRecurringChargesPart1() {
         clickServiceChargesButton();
         utils.jumpToPopUpWindow(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-       // utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
         utils.sendText(By.id(SERVICECHARGE_DESC_FIELD), utils.getProperty("serviceChargeRecurringDesc"));
         utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));
@@ -205,7 +211,7 @@ public class CompanyMenuPage {
         clickServiceChargesOneOffButton();
         utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindow();
-       utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
+        utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
         utils.sendText(By.id(SERVICECHARGE_DESC_FIELD), utils.getProperty("serviceChargeOneOffDesc"));
         utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));
         utils.selectByVisibleText(By.cssSelector(SELECT_MONTH_DROPDOWN), new SimpleDateFormat("MMM").format(today));

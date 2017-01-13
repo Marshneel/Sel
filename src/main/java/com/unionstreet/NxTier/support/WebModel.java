@@ -15,16 +15,21 @@ public class WebModel {
     private CommonMethods commonMethods;
     private OrdersManagerPage ordersManagerPage;
     private AddServicePage addServicePage;
-
-//    public WLR3_OrderDetails_Page wlr3_orderDetails_page;
-//    private WLR3_OrderDetails_Installation_address wlr3_orderDetails_installation_address;
-//    private WLR3_OrderDetails_lineNumbering wlr3_orderDetails_lineNumbering;
-//    private WLR3_OrderDetails_Page_Appointment wlr3OrderDetailsPageAppointment;
+    private WLR3_OrderDetails_Page wlr3_orderDetails_page;
+    private WLR_and_NxTierServicesPage wlr_and_nxTierServicesPage;
+    private NxTierServicesPage nxTierServicesPage;
+    private EditOrderPage editOrderPage;
+    private WLR3_LineNumberingPage wlr3_lineNumberingPage;
+    private WLR3_InstallationAddressPage wlr3_installationAddressPage;
+    private WLR3_AppointmentPage wlr3_appointmentPage;
+    private WLR3_SiteInformationPage wlr3_siteInformationPage;
+    private WLR3_DirectoryInformationPage wlr3_directoryInformationPage;
+    private WLR3_NetworkCallingFeaturesPage wlr3_networkCallingFeaturesPage=new WLR3_NetworkCallingFeaturesPage();
 
 
     public WebModel() {
         utils = new ElementUtils();
-        baseClass=new BaseClass();
+        baseClass = new BaseClass();
         loginPage = new LoginPage();
         dashBoardPage = new DashBoardPage();
         newBusinessCustomerPage = new NewBusinessCustomerPage();
@@ -34,16 +39,18 @@ public class WebModel {
         commonMethods = new CommonMethods();
         ordersManagerPage = new OrdersManagerPage();
         addServicePage = new AddServicePage();
-//        wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
-//        wlr3_orderDetails_installation_address=new WLR3_OrderDetails_Installation_address();
-//        wlr3_orderDetails_lineNumbering=new WLR3_OrderDetails_lineNumbering();
-//        wlr3OrderDetailsPageAppointment=new WLR3_OrderDetails_Page_Appointment();
-
-
+        wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
+        wlr_and_nxTierServicesPage=new WLR_and_NxTierServicesPage();
+        nxTierServicesPage=new NxTierServicesPage();
+        editOrderPage=new EditOrderPage();
+        wlr3_lineNumberingPage = new WLR3_LineNumberingPage();
+        wlr3_installationAddressPage=new WLR3_InstallationAddressPage();
+        wlr3_appointmentPage=new WLR3_AppointmentPage();
+        wlr3_siteInformationPage =new WLR3_SiteInformationPage();
+        wlr3_directoryInformationPage = new WLR3_DirectoryInformationPage();
+        wlr3_networkCallingFeaturesPage=new WLR3_NetworkCallingFeaturesPage();
     }
-public BaseClass getBaseClass(){
-    return baseClass;
-}
+
     public ElementUtils getUtils() {
         return utils;
     }
@@ -84,18 +91,43 @@ public BaseClass getBaseClass(){
         return addServicePage;
     }
 
-//    public WLR3_OrderDetails_Page getWlr3_orderDetails_page(){
-//        return wlr3_orderDetails_page;
-//    }
-//    public WLR3_OrderDetails_Installation_address getWlr3_orderDetails_installation_address(){
-//        return wlr3_orderDetails_installation_address;
-//    }
-//    public WLR3_OrderDetails_lineNumbering getWlr3_orderDetails_lineNumbering(){
-//        return wlr3_orderDetails_lineNumbering;
-//    }
-//    public WLR3_OrderDetails_Page_Appointment getWlr3OrderDetailsPageAppointment(){
-//        return wlr3OrderDetailsPageAppointment;
-//    }
+    public WLR3_OrderDetails_Page getWlr3_orderDetails_page() {
+        return wlr3_orderDetails_page;
+    }
 
+    public WLR_and_NxTierServicesPage getWlr_and_nxTierServicesPage(){
+        return wlr_and_nxTierServicesPage;
+    }
 
+    public NxTierServicesPage getNxTierServicesPage(){
+        return nxTierServicesPage;
+    }
+
+    public EditOrderPage getEditOrderPage(){
+        return editOrderPage;
+    }
+
+    public WLR3_LineNumberingPage getWlr3_lineNumberingPage(){
+        return wlr3_lineNumberingPage;
+    }
+
+    public WLR3_InstallationAddressPage getWlr3_installationAddressPage(){
+        return wlr3_installationAddressPage;
+    }
+
+    public WLR3_AppointmentPage getWlr3_appointmentPage(){
+        return wlr3_appointmentPage;
+    }
+
+    public WLR3_SiteInformationPage getWlr3_siteInformationPage(){
+        return wlr3_siteInformationPage;
+    }
+
+    public WLR3_DirectoryInformationPage getWlr3_directoryInformationPage(){
+        return wlr3_directoryInformationPage;
+    }
+
+    public WLR3_NetworkCallingFeaturesPage getWlr3_networkCallingFeaturesPage(){
+        return wlr3_networkCallingFeaturesPage;
+    }
 }

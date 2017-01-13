@@ -21,20 +21,19 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
     }
 
     @Then("^I should not be able to see and edit them$")
-    public void iShouldNotBeAbleToSeeAndEditThem() {
+    public void iShouldNotBeAbleToSeeAndEditThem() throws InterruptedException {
         //login as agent///////
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getSettingsPage().assertingWLROrdersWithOutRights();
-       webModel.getDashBoardPage().logOut();
-
-           }
+        webModel.getDashBoardPage().logOut();
+    }
 
     @And("^the orders are visible and editable once the CP issues the orders back agent rights$")
     public void theOrdersAreVisibleAndEditableOnceTheCPIssuesTheOrdersBack() throws InterruptedException {
         webModel.getLoginPage().loginAsCP();
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().issuingWLRPermissions();
-       webModel.getDashBoardPage().logOut();
+        webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getSettingsPage().assertingWLROrdersWithRights();
@@ -50,6 +49,6 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
         webModel.getLoginPage().loginAsReseller();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getSettingsPage().assertingWLROrdersWithRights();
-
+        webModel.getUtils().checkPoint("NA47 done");
     }
 }

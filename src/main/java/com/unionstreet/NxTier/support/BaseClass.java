@@ -10,7 +10,6 @@ public class BaseClass {
     public static WebDriver driver;
     static ElementUtils utils = new ElementUtils();
 
-
 //    @BeforeClass
 //    public static void databaseRollBack() {
 //        try {

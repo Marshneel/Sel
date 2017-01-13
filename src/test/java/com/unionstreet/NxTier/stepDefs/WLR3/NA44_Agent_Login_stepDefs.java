@@ -44,22 +44,20 @@ public class NA44_Agent_Login_stepDefs {
 
     @And("^a quote been created for my \"([^\"]*)\" by a CP$")
     public void aQuoteBeenCreatedForMyByACP(String customer_name) throws InterruptedException {
-       // webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote(customer_name);
         webModel.getDashBoardPage().logOut();
     }
 
     @When("^I access orders manager$")
-    public void iAccessOrdersManager() {
+    public void iAccessOrdersManager() throws InterruptedException {
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickOrderManagerButton();
     }
-
     @Then("^I should not see that particular quote$")
     public void iShouldNotSeeThatParticularQuote() {
         webModel.getOrdersManagerPage().searchQuoteByQRN();
         webModel.getOrdersManagerPage().assertAgentCannotViewQuotes();
-
+        webModel.getUtils().checkPoint("NA44 done");
     }
 }

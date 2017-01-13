@@ -25,18 +25,18 @@ public class NA49_OrderServiceAutomation_stepDefs {
     @When("^I add a service from the quote details page$")
     public void iAddAServiceFromTheQuoteDetailsPage() throws InterruptedException {
         webModel.getOrdersManagerPage().clickOnQuoteID();
-        webModel.getOrdersManagerPage().clickAddProductsAndServicesButton();
+        webModel.getEditOrderPage().clickAddProductsAndServicesButton();
     }
 
     @Then("^the control that is CP only should be visible$")
     public void theControlThatIsCPOnlyShouldBeVisible() throws InterruptedException {
-        webModel.getOrdersManagerPage().assertCPonlyValuePresent();
+        webModel.getNxTierServicesPage().assertCPonlyValuePresent();
     }
 ///////////////////////////////////////////////////////////////////////////////////////////
 
     @Then("^the control that is CP only should be invisible$")
     public void theControlThatIsCPOnlyShouldBeInvisible() throws InterruptedException {
-        webModel.getOrdersManagerPage().assertCPonlyValueNotPresent();
+        webModel.getNxTierServicesPage().assertCPonlyValueNotPresent();
     }
 /////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -48,17 +48,18 @@ public class NA49_OrderServiceAutomation_stepDefs {
 
     @Then("^The quote should become invalid$")
     public void theQuoteShouldBecomeInvalid() throws InterruptedException {
-        webModel.getOrdersManagerPage().assertInvalidQuoteBeforeSubmitting();
-        webModel.getOrdersManagerPage().assertInvalidQuoteAfterSubmitting();
+        webModel.getEditOrderPage().assertInvalidQuoteBeforeSubmitting();
+        webModel.getEditOrderPage().assertInvalidQuoteAfterSubmitting();
 
     }
 
     @And("^When I add the omitted control, the quote should become valid$")
     public void whenIAddTheOmittedControlTheQuoteShouldBecomeValid() throws InterruptedException, AWTException {
-       webModel.getAddServicePage().scrollToService();
+        webModel.getAddServicePage().scrollToService();
         webModel.getAddServicePage().clickService();
-        webModel.getOrdersManagerPage().populateMandatoryField();
-        webModel.getOrdersManagerPage().assertValidQuoteBeforeSubmitting();
-        webModel.getOrdersManagerPage().assertValidQuoteAfterSubmitting();
+        webModel.getNxTierServicesPage().populateMandatoryField();
+        webModel.getEditOrderPage().assertValidQuoteBeforeSubmitting();
+        webModel.getEditOrderPage().assertValidQuoteAfterSubmitting();
+        webModel.getUtils().checkPoint("NA49 done");
     }
 }
