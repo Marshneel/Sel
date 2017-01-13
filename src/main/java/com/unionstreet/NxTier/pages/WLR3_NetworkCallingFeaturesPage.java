@@ -43,7 +43,7 @@ public class WLR3_NetworkCallingFeaturesPage {
             utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         }
-        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.waitForElementVisible(By.id("lbl_Features_0__value"));
         utils.checkPoint("entered the network calling features page to de-populate");
         utils.makeSureBoxIsUnChecked(By.id(ADMIN_CONTROLLED_CALL_DIV_UNDER_NTWRK_CAL_FEATURES), By.id(ADMIN_CONTROLLED_CALL_DIV_UNDER_NTWRK_CAL_FEATURES));
         utils.makeSureBoxIsUnChecked(By.id(ANONYMOUS_CAL_REJ_UNDER_NTWRK_CAL_FEATURES), By.id(ANONYMOUS_CAL_REJ_UNDER_NTWRK_CAL_FEATURES));
