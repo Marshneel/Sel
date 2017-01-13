@@ -12,7 +12,7 @@ import cucumber.api.java.en.When;
 public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
 
     WebModel webModel = new WebModel();
-    NA44_Agent_Login_stepDefs na44_agent_login_stepDefs=new NA44_Agent_Login_stepDefs();
+    NA44_Agent_Login_stepDefs na44_agent_login_stepDefs = new NA44_Agent_Login_stepDefs();
 
     @And("^I create a new business customer and quote$")
     public void iCreateANewBusinessCustomerAndQuote() throws InterruptedException {
@@ -50,7 +50,7 @@ public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
 
     @Then("^I should be able to search and select the address by post code$")
     public void iShouldBeAbleToSearchAndSelectTheAddressByPostCode() throws InterruptedException {
-        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road","AppleGarth","The Willows","26");
+        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
         webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage("LU1 1DQ");
     }
 
@@ -73,7 +73,7 @@ public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
 
     @Then("^I should be able to search and select the address by address key$")
     public void iShouldBeAbleToSearchAndSelectTheAddressByAddressKey() throws InterruptedException {
-        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road","AppleGarth","The Willows","26");
+        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
         webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage("LU1 1DQ");
     }
 
@@ -86,7 +86,7 @@ public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
 
     @Then("^I should be able to search and select the address$")
     public void iShouldBeAbleToSearchAndSelectTheAddress() throws InterruptedException {
-        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road","AppleGarth","The Willows","26");
+        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
         webModel.getUtils().checkPoint("NA60 done");
 
     }
