@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
  */
 public class WLR3_InstallationAddressPage {
 
-    private final String INSTALLATION_ADDRESS_BUTTON = "//a[starts-with(@onclick,'loadInstallationAddress')]";
+    public final String INSTALLATION_ADDRESS_BUTTON = "//a[starts-with(@onclick,'loadInstallationAddress')]";
     private final String POSTCODE_SEARCH = "PostcodeButton";
     private final String ADDRESSKEY_SEARCH = "AddressKeyButton";
     private final String WRONG_POSTCODE = "//label[text()='No addresses found that match the selection.']";
@@ -34,7 +34,7 @@ public class WLR3_InstallationAddressPage {
         utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
     //    utils.scrollUp(By.id("installationAddressSummaryPanel"));
         utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
-        utils.jumpToPopUpWindow(By.xpath(INSTALLATION_ADDRESS_BUTTON));
+        utils.clickBtn(By.xpath(INSTALLATION_ADDRESS_BUTTON));
     }
 
     public void EnterPostCodeInSearchAddressByPostCode(String postCode) {

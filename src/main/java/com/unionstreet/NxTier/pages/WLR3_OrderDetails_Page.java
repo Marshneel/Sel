@@ -11,8 +11,8 @@ public class WLR3_OrderDetails_Page {
     private final String SUBMIT_TRANSFER = "//input[@onclick='SubmitTransfer();']";
     // TODO: 06/01/2017  
     public final String TEXT_ON_WLR3_ORDER_DETAIL_PAGE = "//h3[text()='vodafone > WLR3 Order Detail']";
-    private final String ADDRESS_SEARCH_RESULT = "address_0";
-    private final String CONTINUE_AFTER_ADDRESS_IS_CHOOSEN = "//button[text()='Continue']";
+    public final String ADDRESS_SEARCH_RESULT = "address_0";
+    public final String CONTINUE_AFTER_ADDRESS_IS_CHOOSEN = "//button[text()='Continue']";
     private final String INVALID_ADDRESSKEY = "//span[text()='Invalid Address Key']";
     private final String ADDRESS_SEARCH_RESULT_FOR_LU1_1DQ_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_addr_postcode'][contains(text(),'LU1 1DQ')]";
     public final String POSTCODE_SEARCH_POSTCODE_FIELD = "Postcode";
