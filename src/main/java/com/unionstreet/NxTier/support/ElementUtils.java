@@ -18,7 +18,6 @@ import java.util.Properties;
 import java.util.Set;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
-import static com.unionstreet.NxTier.support.BaseClass.utils;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertTrue;
@@ -152,17 +151,17 @@ public class ElementUtils {
     //browser selector
     public WebDriver browser() {
         try {
-
-            if (utils.getProperty("browser").equalsIgnoreCase("chrome")) {
+            String browser=System.getProperty("browser");
+            if (browser.equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--disable-extensions");
                 options.addArguments("--dns-prefetch-disable");
                 driver = new ChromeDriver(options);
-            } else if (utils.getProperty("browser").equalsIgnoreCase("IE")) {
+            } else if (browser.equalsIgnoreCase("IE")) {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
                 driver = new InternetExplorerDriver();
-            } else if (utils.getProperty("browser").equalsIgnoreCase("firefox")) {
+            } else if (browser.equalsIgnoreCase("firefox")) {
                 driver = new FirefoxDriver();
             }
 
