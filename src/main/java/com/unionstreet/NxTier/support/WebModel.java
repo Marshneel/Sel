@@ -42,17 +42,17 @@ public class WebModel {
         ordersManagerPage = new OrdersManagerPage();
         addServicePage = new AddServicePage();
         wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
-        wlr_and_nxTierServicesPage=new WLR_and_NxTierServicesPage();
-        nxTierServicesPage=new NxTierServicesPage();
-        editOrderPage=new EditOrderPage();
+        wlr_and_nxTierServicesPage = new WLR_and_NxTierServicesPage();
+        nxTierServicesPage = new NxTierServicesPage();
+        editOrderPage = new EditOrderPage();
         wlr3_lineNumberingPage = new WLR3_LineNumberingPage();
-        wlr3_installationAddressPage=new WLR3_InstallationAddressPage();
-        wlr3_appointmentPage=new WLR3_AppointmentPage();
-        wlr3_siteInformationPage =new WLR3_SiteInformationPage();
+        wlr3_installationAddressPage = new WLR3_InstallationAddressPage();
+        wlr3_appointmentPage = new WLR3_AppointmentPage();
+        wlr3_siteInformationPage = new WLR3_SiteInformationPage();
         wlr3_directoryInformationPage = new WLR3_DirectoryInformationPage();
-        wlr3_networkCallingFeaturesPage=new WLR3_NetworkCallingFeaturesPage();
-        wlr3_new_provide_analogue_multiline_orderPage=new WLR3_New_Provide_Analogue_Multiline_OrderPage();
-        addSiteDetailsPage=new AddSiteDetailsPage();
+        wlr3_networkCallingFeaturesPage = new WLR3_NetworkCallingFeaturesPage();
+        wlr3_new_provide_analogue_multiline_orderPage = new WLR3_New_Provide_Analogue_Multiline_OrderPage();
+        addSiteDetailsPage = new AddSiteDetailsPage();
     }
 
     public ElementUtils getUtils() {
@@ -99,45 +99,47 @@ public class WebModel {
         return wlr3_orderDetails_page;
     }
 
-    public WLR_and_NxTierServicesPage getWlr_and_nxTierServicesPage(){
+    public WLR_and_NxTierServicesPage getWlr_and_nxTierServicesPage() {
         return wlr_and_nxTierServicesPage;
     }
 
-    public NxTierServicesPage getNxTierServicesPage(){
+    public NxTierServicesPage getNxTierServicesPage() {
         return nxTierServicesPage;
     }
 
-    public EditOrderPage getEditOrderPage(){
+    public EditOrderPage getEditOrderPage() {
         return editOrderPage;
     }
 
-    public WLR3_LineNumberingPage getWlr3_lineNumberingPage(){
+    public WLR3_LineNumberingPage getWlr3_lineNumberingPage() {
         return wlr3_lineNumberingPage;
     }
 
-    public WLR3_InstallationAddressPage getWlr3_installationAddressPage(){
+    public WLR3_InstallationAddressPage getWlr3_installationAddressPage() {
         return wlr3_installationAddressPage;
     }
 
-    public WLR3_AppointmentPage getWlr3_appointmentPage(){
+    public WLR3_AppointmentPage getWlr3_appointmentPage() {
         return wlr3_appointmentPage;
     }
 
-    public WLR3_SiteInformationPage getWlr3_siteInformationPage(){
+    public WLR3_SiteInformationPage getWlr3_siteInformationPage() {
         return wlr3_siteInformationPage;
     }
 
-    public WLR3_DirectoryInformationPage getWlr3_directoryInformationPage(){
+    public WLR3_DirectoryInformationPage getWlr3_directoryInformationPage() {
         return wlr3_directoryInformationPage;
     }
 
-    public WLR3_NetworkCallingFeaturesPage getWlr3_networkCallingFeaturesPage(){
+    public WLR3_NetworkCallingFeaturesPage getWlr3_networkCallingFeaturesPage() {
         return wlr3_networkCallingFeaturesPage;
     }
-    public WLR3_New_Provide_Analogue_Multiline_OrderPage getWlr3_new_provide_analogue_multiline_orderPage(){
+
+    public WLR3_New_Provide_Analogue_Multiline_OrderPage getWlr3_new_provide_analogue_multiline_orderPage() {
         return wlr3_new_provide_analogue_multiline_orderPage;
     }
-    public AddSiteDetailsPage addSiteDetailsPage(){
+
+    public AddSiteDetailsPage addSiteDetailsPage() {
         return addSiteDetailsPage;
     }
 }

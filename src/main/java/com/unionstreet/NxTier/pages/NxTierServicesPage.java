@@ -11,15 +11,14 @@ import java.sql.SQLException;
  */
 public class NxTierServicesPage {
 
-    ElementUtils utils = new ElementUtils();
-    CommonMethods commonMethods = new CommonMethods();
-    OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
-
     public final String CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE = "//div[text()='customService']";
     private final String MANDATORY_CONTROL_FIELD = "//input[@controlid='mandatoryControl']";
     private final String CPONLY = "//label[@class='helpIcon'][contains(text(),'CPonly')]";
     private final String CPONLY_CHECKBOX = "Checkbox0";
     private final String LABEL_WITHIN_A_SERVICE = "//label[@for='Service_Details']";
+    ElementUtils utils = new ElementUtils();
+    CommonMethods commonMethods = new CommonMethods();
+    OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
 
     public void assertCPonlyValuePresent() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));

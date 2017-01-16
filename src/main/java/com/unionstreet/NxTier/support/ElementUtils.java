@@ -24,11 +24,10 @@ import static org.junit.Assert.assertTrue;
 
 public class ElementUtils {
 
+    public static ResultSet result;
     public String parentWindow;
     private Properties prop;
     private FileInputStream fileInputStream;
-    public static ResultSet result;
-
 
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(driver)
@@ -151,7 +150,7 @@ public class ElementUtils {
     //browser selector
     public WebDriver browser() {
         try {
-            String browser=System.getProperty("browser");
+            String browser = System.getProperty("browser");
             if (browser.equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
@@ -323,7 +322,7 @@ public class ElementUtils {
         driver.get("http://test01-web01/nxtiere2e");
     }
 
-    public void getDashBoardPage(){
+    public void getDashBoardPage() {
         driver.get("http://test01-web01/nxtiere2e/Dashboard/index");
     }
 

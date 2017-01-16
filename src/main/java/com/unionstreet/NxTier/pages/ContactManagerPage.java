@@ -16,8 +16,7 @@ public class ContactManagerPage {
     ElementUtils utils = new ElementUtils();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
     CommonMethods commonMethods = new CommonMethods();
-   AddSiteDetailsPage addSiteDetails=new AddSiteDetailsPage();
-
+    AddSiteDetailsPage addSiteDetails = new AddSiteDetailsPage();
 
 
     public void assertNewBusinessCustomer() {
@@ -40,7 +39,6 @@ public class ContactManagerPage {
         utils.clickBtn(By.linkText("reseller"));
         utils.switchToNewWindow();
     }
-
 
 
     public void assertNewlyCreatedSiteByResellerOnQuotePage() {

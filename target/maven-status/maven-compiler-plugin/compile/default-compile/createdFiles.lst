@@ -12,6 +12,7 @@ com\unionstreet\NxTier\pages\SettingsPage.class
 com\unionstreet\NxTier\pages\EditOrderPage.class
 com\unionstreet\NxTier\pages\WLR3_NetworkCallingFeaturesPage.class
 com\unionstreet\NxTier\pages\WLR3_DirectoryInformationPage.class
+com\unionstreet\NxTier\pages\AddSiteDetailsPage.class
 com\unionstreet\NxTier\pages\WLR3_SiteInformationPage.class
 com\unionstreet\NxTier\pages\DashBoardPage.class
 com\unionstreet\NxTier\pages\LoginPage.class

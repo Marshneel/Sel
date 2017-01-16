@@ -34,41 +34,44 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
     }
 
     public void populateSiteContact(String number) {
-       utils.selectByVisibleText(By.id("ContactList"),", Jeroen");
+        utils.selectByVisibleText(By.id("ContactList"), ", Jeroen");
         utils.sendText(By.id("WLR3Order_contact_number"), number);
     }
 
-    public void editAndAssertServicesCharges(String charges){
+    public void editAndAssertServicesCharges(String charges) {
         utils.clickBtn(By.xpath("//a[starts-with(@onclick,'getWLR3ChargesEdit')]"));
         utils.waitForElementVisible(By.xpath("//button[starts-with(@onclick,'saveWLR3Charges')]"));
-        utils.sendText(By.id("ChargeList_0__install_charge"),""+charges+"");
+        utils.sendText(By.id("ChargeList_0__install_charge"), "" + charges + "");
         utils.clickBtn(By.xpath("//button[starts-with(@onclick,'saveWLR3Charges')]"));
-        utils.waitForElementVisible(By.xpath("//td[text()='£"+charges+".00']"));
+        utils.waitForElementVisible(By.xpath("//td[text()='£" + charges + ".00']"));
     }
-    public void navigateToNextScreen(){
+
+    public void navigateToNextScreen() {
         utils.clickBtn(By.xpath("//a[starts-with(@onclick,'newProvideWizard.moveNext()')]"));
     }
-    public void populateLinePlantSummary(){
+
+    public void populateLinePlantSummary() {
         utils.waitForElementVisible(By.xpath("//legend[text()='Line Plant Summary']"));
-        utils.selectByIndex(By.id("WLR3Order_termination_type"),1);
+        utils.selectByIndex(By.id("WLR3Order_termination_type"), 1);
     }
-    public void populatingEngineeringNotes(String notes){
+
+    public void populatingEngineeringNotes(String notes) {
         utils.waitForElementVisible(By.xpath("//legend[text()='Engineering Information']"));
-        utils.sendText(By.id("WLR3Order_engineering_notes"),notes);
+        utils.sendText(By.id("WLR3Order_engineering_notes"), notes);
     }
-    public void populateNetworkFeatures(){
+
+    public void populateNetworkFeatures() {
         utils.waitForElementVisible(By.xpath("//legend[text()='Network Features']"));
-        utils.makeSureBoxIsChecked(By.id("Features_6__value"),By.id("Features_6__value"));
+        utils.makeSureBoxIsChecked(By.id("Features_6__value"), By.id("Features_6__value"));
     }
-    public void checkLineNumberingTabAndPopulateDirectoryInfo(String info){
+
+    public void checkLineNumberingTabAndPopulateDirectoryInfo(String info) {
         utils.waitForElementVisible(By.xpath("//legend[text()='Line Numbering']"));
         utils.clickBtn(By.xpath("//a[starts-with(@onclick,'loadLineNumberingPopup')]"));
         utils.waitForElementVisible(By.xpath("//a[starts-with(@onclick,'return lineNumbering.tabChangeEvent(this);')]"));
         utils.clickBtn(By.id("closeBtn"));
         utils.waitForElementVisible(By.id("DirectoryInfo_0__dir_BusinessDescription"));
-        utils.sendText(By.id("DirectoryInfo_0__dir_BusinessDescription"),info);
-
-
+        utils.sendText(By.id("DirectoryInfo_0__dir_BusinessDescription"), info);
 
 
     }

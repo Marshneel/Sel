@@ -9,11 +9,9 @@ import org.openqa.selenium.By;
 public class AddSiteDetailsPage {
 
     public static String Reseller_RanName;
-
-
+    public final String HOMEPAGE_BUTTON = "//span[@title='Home']";
     ElementUtils utils = new ElementUtils();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
-    public final String HOMEPAGE_BUTTON = "//span[@title='Home']";
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     CommonMethods commonMethods = new CommonMethods();
 

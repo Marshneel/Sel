@@ -9,11 +9,6 @@ import org.openqa.selenium.NoSuchElementException;
  */
 public class EditOrderPage {
 
-    ElementUtils utils = new ElementUtils();
-    CommonMethods commonMethods = new CommonMethods();
-    OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
-
-
     public final String ADD_PRODUCT_AND_SERVICE_BUTTON = "//span[text()='Add a product or service']";
     private final String REDCROSS = "//td[@class='red-cross']";
     private final String GREEN_TICK = "//td[@class='green-tick']";
@@ -23,6 +18,9 @@ public class EditOrderPage {
     private final String SERVICE_NOT_COMPLETED_MESSAGE = "//div[text()='Services are not completed']";
     private final String SAVE_AND_SUBMIT_ORDER = "//span[text()='Save & Submit Order']";
     private final String ORDER_CONTACT = "Order_order_contact_id";
+    ElementUtils utils = new ElementUtils();
+    CommonMethods commonMethods = new CommonMethods();
+    OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
 
     public void clickAddProductsAndServicesButton() throws InterruptedException {
         try {

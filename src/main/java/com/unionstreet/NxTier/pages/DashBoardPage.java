@@ -33,7 +33,7 @@ public class DashBoardPage {
         utils.clickBtn(By.id(ORDERSMANAGER_BUTTON));
     }
 
-    public void clickContactManagerTab(){
+    public void clickContactManagerTab() {
         utils.clickBtn(By.id("HrefContactManager"));
     }
 }

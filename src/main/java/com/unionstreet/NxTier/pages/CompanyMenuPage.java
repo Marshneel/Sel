@@ -13,6 +13,9 @@ public class CompanyMenuPage {
 
     public static String RanNumber = RandomStringUtils.randomNumeric(8);
     public final String SEARCH_BUTTON = "txtsearch";
+    public final String CLI_NUMBER_FIELD = "CLI";
+    public final String SITEDETAILS_SITE_NAME = "SiteName";
+    public final String SITEDETAILS_SHORT_NAME = "ShortName";
     //TODO
     private final String INVOICINGDETAILS_BUTTON = "HrefInvoicingDetails";
     private final String BILLINGDETAILS_BUTTON = "HrefBillingDetails";
@@ -24,7 +27,6 @@ public class CompanyMenuPage {
     private final String BILLING_REPORT_PROFILE_DROPDOWN = "BillingInfo_report_profile";
     private final String BILLING_CONTACTID_FIELD = "sinfo_billingcontact_id";
     private final String CLI_BUTTON = "HrefCLIs";
-    public final String CLI_NUMBER_FIELD = "CLI";
     private final String ADDED_CLI_CHECK_FIELD = ".field-input.w35.left";
     private final String SERVICECHARGE_BUTTON = "HrefServiceCharges";
     //TODO
@@ -42,21 +44,17 @@ public class CompanyMenuPage {
     private final String SERVICECHARGE_CARRIER_DROPDOWN = "r_carrier";
     private final String PRICING_DETAILS_BUTTON = "HrefPricingDetails";
     private final String PRICING_DETAILS_PACKAGE_FIELD = "sinfo_package";
-    public final String SITEDETAILS_SITE_NAME = "SiteName";
-    public final String SITEDETAILS_SHORT_NAME = "ShortName";
     private final String SITEDETAILS_POSTCODE = "PostCode";
     private final String SITEDETAILS_TELEPHONE = "Telephone";
     private final String SITEDETAILS_ACCOUNT_REF = "sage_id";
     private final String SITEDETAILS_BILLING_ADDRESS = "InvoiceAddress";
     private final String COMPANYSITES_BUTTON = "HrefCompanySites";
     private final String CONFIGMANAGER_BUTTON = "HrefConfigManager";
-    private long today;
-    private String day;
     ElementUtils utils = new ElementUtils();
-
-
     CommonMethods commonMethods = new CommonMethods();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
+    private long today;
+    private String day;
 
     public void addNewSite() throws InterruptedException {
         accessCompanyMenu();
