@@ -15,11 +15,7 @@ public class NA45_Reseller_Login_stepDefs {
 
     @And("^have created a new site for a company$")
     public void haveCreatedANewSiteForACompany() throws InterruptedException {
-        webModel.getNewBusinessCustomerPage().clickContactManagerButton();
-        webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
-        webModel.getNewBusinessCustomerPage().addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes();
-        webModel.getNewBusinessCustomerPage().addSiteInfoForNewBusinessCustomer();
-        webModel.getNewBusinessCustomerPage().addSiteContactInfoForNewBusinessCustomer();
+       webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().clickOnResellerUnderCustomerDetails();
         webModel.getContactManagerPage().clickCompanySite();
         webModel.getContactManagerPage().addNewSiteForReseller();

@@ -151,6 +151,21 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
         webModel.getOrdersManagerPage().assertQuotePageForAgentandReseller();
     }
 
+    @And("^Only the quotes created for companies under my contact list should be visible$")
+    public void onlyTheQuotesCreatedForCompaniesUnderMyContactListShouldBeVisible() {
+        webModel.getOrdersManagerPage().assertQuoteForReseller();
+        webModel.getOrdersManagerPage().checkQuoteForReseller();
+
+
+    }
+    @When("^I access create Quote tab for Reseller$")
+    public void iAccessCreateQuoteTabForReseller() throws InterruptedException {
+        webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().onQuotePageForReseller();
+
+    }
+
     @And("^Only the quotes created by me and the ones created for companies under my contact list should be visible$")
     public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForCompaniesUnderMyContactListShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
@@ -174,4 +189,6 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
         webModel.getOrdersManagerPage().checkQuotesForCP();
         webModel.getUtils().checkPoint("NA39 done");
     }
+
+
 }

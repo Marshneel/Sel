@@ -15,6 +15,7 @@ com\unionstreet\NxTier\pages\WLR3_DirectoryInformationPage.class
 com\unionstreet\NxTier\pages\WLR3_SiteInformationPage.class
 com\unionstreet\NxTier\pages\DashBoardPage.class
 com\unionstreet\NxTier\pages\LoginPage.class
+com\unionstreet\NxTier\pages\WLR3_New_Provide_Analogue_Multiline_OrderPage.class
 com\unionstreet\NxTier\pages\WLR3_AppointmentPage.class
 com\unionstreet\NxTier\pages\WLR3_OrderDetails_Page.class
 com\unionstreet\NxTier\pages\CommonMethods.class

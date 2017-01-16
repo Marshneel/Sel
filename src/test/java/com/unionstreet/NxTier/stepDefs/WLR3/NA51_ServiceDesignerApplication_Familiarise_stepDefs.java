@@ -35,6 +35,13 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
         webModel.getEditOrderPage().assertCustomer_InternalTabsNotPresent();
     }
 
+    @When("^I access add_view notes on edit order page for reseller$")
+    public void iAccessAdd_viewNotesOnEditOrderPageForReseller() throws InterruptedException {
+        webModel.getOrdersManagerPage().clickOnQuoteID();
+        webModel.getEditOrderPage().accessAdd_ViewNotes();
+
+    }
+
     @Given("^I am logged in as agent and there is a service unassigned to me$")
     public void iAmLoggedInAsAgentAndThereIsAServiceUnassignedToMe() throws InterruptedException {
         webModel.getLoginPage().loginAsCP();
@@ -69,4 +76,6 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
         webModel.getAddServicePage().assertServicePresent("ServiceForAgent&Reseller");
         webModel.getUtils().checkPoint("NA51 done");
     }
+
+
 }

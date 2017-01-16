@@ -31,12 +31,11 @@ Feature: WLR3_permissions
     Then All required fields pertaining to an agent should be visible on the create quote window
     And Only the quotes created by me and the ones created for my company should be visible
 
-#  Scenario: creating an order quote by logged in as a reseller and verifying all required fields are visible on the quote screen
-#    Given I am logged in as reseller
-#    And Have created a new customer
-#    When I access create Quote tab
-#    Then All required fields pertaining to a reseller should be visible on the create quote window
-#    And Only the quotes created by me and the ones created for companies under my contact list should be visible
+  Scenario: creating an order quote by logged in as a reseller and verifying all required fields are visible on the quote screen
+    Given I am logged in as reseller
+    When I access create Quote tab for Reseller
+    Then All required fields pertaining to a reseller should be visible on the create quote window
+    And Only the quotes created for companies under my contact list should be visible
 
   Scenario: creating an order quote by logged in as a CP and verifying all required fields are visible on the quote screen
     Given I am logged in as CP

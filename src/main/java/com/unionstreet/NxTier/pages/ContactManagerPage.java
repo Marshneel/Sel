@@ -4,6 +4,7 @@ import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
 public class ContactManagerPage {
+    public static String Reseller_RanName;
     public final String SEARCH_BUTTON = "txtsearch";
     public final String CREATEQUOTE_SELECTCOMPANY = "CompanyId";
     public final String CREATEQUOTE_SELECTSITE = "SiteId";
@@ -16,6 +17,7 @@ public class ContactManagerPage {
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     CommonMethods commonMethods = new CommonMethods();
+
 
 
     public void assertNewBusinessCustomer() {
@@ -33,9 +35,9 @@ public class ContactManagerPage {
 
     public void clickOnResellerUnderCustomerDetails() throws InterruptedException {
 
-        commonMethods.search(newBusinessCustomerPage.RanName);
-        utils.waitForElementVisible(By.linkText(newBusinessCustomerPage.RanName));
-        utils.clickBtn(By.linkText(newBusinessCustomerPage.RanName));
+        commonMethods.search("reseller");
+        utils.waitForElementVisible(By.linkText("reseller"));
+        utils.clickBtn(By.linkText("reseller"));
         utils.switchToNewWindow();
     }
 
@@ -43,15 +45,17 @@ public class ContactManagerPage {
         utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindow();
         utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SITE_NAME));
-        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SITE_NAME), newBusinessCustomerPage.RanName);
+        Reseller_RanName=utils.randomName();
+        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SITE_NAME), Reseller_RanName);
         utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME));
-        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME), newBusinessCustomerPage.RanName);
+        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME), Reseller_RanName);
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
             utils.checkAlert();
         } catch (Exception e) {
         }
         utils.switchToParentWindow();
+        utils.getDashBoardPage();
     }
 
     public void navigateToHomePage() {
@@ -59,8 +63,8 @@ public class ContactManagerPage {
     }
 
     public void assertNewlyCreatedSiteByResellerOnQuotePage() {
-        utils.selectByVisibleText(By.id(CREATEQUOTE_SELECTCOMPANY), newBusinessCustomerPage.RanName);
-        utils.selectByVisibleText(By.id(CREATEQUOTE_SELECTSITE), newBusinessCustomerPage.RanName);
+        utils.selectByVisibleText(By.id(CREATEQUOTE_SELECTCOMPANY), "reseller");
+        utils.selectByVisibleText(By.id(CREATEQUOTE_SELECTSITE), Reseller_RanName);
     }
 
     public void searchForBusinessCustomer(String customer_name) throws InterruptedException {

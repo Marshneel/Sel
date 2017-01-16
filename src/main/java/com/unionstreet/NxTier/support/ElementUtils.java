@@ -324,6 +324,10 @@ public class ElementUtils {
         driver.get("http://test01-web01/nxtiere2e");
     }
 
+    public void getDashBoardPage(){
+        driver.get("http://test01-web01/nxtiere2e/Dashboard/index");
+    }
+
     public void assertElementNotPresent(By by) {
         List<WebElement> element = driver.findElements(by);
         assertTrue(element.isEmpty());

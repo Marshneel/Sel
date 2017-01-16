@@ -7,14 +7,16 @@ Feature: laying add on activation charge for quote created by CP, agent and rese
     When I run SQL query
     Then The charge should be visible in the back end
 
-#  Scenario: laying addOnActivation charge for quote created by agent
-#    Given I am logged in as agent
-#    And I create a new quote and add a service with addOnActivation charge
-#    When I run SQL query
-#    Then The charge should be visible in the back end
+  Scenario: laying addOnActivation charge for quote created by agent
+    Given I am logged in as agent
+    And I create a new quote and add a service with addOnActivation charge
+    When I run SQL query
+    Then The charge should be visible in the back end
 
+  @reseller
   Scenario: laying addOnActivation charge for quote created by reseller
     Given I am logged in as reseller
-    And I create a new quote and add a service with addOnActivation charge
+    And have created a new site for a company
+    And I create a new quote for reseller and add a service with addOnActivation charge
     When I run SQL query
     Then The charge should be visible in the back end

@@ -6,12 +6,14 @@ Feature: Accessing controls in services with different permissions (CP, Agent an
     And create a new quote and access a service
     Then the CP only control should be visible and accessible
 
-#  Scenario: verify that a charge designated CP only is inaccessible by agent
-#    Given I am logged in as agent
-#    And create a new quote and access a service
-#    Then the CP only control should be invisible
-
+  Scenario: verify that a charge designated CP only is inaccessible by agent
+    Given I am logged in as agent
+    And create a new quote and access a service
+    Then the CP only control should be invisible
+  @reseller
   Scenario: verify that a charge designated CP only is inaccessible by reseller
     Given I am logged in as reseller
-    And create a new quote and access a service
+    And have created a new site for a company
+    And Have created a quote for reseller
+    And create a new quote and access a service for reseller
     Then the CP only control should be invisible
