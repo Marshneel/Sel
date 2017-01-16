@@ -10,20 +10,18 @@ import cucumber.api.java.en.When;
  */
 public class NA87_WLR3_New_Provide_Analogue_Multiline_stepDefs {
 
-    WebModel webModel=new WebModel();
-
-
+    WebModel webModel = new WebModel();
 
 
     @And("^add WLR analogue multiline order to the quote$")
     public void addWLRAnalogueMultilineOrderToTheQuote() throws InterruptedException {
-    webModel.getAddServicePage().searchAndAddService("New Provide Order");
+        webModel.getAddServicePage().searchAndAddService("New Provide Order");
 
     }
 
     @When("^I access analogue multiline tab and provide all the required data$")
     public void iAccessAnalogueMultilineTabAndProvideAllTheRequiredData() throws Throwable {
-    webModel.getWlr3_new_provide_analogue_multiline_orderPage().clickAnalogueMultilineTab();
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().clickAnalogueMultilineTab();
         //add installation address and assert on the orderDetails screen
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().populateAndAssertInstallationAddressUnderSite("LU1 1DQ");
         webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");

@@ -14,8 +14,8 @@ public class NA61_Process_FLow_Obtaining_Initial_information_stepdefs {
     WebModel webModel = new WebModel();
 
     @Given("^I am logged in with \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void iAmLoggedInWithAnd(String userName, String passWord)  {
-    webModel.getLoginPage().login(userName,passWord);
+    public void iAmLoggedInWithAnd(String userName, String passWord) {
+        webModel.getLoginPage().login(userName, passWord);
     }
 
     @When("^I populate network calling features and directory information$")

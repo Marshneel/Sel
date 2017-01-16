@@ -60,25 +60,6 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
         webModel.getSettingsPage().loginAsAgent();
     }
 
-    @When("^I wish to create a business reseller contact with valid login credentials$")
-    public void iWishToCreateABusinessResellerContactWithValidLoginCredentials() throws InterruptedException {
-        webModel.getCompanyMenuPage().accessCompanyMenu();
-        webModel.getSettingsPage().clickCompanyContacts();
-        webModel.getSettingsPage().addNewCompanyContactButton();
-        webModel.getSettingsPage().agentUserAddContactDetails();
-    }
-
-    @Then("^the agent permission group should be available for selection under drop down under business reseller contact creation$")
-    public void theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderBusinessResellerContactCreation() {
-        webModel.getSettingsPage().agentUserAddLoginDetails();
-    }
-
-    @And("^I should be able to login with reseller credentials$")
-    public void iShouldBeAbleToLoginWithResellerCredentials() {
-        webModel.getSettingsPage().loginAsReseller();
-        webModel.getDashBoardPage().logOut();
-    }
-
     @And("^Have created a new CP permission group under settings$")
     public void haveCreatedANewCPPermissionGroupUnderSettings() throws InterruptedException {
         webModel.getSettingsPage().clickSettingsButton();
@@ -158,6 +139,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
 
 
     }
+
     @When("^I access create Quote tab for Reseller$")
     public void iAccessCreateQuoteTabForReseller() throws InterruptedException {
         webModel.getDashBoardPage().clickOrderManagerButton();

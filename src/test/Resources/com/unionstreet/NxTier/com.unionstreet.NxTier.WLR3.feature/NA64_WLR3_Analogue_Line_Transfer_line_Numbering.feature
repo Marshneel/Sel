@@ -1,7 +1,7 @@
 @E2ETests
-Feature: scenarios for automatically assign number, specifying new number, selecting new number from the list and automatically assign by logging
+Feature: Scenarios for automatically assign number, specifying new number, selecting new number from the list and automatically assign by logging
 
-  Scenario Outline: assigning specify new number, select from list, automatically assign now by logging as CP, agent and reseller
+  Scenario Outline: Assigning specify new number, select from list, automatically assign now by logging as CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"
     And   I create a new business customer and quote
     And   I assign WLR transfer order service to the newly created quote
@@ -13,7 +13,7 @@ Feature: scenarios for automatically assign number, specifying new number, selec
       | userName | passWord |
       | CP       | password |
 
-  Scenario Outline: accessing No change, Automatically assign and automatically assign now features under line numbering by logging in as a CP, agent and reseller
+  Scenario Outline: Accessing No change, Automatically assign and automatically assign now features under line numbering by logging in as a CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"
     And   I create a new business customer and quote
     And   I assign WLR transfer order service to the newly created quote

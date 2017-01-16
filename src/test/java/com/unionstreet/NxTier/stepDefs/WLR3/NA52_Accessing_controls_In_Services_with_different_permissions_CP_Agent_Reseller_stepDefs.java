@@ -28,13 +28,12 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
         webModel.getNxTierServicesPage().assertCPonlyCheckBoxPresentAndAccessible();
     }
 
-        @And("^create a new quote and access a service for reseller$")
-        public void createANewQuoteAndAccessAServiceForReseller() throws InterruptedException {
-            webModel.getOrdersManagerPage().clickOnQuoteID();
+    @And("^create a new quote and access a service for reseller$")
+    public void createANewQuoteAndAccessAServiceForReseller() throws InterruptedException {
+        webModel.getOrdersManagerPage().clickOnQuoteID();
 //        TODO
-            webModel.getAddServicePage().addServiceToQuote("permissions");
-        }
-
+        webModel.getAddServicePage().addServiceToQuote("permissions");
+    }
 
 
     @Then("^the CP only control should be invisible$")

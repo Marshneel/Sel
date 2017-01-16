@@ -4,19 +4,19 @@ import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
 public class ContactManagerPage {
-    public static String Reseller_RanName;
+
     public final String SEARCH_BUTTON = "txtsearch";
     public final String CREATEQUOTE_SELECTCOMPANY = "CompanyId";
     public final String CREATEQUOTE_SELECTSITE = "SiteId";
-    public final String HOMEPAGE_BUTTON = "//span[@title='Home']";
+
     private final String COMPANYDETAILS_BUTTON = "HrefCompanyDetails";
     private final String COMPANYSITES = "HrefCompanySites";
     private final String CHANNELDETAILS_AGENT = "DAgentCommission_agent_id";
 
     ElementUtils utils = new ElementUtils();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
-    CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     CommonMethods commonMethods = new CommonMethods();
+   AddSiteDetailsPage addSiteDetails=new AddSiteDetailsPage();
 
 
 
@@ -41,30 +41,11 @@ public class ContactManagerPage {
         utils.switchToNewWindow();
     }
 
-    public void addNewSiteForReseller() throws InterruptedException {
-        utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-        utils.switchToNewWindow();
-        utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SITE_NAME));
-        Reseller_RanName=utils.randomName();
-        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SITE_NAME), Reseller_RanName);
-        utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME));
-        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME), Reseller_RanName);
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        try {
-            utils.checkAlert();
-        } catch (Exception e) {
-        }
-        utils.switchToParentWindow();
-        utils.getDashBoardPage();
-    }
 
-    public void navigateToHomePage() {
-        utils.clickBtn(By.xpath(HOMEPAGE_BUTTON));
-    }
 
     public void assertNewlyCreatedSiteByResellerOnQuotePage() {
         utils.selectByVisibleText(By.id(CREATEQUOTE_SELECTCOMPANY), "reseller");
-        utils.selectByVisibleText(By.id(CREATEQUOTE_SELECTSITE), Reseller_RanName);
+        utils.selectByVisibleText(By.id(CREATEQUOTE_SELECTSITE), addSiteDetails.Reseller_RanName);
     }
 
     public void searchForBusinessCustomer(String customer_name) throws InterruptedException {

@@ -1,19 +1,19 @@
 @E2ETests
-Feature: laying add on activation charge for quote created by CP, agent and reseller
+Feature: Laying add on activation charge for quote created by CP, agent and reseller
 
-  Scenario: laying addOnActivation charge for quote created by CP
+  Scenario: Laying addOnActivation charge for quote created by CP
     Given I am logged in as CP
     And I create a new quote and add a service with addOnActivation charge
     When I run SQL query
     Then The charge should be visible in the back end
 
-  Scenario: laying addOnActivation charge for quote created by agent
+  Scenario: Laying addOnActivation charge for quote created by agent
     Given I am logged in as agent
     And I create a new quote and add a service with addOnActivation charge
     When I run SQL query
     Then The charge should be visible in the back end
 
-  Scenario: laying addOnActivation charge for quote created by reseller
+  Scenario: Laying addOnActivation charge for quote created by reseller
     Given I am logged in as reseller
     And have created a new site for a company
     And I create a new quote for reseller and add a service with addOnActivation charge

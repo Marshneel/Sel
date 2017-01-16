@@ -26,6 +26,7 @@ public class WebModel {
     private WLR3_DirectoryInformationPage wlr3_directoryInformationPage;
     private WLR3_NetworkCallingFeaturesPage wlr3_networkCallingFeaturesPage;
     private WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage;
+    private AddSiteDetailsPage addSiteDetailsPage;
 
 
     public WebModel() {
@@ -51,6 +52,7 @@ public class WebModel {
         wlr3_directoryInformationPage = new WLR3_DirectoryInformationPage();
         wlr3_networkCallingFeaturesPage=new WLR3_NetworkCallingFeaturesPage();
         wlr3_new_provide_analogue_multiline_orderPage=new WLR3_New_Provide_Analogue_Multiline_OrderPage();
+        addSiteDetailsPage=new AddSiteDetailsPage();
     }
 
     public ElementUtils getUtils() {
@@ -134,5 +136,8 @@ public class WebModel {
     }
     public WLR3_New_Provide_Analogue_Multiline_OrderPage getWlr3_new_provide_analogue_multiline_orderPage(){
         return wlr3_new_provide_analogue_multiline_orderPage;
+    }
+    public AddSiteDetailsPage addSiteDetailsPage(){
+        return addSiteDetailsPage;
     }
 }
