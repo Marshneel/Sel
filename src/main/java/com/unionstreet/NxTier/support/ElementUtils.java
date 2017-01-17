@@ -434,4 +434,10 @@ public class ElementUtils {
         System.out.println(text);
     }
 
+    public void zoomOut(By by) {
+        for (int i = 0; i < 3; i++) {
+            driver.findElement(by).sendKeys(Keys.CONTROL, Keys.SUBTRACT);
+        }
+    }
+
 }

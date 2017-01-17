@@ -1,5 +1,5 @@
 Feature: End-to-end scenarios for NA87_WLR3_New_Provide_Order_Analogue_multiLine
-
+@E2ETests
   Scenario: Populating the analogue multiline under WLR3 new provide order and verify for flow
 
     Given I am logged in as CP

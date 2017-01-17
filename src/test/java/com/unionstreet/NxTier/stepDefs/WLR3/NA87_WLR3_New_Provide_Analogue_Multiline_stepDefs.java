@@ -38,21 +38,28 @@ public class NA87_WLR3_New_Provide_Analogue_Multiline_stepDefs {
         //go to Engineering
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
         //populating engineering notes
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().populatingEngineeringNotes("engieering notes");
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().populatingEngineeringNotes("engineering notes");
         //go to features
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
         //populate network features
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().populateNetworkFeatures();
-        //go to next
+        //go to numbering
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
         //check line numbering and populate directory info
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().checkLineNumberingTabAndPopulateDirectoryInfo("Directory info");
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().PopulateDirectoryInfo("Directory info");
+        //go to data
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
+        //populate hazard and warning notes
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().populateHazardAndWarningNotes("hazard note", "warning notes");
+        //finish off the order
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
 
 
     }
 
     @Then("^I should be able to navigate throught the wizard and perform assertions$")
     public void iShouldBeAbleToNavigateThroughtTheWizardAndPerformAssertions() throws Throwable {
-
+        //assertions on order details page
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().assertionsOnOrderDetailsPage();
     }
 }

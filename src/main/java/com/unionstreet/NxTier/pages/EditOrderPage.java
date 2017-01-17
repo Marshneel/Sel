@@ -18,6 +18,8 @@ public class EditOrderPage {
     private final String SERVICE_NOT_COMPLETED_MESSAGE = "//div[text()='Services are not completed']";
     private final String SAVE_AND_SUBMIT_ORDER = "//span[text()='Save & Submit Order']";
     private final String ORDER_CONTACT = "Order_order_contact_id";
+    public final String QUOTEID_ON_EDITORDER_PAGE = "//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]";
+
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
