@@ -1,4 +1,4 @@
-@E2ETests
+@NA44
 Feature: Agent login
 
   Scenario: Login as an agent, create a business customer and verify the created customer from the company and site drop downs on create quote page

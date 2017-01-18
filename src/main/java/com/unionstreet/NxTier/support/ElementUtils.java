@@ -440,7 +440,7 @@ public class ElementUtils {
         }
     }
 
-    public void zoomIn(By by){
+    public void zoomIn(By by) {
         for (int i = 0; i < 1; i++) {
             driver.findElement(by).sendKeys(Keys.CONTROL, Keys.ADD);
         }

@@ -13,7 +13,7 @@ public class BaseClass {
 //    @BeforeClass
 //    public static void databaseRollBack() {
 //        try {
-//            //utils.restoreDB();
+//            utils.restoreDB();
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
@@ -37,6 +37,5 @@ public class BaseClass {
     public void tearDown() {
         driver.close();
         driver.quit();
-
     }
 }
