@@ -29,9 +29,9 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
     private final String ANALOGUE_MULTILINE_INSTALLATION_CHARGE = "ChargeList_0__install_charge";
     private final String SUBMIT_BUTTON = "//button[@type='submit']";
     private final String ANALOGUE_MULTILINE_TAB = "line_3";
-    private final String NEW_PROVIDE_SCREEN="modal-dialog-NewProvide";
-    private final String NEW_PROVIDE_SITEINFO_SCREEN="NewProvideSiteInfoForm";
-    private final String SELECT_CONTACT_UNDER_SITEINFO="ContactList";
+    private final String NEW_PROVIDE_SCREEN = "modal-dialog-NewProvide";
+    private final String NEW_PROVIDE_SITEINFO_SCREEN = "NewProvideSiteInfoForm";
+    private final String SELECT_CONTACT_UNDER_SITEINFO = "ContactList";
 
 
     ElementUtils utils = new ElementUtils();
@@ -58,7 +58,11 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
 
     public void populateEmergencyInfo(String message) throws InterruptedException {
         Thread.sleep(1000);
-        utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
+        try {
+            utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
+        } catch (Exception e) {
+            utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
+        }
         utils.zoomOut(By.id(NEW_PROVIDE_SCREEN));
         Thread.sleep(1000);
     }
@@ -76,7 +80,7 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         utils.waitForElementVisible(By.xpath("//td[text()='£" + charges + ".00']"));
     }
 
-    public void navigateToNextScreen(){
+    public void navigateToNextScreen() {
         utils.clickBtn(By.xpath(NEXT_BUTTON));
     }
 
@@ -108,9 +112,15 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
     }
 
     public void populateHazardAndWarningNotes(String hazardNotes, String warningNotes) {
-        utils.waitForElementVisible(By.id(HAZARD_NOTES_TEXTBOX));
-        utils.sendText(By.id(HAZARD_NOTES_TEXTBOX), hazardNotes);
-        utils.sendText(By.id(WARNING_NOTES_TEXTBOX), warningNotes);
+        try {
+            utils.waitForElementVisible(By.id(HAZARD_NOTES_TEXTBOX));
+            utils.sendText(By.id(HAZARD_NOTES_TEXTBOX), hazardNotes);
+            utils.sendText(By.id(WARNING_NOTES_TEXTBOX), warningNotes);
+        } catch (Exception e) {
+            utils.waitForElementVisible(By.id(HAZARD_NOTES_TEXTBOX));
+            utils.sendText(By.id(HAZARD_NOTES_TEXTBOX), hazardNotes);
+            utils.sendText(By.id(WARNING_NOTES_TEXTBOX), warningNotes);
+        }
     }
 
     public void assertionsOnOrderDetailsPage() throws InterruptedException {

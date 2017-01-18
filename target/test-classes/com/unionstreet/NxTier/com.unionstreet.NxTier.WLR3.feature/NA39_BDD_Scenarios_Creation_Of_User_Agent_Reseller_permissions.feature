@@ -1,6 +1,6 @@
-@NA39
+@E2ETests
 Feature: WLR3_permissions
-@sql
+
   Scenario: Creating an agent permission group and assigning it to an agent
     Given I am logged in as an admin
     And   have added a new business customer with required contact type

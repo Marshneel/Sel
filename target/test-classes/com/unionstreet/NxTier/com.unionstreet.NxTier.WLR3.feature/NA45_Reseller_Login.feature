@@ -1,4 +1,4 @@
-@NA45
+@E2ETests
 Feature: Reseller Login
 
   Scenario: Login as a reseller, create a site and verify the created site from the site drop down on create quote page
