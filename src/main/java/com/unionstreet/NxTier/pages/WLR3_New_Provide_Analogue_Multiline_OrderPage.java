@@ -29,6 +29,9 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
     private final String ANALOGUE_MULTILINE_INSTALLATION_CHARGE = "ChargeList_0__install_charge";
     private final String SUBMIT_BUTTON = "//button[@type='submit']";
     private final String ANALOGUE_MULTILINE_TAB = "line_3";
+    private final String NEW_PROVIDE_SCREEN="modal-dialog-NewProvide";
+    private final String NEW_PROVIDE_SITEINFO_SCREEN="NewProvideSiteInfoForm";
+    private final String SELECT_CONTACT_UNDER_SITEINFO="ContactList";
 
 
     ElementUtils utils = new ElementUtils();
@@ -45,7 +48,7 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
     }
 
     public void populateAndAssertInstallationAddressUnderSite(String postCode) {
-        utils.waitForElementVisible(By.id("NewProvideSiteInfoForm"));
+        utils.waitForElementVisible(By.id(NEW_PROVIDE_SITEINFO_SCREEN));
         utils.clickBtn(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
         wlr3_installationAddressPage.EnterPostCodeInSearchAddressByPostCode(postCode);
         utils.clickBtn(By.id(wlr3_orderDetails_page.ADDRESS_SEARCH_RESULT));
@@ -56,12 +59,12 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
     public void populateEmergencyInfo(String message) throws InterruptedException {
         Thread.sleep(1000);
         utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
-        utils.zoomOut(By.id("modal-dialog-NewProvide"));
+        utils.zoomOut(By.id(NEW_PROVIDE_SCREEN));
         Thread.sleep(1000);
     }
 
     public void populateSiteContact(String number) {
-        utils.selectByVisibleText(By.id("ContactList"), ", Jeroen");
+        utils.selectByVisibleText(By.id(SELECT_CONTACT_UNDER_SITEINFO), ", Jeroen");
         utils.sendText(By.id(TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
     }
 
@@ -73,8 +76,13 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         utils.waitForElementVisible(By.xpath("//td[text()='£" + charges + ".00']"));
     }
 
-    public void navigateToNextScreen() {
+    public void navigateToNextScreen(){
         utils.clickBtn(By.xpath(NEXT_BUTTON));
+    }
+
+    public void navigateToNextScreenAndZoomIn() {
+        utils.clickBtn(By.xpath(NEXT_BUTTON));
+        utils.zoomIn(By.id(NEW_PROVIDE_SCREEN));
     }
 
     public void populateLinePlantSummary() throws InterruptedException {

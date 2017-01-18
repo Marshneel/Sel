@@ -52,7 +52,7 @@ public class NA87_WLR3_New_Provide_Analogue_Multiline_stepDefs {
         //populate hazard and warning notes
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().populateHazardAndWarningNotes("hazard note", "warning notes");
         //finish off the order
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreenAndZoomIn();
 
 
     }
@@ -61,5 +61,6 @@ public class NA87_WLR3_New_Provide_Analogue_Multiline_stepDefs {
     public void iShouldBeAbleToNavigateThroughtTheWizardAndPerformAssertions() throws Throwable {
         //assertions on order details page
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().assertionsOnOrderDetailsPage();
+
     }
 }
