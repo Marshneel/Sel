@@ -7,4 +7,4 @@ Feature: End-to-end scenarios for NA87_WLR3_New_Provide_Order_Analogue_multiLine
     And   I create a new business customer and quote
     And add WLR analogue multiline order to the quote
     When I access analogue multiline tab and provide all the required data
-    Then I should be able to navigate throught the wizard and perform assertions
+    Then I should be able to navigate throught the wizard and complete the order

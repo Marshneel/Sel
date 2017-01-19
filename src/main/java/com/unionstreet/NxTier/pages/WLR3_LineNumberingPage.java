@@ -23,17 +23,17 @@ public class WLR3_LineNumberingPage {
     private final String CONTINUE_AFTER_LETTER_OF_AUTHORITY_CHECKED_IN = "submitImportFromOtherNetworkContinue";
     private final String AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO = "//a[@href='#default-tab-Automatically_assign']";
     private final String CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO = "//a[@onclick='lineNumbering.submitChanges(1);']";
-    private final String CONTINUETAB_UNDER_LINE_INFO = "//a[@onclick='return lineNumbering.hidePopup();'][contains(text(),'Continue')]";
+    public final String CONTINUETAB_UNDER_LINE_INFO = "//a[@onclick='return lineNumbering.hidePopup();'][contains(text(),'Continue')]";
     private final String AUTOMATICALLY_ALLOCATED_TEXT_ON_WLR_ORDERDETAILS_PAGE = "//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'Automatically allocated')]]";
     private final String TEXTBOX_UNDER_SPECIFY_NEW_NUMBER_LINEINFO = "SpecificNewNumberToReserve";
     private final String RESERVETAB_UNDER_SPECIFY_NEW_NUMBER_LINE_INFO = "//a[contains(@onclick,'return lineNumbering.reservedSpecificNumber')]";
     private final String GET_NUMBERSTAB_UNDER_SELECT_FROM_LIST_LINE_INFO = "//button[contains(@onclick,'return lineNumbering.getAvailableNumbers')]";
     private final String RESERVETAB_UNDER_SELECT_FROM_LIST_LINE_INFO = "//a[contains(@onclick,'return lineNumbering.reservedSelectedNumber')]";
-    private final String ALLOCATENOW_TAB_UNDER_AUTOMATICALLY_ASSIGN_NOW_LINE_INFO = "//a[contains(@onclick,'return lineNumbering.assignNow')]";
+    public final String ALLOCATENOW_TAB_UNDER_AUTOMATICALLY_ASSIGN_NOW_LINE_INFO = "//a[contains(@onclick,'return lineNumbering.assignNow')]";
     private final String VIC_TEXTBOX_UNDER_LINE_INFO = "WLR3Order_vic";
     private final String SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM = "//a[@href='#default-tab-Specify_new_number']";
     private final String SELECT_FROM_LISTTAB_UNDER_LINE_INFO = "//a[@href='#default-tab-Select_from_list']";
-    private final String AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO = "//a[@href='#default-tab-Automatically_assign_now']";
+    public final String AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO = "//a[@href='#default-tab-Automatically_assign_now']";
     private final String ALERT_ON_LINE_INFO = "//div[@class='alert alert-danger']";
     private final String CONTINUETAB_UNDER_IMPORT_FROM_OTHER_NETWORK_LINE_INFO = "submitImportFromOtherNetworkContinue";
 
