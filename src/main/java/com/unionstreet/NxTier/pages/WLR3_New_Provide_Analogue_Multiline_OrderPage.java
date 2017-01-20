@@ -117,8 +117,13 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
     }
 
     public void editAndAssertServicesChargesUnderSITE(String charges) {
+        utils.waitForElementVisible(By.xpath(EDIT_SERVICECHARGES_BUTTON));
         utils.clickBtn(By.xpath(EDIT_SERVICECHARGES_BUTTON));
-        utils.waitForElementVisible(By.xpath(SAVE_SERVICECHARGES_BUTTON));
+        try {
+            utils.waitForElementVisible(By.xpath(SAVE_SERVICECHARGES_BUTTON));
+        } catch (Exception e) {
+
+        }
         utils.sendText(By.id(ANALOGUE_MULTILINE_INSTALLATION_CHARGE), "" + charges + "");
         utils.clickBtn(By.xpath(SAVE_SERVICECHARGES_BUTTON));
         utils.waitForElementVisible(By.xpath("//td[text()='£" + charges + ".00']"));
