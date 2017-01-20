@@ -1,4 +1,4 @@
-@E2ETests
+@NA64
 Feature: Scenarios for automatically assign number, specifying new number, selecting new number from the list and automatically assign by logging
 
   Scenario Outline: Assigning specify new number, select from list, automatically assign now by logging as CP, agent and reseller

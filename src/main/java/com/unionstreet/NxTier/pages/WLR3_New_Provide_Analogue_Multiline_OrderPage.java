@@ -72,8 +72,10 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         utils.zoomOut(By.id(NEW_PROVIDE_SITEINFO_SCREEN));
         Thread.sleep(1000);
         try {
+            utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
             utils.clickBtn(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
         } catch (Exception e) {
+            utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
             utils.clickBtn(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
         }
         wlr3_installationAddressPage.EnterPostCodeInSearchAddressByPostCode(postCode);
@@ -86,8 +88,10 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
     public void populateEmergencyInfoUnderSITE(String message) throws InterruptedException {
         Thread.sleep(1000);
         try {
+            utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
             utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
         } catch (Exception e) {
+            utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
             utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
         }
 
