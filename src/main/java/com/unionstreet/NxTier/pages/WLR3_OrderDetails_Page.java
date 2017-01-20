@@ -18,7 +18,6 @@ public class WLR3_OrderDetails_Page {
     public final String DIRECTORY_INFORMATION_BUTTON = "//a[contains(@onclick,'loadDirectoryInformationPopup')]";
     public final String CLOSE = "closeBtn";
     public final String SAVE = "saveBtn";
-    private final String SUBMIT_TRANSFER = "//input[@onclick='SubmitTransfer();']";
     private final String INVALID_ADDRESSKEY = "//span[text()='Invalid Address Key']";
     public final String ADDRESS_SEARCH_RESULT_FOR_LU1_1DQ_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_addr_postcode'][contains(text(),'LU1 1DQ')]";
     private final String LINE_NUMBERING_BUTTON = "//a[contains(@onclick,'loadLineNumbering')]";
@@ -36,12 +35,12 @@ public class WLR3_OrderDetails_Page {
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
 
     public void enterPhoneNumberAndPostCodeToInitiateTheTransfer(String number, String postCode) {
-        utils.waitForElementVisible(By.xpath(SUBMIT_TRANSFER));
+        utils.waitForElementVisible(By.id(SAVE));
         utils.clickBtn(By.id(companyMenuPage.CLI_NUMBER_FIELD));
         utils.sendText(By.id(companyMenuPage.CLI_NUMBER_FIELD), number);
         utils.clickBtn(By.id(POSTCODE_SEARCH_POSTCODE_FIELD));
         utils.sendText(By.id(POSTCODE_SEARCH_POSTCODE_FIELD), postCode);
-        utils.clickBtn(By.xpath(SUBMIT_TRANSFER));
+        utils.clickBtn(By.id(SAVE));
     }
 
     public void assertAddress(String roadName, String premiseName, String subpremiseName, String premiseNumber) throws InterruptedException {
