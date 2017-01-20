@@ -112,8 +112,8 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         utils.waitForElementVisible(By.xpath(PREVIOUS_BUTTON));
         utils.clickBtn(By.xpath(PREVIOUS_BUTTON));
         //assert that the emergency info is saved
-       Thread.sleep(1000);
         utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
+        Thread.sleep(1000);
         String text = utils.getAttributeOfElement(By.id(EMERGENCY_INFO_TEXTBOX), "value");
         Assert.assertEquals(text, "emergency info");
     }
