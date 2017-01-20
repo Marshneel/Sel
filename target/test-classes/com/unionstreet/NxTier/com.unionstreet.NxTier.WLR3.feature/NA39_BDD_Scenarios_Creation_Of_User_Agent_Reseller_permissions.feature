@@ -8,7 +8,7 @@ Feature: WLR3_permissions
     When I wish to create agent contact with valid login credentials
     Then the agent permission group should be available for selection under drop down under agentUser creation
     And I should be able to login with agent credentials
-@one
+
   Scenario: Creating a CP permission group and assigning it a CP
     Given I am logged in as an admin
     And   Have created a new CP permission group under settings

@@ -13,6 +13,7 @@ Feature: Scenarios for automatically assign number, specifying new number, selec
       | userName | passWord |
       | CP       | password |
 
+  @E2ETests
   Scenario Outline: Accessing No change, Automatically assign and automatically assign now features under line numbering by logging in as a CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"
     And   I create a new business customer and quote
