@@ -53,7 +53,7 @@ public class NA87_WLR3_New_Provide_Analogue_Multiline_stepDefs {
         //populate hazard and warning notes
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().populateHazardAndWarningNotesUnderDATE("hazard note", "warning notes");
         //finish off the order
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreenAndZoomIn();
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
 
 
     }

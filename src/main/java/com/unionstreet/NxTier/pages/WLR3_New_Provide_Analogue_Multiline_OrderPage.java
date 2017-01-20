@@ -119,11 +119,6 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         utils.clickBtn(By.xpath(NEXT_BUTTON));
     }
 
-    public void navigateToNextScreenAndZoomIn() throws InterruptedException {
-        utils.clickBtn(By.xpath(NEXT_BUTTON));
-        utils.zoomIn(By.id(NEW_PROVIDE_SCREEN));
-        Thread.sleep(1000);
-    }
 
     public void populateLinePlantSummaryUnderPROVISION() throws InterruptedException {
         //verify the error message when termination type is not selected
@@ -222,5 +217,11 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         utils.jumpToPopUpWindow(By.xpath(editOrderPage.QUOTEID_ON_EDITORDER_PAGE));
         // check for the green tick
         utils.waitForElementVisible(By.xpath(editOrderPage.GREEN_TICK));
+        //zoom in to 100%
+        try {
+            utils.zoomIn(By.xpath(editOrderPage.GREEN_TICK));
+            Thread.sleep(1000);
+        } catch (Exception e) {
+        }
     }
 }
