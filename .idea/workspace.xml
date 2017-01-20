@@ -53,8 +53,8 @@
       <file leaf-file-name="WLR3_New_Provide_Analogue_Multiline_OrderPage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_Analogue_Multiline_OrderPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="115" column="52" selection-start-line="115" selection-start-column="52" selection-end-line="115" selection-end-column="52" />
+            <state relative-caret-position="430">
+              <caret line="119" column="8" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -974,13 +974,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00037" summary="removed NA39 and NA51 (last one)">
-      <created>1483540413912</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1483540413912</updated>
-    </task>
     <task id="LOCAL-00038" summary="@NA53, @NA54, NA60, NA61">
       <created>1483634151898</created>
       <option name="number" value="00038" />
@@ -1317,7 +1310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484925441449</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="WLR3 only&#10;NA87, NA60, NA61, NA64">
+      <created>1484928052572</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1484928052573</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1909,8 +1909,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_Analogue_Multiline_OrderPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="115" column="52" selection-start-line="115" selection-start-column="52" selection-end-line="115" selection-end-column="52" />
+        <state relative-caret-position="430">
+          <caret line="119" column="8" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

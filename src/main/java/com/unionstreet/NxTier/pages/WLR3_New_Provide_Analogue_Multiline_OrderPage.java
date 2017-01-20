@@ -116,8 +116,8 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         Assert.assertEquals(text, "emergency info");
     }
 
-    public void editAndAssertServicesChargesUnderSITE(String charges) {
-        utils.waitForElementVisible(By.xpath(EDIT_SERVICECHARGES_BUTTON));
+    public void editAndAssertServicesChargesUnderSITE(String charges) throws InterruptedException {
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath(EDIT_SERVICECHARGES_BUTTON));
         try {
             utils.waitForElementVisible(By.xpath(SAVE_SERVICECHARGES_BUTTON));
