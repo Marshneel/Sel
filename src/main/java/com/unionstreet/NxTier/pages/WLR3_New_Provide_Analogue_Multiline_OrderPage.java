@@ -118,12 +118,12 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
 
     public void editAndAssertServicesChargesUnderSITE(String charges) throws InterruptedException {
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath(EDIT_SERVICECHARGES_BUTTON));
         try {
-            utils.waitForElementVisible(By.xpath(SAVE_SERVICECHARGES_BUTTON));
+            utils.javaScriptExecutorClick(By.xpath(EDIT_SERVICECHARGES_BUTTON));
         } catch (Exception e) {
-
+            utils.javaScriptExecutorClick(By.xpath(EDIT_SERVICECHARGES_BUTTON));
         }
+        utils.waitForElementVisible(By.xpath(SAVE_SERVICECHARGES_BUTTON));
         utils.sendText(By.id(ANALOGUE_MULTILINE_INSTALLATION_CHARGE), "" + charges + "");
         utils.clickBtn(By.xpath(SAVE_SERVICECHARGES_BUTTON));
         utils.waitForElementVisible(By.xpath("//td[text()='£" + charges + ".00']"));

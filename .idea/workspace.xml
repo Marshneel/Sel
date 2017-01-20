@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
+    <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="WLR3 only&#10;NA87, NA60, NA61, NA64">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/report.html" afterPath="$PROJECT_DIR$/output/report.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_Analogue_Multiline_OrderPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_Analogue_Multiline_OrderPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/RunnerTest.java" afterPath="$PROJECT_DIR$/src/test/java/RunnerTest.java" />
     </list>
     <ignored path="NxTier automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WLR3_New_Provide_Analogue_Multiline_OrderPage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WLR3_New_Provide_Analogue_Multiline_OrderPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_Analogue_Multiline_OrderPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="119" column="8" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="8" />
+            <state relative-caret-position="464">
+              <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,7 +94,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NA53_laying_AddOnActivation_charge_forCP_Agent_reseller.feature" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NA53_laying_AddOnActivation_charge_forCP_Agent_reseller.feature" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA53_laying_AddOnActivation_charge_forCP_Agent_reseller.feature">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
@@ -203,12 +205,12 @@
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions.feature" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java" />
-        <option value="$PROJECT_DIR$/src/test/java/RunnerTest.java" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA87_WLR3_New_Provide_Order_Analogue_multiline.feature" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA64_WLR3_Analogue_Line_Transfer_line_Numbering.feature" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA61__Process_FLow_Obtaining_Initial_information.feature" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA60_WLR3_Process_FLow_Analogue_Address_Lookup.feature" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_Analogue_Multiline_OrderPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/RunnerTest.java" />
       </list>
     </option>
   </component>
@@ -974,13 +976,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00038" summary="@NA53, @NA54, NA60, NA61">
-      <created>1483634151898</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1483634151898</updated>
-    </task>
     <task id="LOCAL-00039" summary="@NA53, @NA54, NA60, NA61, @NA64 ADDED">
       <created>1483718284447</created>
       <option name="number" value="00039" />
@@ -1317,7 +1312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484928052573</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="WLR3 only&#10;NA87, NA60, NA61, NA64">
+      <created>1484928325526</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1484928325526</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1374,10 +1376,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34240687" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44444445" sideWeight="0.493553" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3454861" sideWeight="0.493553" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3128991" sideWeight="0.49283668" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5581098" sideWeight="0.49283668" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37106016" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37106016" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1671,11 +1673,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1484921092345" expanded="true" signature="17339:17356" ph="..." />
-            <marker date="1484921092345" expanded="true" signature="17339:17372" ph="..." />
-            <marker date="1484921092345" expanded="true" signature="17339:17379" ph="..." />
-            <marker date="1484921092345" expanded="true" signature="17339:17386" ph="..." />
-            <marker date="1484921092345" expanded="true" signature="17339:17393" ph="..." />
+            <marker date="1484930125230" expanded="true" signature="17339:17356" ph="..." />
+            <marker date="1484930125230" expanded="true" signature="17339:17372" ph="..." />
+            <marker date="1484930125230" expanded="true" signature="17339:17379" ph="..." />
+            <marker date="1484930125230" expanded="true" signature="17339:17386" ph="..." />
+            <marker date="1484930125230" expanded="true" signature="17339:17393" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1859,11 +1861,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA53_laying_AddOnActivation_charge_forCP_Agent_reseller.feature">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_Analogue_Multiline_OrderPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="464">
+          <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1907,13 +1911,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_Analogue_Multiline_OrderPage.java">
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA53_laying_AddOnActivation_charge_forCP_Agent_reseller.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="119" column="8" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="357">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
