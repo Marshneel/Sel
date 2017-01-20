@@ -132,6 +132,7 @@ public class WLR3_LineNumberingPage {
     }
 
     public void enterNumberOnImportFromOtherNetworkPage(String number) throws InterruptedException {
+       utils.waitForElementVisible(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.clickBtn(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.sendText(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK), number);
     }
