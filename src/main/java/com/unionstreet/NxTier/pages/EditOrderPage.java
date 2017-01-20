@@ -23,6 +23,7 @@ public class EditOrderPage {
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
+    NewBusinessCustomerPage newBusinessCustomerPage=new NewBusinessCustomerPage();
 
     public void clickAddProductsAndServicesButton() throws InterruptedException {
         try {
@@ -42,6 +43,7 @@ public class EditOrderPage {
             utils.waitForElementVisible(By.xpath(REDCROSS));
         } catch (Exception e) {
             utils.getOrdersPage();
+            commonMethods.search(newBusinessCustomerPage.RanName);
             utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
             utils.switchToNewWindow();
             utils.waitForElementVisible(By.xpath(REDCROSS));
@@ -69,8 +71,6 @@ public class EditOrderPage {
 
     public void assertValidQuoteAfterSubmitting() {
         utils.waitForElementVisible(By.xpath(GREEN_TICK));
-        utils.selectByIndex(By.id(ORDER_CONTACT), 1);
-        utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_ORDER));
     }
 
     public void accessAdd_ViewNotes() {
