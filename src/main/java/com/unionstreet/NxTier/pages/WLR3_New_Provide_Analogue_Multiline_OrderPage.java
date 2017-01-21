@@ -106,16 +106,6 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         utils.waitForElementVisible(By.xpath(PHONE_NUMBER_MANDATORY_ERROR_MESSAGE));
         //enter contact phone number
         utils.sendText(By.id(TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
-        //verify the entered emergency info is saved by clicking next button
-        utils.clickBtn(By.xpath(NEXT_BUTTON));
-        //and coming back by clicking previous button
-        utils.waitForElementVisible(By.xpath(PREVIOUS_BUTTON));
-        utils.clickBtn(By.xpath(PREVIOUS_BUTTON));
-        //assert that the emergency info is saved
-        utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
-        Thread.sleep(1000);
-        String text = utils.getAttributeOfElement(By.id(EMERGENCY_INFO_TEXTBOX), "value");
-        Assert.assertEquals(text, "emergency info");
     }
 
     public void editAndAssertServicesChargesUnderSITE(String charges) throws InterruptedException {
@@ -133,6 +123,10 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
 
     public void navigateToNextScreen() {
         utils.clickBtn(By.xpath(NEXT_BUTTON));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
     }
 
 
