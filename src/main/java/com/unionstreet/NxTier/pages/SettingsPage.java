@@ -308,8 +308,9 @@ public class SettingsPage {
         utils.switchToNewWindow();
     }
 
-    public void createCPUserAddContactDetails() {
-        utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
+    public void createCPUserAddContactDetails() throws InterruptedException {
+       Thread.sleep(1000);
+        try{ utils.clickBtn(By.id(ADDUSERLOGIN_SITE));}catch (Exception e){utils.clickBtn(By.id(ADDUSERLOGIN_SITE));}
         utils.sendText(By.id(ADDUSERLOGIN_SITE), CP_RanName);
         utils.clickBtn(By.id(ADDUSERLOGIN_EMAIL));
         utils.sendText(By.id(ADDUSERLOGIN_EMAIL), utils.getProperty("cpEmail"));

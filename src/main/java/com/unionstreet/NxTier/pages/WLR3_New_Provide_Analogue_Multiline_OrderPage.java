@@ -89,9 +89,11 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         Thread.sleep(1000);
         try {
             utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
+            utils.clickBtn(By.id(EMERGENCY_INFO_TEXTBOX));
             utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
         } catch (Exception e) {
             utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
+            utils.clickBtn(By.id(EMERGENCY_INFO_TEXTBOX));
             utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
         }
 

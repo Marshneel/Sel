@@ -246,6 +246,7 @@ public class OrdersManagerPage {
             utils.switchToNewWindow();
         } catch (Exception e) {
             utils.getOrdersPage();
+            Thread.sleep(1000);
             utils.clickBtn(By.xpath(QUOTEID));
             utils.switchToNewWindow();
         }
