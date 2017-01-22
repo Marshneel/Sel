@@ -31,11 +31,15 @@ public class WLR3_InstallationAddressPage {
 
     public void accessInstallationAddressPage() throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
+        utils.zoomOut(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        Thread.sleep(1000);
         utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
         //    utils.scrollUp(By.id("installationAddressSummaryPanel"));
         utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         utils.clickBtn(By.xpath(INSTALLATION_ADDRESS_BUTTON));
     }
+
+
 
     public void EnterPostCodeInSearchAddressByPostCode(String postCode) {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD));
@@ -54,6 +58,8 @@ public class WLR3_InstallationAddressPage {
 
     public void populateInstallationAddressPage() throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
+        utils.zoomOut(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        Thread.sleep(1000);
         utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
         //   utils.scrollUp(By.id("installationAddressSummaryPanel"));
         utils.jumpToPopUpWindow(By.xpath(INSTALLATION_ADDRESS_BUTTON));

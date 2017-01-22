@@ -16,6 +16,8 @@ public class WLR3_NetworkCallingFeaturesPage {
 
     public void populateNetworkCallingFeatures() throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
+        utils.zoomOut(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        Thread.sleep(1000);
         utils.waitForElementVisible(By.id("networkFeaturesSummaryPanel"));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         try {

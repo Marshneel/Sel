@@ -30,7 +30,7 @@ public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
         webModel.getWlr3_orderDetails_page().enterPhoneNumberAndPostCodeToInitiateTheTransfer("01202300908", "lu1 1dq");
     }
 
-    @When("^I Access postcode search under installation address tab and enter incorrect post code$")
+    @When("^I access postcode search under installation address tab and enter incorrect post code$")
     public void iAccessPostcodeSearchUnderInstallationAddressTabAndEnterIncorrectPostCode() throws InterruptedException {
         webModel.getWlr3_installationAddressPage().accessInstallationAddressPage();
         webModel.getWlr3_installationAddressPage().EnterPostCodeInSearchAddressByPostCode("GU22 9DY");

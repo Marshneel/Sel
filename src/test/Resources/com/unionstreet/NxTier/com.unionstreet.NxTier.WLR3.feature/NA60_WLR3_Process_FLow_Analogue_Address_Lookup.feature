@@ -5,7 +5,7 @@ Feature: WLR3 Transfer order- address lookup by postcode, Address key and Advanc
     Given I am logged in with "<userName>" and "<passWord>"
     And   I create a new business customer and quote
     And  I assign WLR transfer order service to the newly created quote
-    When  I Access postcode search under installation address tab and enter incorrect post code
+    When  I access postcode search under installation address tab and enter incorrect post code
     Then  Error should be thrown for incorrect postCode
     And   When i enter valid post code
     Then  I should be able to search and select the address by post code

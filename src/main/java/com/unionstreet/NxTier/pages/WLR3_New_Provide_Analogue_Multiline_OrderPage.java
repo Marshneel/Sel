@@ -93,6 +93,7 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
             utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
         } catch (Exception e) {
             utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
+           Thread.sleep(1000);
             utils.clickBtn(By.id(EMERGENCY_INFO_TEXTBOX));
             utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
         }
@@ -229,11 +230,5 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         utils.jumpToPopUpWindow(By.xpath(editOrderPage.QUOTEID_ON_EDITORDER_PAGE));
         // check for the green tick
         utils.waitForElementVisible(By.xpath(editOrderPage.GREEN_TICK));
-        //zoom in to 100%
-        try {
-            utils.zoomIn(By.xpath(editOrderPage.GREEN_TICK));
-            Thread.sleep(1000);
-        } catch (Exception e) {
-        }
     }
 }

@@ -103,7 +103,6 @@ public class WLR3_OrderDetails_Page {
         textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id("siteInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
-        //  Thread.sleep(1000);
         utils.waitForElementToVanish(By.xpath(SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE));
         utils.waitForElementToVanish(By.xpath(SITE_EMAILID_ON_WLR3_ORDER_PAGE));
     }
