@@ -18,18 +18,16 @@ import java.util.Properties;
 import java.util.Set;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
-import static com.unionstreet.NxTier.support.BaseClass.utils;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertTrue;
 
 public class ElementUtils {
 
+    public static ResultSet result;
     public String parentWindow;
     private Properties prop;
     private FileInputStream fileInputStream;
-    public static ResultSet result;
-
 
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(driver)
@@ -152,17 +150,17 @@ public class ElementUtils {
     //browser selector
     public WebDriver browser() {
         try {
-
-            if (utils.getProperty("browser").equalsIgnoreCase("chrome")) {
+            String browser = System.getProperty("browser");
+            if (browser.equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--disable-extensions");
                 options.addArguments("--dns-prefetch-disable");
                 driver = new ChromeDriver(options);
-            } else if (utils.getProperty("browser").equalsIgnoreCase("IE")) {
+            } else if (browser.equalsIgnoreCase("IE")) {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
                 driver = new InternetExplorerDriver();
-            } else if (utils.getProperty("browser").equalsIgnoreCase("firefox")) {
+            } else if (browser.equalsIgnoreCase("firefox")) {
                 driver = new FirefoxDriver();
             }
 
@@ -324,6 +322,14 @@ public class ElementUtils {
         driver.get("http://test01-web01/nxtiere2e");
     }
 
+    public void getDashBoardPage() {
+        driver.get("http://test01-web01/nxtiere2e/Dashboard/index");
+    }
+
+    public void getCpAddUserPage(){
+        driver.get("http://test01-web01/nxtiere2e/CPUsers/CPUsersList");
+    }
+
     public void assertElementNotPresent(By by) {
         List<WebElement> element = driver.findElements(by);
         assertTrue(element.isEmpty());
@@ -430,6 +436,18 @@ public class ElementUtils {
 
     public void checkPoint(String text) {
         System.out.println(text);
+    }
+
+    public void zoomOut(By by) {
+        for (int i = 0; i < 3; i++) {
+            driver.findElement(by).sendKeys(Keys.CONTROL, Keys.SUBTRACT);
+        }
+    }
+
+    public void zoomIn(By by) {
+        for (int i = 0; i < 3; i++) {
+            driver.findElement(by).sendKeys(Keys.CONTROL, Keys.ADD);
+        }
     }
 
 }

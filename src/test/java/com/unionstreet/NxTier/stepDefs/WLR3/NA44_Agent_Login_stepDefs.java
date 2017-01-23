@@ -54,6 +54,7 @@ public class NA44_Agent_Login_stepDefs {
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickOrderManagerButton();
     }
+
     @Then("^I should not see that particular quote$")
     public void iShouldNotSeeThatParticularQuote() {
         webModel.getOrdersManagerPage().searchQuoteByQRN();

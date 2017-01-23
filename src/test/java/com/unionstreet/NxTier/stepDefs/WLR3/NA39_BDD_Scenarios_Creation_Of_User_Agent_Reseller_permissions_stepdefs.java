@@ -6,6 +6,9 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
+
 
 /**
  * Created by rajeshg on 12/09/2016.
@@ -16,7 +19,10 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
 
 
     @And("^have added a new business customer with required contact type$")
-    public void haveAddedANewBusinessCustomerWithRequiredContactType() throws InterruptedException {
+    public void haveAddedANewBusinessCustomerWithRequiredContactType() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        //passing SQL query to correct the attributes of agent and reseller
+        webModel.getUtils().sqlExeQuery("Portal", "test01-sql01", "nxtiere2e", "update company set is_customer = 1, is_agent = 0, is_reseller = 1 where id = 109");
+        webModel.getUtils().sqlExeQuery("Portal", "test01-sql01", "nxtiere2e", "update company set is_customer = 0, is_agent = 1, is_reseller = 0 where id = 108");
         webModel.getNewBusinessCustomerPage().clickContactManagerButton();
         webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
         webModel.getNewBusinessCustomerPage().companyInfoForNewBusinessCustomer();
@@ -58,25 +64,6 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     @And("^I should be able to login with agent credentials$")
     public void iShouldBeAbleToLoginWithAgentCredentials() throws InterruptedException {
         webModel.getSettingsPage().loginAsAgent();
-    }
-
-    @When("^I wish to create a business reseller contact with valid login credentials$")
-    public void iWishToCreateABusinessResellerContactWithValidLoginCredentials() throws InterruptedException {
-        webModel.getCompanyMenuPage().accessCompanyMenu();
-        webModel.getSettingsPage().clickCompanyContacts();
-        webModel.getSettingsPage().addNewCompanyContactButton();
-        webModel.getSettingsPage().agentUserAddContactDetails();
-    }
-
-    @Then("^the agent permission group should be available for selection under drop down under business reseller contact creation$")
-    public void theAgentPermissionGroupShouldBeAvailableForSelectionUnderDropDownUnderBusinessResellerContactCreation() {
-        webModel.getSettingsPage().agentUserAddLoginDetails();
-    }
-
-    @And("^I should be able to login with reseller credentials$")
-    public void iShouldBeAbleToLoginWithResellerCredentials() {
-        webModel.getSettingsPage().loginAsReseller();
-        webModel.getDashBoardPage().logOut();
     }
 
     @And("^Have created a new CP permission group under settings$")
@@ -151,6 +138,22 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
         webModel.getOrdersManagerPage().assertQuotePageForAgentandReseller();
     }
 
+    @And("^Only the quotes created for companies under my contact list should be visible$")
+    public void onlyTheQuotesCreatedForCompaniesUnderMyContactListShouldBeVisible() {
+        webModel.getOrdersManagerPage().assertQuoteForReseller();
+        webModel.getOrdersManagerPage().checkQuoteForReseller();
+
+
+    }
+
+    @When("^I access create Quote tab for Reseller$")
+    public void iAccessCreateQuoteTabForReseller() throws InterruptedException {
+        webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().onQuotePageForReseller();
+
+    }
+
     @And("^Only the quotes created by me and the ones created for companies under my contact list should be visible$")
     public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForCompaniesUnderMyContactListShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
@@ -174,4 +177,6 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
         webModel.getOrdersManagerPage().checkQuotesForCP();
         webModel.getUtils().checkPoint("NA39 done");
     }
+
+
 }

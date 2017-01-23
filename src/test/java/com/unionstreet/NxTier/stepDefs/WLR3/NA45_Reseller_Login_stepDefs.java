@@ -15,19 +15,15 @@ public class NA45_Reseller_Login_stepDefs {
 
     @And("^have created a new site for a company$")
     public void haveCreatedANewSiteForACompany() throws InterruptedException {
-        webModel.getNewBusinessCustomerPage().clickContactManagerButton();
-        webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
-        webModel.getNewBusinessCustomerPage().addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes();
-        webModel.getNewBusinessCustomerPage().addSiteInfoForNewBusinessCustomer();
-        webModel.getNewBusinessCustomerPage().addSiteContactInfoForNewBusinessCustomer();
+        webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().clickOnResellerUnderCustomerDetails();
         webModel.getContactManagerPage().clickCompanySite();
-        webModel.getContactManagerPage().addNewSiteForReseller();
+        webModel.getAddSiteDetailsPage().addNewSiteForReseller();
     }
 
     @When("^I access create Quote tab and select the above company from the company dropdown$")
     public void iAccessCreateQuoteTabAndSelectTheAboveCompanyFromTheCompanyDropdown() throws InterruptedException {
-        webModel.getContactManagerPage().navigateToHomePage();
+        webModel.getAddSiteDetailsPage().navigateToHomePage();
         webModel.getDashBoardPage().clickOrderManagerButton();
     }
 

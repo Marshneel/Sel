@@ -11,10 +11,18 @@ public class LoginPage {
     ElementUtils utils = new ElementUtils();
 
     public void doLogin() {
-        utils.sendText(By.id(USENAME_FIELD), utils.getProperty("userName"));
+        try {
+            utils.waitForElementVisible(By.id(USENAME_FIELD));
+            utils.sendText(By.id(USENAME_FIELD), utils.getProperty("userName"));
+        } catch (Exception e) {
+            utils.getLoginPage();
+            utils.waitForElementVisible(By.id(USENAME_FIELD));
+            utils.sendText(By.id(USENAME_FIELD), utils.getProperty("userName"));
+        }
         utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("passWord"));
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
+
 
     public void failedLogin(String username, String password) {
         utils.sendText(By.id(USENAME_FIELD), username);

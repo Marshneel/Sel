@@ -8,26 +8,24 @@ import org.openqa.selenium.By;
  */
 public class WLR3_OrderDetails_Page {
 
-    private final String SUBMIT_TRANSFER = "//input[@onclick='SubmitTransfer();']";
-    // TODO: 06/01/2017  
+    // TODO: 06/01/2017
     public final String TEXT_ON_WLR3_ORDER_DETAIL_PAGE = "//h3[text()='vodafone > WLR3 Order Detail']";
-    private final String ADDRESS_SEARCH_RESULT = "address_0";
-    private final String CONTINUE_AFTER_ADDRESS_IS_CHOOSEN = "//button[text()='Continue']";
-    private final String INVALID_ADDRESSKEY = "//span[text()='Invalid Address Key']";
-    private final String ADDRESS_SEARCH_RESULT_FOR_LU1_1DQ_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_addr_postcode'][contains(text(),'LU1 1DQ')]";
+    public final String ADDRESS_SEARCH_RESULT = "address_0";
+    public final String CONTINUE_AFTER_ADDRESS_IS_CHOOSEN = "//button[text()='Continue']";
     public final String POSTCODE_SEARCH_POSTCODE_FIELD = "Postcode";
     public final String NETWORK_FEATURES_BUTTON = "//a[contains(@onclick,'return showNetworkFeatures')]";
     public final String SITE_INFORMATION_BUTTON = "//a[contains(@onclick,'return showSiteInformation')]";
     public final String DIRECTORY_INFORMATION_BUTTON = "//a[contains(@onclick,'loadDirectoryInformationPopup')]";
+    public final String CLOSE = "closeBtn";
+    public final String SAVE = "saveBtn";
+    private final String INVALID_ADDRESSKEY = "//span[text()='Invalid Address Key']";
+    public final String ADDRESS_SEARCH_RESULT_FOR_LU1_1DQ_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_addr_postcode'][contains(text(),'LU1 1DQ')]";
     private final String LINE_NUMBERING_BUTTON = "//a[contains(@onclick,'loadLineNumbering')]";
     private final String ADMIN_CONT_CAL_DIV_ON_ORDER_DETAIL_PAGE = "//label[@class='networkFeature'][contains(text(),'Admin Controlled Call Diversion')]";
     private final String SURNAME_OF_DIRECTORY_INFO_ON_WLR3_ORDER_PAGE = "//p[text()='Telecom ']";
     private final String ANO_CAL_REJ_UNDER_ON_ORDER_DETAIL_PAGE = "//label[@class='text-success'][text()[contains(.,'Anonymous Call Reject')]]";
-    public final String CLOSE = "closeBtn";
     private final String SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_contact_name'][contains(text(),'Jeroen')]";
     private final String SITE_EMAILID_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_contact_email'][contains(text(),'Jeroen@vodafone.co.uk')]";
-    private final String TEXT_ON_LINE_NUMBERING_PAGE = "//li[text()='vodafone']";
-    public final String SAVE = "saveBtn";
     private final String ITEMID_ON_EDITORDER = "//a[@href='#'][starts-with(@onclick,'OpenNewWLR3OrderDetailPopup')]";
     private final String CONTINUETAB_UNDER_NOCHANGE_LINE_INFO = "//a[@onclick='lineNumbering.submitChanges(0);']";
     private final String APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE = "//a[contains(@onclick,'showNewBookAppointment')]";
@@ -37,12 +35,12 @@ public class WLR3_OrderDetails_Page {
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
 
     public void enterPhoneNumberAndPostCodeToInitiateTheTransfer(String number, String postCode) {
-        utils.waitForElementVisible(By.xpath(SUBMIT_TRANSFER));
+        utils.waitForElementVisible(By.id(SAVE));
         utils.clickBtn(By.id(companyMenuPage.CLI_NUMBER_FIELD));
         utils.sendText(By.id(companyMenuPage.CLI_NUMBER_FIELD), number);
         utils.clickBtn(By.id(POSTCODE_SEARCH_POSTCODE_FIELD));
         utils.sendText(By.id(POSTCODE_SEARCH_POSTCODE_FIELD), postCode);
-        utils.clickBtn(By.xpath(SUBMIT_TRANSFER));
+        utils.clickBtn(By.id(SAVE));
     }
 
     public void assertAddress(String roadName, String premiseName, String subpremiseName, String premiseNumber) throws InterruptedException {
@@ -105,7 +103,6 @@ public class WLR3_OrderDetails_Page {
         textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id("siteInformationSummaryPanel"));
         utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
-        //  Thread.sleep(1000);
         utils.waitForElementToVanish(By.xpath(SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE));
         utils.waitForElementToVanish(By.xpath(SITE_EMAILID_ON_WLR3_ORDER_PAGE));
     }

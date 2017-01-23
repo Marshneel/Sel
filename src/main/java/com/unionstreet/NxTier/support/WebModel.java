@@ -24,7 +24,15 @@ public class WebModel {
     private WLR3_AppointmentPage wlr3_appointmentPage;
     private WLR3_SiteInformationPage wlr3_siteInformationPage;
     private WLR3_DirectoryInformationPage wlr3_directoryInformationPage;
-    private WLR3_NetworkCallingFeaturesPage wlr3_networkCallingFeaturesPage=new WLR3_NetworkCallingFeaturesPage();
+    private WLR3_NetworkCallingFeaturesPage wlr3_networkCallingFeaturesPage;
+    private WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage;
+    private AddSiteDetailsPage addSiteDetailsPage;
+    private WLR3_NewProvide_AnaMultLine_SitePage wlr3_newProvide_anaMultLine_sitePage;
+    private WLR3_NewProvide_AnaMultLine_ProvisionPage wlr3_newProvide_anaMultLine_provisionPage;
+    private WLR3_NewProvide_AnaMultLine_EngineeringPage wlr3_newProvide_anaMultLine_engineeringPage;
+    private WLR3_NewProvide_AnaMultLine_FeaturesPage wlr3_newProvide_anaMultLine_featuresPage;
+    private WLR3_NewProvide_AnaMultLine_NumberingPage wlr3_newProvide_anaMultLine_numberingPage;
+    private WLR3_NewProvide_AnaMultLine_DatePage wlr3_newProvide_anaMultLine_datePage;
 
 
     public WebModel() {
@@ -40,15 +48,23 @@ public class WebModel {
         ordersManagerPage = new OrdersManagerPage();
         addServicePage = new AddServicePage();
         wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
-        wlr_and_nxTierServicesPage=new WLR_and_NxTierServicesPage();
-        nxTierServicesPage=new NxTierServicesPage();
-        editOrderPage=new EditOrderPage();
+        wlr_and_nxTierServicesPage = new WLR_and_NxTierServicesPage();
+        nxTierServicesPage = new NxTierServicesPage();
+        editOrderPage = new EditOrderPage();
         wlr3_lineNumberingPage = new WLR3_LineNumberingPage();
-        wlr3_installationAddressPage=new WLR3_InstallationAddressPage();
-        wlr3_appointmentPage=new WLR3_AppointmentPage();
-        wlr3_siteInformationPage =new WLR3_SiteInformationPage();
+        wlr3_installationAddressPage = new WLR3_InstallationAddressPage();
+        wlr3_appointmentPage = new WLR3_AppointmentPage();
+        wlr3_siteInformationPage = new WLR3_SiteInformationPage();
         wlr3_directoryInformationPage = new WLR3_DirectoryInformationPage();
-        wlr3_networkCallingFeaturesPage=new WLR3_NetworkCallingFeaturesPage();
+        wlr3_networkCallingFeaturesPage = new WLR3_NetworkCallingFeaturesPage();
+        wlr3_new_provide_analogue_multiline_orderPage = new WLR3_New_Provide_Analogue_Multiline_OrderPage();
+        addSiteDetailsPage = new AddSiteDetailsPage();
+        wlr3_newProvide_anaMultLine_sitePage = new WLR3_NewProvide_AnaMultLine_SitePage();
+        wlr3_newProvide_anaMultLine_provisionPage=new WLR3_NewProvide_AnaMultLine_ProvisionPage();
+        wlr3_newProvide_anaMultLine_engineeringPage=new WLR3_NewProvide_AnaMultLine_EngineeringPage();
+        wlr3_newProvide_anaMultLine_featuresPage=new WLR3_NewProvide_AnaMultLine_FeaturesPage();
+        wlr3_newProvide_anaMultLine_numberingPage=new WLR3_NewProvide_AnaMultLine_NumberingPage();
+        wlr3_newProvide_anaMultLine_datePage=new WLR3_NewProvide_AnaMultLine_DatePage();
     }
 
     public ElementUtils getUtils() {
@@ -95,39 +111,67 @@ public class WebModel {
         return wlr3_orderDetails_page;
     }
 
-    public WLR_and_NxTierServicesPage getWlr_and_nxTierServicesPage(){
+    public WLR_and_NxTierServicesPage getWlr_and_nxTierServicesPage() {
         return wlr_and_nxTierServicesPage;
     }
 
-    public NxTierServicesPage getNxTierServicesPage(){
+    public NxTierServicesPage getNxTierServicesPage() {
         return nxTierServicesPage;
     }
 
-    public EditOrderPage getEditOrderPage(){
+    public EditOrderPage getEditOrderPage() {
         return editOrderPage;
     }
 
-    public WLR3_LineNumberingPage getWlr3_lineNumberingPage(){
+    public WLR3_LineNumberingPage getWlr3_lineNumberingPage() {
         return wlr3_lineNumberingPage;
     }
 
-    public WLR3_InstallationAddressPage getWlr3_installationAddressPage(){
+    public WLR3_InstallationAddressPage getWlr3_installationAddressPage() {
         return wlr3_installationAddressPage;
     }
 
-    public WLR3_AppointmentPage getWlr3_appointmentPage(){
+    public WLR3_AppointmentPage getWlr3_appointmentPage() {
         return wlr3_appointmentPage;
     }
 
-    public WLR3_SiteInformationPage getWlr3_siteInformationPage(){
+    public WLR3_SiteInformationPage getWlr3_siteInformationPage() {
         return wlr3_siteInformationPage;
     }
 
-    public WLR3_DirectoryInformationPage getWlr3_directoryInformationPage(){
+    public WLR3_DirectoryInformationPage getWlr3_directoryInformationPage() {
         return wlr3_directoryInformationPage;
     }
 
-    public WLR3_NetworkCallingFeaturesPage getWlr3_networkCallingFeaturesPage(){
+    public WLR3_NetworkCallingFeaturesPage getWlr3_networkCallingFeaturesPage() {
         return wlr3_networkCallingFeaturesPage;
     }
+
+    public WLR3_New_Provide_Analogue_Multiline_OrderPage getWlr3_new_provide_analogue_multiline_orderPage() {
+        return wlr3_new_provide_analogue_multiline_orderPage;
+    }
+
+    public AddSiteDetailsPage getAddSiteDetailsPage() {
+        return addSiteDetailsPage;
+    }
+
+    public WLR3_NewProvide_AnaMultLine_SitePage getwlr3_newProvide_anaMultLine_sitePage(){
+        return wlr3_newProvide_anaMultLine_sitePage;
+    }
+    public WLR3_NewProvide_AnaMultLine_ProvisionPage getWlr3_newProvide_anaMultLine_provisionPage(){
+        return wlr3_newProvide_anaMultLine_provisionPage;
+    }
+    public WLR3_NewProvide_AnaMultLine_EngineeringPage getWlr3_newProvide_anaMultLine_engineeringPage(){
+        return wlr3_newProvide_anaMultLine_engineeringPage;
+    }
+    public WLR3_NewProvide_AnaMultLine_FeaturesPage getWlr3_newProvide_anaMultLine_featuresPage(){
+        return wlr3_newProvide_anaMultLine_featuresPage;
+    }
+    public WLR3_NewProvide_AnaMultLine_NumberingPage getWlr3_newProvide_anaMultLine_numberingPage(){
+        return wlr3_newProvide_anaMultLine_numberingPage;
+    }
+    public WLR3_NewProvide_AnaMultLine_DatePage getWlr3_newProvide_anaMultLine_datePage(){
+        return wlr3_newProvide_anaMultLine_datePage;
+    }
+
 }

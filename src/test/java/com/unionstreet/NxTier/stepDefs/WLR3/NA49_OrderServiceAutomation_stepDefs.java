@@ -38,6 +38,14 @@ public class NA49_OrderServiceAutomation_stepDefs {
     public void theControlThatIsCPOnlyShouldBeInvisible() throws InterruptedException {
         webModel.getNxTierServicesPage().assertCPonlyValueNotPresent();
     }
+
+    @And("^Have created a quote for reseller$")
+    public void haveCreatedAQuoteForReseller() throws InterruptedException {
+        webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().createQuoteForReseller();
+
+    }
 /////////////////////////////////////////////////////////////////////////////////////////////
 
     @When("^I access quote details and add a service without selecting the mandatory control$")
@@ -62,4 +70,6 @@ public class NA49_OrderServiceAutomation_stepDefs {
         webModel.getEditOrderPage().assertValidQuoteAfterSubmitting();
         webModel.getUtils().checkPoint("NA49 done");
     }
+
+
 }

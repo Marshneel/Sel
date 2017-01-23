@@ -26,11 +26,21 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
     @Then("^the CP only control should be visible and accessible$")
     public void theCPOnlyControlShouldBeVisibleAndAccessible() {
         webModel.getNxTierServicesPage().assertCPonlyCheckBoxPresentAndAccessible();
-
     }
+
+    @And("^create a new quote and access a service for reseller$")
+    public void createANewQuoteAndAccessAServiceForReseller() throws InterruptedException {
+        webModel.getOrdersManagerPage().clickOnQuoteID();
+//        TODO
+        webModel.getAddServicePage().addServiceToQuote("permissions");
+    }
+
+
     @Then("^the CP only control should be invisible$")
     public void theCPOnlyControlShouldBeInvisible() throws InterruptedException {
         webModel.getNxTierServicesPage().assertCPonlyCheckBoxIsAbsent();
         webModel.getUtils().checkPoint("NA52 done");
     }
+
+
 }

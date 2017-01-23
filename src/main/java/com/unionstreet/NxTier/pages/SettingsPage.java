@@ -87,6 +87,7 @@ public class SettingsPage {
 
 
     public void clickSettingsButton() {
+        utils.waitForElementVisible(By.id(SETTINGS_BUTTON));
         utils.clickBtn(By.id(SETTINGS_BUTTON));
     }
 
@@ -308,9 +309,21 @@ public class SettingsPage {
         utils.switchToNewWindow();
     }
 
-    public void createCPUserAddContactDetails() {
-        utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
-        utils.sendText(By.id(ADDUSERLOGIN_SITE), CP_RanName);
+    public void createCPUserAddContactDetails() throws InterruptedException {
+        Thread.sleep(1000);
+        try {
+            utils.waitForElementVisible(By.id(ADDUSERLOGIN_SITE));
+            utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
+            utils.sendText(By.id(ADDUSERLOGIN_SITE), CP_RanName);
+        } catch (Exception e) {
+            utils.getCpAddUserPage();
+            clickAddLoginUsersButton();
+            addCPloginUserSelectCompanyandSite();
+            Thread.sleep(1000);
+            utils.waitForElementVisible(By.id(ADDUSERLOGIN_SITE));
+            utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
+            utils.sendText(By.id(ADDUSERLOGIN_SITE), CP_RanName);
+        }
         utils.clickBtn(By.id(ADDUSERLOGIN_EMAIL));
         utils.sendText(By.id(ADDUSERLOGIN_EMAIL), utils.getProperty("cpEmail"));
     }

@@ -41,4 +41,14 @@ public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
     }
 
 
+    @And("^I create a new quote for reseller and add a service with addOnActivation charge$")
+    public void iCreateANewQuoteForResellerAndAddAServiceWithAddOnActivationCharge() throws InterruptedException {
+        webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().createQuoteForReseller();
+        webModel.getOrdersManagerPage().clickOnQuoteID();
+//        TODO
+        webModel.getAddServicePage().addServiceToQuote("addOnActivationCharge");
+        webModel.getOrdersManagerPage().savingQuoteAndExtractingOrderServiceID();
+    }
 }

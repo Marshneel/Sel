@@ -9,14 +9,15 @@ import org.openqa.selenium.By;
 public class OrdersManagerPage {
 
     private static String QUOTE_RanName;
+
     public final String QUOTE = "bodyContent";
     public final String INVISIBLE_ORDER_SERVICESID = "//input[@id='Service_ID']";
+    public final String QUOTEID = "//a[contains(@href,'Orders/EditOrder')]";
     private final String CREATEQUOTE_BUTTON = "//a[@class='add'][text()[contains(.,'Create Quote')]]";
     //TODO
     private final String ORDER_QUOTE_DESCRIPTION_FIELD = "//input[@class='textfield']";
     private final String ORDERS_SAVEQUOTE_BUTTON = "CreateQuoteButton";
     private final String QUOTEBOX = "StartQuote";
-    public final String QUOTEID = "//a[contains(@href,'Orders/EditOrder')]";
     private final String AGENT = "//td[text()='agentCompany']";
     private final String RESELLER = "//td[text()='reseller']";
     private final String AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER = "checkbox0";
@@ -33,6 +34,7 @@ public class OrdersManagerPage {
     LoginPage loginPage = new LoginPage();
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     SettingsPage settingsPage = new SettingsPage();
+    AddSiteDetailsPage addSiteDetailsPage=new AddSiteDetailsPage();
 
     public void clickCreateQuoteButton() throws InterruptedException {
 
@@ -51,6 +53,17 @@ public class OrdersManagerPage {
         utils.sendText(By.xpath(ORDER_QUOTE_DESCRIPTION_FIELD), newBusinessCustomerPage.RanName);
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.selectByVisibleText(By.id("CompanyId"), newBusinessCustomerPage.RanName);
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+    }
+
+    public void onQuotePageForReseller() throws InterruptedException {
+       addSiteDetailsPage.Reseller_RanName = utils.randomName();
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.sendText(By.xpath(ORDER_QUOTE_DESCRIPTION_FIELD), addSiteDetailsPage.Reseller_RanName);
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.selectByVisibleText(By.id("CompanyId"), "reseller");
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.selectByVisibleText(By.id("SiteId"), "reseller");
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
     }
 
@@ -154,6 +167,11 @@ public class OrdersManagerPage {
         utils.searchAndAssertTextPresent(By.id(QUOTE), newBusinessCustomerPage.RanName);
     }
 
+    public void assertQuoteForReseller() {
+        utils.getOrdersPage();
+        utils.searchAndAssertTextPresent(By.id(QUOTE), addSiteDetailsPage.Reseller_RanName);
+    }
+
     public void assertCompanyIsAccessibleFromCompanyAndSiteDropDown() {
         utils.waitForElementVisible(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY));
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY), newBusinessCustomerPage.RanName);
@@ -174,6 +192,22 @@ public class OrdersManagerPage {
         utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
         utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.getOrdersPage();
+    }
+
+    public void createQuoteForReseller() throws InterruptedException {
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.sendText(By.xpath(ORDER_QUOTE_DESCRIPTION_FIELD), addSiteDetailsPage.Reseller_RanName);
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.clickBtn(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY));
+        utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY), "reseller");
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), addSiteDetailsPage.Reseller_RanName);
+        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
+        utils.clickBtn(By.cssSelector(QUOTE_LINKTEST));
+        utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
+
+
     }
 
     public void searchQuoteByQRN() {
@@ -212,6 +246,7 @@ public class OrdersManagerPage {
             utils.switchToNewWindow();
         } catch (Exception e) {
             utils.getOrdersPage();
+            Thread.sleep(1000);
             utils.clickBtn(By.xpath(QUOTEID));
             utils.switchToNewWindow();
         }

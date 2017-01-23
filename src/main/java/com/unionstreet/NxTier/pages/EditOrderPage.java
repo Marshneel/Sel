@@ -9,20 +9,21 @@ import org.openqa.selenium.NoSuchElementException;
  */
 public class EditOrderPage {
 
-    ElementUtils utils = new ElementUtils();
-    CommonMethods commonMethods = new CommonMethods();
-    OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
-
-
     public final String ADD_PRODUCT_AND_SERVICE_BUTTON = "//span[text()='Add a product or service']";
     private final String REDCROSS = "//td[@class='red-cross']";
-    private final String GREEN_TICK = "//td[@class='green-tick']";
+    public final String GREEN_TICK = "//td[@class='green-tick']";
     private final String ADD_VIEW_NOTES = "//span[text()='Add / View Notes']";
     private final String CUSTOMER_RADIOBUTTON = "SendToCustomer";
     private final String INTERNAL_RADIOBUTTON = "SendToInternal";
     private final String SERVICE_NOT_COMPLETED_MESSAGE = "//div[text()='Services are not completed']";
     private final String SAVE_AND_SUBMIT_ORDER = "//span[text()='Save & Submit Order']";
     private final String ORDER_CONTACT = "Order_order_contact_id";
+    public final String QUOTEID_ON_EDITORDER_PAGE = "//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]";
+
+    ElementUtils utils = new ElementUtils();
+    CommonMethods commonMethods = new CommonMethods();
+    OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
+    NewBusinessCustomerPage newBusinessCustomerPage=new NewBusinessCustomerPage();
 
     public void clickAddProductsAndServicesButton() throws InterruptedException {
         try {
@@ -42,6 +43,7 @@ public class EditOrderPage {
             utils.waitForElementVisible(By.xpath(REDCROSS));
         } catch (Exception e) {
             utils.getOrdersPage();
+            commonMethods.search(newBusinessCustomerPage.RanName);
             utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
             utils.switchToNewWindow();
             utils.waitForElementVisible(By.xpath(REDCROSS));
@@ -69,8 +71,6 @@ public class EditOrderPage {
 
     public void assertValidQuoteAfterSubmitting() {
         utils.waitForElementVisible(By.xpath(GREEN_TICK));
-        utils.selectByIndex(By.id(ORDER_CONTACT), 1);
-        utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_ORDER));
     }
 
     public void accessAdd_ViewNotes() {
@@ -103,5 +103,16 @@ public class EditOrderPage {
         }
         utils.assertElementNotPresent(By.id(CUSTOMER_RADIOBUTTON));
         utils.assertElementNotPresent(By.id(INTERNAL_RADIOBUTTON));
+    }
+    public void verifyOrderCompletion() throws InterruptedException {
+        //load created quote
+        try {
+            utils.getOrdersPage();
+            ordersManagerPage.clickOnQuoteID();
+        } catch (Exception e) {
+        }
+        utils.jumpToPopUpWindow(By.xpath(QUOTEID_ON_EDITORDER_PAGE));
+        // check for the green tick
+        utils.waitForElementVisible(By.xpath(GREEN_TICK));
     }
 }

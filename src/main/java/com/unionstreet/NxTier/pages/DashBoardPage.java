@@ -32,4 +32,8 @@ public class DashBoardPage {
         utils.scrollUp(By.id(ORDERSMANAGER_BUTTON));
         utils.clickBtn(By.id(ORDERSMANAGER_BUTTON));
     }
+
+    public void clickContactManagerTab() {
+        utils.clickBtn(By.id("HrefContactManager"));
+    }
 }
