@@ -87,6 +87,7 @@ public class SettingsPage {
 
 
     public void clickSettingsButton() {
+       utils.waitForElementVisible(By.id(SETTINGS_BUTTON));
         utils.clickBtn(By.id(SETTINGS_BUTTON));
     }
 
