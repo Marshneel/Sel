@@ -18,12 +18,12 @@ public class NA45_Reseller_Login_stepDefs {
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().clickOnResellerUnderCustomerDetails();
         webModel.getContactManagerPage().clickCompanySite();
-        webModel.addSiteDetailsPage().addNewSiteForReseller();
+        webModel.getAddSiteDetailsPage().addNewSiteForReseller();
     }
 
     @When("^I access create Quote tab and select the above company from the company dropdown$")
     public void iAccessCreateQuoteTabAndSelectTheAboveCompanyFromTheCompanyDropdown() throws InterruptedException {
-        webModel.addSiteDetailsPage().navigateToHomePage();
+        webModel.getAddSiteDetailsPage().navigateToHomePage();
         webModel.getDashBoardPage().clickOrderManagerButton();
     }
 

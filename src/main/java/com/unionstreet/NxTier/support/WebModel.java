@@ -27,6 +27,12 @@ public class WebModel {
     private WLR3_NetworkCallingFeaturesPage wlr3_networkCallingFeaturesPage;
     private WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage;
     private AddSiteDetailsPage addSiteDetailsPage;
+    private WLR3_NewProvide_AnaMultLine_SitePage wlr3_newProvide_anaMultLine_sitePage;
+    private WLR3_NewProvide_AnaMultLine_ProvisionPage wlr3_newProvide_anaMultLine_provisionPage;
+    private WLR3_NewProvide_AnaMultLine_EngineeringPage wlr3_newProvide_anaMultLine_engineeringPage;
+    private WLR3_NewProvide_AnaMultLine_FeaturesPage wlr3_newProvide_anaMultLine_featuresPage;
+    private WLR3_NewProvide_AnaMultLine_NumberingPage wlr3_newProvide_anaMultLine_numberingPage;
+    private WLR3_NewProvide_AnaMultLine_DatePage wlr3_newProvide_anaMultLine_datePage;
 
 
     public WebModel() {
@@ -53,6 +59,12 @@ public class WebModel {
         wlr3_networkCallingFeaturesPage = new WLR3_NetworkCallingFeaturesPage();
         wlr3_new_provide_analogue_multiline_orderPage = new WLR3_New_Provide_Analogue_Multiline_OrderPage();
         addSiteDetailsPage = new AddSiteDetailsPage();
+        wlr3_newProvide_anaMultLine_sitePage = new WLR3_NewProvide_AnaMultLine_SitePage();
+        wlr3_newProvide_anaMultLine_provisionPage=new WLR3_NewProvide_AnaMultLine_ProvisionPage();
+        wlr3_newProvide_anaMultLine_engineeringPage=new WLR3_NewProvide_AnaMultLine_EngineeringPage();
+        wlr3_newProvide_anaMultLine_featuresPage=new WLR3_NewProvide_AnaMultLine_FeaturesPage();
+        wlr3_newProvide_anaMultLine_numberingPage=new WLR3_NewProvide_AnaMultLine_NumberingPage();
+        wlr3_newProvide_anaMultLine_datePage=new WLR3_NewProvide_AnaMultLine_DatePage();
     }
 
     public ElementUtils getUtils() {
@@ -139,7 +151,27 @@ public class WebModel {
         return wlr3_new_provide_analogue_multiline_orderPage;
     }
 
-    public AddSiteDetailsPage addSiteDetailsPage() {
+    public AddSiteDetailsPage getAddSiteDetailsPage() {
         return addSiteDetailsPage;
     }
+
+    public WLR3_NewProvide_AnaMultLine_SitePage getwlr3_newProvide_anaMultLine_sitePage(){
+        return wlr3_newProvide_anaMultLine_sitePage;
+    }
+    public WLR3_NewProvide_AnaMultLine_ProvisionPage getWlr3_newProvide_anaMultLine_provisionPage(){
+        return wlr3_newProvide_anaMultLine_provisionPage;
+    }
+    public WLR3_NewProvide_AnaMultLine_EngineeringPage getWlr3_newProvide_anaMultLine_engineeringPage(){
+        return wlr3_newProvide_anaMultLine_engineeringPage;
+    }
+    public WLR3_NewProvide_AnaMultLine_FeaturesPage getWlr3_newProvide_anaMultLine_featuresPage(){
+        return wlr3_newProvide_anaMultLine_featuresPage;
+    }
+    public WLR3_NewProvide_AnaMultLine_NumberingPage getWlr3_newProvide_anaMultLine_numberingPage(){
+        return wlr3_newProvide_anaMultLine_numberingPage;
+    }
+    public WLR3_NewProvide_AnaMultLine_DatePage getWlr3_newProvide_anaMultLine_datePage(){
+        return wlr3_newProvide_anaMultLine_datePage;
+    }
+
 }

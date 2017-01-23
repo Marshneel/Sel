@@ -104,4 +104,15 @@ public class EditOrderPage {
         utils.assertElementNotPresent(By.id(CUSTOMER_RADIOBUTTON));
         utils.assertElementNotPresent(By.id(INTERNAL_RADIOBUTTON));
     }
+    public void verifyOrderCompletion() throws InterruptedException {
+        //load created quote
+        try {
+            utils.getOrdersPage();
+            ordersManagerPage.clickOnQuoteID();
+        } catch (Exception e) {
+        }
+        utils.jumpToPopUpWindow(By.xpath(QUOTEID_ON_EDITORDER_PAGE));
+        // check for the green tick
+        utils.waitForElementVisible(By.xpath(GREEN_TICK));
+    }
 }
