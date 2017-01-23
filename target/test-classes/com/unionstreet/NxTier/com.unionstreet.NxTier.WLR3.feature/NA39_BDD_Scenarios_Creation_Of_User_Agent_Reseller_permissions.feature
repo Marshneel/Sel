@@ -1,4 +1,4 @@
-@NA39
+@E2ETests
 Feature: WLR3_permissions
 
   Scenario: Creating an agent permission group and assigning it to an agent
