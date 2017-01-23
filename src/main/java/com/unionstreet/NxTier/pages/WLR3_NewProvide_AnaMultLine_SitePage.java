@@ -13,7 +13,6 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
     private final String EMERGENCY_INFO_TEXTBOX = "EmergencyInfo";
     private final String TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO = "WLR3Order_contact_number";
     private final String ANALOGUE_MULTILINE_INSTALLATION_CHARGE = "ChargeList_0__install_charge";
-    private final String NEW_PROVIDE_SCREEN = "modal-dialog-NewProvide";
     private final String NEW_PROVIDE_SITEINFO_SCREEN = "NewProvideSiteInfoForm";
     private final String SELECT_CONTACT_UNDER_SITEINFO = "ContactList";
     private final String PHONE_NUMBER_MANDATORY_ERROR_MESSAGE = "//span[text()='Contact Telephone number is required']";

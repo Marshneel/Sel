@@ -326,6 +326,10 @@ public class ElementUtils {
         driver.get("http://test01-web01/nxtiere2e/Dashboard/index");
     }
 
+    public void getCpAddUserPage(){
+        driver.get("http://test01-web01/nxtiere2e/CPUsers/CPUsersList");
+    }
+
     public void assertElementNotPresent(By by) {
         List<WebElement> element = driver.findElements(by);
         assertTrue(element.isEmpty());
