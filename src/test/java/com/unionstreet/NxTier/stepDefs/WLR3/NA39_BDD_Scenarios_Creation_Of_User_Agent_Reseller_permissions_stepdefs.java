@@ -139,7 +139,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @And("^Only the quotes created for companies under my contact list should be visible$")
-    public void onlyTheQuotesCreatedForCompaniesUnderMyContactListShouldBeVisible() {
+    public void onlyTheQuotesCreatedForCompaniesUnderMyContactListShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuoteForReseller();
         webModel.getOrdersManagerPage().checkQuoteForReseller();
 

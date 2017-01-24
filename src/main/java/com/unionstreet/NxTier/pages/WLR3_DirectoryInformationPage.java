@@ -50,8 +50,11 @@ public class WLR3_DirectoryInformationPage {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         Thread.sleep(1000);
         try {
-            utils.javaScriptExecutorClick(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
+            utils.clickBtn(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         } catch (Exception e) {
+
+            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
+            Thread.sleep(1000);
             utils.javaScriptExecutorClick(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
 
         }

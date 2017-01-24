@@ -18,6 +18,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
+import static com.unionstreet.NxTier.support.BaseClass.utils;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertTrue;
@@ -83,7 +84,7 @@ public class ElementUtils {
 
     //implicit wait
     public void timeOut() {
-        driver.manage().timeouts().implicitlyWait(1000, MILLISECONDS);
+        driver.manage().timeouts().implicitlyWait(2000, MILLISECONDS);
     }
 
     //explicit wait element to be present
@@ -150,17 +151,17 @@ public class ElementUtils {
     //browser selector
     public WebDriver browser() {
         try {
-            String browser = System.getProperty("browser");
-            if (browser.equalsIgnoreCase("chrome")) {
+
+            if (utils.getProperty("browser").equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--disable-extensions");
                 options.addArguments("--dns-prefetch-disable");
                 driver = new ChromeDriver(options);
-            } else if (browser.equalsIgnoreCase("IE")) {
+            } else if (utils.getProperty("browser").equalsIgnoreCase("IE")) {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
                 driver = new InternetExplorerDriver();
-            } else if (browser.equalsIgnoreCase("firefox")) {
+            } else if (utils.getProperty("browser").equalsIgnoreCase("firefox")) {
                 driver = new FirefoxDriver();
             }
 
@@ -276,11 +277,6 @@ public class ElementUtils {
         return RandomStringUtils.randomAlphabetic(8);
     }
 
-    public void assertTheElementAndTextPresent(By by, String expectedText) {
-        waitForSomeTime().until(ExpectedConditions.textToBe(by, expectedText));
-        String actualText = driver.findElement(by).getText();
-        Assert.assertEquals(actualText, expectedText);
-    }
 
     public void searchAndAssertTextNotPresent(By by, String searchText) {
         String actualText = driver.findElement(by).getText();
@@ -326,7 +322,7 @@ public class ElementUtils {
         driver.get("http://test01-web01/nxtiere2e/Dashboard/index");
     }
 
-    public void getCpAddUserPage(){
+    public void getCpAddUserPage() {
         driver.get("http://test01-web01/nxtiere2e/CPUsers/CPUsersList");
     }
 
