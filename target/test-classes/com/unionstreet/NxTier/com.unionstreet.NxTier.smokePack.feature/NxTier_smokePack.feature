@@ -32,7 +32,7 @@ Feature: Creating new business customer and assigning all the required inputs to
     And   I have added a new business customer
     When  I access invoicing and billing details section under company menu and provide all required info
     Then  Invoice details and billing details of that particular customer should be updated, respectively
-
+@fail
   Scenario: Adding service charges (one off and recurring) and CLI to the newly created customer
     Given I am logged in as an admin
     And  I have added a new business customer

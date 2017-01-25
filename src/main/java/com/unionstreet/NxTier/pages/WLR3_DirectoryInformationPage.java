@@ -31,7 +31,8 @@ public class WLR3_DirectoryInformationPage {
 
         }
         utils.checkPoint("entered the directory info page to populate");
-        utils.waitForElementVisible(By.xpath(ENABLE_CHANGE_DIRECTORY_INFO_BUTTON));
+        utils.waitForElementVisible(By.id("retainDirInfoLabel"));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath(ENABLE_CHANGE_DIRECTORY_INFO_BUTTON));
         utils.waitForElementVisible(By.id(EDIT));
         utils.scrollUp(By.id(EDIT));
@@ -59,9 +60,10 @@ public class WLR3_DirectoryInformationPage {
 
         }
         utils.checkPoint("entered the directory info page to edit");
-        utils.waitForElementVisible(By.xpath(ENABLE_CHANGE_DIRECTORY_INFO_BUTTON));
+        utils.waitForElementVisible(By.id("changeDirInfoLabel"));
         utils.waitForElementVisible(By.id(EDIT));
         utils.scrollUp(By.id(EDIT));
+        Thread.sleep(1000);
         utils.clickBtn(By.id(EDIT));
         utils.sendText(By.id(BUSINESSNAME_UNDER_DIRECTORYINFO), "vodafone");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
