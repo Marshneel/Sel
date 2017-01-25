@@ -84,7 +84,12 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath("//div[@id='orderContentPanel']//td[contains(text(),'No Records')]"));
         utils.waitForElementVisible(By.id(contactManagerPage.SEARCH_BUTTON));
         Thread.sleep(1000);
-        utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
+        try {
+            utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
+        } catch (Exception e) {
+            utils.waitForElementVisible(By.id(contactManagerPage.SEARCH_BUTTON));
+            utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
+        }
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath("//div[@id='orderContentPanel']//td[contains(text(),'No Records')]"));
     }
@@ -96,7 +101,12 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath("//div[@id='orderContentPanel']//td[contains(text(),'No Records')]"));
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         Thread.sleep(1000);
-        utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
+        try {
+            utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
+        } catch (Exception e) {
+            utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
+            utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
+        }
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.waitForElementVisible(By.xpath("//div[@id='orderContentPanel']//td[contains(text(),'No Records')]"));
@@ -111,8 +121,13 @@ public class OrdersManagerPage {
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.waitForElementVisible(By.xpath(AGENT));
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
-       Thread.sleep(1000);
-        utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
+        Thread.sleep(1000);
+        try {
+            utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
+        } catch (Exception e) {
+            utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
+            utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
+        }
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.waitForElementVisible(By.xpath(RESELLER));
