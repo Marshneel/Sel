@@ -31,6 +31,7 @@ public class NA44_Agent_Login_stepDefs {
     @Then("^the newly created customer details should appear under the company and site drop downs$")
     public void theNewlyCreatedCustomerDetailsShouldAppearUnderTheCompanyAndSiteDropDowns() {
         webModel.getOrdersManagerPage().assertCompanyIsAccessibleFromCompanyAndSiteDropDown();
+        System.out.println("NA44a completed");
     }
 
     ////////////////////////////////////////two///////////////////////////////////////////////////////
@@ -59,6 +60,6 @@ public class NA44_Agent_Login_stepDefs {
     public void iShouldNotSeeThatParticularQuote() {
         webModel.getOrdersManagerPage().searchQuoteByQRN();
         webModel.getOrdersManagerPage().assertAgentCannotViewQuotes();
-        webModel.getUtils().checkPoint("NA44 done");
+        webModel.getUtils().checkPoint("NA44b completed");
     }
 }

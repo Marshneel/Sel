@@ -31,12 +31,14 @@ public class NA49_OrderServiceAutomation_stepDefs {
     @Then("^the control that is CP only should be visible$")
     public void theControlThatIsCPOnlyShouldBeVisible() throws InterruptedException {
         webModel.getNxTierServicesPage().assertCPonlyValuePresent();
+        System.out.println("NA49a completed");
     }
 ///////////////////////////////////////////////////////////////////////////////////////////
 
     @Then("^the control that is CP only should be invisible$")
     public void theControlThatIsCPOnlyShouldBeInvisible() throws InterruptedException {
         webModel.getNxTierServicesPage().assertCPonlyValueNotPresent();
+        System.out.println("NA49b completed");
     }
 
     @And("^Have created a quote for reseller$")
