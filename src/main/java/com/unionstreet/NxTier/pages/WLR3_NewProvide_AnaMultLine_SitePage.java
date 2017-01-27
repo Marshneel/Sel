@@ -28,9 +28,9 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
 
     //populate and assert installation address
     public void populateAndAssertInstallationAddressUnderSITE(String postCode) throws InterruptedException {
-        utils.waitForElementVisible(By.id(NEW_PROVIDE_SITEINFO_SCREEN));
+        utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
         //zooming out to view next button
-        utils.zoomOut(By.id(NEW_PROVIDE_SITEINFO_SCREEN));
+        utils.zoomOut(By.id("installationAddressSummaryPanel"));
         Thread.sleep(1000);
         try {
             utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));

@@ -40,7 +40,6 @@ public class WLR3_DirectoryInformationPage {
         utils.clickBtn(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION));
         utils.sendText(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION), name);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
-        utils.waitForElementToVanish(By.id(wlr3_orderDetails_page.SAVE));
         utils.javaScriptExecutorClick(By.id(wlr3_orderDetails_page.CLOSE));
         utils.jumpToParentPopUp();
     }

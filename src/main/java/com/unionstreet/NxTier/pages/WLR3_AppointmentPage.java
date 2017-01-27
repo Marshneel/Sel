@@ -8,15 +8,25 @@ import org.openqa.selenium.By;
  */
 public class WLR3_AppointmentPage {
     //// TODO: 06/01/2017
-    private final String GET_AVAILABILITY_UNDER_APPOINTMENTPAGE = "//input[contains(@onclick,'GetAvailableAppointmentsList')]";
+    private final String GET_AVAILABILITY_UNDER_APPOINTMENTPAGE = "//a[contains(@onclick,'showNewBookAppointmentPopup')]";
 
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
+
+    public void accessAppointmentpage(){
+        utils.waitForElementVisible(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
+        utils.clickBtn(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
+    }
+
 
     public void bookAppointmentGeneral(String date, String timeSlot) {
         utils.clickBtn(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
         utils.clickBtn(By.xpath("//div[@data-apptdate='" + date + "'][@data-appttime='AM (" + timeSlot + ")']"));
         utils.waitForElementVisible(By.xpath("//span[text()='Current Slot: " + date + ", Wed AM (" + timeSlot + ")']"));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
+
+    public void saveAppointments(){
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 }

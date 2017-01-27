@@ -30,6 +30,13 @@ public class WLR3_OrderDetails_Page {
     private final String CONTINUETAB_UNDER_NOCHANGE_LINE_INFO = "//a[@onclick='lineNumbering.submitChanges(0);']";
     private final String APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE = "//a[contains(@onclick,'showNewBookAppointment')]";
     private final String TEXT_ON_APPOINTMENT_PAGE = "//legend[text()='Hazard and Warning Notes']";
+    private final String ORDERTYPE_TAB = "//a[contains(@onclick,'loadOrderTypePopup')]";
+    private final String TEXT_ON_ORDERTYPE_PAGE = "//h3[contains(text(),'Order Type')]";
+    private final String LINE_INFO_TAB = "//a[contains(@onclick,'loadLineInformationPopup')]";
+    private final String TEXT_ON_LINEINFO_PAGE = "//h3[contains(text(),'Line Information')]";
+    private final String SERVICE_MAINTENANCE_TAB = "WLR3Order_care_level";
+    private final String HAZARD_ASSERTION_TEXT = "//div[@id='appointmentSummaryPanel']//p[contains(text(),'hazard note')]";
+    private final String WARNING_ASSERTION_TEXT = "//div[@id='appointmentSummaryPanel']//p[contains(text(),'warning notes')]";
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
@@ -164,5 +171,36 @@ public class WLR3_OrderDetails_Page {
             utils.clickBtn(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
             utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         }
+    }
+
+    public void verifyOrderTypeTab() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(ORDERTYPE_TAB));
+        Thread.sleep(1000);
+        try {
+            utils.clickBtnWithWait(By.xpath(ORDERTYPE_TAB));
+        } catch (Exception e) {
+            Thread.sleep(1000);
+            utils.javaScriptExecutorClick(By.xpath(ORDERTYPE_TAB));
+        }
+        utils.waitForElementVisible(By.xpath(TEXT_ON_ORDERTYPE_PAGE));
+        utils.clickBtn(By.id(CLOSE));
+    }
+
+    public void verifyLineInformationTab(String level, String level_no) throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(LINE_INFO_TAB));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath(LINE_INFO_TAB));
+        utils.waitForElementVisible(By.xpath(TEXT_ON_LINEINFO_PAGE));
+        utils.waitForElementVisible(By.id(SERVICE_MAINTENANCE_TAB));
+        utils.selectByVisibleText(By.id(SERVICE_MAINTENANCE_TAB), level);
+        utils.waitForElementVisible(By.id(SAVE));
+        utils.clickBtn(By.id(SAVE));
+        utils.waitForElementVisible(By.xpath("//div[@id='lineInformationSummaryPanel']//p[contains(text(),'" + level_no + "')]"));
+    }
+
+    public void assertAppointmentInfo() {
+        utils.waitForElementVisible(By.xpath(HAZARD_ASSERTION_TEXT));
+        utils.waitForElementVisible(By.xpath(WARNING_ASSERTION_TEXT));
+
     }
 }
