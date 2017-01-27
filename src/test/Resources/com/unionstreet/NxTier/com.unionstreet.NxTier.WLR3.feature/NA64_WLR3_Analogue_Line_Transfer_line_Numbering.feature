@@ -1,5 +1,5 @@
 @E2ETests
-Feature: Scenarios for automatically assign number, specifying new number, selecting new number from the list and automatically assign by logging
+Feature: NA64 - WLR3 Trasfer Scenarios for line numbering
 
   Scenario Outline: Assigning specify new number, select from list, automatically assign now by logging as CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"
