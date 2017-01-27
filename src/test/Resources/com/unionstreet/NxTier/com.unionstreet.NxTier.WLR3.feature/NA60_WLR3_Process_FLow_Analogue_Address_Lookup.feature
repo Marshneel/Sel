@@ -1,5 +1,5 @@
 @E2ETests
-Feature: WLR3 Transfer order- address lookup by postcode, Address key and Advanced search
+Feature: NA60 - WLR3 Transfer order- address lookup by postcode, Address key and Advanced search
 
   Scenario Outline:  WLR3 address lookup based on post code, by logging as CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"

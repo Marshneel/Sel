@@ -39,10 +39,11 @@ public class WLR3_NetworkCallingFeaturesPage {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         Thread.sleep(1000);
         try {
-            utils.javaScriptExecutorClick(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
+            utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         } catch (Exception e) {
             utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
-            utils.javaScriptExecutorClick(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
+            Thread.sleep(1000);
+            utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         }
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
         utils.checkPoint("entered the network calling features page to de-populate");

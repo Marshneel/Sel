@@ -28,11 +28,13 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
     @Then("^customer and internal tabs should be present and accessible$")
     public void customerAndInternalTabsShouldBePresentAndAccessible() throws InterruptedException {
         webModel.getEditOrderPage().assertCustomer_InternalTabsPresent();
+        System.out.println("NA51a completed");
     }
 
     @Then("^customer and internal tabs should be absent$")
     public void customerAndInternalTabsShouldBeAbsent() {
         webModel.getEditOrderPage().assertCustomer_InternalTabsNotPresent();
+        System.out.println("NA51b completed");
     }
 
     @When("^I access add_view notes on edit order page for reseller$")
@@ -74,7 +76,7 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
         webModel.getOrdersManagerPage().clickOnQuoteID();
         webModel.getAddServicePage().clickAddAProductOrService();
         webModel.getAddServicePage().assertServicePresent("ServiceForAgent&Reseller");
-        webModel.getUtils().checkPoint("NA51 done");
+        webModel.getUtils().checkPoint("NA51c done");
     }
 
 

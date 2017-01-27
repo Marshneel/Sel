@@ -64,6 +64,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     @And("^I should be able to login with agent credentials$")
     public void iShouldBeAbleToLoginWithAgentCredentials() throws InterruptedException {
         webModel.getSettingsPage().loginAsAgent();
+        System.out.println("NA39a completed");
     }
 
     @And("^Have created a new CP permission group under settings$")
@@ -102,6 +103,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void iShouldBeAbleToLoginWithCPCredentials() {
         webModel.getSettingsPage().loginAsCpUser();
         webModel.getDashBoardPage().logOut();
+        System.out.println("NA39b completed");
     }
 
     @Given("^I am logged in as agent$")
@@ -125,6 +127,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForMyCompanyShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuotesForAgent();
+        System.out.println("NA39c completed");
     }
 
     @Given("^I am logged in as reseller$")
@@ -139,9 +142,10 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @And("^Only the quotes created for companies under my contact list should be visible$")
-    public void onlyTheQuotesCreatedForCompaniesUnderMyContactListShouldBeVisible() {
+    public void onlyTheQuotesCreatedForCompaniesUnderMyContactListShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuoteForReseller();
         webModel.getOrdersManagerPage().checkQuoteForReseller();
+        System.out.println("NA39d completed");
 
 
     }
@@ -175,7 +179,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void allTheQuotesIncludingThatOfTheResellersAndAgentsShouldBeVisible() throws InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuotesForCP();
-        webModel.getUtils().checkPoint("NA39 done");
+        webModel.getUtils().checkPoint("NA39e completed");
     }
 
 

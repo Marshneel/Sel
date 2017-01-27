@@ -1,5 +1,5 @@
 @E2ETests
-Feature: WLR3_permissions
+Feature: NA39 - Creation Of User, Agent, Reseller permissions
 
   Scenario: Creating an agent permission group and assigning it to an agent
     Given I am logged in as an admin
