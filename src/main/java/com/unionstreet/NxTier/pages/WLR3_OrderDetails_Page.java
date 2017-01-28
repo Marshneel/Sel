@@ -179,7 +179,7 @@ public class WLR3_OrderDetails_Page {
             utils.clickBtnWithWait(By.xpath(ORDERTYPE_TAB));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.javaScriptExecutorClick(By.xpath(ORDERTYPE_TAB));
+            utils.clickBtnWithWait(By.xpath(ORDERTYPE_TAB));
         }
         utils.waitForElementVisible(By.id(CLOSE));
         utils.clickBtn(By.id(CLOSE));
