@@ -31,7 +31,6 @@ public class WLR3_OrderDetails_Page {
     private final String APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE = "//a[contains(@onclick,'showNewBookAppointment')]";
     private final String TEXT_ON_APPOINTMENT_PAGE = "//legend[text()='Hazard and Warning Notes']";
     private final String ORDERTYPE_TAB = "//a[contains(@onclick,'loadOrderTypePopup')]";
-    private final String TEXT_ON_ORDERTYPE_PAGE = "//h3[contains(text(),'Order Type')]";
     private final String LINE_INFO_TAB = "//a[contains(@onclick,'loadLineInformationPopup')]";
     private final String TEXT_ON_LINEINFO_PAGE = "//h3[contains(text(),'Line Information')]";
     private final String SERVICE_MAINTENANCE_TAB = "WLR3Order_care_level";
@@ -182,7 +181,7 @@ public class WLR3_OrderDetails_Page {
             Thread.sleep(1000);
             utils.javaScriptExecutorClick(By.xpath(ORDERTYPE_TAB));
         }
-        utils.waitForElementVisible(By.xpath(TEXT_ON_ORDERTYPE_PAGE));
+        utils.waitForElementVisible(By.id(CLOSE));
         utils.clickBtn(By.id(CLOSE));
     }
 
