@@ -184,7 +184,7 @@ public class WLR3_OrderDetails_Page {
         try {
             utils.clickBtn(By.id(CLOSE));
         } catch (Exception e) {
-            utils.clickBtnWithWait(By.id(CLOSE));
+            utils.javaScriptExecutorClick(By.id(CLOSE));
         }
     }
 
