@@ -100,7 +100,6 @@ public class WLR3_OrderDetails_Page {
 
     public void assertDepopularedDirectoryInformationOnWlr3OrderPage() throws InterruptedException {
         utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
-        //Thread.sleep(1000);
         utils.waitForElementToVanish(By.xpath(SURNAME_OF_DIRECTORY_INFO_ON_WLR3_ORDER_PAGE));
     }
 

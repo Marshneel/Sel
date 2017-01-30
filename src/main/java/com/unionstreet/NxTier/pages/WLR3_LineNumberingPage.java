@@ -129,7 +129,8 @@ public class WLR3_LineNumberingPage {
             utils.clickBtnWithWait(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
         } catch (Exception e) {
             utils.waitForElementVisible(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
-            utils.clickBtnWithWait(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
+            Thread.sleep(1000);
+            utils.javaScriptExecutorClick(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
         }
     }
 
