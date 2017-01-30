@@ -176,10 +176,10 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath(ORDERTYPE_TAB));
         Thread.sleep(1000);
         try {
-            utils.clickBtn(By.xpath(ORDERTYPE_TAB));
+            utils.javaScriptExecutorClick(By.xpath(ORDERTYPE_TAB));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(ORDERTYPE_TAB));
+            utils.javaScriptExecutorClick(By.xpath(ORDERTYPE_TAB));
         }
         utils.waitForElementVisible(By.id(CLOSE));
         try {
