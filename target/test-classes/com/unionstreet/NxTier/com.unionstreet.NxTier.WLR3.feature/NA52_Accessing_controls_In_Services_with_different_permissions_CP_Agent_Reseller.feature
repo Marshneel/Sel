@@ -1,5 +1,5 @@
 @E2ETests
-Feature: Accessing controls in services with different permissions (CP, Agent and reseller)
+Feature: NA52 - Accessing controls in services with different permissions (CP, Agent and reseller)
 
   Scenario: Verify that a charge designated CP only is accessible by CP
     Given I am logged in as CP

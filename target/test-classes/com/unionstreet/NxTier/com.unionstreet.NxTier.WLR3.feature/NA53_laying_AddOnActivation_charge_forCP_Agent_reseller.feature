@@ -1,5 +1,5 @@
 @E2ETests
-Feature: Laying add on activation charge for quote created by CP, agent and reseller
+Feature: NA53 - Laying add on activation charge for quotes created by CP, agent and reseller
 
   Scenario: Laying addOnActivation charge for quote created by CP
     Given I am logged in as CP

@@ -1,5 +1,5 @@
 @E2ETests
-Feature: Verify customer and internal fields by logging as CP, agent and reseller
+Feature: NA51 - Service designer application familiarization
 
   Scenario: Verify that the customer and internal tabs are present and accessible under add/view notes under edit order page
     Given I am logged in as CP
