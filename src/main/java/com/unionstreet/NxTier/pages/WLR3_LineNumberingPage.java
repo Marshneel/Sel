@@ -209,5 +209,6 @@ public class WLR3_LineNumberingPage {
         utils.waitForElementVisible(By.xpath(ALERT_ON_LINE_INFO));
         utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
         utils.waitForElementVisible(By.xpath(ALERT_ON_LINE_INFO));
+        System.out.println("NA64a completed");
     }
 }

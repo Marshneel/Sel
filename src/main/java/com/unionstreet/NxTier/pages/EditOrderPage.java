@@ -114,5 +114,6 @@ public class EditOrderPage {
         utils.jumpToPopUpWindow(By.xpath(QUOTEID_ON_EDITORDER_PAGE));
         // check for the green tick
         utils.waitForElementVisible(By.xpath(GREEN_TICK));
+        System.out.println("NA87 completed");
     }
 }

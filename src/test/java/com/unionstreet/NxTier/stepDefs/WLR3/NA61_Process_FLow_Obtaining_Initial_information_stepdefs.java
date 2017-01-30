@@ -40,6 +40,7 @@ public class NA61_Process_FLow_Obtaining_Initial_information_stepdefs {
     public void theChangesShouldBeManifestedOnTheWLROrderDetailsPage() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().assertDepopulatedNetworkCallingFeaturesOnWlr3OrderPage();
         webModel.getWlr3_orderDetails_page().assertDepopularedDirectoryInformationOnWlr3OrderPage();
+        System.out.println("NA61a completed");
     }
 
     @When("^I access site information page and populate it$")
@@ -62,7 +63,7 @@ public class NA61_Process_FLow_Obtaining_Initial_information_stepdefs {
     @Then("^The information should vanish under site information from the WLR order details page$")
     public void theInformationShouldVanishUnderSiteInformationFromTheWLROrderDetailsPage() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().assertDepopulatedSiteInformationOnWLR3OrderPage();
-        webModel.getUtils().checkPoint("NA61 done");
+        webModel.getUtils().checkPoint("NA61b completed");
 
     }
 }
