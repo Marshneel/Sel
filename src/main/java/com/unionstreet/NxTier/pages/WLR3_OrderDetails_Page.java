@@ -176,13 +176,13 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath(ORDERTYPE_TAB));
         Thread.sleep(1000);
         try {
-            utils.clickBtnWithWait(By.xpath(ORDERTYPE_TAB));
+            utils.jumpToPopUpWindow(By.xpath(ORDERTYPE_TAB));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(ORDERTYPE_TAB));
+            utils.jumpToPopUpWindow(By.xpath(ORDERTYPE_TAB));
         }
-        utils.waitForElementVisible(By.id(CLOSE));
-        utils.clickBtn(By.id(CLOSE));
+        utils.waitForElementVisible(By.id(SAVE));
+        utils.clickBtn(By.id(SAVE));
     }
 
     public void verifyLineInformationTab(String level, String level_no) throws InterruptedException {
