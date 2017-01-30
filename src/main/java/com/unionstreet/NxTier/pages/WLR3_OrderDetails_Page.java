@@ -173,7 +173,6 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void verifyOrderTypeTab() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(ORDERTYPE_TAB));
         Thread.sleep(1000);
         try {
             utils.javaScriptExecutorClick(By.xpath(ORDERTYPE_TAB));
