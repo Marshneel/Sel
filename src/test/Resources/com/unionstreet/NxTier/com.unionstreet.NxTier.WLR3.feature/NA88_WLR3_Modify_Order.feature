@@ -1,4 +1,4 @@
-@NA88
+@E2ETests
 Feature: Initiate a WLR3 modify order and check the flow
 
   Scenario: Initiate and verify the flow in a WLR3 modify order
