@@ -21,7 +21,8 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         utils.clickBtn(By.xpath(SUBMIT_BUTTON));
     }
 
-    public void navigateToNextScreen() {
+    public void navigateToNextScreen() throws InterruptedException {
+      Thread.sleep(1000);
         utils.clickBtn(By.xpath(NEXT_BUTTON));
         try {
             utils.checkAlert();

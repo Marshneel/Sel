@@ -34,8 +34,8 @@ public class NA88_WLR3_Modify_Order_stepDefs {
     @And("^Access the WLR order details page$")
     public void accessTheWLROrderDetailsPage() {
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
-        webModel.getWlr3_modify_orderPage().initiatingModifyOrderWithWrongCLI("01202300908");
-        webModel.getWlr3_modify_orderPage().initiatingModifyOrder("02063678369");
+        webModel.getWlr3_modify_orderPage().initiatingModifyOrderWithWrongCLI("01202300908","LU1 1DQ");
+        webModel.getWlr3_modify_orderPage().initiatingModifyOrder("02063678369","LU1 1DQ");
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
 
     }
@@ -50,6 +50,13 @@ public class NA88_WLR3_Modify_Order_stepDefs {
         webModel.getWlr3_orderDetails_page().verifyOrderTypeTab();
         //verify lineInformation tab
         webModel.getWlr3_orderDetails_page().verifyLineInformationTab("Level 3", "3");
+      //verify network call features (verify by revoking and issuing the features)
+        webModel.getWlr3_orderDetails_page().checkNetworkCallFeaturesBeforeRemoval();
+        webModel.getWlr3_networkCallingFeaturesPage().enterNetworkFeatures();
+        webModel.getWlr3_networkCallingFeaturesPage().depopulateAndVerifyNetworkCallingFeatures();
+        webModel.getWlr3_orderDetails_page().checkNetworkCallFeaturesAfterRemoval();
+        webModel.getWlr3_networkCallingFeaturesPage().enterNetworkFeatures();
+        webModel.getWlr3_networkCallingFeaturesPage().rePopulateNetworkCallingFeatures();
         //verify appointment page
         webModel.getWlr3_appointmentPage().accessAppointmentpage();
         webModel.getWlr3_newProvide_anaMultLine_datePage().populateHazardAndWarningNotesUnderDATE("hazard note", "warning notes");

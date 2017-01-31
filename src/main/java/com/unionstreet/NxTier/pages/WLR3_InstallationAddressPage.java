@@ -43,7 +43,7 @@ public class WLR3_InstallationAddressPage {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD));
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD));
-        utils.sendText(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD), postCode);
+        utils.sendText(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD),postCode);
         utils.clickBtn(By.id(POSTCODE_SEARCH));
     }
 
@@ -67,7 +67,7 @@ public class WLR3_InstallationAddressPage {
 
     public void enterAddressKeyInSearchAddressByAddressKey(String addressKey) {
         utils.clickBtn(By.id(ADDRESSKEY_FIELD));
-        utils.sendText(By.id(ADDRESSKEY_FIELD), addressKey);
+        utils.sendText(By.id(ADDRESSKEY_FIELD),addressKey);
         utils.clickBtn(By.id(ADDRESSKEY_SEARCH));
     }
 
@@ -77,7 +77,7 @@ public class WLR3_InstallationAddressPage {
 
     public void enterPremiseNumber(String number) {
         utils.clickBtn(By.id(ADVANCED_SEARCH_PREMISE_NUMBER_FIELD));
-        utils.sendText(By.id(ADVANCED_SEARCH_PREMISE_NUMBER_FIELD), number);
+        utils.sendText(By.id(ADVANCED_SEARCH_PREMISE_NUMBER_FIELD),number);
     }
 
     public void clearPremiseNumber() {
@@ -86,7 +86,7 @@ public class WLR3_InstallationAddressPage {
 
     public void enterPremiseName(String name) {
         utils.clickBtn(By.id(ADVANCED_SEARCH_PREMISE_NAME));
-        utils.sendText(By.id(ADVANCED_SEARCH_PREMISE_NAME), name);
+        utils.sendText(By.id(ADVANCED_SEARCH_PREMISE_NAME),name);
     }
 
     public void clearBuildingName() {
@@ -96,13 +96,13 @@ public class WLR3_InstallationAddressPage {
 
     public void enterPostCodeDetails(String postCode) {
         utils.clickBtn(By.id(ADVANCED_SEARCH_POSTCODE_FIELD));
-        utils.sendText(By.id(ADVANCED_SEARCH_POSTCODE_FIELD), postCode);
+        utils.sendText(By.id(ADVANCED_SEARCH_POSTCODE_FIELD),postCode);
     }
 
 
     public void enterSubPremiseName(String subPremise) {
         utils.clickBtn(By.id(ADVANCED_SEARCH_SUBPREMISE_NAME));
-        utils.sendText(By.id(ADVANCED_SEARCH_SUBPREMISE_NAME), subPremise);
+        utils.sendText(By.id(ADVANCED_SEARCH_SUBPREMISE_NAME),subPremise);
     }
 
     public void clearSubPremiseName() {
@@ -111,12 +111,12 @@ public class WLR3_InstallationAddressPage {
 
     public void enterRoad(String road) {
         utils.clickBtn(By.id(ADVANCED_SEARCH_ROAD_NAME));
-        utils.sendText(By.id(ADVANCED_SEARCH_ROAD_NAME), road);
+        utils.sendText(By.id(ADVANCED_SEARCH_ROAD_NAME),road);
     }
 
     public void enterTown(String town) {
         utils.clickBtn(By.id(ADVANCED_SEARCH_TOWN_FIELD));
-        utils.sendText(By.id(ADVANCED_SEARCH_TOWN_FIELD), town);
+        utils.sendText(By.id(ADVANCED_SEARCH_TOWN_FIELD),town);
     }
 
     public void enterPremiseNumberRoadandTown(String number, String road, String town) {

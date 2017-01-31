@@ -18,10 +18,10 @@ public class WLR3_NewProvide_AnaMultLine_FeaturesPage {
     public void populateNetworkFeaturesUnderFEATURES() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(NETWORK_FEATURES_TEXT));
         //select call diversion
-        utils.makeSureBoxIsChecked(By.id(CALL_DIVERSION_RADIOBUTTON_UNDER_NETWORK_FEATURES), By.id(CALL_DIVERSION_RADIOBUTTON_UNDER_NETWORK_FEATURES));
+        utils.makeSureBoxIsChecked(By.id(CALL_DIVERSION_RADIOBUTTON_UNDER_NETWORK_FEATURES),By.id(CALL_DIVERSION_RADIOBUTTON_UNDER_NETWORK_FEATURES));
         utils.waitForElementVisible(By.id(CALL_DIVERSION_RADIOBTN_UNDER_NETWORK_FEATURES));
         //select busyOutLine radio tab
-        utils.makeSureBoxIsChecked(By.id(CALL_DIVERSION_RADIOBTN_UNDER_NETWORK_FEATURES), By.id(CALL_DIVERSION_RADIOBTN_UNDER_NETWORK_FEATURES));
+        utils.makeSureBoxIsChecked(By.id(CALL_DIVERSION_RADIOBTN_UNDER_NETWORK_FEATURES),By.id(CALL_DIVERSION_RADIOBTN_UNDER_NETWORK_FEATURES));
         Thread.sleep(1000);
         //un-check the 3rd radio button under busyOutLine
         utils.makeSureBoxIsUnChecked(By.id(BUSY_OUT_LINE_RADIOBTN_UNDER_NETWORK_FEATURES), By.id(BUSY_OUT_LINE_RADIOBTN_UNDER_NETWORK_FEATURES));

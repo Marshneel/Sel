@@ -13,9 +13,10 @@ public class WLR3_AppointmentPage {
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
-    public void accessAppointmentpage(){
+    public void accessAppointmentpage() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
-        utils.clickBtn(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
     }
 
 
@@ -26,7 +27,7 @@ public class WLR3_AppointmentPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 
-    public void saveAppointments(){
+    public void saveAppointments() {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 }

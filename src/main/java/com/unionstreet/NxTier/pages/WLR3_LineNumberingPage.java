@@ -67,7 +67,7 @@ public class WLR3_LineNumberingPage {
             utils.clickBtn(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
             utils.clickBtn(By.id(TEXTBOX_UNDER_SPECIFY_NEW_NUMBER_LINEINFO));
         }
-        utils.sendText(By.id(TEXTBOX_UNDER_SPECIFY_NEW_NUMBER_LINEINFO), "" + number + "");
+        utils.sendText(By.id(TEXTBOX_UNDER_SPECIFY_NEW_NUMBER_LINEINFO),"" + number + "");
         utils.clickBtn(By.xpath(RESERVETAB_UNDER_SPECIFY_NEW_NUMBER_LINE_INFO));
         utils.waitForElementVisible(By.xpath("//h1[text()='" + number + "']"));
         utils.clickBtn(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
@@ -137,7 +137,7 @@ public class WLR3_LineNumberingPage {
     public void enterNumberOnImportFromOtherNetworkPage(String number) throws InterruptedException {
        utils.waitForElementVisible(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.clickBtn(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
-        utils.sendText(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK), number);
+        utils.sendText(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK),number);
     }
 
     public void importNumberWithChangeOfAddress(String number, String postCode) throws InterruptedException {
@@ -145,7 +145,7 @@ public class WLR3_LineNumberingPage {
         enterNumberOnImportFromOtherNetworkPage(number);
         utils.clickBtn(By.id(MOVE_NUMBER_FROM_ANOTHER_ADDRESS_CHECK_BOX));
         utils.clickBtn(By.id(MOVE_NUMBER_FROM_ANOTHER_ADDRESS_POSTCODE));
-        utils.sendText(By.id(MOVE_NUMBER_FROM_ANOTHER_ADDRESS_POSTCODE), postCode);
+        utils.sendText(By.id(MOVE_NUMBER_FROM_ANOTHER_ADDRESS_POSTCODE),postCode);
         utils.clickBtn(By.id(RESERVETAB_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.waitForElementVisible(By.xpath("//h1[text()='" + number + "']"));
         utils.clickBtn(By.xpath(CONTINUE_AFTER_IMPORTING_FROM_ANOTHER_NETWORK));
@@ -168,7 +168,7 @@ public class WLR3_LineNumberingPage {
         depopulateImportFromOtherNetworkFields();
         enterNumberOnImportFromOtherNetworkPage(number);
         utils.clickBtn(By.id(VIC_TEXTBOX_UNDER_LINE_INFO));
-        utils.sendText(By.id(VIC_TEXTBOX_UNDER_LINE_INFO), vic);
+        utils.sendText(By.id(VIC_TEXTBOX_UNDER_LINE_INFO),vic);
         utils.clickBtn(By.id(RESERVETAB_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.clickBtn(By.id(CONTINUETAB_UNDER_IMPORT_FROM_OTHER_NETWORK_LINE_INFO));
         utils.jumpToParentPopUp();

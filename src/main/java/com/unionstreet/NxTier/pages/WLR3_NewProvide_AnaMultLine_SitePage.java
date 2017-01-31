@@ -57,12 +57,12 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
         try {
             utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
             utils.clickBtn(By.id(EMERGENCY_INFO_TEXTBOX));
-            utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
+            utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX),message);
         } catch (Exception e) {
             utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
             Thread.sleep(1000);
             utils.clickBtn(By.id(EMERGENCY_INFO_TEXTBOX));
-            utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
+            utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX),message);
         }
 
     }
@@ -75,7 +75,7 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
         //verify the presence of error message
         utils.waitForElementVisible(By.xpath(PHONE_NUMBER_MANDATORY_ERROR_MESSAGE));
         //enter contact phone number
-        utils.sendText(By.id(TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
+        utils.sendText(By.id(TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO),number);
     }
 
     public void editAndAssertServicesChargesUnderSITE(String charges) throws InterruptedException {
@@ -86,7 +86,7 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
             utils.javaScriptExecutorClick(By.xpath(EDIT_SERVICECHARGES_BUTTON));
         }
         utils.waitForElementVisible(By.xpath(SAVE_SERVICECHARGES_BUTTON));
-        utils.sendText(By.id(ANALOGUE_MULTILINE_INSTALLATION_CHARGE), "" + charges + "");
+        utils.sendText(By.id(ANALOGUE_MULTILINE_INSTALLATION_CHARGE),"" + charges + "");
         utils.clickBtn(By.xpath(SAVE_SERVICECHARGES_BUTTON));
         utils.waitForElementVisible(By.xpath("//td[text()='£" + charges + ".00']"));
     }

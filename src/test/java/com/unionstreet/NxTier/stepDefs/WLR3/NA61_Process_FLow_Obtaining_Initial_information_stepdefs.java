@@ -32,6 +32,7 @@ public class NA61_Process_FLow_Obtaining_Initial_information_stepdefs {
 
     @And("^When i depopulate the network calling features and edit directory information$")
     public void whenIDepopulateTheNetworkCallingFeaturesAndEditDirectoryInformation() throws InterruptedException {
+       webModel.getWlr3_networkCallingFeaturesPage().enterNetworkFeatures();
         webModel.getWlr3_networkCallingFeaturesPage().depopulateNetworkCallingFeatures();
         webModel.getWlr3_directoryInformationPage().editDirectoryInformation();
     }

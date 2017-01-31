@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 public class WLR3_OrderDetails_Page {
 
     // TODO: 06/01/2017
-    public final String TEXT_ON_WLR3_ORDER_DETAIL_PAGE = "//h3[text()='vodafone > WLR3 Order Detail']";
+    public final String TEXT_ON_WLR3_ORDER_DETAIL_PAGE = "//h3[contains(text(),'WLR3 Quote')]";
     public final String ADDRESS_SEARCH_RESULT = "address_0";
     public final String CONTINUE_AFTER_ADDRESS_IS_CHOOSEN = "//button[text()='Continue']";
     public final String POSTCODE_SEARCH_POSTCODE_FIELD = "Postcode";
@@ -18,6 +18,7 @@ public class WLR3_OrderDetails_Page {
     public final String DIRECTORY_INFORMATION_BUTTON = "//a[contains(@onclick,'loadDirectoryInformationPopup')]";
     public final String CLOSE = "closeBtn";
     public final String SAVE = "saveBtn";
+    private final String CANCEL = "cancelBtn";
     private final String INVALID_ADDRESSKEY = "//span[text()='Invalid Address Key']";
     public final String ADDRESS_SEARCH_RESULT_FOR_LU1_1DQ_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_addr_postcode'][contains(text(),'LU1 1DQ')]";
     private final String LINE_NUMBERING_BUTTON = "//a[contains(@onclick,'loadLineNumbering')]";
@@ -36,6 +37,10 @@ public class WLR3_OrderDetails_Page {
     private final String SERVICE_MAINTENANCE_TAB = "WLR3Order_care_level";
     private final String HAZARD_ASSERTION_TEXT = "//div[@id='appointmentSummaryPanel']//p[contains(text(),'hazard note')]";
     private final String WARNING_ASSERTION_TEXT = "//div[@id='appointmentSummaryPanel']//p[contains(text(),'warning notes')]";
+    private final String ACTIVE_ANONYMOUS_CALL_REJECT="//div[@id='networkFeaturesSummaryPanel']//label[contains(text(),'Anonymous Call Reject')]";
+    private final String INACTIVE_ANONYMOUS_CALL_REJECT="//label[@class='networkFeatureDelete'][contains(text(),'Anonymous Call Reject')]";
+
+
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
@@ -43,9 +48,9 @@ public class WLR3_OrderDetails_Page {
     public void enterPhoneNumberAndPostCodeToInitiateTheTransfer(String number, String postCode) {
         utils.waitForElementVisible(By.id(SAVE));
         utils.clickBtn(By.id(companyMenuPage.CLI_NUMBER_FIELD));
-        utils.sendText(By.id(companyMenuPage.CLI_NUMBER_FIELD), number);
+        utils.sendText(By.id(companyMenuPage.CLI_NUMBER_FIELD),number);
         utils.clickBtn(By.id(POSTCODE_SEARCH_POSTCODE_FIELD));
-        utils.sendText(By.id(POSTCODE_SEARCH_POSTCODE_FIELD), postCode);
+        utils.sendText(By.id(POSTCODE_SEARCH_POSTCODE_FIELD),postCode);
         utils.clickBtn(By.id(SAVE));
     }
 
@@ -161,15 +166,20 @@ public class WLR3_OrderDetails_Page {
         try {
             utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         } catch (Exception e) {
-            utils.getOrdersPage();
-            utils.waitForElementVisible(By.xpath(ordersManagerPage.QUOTEID));
-            utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
-            utils.switchToNewWindow();
-            utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
-            utils.clickBtn(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
-            utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+            getToWLR3QuotePage();
         }
     }
+    public void getToWLR3QuotePage(){
+        utils.getOrdersPage();
+        utils.waitForElementVisible(By.xpath(ordersManagerPage.QUOTEID));
+        utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
+        utils.switchToNewWindow();
+        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+        utils.clickBtn(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+        utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+    }
+
+
 
     public void verifyOrderTypeTab() throws InterruptedException {
         Thread.sleep(1000);
@@ -181,10 +191,10 @@ public class WLR3_OrderDetails_Page {
         }
         utils.waitForElementVisible(By.id(CLOSE));
         try {
-            utils.clickBtn(By.id(CLOSE));
+            utils.clickBtn(By.id(CANCEL));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.javaScriptExecutorClick(By.id(CLOSE));
+            utils.javaScriptExecutorClick(By.id(CANCEL));
         }
     }
 
@@ -204,5 +214,18 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath(HAZARD_ASSERTION_TEXT));
         utils.waitForElementVisible(By.xpath(WARNING_ASSERTION_TEXT));
 
+    }
+
+    public void checkNetworkCallFeaturesBeforeRemoval() {
+        utils.waitForElementVisible(By.xpath(ACTIVE_ANONYMOUS_CALL_REJECT));
+    }
+
+    public void checkNetworkCallFeaturesAfterRemoval() {
+        utils.waitForElementVisible(By.xpath(INACTIVE_ANONYMOUS_CALL_REJECT));
+    }
+    public void assertQuoteForCeaseOrder(){
+        utils.assertElementNotPresent(By.xpath(LINE_NUMBERING_BUTTON));
+        utils.assertElementNotPresent(By.xpath(DIRECTORY_INFORMATION_BUTTON));
+        utils.assertElementNotPresent(By.xpath(LINE_INFO_TAB));
     }
 }

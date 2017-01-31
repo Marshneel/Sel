@@ -98,7 +98,7 @@ public class SettingsPage {
 
     public void addAgentPermissionGroups_General() {
         utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
-        utils.sendText(By.id(ADDPERMISSION_GROUPNAME), newBusinessCustomerPage.RanName);
+        utils.sendText(By.id(ADDPERMISSION_GROUPNAME),newBusinessCustomerPage.RanName);
         utils.clickBtn(By.xpath(AGENTPERMISSION_GROUPTYPE));
     }
 
@@ -241,17 +241,17 @@ public class SettingsPage {
 
     public void agentUserAddContactDetails() {
         utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
-        utils.sendText(By.id(ADDUSERLOGIN_SITE), newBusinessCustomerPage.RanName);
+        utils.sendText(By.id(ADDUSERLOGIN_SITE),newBusinessCustomerPage.RanName);
         utils.clickBtn(By.id(ADDUSERLOGIN_EMAIL));
-        utils.sendText(By.id(ADDUSERLOGIN_EMAIL), utils.getProperty("agentEmailAddress"));
+        utils.sendText(By.id(ADDUSERLOGIN_EMAIL),utils.getProperty("agentEmailAddress"));
     }
 
     public void agentUserAddLoginDetails() {
         utils.clickBtn(By.id(ADDUSERLOGIN_LOGINTAB));
         utils.clickBtn(By.id(ADDUSERLOGIN_USENAME));
-        utils.sendText(By.id(ADDUSERLOGIN_USENAME), newBusinessCustomerPage.RanName);
+        utils.sendText(By.id(ADDUSERLOGIN_USENAME),newBusinessCustomerPage.RanName);
         utils.clickBtn(By.id(ADDUSERLOGIN_PASSWORD));
-        utils.sendText(By.id(ADDUSERLOGIN_PASSWORD), utils.getProperty("userPassword"));
+        utils.sendText(By.id(ADDUSERLOGIN_PASSWORD),utils.getProperty("userPassword"));
         utils.selectByVisibleText(By.id(ADDUSERLOGIN_SELECTPERMISSION), newBusinessCustomerPage.RanName);
         utils.javaScriptExecutorClick(By.id(ADDUSERLOGIN_ISLOGINALLOWED));
         utils.waitForElementVisible(By.id("pg"));
@@ -266,8 +266,8 @@ public class SettingsPage {
 
     public void loginAsAgent() throws InterruptedException {
         dashBoardPage.logOut();
-        utils.sendText(By.id(loginPage.USENAME_FIELD), newBusinessCustomerPage.RanName);
-        utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
+        utils.sendText(By.id(loginPage.USENAME_FIELD),newBusinessCustomerPage.RanName);
+        utils.sendText(By.id(loginPage.PASSWORD_FIELD),utils.getProperty("userPassword"));
         utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
         utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
     }
@@ -285,8 +285,8 @@ public class SettingsPage {
 
     public void loginAsReseller() {
         dashBoardPage.logOut();
-        utils.sendText(By.id(loginPage.USENAME_FIELD), newBusinessCustomerPage.RanName);
-        utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
+        utils.sendText(By.id(loginPage.USENAME_FIELD),newBusinessCustomerPage.RanName);
+        utils.sendText(By.id(loginPage.PASSWORD_FIELD),utils.getProperty("userPassword"));
         utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
         utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
     }
@@ -295,7 +295,7 @@ public class SettingsPage {
     public void addCPPermissionGroups_General() {
         utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
         CP_RanName = utils.randomName();
-        utils.sendText(By.id(ADDPERMISSION_GROUPNAME), CP_RanName);
+        utils.sendText(By.id(ADDPERMISSION_GROUPNAME),CP_RanName);
         utils.clickBtn(By.xpath(CPPERMISSION_GROUPTYPE));
     }
 
@@ -314,7 +314,7 @@ public class SettingsPage {
         try {
             utils.waitForElementVisible(By.id(ADDUSERLOGIN_SITE));
             utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
-            utils.sendText(By.id(ADDUSERLOGIN_SITE), CP_RanName);
+            utils.sendText(By.id(ADDUSERLOGIN_SITE),CP_RanName);
         } catch (Exception e) {
             utils.getCpAddUserPage();
             clickAddLoginUsersButton();
@@ -322,18 +322,18 @@ public class SettingsPage {
             Thread.sleep(1000);
             utils.waitForElementVisible(By.id(ADDUSERLOGIN_SITE));
             utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
-            utils.sendText(By.id(ADDUSERLOGIN_SITE), CP_RanName);
+            utils.sendText(By.id(ADDUSERLOGIN_SITE),CP_RanName);
         }
         utils.clickBtn(By.id(ADDUSERLOGIN_EMAIL));
-        utils.sendText(By.id(ADDUSERLOGIN_EMAIL), utils.getProperty("cpEmail"));
+        utils.sendText(By.id(ADDUSERLOGIN_EMAIL),utils.getProperty("cpEmail"));
     }
 
     public void createCPUserAddLoginDetails() {
         utils.clickBtn(By.id(ADDUSERLOGIN_LOGINTAB));
         utils.clickBtn(By.id(ADDUSERLOGIN_USENAME));
-        utils.sendText(By.id(ADDUSERLOGIN_USENAME), CP_RanName);
+        utils.sendText(By.id(ADDUSERLOGIN_USENAME),CP_RanName);
         utils.clickBtn(By.id(ADDUSERLOGIN_PASSWORD));
-        utils.sendText(By.id(ADDUSERLOGIN_PASSWORD), utils.getProperty("userPassword"));
+        utils.sendText(By.id(ADDUSERLOGIN_PASSWORD),utils.getProperty("userPassword"));
         utils.selectByVisibleText(By.id(ADDUSERLOGIN_SELECTPERMISSION), CP_RanName);
         utils.javaScriptExecutorClick(By.id(ADDUSERLOGIN_ISLOGINALLOWED));
         utils.waitForElementVisible(By.id("pg"));
@@ -348,8 +348,8 @@ public class SettingsPage {
 
     public void loginAsCpUser() {
         dashBoardPage.logOut();
-        utils.sendText(By.id(loginPage.USENAME_FIELD), CP_RanName);
-        utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
+        utils.sendText(By.id(loginPage.USENAME_FIELD),CP_RanName);
+        utils.sendText(By.id(loginPage.PASSWORD_FIELD),utils.getProperty("userPassword"));
         utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
         utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
     }
@@ -412,7 +412,7 @@ public class SettingsPage {
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.makeSureBoxIsChecked(By.id(WLR3_ORDERS_VIEW), By.id(WLR3_ORDERS_VIEW));
         utils.makeSureBoxIsChecked(By.id(WLR3_ORDERS_ADD), By.id(WLR3_ORDERS_ADD));
-        utils.makeSureBoxIsChecked(By.id(WLR3_ORDERS_EDIT), By.id(WLR3_ORDERS_EDIT));
+        utils.makeSureBoxIsChecked(By.id(WLR3_ORDERS_EDIT),By.id(WLR3_ORDERS_EDIT));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
             utils.checkAlert();

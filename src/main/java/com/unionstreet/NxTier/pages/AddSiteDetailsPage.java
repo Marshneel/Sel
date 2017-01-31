@@ -21,9 +21,9 @@ public class AddSiteDetailsPage {
         utils.switchToNewWindow();
         utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SITE_NAME));
         Reseller_RanName = utils.randomName();
-        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SITE_NAME), Reseller_RanName);
+        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SITE_NAME),Reseller_RanName);
         utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME));
-        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME), Reseller_RanName);
+        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME),Reseller_RanName);
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
             utils.checkAlert();

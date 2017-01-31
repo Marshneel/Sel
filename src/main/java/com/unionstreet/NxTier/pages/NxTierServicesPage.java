@@ -36,7 +36,7 @@ public class NxTierServicesPage {
 
     public void populateMandatoryField() {
         utils.clickBtn(By.xpath(MANDATORY_CONTROL_FIELD));
-        utils.sendText(By.xpath(MANDATORY_CONTROL_FIELD), "hello");
+        utils.sendText(By.xpath(MANDATORY_CONTROL_FIELD),"hello");
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
             utils.checkAlert();

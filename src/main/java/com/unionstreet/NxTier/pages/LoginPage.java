@@ -13,20 +13,20 @@ public class LoginPage {
     public void doLogin() {
         try {
             utils.waitForElementVisible(By.id(USENAME_FIELD));
-            utils.sendText(By.id(USENAME_FIELD), utils.getProperty("userName"));
+            utils.sendText(By.id(USENAME_FIELD),utils.getProperty("userName"));
         } catch (Exception e) {
             utils.getLoginPage();
             utils.waitForElementVisible(By.id(USENAME_FIELD));
             utils.sendText(By.id(USENAME_FIELD), utils.getProperty("userName"));
         }
-        utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("passWord"));
+        utils.sendText(By.id(PASSWORD_FIELD),utils.getProperty("passWord"));
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
 
 
     public void failedLogin(String username, String password) {
-        utils.sendText(By.id(USENAME_FIELD), username);
-        utils.sendText(By.id(PASSWORD_FIELD), password);
+        utils.sendText(By.id(USENAME_FIELD),username);
+        utils.sendText(By.id(PASSWORD_FIELD),password);
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
 
@@ -48,9 +48,9 @@ public class LoginPage {
             utils.waitForElementVisible(By.id(USENAME_FIELD));
         }
         utils.clickBtn(By.id(USENAME_FIELD));
-        utils.sendText(By.id(USENAME_FIELD), "agentlogin");
+        utils.sendText(By.id(USENAME_FIELD),"agentlogin");
         utils.clickBtn(By.id(PASSWORD_FIELD));
-        utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
+        utils.sendText(By.id(PASSWORD_FIELD),utils.getProperty("userPassword"));
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
         try {
             utils.checkAlert();
@@ -67,7 +67,7 @@ public class LoginPage {
             utils.waitForElementVisible(By.id(USENAME_FIELD));
         }
         utils.clickBtn(By.id(USENAME_FIELD));
-        utils.sendText(By.id(USENAME_FIELD), "resellerlogin");
+        utils.sendText(By.id(USENAME_FIELD),"resellerlogin");
         utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
@@ -86,9 +86,9 @@ public class LoginPage {
             utils.waitForElementVisible(By.id(USENAME_FIELD));
         }
         utils.clickBtn(By.id(USENAME_FIELD));
-        utils.sendText(By.id(USENAME_FIELD), "cp");
+        utils.sendText(By.id(USENAME_FIELD),"cp");
         utils.clickBtn(By.id(PASSWORD_FIELD));
-        utils.sendText(By.id(PASSWORD_FIELD), "password");
+        utils.sendText(By.id(PASSWORD_FIELD),"password");
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
         try {
             utils.checkAlert();
@@ -104,9 +104,9 @@ public class LoginPage {
             utils.waitForElementVisible(By.id(USENAME_FIELD));
         }
         utils.clickBtn(By.id(USENAME_FIELD));
-        utils.sendText(By.id(USENAME_FIELD), userName);
+        utils.sendText(By.id(USENAME_FIELD),userName);
         utils.clickBtn(By.id(PASSWORD_FIELD));
-        utils.sendText(By.id(PASSWORD_FIELD), passWord);
+        utils.sendText(By.id(PASSWORD_FIELD),passWord);
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
 }

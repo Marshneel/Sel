@@ -40,13 +40,13 @@ public class NewBusinessCustomerPage {
         RanName = utils.randomName();
         try {
             utils.clickBtn(By.id(COMPANYNAME_FIELD));
-            utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
+            utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
         } catch (Exception e) {
             utils.getCreateCustomerPage();
             utils.waitForElementVisible(By.linkText(ADD_BUTTON));
             utils.clickBtn(By.linkText(ADD_BUTTON));
             utils.switchToNewWindow();
-            utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
+            utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
         }
         utils.clickBtn(By.xpath(CONTACTTYPE_AGENT));
         utils.jumpToPopUpWindow(By.xpath(CONTACTTYPE_RESELLER));
@@ -57,22 +57,22 @@ public class NewBusinessCustomerPage {
         RanName = utils.randomName();
         utils.clickBtn(By.id(COMPANYNAME_FIELD));
         try {
-            utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
+            utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
         } catch (Exception e) {
-            utils.sendText(By.id(COMPANYNAME_FIELD), RanName);
+            utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
         }
     }
 
     public void addSiteInfoForNewBusinessCustomer() {
         utils.clickBtn(By.id(SITENAME_FIELD));
-        utils.sendText(By.id(SITENAME_FIELD), utils.getProperty("siteName"));
-        utils.sendText(By.id(SHORTNAME_FIELD), utils.getProperty("shortName"));
+        utils.sendText(By.id(SITENAME_FIELD),utils.getProperty("siteName"));
+        utils.sendText(By.id(SHORTNAME_FIELD),utils.getProperty("shortName"));
     }
 
     public void addSiteContactInfoForNewBusinessCustomer() {
         utils.clickBtn(By.id(FIRSTNAME));
-        utils.sendText(By.id(FIRSTNAME), utils.getProperty("firstName"));
-        utils.sendText(By.id(EMAIL_FIELD), utils.getProperty("email"));
+        utils.sendText(By.id(FIRSTNAME),utils.getProperty("firstName"));
+        utils.sendText(By.id(EMAIL_FIELD),utils.getProperty("email"));
         utils.clickBtn(By.cssSelector(SAVE_BUTTON));
         utils.verifyStringMatch(By.id(SAVEDMESSAGE_INFO), utils.getProperty("savedMessage"));
         utils.closeCurrentPage();
