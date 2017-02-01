@@ -41,8 +41,8 @@ public class WLR3_DirectoryInformationPage {
         utils.sendText(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION),name);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.id(wlr3_orderDetails_page.CLOSE));
-        utils.jumpToParentPopUp();
+        utils.javaScriptExecutorClick(By.xpath("//div[@id='popupDiv']//button[@id='closeBtn']"));
+        //utils.jumpToParentPopUp();
     }
 
     public void editDirectoryInformation() throws InterruptedException {
@@ -69,6 +69,6 @@ public class WLR3_DirectoryInformationPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath(SAVED_BUSINESSNAME_UNDER_DIRECTORYINFO));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.id(wlr3_orderDetails_page.CLOSE));
+        utils.javaScriptExecutorClick(By.xpath("//div[@id='popupDiv']//button[@id='closeBtn']"));
     }
 }

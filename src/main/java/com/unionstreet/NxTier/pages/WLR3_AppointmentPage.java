@@ -15,8 +15,13 @@ public class WLR3_AppointmentPage {
 
     public void accessAppointmentpage() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
-        Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
+        try {
+            utils.clickBtnWithWait(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
+        } catch (Exception e) {
+            Thread.sleep(1000);
+            utils.javaScriptExecutorClick(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
+        }
+
     }
 
 

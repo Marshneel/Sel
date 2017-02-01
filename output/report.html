@@ -42,6 +42,7 @@ ExtentReports 2.0
 </div>
 <ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 <li class='analysis waves-effect active'><a href='#!' class='test-view' onclick="_updateCurrentStage(0)"><i class='mdi-action-dashboard'></i>Test Details</a></li>
+<li class='analysis waves-effect'><a href='#!' class='categories-view' onclick="_updateCurrentStage(1)"><i class='mdi-maps-local-offer'></i>Categories</a></li>
 <li class='analysis waves-effect'><a href='#!' class='dashboard-view'><i class='mdi-action-track-changes'></i></i>Analysis</a></li>
 </ul>
 <span class='report-name'>Automation Report</span> <span class='report-headline'></span>
@@ -50,7 +51,7 @@ ExtentReports 2.0
 <i class='mdi-hardware-desktop-windows'></i>
 </li>
 <li>
-<span class='suite-started-time'>2017-01-31 12:04:58</span>
+<span class='suite-started-time'>2017-02-01 09:46:13</span>
 </li>
 <li>
 <span>v2.40.2</span>
@@ -80,25 +81,25 @@ ExtentReports 2.0
 <div class='col l2 m4 s12'>
 <div class='card suite-total-time-current'> 
 <span class='panel-name'>Total Time Taken (Current Run)</span> 
-<span class='suite-total-time-current-value panel-lead'>0h 2m 24s+782ms</span> 
+<span class='suite-total-time-current-value panel-lead'>0h 1m 31s+387ms</span> 
 </div> 
 </div>
 <div class='col l2 m4 s12'>
 <div class='card suite-total-time-overall'> 
 <span class='panel-name'>Total Time Taken (Overall)</span> 
-<span class='suite-total-time-overall-value panel-lead'>0h 2m 24s+782ms</span> 
+<span class='suite-total-time-overall-value panel-lead'>0h 1m 31s+387ms</span> 
 </div> 
 </div>
 <div class='col l2 m4 s6 suite-start-time'>
 <div class='card accent green-accent'> 
 <span class='panel-name'>Start</span> 
-<span class='panel-lead suite-started-time'>2017-01-31 12:02:33</span> 
+<span class='panel-lead suite-started-time'>2017-02-01 09:44:41</span> 
 </div> 
 </div>
 <div class='col l2 m4 s6 suite-end-time'>
 <div class='card accent pink-accent'> 
 <span class='panel-name'>End</span> 
-<span class='panel-lead suite-ended-time'>2017-01-31 12:04:58</span> 
+<span class='panel-lead suite-ended-time'>2017-02-01 09:46:13</span> 
 </div> 
 </div>
 </div>
@@ -184,6 +185,27 @@ ExtentReports 2.0
 </div>
 </div>
 </div>
+<div class='category-summary-view'>
+<div class='col l4 m6 s12'>
+<div class='card-panel'>
+<span class='label info outline right'>Categories</span>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+@NA64a
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </div>
 <!-- /dashboard -->
 
@@ -201,6 +223,14 @@ ExtentReports 2.0
 <li class='pass'><a href='#!'>Pass</a></li>
 <li class='fail'><a href='#!'>Fail</a></li>
 <li class='skip'><a href='#!'>Skip</a></li>
+<li class='divider'></li>
+<li class='clear'><a href='#!'>Clear Filters</a></li>
+</ul>
+</div>
+<div>
+<a data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#' class='category-toggle dropdown-button button'><i class='mdi-maps-local-offer icon'></i></a>
+<ul id='category-toggle' class='dropdown-content'>
+<li class='@NA64a'><a href='#!'>@NA64a</a></li>
 <li class='divider'></li>
 <li class='clear'><a href='#!'>Clear Filters</a></li>
 </ul>
@@ -226,20 +256,23 @@ ExtentReports 2.0
 <div class='card-panel no-padding-h no-padding-v no-margin-v'>
 <div class='wrapper'>
 <ul id='test-collection' class='test-collection'>
-<li class='collection-item test displayed active pass hasChildren' extentid='ad764207-139d-47bc-959d-9f86b87906cf'>
+<li class='collection-item test displayed active pass hasChildren' extentid='be31fe3d-f624-4d48-9d27-64e5d7a2627b'>
 <div class='test-head'>
-<span class='test-name'>Feature: Initiate a WLR3 modify order and check the flow </span>
+<span class='test-name'>Feature: NA64 - WLR3 Transfer Scenarios for line numbering </span>
 <span class='test-status label right outline capitalize pass'>pass</span>
-<span class='category-assigned hide '></span>
+<span class='category-assigned hide  @na64a'></span>
 </div>
 <div class='test-body'>
 <div class='test-info'>
-<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2017-01-31 12:02:33</span>
-<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2017-01-31 12:04:58</span>
-<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 2m 24s+489ms</span>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2017-02-01 09:44:42</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2017-02-01 09:46:13</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 1m 31s+73ms</span>
 </div>
 <div class='test-desc'></div>
 <div class='test-attributes'>
+<div class='categories'>
+<span class='category text-white'>@NA64a</span>
+</div>
 </div>
 <div class='test-steps'>
 <table class='bordered table-results'>
@@ -257,12 +290,12 @@ ExtentReports 2.0
 <li class='displayed pass node-1x'>
 <div class='collapsible-header test-node pass'>
 <div class='right test-info'>
-<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-01-31 12:02:33</span>
-<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-01-31 12:04:58</span>
-<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 2m 24s+487ms</span>
+<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2017-02-01 09:44:42</span>
+<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2017-02-01 09:46:13</span>
+<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-2 text-white'>0h 1m 31s+65ms</span>
 <span class='test-status label outline capitalize pass'>pass</span>
 </div>
-<div class='test-node-name'>Scenario: Initiate and verify the flow in a WLR3 modify order</div>
+<div class='test-node-name'>Scenario: Assigning specify new number, select from list, automatically assign now by logging as CP, agent and reseller</div>
 <div class='test-node-desc'></div>
 </div>
 <div class='collapsible-body'>
@@ -279,32 +312,38 @@ ExtentReports 2.0
 <tbody>
 <tr>
 <td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-<td class='timestamp'>12:02:46</td>
-<td class='step-name'>I am logged in as CP</td>
+<td class='timestamp'>09:44:52</td>
+<td class='step-name'>I am logged in with "<userName>" and "<passWord>"</td>
 <td class='step-details'>PASSED</td>
 </tr>
 <tr>
 <td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-<td class='timestamp'>12:03:44</td>
-<td class='step-name'>I create a new business customer with CLI and quote</td>
+<td class='timestamp'>09:45:39</td>
+<td class='step-name'>I create a new business customer and quote</td>
 <td class='step-details'>PASSED</td>
 </tr>
 <tr>
 <td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-<td class='timestamp'>12:03:45</td>
-<td class='step-name'>Initiate a modify order on the quote</td>
+<td class='timestamp'>09:45:42</td>
+<td class='step-name'>I assign WLR transfer order service to the newly created quote</td>
 <td class='step-details'>PASSED</td>
 </tr>
 <tr>
 <td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-<td class='timestamp'>12:03:56</td>
-<td class='step-name'>Access the WLR order details page</td>
+<td class='timestamp'>09:45:51</td>
+<td class='step-name'>I access specify new number, select from list and automatically assign now with out populating installation address, an error should be thrown</td>
 <td class='step-details'>PASSED</td>
 </tr>
 <tr>
 <td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-<td class='timestamp'>12:04:57</td>
-<td class='step-name'>I should be able to check all the tabs and perform necessary validations</td>
+<td class='timestamp'>09:46:07</td>
+<td class='step-name'>when i populate the installation address field and access the same</td>
+<td class='step-details'>PASSED</td>
+</tr>
+<tr>
+<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+<td class='timestamp'>09:46:12</td>
+<td class='step-name'>The error should not be seen</td>
 <td class='step-details'>PASSED</td>
 </tr>
 </tbody>
@@ -334,6 +373,78 @@ ExtentReports 2.0
 <!-- /tests -->
 
 <!-- categories -->
+<div id='categories-view' class='row _addedTable hide'>
+<div class='col _addedCell1'>
+<div class='contents'>
+<div class='card-panel heading'>
+<h5>Categories</h5>
+</div>
+<div class='card-panel filters'>
+<div class='search' alt='Search tests' title='Search tests'>
+<div class='input-field left'>
+<input id='searchTests' type='text' class='validate' placeholder='Search tests...'>
+</div>
+<i class='mdi-action-search icon'></i>
+</div>
+</div>
+<div class='card-panel no-padding-h no-padding-v'>
+<div class='wrapper'>
+<ul id='cat-collection' class='cat-collection'>
+<li class='category-item displayed'>
+<div class='cat-head'>
+<span class='category-name'>@NA64a</span>
+</div>
+<div class='category-status-counts'>
+<span class='pass label dot'>Pass: 2</span>
+</div>
+<div class='cat-body'>
+<div class='category-status-counts'>
+<div class='button-group'>
+<a href='#!' class='pass label filter'>Pass <span class='icon'>2</span></a>
+<a href='#!' class='fail label filter'>Fail <span class='icon'>0</span></a>
+<a href='#!' class='other label filter'>Others <span class='icon'>0</span></a>
+</div>
+</div>
+<div class='cat-tests'>
+<table class='bordered'>
+<thead>
+<tr>
+<th>RunDate</th>
+<th>Test Name</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class='pass'>
+<td>2017-02-01 09:44:42</td>
+<td><span class='category-link linked' extentid='86a4497c-2826-43b8-b034-2ff1aa8ab26b'>Scenario: Assigning specify new number, select from list, automatically assign now by logging as CP, agent and reseller</span></td>
+<td><div class='status label capitalize pass'>pass</div></td>
+</tr>
+<tr class='pass'>
+<td>2017-02-01 09:44:42</td>
+<td><span class='category-link linked' extentid='be31fe3d-f624-4d48-9d27-64e5d7a2627b'>Feature: NA64 - WLR3 Transfer Scenarios for line numbering</span></td>
+<td><div class='status label capitalize pass'>pass</div></td>
+</tr>
+<tbody>
+</table>
+</div>
+</div> 
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id='cat-details-wrapper' class='col _addedCell2'>
+<div class='contents'>
+<div class='card-panel details-view'>
+<h5 class='cat-name'></h5>
+<div class='cat-container'>
+</div>
+</div>
+</div>
+</div>
+</div>
 <!-- /categories -->
 
 <!-- exceptions -->

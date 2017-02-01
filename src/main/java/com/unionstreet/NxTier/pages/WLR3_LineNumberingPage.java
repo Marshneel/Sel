@@ -189,8 +189,9 @@ public class WLR3_LineNumberingPage {
         clickImportFromOtherNetwork();
     }
 
-    public void closeLineNumberingPage() {
-        utils.javaScriptExecutorClick(By.id(wlr3_orderDetails_page.CLOSE));
+    public void closeLineNumberingPage() throws InterruptedException {
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.xpath("//div[@id='popupDiv']//button[@id='closeBtn']"));
     }
 
     public void assertionForLineNumberingWithAddress() {
