@@ -55,7 +55,7 @@ public class WLR3_Cease_OrderPage {
         utils.waitForElementVisible(By.id(LABEL_ON_APPOINTMENTS_TAB));
     }
 
-    public void verifyCallFeatures() throws InterruptedException {
+    public void verifyCallFeatures_OneMonthCallerRedirect() throws InterruptedException {
         utils.waitForElementVisible(By.id(ONE_MONTH_CALLER_REDIRECT_FEATURE));
         utils.makeSureBoxIsChecked(By.id(ONE_MONTH_CALLER_REDIRECT_FEATURE), By.id(ONE_MONTH_CALLER_REDIRECT_FEATURE));
         utils.sendText(By.id(ONE_MONTH_CALLER_REDIRECT_FEATURE_CLI_TEXTBOX), "02076454545");
@@ -63,6 +63,9 @@ public class WLR3_Cease_OrderPage {
         utils.waitForElementVisible(By.xpath(ONE_MONTH_CALLER_REDIRECT_TEXT));
         Thread.sleep(1000);
         navigateToPreviousScreen();
+    }
+
+    public void verifyCallFeatures_QuarterlyCallerRedirect() throws InterruptedException {
         utils.waitForElementVisible(By.id(ONE_MONTH_CALLER_REDIRECT_FEATURE));
         utils.makeSureBoxIsUnChecked(By.id(ONE_MONTH_CALLER_REDIRECT_FEATURE), By.id(ONE_MONTH_CALLER_REDIRECT_FEATURE));
         utils.makeSureBoxIsChecked(By.id(QUARTERLY_CALLER_REDIRECT_FEATURE), By.id(QUARTERLY_CALLER_REDIRECT_FEATURE));
@@ -71,6 +74,9 @@ public class WLR3_Cease_OrderPage {
         navigateToNextScreen();
         utils.waitForElementVisible(By.xpath(QUARTERLY_CALLER_REDIRECT_TEXT));
         navigateToPreviousScreen();
+    }
+
+    public void verifyCallFeatures_RemoteCallForwarding() throws InterruptedException {
         utils.waitForElementVisible(By.id(QUARTERLY_CALLER_REDIRECT_FEATURE));
         utils.makeSureBoxIsUnChecked(By.id(QUARTERLY_CALLER_REDIRECT_FEATURE), By.id(QUARTERLY_CALLER_REDIRECT_FEATURE));
         utils.makeSureBoxIsChecked(By.id(REMOTE_CALL_FORWARDING_FEATURE), By.id(REMOTE_CALL_FORWARDING_FEATURE));

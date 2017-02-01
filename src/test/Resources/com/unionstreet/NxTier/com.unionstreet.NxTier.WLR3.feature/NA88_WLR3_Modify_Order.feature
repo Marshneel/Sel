@@ -6,5 +6,7 @@ Feature: NA88 - Initiate a WLR3 modify order and check the flow
     And   I create a new business customer with CLI and quote
     When Initiate a modify order on the quote
     And Access the WLR order details page
-    Then I should be able to check all the tabs and perform necessary validations
+    Then I should be able to check all the tabs and verify assertions
+    And make sure order is completed and ready for submission
+
 

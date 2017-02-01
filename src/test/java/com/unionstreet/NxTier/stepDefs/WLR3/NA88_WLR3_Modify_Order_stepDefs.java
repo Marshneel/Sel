@@ -23,25 +23,22 @@ public class NA88_WLR3_Modify_Order_stepDefs {
         webModel.getOrdersManagerPage().clickOnQuoteID();
     }
 
-
     @When("^Initiate a modify order on the quote$")
     public void initiateAModifyOrderOnTheQuote() throws InterruptedException {
         webModel.getAddServicePage().searchAndAddService("Modify Order");
 
     }
 
-
     @And("^Access the WLR order details page$")
     public void accessTheWLROrderDetailsPage() {
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrderWithWrongCLI();
-        webModel.getWlr3_modify_orderPage().initiatingModifyOrder("02063678369","LU1 1DQ");
+        webModel.getWlr3_modify_orderPage().initiatingModifyOrder("02063678369", "LU1 1DQ");
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
-
     }
 
-    @Then("^I should be able to check all the tabs and perform necessary validations$")
-    public void iShouldBeAbleToCheckAllTheTabsAndPerformNecessaryValidations() throws InterruptedException {
+    @Then("^I should be able to check all the tabs and verify assertions$")
+    public void iShouldBeAbleToCheckAllTheTabsAndVerifyAssertions() throws Throwable {
         //add installation address and assert on the orderDetails screen
         webModel.getwlr3_newProvide_anaMultLine_sitePage().zoomOutOnInstallationAddressUnderModifyOrder();
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ");
@@ -50,7 +47,7 @@ public class NA88_WLR3_Modify_Order_stepDefs {
         webModel.getWlr3_orderDetails_page().verifyOrderTypeTab();
         //verify lineInformation tab
         webModel.getWlr3_orderDetails_page().verifyLineInformationTab("Level 3", "3");
-      //verify network call features (verify by revoking and issuing the features)
+        //verify network call features (verify by revoking and issuing the features)
         webModel.getWlr3_orderDetails_page().checkNetworkCallFeaturesBeforeRemoval();
         webModel.getWlr3_networkCallingFeaturesPage().enterNetworkFeatures();
         webModel.getWlr3_networkCallingFeaturesPage().depopulateAndVerifyNetworkCallingFeatures();
@@ -62,9 +59,11 @@ public class NA88_WLR3_Modify_Order_stepDefs {
         webModel.getWlr3_newProvide_anaMultLine_datePage().populateHazardAndWarningNotesUnderDATE("hazard note", "warning notes");
         webModel.getWlr3_appointmentPage().saveAppointments();
         webModel.getWlr3_orderDetails_page().assertAppointmentInfo();
+    }
+
+    @And("^make sure order is completed and ready for submission$")
+    public void makeSureOrderIsCompletedAndReadyForSubmission() throws Throwable {
         //assert that the order is completed by verifying for the presence of green tick
         webModel.getEditOrderPage().verifyOrderCompletion();
     }
-
-
 }
