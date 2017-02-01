@@ -1,3 +1,4 @@
+com\unionstreet\NxTier\pages\WLR3_Cease_OrderPage.class
 com\unionstreet\NxTier\pages\AddServicePage.class
 com\unionstreet\NxTier\pages\ContactManagerPage.class
 com\unionstreet\NxTier\support\ElementUtils.class
