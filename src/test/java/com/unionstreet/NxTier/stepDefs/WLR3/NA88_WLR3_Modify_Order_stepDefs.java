@@ -34,7 +34,7 @@ public class NA88_WLR3_Modify_Order_stepDefs {
     @And("^Access the WLR order details page$")
     public void accessTheWLROrderDetailsPage() {
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
-        webModel.getWlr3_modify_orderPage().initiatingModifyOrderWithWrongCLI("01202300908","LU1 1DQ");
+        webModel.getWlr3_modify_orderPage().initiatingModifyOrderWithWrongCLI();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("02063678369","LU1 1DQ");
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
 

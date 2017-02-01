@@ -30,14 +30,14 @@ public class WLR3_Cease_OrderPage {
         utils.waitForElementVisible(By.xpath(TEXT_ON_CEASE_PAGE));
     }
 
-    public void MoveToNextScreen() {
+    public void navigateToNextScreen() {
         utils.waitForElementVisible(By.xpath(MOVE_TO_NEXT));
         utils.clickBtn(By.xpath(MOVE_TO_NEXT));
     }
 
     public void populateRecoveryLinePlantAndVerifyAssertion() {
         utils.makeSureBoxIsChecked(By.id(RECOVER_LINE_PLANT_CHECKBOX), By.id(RECOVER_LINE_PLANT_CHECKBOX));
-        MoveToNextScreen();
+        navigateToNextScreen();
         utils.waitForElementVisible(By.id(DATE_ELEMENT));
 
     }
@@ -51,7 +51,7 @@ public class WLR3_Cease_OrderPage {
     public void dePopulateRecoveryLinePlantAndVerifyAssertion() {
         utils.waitForElementVisible(By.id(RECOVER_LINE_PLANT_CHECKBOX));
         utils.makeSureBoxIsUnChecked(By.id(RECOVER_LINE_PLANT_CHECKBOX), By.id(RECOVER_LINE_PLANT_CHECKBOX));
-        MoveToNextScreen();
+        navigateToNextScreen();
         utils.waitForElementVisible(By.id(LABEL_ON_APPOINTMENTS_TAB));
     }
 
@@ -59,7 +59,7 @@ public class WLR3_Cease_OrderPage {
         utils.waitForElementVisible(By.id(ONE_MONTH_CALLER_REDIRECT_FEATURE));
         utils.makeSureBoxIsChecked(By.id(ONE_MONTH_CALLER_REDIRECT_FEATURE), By.id(ONE_MONTH_CALLER_REDIRECT_FEATURE));
         utils.sendText(By.id(ONE_MONTH_CALLER_REDIRECT_FEATURE_CLI_TEXTBOX), "02076454545");
-        MoveToNextScreen();
+        navigateToNextScreen();
         utils.waitForElementVisible(By.xpath(ONE_MONTH_CALLER_REDIRECT_TEXT));
         Thread.sleep(1000);
         navigateToPreviousScreen();
@@ -68,7 +68,7 @@ public class WLR3_Cease_OrderPage {
         utils.makeSureBoxIsChecked(By.id(QUARTERLY_CALLER_REDIRECT_FEATURE), By.id(QUARTERLY_CALLER_REDIRECT_FEATURE));
         utils.sendText(By.id(QUARTERLY_CALLER_REDIRECT_FEATURE_CLI_TEXTBOX), "02076454545");
         Thread.sleep(1000);
-        MoveToNextScreen();
+        navigateToNextScreen();
         utils.waitForElementVisible(By.xpath(QUARTERLY_CALLER_REDIRECT_TEXT));
         navigateToPreviousScreen();
         utils.waitForElementVisible(By.id(QUARTERLY_CALLER_REDIRECT_FEATURE));
@@ -76,7 +76,7 @@ public class WLR3_Cease_OrderPage {
         utils.makeSureBoxIsChecked(By.id(REMOTE_CALL_FORWARDING_FEATURE), By.id(REMOTE_CALL_FORWARDING_FEATURE));
         utils.sendText(By.id(REMOTE_CALL_FORWARDING_FEATURE_CLI_TEXTBOX), "02076454545");
         Thread.sleep(1000);
-        MoveToNextScreen();
+        navigateToNextScreen();
         utils.waitForElementVisible(By.xpath(REMOTE_CALL_FORWARD_TEXT));
 
 
