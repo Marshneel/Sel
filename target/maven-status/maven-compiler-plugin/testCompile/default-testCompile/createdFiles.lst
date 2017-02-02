@@ -11,4 +11,6 @@ com\unionstreet\NxTier\stepDefs\WLR3\NA61_Process_FLow_Obtaining_Initial_informa
 com\unionstreet\NxTier\stepDefs\WLR3\NA49_OrderServiceAutomation_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs.class
 RunnerTest.class
+com\unionstreet\NxTier\stepDefs\WLR3\NA88_WLR3_Modify_Order_stepDefs.class
+com\unionstreet\NxTier\stepDefs\WLR3\NA91_WLR3_Cease_Order_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA44_Agent_Login_stepDefs.class

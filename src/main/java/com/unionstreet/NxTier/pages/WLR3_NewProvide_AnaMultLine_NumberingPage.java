@@ -31,8 +31,8 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         utils.waitForElementVisible(By.xpath(MANDATORYMSG_FOR_RESIDENTIAL_UNDER_DIRECTORY_INFO));
         //populate contact,initials and surname
         utils.selectByVisibleText(By.id(CONTACT_TITLE_UNDER_DIRECTORY_INFO), "Dr");
-        utils.sendText(By.id(CONTACT_INITIALS_UNDER_DIRECTORY_INFO), "AJ");
-        utils.sendText(By.id(CONTACT_SURNAME_UNDER_DIRECTORY_INFO), info);
+        utils.sendText(By.id(CONTACT_INITIALS_UNDER_DIRECTORY_INFO),"AJ");
+        utils.sendText(By.id(CONTACT_SURNAME_UNDER_DIRECTORY_INFO),info);
     }
 
     public void verifyLineNumberingUnderNUMBERING() throws InterruptedException {

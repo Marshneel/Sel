@@ -22,7 +22,7 @@ public class ContactManagerPage {
     public void assertNewBusinessCustomer() {
 
         newBusinessCustomerPage.clickContactManagerButton();
-        utils.sendText(By.id(SEARCH_BUTTON), newBusinessCustomerPage.RanName);
+        utils.sendText(By.id(SEARCH_BUTTON),newBusinessCustomerPage.RanName);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
         utils.verifyStringMatch(By.linkText(newBusinessCustomerPage.RanName), newBusinessCustomerPage.RanName);
     }
@@ -47,7 +47,7 @@ public class ContactManagerPage {
     }
 
     public void searchForBusinessCustomer(String customer_name) throws InterruptedException {
-        utils.sendText(By.id(SEARCH_BUTTON), customer_name);
+        utils.sendText(By.id(SEARCH_BUTTON),customer_name);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath("//a[text()='" + customer_name + "']"));
         utils.clickBtn(By.xpath("//a[text()='" + customer_name + "']"));

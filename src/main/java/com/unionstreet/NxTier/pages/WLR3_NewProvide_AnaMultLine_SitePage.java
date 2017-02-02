@@ -19,19 +19,25 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
 
     WLR3_InstallationAddressPage wlr3_installationAddressPage = new WLR3_InstallationAddressPage();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
-    ElementUtils utils=new ElementUtils();
-    WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage=new WLR3_New_Provide_Analogue_Multiline_OrderPage();
-
-
-
+    ElementUtils utils = new ElementUtils();
+    WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage = new WLR3_New_Provide_Analogue_Multiline_OrderPage();
 
 
     //populate and assert installation address
-    public void populateAndAssertInstallationAddressUnderSITE(String postCode) throws InterruptedException {
+    public void zoomOutOnInstallationAddressUnderSITE() throws InterruptedException {
         utils.waitForElementVisible(By.id(NEW_PROVIDE_SITEINFO_SCREEN));
         //zooming out to view next button
         utils.zoomOut(By.id(NEW_PROVIDE_SITEINFO_SCREEN));
         Thread.sleep(1000);
+    } public void zoomOutOnInstallationAddressUnderModifyOrder() throws InterruptedException {
+        utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
+        //zooming out to view next button
+        utils.zoomOut(By.id("installationAddressSummaryPanel"));
+        Thread.sleep(1000);
+
+    }
+
+    public void populateAndAssertInstallationAddressUnderSITE(String postCode) throws InterruptedException {
         try {
             utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
             utils.clickBtn(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
@@ -51,12 +57,12 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
         try {
             utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
             utils.clickBtn(By.id(EMERGENCY_INFO_TEXTBOX));
-            utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
+            utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX),message);
         } catch (Exception e) {
             utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
             Thread.sleep(1000);
             utils.clickBtn(By.id(EMERGENCY_INFO_TEXTBOX));
-            utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
+            utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX),message);
         }
 
     }
@@ -69,7 +75,7 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
         //verify the presence of error message
         utils.waitForElementVisible(By.xpath(PHONE_NUMBER_MANDATORY_ERROR_MESSAGE));
         //enter contact phone number
-        utils.sendText(By.id(TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
+        utils.sendText(By.id(TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO),number);
     }
 
     public void editAndAssertServicesChargesUnderSITE(String charges) throws InterruptedException {
@@ -80,7 +86,7 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
             utils.javaScriptExecutorClick(By.xpath(EDIT_SERVICECHARGES_BUTTON));
         }
         utils.waitForElementVisible(By.xpath(SAVE_SERVICECHARGES_BUTTON));
-        utils.sendText(By.id(ANALOGUE_MULTILINE_INSTALLATION_CHARGE), "" + charges + "");
+        utils.sendText(By.id(ANALOGUE_MULTILINE_INSTALLATION_CHARGE),"" + charges + "");
         utils.clickBtn(By.xpath(SAVE_SERVICECHARGES_BUTTON));
         utils.waitForElementVisible(By.xpath("//td[text()='£" + charges + ".00']"));
     }

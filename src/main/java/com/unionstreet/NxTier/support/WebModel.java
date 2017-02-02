@@ -33,6 +33,8 @@ public class WebModel {
     private WLR3_NewProvide_AnaMultLine_FeaturesPage wlr3_newProvide_anaMultLine_featuresPage;
     private WLR3_NewProvide_AnaMultLine_NumberingPage wlr3_newProvide_anaMultLine_numberingPage;
     private WLR3_NewProvide_AnaMultLine_DatePage wlr3_newProvide_anaMultLine_datePage;
+    private WLR3_Modify_OrderPage wlr3_modify_orderPage;
+    private WLR3_Cease_OrderPage wlr3_cease_orderPage;
 
 
     public WebModel() {
@@ -65,6 +67,9 @@ public class WebModel {
         wlr3_newProvide_anaMultLine_featuresPage=new WLR3_NewProvide_AnaMultLine_FeaturesPage();
         wlr3_newProvide_anaMultLine_numberingPage=new WLR3_NewProvide_AnaMultLine_NumberingPage();
         wlr3_newProvide_anaMultLine_datePage=new WLR3_NewProvide_AnaMultLine_DatePage();
+        wlr3_modify_orderPage=new WLR3_Modify_OrderPage();
+        wlr3_cease_orderPage=new WLR3_Cease_OrderPage();
+
     }
 
     public ElementUtils getUtils() {
@@ -172,6 +177,13 @@ public class WebModel {
     }
     public WLR3_NewProvide_AnaMultLine_DatePage getWlr3_newProvide_anaMultLine_datePage(){
         return wlr3_newProvide_anaMultLine_datePage;
+    }
+    public WLR3_Modify_OrderPage getWlr3_modify_orderPage(){
+        return wlr3_modify_orderPage;
+    }
+
+    public WLR3_Cease_OrderPage getWlr3_cease_orderPage(){
+        return wlr3_cease_orderPage;
     }
 
 }

@@ -52,6 +52,7 @@ public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
     public void iShouldBeAbleToSearchAndSelectTheAddressByPostCode() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
         webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage("LU1 1DQ");
+        System.out.println("NA60a completed");
     }
 
     @When("^Access addressKey search under installation address tab and enter invalid address key$")
@@ -75,6 +76,7 @@ public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
     public void iShouldBeAbleToSearchAndSelectTheAddressByAddressKey() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
         webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage("LU1 1DQ");
+        System.out.println("NA60b completed");
     }
 
     @When("^I access advanced search under installation address tab and enter valid combinations$")
@@ -87,7 +89,7 @@ public class NA60_WLR3_Process_FLow_Analogue_Address_Lookup_stepDefs {
     @Then("^I should be able to search and select the address$")
     public void iShouldBeAbleToSearchAndSelectTheAddress() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
-        webModel.getUtils().checkPoint("NA60 done");
+        webModel.getUtils().checkPoint("NA60c completed");
 
     }
 }

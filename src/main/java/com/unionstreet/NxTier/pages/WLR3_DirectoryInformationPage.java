@@ -38,11 +38,11 @@ public class WLR3_DirectoryInformationPage {
         utils.scrollUp(By.id(EDIT));
         utils.clickBtn(By.id(EDIT));
         utils.clickBtn(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION));
-        utils.sendText(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION), name);
+        utils.sendText(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION),name);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
-        utils.waitForElementToVanish(By.id(wlr3_orderDetails_page.SAVE));
-        utils.javaScriptExecutorClick(By.id(wlr3_orderDetails_page.CLOSE));
-        utils.jumpToParentPopUp();
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.xpath("//div[@id='popupDiv']//button[@id='closeBtn']"));
+        //utils.jumpToParentPopUp();
     }
 
     public void editDirectoryInformation() throws InterruptedException {
@@ -65,9 +65,10 @@ public class WLR3_DirectoryInformationPage {
         utils.scrollUp(By.id(EDIT));
         Thread.sleep(1000);
         utils.clickBtn(By.id(EDIT));
-        utils.sendText(By.id(BUSINESSNAME_UNDER_DIRECTORYINFO), "vodafone");
+        utils.sendText(By.id(BUSINESSNAME_UNDER_DIRECTORYINFO),"vodafone");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath(SAVED_BUSINESSNAME_UNDER_DIRECTORYINFO));
-        utils.javaScriptExecutorClick(By.id(wlr3_orderDetails_page.CLOSE));
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.xpath("//div[@id='popupDiv']//button[@id='closeBtn']"));
     }
 }

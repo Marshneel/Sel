@@ -23,6 +23,7 @@ public class NA87_WLR3_New_Provide_Analogue_Multiline_stepDefs {
     public void iAccessAnalogueMultilineTabAndProvideAllTheRequiredData() throws Throwable {
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().clickAnalogueMultilineTab();
         //add installation address and assert on the orderDetails screen
+        webModel.getwlr3_newProvide_anaMultLine_sitePage().zoomOutOnInstallationAddressUnderSITE();
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ");
         webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
         //enter emergency info
