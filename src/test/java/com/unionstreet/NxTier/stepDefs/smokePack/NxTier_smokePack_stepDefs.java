@@ -6,11 +6,14 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.io.IOException;
+
 
 public class NxTier_smokePack_stepDefs {
 
 
     WebModel webModel = new WebModel();
+
 
     @Given("^I am on login page$")
     public void iAmOnLoginPage() {
@@ -18,8 +21,10 @@ public class NxTier_smokePack_stepDefs {
     }
 
     @When("^I enter valid username and password$")
-    public void iEnterValidUsernameAndPassword() {
+    public void iEnterValidUsernameAndPassword() throws IOException {
         webModel.getLoginPage().doLogin();
+
+
     }
 
     @Then("^Login is successful$")

@@ -1,5 +1,6 @@
 package com.unionstreet.NxTier.support;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
@@ -9,7 +10,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.*;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -444,6 +447,15 @@ public class ElementUtils {
         for (int i = 0; i < 3; i++) {
             driver.findElement(by).sendKeys(Keys.CONTROL, Keys.ADD);
         }
+    }
+
+    public void captureScreenShot(WebDriver driver, String screenShotName) throws IOException {
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(source, new File("./ScreenShots/" + screenShotName + ".png"));
+        System.out.println("screenShot taken");
+
+
     }
 
 }
