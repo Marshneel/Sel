@@ -40,7 +40,6 @@ public class BaseClass {
     public void tearDown(Scenario scenario) throws IOException {
         if (scenario.isFailed()) {
             utils.captureScreenShot(driver, scenario.getName());
-
         }
         driver.close();
         driver.quit();
