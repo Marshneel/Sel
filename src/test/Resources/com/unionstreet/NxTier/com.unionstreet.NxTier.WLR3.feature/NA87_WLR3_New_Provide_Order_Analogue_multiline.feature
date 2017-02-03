@@ -2,7 +2,6 @@
 Feature: NA87 - WLR3 New Provide Order Analogue multiLine
 
   Scenario: Populating the analogue multiline under WLR3 new provide order and verify for flow
-
     Given I am logged in as CP
     And   I create a new business customer and quote
     And add WLR analogue multiline order to the quote

@@ -19,7 +19,8 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
 
 
     @And("^have added a new business customer with required contact type$")
-    public void haveAddedANewBusinessCustomerWithRequiredContactType() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+    public void haveAddedANewBusinessCustomerWithRequiredContactType() throws
+            InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         //passing SQL query to correct the attributes of agent and reseller
         webModel.getUtils().sqlExeQuery("Portal", "test01-sql01", "nxtiere2e", "update company set is_customer = 1, is_agent = 0, is_reseller = 1 where id = 109");
         webModel.getUtils().sqlExeQuery("Portal", "test01-sql01", "nxtiere2e", "update company set is_customer = 0, is_agent = 1, is_reseller = 0 where id = 108");
@@ -119,7 +120,8 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @Then("^All required fields pertaining to an agent should be visible on the create quote window$")
-    public void allRequiredFieldsPertainingToAnAgentShouldBeVisibleOnTheCreateQuoteWindow() throws InterruptedException {
+    public void allRequiredFieldsPertainingToAnAgentShouldBeVisibleOnTheCreateQuoteWindow() throws
+            InterruptedException {
         webModel.getOrdersManagerPage().assertQuotePageForAgentandReseller();
     }
 
@@ -137,7 +139,8 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
 
 
     @Then("^All required fields pertaining to a reseller should be visible on the create quote window$")
-    public void allRequiredFieldsPertainingToAResellerShouldBeVisibleOnTheCreateQuoteWindow() throws InterruptedException {
+    public void allRequiredFieldsPertainingToAResellerShouldBeVisibleOnTheCreateQuoteWindow() throws
+            InterruptedException {
         webModel.getOrdersManagerPage().assertQuotePageForAgentandReseller();
     }
 
@@ -159,7 +162,8 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @And("^Only the quotes created by me and the ones created for companies under my contact list should be visible$")
-    public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForCompaniesUnderMyContactListShouldBeVisible() throws InterruptedException {
+    public void onlyTheQuotesCreatedByMeAndTheOnesCreatedForCompaniesUnderMyContactListShouldBeVisible() throws
+            InterruptedException {
         webModel.getOrdersManagerPage().assertQuote();
         webModel.getOrdersManagerPage().checkQuoteForReseller();
     }
