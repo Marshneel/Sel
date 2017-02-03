@@ -8,8 +8,8 @@ import org.openqa.selenium.By;
  */
 public class WLR3_NewProvide_AnaMultLine_DatePage {
 
-    private final String HAZARD_NOTES_TEXTBOX = "HazardNotesId";
-    private final String WARNING_NOTES_TEXTBOX = "WarningNotesId";
+    public final String HAZARD_NOTES_TEXTBOX = "HazardNotesId";
+    public final String WARNING_NOTES_TEXTBOX = "WarningNotesId";
 
     ElementUtils utils = new ElementUtils();
 

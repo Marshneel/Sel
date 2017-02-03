@@ -35,6 +35,7 @@ public class WebModel {
     private WLR3_NewProvide_AnaMultLine_DatePage wlr3_newProvide_anaMultLine_datePage;
     private WLR3_Modify_OrderPage wlr3_modify_orderPage;
     private WLR3_Cease_OrderPage wlr3_cease_orderPage;
+    private WLR3_AddRemoveAuxLinePage wlr3_addRemoveAuxLinePage;
 
 
     public WebModel() {
@@ -69,6 +70,7 @@ public class WebModel {
         wlr3_newProvide_anaMultLine_datePage=new WLR3_NewProvide_AnaMultLine_DatePage();
         wlr3_modify_orderPage=new WLR3_Modify_OrderPage();
         wlr3_cease_orderPage=new WLR3_Cease_OrderPage();
+        wlr3_addRemoveAuxLinePage=new WLR3_AddRemoveAuxLinePage();
 
     }
 
@@ -186,4 +188,8 @@ public class WebModel {
         return wlr3_cease_orderPage;
     }
 
+    public WLR3_AddRemoveAuxLinePage getWlr3_addRemoveAuxLinePage(){
+        return wlr3_addRemoveAuxLinePage;
+    }
 }
+
