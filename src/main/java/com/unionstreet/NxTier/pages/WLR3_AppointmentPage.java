@@ -46,7 +46,9 @@ public class WLR3_AppointmentPage {
             utils.javaScriptExecutorClick(By.xpath(EDIT_APPOINTMENTS));
         }
         utils.waitForElementVisible(By.id(wlr3_newProvide_anaMultLine_datePage.HAZARD_NOTES_TEXTBOX));
+        utils.clickBtn(By.id(wlr3_newProvide_anaMultLine_datePage.HAZARD_NOTES_TEXTBOX));
         utils.sendText(By.id(wlr3_newProvide_anaMultLine_datePage.HAZARD_NOTES_TEXTBOX),"HazardNotes");
+        utils.clickBtn(By.id(wlr3_newProvide_anaMultLine_datePage.WARNING_NOTES_TEXTBOX));
         utils.sendText(By.id(wlr3_newProvide_anaMultLine_datePage.WARNING_NOTES_TEXTBOX),"warningNotes");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
 
