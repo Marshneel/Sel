@@ -1,6 +1,6 @@
-
+@E2ETests
 Feature: NA64 - WLR3 Transfer Scenarios for line numbering
-@NA64a
+
   Scenario Outline: Assigning specify new number, select from list, automatically assign now by logging as CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"
     And   I create a new business customer and quote
