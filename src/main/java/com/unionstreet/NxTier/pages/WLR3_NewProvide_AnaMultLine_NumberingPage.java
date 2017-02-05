@@ -43,6 +43,7 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         utils.clickBtn(By.xpath(wlr3_lineNumberingPage.AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
         utils.waitForElementVisible(By.xpath(wlr3_lineNumberingPage.ALLOCATENOW_TAB_UNDER_AUTOMATICALLY_ASSIGN_NOW_LINE_INFO));
         utils.clickBtn(By.xpath(wlr3_lineNumberingPage.ALLOCATENOW_TAB_UNDER_AUTOMATICALLY_ASSIGN_NOW_LINE_INFO));
+        utils.waitForElementVisible(By.xpath("//div[@id='automaticallyAssignedNumber']//p[contains(text(),'Successfully allocated')]"));
         utils.waitForElementVisible(By.xpath(wlr3_lineNumberingPage.CONTINUETAB_UNDER_LINE_INFO));
         Thread.sleep(1000);
         try {
@@ -51,6 +52,5 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
             Thread.sleep(1000);
             utils.javaScriptExecutorClick(By.xpath(wlr3_lineNumberingPage.CONTINUETAB_UNDER_LINE_INFO));
         }
-        utils.waitForElementVisible(By.xpath(NUMBER_RESERVATION_CONFIRMATION_UNDER_LINE_NUMBERING));
     }
 }
