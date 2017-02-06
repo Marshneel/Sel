@@ -26,17 +26,10 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
     //populate and assert installation address
     public void zoomOutOnInstallationAddressUnderSITE() throws InterruptedException {
         utils.waitForElementVisible(By.id(NEW_PROVIDE_SITEINFO_SCREEN));
-        //zooming out to view next button
-        utils.zoomOut(By.id(NEW_PROVIDE_SITEINFO_SCREEN));
-        Thread.sleep(1000);
     }
 
     public void zoomOutOnInstallationAddressUnderModifyOrder() throws InterruptedException {
         utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
-        //zooming out to view next button
-        utils.zoomOut(By.id("installationAddressSummaryPanel"));
-        Thread.sleep(1000);
-
     }
 
     public void populateAndAssertInstallationAddressUnderSITE(String postCode) throws InterruptedException {

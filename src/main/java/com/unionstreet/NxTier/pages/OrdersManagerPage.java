@@ -110,7 +110,6 @@ public class OrdersManagerPage {
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.waitForElementVisible(By.xpath("//div[@id='orderContentPanel']//td[contains(text(),'No Records')]"));
-
     }
 
     public void checkQuotesForCP() throws InterruptedException {
@@ -169,8 +168,6 @@ public class OrdersManagerPage {
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), addSiteDetailsPage.Reseller_RanName);
         Thread.sleep(1000);
         utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
-
-
     }
 
     public void searchQuoteByQRN() {
@@ -198,6 +195,9 @@ public class OrdersManagerPage {
 
     public void clickOnQuoteID() throws InterruptedException {
         try {
+            utils.waitForElementVisible(By.xpath(QUOTEID));
+            utils.zoomOut(By.xpath(QUOTEID));
+            Thread.sleep(1000);
             utils.clickBtn(By.xpath(QUOTEID));
             Thread.sleep(1000);
             utils.switchToNewWindow();

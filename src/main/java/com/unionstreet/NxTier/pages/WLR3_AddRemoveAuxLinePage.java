@@ -24,8 +24,6 @@ public class WLR3_AddRemoveAuxLinePage {
 
     public void textOnAddRemoveAuxLinePage() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(TEXT_ON_ADD_REMOVE_AUXLINE_PAGE));
-        Thread.sleep(1000);
-        utils.zoomOut(By.xpath(TEXT_ON_ADD_REMOVE_AUXLINE_PAGE));
     }
 
     public void populateCLIandPostCode(){
