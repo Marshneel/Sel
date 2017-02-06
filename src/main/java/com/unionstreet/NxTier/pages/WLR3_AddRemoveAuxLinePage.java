@@ -16,6 +16,7 @@ public class WLR3_AddRemoveAuxLinePage {
    private final String CLI_TEXT_ON_ORDER_SUMMARY="//div[contains(text(),'01202300909')]";
     private final String INCREASED_NUM_OF_LINES_ON_ORDER_SUMMARY_PAGE="//div[@id='div_WLR3Order_num_lines']//span[contains(text(),'9')]";
     private final String DECREASED_NUM_OF_LINES_ON_ORDER_SUMMARY_PAGE="//div[@id='div_WLR3Order_num_lines']//span[contains(text(),'7')]";
+    private final String  ERROR_MESSAGE_UPON_DUPLICATING_CLI="//div[@id='validationSummary']//h5[contains(text(),'Sorry, this number cannot be processed')]";
 
     ElementUtils utils=new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
@@ -58,6 +59,8 @@ public class WLR3_AddRemoveAuxLinePage {
     public void assertCLI(){
         utils.waitForElementVisible(By.xpath(CLI_TEXT_ON_ORDER_SUMMARY));
     }
-
+public void errorMessage(){
+    utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_UPON_DUPLICATING_CLI));
+}
 
 }

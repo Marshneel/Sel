@@ -59,11 +59,12 @@ public class NA94_WLR3_Add_Remove_Aux_line_stepDefs {
 
     @And("^When I try to reuse the same CLI for a service within the sale quote$")
     public void whenITryToReuseTheSameCLIForAServiceWithinTheSaleQuote() throws InterruptedException {
-
+        iInitiateAnAdd_removeAuxOrderOnTheQuote();
     }
 
     @Then("^An error with relevant text message should be thrown$")
     public void anErrorWithRelevantTextMessageShouldBeThrown() {
+        webModel.getWlr3_addRemoveAuxLinePage().errorMessage();
 
     }
 }
