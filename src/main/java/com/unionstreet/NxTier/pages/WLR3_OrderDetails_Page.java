@@ -29,7 +29,7 @@ public class WLR3_OrderDetails_Page {
     private final String SITE_EMAILID_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_contact_email'][contains(text(),'Jeroen@vodafone.co.uk')]";
     private final String ITEMID_ON_EDITORDER = "//a[@href='#'][starts-with(@onclick,'OpenNewWLR3OrderDetailPopup')]";
     private final String CONTINUETAB_UNDER_NOCHANGE_LINE_INFO = "//a[@onclick='lineNumbering.submitChanges(0);']";
-    private final String APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE = "//a[contains(@onclick,'showNewBookAppointment')]";
+    public final String APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE = "//a[contains(@onclick,'showNewBookAppointment')]";
     private final String TEXT_ON_APPOINTMENT_PAGE = "//legend[text()='Hazard and Warning Notes']";
     private final String ORDERTYPE_TAB = "//a[contains(@onclick,'loadOrderTypePopup')]";
     private final String LINE_INFO_TAB = "//a[contains(@onclick,'loadLineInformationPopup')]";
@@ -37,9 +37,9 @@ public class WLR3_OrderDetails_Page {
     private final String SERVICE_MAINTENANCE_TAB = "WLR3Order_care_level";
     private final String HAZARD_ASSERTION_TEXT = "//div[@id='appointmentSummaryPanel']//p[contains(text(),'hazard note')]";
     private final String WARNING_ASSERTION_TEXT = "//div[@id='appointmentSummaryPanel']//p[contains(text(),'warning notes')]";
-    private final String ACTIVE_ANONYMOUS_CALL_REJECT="//div[@id='networkFeaturesSummaryPanel']//label[contains(text(),'Anonymous Call Reject')]";
-    private final String INACTIVE_ANONYMOUS_CALL_REJECT="//label[@class='networkFeatureDelete'][contains(text(),'Anonymous Call Reject')]";
-
+    private final String ACTIVE_ANONYMOUS_CALL_REJECT = "//div[@id='networkFeaturesSummaryPanel']//label[contains(text(),'Anonymous Call Reject')]";
+    private final String INACTIVE_ANONYMOUS_CALL_REJECT = "//label[@class='networkFeatureDelete'][contains(text(),'Anonymous Call Reject')]";
+    private final String EDIT_SITEINFO = "//div[@id='divValidationMessages']//a[contains(@onclick,'SiteInformation')]";
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
@@ -48,9 +48,9 @@ public class WLR3_OrderDetails_Page {
     public void enterPhoneNumberAndPostCodeToInitiateTheTransfer(String number, String postCode) {
         utils.waitForElementVisible(By.id(SAVE));
         utils.clickBtn(By.id(companyMenuPage.CLI_NUMBER_FIELD));
-        utils.sendText(By.id(companyMenuPage.CLI_NUMBER_FIELD),number);
+        utils.sendText(By.id(companyMenuPage.CLI_NUMBER_FIELD), number);
         utils.clickBtn(By.id(POSTCODE_SEARCH_POSTCODE_FIELD));
-        utils.sendText(By.id(POSTCODE_SEARCH_POSTCODE_FIELD),postCode);
+        utils.sendText(By.id(POSTCODE_SEARCH_POSTCODE_FIELD), postCode);
         utils.clickBtn(By.id(SAVE));
     }
 
@@ -169,7 +169,8 @@ public class WLR3_OrderDetails_Page {
             getToWLR3QuotePage();
         }
     }
-    public void getToWLR3QuotePage(){
+
+    public void getToWLR3QuotePage() {
         utils.getOrdersPage();
         utils.waitForElementVisible(By.xpath(ordersManagerPage.QUOTEID));
         utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
@@ -178,7 +179,6 @@ public class WLR3_OrderDetails_Page {
         utils.clickBtn(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
         utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
     }
-
 
 
     public void verifyOrderTypeTab() throws InterruptedException {
@@ -223,9 +223,16 @@ public class WLR3_OrderDetails_Page {
     public void checkNetworkCallFeaturesAfterRemoval() {
         utils.waitForElementVisible(By.xpath(INACTIVE_ANONYMOUS_CALL_REJECT));
     }
-    public void assertQuoteForCeaseOrder(){
+
+    public void assertQuoteForCeaseOrder() {
         utils.assertElementNotPresent(By.xpath(LINE_NUMBERING_BUTTON));
         utils.assertElementNotPresent(By.xpath(DIRECTORY_INFORMATION_BUTTON));
         utils.assertElementNotPresent(By.xpath(LINE_INFO_TAB));
     }
-}
+
+    public void clickOnSiteInfoErrorTabForIncrease() throws InterruptedException {
+        utils.clickBtn(By.xpath(EDIT_SITEINFO));
+    }
+    public void clickOnSiteInfoErrorTabForDecrease() throws InterruptedException {
+        utils.clickBtn(By.xpath("//div[@id='siteInformationSummaryPanel']//a"));
+}}

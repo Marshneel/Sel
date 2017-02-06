@@ -18,8 +18,8 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
     private final String NUMBER_RESERVATION_CONFIRMATION_UNDER_LINE_NUMBERING = "//p[text()='This number has been reserved.']";
 
 
-    ElementUtils utils=new ElementUtils();
-    WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage=new WLR3_New_Provide_Analogue_Multiline_OrderPage();
+    ElementUtils utils = new ElementUtils();
+    WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage = new WLR3_New_Provide_Analogue_Multiline_OrderPage();
     WLR3_LineNumberingPage wlr3_lineNumberingPage = new WLR3_LineNumberingPage();
 
     public void PopulateDirectoryInfoUnderNUMBERING(String info) throws InterruptedException {
@@ -31,8 +31,8 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         utils.waitForElementVisible(By.xpath(MANDATORYMSG_FOR_RESIDENTIAL_UNDER_DIRECTORY_INFO));
         //populate contact,initials and surname
         utils.selectByVisibleText(By.id(CONTACT_TITLE_UNDER_DIRECTORY_INFO), "Dr");
-        utils.sendText(By.id(CONTACT_INITIALS_UNDER_DIRECTORY_INFO),"AJ");
-        utils.sendText(By.id(CONTACT_SURNAME_UNDER_DIRECTORY_INFO),info);
+        utils.sendText(By.id(CONTACT_INITIALS_UNDER_DIRECTORY_INFO), "AJ");
+        utils.sendText(By.id(CONTACT_SURNAME_UNDER_DIRECTORY_INFO), info);
     }
 
     public void verifyLineNumberingUnderNUMBERING() throws InterruptedException {
@@ -47,5 +47,6 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath(wlr3_lineNumberingPage.CONTINUETAB_UNDER_LINE_INFO));
         utils.waitForElementVisible(By.xpath(NUMBER_RESERVATION_CONFIRMATION_UNDER_LINE_NUMBERING));
+        }
     }
-}
+

@@ -10,16 +10,19 @@ public class WLR3_AppointmentPage {
     //// TODO: 06/01/2017
     private final String GET_AVAILABILITY_UNDER_APPOINTMENTPAGE = "//a[contains(@onclick,'showNewBookAppointmentPopup')]";
 
+
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
+    WLR3_NewProvide_AnaMultLine_DatePage wlr3_newProvide_anaMultLine_datePage = new WLR3_NewProvide_AnaMultLine_DatePage();
 
     public void accessAppointmentpage() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
         try {
+            Thread.sleep(1000);
             utils.clickBtnWithWait(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.javaScriptExecutorClick(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
+            utils.clickBtnWithWait(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
         }
 
     }
@@ -34,5 +37,20 @@ public class WLR3_AppointmentPage {
 
     public void saveAppointments() {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
+
+    public void populateHazardAndWarningNotes() throws InterruptedException {
+        Thread.sleep(1000);
+        try {
+            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE));
+        } catch (Exception e) {
+            Thread.sleep(1000);
+            utils.javaScriptExecutorClick(By.xpath(wlr3_orderDetails_page.APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE));
+        }
+        utils.waitForElementVisible(By.id(wlr3_newProvide_anaMultLine_datePage.HAZARD_NOTES_TEXTBOX));
+        utils.sendText(By.id(wlr3_newProvide_anaMultLine_datePage.HAZARD_NOTES_TEXTBOX), "hazardNotes");
+        utils.sendText(By.id(wlr3_newProvide_anaMultLine_datePage.WARNING_NOTES_TEXTBOX), "warningNotes");
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+
     }
 }

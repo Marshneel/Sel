@@ -16,6 +16,6 @@ Feature: NA53 - Laying add on activation charge for quotes created by CP, agent 
   Scenario: Laying addOnActivation charge for quote created by reseller
     Given I am logged in as reseller
     And have created a new site for a company
-    And I create a new quote for reseller and add a service with addOnActivation charge
+    And I create a new quote for reseller  and add a service with addOnActivation charge
     When I run SQL query
     Then The charge should be visible in the back end
