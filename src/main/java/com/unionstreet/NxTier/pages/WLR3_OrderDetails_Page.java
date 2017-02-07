@@ -53,6 +53,7 @@ public class WLR3_OrderDetails_Page {
         utils.clickBtn(By.id(POSTCODE_SEARCH_POSTCODE_FIELD));
         utils.sendText(By.id(POSTCODE_SEARCH_POSTCODE_FIELD), postCode);
         utils.clickBtn(By.id(SAVE));
+
     }
 
     public void assertAddress(String roadName, String premiseName, String subpremiseName, String premiseNumber) throws InterruptedException {
@@ -125,6 +126,7 @@ public class WLR3_OrderDetails_Page {
         try {
             utils.jumpToPopUpWindowByJavaExeClick(By.xpath(LINE_NUMBERING_BUTTON));
         } catch (Exception e) {
+            Thread.sleep(1000);
             utils.javaScriptExecutorClick(By.xpath(LINE_NUMBERING_BUTTON));
         }
     }
