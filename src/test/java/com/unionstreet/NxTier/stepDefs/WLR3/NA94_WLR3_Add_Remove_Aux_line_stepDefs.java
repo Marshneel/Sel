@@ -37,6 +37,8 @@ public class NA94_WLR3_Add_Remove_Aux_line_stepDefs {
         webModel.getWlr3_addRemoveAuxLinePage().assertCLI();
         //assert charges
         webModel.getWlr3_addRemoveAuxLinePage().assertPresenceOfCharges();
+        //assert Add_Aux line
+        webModel.getWlr3_orderDetails_page().assertQuoteSummaryPageForAddAuxLine();
         //provide phone number under site info
         webModel.getWlr3_orderDetails_page().clickOnSiteInfoErrorTabForIncrease();
         webModel.getWlr3_siteInformationPage().enterTelephoneNumberUnderSiteInfo("07894040256");
@@ -58,6 +60,8 @@ public class NA94_WLR3_Add_Remove_Aux_line_stepDefs {
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         //assert charges absent
         webModel.getWlr3_addRemoveAuxLinePage().assertAbsenceOfCharges();
+        //assert remove_Aux line
+        webModel.getWlr3_orderDetails_page().assertQuoteSummaryPageForRemoveAuxLine();
         webModel.getWlr3_appointmentPage().populateHazardAndWarningNotes();
         webModel.getEditOrderPage().verifyOrderCompletion();
     }

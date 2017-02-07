@@ -39,7 +39,8 @@ public class WLR3_OrderDetails_Page {
     private final String WARNING_ASSERTION_TEXT = "//div[@id='appointmentSummaryPanel']//p[contains(text(),'warning notes')]";
     private final String ACTIVE_ANONYMOUS_CALL_REJECT = "//div[@id='networkFeaturesSummaryPanel']//label[contains(text(),'Anonymous Call Reject')]";
     private final String INACTIVE_ANONYMOUS_CALL_REJECT = "//label[@class='networkFeatureDelete'][contains(text(),'Anonymous Call Reject')]";
-    private final String EDIT_SITEINFO = "//div[@id='divValidationMessages']//a[contains(@onclick,'SiteInformation')]";
+    private final String EDIT_SITEINFO_FOR_INCREASE = "//div[@id='divValidationMessages']//a[contains(@onclick,'SiteInformation')]";
+    private final String SITE_INFO_FOR_LINE_DECREASE="//div[@id='siteInformationSummaryPanel']//a";
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
@@ -231,8 +232,17 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void clickOnSiteInfoErrorTabForIncrease() throws InterruptedException {
-        utils.clickBtn(By.xpath(EDIT_SITEINFO));
+        utils.clickBtn(By.xpath(EDIT_SITEINFO_FOR_INCREASE));
     }
     public void clickOnSiteInfoErrorTabForDecrease() throws InterruptedException {
-        utils.clickBtn(By.xpath("//div[@id='siteInformationSummaryPanel']//a"));
-}}
+        utils.clickBtn(By.xpath(SITE_INFO_FOR_LINE_DECREASE));
+}public void assertQuoteSummaryPageForAddAuxLine(){
+        utils.waitForElementVisible(By.xpath(LINE_INFO_TAB));
+        utils.waitForElementVisible(By.xpath(NETWORK_FEATURES_BUTTON));
+
+    }
+    public void assertQuoteSummaryPageForRemoveAuxLine(){
+        utils.assertElementNotPresent(By.xpath(LINE_INFO_TAB));
+        utils.assertElementNotPresent(By.xpath(NETWORK_FEATURES_BUTTON));
+    }
+}

@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_LineNumberingPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_LineNumberingPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/report.html" afterPath="$PROJECT_DIR$/output/report.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_AddRemoveAuxLinePage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_AddRemoveAuxLinePage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA94_WLR3_Add_Remove_Aux_line_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA94_WLR3_Add_Remove_Aux_line_stepDefs.java" />
     </list>
     <ignored path="NxTier automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,24 +33,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NA64_WLR3_Analogue_Line_Transfer_line_Numbering.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA64_WLR3_Analogue_Line_Transfer_line_Numbering.feature">
+      <file leaf-file-name="WLR3_OrderDetails_Page.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="3" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
+            <state relative-caret-position="646">
+              <caret line="45" column="44" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NA94_WLR3_Add_Remove_Aux_line_stepDefs.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA94_WLR3_Add_Remove_Aux_line_stepDefs.java">
+      <file leaf-file-name="WLR3_SiteInformationPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_SiteInformationPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WLR_and_NxTierServicesPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR_and_NxTierServicesPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,8 +66,8 @@
       <file leaf-file-name="WLR3_AddRemoveAuxLinePage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_AddRemoveAuxLinePage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="70" column="30" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="38" />
+            <state relative-caret-position="-243">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,57 +79,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/RunnerTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="5" column="184" selection-start-line="5" selection-start-column="184" selection-end-line="5" selection-end-column="184" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NxTier_smokePack.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="4" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA91_WLR3_Cease_Order.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA91_WLR3_Cease_Order.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WLR3_LineNumberingPage.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_LineNumberingPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="136" column="4" selection-start-line="136" selection-start-column="4" selection-end-line="136" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA88_WLR3_Modify_Order.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA88_WLR3_Modify_Order.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA87_WLR3_New_Provide_Order_Analogue_multiline.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA87_WLR3_New_Provide_Order_Analogue_multiline.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+              <caret line="5" column="195" selection-start-line="5" selection-start-column="195" selection-end-line="5" selection-end-column="195" />
               <folding />
             </state>
           </provider>
@@ -128,7 +89,47 @@
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA94_WLR3_Add_Remove_Aux_line.feature">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
+              <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WLR3_NewProvide_AnaMultLine_NumberingPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_NumberingPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="25" column="87" selection-start-line="25" selection-start-column="87" selection-end-line="25" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NA91_WLR3_Cease_Order.feature" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA91_WLR3_Cease_Order.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WLR3_NewProvide_AnaMultLine_ProvisionPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_ProvisionPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="74">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WLR3_NewProvide_AnaMultLine_SitePage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_SitePage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -191,7 +192,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_SiteInformationPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_DatePage.java" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA53_laying_AddOnActivation_charge_forCP_Agent_reseller.feature" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_NumberingPage.java" />
@@ -206,11 +206,12 @@
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA64_WLR3_Analogue_Line_Transfer_line_Numbering.feature" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA61__Process_FLow_Obtaining_Initial_information.feature" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA60_WLR3_Process_FLow_Analogue_Address_Lookup.feature" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_AddRemoveAuxLinePage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA94_WLR3_Add_Remove_Aux_line_stepDefs.java" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA94_WLR3_Add_Remove_Aux_line.feature" />
-        <option value="$PROJECT_DIR$/src/test/java/RunnerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_LineNumberingPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA94_WLR3_Add_Remove_Aux_line_stepDefs.java" />
+        <option value="$PROJECT_DIR$/src/test/java/RunnerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA94_WLR3_Add_Remove_Aux_line.feature" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_AddRemoveAuxLinePage.java" />
       </list>
     </option>
   </component>
@@ -227,8 +228,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1296" />
-    <option name="height" value="685" />
+    <option name="width" value="1456" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1076,13 +1077,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00095" summary="E2ETests only">
-      <created>1485085627040</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1485085627040</updated>
-    </task>
     <task id="LOCAL-00096" summary="E2ETests only">
       <created>1485094419400</created>
       <option name="number" value="00096" />
@@ -1419,7 +1413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486400213060</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="@E2ETests and @smokePack&#10;completed the add/remove Aux line&#10;">
+      <created>1486411819049</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1486411819049</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1464,8 +1465,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="685" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950193" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1479,7 +1480,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6191117" sideWeight="0.49068767" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42637542" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37750715" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1585,14 +1586,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java</url>
-          <line>59</line>
-          <properties />
-          <option name="timeStamp" value="255" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="259" />
     </breakpoint-manager>
     <watches-manager />
@@ -1602,116 +1595,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/debug.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14304">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="101" column="17" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/BaseClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/WebModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="191" column="41" selection-start-line="191" selection-start-column="41" selection-end-line="191" selection-end-column="41" />
-          <folding>
-            <element signature="e#7733#7734#0" expanded="false" />
-            <element signature="e#7781#7782#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_ProvisionPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_FeaturesPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_EngineeringPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="76" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA47_WLR3_Permissions_For_Agent_Reseller.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA44_Agent_Login.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_SiteInformationPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_Analogue_Multiline_OrderPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1729,26 +1616,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_DatePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA88_WLR3_Modify_Order_stepDefs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_Modify_OrderPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1771,14 +1642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_NumberingPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="25" column="87" selection-start-line="25" selection-start-column="87" selection-end-line="25" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA51_Service Designer application_Familiarise.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1795,50 +1658,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_InstallationAddressPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NetworkCallingFeaturesPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_SitePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="31" column="78" selection-start-line="31" selection-start-column="78" selection-end-line="31" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
           <caret line="438" column="0" selection-start-line="438" selection-start-column="0" selection-end-line="438" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-991">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA91_WLR3_Cease_Order_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1863,30 +1686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/OrdersManagerPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="199" column="29" selection-start-line="199" selection-start-column="29" selection-end-line="199" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_AppointmentPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="50" column="86" selection-start-line="50" selection-start-column="86" selection-end-line="50" selection-end-column="86" />
           <folding />
         </state>
       </provider>
@@ -1923,31 +1722,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR_and_NxTierServicesPage.java">
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="4" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="10" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_AddRemoveAuxLinePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="70" column="30" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA94_WLR3_Add_Remove_Aux_line_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1975,18 +1754,238 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA91_WLR3_Cease_Order_stepDefs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="4" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="10" />
+        <state relative-caret-position="519">
+          <caret line="47" column="58" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="58" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/SettingsPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-901">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/OrdersManagerPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4131">
+          <caret line="246" column="17" selection-start-line="246" selection-start-column="14" selection-end-line="246" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NxTierServicesPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NewBusinessCustomerPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/LoginPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/DashBoardPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA94_WLR3_Add_Remove_Aux_line_stepDefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="62" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CompanyMenuPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_AppointmentPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="50" column="86" selection-start-line="50" selection-start-column="86" selection-end-line="50" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_Cease_OrderPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_DirectoryInformationPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_InstallationAddressPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_LineNumberingPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2244">
+          <caret line="136" column="4" selection-start-line="136" selection-start-column="4" selection-end-line="136" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_Modify_OrderPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NetworkCallingFeaturesPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_Analogue_Multiline_OrderPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_DatePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_EngineeringPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="76" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_FeaturesPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_NumberingPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="25" column="87" selection-start-line="25" selection-start-column="87" selection-end-line="25" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_ProvisionPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_SitePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="45" column="44" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_SiteInformationPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR_and_NxTierServicesPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_AddRemoveAuxLinePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-243">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/RunnerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="5" column="184" selection-start-line="5" selection-start-column="184" selection-end-line="5" selection-end-column="184" />
+          <caret line="5" column="195" selection-start-line="5" selection-start-column="195" selection-end-line="5" selection-end-column="195" />
           <folding />
         </state>
       </provider>
@@ -1994,7 +1993,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA94_WLR3_Add_Remove_Aux_line.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
+          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -2003,14 +2002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_LineNumberingPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="136" column="4" selection-start-line="136" selection-start-column="4" selection-end-line="136" selection-end-column="4" />
           <folding />
         </state>
       </provider>
