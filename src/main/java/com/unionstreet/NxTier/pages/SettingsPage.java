@@ -396,9 +396,8 @@ public class SettingsPage {
         utils.searchAndAssertTextPresent(By.id(dashBoardPage.QUOTE), "WLR3 Quote");
         try {
             utils.clickBtn(By.cssSelector(dashBoardPage.LOGOUT_BUTTON));
-        } catch (Exception e) {
-            Thread.sleep(2000);
-            utils.clickBtn(By.cssSelector(dashBoardPage.LOGOUT_BUTTON));
+        } catch (Exception e) {utils.getLoginPage();
+            dashBoardPage.logOut();
         }
         try {
             utils.checkAlert();
