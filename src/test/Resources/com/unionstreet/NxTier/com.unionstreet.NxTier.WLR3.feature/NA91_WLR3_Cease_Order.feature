@@ -1,4 +1,4 @@
-@E2ETests
+
 Feature: NA91 - Initiate a WLR3 cease order and check the flow
 
   Scenario: Initiate and verify the flow of a WLR3 cease order

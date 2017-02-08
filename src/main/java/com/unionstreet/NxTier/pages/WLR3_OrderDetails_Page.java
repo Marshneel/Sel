@@ -124,10 +124,10 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
         Thread.sleep(1000);
         try {
-            utils.jumpToPopUpWindowByJavaExeClick(By.xpath(LINE_NUMBERING_BUTTON));
+            utils.clickBtnWithWait(By.xpath(LINE_NUMBERING_BUTTON));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.javaScriptExecutorClick(By.xpath(LINE_NUMBERING_BUTTON));
+            utils.clickBtnWithWait(By.xpath(LINE_NUMBERING_BUTTON));
         }
     }
 
