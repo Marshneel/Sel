@@ -11,6 +11,7 @@ public class WLR3_SiteInformationPage {
     private final String TEXT_ON_SITE_INFORMATION = "//legend[text()='Site Contact']";
     private final String SELECTCONTACT_UNDER_SITEINFO = "ContactList";
     private final String SUBMIT_BUTTON = "saveBtn";
+    private final String RECOVER_LINE_PLANT="WLR3Order_recover_line_plant";
 
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
@@ -52,14 +53,14 @@ public class WLR3_SiteInformationPage {
 
     public void enterTelephoneNumberUnderSiteInfoAndAssertAbsenceOfRLPcheckBox(String number) {
         utils.sendText(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
-        utils.assertElementNotPresent(By.id("WLR3Order_recover_line_plant"));
+        utils.assertElementNotPresent(By.id(RECOVER_LINE_PLANT));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
 
     }
 
     public void enterTelephoneNumberUnderSiteInfoAndAssertPresenceOfRLPcheckBox(String number) {
         utils.sendText(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
-        utils.waitForElementVisible(By.id("WLR3Order_recover_line_plant"));
+        utils.waitForElementVisible(By.id(RECOVER_LINE_PLANT));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
 
 

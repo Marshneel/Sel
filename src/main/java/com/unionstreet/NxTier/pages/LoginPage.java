@@ -96,13 +96,16 @@ public class LoginPage {
         }
     }
 
-    public void login(String userName, String passWord) {
+    public void login(String userName, String passWord) throws InterruptedException {
         try {
             utils.waitForElementVisible(By.id(USENAME_FIELD));
         } catch (Exception e) {
             utils.getLoginPage();
             utils.waitForElementVisible(By.id(USENAME_FIELD));
         }
+        utils.zoomOut(By.id(USENAME_FIELD));
+        Thread.sleep(1000);
+        utils.waitForElementVisible(By.id(USENAME_FIELD));
         utils.clickBtn(By.id(USENAME_FIELD));
         utils.sendText(By.id(USENAME_FIELD),userName);
         utils.clickBtn(By.id(PASSWORD_FIELD));
