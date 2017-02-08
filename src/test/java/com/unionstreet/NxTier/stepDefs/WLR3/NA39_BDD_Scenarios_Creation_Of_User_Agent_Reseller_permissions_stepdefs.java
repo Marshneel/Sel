@@ -101,7 +101,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @And("^I should be able to login with CP credentials$")
-    public void iShouldBeAbleToLoginWithCPCredentials() {
+    public void iShouldBeAbleToLoginWithCPCredentials() throws InterruptedException {
         webModel.getSettingsPage().loginAsCpUser();
         webModel.getDashBoardPage().logOut();
         System.out.println("NA39b completed");
@@ -170,7 +170,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
 
     @Given("^I am logged in as CP$")
     public void iAmLoggedInAsCP() throws InterruptedException {
-        webModel.getLoginPage().loginAsCP();
+        webModel.getLoginPage().doLogin();
     }
 
 

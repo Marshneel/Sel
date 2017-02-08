@@ -325,7 +325,7 @@ public class SettingsPage {
         utils.switchToParentWindow();
     }
 
-    public void loginAsCpUser() {
+    public void loginAsCpUser() throws InterruptedException {
         dashBoardPage.logOut();
         utils.sendText(By.id(loginPage.USENAME_FIELD), CP_RanName);
         utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));

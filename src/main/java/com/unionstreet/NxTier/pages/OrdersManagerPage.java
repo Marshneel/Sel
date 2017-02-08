@@ -246,7 +246,7 @@ public class OrdersManagerPage {
         }
     }
 
-    public void saveAssignServicePage() {
+    public void saveAssignServicePage() throws InterruptedException {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         dashBoardPage.logOut();
     }
@@ -255,7 +255,7 @@ public class OrdersManagerPage {
         utils.closeCurrentPage();
         utils.switchToParentWindow();
         dashBoardPage.logOut();
-        loginPage.loginAsCP();
+        loginPage.doLogin();
         companyMenuPage.clickConfigManager();
         wlr_and_nxTierServicesPage.accessingAssignServicePage();
         commonMethods.search("agent");
