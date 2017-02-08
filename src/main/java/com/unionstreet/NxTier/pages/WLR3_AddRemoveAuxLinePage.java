@@ -77,4 +77,5 @@ public void errorMessage(){
         utils.assertElementNotPresent(By.xpath(CHARGES_SETUP_TEXT));
         utils.assertElementNotPresent(By.xpath(CHARGES_FREQUENCY_TEXT));
     }
+
 }

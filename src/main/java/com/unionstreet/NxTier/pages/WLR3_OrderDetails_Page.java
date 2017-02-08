@@ -18,7 +18,7 @@ public class WLR3_OrderDetails_Page {
     public final String DIRECTORY_INFORMATION_BUTTON = "//a[contains(@onclick,'loadDirectoryInformationPopup')]";
     public final String CLOSE = "closeBtn";
     public final String SAVE = "saveBtn";
-    private final String CANCEL = "cancelBtn";
+    public final String CANCEL = "cancelBtn";
     private final String INVALID_ADDRESSKEY = "//span[text()='Invalid Address Key']";
     public final String ADDRESS_SEARCH_RESULT_FOR_LU1_1DQ_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_addr_postcode'][contains(text(),'LU1 1DQ')]";
     private final String LINE_NUMBERING_BUTTON = "//a[contains(@onclick,'loadLineNumbering')]";
@@ -40,7 +40,7 @@ public class WLR3_OrderDetails_Page {
     private final String ACTIVE_ANONYMOUS_CALL_REJECT = "//div[@id='networkFeaturesSummaryPanel']//label[contains(text(),'Anonymous Call Reject')]";
     private final String INACTIVE_ANONYMOUS_CALL_REJECT = "//label[@class='networkFeatureDelete'][contains(text(),'Anonymous Call Reject')]";
     private final String EDIT_SITEINFO_FOR_INCREASE = "//div[@id='divValidationMessages']//a[contains(@onclick,'SiteInformation')]";
-    private final String SITE_INFO_FOR_LINE_DECREASE="//div[@id='siteInformationSummaryPanel']//a";
+    private final String SITE_INFO_FOR_LINE_DECREASE = "//div[@id='siteInformationSummaryPanel']//a";
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
@@ -236,15 +236,35 @@ public class WLR3_OrderDetails_Page {
     public void clickOnSiteInfoErrorTabForIncrease() throws InterruptedException {
         utils.clickBtn(By.xpath(EDIT_SITEINFO_FOR_INCREASE));
     }
+
     public void clickOnSiteInfoErrorTabForDecrease() throws InterruptedException {
         utils.clickBtn(By.xpath(SITE_INFO_FOR_LINE_DECREASE));
-}public void assertQuoteSummaryPageForAddAuxLine(){
+    }
+
+    public void assertQuoteSummaryPageForAddAuxLine() {
         utils.waitForElementVisible(By.xpath(LINE_INFO_TAB));
         utils.waitForElementVisible(By.xpath(NETWORK_FEATURES_BUTTON));
 
     }
-    public void assertQuoteSummaryPageForRemoveAuxLine(){
+
+    public void assertQuoteSummaryPageForRemoveAuxLine() {
         utils.assertElementNotPresent(By.xpath(LINE_INFO_TAB));
         utils.assertElementNotPresent(By.xpath(NETWORK_FEATURES_BUTTON));
     }
+
+    public void clickSiteInfo() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
+
+        try {
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(SITE_INFORMATION_BUTTON));
+        } catch (Exception e) {
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(SITE_INFORMATION_BUTTON));
+        }
+
+    }
+
+
 }
+

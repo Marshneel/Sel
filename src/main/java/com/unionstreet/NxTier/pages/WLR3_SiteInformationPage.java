@@ -14,7 +14,7 @@ public class WLR3_SiteInformationPage {
 
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
-    WLR3_NewProvide_AnaMultLine_SitePage wlr3_newProvide_anaMultLine_sitePage=new WLR3_NewProvide_AnaMultLine_SitePage();
+    WLR3_NewProvide_AnaMultLine_SitePage wlr3_newProvide_anaMultLine_sitePage = new WLR3_NewProvide_AnaMultLine_SitePage();
 
     public void populatingSiteInformation() throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
@@ -50,9 +50,18 @@ public class WLR3_SiteInformationPage {
         utils.javaScriptExecutorClick(By.id(SUBMIT_BUTTON));
     }
 
-    public void enterTelephoneNumberUnderSiteInfo(String number){
-        utils.sendText(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO),number);
+    public void enterTelephoneNumberUnderSiteInfoAndAssertAbsenceOfRLPcheckBox(String number) {
+        utils.sendText(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
+        utils.assertElementNotPresent(By.id("WLR3Order_recover_line_plant"));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+
+    }
+
+    public void enterTelephoneNumberUnderSiteInfoAndAssertPresenceOfRLPcheckBox(String number) {
+        utils.sendText(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
+        utils.waitForElementVisible(By.id("WLR3Order_recover_line_plant"));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+
 
     }
 }

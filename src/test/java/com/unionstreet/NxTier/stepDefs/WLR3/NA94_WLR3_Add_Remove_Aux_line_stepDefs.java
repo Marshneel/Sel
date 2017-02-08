@@ -39,9 +39,9 @@ public class NA94_WLR3_Add_Remove_Aux_line_stepDefs {
         webModel.getWlr3_addRemoveAuxLinePage().assertPresenceOfCharges();
         //assert Add_Aux line
         webModel.getWlr3_orderDetails_page().assertQuoteSummaryPageForAddAuxLine();
-        //provide phone number under site info
+        //provide phone number under site info and verify recovery line plant checkBox
         webModel.getWlr3_orderDetails_page().clickOnSiteInfoErrorTabForIncrease();
-        webModel.getWlr3_siteInformationPage().enterTelephoneNumberUnderSiteInfo("07894040256");
+        webModel.getWlr3_siteInformationPage().enterTelephoneNumberUnderSiteInfoAndAssertAbsenceOfRLPcheckBox("07894040256");
         //provide hazard and warning notes
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         webModel.getWlr3_appointmentPage().populateHazardAndWarningNotes();
@@ -55,8 +55,9 @@ public class NA94_WLR3_Add_Remove_Aux_line_stepDefs {
     @Then("^I should be able to assert line decrease and check the flow$")
     public void iShouldBeAbleToAssertLineDecreaseAndCheckTheFlow() throws InterruptedException {
         webModel.getWlr3_addRemoveAuxLinePage().assertNumberDecrease();
+        //provide phone number under site info and verify recovery line plant checkBox
         webModel.getWlr3_orderDetails_page().clickOnSiteInfoErrorTabForDecrease();
-        webModel.getWlr3_siteInformationPage().enterTelephoneNumberUnderSiteInfo("07894040256");
+        webModel.getWlr3_siteInformationPage().enterTelephoneNumberUnderSiteInfoAndAssertPresenceOfRLPcheckBox("07894040256");
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         //assert charges absent
         webModel.getWlr3_addRemoveAuxLinePage().assertAbsenceOfCharges();

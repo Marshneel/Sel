@@ -29,6 +29,7 @@ public class BaseClass {
             driver = utils.browser();
             driver.get(utils.getProperty("url"));
             driver.manage().window().maximize();
+            utils.zoomOut();
 
 
         } catch (Exception e) {

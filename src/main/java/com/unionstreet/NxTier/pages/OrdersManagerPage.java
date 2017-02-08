@@ -199,7 +199,6 @@ public class OrdersManagerPage {
     public void clickOnQuoteID() throws InterruptedException {
         try {
             utils.waitForElementVisible(By.xpath(QUOTEID));
-            utils.zoomOut(By.xpath(QUOTEID));
             Thread.sleep(1000);
             utils.clickBtn(By.xpath(QUOTEID));
             Thread.sleep(1000);

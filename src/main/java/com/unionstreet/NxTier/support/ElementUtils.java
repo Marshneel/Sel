@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 
 import java.io.File;
@@ -437,15 +438,16 @@ public class ElementUtils {
         System.out.println(text);
     }
 
-    public void zoomOut(By by) {
+    public void zoomIn(By by) {
         for (int i = 0; i < 3; i++) {
             driver.findElement(by).sendKeys(Keys.CONTROL, Keys.SUBTRACT);
         }
     }
 
-    public void zoomIn(By by) {
+    public void zoomOut() {
         for (int i = 0; i < 3; i++) {
-            driver.findElement(by).sendKeys(Keys.CONTROL, Keys.ADD);
+            Actions action = new Actions(driver);
+            action.keyDown(Keys.CONTROL).sendKeys(Keys.SUBTRACT).perform();
         }
     }
 
