@@ -216,7 +216,6 @@ public class WLR3_OrderDetails_Page {
     public void assertAppointmentInfo() {
         utils.waitForElementVisible(By.xpath(HAZARD_ASSERTION_TEXT));
         utils.waitForElementVisible(By.xpath(WARNING_ASSERTION_TEXT));
-
     }
 
     public void checkNetworkCallFeaturesBeforeRemoval() {
@@ -251,20 +250,5 @@ public class WLR3_OrderDetails_Page {
         utils.assertElementNotPresent(By.xpath(LINE_INFO_TAB));
         utils.assertElementNotPresent(By.xpath(NETWORK_FEATURES_BUTTON));
     }
-
-    public void clickSiteInfo() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
-
-        try {
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(SITE_INFORMATION_BUTTON));
-        } catch (Exception e) {
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(SITE_INFORMATION_BUTTON));
-        }
-
-    }
-
-
 }
 

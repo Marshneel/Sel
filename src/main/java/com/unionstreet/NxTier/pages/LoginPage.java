@@ -13,20 +13,20 @@ public class LoginPage {
     public void doLogin() {
         try {
             utils.waitForElementVisible(By.id(USENAME_FIELD));
-            utils.sendText(By.id(USENAME_FIELD),utils.getProperty("userName"));
+            utils.sendText(By.id(USENAME_FIELD), utils.getProperty("userName"));
         } catch (Exception e) {
             utils.getLoginPage();
             utils.waitForElementVisible(By.id(USENAME_FIELD));
             utils.sendText(By.id(USENAME_FIELD), utils.getProperty("userName"));
         }
-        utils.sendText(By.id(PASSWORD_FIELD),utils.getProperty("passWord"));
+        utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("passWord"));
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
 
 
     public void failedLogin(String username, String password) {
-        utils.sendText(By.id(USENAME_FIELD),username);
-        utils.sendText(By.id(PASSWORD_FIELD),password);
+        utils.sendText(By.id(USENAME_FIELD), username);
+        utils.sendText(By.id(PASSWORD_FIELD), password);
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
 
@@ -48,9 +48,9 @@ public class LoginPage {
             utils.waitForElementVisible(By.id(USENAME_FIELD));
         }
         utils.clickBtn(By.id(USENAME_FIELD));
-        utils.sendText(By.id(USENAME_FIELD),"agentlogin");
+        utils.sendText(By.id(USENAME_FIELD), "agentlogin");
         utils.clickBtn(By.id(PASSWORD_FIELD));
-        utils.sendText(By.id(PASSWORD_FIELD),utils.getProperty("userPassword"));
+        utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
         try {
             utils.checkAlert();
@@ -67,7 +67,7 @@ public class LoginPage {
             utils.waitForElementVisible(By.id(USENAME_FIELD));
         }
         utils.clickBtn(By.id(USENAME_FIELD));
-        utils.sendText(By.id(USENAME_FIELD),"resellerlogin");
+        utils.sendText(By.id(USENAME_FIELD), "resellerlogin");
         utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
@@ -78,17 +78,15 @@ public class LoginPage {
     }
 
 
-    public void loginAsCP() {
-        try {
-            utils.waitForElementVisible(By.id(USENAME_FIELD));
-        } catch (Exception e) {
-            utils.getLoginPage();
-            utils.waitForElementVisible(By.id(USENAME_FIELD));
-        }
+    public void loginAsCP() throws InterruptedException {
+        utils.waitForElementVisible(By.id(USENAME_FIELD));
+        utils.zoomOut(By.id(USENAME_FIELD));
+        Thread.sleep(1000);
+        utils.waitForElementVisible(By.id(USENAME_FIELD));
         utils.clickBtn(By.id(USENAME_FIELD));
-        utils.sendText(By.id(USENAME_FIELD),"cp");
+        utils.sendText(By.id(USENAME_FIELD), "cp");
         utils.clickBtn(By.id(PASSWORD_FIELD));
-        utils.sendText(By.id(PASSWORD_FIELD),"password");
+        utils.sendText(By.id(PASSWORD_FIELD), "password");
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
         try {
             utils.checkAlert();
@@ -97,19 +95,14 @@ public class LoginPage {
     }
 
     public void login(String userName, String passWord) throws InterruptedException {
-        try {
-            utils.waitForElementVisible(By.id(USENAME_FIELD));
-        } catch (Exception e) {
-            utils.getLoginPage();
-            utils.waitForElementVisible(By.id(USENAME_FIELD));
-        }
+        utils.waitForElementVisible(By.id(USENAME_FIELD));
         utils.zoomOut(By.id(USENAME_FIELD));
         Thread.sleep(1000);
         utils.waitForElementVisible(By.id(USENAME_FIELD));
         utils.clickBtn(By.id(USENAME_FIELD));
-        utils.sendText(By.id(USENAME_FIELD),userName);
+        utils.sendText(By.id(USENAME_FIELD), userName);
         utils.clickBtn(By.id(PASSWORD_FIELD));
-        utils.sendText(By.id(PASSWORD_FIELD),passWord);
+        utils.sendText(By.id(PASSWORD_FIELD), passWord);
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
 }

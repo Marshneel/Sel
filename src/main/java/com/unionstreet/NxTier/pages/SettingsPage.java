@@ -77,7 +77,6 @@ public class SettingsPage {
     private final String ADDUSERLOGIN_USENAME = "username";
     private final String ADDUSERLOGIN_PASSWORD = "password";
     private final String ADDLOGINUSERS = "Add";
-    private final String COMPANYCONTACTS_BUTTON = "HrefCompanyContacts";
     private final String ASSERTINGWLR3 = "//tr[@class='table_row_alt_subchild']/td[2][contains(text(),'WLR3 Quote')]";
     ElementUtils utils = new ElementUtils();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
@@ -271,26 +270,6 @@ public class SettingsPage {
         utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
         utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
     }
-
-/////////////////////////////////////Reseller//////////////////////////////////////////////////////////////////////
-
-    public void clickCompanyContacts() {
-        utils.clickBtn(By.id(COMPANYCONTACTS_BUTTON));
-    }
-
-    public void addNewCompanyContactButton() throws InterruptedException {
-        utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-        utils.switchToNewWindow();
-    }
-
-    public void loginAsReseller() {
-        dashBoardPage.logOut();
-        utils.sendText(By.id(loginPage.USENAME_FIELD), newBusinessCustomerPage.RanName);
-        utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
-        utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
-        utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
-    }
-
     ///////////////////////////////////////////////////////CP///////////////////////////////////////////////////////////////
     public void addCPPermissionGroups_General() {
         utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));

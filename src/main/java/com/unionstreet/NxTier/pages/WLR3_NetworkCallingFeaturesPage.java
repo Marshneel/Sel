@@ -53,12 +53,10 @@ public class WLR3_NetworkCallingFeaturesPage {
         utils.makeSureBoxIsUnChecked(By.id(ANONYMOUS_CAL_REJ_UNDER_NTWRK_CAL_FEATURES), By.id(ANONYMOUS_CAL_REJ_UNDER_NTWRK_CAL_FEATURES));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
-
     public void depopulateAndVerifyNetworkCallingFeatures() throws InterruptedException {
         utils.makeSureBoxIsUnChecked(By.id("Features_1__value"), By.id("Features_1__value"));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
-
     public void rePopulateNetworkCallingFeatures(){
         utils.makeSureBoxIsChecked(By.id("Features_1__value"),By.id("Features_1__value"));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
