@@ -373,15 +373,6 @@ public class SettingsPage {
         }
         utils.waitForElementVisible(By.xpath(ASSERTINGWLR3));
         utils.searchAndAssertTextPresent(By.id(dashBoardPage.QUOTE), "WLR3 Quote");
-        try {
-            utils.clickBtn(By.cssSelector(dashBoardPage.LOGOUT_BUTTON));
-        } catch (Exception e) {utils.getLoginPage();
-            dashBoardPage.logOut();
-        }
-        try {
-            utils.checkAlert();
-        } catch (Exception e) {
-        }
     }
 
     public void issuingWLRPermissions() throws InterruptedException {
