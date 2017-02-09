@@ -35,8 +35,6 @@ public class WLR3_InstallationAddressPage {
         utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         utils.clickBtn(By.xpath(INSTALLATION_ADDRESS_BUTTON));
     }
-
-
     public void EnterPostCodeInSearchAddressByPostCode(String postCode) throws InterruptedException {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD));
         Thread.sleep(1000);

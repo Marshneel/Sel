@@ -123,15 +123,9 @@ public class WLR3_LineNumberingPage {
     }
 
     public void clickImportFromOtherNetwork() throws InterruptedException {
-        Thread.sleep(1000);
         utils.waitForElementVisible(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
-        try {
-            utils.clickBtnWithWait(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
-        } catch (Exception e) {
-            utils.waitForElementVisible(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
-            Thread.sleep(1000);
-            utils.javaScriptExecutorClick(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
-        }
+            utils.clickBtn(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
+
     }
 
     public void enterNumberOnImportFromOtherNetworkPage(String number) throws InterruptedException {

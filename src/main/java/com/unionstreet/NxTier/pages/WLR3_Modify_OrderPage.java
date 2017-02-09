@@ -25,7 +25,6 @@ public class WLR3_Modify_OrderPage {
         utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_ON_WLR3_ORDER_MODIFY_PAGE));
     }
 
-
     public void initiatingModifyOrder(String CLI, String postCode){
         utils.clickBtn(By.id(MANUAL_ENTRY_TEXTBOX));
         utils.waitForElementVisible(By.id(companyMenuPage.CLI_NUMBER_FIELD));
@@ -34,8 +33,4 @@ public class WLR3_Modify_OrderPage {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
-
-
-
-
 }

@@ -31,6 +31,7 @@ public class BaseClass {
             driver.manage().window().maximize();
 
 
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -57,7 +57,6 @@ public class WLR3_DirectoryInformationPage {
             utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
             Thread.sleep(1000);
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
-
         }
         utils.checkPoint("entered the directory info page to edit");
         utils.waitForElementVisible(By.id("changeDirInfoLabel"));

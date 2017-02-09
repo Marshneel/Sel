@@ -19,8 +19,14 @@ public class DashBoardPage {
         utils.verifyStringMatch(By.id(DASHBOARD_TITLE), "DASHBOARD");
     }
 
-    public void logOut() {
-        utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
+    public void logOut() throws InterruptedException {
+        Thread.sleep(1000);
+        try {
+            utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
+        } catch (Exception e) {
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
+        }
         try {
             utils.checkAlert();
         } catch (Exception e) {

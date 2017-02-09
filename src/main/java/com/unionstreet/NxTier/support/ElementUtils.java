@@ -437,15 +437,15 @@ public class ElementUtils {
         System.out.println(text);
     }
 
-    public void zoomOut(By by) {
+    public void zoom(By by) {
         for (int i = 0; i < 3; i++) {
             driver.findElement(by).sendKeys(Keys.CONTROL, Keys.SUBTRACT);
         }
     }
 
-    public void zoomIn(By by) {
+    public void zoomOut(By by) {
         for (int i = 0; i < 3; i++) {
-            driver.findElement(by).sendKeys(Keys.CONTROL, Keys.ADD);
+            driver.findElement(by).sendKeys(Keys.CONTROL, Keys.SUBTRACT);
         }
     }
 

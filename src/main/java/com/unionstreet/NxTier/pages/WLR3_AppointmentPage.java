@@ -24,10 +24,7 @@ public class WLR3_AppointmentPage {
             Thread.sleep(1000);
             utils.clickBtnWithWait(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
         }
-
     }
-
-
     public void bookAppointmentGeneral(String date, String timeSlot) {
         utils.clickBtn(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
         utils.clickBtn(By.xpath("//div[@data-apptdate='" + date + "'][@data-appttime='AM (" + timeSlot + ")']"));
