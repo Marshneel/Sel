@@ -233,12 +233,22 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void clickOnSiteInfoErrorTabForIncrease() throws InterruptedException {
-        utils.clickBtn(By.xpath(EDIT_SITEINFO_FOR_INCREASE));
+        try {
+            utils.clickBtn(By.xpath(EDIT_SITEINFO_FOR_INCREASE));
+        } catch (Exception e) {
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(EDIT_SITEINFO_FOR_INCREASE));
+        }
     }
 
     public void clickOnSiteInfoErrorTabForDecrease() throws InterruptedException {
-        utils.clickBtn(By.xpath(SITE_INFO_FOR_LINE_DECREASE));
-    }
+        try {
+            utils.clickBtn(By.xpath(SITE_INFO_FOR_LINE_DECREASE));
+        } catch (Exception e) {
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(SITE_INFO_FOR_LINE_DECREASE));
+            }
+        }
 
     public void assertQuoteSummaryPageForAddAuxLine() {
         utils.waitForElementVisible(By.xpath(LINE_INFO_TAB));
@@ -256,10 +266,11 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.id("div_EmergencyInfo"));
         Thread.sleep(1000);
         utils.clickBtn(By.id("div_EmergencyInfo"));
-        utils.sendText(By.id("EmergencyInfo"),"EmergencyInfo");
+        utils.sendText(By.id("EmergencyInfo"), "EmergencyInfo");
         utils.clickBtn(By.xpath("//img[contains(@onclick,'jet_update_value_FromTextbox')]"));
     }
-    public void assertChangesForAmendOrder(){
+
+    public void assertChangesForAmendOrder() {
         utils.waitForElementVisible(By.xpath("//div[@id='networkFeaturesSummaryPanel']//label[contains(text(),'Anonymous Call Reject')]"));
         utils.waitForElementVisible(By.xpath("//div[@id='directoryInformationSummaryPanel']//p[contains(text(),'Telecom')]"));
 
