@@ -18,8 +18,8 @@ public class OrdersManagerPage {
     private final String ORDER_QUOTE_DESCRIPTION_FIELD = "QuoteDescription";
     private final String ORDERS_SAVEQUOTE_BUTTON = "CreateQuoteButton";
     private final String QUOTEBOX = "StartQuote";
-    private final String AGENT = "//td[text()='agentCompany']";
-    private final String RESELLER = "//td[text()='reseller']";
+    private final String AGENT = "//div[@id='contentPanel']//td[contains(text(),'agentCompany')]";
+    private final String RESELLER = "//div[@id='contentPanel']//td[contains(text(),'reseller')]";
     private final String AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER = "checkbox0";
     private final String LOCATOR_FOR_BOX_HEADER = "contentPanel";
 
@@ -119,7 +119,6 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
-        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.waitForElementVisible(By.xpath(AGENT));
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         Thread.sleep(1000);

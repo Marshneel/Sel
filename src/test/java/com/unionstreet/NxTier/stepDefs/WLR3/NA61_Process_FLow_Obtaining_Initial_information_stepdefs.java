@@ -20,7 +20,9 @@ public class NA61_Process_FLow_Obtaining_Initial_information_stepdefs {
 
     @When("^I populate network calling features and directory information$")
     public void iPopulateNetworkCallingFeaturesAndDirectoryInformation() throws InterruptedException {
+       webModel. getWlr3_orderDetails_page().textOnWLR3OrderPage();
         webModel.getWlr3_networkCallingFeaturesPage().populateNetworkCallingFeatures();
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         webModel.getWlr3_directoryInformationPage().populatingDirectoryInformation("Telecom");
     }
 

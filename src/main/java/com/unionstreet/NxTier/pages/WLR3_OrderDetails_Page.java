@@ -250,5 +250,20 @@ public class WLR3_OrderDetails_Page {
         utils.assertElementNotPresent(By.xpath(LINE_INFO_TAB));
         utils.assertElementNotPresent(By.xpath(NETWORK_FEATURES_BUTTON));
     }
+
+    public void enterEmergencyInfo() throws InterruptedException {
+        textOnWLR3OrderPage();
+        utils.waitForElementVisible(By.id("div_EmergencyInfo"));
+        Thread.sleep(1000);
+        utils.clickBtn(By.id("div_EmergencyInfo"));
+        utils.sendText(By.id("EmergencyInfo"),"EmergencyInfo");
+        utils.clickBtn(By.xpath("//img[contains(@onclick,'jet_update_value_FromTextbox')]"));
+    }
+    public void assertChangesForAmendOrder(){
+        utils.waitForElementVisible(By.xpath("//div[@id='networkFeaturesSummaryPanel']//label[contains(text(),'Anonymous Call Reject')]"));
+        utils.waitForElementVisible(By.xpath("//div[@id='directoryInformationSummaryPanel']//p[contains(text(),'Telecom')]"));
+
+    }
+
 }
 

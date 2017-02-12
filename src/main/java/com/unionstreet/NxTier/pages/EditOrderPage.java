@@ -23,7 +23,8 @@ public class EditOrderPage {
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
-    NewBusinessCustomerPage newBusinessCustomerPage=new NewBusinessCustomerPage();
+    NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
+    WLR3_OrderDetails_Page wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
 
     public void clickAddProductsAndServicesButton() throws InterruptedException {
         try {
@@ -104,6 +105,7 @@ public class EditOrderPage {
         utils.assertElementNotPresent(By.id(CUSTOMER_RADIOBUTTON));
         utils.assertElementNotPresent(By.id(INTERNAL_RADIOBUTTON));
     }
+
     public void verifyOrderCompletion() throws InterruptedException {
         //load created quote
         try {
@@ -111,9 +113,42 @@ public class EditOrderPage {
             ordersManagerPage.clickOnQuoteID();
         } catch (Exception e) {
         }
-        utils.jumpToPopUpWindow(By.xpath(QUOTEID_ON_EDITORDER_PAGE));
         // check for the green tick
         utils.waitForElementVisible(By.xpath(GREEN_TICK));
         System.out.println("NA87 completed");
+    }
+
+    public void submitOrder() throws InterruptedException {
+        utils.getOrdersPage();
+        ordersManagerPage.clickOnQuoteID();
+        utils.waitForElementVisible(By.xpath(GREEN_TICK));
+        utils.selectByIndex(By.id("Order_owned_by_id"), 1);
+        utils.waitForElementVisible(By.xpath("//div[@id='buttonMenu']//span[contains(text(),'Save & Submit Order')]"));
+            utils.clickBtn(By.xpath("//div[@id='buttonMenu']//span[contains(text(),'Save & Submit Order')]"));
+        utils.switchToPreviousWindow();
+
+        }
+
+    public void amendOrder() throws InterruptedException {
+        utils.getOrdersPage();
+        ordersManagerPage.clickOnQuoteID();
+        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+        utils.clickBtn(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+        utils.waitForElementVisible(By.id("AmendOrder"));
+        utils.clickBtn(By.id("AmendOrder"));
+        utils.selectByIndex(By.id("WLR3Order_amend_reason"),1);
+       Thread.sleep(1000);
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
+    public void submitAmendedOrder(){
+        utils.clickBtn(By.id("SubmitAmend"));
+    }
+    public void checkOpenReachNotification() throws InterruptedException {
+        utils.refreshPage();
+        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+        utils.clickBtn(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+        utils.waitForElementVisible(By.xpath("//button[contains(@onclick,'ShowOrderHistoryPopup')]"));
+        utils.clickBtn(By.xpath("//button[contains(@onclick,'ShowOrderHistoryPopup')]"));
+        utils.waitForElementVisible(By.xpath("//div[@id='divorderHistory']//td[contains(text(),'Amend sent')]"));
     }
 }
