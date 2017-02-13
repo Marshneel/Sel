@@ -57,10 +57,10 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void assertAddress(String roadName, String premiseName, String subpremiseName, String premiseNumber) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//input[@id='Addresses_0__ThoroughfareName'][@value='" + roadName + "']"));
-        utils.waitForElementVisible(By.xpath("//input[@id='Addresses_0__PremisesName'][@value='" + premiseName + "']"));
-        utils.waitForElementVisible(By.xpath("//input[@id='Addresses_0__SubPremises'][@value='" + subpremiseName + "']"));
-        utils.waitForElementVisible(By.xpath("//input[@id='Addresses_0__ThoroughfareNumber'][@value='" + premiseNumber + "']"));
+        utils.waitForElementVisible(By.xpath("//tr[@id='address_0']//td[contains(text(),'"+premiseName+"')]"));
+        utils.waitForElementVisible(By.xpath("//tr[@id='address_0']//td[contains(text(),'"+subpremiseName+"')]"));
+        utils.waitForElementVisible(By.xpath("//tr[@id='address_0']//td[contains(text(),'"+premiseNumber+"')]"));
+        utils.waitForElementVisible(By.xpath("//tr[@id='address_0']//td[contains(text(),'"+roadName+"')]"));
     }
 
     public void pickAndAssertPostCodeOnWLR3OrderPage(String postCode) throws InterruptedException {

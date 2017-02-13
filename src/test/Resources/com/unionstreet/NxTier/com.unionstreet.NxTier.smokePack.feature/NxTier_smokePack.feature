@@ -6,7 +6,6 @@ Feature: SmokePack - Creating new business customer and assigning all the requir
     When I enter valid username and password
     Then Login is successful
 
-
   Scenario Outline: : Login with invalid credentials
     Given I am on login page
     When I enter invalid "<userName>" and "<passWord>"
