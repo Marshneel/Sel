@@ -20,10 +20,11 @@ public class DashBoardPage {
     }
 
     public void logOut() throws InterruptedException {
-        Thread.sleep(1000);
-        try {
+        utils.waitForElementVisible(By.xpath("//input[@id='UnsavedChanges'][@value='0']"));
+        try {Thread.sleep(1000);
             utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
         } catch (Exception e) {
+            utils.waitForElementVisible(By.xpath("//input[@id='UnsavedChanges'][@value='0']"));
             Thread.sleep(1000);
             utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
         }
@@ -40,6 +41,7 @@ public class DashBoardPage {
     }
 
     public void clickContactManagerTab() {
+        utils.waitForElementVisible(By.id("HrefContactManager"));
         utils.clickBtn(By.id("HrefContactManager"));
     }
 }

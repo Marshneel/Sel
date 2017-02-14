@@ -52,11 +52,15 @@ public class WLR3_InstallationAddressPage {
     }
 
     public void populateInstallationAddressPage() throws InterruptedException {
-        wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
         utils.jumpToPopUpWindow(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         EnterPostCodeInSearchAddressByPostCode("lu1 1dq");
         wlr3_orderDetails_page.assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
+    }
+    public void populateAddressForChangeOfAddress() throws InterruptedException {
+        utils.jumpToPopUpWindow(By.xpath(INSTALLATION_ADDRESS_BUTTON));
+        EnterPostCodeInSearchAddressByPostCode("lu1 1dq");
+
     }
 
     public void enterAddressKeyInSearchAddressByAddressKey(String addressKey) {
@@ -169,4 +173,8 @@ public class WLR3_InstallationAddressPage {
         utils.clickBtn(By.xpath(ADDRESSKEY_SEARCH_TAB));
     }
 
+    public void assertValidationMessage(){
+        utils.waitForElementVisible(By.xpath("//div[@id='InstallationAddressViewSection']//span[contains(text(),'This order requires the address to match with Openreach records')]"));
+
+    }
 }

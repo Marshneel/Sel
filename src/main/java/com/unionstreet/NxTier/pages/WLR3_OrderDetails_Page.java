@@ -72,6 +72,11 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
         utils.verifyStringMatch(By.xpath(ADDRESS_SEARCH_RESULT_FOR_LU1_1DQ_ON_WLR3_ORDER_PAGE), postCode);
     }
+    public void pickAddressFromSearchResults() throws InterruptedException {
+        utils.clickBtn(By.id(ADDRESS_SEARCH_RESULT));
+        utils.javaScriptExecutorClick(By.xpath(CONTINUE_AFTER_ADDRESS_IS_CHOOSEN));
+        utils.jumpToParentPopUp();
+    }
 
     public void assertErrorMessageUponEnteringInvalidAddressKey() {
         utils.waitForElementVisible(By.xpath(INVALID_ADDRESSKEY));

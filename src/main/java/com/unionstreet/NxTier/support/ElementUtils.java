@@ -4,21 +4,17 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.*;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
 import static com.unionstreet.NxTier.support.BaseClass.utils;
@@ -151,6 +147,11 @@ public class ElementUtils {
         driver.findElement(by).click();
     }
 
+    public String getCurrentDate() {
+        String date = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+        return date;
+    }
+
     //browser selector
     public WebDriver browser() {
         try {
@@ -278,6 +279,10 @@ public class ElementUtils {
 
     public String randomName() {
         return RandomStringUtils.randomAlphabetic(8);
+    }
+
+    public String randomNumber() {
+        return RandomStringUtils.randomNumeric(6);
     }
 
 
@@ -457,5 +462,26 @@ public class ElementUtils {
 
 
     }
+
+    public void accessCMD(String command) throws Exception {
+
+        List<String> fullcmd = new ArrayList<String>();
+        fullcmd.add("cmd.exe");
+        fullcmd.add("/c");
+        fullcmd.add(command);
+        ProcessBuilder builder = new ProcessBuilder(fullcmd);
+        builder.redirectErrorStream(true);
+        Process p = builder.start();
+        BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        String line;
+        while (true) {
+            line = r.readLine();
+            if (line == null) {
+                break;
+            }
+            System.out.println(line);
+        }
+    }
+
 
 }

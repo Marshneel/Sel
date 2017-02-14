@@ -18,7 +18,9 @@ public class EditOrderPage {
     private final String SERVICE_NOT_COMPLETED_MESSAGE = "//div[text()='Services are not completed']";
     private final String SAVE_AND_SUBMIT_ORDER = "//span[text()='Save & Submit Order']";
     private final String ORDER_CONTACT = "Order_order_contact_id";
-    public final String QUOTEID_ON_EDITORDER_PAGE = "//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]";
+    public static String RanNumber;
+    public static String currentDate;
+
 
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
@@ -151,4 +153,18 @@ public class EditOrderPage {
         utils.clickBtn(By.xpath("//button[contains(@onclick,'ShowOrderHistoryPopup')]"));
         utils.waitForElementVisible(By.xpath("//div[@id='divorderHistory']//td[contains(text(),'Amend sent')]"));
     }
+    public void textOnChangeOfAddressOrderPage(){
+        utils.waitForElementVisible(By.xpath("//div[@id='wlr3OrderDetailPopupDiv']//h3[contains(text(),'WLR3 Change Of Address Order')]"));
+    }
+    public void pushNotificationsForChangeOfAddressService() throws Exception {
+        RanNumber=  utils.randomNumber();
+        currentDate= utils.getCurrentDate();
+
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"Order Pending\" +0 "+RanNumber+"");
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Acknowledged\" +0 "+RanNumber+" notes");
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 "+RanNumber+" notes "+currentDate+" 01202300908 A00001043137 "+'"'+'"');
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 "+RanNumber+" notes "+currentDate+" 01202300908 A00001043137 "+'"'+'"');
+
+    }
+
 }

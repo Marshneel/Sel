@@ -28,13 +28,15 @@ public class NA98_WLR3_EditOrder_stepDefs {
     }
 
     @Then("^I should be able to edit the order successful$")
-    public void iShouldBeAbleToEditTheOrderSuccessful() throws InterruptedException {
+    public void iShouldBeAbleToEditTheOrderSuccessful() throws Exception {
         webModel.getEditOrderPage().amendOrder();
         webModel.getWlr3_networkCallingFeaturesPage().populateNetworkCallingFeatures();
         webModel.getWlr3_directoryInformationPage().populatingDirectoryInformation("Telecom");
         webModel.getWlr3_orderDetails_page().assertChangesForAmendOrder();
         webModel.getEditOrderPage().submitAmendedOrder();
         webModel.getEditOrderPage().checkOpenReachNotification();
+        webModel.getEditOrderPage().pushNotificationsForChangeOfAddressService();
+        webModel.getUtils().sqlExeQuery("Portal", "test01-sql01", "nxtiere2e", "delete from CustomerCLIBase where cli='01202300908'");
 
 
     }

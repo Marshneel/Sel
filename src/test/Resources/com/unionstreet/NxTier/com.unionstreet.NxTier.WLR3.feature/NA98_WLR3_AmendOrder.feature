@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA98 - Test script to verify the steps involved in amend order
+Feature: NA98 - Test script to verify the steps involved in amend and receive notifications using CmdController
 
   Scenario: Create an order and amend it, verify the steps involved.
     Given I am logged in as CP

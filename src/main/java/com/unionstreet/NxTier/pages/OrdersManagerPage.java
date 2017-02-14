@@ -82,13 +82,11 @@ public class OrdersManagerPage {
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLity");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath("//div[@id='orderContentPanel']//td[contains(text(),'No Records')]"));
-        utils.waitForElementVisible(By.id(contactManagerPage.SEARCH_BUTTON));
-        Thread.sleep(1000);
+        utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
         try {
             utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
         } catch (Exception e) {
-            utils.waitForElementVisible(By.id(contactManagerPage.SEARCH_BUTTON));
-            Thread.sleep(2000);
+            utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
             utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
         }
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
@@ -120,13 +118,11 @@ public class OrdersManagerPage {
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath(AGENT));
-        utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
-        Thread.sleep(1000);
+        utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
         try {
             utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
         } catch (Exception e) {
-            utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
-            Thread.sleep(2000);
+            utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
             utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
         }
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));

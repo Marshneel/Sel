@@ -24,6 +24,7 @@ public class NA64_WLR3_Analogue_Line_Transfer_line_Numbering_StepDefs {
     @And("^when i populate the installation address field and access the same$")
     public void whenIPopulateTheInstallationAddressFieldAndAccessTheSame() throws InterruptedException {
         webModel.getWlr3_lineNumberingPage().closeLineNumberingPage();
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         webModel.getWlr3_installationAddressPage().populateInstallationAddressPage();
         webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage("LU1 1DQ");
     }
@@ -37,6 +38,7 @@ public class NA64_WLR3_Analogue_Line_Transfer_line_Numbering_StepDefs {
 
     @When("^I access line numbering page$")
     public void iAccessLineNumberingPage() throws InterruptedException {
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         webModel.getWlr3_installationAddressPage().populateInstallationAddressPage();
         webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage("LU1 1DQ");
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
@@ -75,6 +77,7 @@ public class NA64_WLR3_Analogue_Line_Transfer_line_Numbering_StepDefs {
 
     @When("^I access appointments page on the WLR order details page$")
     public void iAccessAppointmentsPageOnTheWLROrderDetailsPage() throws InterruptedException {
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         webModel.getWlr3_installationAddressPage().populateInstallationAddressPage();
         webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage("LU1 1DQ");
         webModel.getWlr3_orderDetails_page().clickOnAppointment();
