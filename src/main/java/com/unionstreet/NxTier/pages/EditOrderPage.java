@@ -116,7 +116,13 @@ public class EditOrderPage {
         } catch (Exception e) {
         }
         // check for the green tick
-        utils.waitForElementVisible(By.xpath(GREEN_TICK));
+        try {
+            utils.waitForElementVisible(By.xpath(GREEN_TICK));
+        } catch (Exception e) {
+            utils.getOrdersPage();
+            ordersManagerPage.clickOnQuoteID();
+            utils.waitForElementVisible(By.xpath(GREEN_TICK));
+        }
         System.out.println("NA87 completed");
     }
 
