@@ -13,8 +13,8 @@ public class NA88_WLR3_Modify_Order_stepDefs {
     WebModel webModel = new WebModel();
     NA44_Agent_Login_stepDefs na44_agent_login_stepDefs = new NA44_Agent_Login_stepDefs();
 
-    @And("^I create a new business customer with CLI and quote$")
-    public void iCreateANewBusinessCustomerWithCLIAndQuote() throws InterruptedException {
+    @And("^I create a new business customer with a quote$")
+    public void iCreateANewBusinessCustomerWithAQuote()  throws InterruptedException {
         na44_agent_login_stepDefs.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
@@ -66,4 +66,6 @@ public class NA88_WLR3_Modify_Order_stepDefs {
         //assert that the order is completed by verifying for the presence of green tick
         webModel.getEditOrderPage().verifyOrderCompletion();
     }
+
+
 }

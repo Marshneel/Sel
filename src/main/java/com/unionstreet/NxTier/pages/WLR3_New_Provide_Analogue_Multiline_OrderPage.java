@@ -22,8 +22,32 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
     }
 
     public void navigateToNextScreen() throws InterruptedException {
-      Thread.sleep(1000);
-        utils.clickBtn(By.xpath(NEXT_BUTTON));
+        utils.waitForElementVisible(By.xpath(NEXT_BUTTON));
+        Thread.sleep(1000);
+        utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
+        try {
+            utils.clickBtn(By.xpath(NEXT_BUTTON));
+        } catch (Exception e) {
+            utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
+            utils.clickBtn(By.xpath(NEXT_BUTTON));
+        }
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
+    }
+
+    public void navigateToPreviousScreen() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath("//a[@onclick='newProvideWizard.movePrevious()']"));
+        Thread.sleep(1000);
+        utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
+
+        try {
+            utils.clickBtn(By.xpath("//a[@onclick='newProvideWizard.movePrevious()']"));
+        } catch (Exception e) {
+            utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
+            utils.clickBtn(By.xpath("//a[@onclick='newProvideWizard.movePrevious()']"));
+        }
         try {
             utils.checkAlert();
         } catch (Exception e) {

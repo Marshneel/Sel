@@ -45,8 +45,9 @@ public class WLR3_NewProvide_AnaMultLine_ProvisionPage {
         //decrease the number of lines and assert
         utils.clickBtn(By.xpath(DECREASE_NUMBER_OF_LINES_UNDER_INSTALLATION_INFO));
         String decreaseValue = utils.getAttributeOfElement(By.id(NUMBER_OF_LINES_TEXT_BOX_UNDER_INSTALLATION_INFO), "value");
-        Assert.assertEquals(decreaseValue, "2");
+        Assert.assertEquals(decreaseValue, "1");
         //increase the number of lines and assert
+        utils.clickBtn(By.xpath(INCREASE_NUMBER_OF_LINES_UNDER_INSTALLATION_INFO));
         utils.clickBtn(By.xpath(INCREASE_NUMBER_OF_LINES_UNDER_INSTALLATION_INFO));
         String increaseValue = utils.getAttributeOfElement(By.id(NUMBER_OF_LINES_TEXT_BOX_UNDER_INSTALLATION_INFO), "value");
         Assert.assertEquals(increaseValue, "3");

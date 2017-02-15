@@ -62,7 +62,10 @@ public class WLR3_SiteInformationPage {
         utils.sendText(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
         utils.waitForElementVisible(By.id(RECOVER_LINE_PLANT));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
 
-
+    public void populateTelNumberOnChangeOfAddress(String number){
+        utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
+        utils.sendText(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
     }
 }

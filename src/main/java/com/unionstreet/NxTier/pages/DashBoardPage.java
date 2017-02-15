@@ -20,11 +20,9 @@ public class DashBoardPage {
     }
 
     public void logOut() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//input[@id='UnsavedChanges'][@value='0']"));
         try {Thread.sleep(1000);
             utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
         } catch (Exception e) {
-            utils.waitForElementVisible(By.xpath("//input[@id='UnsavedChanges'][@value='0']"));
             Thread.sleep(1000);
             utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
         }

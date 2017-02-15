@@ -16,7 +16,7 @@ public class NA94_WLR3_Add_Remove_Aux_line_stepDefs {
     public void iInitiateAnAdd_removeAuxOrderOnTheQuote() throws InterruptedException {
         webModel.getAddServicePage().searchAndAddService("Add/Remove Aux Lines");
         webModel.getWlr3_addRemoveAuxLinePage().textOnAddRemoveAuxLinePage();
-        webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode();
+        webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("01202300909");
     }
 
     @And("^Provide the required info to increase the number of lines$")
@@ -77,4 +77,6 @@ public class NA94_WLR3_Add_Remove_Aux_line_stepDefs {
         webModel.getWlr3_addRemoveAuxLinePage().errorMessage();
 
     }
+
+
 }

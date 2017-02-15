@@ -74,6 +74,7 @@ public class WLR3_OrderDetails_Page {
     }
     public void pickAddressFromSearchResults() throws InterruptedException {
         utils.clickBtn(By.id(ADDRESS_SEARCH_RESULT));
+        utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
         utils.javaScriptExecutorClick(By.xpath(CONTINUE_AFTER_ADDRESS_IS_CHOOSEN));
         utils.jumpToParentPopUp();
     }

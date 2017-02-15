@@ -57,9 +57,9 @@ public class WLR3_InstallationAddressPage {
         EnterPostCodeInSearchAddressByPostCode("lu1 1dq");
         wlr3_orderDetails_page.assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
     }
-    public void populateAddressForChangeOfAddress() throws InterruptedException {
+    public void searchForAddress(String postCode) throws InterruptedException {
         utils.jumpToPopUpWindow(By.xpath(INSTALLATION_ADDRESS_BUTTON));
-        EnterPostCodeInSearchAddressByPostCode("lu1 1dq");
+        EnterPostCodeInSearchAddressByPostCode(postCode);
 
     }
 

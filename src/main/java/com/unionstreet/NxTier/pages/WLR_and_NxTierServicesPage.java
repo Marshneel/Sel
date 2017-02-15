@@ -21,7 +21,7 @@ public class WLR_and_NxTierServicesPage {
         utils.clickBtn(By.id(ASSIGN_SERVICE_INVENTORY));
     }
     public void verifyCurrentLine(String line){
-        utils.waitForElementVisible(By.xpath("//li[@id='line_3']//label[contains(text(),'"+line+"')]"));
+        utils.waitForElementVisible(By.xpath("//li[@id='line_2']//label[contains(text(),'"+line+"')]"));
         utils.clickBtn(By.xpath("//button[contains(@onclick,'return ValidateLineType')]"));
 
 

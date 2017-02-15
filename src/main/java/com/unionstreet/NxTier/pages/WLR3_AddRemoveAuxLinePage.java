@@ -32,9 +32,9 @@ public class WLR3_AddRemoveAuxLinePage {
         utils.waitForElementVisible(By.xpath(TEXT_ON_ADD_REMOVE_AUXLINE_PAGE));
     }
 
-    public void populateCLIandPostCode(){
+    public void populateCLIandPostCode(String phoneNumber){
         utils.clickBtn(By.id(MANUAL_ENTRY_TAB));
-        utils.sendText(By.id(companyMenuPage.CLI_NUMBER_FIELD),"01202300909");
+        utils.sendText(By.id(companyMenuPage.CLI_NUMBER_FIELD),phoneNumber);
         utils.sendText(By.id("Postcode"),"LU1 1DQ");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }

@@ -48,5 +48,14 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         utils.javaScriptExecutorClick(By.xpath(wlr3_lineNumberingPage.CONTINUETAB_UNDER_LINE_INFO));
         utils.waitForElementVisible(By.xpath(NUMBER_RESERVATION_CONFIRMATION_UNDER_LINE_NUMBERING));
         }
+    public void checkPresenceOfRetainOptionInChangeOfAddress(){
+        utils.waitForElementVisible(By.xpath("//h4[text()='Retain existing number option is available.']"));
+        utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.xpath("//a[@href='#default-tab-coa-retainnumber']"));
+        utils.waitForElementVisible(By.xpath("//h3[text()='Existing Number will be retained']"));utils.clickBtn(By.xpath("//a[contains(@onclick,'return lineNumbering.hidePopup();')][contains(text(),'Continue')]"));
+    }
+    public void checkAbsenceOfRetainInChangeOfAddress(){
+        utils.waitForElementVisible(By.xpath("//h4[text()='Retain number option is not available for this address.']"));
+    }
     }
 

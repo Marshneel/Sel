@@ -3,7 +3,7 @@ Feature: NA94 - Test scripts to add/remove existing aux line
 
   Scenario: Adding an extra line to existing multi-line
     Given I am logged in as CP
-    And   I create a new business customer with CLI and quote
+    And   I create a new business customer with a quote
     When I Initiate an add_remove aux order on the quote
     And Provide the required info to increase the number of lines
     Then I should be able to assert line increase and check the flow
@@ -12,7 +12,7 @@ Feature: NA94 - Test scripts to add/remove existing aux line
     Scenario: Removing a line from existing multi-line and making sure that a CLI that is already a part of an
     order cannot be reused in a second order with in the same quote ID
       Given I am logged in as CP
-      And   I create a new business customer with CLI and quote
+      And   I create a new business customer with a quote
       When I Initiate an add_remove aux order on the quote
       And Provide the required info to decrease the number of lines
       Then I should be able to assert line decrease and check the flow
