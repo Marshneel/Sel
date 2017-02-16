@@ -12,6 +12,7 @@ public class DashBoardPage {
     public final String LOGOUT_BUTTON = ".logout";
     public final String QUOTE = "bodyContent";
     private final String ORDERSMANAGER_BUTTON = "HrefOrdersManager";
+    private final String CONTACT_MANAGER_BUTTON="HrefContactManager";
 
     ElementUtils utils = new ElementUtils();
 
@@ -39,7 +40,7 @@ public class DashBoardPage {
     }
 
     public void clickContactManagerTab() {
-        utils.waitForElementVisible(By.id("HrefContactManager"));
-        utils.clickBtn(By.id("HrefContactManager"));
+        utils.waitForElementVisible(By.id(CONTACT_MANAGER_BUTTON));
+        utils.clickBtn(By.id(CONTACT_MANAGER_BUTTON));
     }
 }

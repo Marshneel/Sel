@@ -18,6 +18,22 @@ public class EditOrderPage {
     private final String SERVICE_NOT_COMPLETED_MESSAGE = "//div[text()='Services are not completed']";
     private final String SAVE_AND_SUBMIT_ORDER = "//span[text()='Save & Submit Order']";
     private final String ORDER_CONTACT = "Order_order_contact_id";
+    private final String ORDER_PENDING_TEXT_IN_NOTIFICATIONS = "//table[@id='orderHistory-table']//td[contains(text(),'Order Pending')]";
+    private final String ORDER_ACKNOWLEDGED_TEXT_IN_NOTIFICATIONS = "//table[@id='orderHistory-table']//td[contains(text(),'Order Acknowledged')]";
+    private final String ORDER_COMMITTED_TEXT_IN_NOTIFICATIONS = "//table[@id='orderHistory-table']//td[contains(text(),'Committed')]";
+    private final String ORDER_COMPLETED_TEXT_IN_NOTIFICATIONS = "//table[@id='orderHistory-table']//td[contains(text(),'Order Completed')]";
+    private final String TEXT_ON_CHANGE_OF_ADDRESS_POPUP = "//div[@id='wlr3OrderDetailPopupDiv']//h3[contains(text(),'WLR3 Change Of Address Order')]";
+    private final String LINE_TESTING_TEXT_ON_ORDERS_PAGE = "//div[@id='contentPanel']//td[contains(text(),'Line Testing')]";
+    private final String ORDER_OWNER_DROPDOWN_ON_EDIT_ORDER_PAGE = "Order_owned_by_id";
+    private final String SAVE_AND_SUBMIT_QUOTE = "//div[@id='buttonMenu']//span[contains(text(),'Save & Submit Order')]";
+    private final String AMEND_ORDER_BUTTON = "AmendOrder";
+    private final String SUBMIT_AMENDED_ORDER = "SubmitAmend";
+    private final String REASON_FOR_AMENDING_ORDER = "WLR3Order_amend_reason";
+    private final String ITEMID_AFTER_SUBMISSION = "//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]";
+    private final String OPENREACH_NOTIFICATIONS_BUTTON_ON_ORDER_SUMMARY_PAGE = "//button[contains(@onclick,'ShowOrderHistoryPopup')]";
+    private final String ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION="//input[contains(@onclick,'ShowOrderHistoryPopup')]";
+    private final String AMEND_SENT_TEXT_ON_OPENREACH_NOTIFICATIONS="//div[@id='divorderHistory']//td[contains(text(),'Amend sent')]";
+
     public static String RanNumber;
     public static String currentDate;
 
@@ -130,9 +146,9 @@ public class EditOrderPage {
         utils.getOrdersPage();
         ordersManagerPage.clickOnQuoteID();
         utils.waitForElementVisible(By.xpath(GREEN_TICK));
-        utils.selectByIndex(By.id("Order_owned_by_id"), 1);
-        utils.waitForElementVisible(By.xpath("//div[@id='buttonMenu']//span[contains(text(),'Save & Submit Order')]"));
-        utils.clickBtn(By.xpath("//div[@id='buttonMenu']//span[contains(text(),'Save & Submit Order')]"));
+        utils.selectByIndex(By.id(ORDER_OWNER_DROPDOWN_ON_EDIT_ORDER_PAGE), 1);
+        utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
+        utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_QUOTE));
         utils.switchToPreviousWindow();
 
     }
@@ -140,42 +156,42 @@ public class EditOrderPage {
     public void amendOrder() throws InterruptedException {
         utils.getOrdersPage();
         ordersManagerPage.clickOnQuoteID();
-        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
-        utils.clickBtn(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
-        utils.waitForElementVisible(By.id("AmendOrder"));
-        utils.clickBtn(By.id("AmendOrder"));
-        utils.selectByIndex(By.id("WLR3Order_amend_reason"), 1);
+        utils.waitForElementVisible(By.xpath(ITEMID_AFTER_SUBMISSION));
+        utils.clickBtn(By.xpath(ITEMID_AFTER_SUBMISSION));
+        utils.waitForElementVisible(By.id(AMEND_ORDER_BUTTON));
+        utils.clickBtn(By.id(AMEND_ORDER_BUTTON));
+        utils.selectByIndex(By.id(REASON_FOR_AMENDING_ORDER), 1);
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 
     public void submitAmendedOrder() {
-        utils.clickBtn(By.id("SubmitAmend"));
+        utils.clickBtn(By.id(SUBMIT_AMENDED_ORDER));
     }
 
     public void checkOpenReachNotificationForAmend() throws InterruptedException {
         utils.refreshPage();
-        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
-        utils.clickBtn(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
-        utils.waitForElementVisible(By.xpath("//button[contains(@onclick,'ShowOrderHistoryPopup')]"));
-        utils.clickBtn(By.xpath("//button[contains(@onclick,'ShowOrderHistoryPopup')]"));
-        utils.waitForElementVisible(By.xpath("//div[@id='divorderHistory']//td[contains(text(),'Amend sent')]"));
+        utils.waitForElementVisible(By.xpath(ITEMID_AFTER_SUBMISSION));
+        utils.clickBtn(By.xpath(ITEMID_AFTER_SUBMISSION));
+        utils.waitForElementVisible(By.xpath(OPENREACH_NOTIFICATIONS_BUTTON_ON_ORDER_SUMMARY_PAGE));
+        utils.clickBtn(By.xpath(OPENREACH_NOTIFICATIONS_BUTTON_ON_ORDER_SUMMARY_PAGE));
+        utils.waitForElementVisible(By.xpath(AMEND_SENT_TEXT_ON_OPENREACH_NOTIFICATIONS));
     }
 
     public void checkOpenReachNotificationsForOrderSuccessfulSubmission() throws InterruptedException {
         utils.getOrdersPage();
-        utils.waitForElementVisible(By.xpath("//div[@id='contentPanel']//td[contains(text(),'Line Testing')]"));
+        utils.waitForElementVisible(By.xpath(LINE_TESTING_TEXT_ON_ORDERS_PAGE));
         ordersManagerPage.clickOnQuoteID();
-        utils.waitForElementVisible(By.xpath("//input[contains(@onclick,'ShowOrderHistoryPopup')]"));
-        utils.clickBtn(By.xpath("//input[contains(@onclick,'ShowOrderHistoryPopup')]"));
-        utils.waitForElementVisible(By.xpath("//table[@id='orderHistory-table']//td[contains(text(),'Order Pending')]"));
-        utils.waitForElementVisible(By.xpath("//table[@id='orderHistory-table']//td[contains(text(),'Order Acknowledged')]"));
-        utils.waitForElementVisible(By.xpath("//table[@id='orderHistory-table']//td[contains(text(),'Committed')]"));
-        utils.waitForElementVisible(By.xpath("//table[@id='orderHistory-table']//td[contains(text(),'Order Completed')]"));
+        utils.waitForElementVisible(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
+        utils.clickBtn(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
+        utils.waitForElementVisible(By.xpath(ORDER_PENDING_TEXT_IN_NOTIFICATIONS));
+        utils.waitForElementVisible(By.xpath(ORDER_ACKNOWLEDGED_TEXT_IN_NOTIFICATIONS));
+        utils.waitForElementVisible(By.xpath(ORDER_COMMITTED_TEXT_IN_NOTIFICATIONS));
+        utils.waitForElementVisible(By.xpath(ORDER_COMPLETED_TEXT_IN_NOTIFICATIONS));
     }
 
     public void textOnChangeOfAddressOrderPage() {
-        utils.waitForElementVisible(By.xpath("//div[@id='wlr3OrderDetailPopupDiv']//h3[contains(text(),'WLR3 Change Of Address Order')]"));
+        utils.waitForElementVisible(By.xpath(TEXT_ON_CHANGE_OF_ADDRESS_POPUP));
     }
 
     public void pushNotificationsForChangeOfAddressService() throws Exception {

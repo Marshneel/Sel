@@ -25,6 +25,7 @@ public class WLR3_Cease_OrderPage {
     private final String REMOTE_CALL_FORWARD_TEXT = "//div[@id='divchargescontainer']//td[contains(text(),'Remote Call Forward')]";
 
     ElementUtils utils = new ElementUtils();
+    WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
     public void textOnCeaseOrderPage() {
         utils.waitForElementVisible(By.xpath(TEXT_ON_CEASE_PAGE));
@@ -43,9 +44,14 @@ public class WLR3_Cease_OrderPage {
     }
 
     public void navigateToPreviousScreen() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.waitForElementVisible(By.xpath(REVERT_TO_PREVIOUS));
-        Thread.sleep(1000);
-        utils.clickBtn(By.xpath(REVERT_TO_PREVIOUS));
+        try {
+            utils.clickBtn(By.xpath(REVERT_TO_PREVIOUS));
+        } catch (Exception e) {
+            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
+            utils.clickBtn(By.xpath(REVERT_TO_PREVIOUS));
+        }
     }
 
     public void dePopulateRecoveryLinePlantAndVerifyAssertion() {
@@ -84,9 +90,5 @@ public class WLR3_Cease_OrderPage {
         Thread.sleep(1000);
         navigateToNextScreen();
         utils.waitForElementVisible(By.xpath(REMOTE_CALL_FORWARD_TEXT));
-
-
     }
-
-
 }

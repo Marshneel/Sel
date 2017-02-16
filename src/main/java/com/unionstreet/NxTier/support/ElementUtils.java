@@ -106,7 +106,6 @@ public class ElementUtils {
             }
         }
     }
-
     //get properties method
     public String getProperty(String key) {
 
@@ -451,6 +450,19 @@ public class ElementUtils {
     public void zoomOut(By by) {
         for (int i = 0; i < 3; i++) {
             driver.findElement(by).sendKeys(Keys.CONTROL, Keys.SUBTRACT);
+        }
+    }
+
+    public void multipleCLick(By clickEle, By waitEle, int num) {
+        for (int i = 0; i < num; i++) {
+
+            try { waitForElementVisible(waitEle);
+                waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(clickEle));
+                driver.findElement(clickEle).click();
+            } catch (Exception e) {
+                waitForElementVisible(waitEle);
+                driver.findElement(clickEle).click();
+            }
         }
     }
 

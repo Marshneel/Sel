@@ -23,6 +23,7 @@ public class WLR3_InstallationAddressPage {
     private final String ADVANCED_SEARCH_ROAD_NAME = "ThoroughfareName";
     private final String ADVANCED_SEARCH_TOWN_FIELD = "Town";
     private final String ADDRESSKEY_SEARCH_TAB = "//a[text()='Address Key']";
+    private final String ADDRESS_MATCH_VALIDATION_MESSAGE="//div[@id='InstallationAddressViewSection']//span[contains(text(),'This order requires the address to match with Openreach records')]";
 
 
     ElementUtils utils = new ElementUtils();
@@ -31,7 +32,7 @@ public class WLR3_InstallationAddressPage {
 
     public void accessInstallationAddressPage() throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.INSTALLATION_ADDRESS_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         utils.clickBtn(By.xpath(INSTALLATION_ADDRESS_BUTTON));
     }
@@ -52,13 +53,14 @@ public class WLR3_InstallationAddressPage {
     }
 
     public void populateInstallationAddressPage() throws InterruptedException {
-        utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.INSTALLATION_ADDRESS_SUMMARY_PANEL));
         utils.jumpToPopUpWindow(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         EnterPostCodeInSearchAddressByPostCode("lu1 1dq");
         wlr3_orderDetails_page.assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
     }
     public void searchForAddress(String postCode) throws InterruptedException {
-        utils.jumpToPopUpWindow(By.xpath(INSTALLATION_ADDRESS_BUTTON));
+       utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
+        utils.clickBtn(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         EnterPostCodeInSearchAddressByPostCode(postCode);
 
     }
@@ -174,7 +176,7 @@ public class WLR3_InstallationAddressPage {
     }
 
     public void assertValidationMessage(){
-        utils.waitForElementVisible(By.xpath("//div[@id='InstallationAddressViewSection']//span[contains(text(),'This order requires the address to match with Openreach records')]"));
+        utils.waitForElementVisible(By.xpath(ADDRESS_MATCH_VALIDATION_MESSAGE));
 
     }
 }

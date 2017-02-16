@@ -196,12 +196,20 @@ public class OrdersManagerPage {
             utils.waitForElementVisible(By.xpath(QUOTEID));
             Thread.sleep(1000);
             utils.clickBtn(By.xpath(QUOTEID));
+            try {
+                utils.checkAlert();
+            } catch (Exception e) {
+            }
             Thread.sleep(1000);
             utils.switchToNewWindow();
         } catch (Exception e) {
             utils.getOrdersPage();
             utils.waitForElementVisible(By.xpath(QUOTEID));
             utils.clickBtn(By.xpath(QUOTEID));
+            try {
+                utils.checkAlert();
+            } catch (Exception ex) {
+            }
             Thread.sleep(1000);
             utils.switchToNewWindow();
         }

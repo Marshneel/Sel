@@ -15,7 +15,7 @@ public class WLR3_NetworkCallingFeaturesPage {
     ElementUtils utils = new ElementUtils();
 
     public void populateNetworkCallingFeatures() throws InterruptedException {
-        utils.waitForElementVisible(By.id("networkFeaturesSummaryPanel"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.NETWORK_FEATURES_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         try {
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
@@ -33,7 +33,7 @@ public class WLR3_NetworkCallingFeaturesPage {
     public void enterNetworkFeatures() throws InterruptedException {
 
         wlr3_orderDetails_page.textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("networkFeaturesSummaryPanel"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.NETWORK_FEATURES_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         Thread.sleep(1000);
         try {

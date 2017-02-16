@@ -28,29 +28,20 @@ public class NA97_WLR3_Change_Of_Address_stepDefs {
         webModel.getWlr3_installationAddressPage().searchForAddress("LU1 1DQ");
         webModel.getWlr3_orderDetails_page().pickAddressFromSearchResults();
         webModel.getWlr3_siteInformationPage().populateTelNumberOnChangeOfAddress("07894040256");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton();
     }
 
     @Then("^Retain option availability is displayed$")
     public void retainOptionAvailabilityIsDisplayed() throws InterruptedException {
         webModel.getWlr3_newProvide_anaMultLine_numberingPage().checkPresenceOfRetainOptionInChangeOfAddress();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToPreviousScreen();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToPreviousScreen();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToPreviousScreen();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToPreviousScreen();
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleCLicksOnPreviousButton();
     }
 
     @And("^When I provide a postCode that is outside the exchange$")
     public void whenIProvideAPostCodeThatIsOutsideTheExchange() throws InterruptedException {
         webModel.getWlr3_installationAddressPage().searchForAddress("CB1 3NL");
         webModel.getWlr3_orderDetails_page().pickAddressFromSearchResults();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton();
     }
 
 

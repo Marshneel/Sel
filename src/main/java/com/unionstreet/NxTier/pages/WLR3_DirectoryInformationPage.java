@@ -20,7 +20,7 @@ public class WLR3_DirectoryInformationPage {
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
     public void populatingDirectoryInformation(String name) throws InterruptedException {
-        utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.DIRECTORY_INFO_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         Thread.sleep(1000);
         try {
@@ -47,7 +47,7 @@ public class WLR3_DirectoryInformationPage {
 
     public void editDirectoryInformation() throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.DIRECTORY_INFO_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         Thread.sleep(1000);
         try {

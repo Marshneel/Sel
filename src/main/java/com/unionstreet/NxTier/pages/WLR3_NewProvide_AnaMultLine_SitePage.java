@@ -29,7 +29,7 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
     }
 
     public void zoomOutOnInstallationAddressUnderModifyOrder() throws InterruptedException {
-        utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.INSTALLATION_ADDRESS_SUMMARY_PANEL));
     }
 
     public void populateAndAssertInstallationAddressUnderSITE(String postCode) throws InterruptedException {
