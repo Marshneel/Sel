@@ -36,14 +36,15 @@ public class NA97_WLR3_Change_Of_Address_stepDefs {
     public void retainOptionAvailabilityIsDisplayed() throws InterruptedException {
         //check for the retain option
         webModel.getWlr3_newProvide_anaMultLine_numberingPage().checkPresenceOfRetainOptionInChangeOfAddress();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleCLicksOnPreviousButton();
     }
 
-    @And("^When I provide a postCode that is outside the exchange$")
-    public void whenIProvideAPostCodeThatIsOutsideTheExchange() throws InterruptedException {
+    @When("^Provide a postCode that is outside the exchange$")
+    public void provideAPostCodeThatIsOutsideTheExchange() throws InterruptedException {
         //entering the postCode that is outside the exchange
         webModel.getWlr3_installationAddressPage().searchForAddress("CB1 3NL");
         webModel.getWlr3_orderDetails_page().pickAddressFromSearchResults();
+        //entering phone number under siteInfo
+        webModel.getWlr3_siteInformationPage().populateTelNumberOnChangeOfAddress("07894040256");
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton();
     }
 
@@ -52,7 +53,6 @@ public class NA97_WLR3_Change_Of_Address_stepDefs {
     public void messageStatingRetainOptionUnavailabilityShouldBeDisplayed() {
        //check that the retain option is unavailable
         webModel.getWlr3_newProvide_anaMultLine_numberingPage().checkAbsenceOfRetainInChangeOfAddress();
-
     }
 
     @And("^when i navigate forward and provide all required information$")
@@ -68,4 +68,5 @@ public class NA97_WLR3_Change_Of_Address_stepDefs {
         //verify for the presence of the green tick
         webModel.getEditOrderPage().verifyOrderCompletion();
     }
+
 }

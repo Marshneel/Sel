@@ -30,9 +30,9 @@ public class EditOrderPage {
     private final String SUBMIT_AMENDED_ORDER = "SubmitAmend";
     private final String REASON_FOR_AMENDING_ORDER = "WLR3Order_amend_reason";
     private final String OPENREACH_NOTIFICATIONS_BUTTON_ON_ORDER_SUMMARY_PAGE = "//button[contains(@onclick,'ShowOrderHistoryPopup')]";
-    private final String ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION="//input[contains(@onclick,'ShowOrderHistoryPopup')]";
-    private final String AMEND_SENT_TEXT_ON_OPENREACH_NOTIFICATIONS="//div[@id='divorderHistory']//td[contains(text(),'Amend sent')]";
-    private final String SERVICE_NOT_COMPLETED_ERROR_MESSAGE="//div[@id='Message_Info'][contains(text(),'Services are not completed')]";
+    private final String ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION = "//input[contains(@onclick,'ShowOrderHistoryPopup')]";
+    private final String AMEND_SENT_TEXT_ON_OPENREACH_NOTIFICATIONS = "//div[@id='divorderHistory']//td[contains(text(),'Amend sent')]";
+    private final String SERVICE_NOT_COMPLETED_ERROR_MESSAGE = "//div[@id='Message_Info'][contains(text(),'Services are not completed')]";
 
     public static String RanNumber;
     public static String currentDate;
@@ -141,11 +141,13 @@ public class EditOrderPage {
         }
         System.out.println("NA87 completed");
     }
-
-    public void submitOrder() throws InterruptedException {
+    public void accessOrder() throws InterruptedException {
         utils.getOrdersPage();
         ordersManagerPage.clickOnQuoteID();
         utils.waitForElementVisible(By.xpath(GREEN_TICK));
+    }
+
+    public void submitOrder() throws InterruptedException {
         utils.selectByIndex(By.id(ORDER_OWNER_DROPDOWN_ON_EDIT_ORDER_PAGE), 1);
         utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
         utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_QUOTE));
@@ -194,22 +196,28 @@ public class EditOrderPage {
         utils.waitForElementVisible(By.xpath(TEXT_ON_CHANGE_OF_ADDRESS_POPUP));
     }
 
-    public void pushNotificationsForChangeOfAddressService() throws Exception {
+    public void pushOpenReachNotificationsForSubmittedOrder(String CLI, String addressKey) throws Exception {
         RanNumber = utils.randomNumber();
         currentDate = utils.getCurrentDate();
         utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"Order Pending\" +0 " + RanNumber + "");
         utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Acknowledged\" +0 " + RanNumber + " notes");
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 " + RanNumber + " notes " + currentDate + " 01202300908 A00001043137 " + '"' + '"');
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 " + RanNumber + " notes " + currentDate + " 01202300908 A00001043137 " + '"' + '"');
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 " + RanNumber + " notes " + currentDate + " "+CLI+" "+addressKey+" " + '"' + '"');
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 " + RanNumber + " notes " + currentDate + " "+CLI+" "+addressKey+" " + '"' + '"');
 
     }
-    public void submitBatchOrderBeforeOIDsGenerated(){
+
+    public void submitBatchOrderBeforeOIDsGenerated() {
         utils.refreshPage();
         utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_QUOTE));
     }
-    public void errorMessageWhenOrderSubmittedWithOutOIDs(){
+
+    public void errorMessageWhenOrderSubmittedWithOutOIDs() {
         utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_ERROR_MESSAGE));
     }
 

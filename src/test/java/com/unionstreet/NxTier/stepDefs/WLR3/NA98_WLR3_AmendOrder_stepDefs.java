@@ -10,7 +10,7 @@ import cucumber.api.java.en.When;
  */
 
 
-public class NA98_WLR3_EditOrder_stepDefs {
+public class NA98_WLR3_AmendOrder_stepDefs {
     WebModel webModel = new WebModel();
 
 
@@ -24,11 +24,12 @@ public class NA98_WLR3_EditOrder_stepDefs {
 
     @When("^I access edit order page and click the order ID$")
     public void iAccessEditOrderPageAndClickTheOrderID() throws InterruptedException {
-        webModel.getEditOrderPage().submitOrder();
+       webModel.getEditOrderPage().accessOrder();
     }
 
-    @Then("^I should be able to edit and submit the order successful$")
-    public void iShouldBeAbleToEditAndSubmitTheOrderSuccessful() throws Exception {
+    @Then("^I should be able to amend and submit the order successful$")
+    public void iShouldBeAbleToAmendAndSubmitTheOrderSuccessful() throws Exception {
+        webModel.getEditOrderPage().submitOrder();
         webModel.getEditOrderPage().amendOrder();
         //editing network calling features and directory info
         webModel.getWlr3_networkCallingFeaturesPage().populateNetworkCallingFeatures();
@@ -39,14 +40,11 @@ public class NA98_WLR3_EditOrder_stepDefs {
         //check for amend order sent on the order notifications
         webModel.getEditOrderPage().checkOpenReachNotificationForAmend();
         //push the 4 notifications from the CmdController
-        webModel.getEditOrderPage().pushNotificationsForChangeOfAddressService();
+        webModel.getEditOrderPage().pushOpenReachNotificationsForSubmittedOrder("01202300908","A00001043137");
         //check the text for the 4 notifications on the openReach notifications
         webModel.getEditOrderPage().checkOpenReachNotificationsForOrderSuccessfulSubmission();
         //delete the CLI from the site
         webModel.getUtils().sqlExeQuery("Portal", "test01-sql01", "nxtiere2e", "delete from CustomerCLIBase where cli='01202300908'");
-
-
     }
-
 
 }
