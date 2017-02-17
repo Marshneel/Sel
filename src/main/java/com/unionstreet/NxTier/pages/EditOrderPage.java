@@ -29,10 +29,10 @@ public class EditOrderPage {
     private final String AMEND_ORDER_BUTTON = "AmendOrder";
     private final String SUBMIT_AMENDED_ORDER = "SubmitAmend";
     private final String REASON_FOR_AMENDING_ORDER = "WLR3Order_amend_reason";
-    private final String ITEMID_AFTER_SUBMISSION = "//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]";
     private final String OPENREACH_NOTIFICATIONS_BUTTON_ON_ORDER_SUMMARY_PAGE = "//button[contains(@onclick,'ShowOrderHistoryPopup')]";
     private final String ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION="//input[contains(@onclick,'ShowOrderHistoryPopup')]";
     private final String AMEND_SENT_TEXT_ON_OPENREACH_NOTIFICATIONS="//div[@id='divorderHistory']//td[contains(text(),'Amend sent')]";
+    private final String SERVICE_NOT_COMPLETED_ERROR_MESSAGE="//div[@id='Message_Info'][contains(text(),'Services are not completed')]";
 
     public static String RanNumber;
     public static String currentDate;
@@ -156,8 +156,8 @@ public class EditOrderPage {
     public void amendOrder() throws InterruptedException {
         utils.getOrdersPage();
         ordersManagerPage.clickOnQuoteID();
-        utils.waitForElementVisible(By.xpath(ITEMID_AFTER_SUBMISSION));
-        utils.clickBtn(By.xpath(ITEMID_AFTER_SUBMISSION));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
+        utils.clickBtn(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
         utils.waitForElementVisible(By.id(AMEND_ORDER_BUTTON));
         utils.clickBtn(By.id(AMEND_ORDER_BUTTON));
         utils.selectByIndex(By.id(REASON_FOR_AMENDING_ORDER), 1);
@@ -171,8 +171,8 @@ public class EditOrderPage {
 
     public void checkOpenReachNotificationForAmend() throws InterruptedException {
         utils.refreshPage();
-        utils.waitForElementVisible(By.xpath(ITEMID_AFTER_SUBMISSION));
-        utils.clickBtn(By.xpath(ITEMID_AFTER_SUBMISSION));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
+        utils.clickBtn(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
         utils.waitForElementVisible(By.xpath(OPENREACH_NOTIFICATIONS_BUTTON_ON_ORDER_SUMMARY_PAGE));
         utils.clickBtn(By.xpath(OPENREACH_NOTIFICATIONS_BUTTON_ON_ORDER_SUMMARY_PAGE));
         utils.waitForElementVisible(By.xpath(AMEND_SENT_TEXT_ON_OPENREACH_NOTIFICATIONS));
@@ -202,6 +202,15 @@ public class EditOrderPage {
         utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 " + RanNumber + " notes " + currentDate + " 01202300908 A00001043137 " + '"' + '"');
         utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 " + RanNumber + " notes " + currentDate + " 01202300908 A00001043137 " + '"' + '"');
 
+    }
+    public void submitBatchOrderBeforeOIDsGenerated(){
+        utils.refreshPage();
+        utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
+        utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_QUOTE));
+    }
+    public void errorMessageWhenOrderSubmittedWithOutOIDs(){
+        utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_ERROR_MESSAGE));
     }
 
 }

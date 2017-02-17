@@ -14,9 +14,10 @@ public class NA94_WLR3_Add_Remove_Aux_line_stepDefs {
 
     @When("^I Initiate an add_remove aux order on the quote$")
     public void iInitiateAnAdd_removeAuxOrderOnTheQuote() throws InterruptedException {
+       //initiating the AUX line service
         webModel.getAddServicePage().searchAndAddService("Add/Remove Aux Lines");
         webModel.getWlr3_addRemoveAuxLinePage().textOnAddRemoveAuxLinePage();
-        webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("01202300909");
+        webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("01202300909","LU1 1DQ");
     }
 
     @And("^Provide the required info to increase the number of lines$")
