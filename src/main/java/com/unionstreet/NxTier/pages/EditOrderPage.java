@@ -208,11 +208,9 @@ public class EditOrderPage {
 
     public void submitBatchOrderBeforeOIDsGenerated() {
         utils.refreshPage();
+        utils.waitForElementVisible(By.id(ORDER_CONTACT));
+        utils.selectByIndex(By.id(ORDER_CONTACT), 1);
         utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
-        try {
-            utils.checkAlert();
-        } catch (Exception e) {
-        }
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_QUOTE));
     }
