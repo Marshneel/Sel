@@ -13,7 +13,7 @@ public class NA99_WLR3_BatchTransfer_stepDefs {
     @When("^I initiate a batch transfer and submit it with out generating OIDs$")
     public void iInitiateABatchTransferAndSubmitItWithOutGeneratingOIDs() throws InterruptedException {
         webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
-        webModel.getWlr3_batchTransferPage().addCLIsToTheOrder("01202300908","LU1 1DQ","01202300908");
+        webModel.getWlr3_batchTransferPage().addCLIsToTheOrder("01202300908","LU1 1DQ");
         webModel.getEditOrderPage().submitBatchOrderBeforeOIDsGenerated();
     }
 

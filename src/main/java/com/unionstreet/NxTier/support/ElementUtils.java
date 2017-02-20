@@ -106,6 +106,7 @@ public class ElementUtils {
             }
         }
     }
+
     //get properties method
     public String getProperty(String key) {
 
@@ -213,6 +214,15 @@ public class ElementUtils {
             }
         } catch (Exception e) {
 
+        }
+    }
+
+    public boolean isElementPresent(By by) {
+        try {
+            driver.findElement(by).isDisplayed();
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
         }
     }
 
@@ -456,7 +466,8 @@ public class ElementUtils {
     public void multipleCLick(By clickEle, By waitEle, int num) {
         for (int i = 0; i < num; i++) {
 
-            try { waitForElementVisible(waitEle);
+            try {
+                waitForElementVisible(waitEle);
                 waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(clickEle));
                 driver.findElement(clickEle).click();
             } catch (Exception e) {
@@ -471,8 +482,6 @@ public class ElementUtils {
         File source = ts.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(source, new File("./ScreenShots/" + screenShotName + ".png"));
         System.out.println("screenShot taken");
-
-
     }
 
     public void accessCMD(String command) throws Exception {

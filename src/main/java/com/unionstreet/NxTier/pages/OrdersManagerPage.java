@@ -267,4 +267,23 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
         utils.makeSureBoxIsChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
     }
+
+    public void clickDone() {
+        utils.getOrdersPage();
+        utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]"));
+        utils.clickBtn(By.xpath("//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]"));
+        utils.waitForElementVisible(By.xpath("//label[text()='Done']"));
+        utils.clickBtn(By.xpath("//label[text()='Done']"));
+        utils.clickBtn(By.xpath("//input[@onclick='return Validate();']"));
+    }
+
+    public void completeTask() {
+        try {
+            do {
+                clickDone();
+            }
+            while (utils.isElementPresent(By.xpath("//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]")) == true);
+        } catch (Exception e) {
+        }
+    }
 }

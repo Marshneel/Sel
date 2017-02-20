@@ -19,7 +19,7 @@ public class WLR3_BatchTransferPage {
     ElementUtils utils=new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
 
-    public void addCLIsToTheOrder(String CLI, String postCode,String assertNumber){
+    public void addCLIsToTheOrder(String CLI, String postCode ){
         utils.waitForElementVisible(By.xpath(TEXT_ON_BATCH_ORDER_POPUP));
         //click add button with empty fields
         utils.clickBtn(By.xpath(ADD_BUTTON));
@@ -30,7 +30,8 @@ public class WLR3_BatchTransferPage {
         utils.sendText(By.id(POSTCODE_FIELD),postCode);
         utils.sendText(By.id(EMERGENCY_INFO_FIELD),"EmergencyInfo");
         utils.clickBtn(By.xpath(ADD_BUTTON));
-        utils.waitForElementVisible(By.xpath("//input[@id='AssettList_0__CLI'][@value='"+assertNumber+"']"));
+        utils.waitForElementVisible(By.xpath("//input[@id='AssettList_0__CLI'][@value='"+CLI+"']"));
+        utils.waitForElementVisible(By.xpath("//input[@id='AssettList_0__Postcode'][@value='"+postCode+"']"));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.xpath(ADD_TO_BATCH_BUTTON));
     }
