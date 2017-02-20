@@ -22,6 +22,9 @@ public class OrdersManagerPage {
     private final String RESELLER = "//div[@id='contentPanel']//td[contains(text(),'reseller')]";
     private final String AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER = "checkbox0";
     private final String LOCATOR_FOR_BOX_HEADER = "contentPanel";
+    private final String ORDER_TASK="//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]";
+    private final String DONE_CHECKBOX="//label[text()='Done']";
+    private final String SUBMIT_DONE=DONE_CHECKBOX;
 
     ElementUtils utils = new ElementUtils();
     WLR_and_NxTierServicesPage wlr_and_nxTierServicesPage = new WLR_and_NxTierServicesPage();
@@ -270,11 +273,11 @@ public class OrdersManagerPage {
 
     public void clickDone() {
         utils.getOrdersPage();
-        utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]"));
-        utils.clickBtn(By.xpath("//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]"));
-        utils.waitForElementVisible(By.xpath("//label[text()='Done']"));
-        utils.clickBtn(By.xpath("//label[text()='Done']"));
-        utils.clickBtn(By.xpath("//input[@onclick='return Validate();']"));
+        utils.waitForElementVisible(By.xpath(ORDER_TASK));
+        utils.clickBtn(By.xpath(ORDER_TASK));
+        utils.waitForElementVisible(By.xpath(DONE_CHECKBOX));
+        utils.clickBtn(By.xpath(DONE_CHECKBOX));
+        utils.clickBtn(By.xpath(SUBMIT_DONE));
     }
 
     public void completeTask() {
@@ -282,7 +285,7 @@ public class OrdersManagerPage {
             do {
                 clickDone();
             }
-            while (utils.isElementPresent(By.xpath("//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]")) == true);
+            while (utils.isElementPresent(By.xpath(ORDER_TASK)) == true);
         } catch (Exception e) {
         }
     }

@@ -129,6 +129,10 @@ public class EditOrderPage {
         try {
             utils.getOrdersPage();
             ordersManagerPage.clickOnQuoteID();
+            try {
+                utils.checkAlert();
+            } catch (Exception e) {
+            }
         } catch (Exception e) {
         }
         // check for the green tick
@@ -141,6 +145,7 @@ public class EditOrderPage {
         }
         System.out.println("NA87 completed");
     }
+
     public void accessOrder() throws InterruptedException {
         utils.getOrdersPage();
         ordersManagerPage.clickOnQuoteID();
@@ -201,8 +206,8 @@ public class EditOrderPage {
         currentDate = utils.getCurrentDate();
         utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"Order Pending\" +0 " + RanNumber + "");
         utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Acknowledged\" +0 " + RanNumber + " notes");
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 " + RanNumber + " notes " + currentDate + " "+CLI+" "+addressKey+" " + '"' + '"');
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 " + RanNumber + " notes " + currentDate + " "+CLI+" "+addressKey+" " + '"' + '"');
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 " + RanNumber + " notes " + currentDate + " " + CLI + " " + addressKey + " " + '"' + '"');
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 " + RanNumber + " notes " + currentDate + " " + CLI + " " + addressKey + " " + '"' + '"');
 
     }
 
