@@ -276,7 +276,7 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath(ORDER_TASK));
         utils.clickBtn(By.xpath(ORDER_TASK));
         utils.waitForElementVisible(By.xpath(DONE_CHECKBOX));
-        utils.clickBtn(By.xpath(DONE_CHECKBOX));
+        utils.makeSureBoxIsChecked(By.xpath(DONE_CHECKBOX),By.xpath(DONE_CHECKBOX));
         utils.clickBtn(By.xpath(SUBMIT_DONE));
     }
 

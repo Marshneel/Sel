@@ -211,8 +211,9 @@ public class EditOrderPage {
 
     }
 
-    public void submitBatchOrderBeforeOIDsGenerated() {
+    public void submitBatchOrderBeforeOIDsGenerated() throws InterruptedException {
         utils.refreshPage();
+        Thread.sleep(1000);
         utils.waitForElementVisible(By.id(ORDER_CONTACT));
         utils.selectByIndex(By.id(ORDER_CONTACT), 1);
         utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
