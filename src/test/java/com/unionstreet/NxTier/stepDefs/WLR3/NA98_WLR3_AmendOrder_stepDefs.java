@@ -46,7 +46,7 @@ public class NA98_WLR3_AmendOrder_stepDefs {
         //delete the CLI from the site
         webModel.getUtils().sqlExeQuery("Portal", "test01-sql01", "nxtiere2e", "delete from CustomerCLIBase where cli='01202300908'");
         // clicks each of the tasks and process them
-        webModel.getOrdersManagerPage().completeTask();
+        webModel.getOrdersManagerPage().clickDone();
     }
 
 }
