@@ -127,17 +127,10 @@ public class OrdersManagerPage {
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath(AGENT));
-        utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
-        try {
-            Thread.sleep(1000);
-            utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
-        } catch (Exception e) {
-            utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
-            Thread.sleep(1000);
-            utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
-        }
+        utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
+        Thread.sleep(1000);
+        utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
-        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.waitForElementVisible(By.xpath(RESELLER));
     }
 
