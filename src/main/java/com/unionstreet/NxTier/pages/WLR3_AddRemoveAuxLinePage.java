@@ -73,9 +73,8 @@ public void errorMessage(){
         utils.waitForElementVisible(By.xpath(CHARGES_FREQUENCY_TEXT));
     }
     public void assertAbsenceOfCharges(){
-        utils.assertElementNotPresent(By.xpath(CHARGES_RECURRING_TEXT));
-        utils.assertElementNotPresent(By.xpath(CHARGES_SETUP_TEXT));
-        utils.assertElementNotPresent(By.xpath(CHARGES_FREQUENCY_TEXT));
+        utils.assertElementNotPresent(By.xpath("//div[@id='chargesSummaryPanel']//label[contains(text(),'Analogue Multi-Line')]"));
+
     }
 
 }
