@@ -281,6 +281,7 @@ public class WLR3_OrderDetails_Page {
 
     public void enterEmergencyInfo() throws InterruptedException {
         textOnWLR3OrderPage();
+        utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
         utils.waitForElementVisible(By.id(EDIT_EMERGENCY_INFO_TAB));
         Thread.sleep(1000);
         utils.clickBtn(By.id(EDIT_EMERGENCY_INFO_TAB));

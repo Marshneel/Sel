@@ -348,7 +348,7 @@ public class ElementUtils {
         assertTrue(element.isEmpty());
     }
 
-    public void sqlQuery(String userN, String server, String database, String query) {
+    public String sqlQuery(String userN, String server, String database, String query) {
         try {
 
             String userName = "" + userN + "";
@@ -362,9 +362,10 @@ public class ElementUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return userN;
     }
 
-    public void sqlExeQuery(String userN, String server, String database, String query) throws ClassNotFoundException, SQLException, UnsupportedEncodingException {
+    public String sqlExeQuery(String userN, String server, String database, String query) throws ClassNotFoundException, SQLException, UnsupportedEncodingException {
         try {
             String userName = "" + userN + "";
             String password = "Password1";
@@ -376,6 +377,7 @@ public class ElementUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return userN;
     }
 
     public String getAttributeOfElement(By by, String attribute) {
@@ -503,6 +505,4 @@ public class ElementUtils {
             System.out.println(line);
         }
     }
-
-
 }

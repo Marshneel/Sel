@@ -187,6 +187,7 @@ public class EditOrderPage {
 
     public void checkOpenReachNotificationsForOrderSuccessfulSubmission() throws InterruptedException {
         utils.getOrdersPage();
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.waitForElementVisible(By.xpath(LINE_TESTING_TEXT_ON_ORDERS_PAGE));
         ordersManagerPage.clickOnQuoteID();
         utils.waitForElementVisible(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
@@ -212,8 +213,6 @@ public class EditOrderPage {
     }
 
     public void submitBatchOrderBeforeOIDsGenerated() throws InterruptedException {
-        utils.refreshPage();
-        Thread.sleep(1000);
         utils.waitForElementVisible(By.id(ORDER_CONTACT));
         utils.selectByIndex(By.id(ORDER_CONTACT), 1);
         utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));

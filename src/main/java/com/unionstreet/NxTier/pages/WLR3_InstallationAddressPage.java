@@ -179,4 +179,8 @@ public class WLR3_InstallationAddressPage {
         utils.waitForElementVisible(By.xpath(ADDRESS_MATCH_VALIDATION_MESSAGE));
 
     }
+    public void assertTheAbsenceOfAddressMatchValidationMessage(){
+        utils.assertElementNotPresent(By.xpath(ADDRESS_MATCH_VALIDATION_MESSAGE));
+
+    }
 }

@@ -5,6 +5,9 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 13/02/2017.
  */
@@ -19,11 +22,12 @@ public class NA97_WLR3_Change_Of_Address_stepDefs {
         webModel.getEditOrderPage().textOnChangeOfAddressOrderPage();
         webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("02063678369","LU1 1DQ");
         webModel.getWlr_and_nxTierServicesPage().verifyCurrentLine("Premium Analogue (Current)");
-        webModel.getWlr3_installationAddressPage().assertValidationMessage();
+
     }
 
     @When("^I provide a postCode that is within the same exchange under installation address$")
     public void iProvideAPostCodeThatIsWithinTheSameExchangeUnderInstallationAddress() throws InterruptedException {
+        webModel.getWlr3_installationAddressPage().assertValidationMessage();
         //entering the postCode that is within the exchange
         webModel.getWlr3_installationAddressPage().searchForAddress("LU1 1DQ");
         webModel.getWlr3_orderDetails_page().pickAddressFromSearchResults();
@@ -67,6 +71,17 @@ public class NA97_WLR3_Change_Of_Address_stepDefs {
     public void iShouldBeAbleToCompleteTheOrderAndSeeAGreenTick() throws InterruptedException {
         //verify for the presence of the green tick
         webModel.getEditOrderPage().verifyOrderCompletion();
+    }
+
+    @And("^I insert an addressKey and Gold address value under the site$")
+    public void iInsertAnAddressKeyAndGoldAddressValueUnderTheSite() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
+      webModel.getAddSiteDetailsPage().assignAddressKeyToSite();
+    }
+
+    @Then("^The validation message is absent under the installation address panel$")
+    public void theValidationMessageIsAbsentUnderTheInstallationAddressPanel() {
+        webModel.getWlr3_installationAddressPage().assertTheAbsenceOfAddressMatchValidationMessage();
+
     }
 
 }
