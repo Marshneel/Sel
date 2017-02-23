@@ -129,9 +129,11 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath(AGENT));
         utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
         try {
+            Thread.sleep(1000);
             utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
         } catch (Exception e) {
             utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
+            Thread.sleep(1000);
             utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
         }
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
@@ -300,7 +302,7 @@ public class OrdersManagerPage {
 
         try {
 
-  utils.sqlQuery("portal", "test01-sql01", "MockCVF", "select TOP 1 xml from XmlDump ORDER BY id DESC");
+            utils.sqlQuery("portal", "test01-sql01", "MockCVF", "select TOP 1 xml from XmlDump ORDER BY id DESC");
             utils.result.next();
             String actual = utils.result.getString("xml");
             ArrayList<String> scripts = new ArrayList<String>();
