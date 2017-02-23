@@ -127,6 +127,11 @@ public class OrdersManagerPage {
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath(AGENT));
+        utils.getOrdersPage();
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         Thread.sleep(1000);
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
