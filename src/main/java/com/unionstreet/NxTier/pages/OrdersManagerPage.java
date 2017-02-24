@@ -18,10 +18,13 @@ public class OrdersManagerPage {
     private final String ORDER_QUOTE_DESCRIPTION_FIELD = "QuoteDescription";
     private final String ORDERS_SAVEQUOTE_BUTTON = "CreateQuoteButton";
     private final String QUOTEBOX = "StartQuote";
-    private final String AGENT = "//td[text()='agentCompany']";
-    private final String RESELLER = "//td[text()='reseller']";
+    private final String AGENT = "//div[@id='contentPanel']//td[contains(text(),'agentCompany')]";
+    private final String RESELLER = "//div[@id='contentPanel']//td[contains(text(),'reseller')]";
     private final String AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER = "checkbox0";
     private final String LOCATOR_FOR_BOX_HEADER = "contentPanel";
+    private final String ORDER_TASK = "//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]";
+    private final String DONE_CHECKBOX = "//label[text()='Done']";
+    private final String SUBMIT_DONE = DONE_CHECKBOX;
 
     ElementUtils utils = new ElementUtils();
     WLR_and_NxTierServicesPage wlr_and_nxTierServicesPage = new WLR_and_NxTierServicesPage();
@@ -82,13 +85,11 @@ public class OrdersManagerPage {
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLity");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath("//div[@id='orderContentPanel']//td[contains(text(),'No Records')]"));
-        utils.waitForElementVisible(By.id(contactManagerPage.SEARCH_BUTTON));
-        Thread.sleep(1000);
+        utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
         try {
             utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
         } catch (Exception e) {
-            utils.waitForElementVisible(By.id(contactManagerPage.SEARCH_BUTTON));
-            Thread.sleep(2000);
+            utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
             utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
         }
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
@@ -119,19 +120,16 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "agent");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
-        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.waitForElementVisible(By.xpath(AGENT));
+        utils.getOrdersPage();
+        try {
+            utils.checkAlert();
+        } catch (Exception e) {
+        }
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         Thread.sleep(1000);
-        try {
-            utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
-        } catch (Exception e) {
-            utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
-            Thread.sleep(2000);
-            utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
-        }
+        utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
-        utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
         utils.waitForElementVisible(By.xpath(RESELLER));
     }
 
@@ -201,12 +199,20 @@ public class OrdersManagerPage {
             utils.waitForElementVisible(By.xpath(QUOTEID));
             Thread.sleep(1000);
             utils.clickBtn(By.xpath(QUOTEID));
+            try {
+                utils.checkAlert();
+            } catch (Exception e) {
+            }
             Thread.sleep(1000);
             utils.switchToNewWindow();
         } catch (Exception e) {
             utils.getOrdersPage();
             utils.waitForElementVisible(By.xpath(QUOTEID));
             utils.clickBtn(By.xpath(QUOTEID));
+            try {
+                utils.checkAlert();
+            } catch (Exception ex) {
+            }
             Thread.sleep(1000);
             utils.switchToNewWindow();
         }
@@ -263,5 +269,14 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.id(LOCATOR_FOR_BOX_HEADER));
         utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
         utils.makeSureBoxIsChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
+    }
+
+    public void clickDone() {
+        utils.getOrdersPage();
+        utils.waitForElementVisible(By.xpath(ORDER_TASK));
+        utils.clickBtn(By.xpath(ORDER_TASK));
+        utils.waitForElementVisible(By.xpath(DONE_CHECKBOX));
+        utils.clickBtn(By.xpath(DONE_CHECKBOX));
+        utils.clickBtn(By.xpath(SUBMIT_DONE));
     }
 }

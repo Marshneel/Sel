@@ -66,5 +66,4 @@ public class ContactManagerPage {
         utils.switchToParentWindow();
         utils.getOrdersPage();
     }
-
 }

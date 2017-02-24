@@ -53,6 +53,7 @@ public class CompanyMenuPage {
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
+    DashBoardPage dashBoardPage = new DashBoardPage();
     private long today;
     private String day;
 
@@ -65,20 +66,20 @@ public class CompanyMenuPage {
 
     public void addNewSiteNames() {
         try {
-            utils.sendText(By.id(SITEDETAILS_SITE_NAME),(newBusinessCustomerPage.RanName + RanNumber));
-            utils.sendText(By.id(SITEDETAILS_SHORT_NAME),(newBusinessCustomerPage.RanName + RanNumber));
-            utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF),(RanNumber));
+            utils.sendText(By.id(SITEDETAILS_SITE_NAME), (newBusinessCustomerPage.RanName + RanNumber));
+            utils.sendText(By.id(SITEDETAILS_SHORT_NAME), (newBusinessCustomerPage.RanName + RanNumber));
+            utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF), (RanNumber));
         } catch (Exception e) {
-            utils.sendText(By.id(SITEDETAILS_SITE_NAME),(newBusinessCustomerPage.RanName + RanNumber));
-            utils.sendText(By.id(SITEDETAILS_SHORT_NAME),(newBusinessCustomerPage.RanName + RanNumber));
-            utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF),(RanNumber));
+            utils.sendText(By.id(SITEDETAILS_SITE_NAME), (newBusinessCustomerPage.RanName + RanNumber));
+            utils.sendText(By.id(SITEDETAILS_SHORT_NAME), (newBusinessCustomerPage.RanName + RanNumber));
+            utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF), (RanNumber));
         }
     }
 
     public void addNewSiteAddress() {
-        utils.sendText(By.id(SITEDETAILS_POSTCODE),utils.getProperty("postCode"));
-        utils.sendText(By.id(SITEDETAILS_TELEPHONE),(RanNumber));
-        utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF),(RanNumber));
+        utils.sendText(By.id(SITEDETAILS_POSTCODE), utils.getProperty("postCode"));
+        utils.sendText(By.id(SITEDETAILS_TELEPHONE), (RanNumber));
+        utils.sendText(By.id(SITEDETAILS_ACCOUNT_REF), (RanNumber));
     }
 
     public void setOwnSiteBillingAddress() {
@@ -98,7 +99,7 @@ public class CompanyMenuPage {
 
     public void accessCompanyMenu() throws InterruptedException {
         newBusinessCustomerPage.clickContactManagerButton();
-        utils.sendText(By.id(SEARCH_BUTTON),NewBusinessCustomerPage.RanName);
+        utils.sendText(By.id(SEARCH_BUTTON), NewBusinessCustomerPage.RanName);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
         utils.waitForElementVisible(By.linkText(NewBusinessCustomerPage.RanName));
         utils.clickBtn(By.linkText(NewBusinessCustomerPage.RanName));
@@ -127,10 +128,10 @@ public class CompanyMenuPage {
     public void addBillingDetails() {
         clickBillingDetailsButton();
         utils.selectByVisibleText(By.id(MODE_OF_PAYMENT_FIELD), utils.getProperty("billingDetailsPaymentMode"));
-        utils.sendText(By.id(SORT_CODE_FIELD),utils.getProperty("sortCode"));
+        utils.sendText(By.id(SORT_CODE_FIELD), utils.getProperty("sortCode"));
         utils.sendText(By.id(ACCOUNT_NUMBER_FIELD), utils.getProperty("accountNumber"));
-        utils.sendText(By.id(ACCOUNT_NAME_FIELD),utils.getProperty("firstName"));
-        utils.sendText(By.id(CUSTOMER_REFERENCE_FIELD),utils.getProperty("customerRef"));
+        utils.sendText(By.id(ACCOUNT_NAME_FIELD), utils.getProperty("firstName"));
+        utils.sendText(By.id(CUSTOMER_REFERENCE_FIELD), utils.getProperty("customerRef"));
         utils.selectByVisibleText(By.id(BILLING_CONTACTID_FIELD), utils.getProperty("firstName"));
         utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
     }
@@ -152,9 +153,9 @@ public class CompanyMenuPage {
         try {
             utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));
             utils.clickBtn(By.id(CLI_NUMBER_FIELD));
-            utils.sendText(By.id(CLI_NUMBER_FIELD),RanNumber);
+            utils.sendText(By.id(CLI_NUMBER_FIELD), RanNumber);
         } catch (TimeoutException e) {
-            utils.sendText(By.id(CLI_NUMBER_FIELD),RanNumber);
+            utils.sendText(By.id(CLI_NUMBER_FIELD), RanNumber);
         }
         utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
         utils.verifyStringMatch(By.cssSelector(ADDED_CLI_CHECK_FIELD), RanNumber);
@@ -180,7 +181,7 @@ public class CompanyMenuPage {
         clickServiceChargesButton();
         utils.jumpToPopUpWindow(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
-        utils.sendText(By.id(SERVICECHARGE_DESC_FIELD),utils.getProperty("serviceChargeRecurringDesc"));
+        utils.sendText(By.id(SERVICECHARGE_DESC_FIELD), utils.getProperty("serviceChargeRecurringDesc"));
         utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));
         today = new java.util.Date().getTime();
         utils.selectByVisibleText(By.cssSelector(SELECT_MONTH_DROPDOWN), new SimpleDateFormat("MMM").format(today));
@@ -210,7 +211,7 @@ public class CompanyMenuPage {
         utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
-        utils.sendText(By.id(SERVICECHARGE_DESC_FIELD),utils.getProperty("serviceChargeOneOffDesc"));
+        utils.sendText(By.id(SERVICECHARGE_DESC_FIELD), utils.getProperty("serviceChargeOneOffDesc"));
         utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));
         utils.selectByVisibleText(By.cssSelector(SELECT_MONTH_DROPDOWN), new SimpleDateFormat("MMM").format(today));
         utils.selectByVisibleText(By.cssSelector(SELECT_YEAR_DROPDOWN), new SimpleDateFormat("yyyy").format(today));
@@ -222,7 +223,7 @@ public class CompanyMenuPage {
     public void addOneOffChargesPart2() {
         utils.selectByVisibleText(By.id(SERVICECHARGE_FREQUENCY_DROPDOWN), utils.getProperty("serviceChargeOneOffFrequency"));
         utils.selectByVisibleText(By.id(SERVICECHARGE_CARRIER_DROPDOWN), utils.getProperty("serviceChargeCarrier"));
-        utils.sendText(By.id(SERVICECHARGE_QUANTITY_FIELD),utils.getProperty("serviceChargeQuantity"));
+        utils.sendText(By.id(SERVICECHARGE_QUANTITY_FIELD), utils.getProperty("serviceChargeQuantity"));
         utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
         utils.verifyStringMatch(By.id(newBusinessCustomerPage.SAVEDMESSAGE_INFO), utils.getProperty("savedMessage"));
         utils.closeCurrentPage();
@@ -253,7 +254,5 @@ public class CompanyMenuPage {
     public void clickConfigManager() {
         utils.clickBtn(By.id(CONFIGMANAGER_BUTTON));
     }
-
-
 }
 

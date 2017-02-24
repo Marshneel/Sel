@@ -65,7 +65,7 @@ public class NewBusinessCustomerPage {
 
     public void addSiteInfoForNewBusinessCustomer() {
         utils.clickBtn(By.id(SITENAME_FIELD));
-        utils.sendText(By.id(SITENAME_FIELD),utils.getProperty("siteName"));
+        utils.sendText(By.id(SITENAME_FIELD),RanName);
         utils.sendText(By.id(SHORTNAME_FIELD),utils.getProperty("shortName"));
     }
 

@@ -3,6 +3,9 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 16/01/2017.
  */
@@ -35,6 +38,10 @@ public class AddSiteDetailsPage {
 
     public void navigateToHomePage() {
         utils.clickBtn(By.xpath(HOMEPAGE_BUTTON));
+    }
+
+    public void assignAddressKeyToSite() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
+       utils.sqlExeQuery("Portal", "test01-sql01", "nxtiere2e", "update Sitedetails set bt_address_key='A00001043137', bt_address_key_type='Gold' where SiteName='"+newBusinessCustomerPage.RanName+"'");
     }
 
 

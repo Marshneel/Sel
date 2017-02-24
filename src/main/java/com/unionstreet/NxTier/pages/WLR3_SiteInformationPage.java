@@ -13,13 +13,15 @@ public class WLR3_SiteInformationPage {
     private final String SUBMIT_BUTTON = "saveBtn";
     private final String RECOVER_LINE_PLANT="WLR3Order_recover_line_plant";
 
+
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
     WLR3_NewProvide_AnaMultLine_SitePage wlr3_newProvide_anaMultLine_sitePage = new WLR3_NewProvide_AnaMultLine_SitePage();
 
+
     public void populatingSiteInformation() throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("siteInformationSummaryPanel"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SITE_INFO_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         try {
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
@@ -36,7 +38,7 @@ public class WLR3_SiteInformationPage {
 
     public void depopulateSiteInformation() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        utils.waitForElementVisible(By.id("siteInformationSummaryPanel"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SITE_INFO_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         try {
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
@@ -62,7 +64,10 @@ public class WLR3_SiteInformationPage {
         utils.sendText(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
         utils.waitForElementVisible(By.id(RECOVER_LINE_PLANT));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
 
-
+    public void populateTelNumberOnChangeOfAddress(String number){
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
+        utils.sendText(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
     }
 }

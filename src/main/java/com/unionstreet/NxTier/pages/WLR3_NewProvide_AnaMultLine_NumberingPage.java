@@ -16,11 +16,16 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
     private final String CONTACT_SURNAME_UNDER_DIRECTORY_INFO = "DirectoryInfo_0__dir_TradingTitleSurname";
     private final String ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING = "//a[contains(@onclick,'loadLineNumberingPopup')]";
     private final String NUMBER_RESERVATION_CONFIRMATION_UNDER_LINE_NUMBERING = "//p[text()='This number has been reserved.']";
+    private final String RETAIN_NUMBER_OPTION_AVAILABLE="//h4[text()='Retain existing number option is available.']";
+    private final String RETAIN_EXITING_NUMBER_TAB_UNDER_LINE_NUMBERING="//a[@href='#default-tab-coa-retainnumber']";
+    private final String EXISTING_NUMBER_WILL_BE_RETAINED_TEXT_UNDER_LINE_NUMBERING="//h3[text()='Existing Number will be retained']";
+private final String RETENTION_OPTION_UNAVAILABLE="//h4[text()='Retain number option is not available for this address.']";
 
 
     ElementUtils utils = new ElementUtils();
     WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage = new WLR3_New_Provide_Analogue_Multiline_OrderPage();
     WLR3_LineNumberingPage wlr3_lineNumberingPage = new WLR3_LineNumberingPage();
+
 
     public void PopulateDirectoryInfoUnderNUMBERING(String info) throws InterruptedException {
         utils.waitForElementVisible(By.id(BUSINESS_DESC_TEXTBOX_UNDER_DIRECTORY_INFO));
@@ -48,5 +53,14 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         utils.javaScriptExecutorClick(By.xpath(wlr3_lineNumberingPage.CONTINUETAB_UNDER_LINE_INFO));
         utils.waitForElementVisible(By.xpath(NUMBER_RESERVATION_CONFIRMATION_UNDER_LINE_NUMBERING));
         }
+    public void checkPresenceOfRetainOptionInChangeOfAddress(){
+        utils.waitForElementVisible(By.xpath(RETAIN_NUMBER_OPTION_AVAILABLE));
+        utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.xpath(RETAIN_EXITING_NUMBER_TAB_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.xpath(EXISTING_NUMBER_WILL_BE_RETAINED_TEXT_UNDER_LINE_NUMBERING));utils.clickBtn(By.xpath(wlr3_lineNumberingPage.CONTINUETAB_UNDER_LINE_INFO));
+    }
+    public void checkAbsenceOfRetainInChangeOfAddress(){
+        utils.waitForElementVisible(By.xpath(RETENTION_OPTION_UNAVAILABLE));
+    }
     }
 

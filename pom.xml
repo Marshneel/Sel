@@ -100,6 +100,12 @@
       <artifactId>sqljdbc4</artifactId>
       <version>4.0.2206.100</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/xmlunit/xmlunit -->
+    <dependency>
+      <groupId>xmlunit</groupId>
+      <artifactId>xmlunit</artifactId>
+      <version>1.6</version>
+    </dependency>
 
   </dependencies>
 

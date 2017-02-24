@@ -27,7 +27,7 @@ public class WLR3_OrderDetails_Page {
     private final String ANO_CAL_REJ_UNDER_ON_ORDER_DETAIL_PAGE = "//label[@class='text-success'][text()[contains(.,'Anonymous Call Reject')]]";
     private final String SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_contact_name'][contains(text(),'Jeroen')]";
     private final String SITE_EMAILID_ON_WLR3_ORDER_PAGE = "//p[@id='display_WLR3Order_contact_email'][contains(text(),'Jeroen@vodafone.co.uk')]";
-    private final String ITEMID_ON_EDITORDER = "//a[@href='#'][starts-with(@onclick,'OpenNewWLR3OrderDetailPopup')]";
+    public final String ITEMID_ON_EDITORDER = "//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]";
     private final String CONTINUETAB_UNDER_NOCHANGE_LINE_INFO = "//a[@onclick='lineNumbering.submitChanges(0);']";
     public final String APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE = "//a[contains(@onclick,'showNewBookAppointment')]";
     private final String TEXT_ON_APPOINTMENT_PAGE = "//legend[text()='Hazard and Warning Notes']";
@@ -41,6 +41,17 @@ public class WLR3_OrderDetails_Page {
     private final String INACTIVE_ANONYMOUS_CALL_REJECT = "//label[@class='networkFeatureDelete'][contains(text(),'Anonymous Call Reject')]";
     private final String EDIT_SITEINFO_FOR_INCREASE = "//div[@id='divValidationMessages']//a[contains(@onclick,'SiteInformation')]";
     private final String SITE_INFO_FOR_LINE_DECREASE = "//div[@id='siteInformationSummaryPanel']//a";
+    public final String PAGE_LOADER_ELEMENT = "//div[@id='pageLoader'][@class='page-loader']";
+    private final String TEXT_UNDER_DIRECTORY_INFO_SUMMARY_PANEL = "//div[@id='directoryInformationSummaryPanel']//p[contains(text(),'Telecom')]";
+    private final String TEXT_UNDER_NETWORK_FEATURES_SUMMARY_PANEL = "//div[@id='networkFeaturesSummaryPanel']//label[contains(text(),'Anonymous Call Reject')]";
+    public final String LINE_NUMBERING_SUMMARY_PANEL = "lineNumberingSummaryPanel";
+    public final String SITE_INFO_SUMMARY_PANEL = "siteInformationSummaryPanel";
+    public final String INSTALLATION_ADDRESS_SUMMARY_PANEL="installationAddressSummaryPanel";
+    public final String NETWORK_FEATURES_SUMMARY_PANEL="networkFeaturesSummaryPanel";
+    public final String DIRECTORY_INFO_SUMMARY_PANEL="directoryInformationSummaryPanel";
+    private final String EDIT_EMERGENCY_INFO_TAB="div_EmergencyInfo";
+    private final String EMERGENCY_INFO_TEXT_BOX="EmergencyInfo";
+    private final String SAVE_EMERGENCY_INFO="//img[contains(@onclick,'jet_update_value_FromTextbox')]";
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
@@ -57,10 +68,10 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void assertAddress(String roadName, String premiseName, String subpremiseName, String premiseNumber) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//input[@id='Addresses_0__ThoroughfareName'][@value='" + roadName + "']"));
-        utils.waitForElementVisible(By.xpath("//input[@id='Addresses_0__PremisesName'][@value='" + premiseName + "']"));
-        utils.waitForElementVisible(By.xpath("//input[@id='Addresses_0__SubPremises'][@value='" + subpremiseName + "']"));
-        utils.waitForElementVisible(By.xpath("//input[@id='Addresses_0__ThoroughfareNumber'][@value='" + premiseNumber + "']"));
+        utils.waitForElementVisible(By.xpath("//tr[@id='address_0']//td[contains(text(),'" + premiseName + "')]"));
+        utils.waitForElementVisible(By.xpath("//tr[@id='address_0']//td[contains(text(),'" + subpremiseName + "')]"));
+        utils.waitForElementVisible(By.xpath("//tr[@id='address_0']//td[contains(text(),'" + premiseNumber + "')]"));
+        utils.waitForElementVisible(By.xpath("//tr[@id='address_0']//td[contains(text(),'" + roadName + "')]"));
     }
 
     public void pickAndAssertPostCodeOnWLR3OrderPage(String postCode) throws InterruptedException {
@@ -69,8 +80,15 @@ public class WLR3_OrderDetails_Page {
         utils.javaScriptExecutorClick(By.xpath(CONTINUE_AFTER_ADDRESS_IS_CHOOSEN));
         utils.jumpToParentPopUp();
         textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("installationAddressSummaryPanel"));
+        utils.waitForElementVisible(By.id(INSTALLATION_ADDRESS_SUMMARY_PANEL));
         utils.verifyStringMatch(By.xpath(ADDRESS_SEARCH_RESULT_FOR_LU1_1DQ_ON_WLR3_ORDER_PAGE), postCode);
+    }
+
+    public void pickAddressFromSearchResults() throws InterruptedException {
+        utils.clickBtn(By.id(ADDRESS_SEARCH_RESULT));
+        utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
+        utils.javaScriptExecutorClick(By.xpath(CONTINUE_AFTER_ADDRESS_IS_CHOOSEN));
+        utils.jumpToParentPopUp();
     }
 
     public void assertErrorMessageUponEnteringInvalidAddressKey() {
@@ -80,18 +98,18 @@ public class WLR3_OrderDetails_Page {
     public void assertPopulatedNetworkCallingFeaturesOnWlr3OrderPage() throws InterruptedException {
         utils.jumpToParentPopUp();
         textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("networkFeaturesSummaryPanel"));
+        utils.waitForElementVisible(By.id(NETWORK_FEATURES_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(ADMIN_CONT_CAL_DIV_ON_ORDER_DETAIL_PAGE));
         utils.waitForElementVisible(By.xpath(ANO_CAL_REJ_UNDER_ON_ORDER_DETAIL_PAGE));
     }
 
     public void assertPopulatedDirectoryInformationOnWlr3OrderPage() throws InterruptedException {
-        utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
+        utils.waitForElementVisible(By.id(DIRECTORY_INFO_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(SURNAME_OF_DIRECTORY_INFO_ON_WLR3_ORDER_PAGE));
     }
 
     public void assertPopulatedSiteContactsOnWLR3OrderPage() throws InterruptedException {
-        utils.waitForElementVisible(By.id("siteInformationSummaryPanel"));
+        utils.waitForElementVisible(By.id(SITE_INFO_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE));
         utils.waitForElementVisible(By.xpath(SITE_EMAILID_ON_WLR3_ORDER_PAGE));
     }
@@ -99,21 +117,21 @@ public class WLR3_OrderDetails_Page {
     public void assertDepopulatedNetworkCallingFeaturesOnWlr3OrderPage() throws InterruptedException {
         utils.jumpToParentPopUp();
         textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("networkFeaturesSummaryPanel"));
+        utils.waitForElementVisible(By.id(NETWORK_FEATURES_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(NETWORK_FEATURES_BUTTON));
         utils.assertElementNotPresent(By.xpath(ADMIN_CONT_CAL_DIV_ON_ORDER_DETAIL_PAGE));
         utils.assertElementNotPresent(By.xpath(ANO_CAL_REJ_UNDER_ON_ORDER_DETAIL_PAGE));
     }
 
     public void assertDepopularedDirectoryInformationOnWlr3OrderPage() throws InterruptedException {
-        utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
+        utils.waitForElementVisible(By.id(DIRECTORY_INFO_SUMMARY_PANEL));
         utils.waitForElementToVanish(By.xpath(SURNAME_OF_DIRECTORY_INFO_ON_WLR3_ORDER_PAGE));
     }
 
     public void assertDepopulatedSiteInformationOnWLR3OrderPage() throws InterruptedException {
         utils.jumpToParentPopUp();
         textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("siteInformationSummaryPanel"));
+        utils.waitForElementVisible(By.id(SITE_INFO_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
         utils.waitForElementToVanish(By.xpath(SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE));
         utils.waitForElementToVanish(By.xpath(SITE_EMAILID_ON_WLR3_ORDER_PAGE));
@@ -121,7 +139,7 @@ public class WLR3_OrderDetails_Page {
 
     public void clickLineNumbering() throws InterruptedException {
         textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
+        utils.waitForElementVisible(By.id(LINE_NUMBERING_SUMMARY_PANEL));
         Thread.sleep(1000);
         try {
             utils.clickBtnWithWait(By.xpath(LINE_NUMBERING_BUTTON));
@@ -135,7 +153,7 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//h1[text()='" + number + "']"));
         utils.clickBtn(By.xpath(CONTINUETAB_UNDER_NOCHANGE_LINE_INFO));
         utils.jumpToParentPopUp();
-        utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
+        utils.waitForElementVisible(By.id(LINE_NUMBERING_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][contains(text(),'" + number + "')]"));
     }
 
@@ -146,7 +164,7 @@ public class WLR3_OrderDetails_Page {
 
     public void assertImportedLineWithChangeOfPostCodeAndAidOfGoldAddress(String importedNumber) throws InterruptedException {
         textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
+        utils.waitForElementVisible(By.id(LINE_NUMBERING_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
 
@@ -154,13 +172,13 @@ public class WLR3_OrderDetails_Page {
         textOnWLR3OrderPage();
         utils.refreshPage();
         utils.jumpToPopUpWindow(By.xpath(ITEMID_ON_EDITORDER));
-        utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
+        utils.waitForElementVisible(By.id(LINE_NUMBERING_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
 
     public void assertNumberImportedWithVic(String importedNumber, String vic) throws InterruptedException {
         textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("lineNumberingSummaryPanel"));
+        utils.waitForElementVisible(By.id(LINE_NUMBERING_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath("//p[@id='display_WLR3Order_vic'][contains(text(),'" + vic + "')]"));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
@@ -178,8 +196,8 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath(ordersManagerPage.QUOTEID));
         utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
         utils.switchToNewWindow();
-        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
-        utils.clickBtn(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+        utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
+        utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
         utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
     }
 
@@ -233,11 +251,21 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void clickOnSiteInfoErrorTabForIncrease() throws InterruptedException {
-        utils.clickBtn(By.xpath(EDIT_SITEINFO_FOR_INCREASE));
+        try {
+            utils.clickBtn(By.xpath(EDIT_SITEINFO_FOR_INCREASE));
+        } catch (Exception e) {
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(EDIT_SITEINFO_FOR_INCREASE));
+        }
     }
 
     public void clickOnSiteInfoErrorTabForDecrease() throws InterruptedException {
-        utils.clickBtn(By.xpath(SITE_INFO_FOR_LINE_DECREASE));
+        try {
+            utils.clickBtn(By.xpath(SITE_INFO_FOR_LINE_DECREASE));
+        } catch (Exception e) {
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(SITE_INFO_FOR_LINE_DECREASE));
+        }
     }
 
     public void assertQuoteSummaryPageForAddAuxLine() {
@@ -250,5 +278,21 @@ public class WLR3_OrderDetails_Page {
         utils.assertElementNotPresent(By.xpath(LINE_INFO_TAB));
         utils.assertElementNotPresent(By.xpath(NETWORK_FEATURES_BUTTON));
     }
+
+    public void enterEmergencyInfo() throws InterruptedException {
+        textOnWLR3OrderPage();
+        utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
+        utils.waitForElementVisible(By.id(EDIT_EMERGENCY_INFO_TAB));
+        Thread.sleep(1000);
+        utils.clickBtn(By.id(EDIT_EMERGENCY_INFO_TAB));
+        utils.sendText(By.id(EMERGENCY_INFO_TEXT_BOX), EMERGENCY_INFO_TEXT_BOX);
+        utils.clickBtn(By.xpath(SAVE_EMERGENCY_INFO));
+    }
+
+    public void assertChangesForAmendOrder() {
+        utils.waitForElementVisible(By.xpath(TEXT_UNDER_NETWORK_FEATURES_SUMMARY_PANEL));
+        utils.waitForElementVisible(By.xpath(TEXT_UNDER_DIRECTORY_INFO_SUMMARY_PANEL));
+    }
+
 }
 

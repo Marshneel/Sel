@@ -1,4 +1,4 @@
-
+@E2ETests
 Feature: NA39 - Creation Of User, Agent, Reseller permissions
 
   Scenario: Creating an agent permission group and assigning it to an agent
@@ -28,7 +28,7 @@ Feature: NA39 - Creation Of User, Agent, Reseller permissions
     When I access create Quote tab for Reseller
     Then All required fields pertaining to a reseller should be visible on the create quote window
     And Only the quotes created for companies under my contact list should be visible
-
+@break
   Scenario: Creating an order quote by logged in as a CP and verifying all required fields are visible on the quote screen
     Given I am logged in as CP
     And I have added a new business customer

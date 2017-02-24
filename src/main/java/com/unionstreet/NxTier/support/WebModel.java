@@ -36,6 +36,7 @@ public class WebModel {
     private WLR3_Modify_OrderPage wlr3_modify_orderPage;
     private WLR3_Cease_OrderPage wlr3_cease_orderPage;
     private WLR3_AddRemoveAuxLinePage wlr3_addRemoveAuxLinePage;
+    private WLR3_BatchTransferPage wlr3_batchTransferPage;
 
 
     public WebModel() {
@@ -63,14 +64,15 @@ public class WebModel {
         wlr3_new_provide_analogue_multiline_orderPage = new WLR3_New_Provide_Analogue_Multiline_OrderPage();
         addSiteDetailsPage = new AddSiteDetailsPage();
         wlr3_newProvide_anaMultLine_sitePage = new WLR3_NewProvide_AnaMultLine_SitePage();
-        wlr3_newProvide_anaMultLine_provisionPage=new WLR3_NewProvide_AnaMultLine_ProvisionPage();
-        wlr3_newProvide_anaMultLine_engineeringPage=new WLR3_NewProvide_AnaMultLine_EngineeringPage();
-        wlr3_newProvide_anaMultLine_featuresPage=new WLR3_NewProvide_AnaMultLine_FeaturesPage();
-        wlr3_newProvide_anaMultLine_numberingPage=new WLR3_NewProvide_AnaMultLine_NumberingPage();
-        wlr3_newProvide_anaMultLine_datePage=new WLR3_NewProvide_AnaMultLine_DatePage();
-        wlr3_modify_orderPage=new WLR3_Modify_OrderPage();
-        wlr3_cease_orderPage=new WLR3_Cease_OrderPage();
-        wlr3_addRemoveAuxLinePage=new WLR3_AddRemoveAuxLinePage();
+        wlr3_newProvide_anaMultLine_provisionPage = new WLR3_NewProvide_AnaMultLine_ProvisionPage();
+        wlr3_newProvide_anaMultLine_engineeringPage = new WLR3_NewProvide_AnaMultLine_EngineeringPage();
+        wlr3_newProvide_anaMultLine_featuresPage = new WLR3_NewProvide_AnaMultLine_FeaturesPage();
+        wlr3_newProvide_anaMultLine_numberingPage = new WLR3_NewProvide_AnaMultLine_NumberingPage();
+        wlr3_newProvide_anaMultLine_datePage = new WLR3_NewProvide_AnaMultLine_DatePage();
+        wlr3_modify_orderPage = new WLR3_Modify_OrderPage();
+        wlr3_cease_orderPage = new WLR3_Cease_OrderPage();
+        wlr3_addRemoveAuxLinePage = new WLR3_AddRemoveAuxLinePage();
+        wlr3_batchTransferPage = new WLR3_BatchTransferPage();
 
     }
 
@@ -162,34 +164,45 @@ public class WebModel {
         return addSiteDetailsPage;
     }
 
-    public WLR3_NewProvide_AnaMultLine_SitePage getwlr3_newProvide_anaMultLine_sitePage(){
+    public WLR3_NewProvide_AnaMultLine_SitePage getwlr3_newProvide_anaMultLine_sitePage() {
         return wlr3_newProvide_anaMultLine_sitePage;
     }
-    public WLR3_NewProvide_AnaMultLine_ProvisionPage getWlr3_newProvide_anaMultLine_provisionPage(){
+
+    public WLR3_NewProvide_AnaMultLine_ProvisionPage getWlr3_newProvide_anaMultLine_provisionPage() {
         return wlr3_newProvide_anaMultLine_provisionPage;
     }
-    public WLR3_NewProvide_AnaMultLine_EngineeringPage getWlr3_newProvide_anaMultLine_engineeringPage(){
+
+    public WLR3_NewProvide_AnaMultLine_EngineeringPage getWlr3_newProvide_anaMultLine_engineeringPage() {
         return wlr3_newProvide_anaMultLine_engineeringPage;
     }
-    public WLR3_NewProvide_AnaMultLine_FeaturesPage getWlr3_newProvide_anaMultLine_featuresPage(){
+
+    public WLR3_NewProvide_AnaMultLine_FeaturesPage getWlr3_newProvide_anaMultLine_featuresPage() {
         return wlr3_newProvide_anaMultLine_featuresPage;
     }
-    public WLR3_NewProvide_AnaMultLine_NumberingPage getWlr3_newProvide_anaMultLine_numberingPage(){
+
+    public WLR3_NewProvide_AnaMultLine_NumberingPage getWlr3_newProvide_anaMultLine_numberingPage() {
         return wlr3_newProvide_anaMultLine_numberingPage;
     }
-    public WLR3_NewProvide_AnaMultLine_DatePage getWlr3_newProvide_anaMultLine_datePage(){
+
+    public WLR3_NewProvide_AnaMultLine_DatePage getWlr3_newProvide_anaMultLine_datePage() {
         return wlr3_newProvide_anaMultLine_datePage;
     }
-    public WLR3_Modify_OrderPage getWlr3_modify_orderPage(){
+
+    public WLR3_Modify_OrderPage getWlr3_modify_orderPage() {
         return wlr3_modify_orderPage;
     }
 
-    public WLR3_Cease_OrderPage getWlr3_cease_orderPage(){
+    public WLR3_Cease_OrderPage getWlr3_cease_orderPage() {
         return wlr3_cease_orderPage;
     }
 
-    public WLR3_AddRemoveAuxLinePage getWlr3_addRemoveAuxLinePage(){
+    public WLR3_AddRemoveAuxLinePage getWlr3_addRemoveAuxLinePage() {
         return wlr3_addRemoveAuxLinePage;
     }
+
+    public WLR3_BatchTransferPage getWlr3_batchTransferPage() {
+        return wlr3_batchTransferPage;
+    }
 }
+
 

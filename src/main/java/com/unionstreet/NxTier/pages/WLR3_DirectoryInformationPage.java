@@ -20,13 +20,13 @@ public class WLR3_DirectoryInformationPage {
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
     public void populatingDirectoryInformation(String name) throws InterruptedException {
-        wlr3_orderDetails_page.textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.DIRECTORY_INFO_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         Thread.sleep(1000);
         try {
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         } catch (Exception e) {
+            Thread.sleep(1000);
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
 
         }
@@ -38,16 +38,16 @@ public class WLR3_DirectoryInformationPage {
         utils.scrollUp(By.id(EDIT));
         utils.clickBtn(By.id(EDIT));
         utils.clickBtn(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION));
-        utils.sendText(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION),name);
+        utils.sendText(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION), name);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath("//div[@id='popupDiv']//button[@id='closeBtn']"));
-        //utils.jumpToParentPopUp();
+
     }
 
     public void editDirectoryInformation() throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id("directoryInformationSummaryPanel"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.DIRECTORY_INFO_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         Thread.sleep(1000);
         try {
@@ -64,7 +64,7 @@ public class WLR3_DirectoryInformationPage {
         utils.scrollUp(By.id(EDIT));
         Thread.sleep(1000);
         utils.clickBtn(By.id(EDIT));
-        utils.sendText(By.id(BUSINESSNAME_UNDER_DIRECTORYINFO),"vodafone");
+        utils.sendText(By.id(BUSINESSNAME_UNDER_DIRECTORYINFO), "vodafone");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath(SAVED_BUSINESSNAME_UNDER_DIRECTORYINFO));
         Thread.sleep(1000);

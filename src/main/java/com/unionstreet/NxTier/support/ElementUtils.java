@@ -4,21 +4,17 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.*;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
 import static com.unionstreet.NxTier.support.BaseClass.utils;
@@ -151,6 +147,11 @@ public class ElementUtils {
         driver.findElement(by).click();
     }
 
+    public String getCurrentDate() {
+        String date = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+        return date;
+    }
+
     //browser selector
     public WebDriver browser() {
         try {
@@ -213,6 +214,15 @@ public class ElementUtils {
             }
         } catch (Exception e) {
 
+        }
+    }
+
+    public boolean isElementPresent(By by) {
+        try {
+            driver.findElement(by).isDisplayed();
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
         }
     }
 
@@ -280,6 +290,10 @@ public class ElementUtils {
         return RandomStringUtils.randomAlphabetic(8);
     }
 
+    public String randomNumber() {
+        return RandomStringUtils.randomNumeric(6);
+    }
+
 
     public void searchAndAssertTextNotPresent(By by, String searchText) {
         String actualText = driver.findElement(by).getText();
@@ -334,7 +348,7 @@ public class ElementUtils {
         assertTrue(element.isEmpty());
     }
 
-    public void sqlQuery(String userN, String server, String database, String query) {
+    public String sqlQuery(String userN, String server, String database, String query) {
         try {
 
             String userName = "" + userN + "";
@@ -348,9 +362,10 @@ public class ElementUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return userN;
     }
 
-    public void sqlExeQuery(String userN, String server, String database, String query) throws ClassNotFoundException, SQLException, UnsupportedEncodingException {
+    public String sqlExeQuery(String userN, String server, String database, String query) throws ClassNotFoundException, SQLException, UnsupportedEncodingException {
         try {
             String userName = "" + userN + "";
             String password = "Password1";
@@ -362,6 +377,7 @@ public class ElementUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return userN;
     }
 
     public String getAttributeOfElement(By by, String attribute) {
@@ -449,13 +465,44 @@ public class ElementUtils {
         }
     }
 
+    public void multipleCLick(By clickEle, By waitEle, int num) {
+        for (int i = 0; i < num; i++) {
+
+            try {
+                waitForElementVisible(waitEle);
+                waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(clickEle));
+                driver.findElement(clickEle).click();
+            } catch (Exception e) {
+                waitForElementVisible(waitEle);
+                driver.findElement(clickEle).click();
+            }
+        }
+    }
+
     public void captureScreenShot(WebDriver driver, String screenShotName) throws IOException {
         TakesScreenshot ts = (TakesScreenshot) driver;
         File source = ts.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(source, new File("./ScreenShots/" + screenShotName + ".png"));
         System.out.println("screenShot taken");
-
-
     }
 
+    public void accessCMD(String command) throws Exception {
+
+        List<String> fullcmd = new ArrayList<String>();
+        fullcmd.add("cmd.exe");
+        fullcmd.add("/c");
+        fullcmd.add(command);
+        ProcessBuilder builder = new ProcessBuilder(fullcmd);
+        builder.redirectErrorStream(true);
+        Process p = builder.start();
+        BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        String line;
+        while (true) {
+            line = r.readLine();
+            if (line == null) {
+                break;
+            }
+            System.out.println(line);
+        }
+    }
 }
