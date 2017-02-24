@@ -1,13 +1,7 @@
 package com.unionstreet.NxTier.pages;
 
 import com.unionstreet.NxTier.support.ElementUtils;
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.xml.sax.SAXException;
-
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 /**
  * Created by rajeshg on 24/10/2016.
@@ -285,42 +279,4 @@ public class OrdersManagerPage {
         utils.clickBtn(By.xpath(DONE_CHECKBOX));
         utils.clickBtn(By.xpath(SUBMIT_DONE));
     }
-
-    public void completeTask() {
-        try {
-            do {
-                clickDone();
-            }
-            while (utils.isElementPresent(By.xpath(ORDER_TASK)) == true);
-        } catch (Exception e) {
-        }
-    }
-
-    public void compareXMLResult() throws IOException, SQLException, ClassNotFoundException, SAXException {
-
-        try {
-
-            utils.sqlQuery("portal", "test01-sql01", "MockCVF", "select TOP 1 xml from XmlDump ORDER BY id DESC");
-            utils.result.next();
-            String actual = utils.result.getString("xml");
-            ArrayList<String> scripts = new ArrayList<String>();
-            scripts.add("USAgentRajeshG");
-            scripts.add("490871001");
-            scripts.add("DMA");
-            scripts.add("USAgentRajeshG");
-            scripts.add(newBusinessCustomerPage.RanName);
-            scripts.add("01202300908");
-            scripts.add("Premium");
-            scripts.add("0987654321");
-            scripts.add("WLR3 PSTN Single Line");
-            scripts.add("490871001");
-            scripts.add("lu1 1dq");
-            scripts.add("364877501");
-            scripts.add("01202300908");
-            Assert.assertTrue(actual.contains((CharSequence) scripts));
-        } catch (Exception e) {
-
-        }
-    }
-
 }
