@@ -37,6 +37,7 @@ public class WebModel {
     private WLR3_Cease_OrderPage wlr3_cease_orderPage;
     private WLR3_AddRemoveAuxLinePage wlr3_addRemoveAuxLinePage;
     private WLR3_BatchTransferPage wlr3_batchTransferPage;
+    private WLR3_ChangeOfLineTypeOrderPage wlr3_changeOfLineTypeOrderPage;
 
 
     public WebModel() {
@@ -73,6 +74,7 @@ public class WebModel {
         wlr3_cease_orderPage = new WLR3_Cease_OrderPage();
         wlr3_addRemoveAuxLinePage = new WLR3_AddRemoveAuxLinePage();
         wlr3_batchTransferPage = new WLR3_BatchTransferPage();
+        wlr3_changeOfLineTypeOrderPage =new WLR3_ChangeOfLineTypeOrderPage();
 
     }
 
@@ -202,6 +204,10 @@ public class WebModel {
 
     public WLR3_BatchTransferPage getWlr3_batchTransferPage() {
         return wlr3_batchTransferPage;
+    }
+
+    public WLR3_ChangeOfLineTypeOrderPage getWlr3_changeOfLineTypeOrderPage(){
+        return wlr3_changeOfLineTypeOrderPage;
     }
 }
 

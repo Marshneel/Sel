@@ -1,19 +1,27 @@
+@E2ETests
 Feature: Scenarios for change of line type order
 
-  Scenario: scenario for change of line type from basic single line to to premium single line
+  Scenario: scenario for change of line type from basic analogue line to premium analogue line
     Given I am logged in as CP
     And   I create a new business customer with a quote
     When I initiate a change of line from basic single to premium single
-    Then I should be able to check all the required validations and complete the order for basic to premium
+    Then I should be able to check all the required validations and complete the change order for basic to premium analogue
 
-  Scenario: scenario for change of line type from premium single to basic single
+  Scenario: scenario for change of line type from premium analogue to basic analogue
     Given I am logged in as CP
     And   I create a new business customer with a quote
-    When I initiate a change of line from premium single to basic single
-    Then I should be able to check all the required validations and complete the order for premium to basic
+    When I initiate a change of line from premium analogue to basic analogue
+    Then I should be able to check all the required validations and complete the change order for premium to basic analogue
 
-  Scenario: scenario for change of line type basic single to premium multiple
+  Scenario: scenario for change of line type from basic analogue to premium multi
     Given I am logged in as CP
     And   I create a new business customer with a quote
-    When I initiate a change of line from single basic to premium multiple
-    Then I should be able to check all the required validations and complete the order for basic to multiple
+    When I initiate a change of line from basic analogue to premium multiple
+    Then I should be able to check all the required validations and complete the change order for basic to multiple
+
+  Scenario: scenario for change of line type from premium multi to basic analogue
+    Given I am logged in as CP
+    And   I create a new business customer with a quote
+    When I initiate a change of line type from multi to basic analogue
+    Then I should be able to check all the required validations and complete the change order from multi to analogue basic
+
