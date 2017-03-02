@@ -14,15 +14,16 @@ public class NA100_Change_Of_LineType_Order_stepDefs {
     public void iInitiateAChangeOfLineFromBasicSingleToPremiumSingle() throws InterruptedException {
         webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
         //former is the current line and the later is the line that you are switching to
-        webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("02012345678","LU1 1DQ","Basic Analogue (Current)","Premium Analogue");
+        webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("02012345678","LU1 1DQ");
+        webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("Basic Analogue (Current)","Premium Analogue");
     }
 
     @Then("^I should be able to check all the required validations and complete the change order for basic to premium analogue$")
     public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOrderForBasicToPremiumAnalogue() throws InterruptedException {
-        webModel.getWlr3_orderDetails_page().setCareLevelForPremiumLineSwitch();
+        webModel.getWlr3_line_information_page().setCareLevelForPremiumLineSwitch("Level 1","Level 2.5");
         //assert that the common features for single lines are highlighted
         webModel.getWlr3_orderDetails_page().verifyCommonNetworkCallingFeaturesForSingleLine("Call Sign","Presentation Number");
-        webModel.getWlr3_orderDetails_page().assertUniqueNetworkFeatureUnderDirectoryInfoForSingleLine("Call Sign");
+        webModel.getWlr3_directoryInformationPage().assertUniqueNetworkFeatureUnderDirectoryInfoForSingleLine("Call Sign");
         webModel.getWlr3_orderDetails_page().assertCLI("02012345678");
         webModel.getWlr3_orderDetails_page().assertLineCharges("Analogue Business Line");
         webModel.getEditOrderPage().verifyOrderCompletion();
@@ -33,7 +34,8 @@ public class NA100_Change_Of_LineType_Order_stepDefs {
     @When("^I initiate a change of line from premium analogue to basic analogue$")
     public void iInitiateAChangeOfLineFromPremiumAnalogueToBasicAnalogue() throws InterruptedException {
         webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
-        webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("02063678369","LU1 1DQ","Premium Analogue (Current)","Basic Analogue");
+        webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("02063678369","LU1 1DQ");
+        webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("Premium Analogue (Current)","Basic Analogue");
     }
 
     @Then("^I should be able to check all the required validations and complete the change order for premium to basic analogue$")
@@ -41,7 +43,7 @@ public class NA100_Change_Of_LineType_Order_stepDefs {
         //assert the termination type is absent on order summary page during premium to basic line switch
         webModel.getWlr3_orderDetails_page().assertAbsenceOfTerminationType("Linebox");
         webModel.getWlr3_orderDetails_page().assertValidationMessageOnOrderDetailsPage("Contact Details have not been entered correctly");
-        webModel.getWlr3_orderDetails_page().siteInfoPopupPopulateWithAssertionsForBasicLineSwitch("NTTP","Line Box");
+        webModel.getWlr3_siteInformationPage().siteInfoPopupPopulateWithAssertionsForBasicLineSwitch("NTTP","Line Box");
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         webModel.getWlr3_appointmentPage().populateHazardAndWarningNotes();
         webModel.getWlr3_orderDetails_page().assertLineCharges("Analogue Residential Line");
@@ -53,7 +55,8 @@ public class NA100_Change_Of_LineType_Order_stepDefs {
     @When("^I initiate a change of line from basic analogue to premium multiple$")
     public void iInitiateAChangeOfLineFromBasicAnalogueToPremiumMultiple() throws InterruptedException {
         webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
-        webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("02012345678","LU1 1DQ","Basic Analogue (Current)","Analogue Multiline");
+        webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("02012345678","LU1 1DQ");
+        webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("Basic Analogue (Current)","Analogue Multiline");
     }
 
     @Then("^I should be able to check all the required validations and complete the change order for basic to multiple$")
@@ -65,8 +68,8 @@ public class NA100_Change_Of_LineType_Order_stepDefs {
         webModel.getWlr3_orderDetails_page().assertingTheNumberOfLinesForMultiLineSwitch("2");
        //assert that the features that are native to single line are not available during multiline switch
         webModel.getWlr3_orderDetails_page().assertTheAbsenceOfFeatureUnderNetworkFeatures("Call Sign");
-        webModel.getWlr3_orderDetails_page().setCareLevelForPremiumLineSwitch();
-        webModel.getWlr3_orderDetails_page().populateSiteInfoPhoneAndAssertIncOfTerminationType("07894040256","NTTP");
+        webModel.getWlr3_line_information_page().setCareLevelForPremiumLineSwitch("Level 1","Level 2.5");
+        webModel.getWlr3_siteInformationPage().populateSiteInfoPhoneAndAssertIncOfTerminationType("07894040256","NTTP");
         webModel.getWlr3_appointmentPage().populateHazardAndWarningNotes();
         webModel.getWlr3_orderDetails_page().assertLineCharges("Analogue Multi-Line");
         webModel.getWlr3_orderDetails_page().assertNtwrkCallFeaturesAndDirectoryInfoForMultiLine("Call Sign");
@@ -76,21 +79,32 @@ public class NA100_Change_Of_LineType_Order_stepDefs {
     @When("^I initiate a change of line type from multi to basic analogue$")
     public void iInitiateAChangeOfLineTypeFromMultiToBasicAnalogue() throws InterruptedException {
         webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
-        webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300909","LU1 1DQ","Analogue Multiline (Current)","Basic Analogue");
+        webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300909","LU1 1DQ");
+        webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("Analogue Multiline (Current)","Basic Analogue");
     }
 
     @Then("^I should be able to check all the required validations and complete the change order from multi to analogue basic$")
     public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOrderFromMultiToAnalogueBasic() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
-        webModel.getWlr3_orderDetails_page().setCareLevelForBasicLineSwitch();
+        webModel.getWlr3_line_information_page().setCareLevelForBasicLineSwitch("Level 1");
         // assert un availability of network feature that is exclusive to multiline during single line switch
         webModel.getWlr3_orderDetails_page().assertWarningMessageOnSummaryPage("Network Feature unknown: Bypass number - individual line");
        //assert that the termination type that is exclusive to premium line is absent during the basic line switch
-        webModel.getWlr3_orderDetails_page().siteInfoPopupPopulateWithAssertionsForBasicLineSwitch("NTTP","Line Box");
+        webModel.getWlr3_siteInformationPage().siteInfoPopupPopulateWithAssertionsForBasicLineSwitch("NTTP","Line Box");
         webModel.getWlr3_appointmentPage().populateHazardAndWarningNotes();
         webModel.getWlr3_orderDetails_page().assertLineCharges("Analogue Residential Line");
         webModel.getWlr3_orderDetails_page().assertingTheNumberOfLinesForSingleLineSwitch("2");
         webModel.getEditOrderPage().verifyOrderCompletion();
+    }
 
+    @When("^I initiate a change of line type service on the CLI that is not owned$")
+    public void iInitiateAChangeOfLineTypeServiceOnTheCLIThatIsNotOwned() throws InterruptedException {
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300908","LU1 1DQ");
+    }
+
+    @Then("^A validation message requesting confirmation of ownership is displayed$")
+    public void aValidationMessageRequestingConfirmationOfOwnershipIsDisplayed() {
+    webModel.getWlr3_changeOfLineTypeOrderPage().confirmationOfOwnerShipMessage();
     }
 }

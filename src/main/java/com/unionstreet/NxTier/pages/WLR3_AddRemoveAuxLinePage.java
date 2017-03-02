@@ -20,7 +20,7 @@ public class WLR3_AddRemoveAuxLinePage {
     private final String CHARGES_RECURRING_TEXT="//div[@id='chargesSummaryPanel']//div[contains(text(),'Recurring')]";
     private final String CHARGES_SETUP_TEXT="//div[@id='chargesSummaryPanel']//div[contains(text(),'Setup')]";
     private final String CHARGES_FREQUENCY_TEXT="//div[@id='chargesSummaryPanel']//div[contains(text(),'Frequency')]";
-    private final String MANUAL_ENTRY_TAB="manualEntryBtn";
+    private final String ANALOGUE_MULTILINE_CHARGES="//div[@id='chargesSummaryPanel']//label[contains(text(),'Analogue Multi-Line')]";
 
 
     ElementUtils utils=new ElementUtils();
@@ -33,7 +33,7 @@ public class WLR3_AddRemoveAuxLinePage {
     }
 
     public void populateCLIandPostCode(String phoneNumber,String postCode){
-        utils.clickBtn(By.id(MANUAL_ENTRY_TAB));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.MANUAL_ENTRY_TAB));
         utils.sendText(By.id(companyMenuPage.CLI_NUMBER_FIELD),phoneNumber);
         utils.sendText(By.id("Postcode"),postCode);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
@@ -73,7 +73,7 @@ public void errorMessage(){
         utils.waitForElementVisible(By.xpath(CHARGES_FREQUENCY_TEXT));
     }
     public void assertAbsenceOfCharges(){
-        utils.assertElementNotPresent(By.xpath("//div[@id='chargesSummaryPanel']//label[contains(text(),'Analogue Multi-Line')]"));
+        utils.assertElementNotPresent(By.xpath(ANALOGUE_MULTILINE_CHARGES));
 
     }
 

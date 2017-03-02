@@ -32,9 +32,7 @@ public class WLR3_OrderDetails_Page {
     public final String APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE = "//a[contains(@onclick,'showNewBookAppointment')]";
     private final String TEXT_ON_APPOINTMENT_PAGE = "//legend[text()='Hazard and Warning Notes']";
     private final String ORDERTYPE_TAB = "//a[contains(@onclick,'loadOrderTypePopup')]";
-    private final String LINE_INFO_TAB = "//a[contains(@onclick,'loadLineInformationPopup')]";
-    private final String TEXT_ON_LINEINFO_PAGE = "//h3[contains(text(),'Line Information')]";
-    private final String SERVICE_MAINTENANCE_TAB = "WLR3Order_care_level";
+    public final String LINE_INFO_TAB = "//a[contains(@onclick,'loadLineInformationPopup')]";
     private final String HAZARD_ASSERTION_TEXT = "//div[@id='appointmentSummaryPanel']//p[contains(text(),'hazard note')]";
     private final String WARNING_ASSERTION_TEXT = "//div[@id='appointmentSummaryPanel']//p[contains(text(),'warning notes')]";
     private final String ACTIVE_ANONYMOUS_CALL_REJECT = "//div[@id='networkFeaturesSummaryPanel']//label[contains(text(),'Anonymous Call Reject')]";
@@ -52,6 +50,12 @@ public class WLR3_OrderDetails_Page {
     private final String EDIT_EMERGENCY_INFO_TAB = "div_EmergencyInfo";
     private final String EMERGENCY_INFO_TEXT_BOX = "EmergencyInfo";
     private final String SAVE_EMERGENCY_INFO = "//img[contains(@onclick,'jet_update_value_FromTextbox')]";
+    public final String MANUAL_ENTRY_TAB="manualEntryBtn";
+    private final String WLR3_WARNING_PANEL_LOCATOR="//div[@id='WLR3OrderWarnings']";
+    public final String CARE_LEVEL_PLAN_WARNING_MESSAGE="//div[@id='divValidationMessages']//div[contains(text(),'Care Level must be 2.5 or higher for Premium lines')]";
+    private final String ISDN_LABEL_UNDERCHARGES="//div[@id='chargesSummaryPanel']//label[contains(text(),'ISDN30E')]";
+    private final String SNDDI_LABEL_UNDER_DIRINFO="//b[contains(text(),'SNDDI - To be allocated')]";
+    private final String AUTOMATICALLY_ALLOCATED_TEXT_UNDER_LINNUM="//div[contains(text(),'Automatically allocated')]";
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
@@ -218,19 +222,6 @@ public class WLR3_OrderDetails_Page {
             utils.javaScriptExecutorClick(By.id(CANCEL));
         }
     }
-
-    public void verifyLineInformationTab(String level, String level_no) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(LINE_INFO_TAB));
-        Thread.sleep(1000);
-        utils.clickBtn(By.xpath(LINE_INFO_TAB));
-        utils.waitForElementVisible(By.xpath(TEXT_ON_LINEINFO_PAGE));
-        utils.waitForElementVisible(By.id(SERVICE_MAINTENANCE_TAB));
-        utils.selectByVisibleText(By.id(SERVICE_MAINTENANCE_TAB), level);
-        utils.waitForElementVisible(By.id(SAVE));
-        utils.clickBtn(By.id(SAVE));
-        utils.waitForElementVisible(By.xpath("//div[@id='lineInformationSummaryPanel']//p[contains(text(),'" + level_no + "')]"));
-    }
-
     public void assertAppointmentInfo() {
         utils.waitForElementVisible(By.xpath(HAZARD_ASSERTION_TEXT));
         utils.waitForElementVisible(By.xpath(WARNING_ASSERTION_TEXT));
@@ -267,11 +258,9 @@ public class WLR3_OrderDetails_Page {
             utils.clickBtnWithWait(By.xpath(SITE_INFO_FOR_LINE_DECREASE));
         }
     }
-
     public void assertQuoteSummaryPageForAddAuxLine() {
         utils.waitForElementVisible(By.xpath(LINE_INFO_TAB));
         utils.waitForElementVisible(By.xpath(NETWORK_FEATURES_BUTTON));
-
     }
 
     public void assertQuoteSummaryPageForRemoveAuxLine() {
@@ -294,33 +283,6 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath(TEXT_UNDER_DIRECTORY_INFO_SUMMARY_PANEL));
     }
 
-    public void setCareLevelForPremiumLineSwitch() {
-        //assert message that recommends care level plan greater than or equal to 2.5 on the order summary page, for premium line switch
-        utils.waitForElementVisible(By.xpath("//div[@id='divValidationMessages']//div[contains(text(),'Care Level must be 2.5 or higher for Premium lines')]"));
-        //enter line info panel
-        utils.clickBtn(By.xpath("//a[contains(@onclick,'loadLineInformationPopup')]"));
-        //verify that the care level plan is defaulted to select
-        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'Select')]"));
-        //verify that care level plan 1 that is recommended for basic line is not available for the premium line switch
-        utils.assertElementNotPresent(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'Level 1')]"));
-        //choose care level plan 2.5 from the drop down
-        utils.selectByVisibleText(By.id("WLR3Order_care_level"), "Level 2.5");
-        //save the changes
-        utils.clickBtn(By.id("saveBtn"));
-    }
-
-    public void setCareLevelForBasicLineSwitch() throws InterruptedException {
-        //enter line info panel;
-        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'loadLineInformationPopup')]"));
-        Thread.sleep(1000);
-        utils.clickBtn(By.xpath("//a[contains(@onclick,'loadLineInformationPopup')]"));
-      utils.waitForElementVisible(By.id("WLR3Order_care_level"));
-        //choose care level plan 1 from the drop down
-        utils.selectByVisibleText(By.id("WLR3Order_care_level"), "Level 1");
-        //save the changes
-        utils.clickBtn(By.id("saveBtn"));
-    }
-
     public void verifyCommonNetworkCallingFeaturesForSingleLine(String ntWrkFtre_one, String ntWrkFtre_two) {
         utils.waitForElementVisible(By.xpath("//div[@id='networkFeaturesSummaryPanel']//label[contains(text(),'" + ntWrkFtre_one + "')]"));
         utils.waitForElementVisible(By.xpath("//div[@id='networkFeaturesSummaryPanel']//label[contains(text(),'" + ntWrkFtre_two + "')]"));
@@ -330,22 +292,6 @@ public class WLR3_OrderDetails_Page {
     public void assertNtwrkCallFeaturesAndDirectoryInfoForMultiLine(String ntWrkFtre) {
         utils.assertElementNotPresent(By.xpath("//div[@id='networkFeaturesSummaryPanel']//label[contains(text(),'" + ntWrkFtre + "')]"));
         utils.assertElementNotPresent(By.xpath("//div[@id='directoryInformationSummaryPanel']//b[contains(text(),'" + ntWrkFtre + "')]"));
-
-    }
-
-    public void assertUniqueNetworkFeatureUnderDirectoryInfoForSingleLine(String feature) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//div[@id='directoryInformationSummaryPanel']//b[contains(text(),'" + feature + "')]"));
-        Thread.sleep(1000);
-        try {
-            utils.clickBtnWithWait(By.xpath(DIRECTORY_INFORMATION_BUTTON));
-        } catch (Exception e) {
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(DIRECTORY_INFORMATION_BUTTON));
-        }
-        utils.waitForElementVisible(By.xpath("//ul[@id='directoryInformationNavigation']//a[contains(text(),'" + feature + "')]"));
-        utils.clickBtn(By.xpath("//ul[@id='directoryInformationNavigation']//a[contains(text(),'Call Sign')]"));
-        utils.waitForElementVisible(By.id("editBtn"));
-        utils.clickBtn(By.xpath("//div[@id='popupDiv']//button[@id='closeBtn']"));
     }
 
     public void assertCLI(String CLI) {
@@ -366,46 +312,8 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'" + incompleteContactDetails + "')]"));
     }
 
-    public void populateSiteInfoPhoneAndAssertIncOfTerminationType(String phone, String terminationType) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
-        try {
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(SITE_INFORMATION_BUTTON));
-        } catch (Exception e) {
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(SITE_INFORMATION_BUTTON));
-        }
-        utils.waitForElementVisible(By.id("WLR3Order_contact_number"));
-        utils.sendText(By.id("WLR3Order_contact_number"), "" + phone + "");
-        //setup termination type
-        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_termination_type']//option[contains(text(),'" + terminationType + "')]"));
-        utils.clickBtn(By.id("saveBtn"));
-
-    }
-
-    public void siteInfoPopupPopulateWithAssertionsForBasicLineSwitch(String unAvailableTerminationType, String selectTerminationType) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
-        try {
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(SITE_INFORMATION_BUTTON));
-        } catch (Exception e) {
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(SITE_INFORMATION_BUTTON));
-        }
-        utils.waitForElementVisible(By.id("WLR3Order_contact_number"));
-        //populate phone number under site contacts
-        utils.sendText(By.id("WLR3Order_contact_number"), "07894040256");
-        //assert that the termination type for premium line is unavailable for selection for basic line switch
-        utils.assertElementNotPresent(By.xpath("//select[@id='WLR3Order_termination_type']//option[contains(text(),'" + unAvailableTerminationType + "')]"));
-        //select termination type from the drop down
-        utils.selectByVisibleText(By.id("WLR3Order_termination_type"), "" + selectTerminationType + "");
-        //setup TRC band
-        utils.selectByVisibleText(By.id("WLR3Order_trc_band"), "Band 1 - Up to 2 Hours");
-        utils.clickBtn(By.id("saveBtn"));
-    }
-
     public void assertWarningMessageOnSummaryPage(String warning) {
-        utils.searchAndAssertTextPresent(By.xpath("//div[@id='WLR3OrderWarnings']"), "" + warning + "");
+        utils.searchAndAssertTextPresent(By.xpath(WLR3_WARNING_PANEL_LOCATOR), "" + warning + "");
     }
 
     public void assertingTheNumberOfLinesForMultiLineSwitch(String number) {
@@ -418,6 +326,14 @@ public class WLR3_OrderDetails_Page {
 
     public void assertTheAbsenceOfFeatureUnderNetworkFeatures(String ntwrkFeature) {
         utils.assertElementNotPresent(By.xpath("//ul[@id='directoryInformationNavigation']//a[contains(text(),'" + ntwrkFeature + "')]"));
+
+    }
+    public void assertISDNNewProvideSummaryPage(String numberOfLines){
+        utils.waitForElementVisible(By.xpath(ISDN_LABEL_UNDERCHARGES));
+        utils.waitForElementVisible(By.xpath(SNDDI_LABEL_UNDER_DIRINFO));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+numberOfLines+"')]"));
+        utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ALLOCATED_TEXT_UNDER_LINNUM));
+
 
     }
 }

@@ -1,5 +1,5 @@
 @E2ETests
-Feature: Scenarios for change of line type order
+Feature: NA100 - scenarios for change of line type order
 
   Scenario: scenario for change of line type from basic analogue line to premium analogue line
     Given I am logged in as CP
@@ -25,3 +25,8 @@ Feature: Scenarios for change of line type order
     When I initiate a change of line type from multi to basic analogue
     Then I should be able to check all the required validations and complete the change order from multi to analogue basic
 
+    Scenario: scenario for change of line type on a CLI that is not owned
+      Given I am logged in as CP
+      And   I create a new business customer with a quote
+      When I initiate a change of line type service on the CLI that is not owned
+      Then A validation message requesting confirmation of ownership is displayed

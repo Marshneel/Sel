@@ -1,5 +1,6 @@
 com\unionstreet\NxTier\pages\WLR3_AddRemoveAuxLinePage.class
 com\unionstreet\NxTier\pages\WLR3_Cease_OrderPage.class
+com\unionstreet\NxTier\pages\WLR3_Line_Information_Page.class
 com\unionstreet\NxTier\pages\AddServicePage.class
 com\unionstreet\NxTier\pages\WLR3_ChangeOfLineTypeOrderPage.class
 com\unionstreet\NxTier\pages\ContactManagerPage.class

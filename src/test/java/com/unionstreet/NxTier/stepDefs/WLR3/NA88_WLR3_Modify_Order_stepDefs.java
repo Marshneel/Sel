@@ -46,7 +46,7 @@ public class NA88_WLR3_Modify_Order_stepDefs {
         //verify OrderType tab
         webModel.getWlr3_orderDetails_page().verifyOrderTypeTab();
         //verify lineInformation tab
-        webModel.getWlr3_orderDetails_page().verifyLineInformationTab("Level 3", "3");
+        webModel.getWlr3_line_information_page().verifyLineInformationTab("Level 3", "3");
         //verify network call features (verify by revoking and issuing the features)
         webModel.getWlr3_orderDetails_page().checkNetworkCallFeaturesBeforeRemoval();
         webModel.getWlr3_networkCallingFeaturesPage().enterNetworkFeatures();

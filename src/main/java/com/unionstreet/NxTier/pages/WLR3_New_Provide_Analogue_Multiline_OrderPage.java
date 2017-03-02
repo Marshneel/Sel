@@ -16,6 +16,7 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
 
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
+    EditOrderPage editOrderPage=new EditOrderPage();
 
     public void clickAnalogueMultilineTab() {
         utils.waitForElementVisible(By.id(ANALOGUE_MULTILINE_TAB));
@@ -61,4 +62,11 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         } catch (Exception e) {
         }
     }
+    public void selectLineTypeForNewProvide(String lineType){
+        utils.waitForElementVisible(By.xpath("//li[contains(@onclick,'SelectLineType')]//label[contains(text(),'"+lineType+"')]"));
+    utils.clickBtn(By.xpath("//li[contains(@onclick,'SelectLineType')]//label[contains(text(),'"+lineType+"')]"));
+    utils.clickBtn(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON));
+    }
+
+
 }

@@ -12,6 +12,9 @@ public class WLR3_NewProvide_AnaMultLine_FeaturesPage {
     private final String CALL_DIVERSION_RADIOBUTTON_UNDER_NETWORK_FEATURES = "Features_7__value";
     private final String CALL_DIVERSION_RADIOBTN_UNDER_NETWORK_FEATURES = "AllLineBased_123";
     private final String BUSY_OUT_LINE_RADIOBTN_UNDER_NETWORK_FEATURES = "Features_6__value";
+    private final String BUSINESS_CONTINUITY_TEXT="//label[text()='Business Continuity - Site Assurance Option']";
+    private final String BUSINESS_CONTINUITY_CHECKBOX="WLR3Order_site_assurance_option_1";
+    private final String BUSINESS_CONTINUITY_USER_NAME="WLR3Order_site_assurance_option1_name";
 
     ElementUtils utils = new ElementUtils();
 
@@ -25,6 +28,13 @@ public class WLR3_NewProvide_AnaMultLine_FeaturesPage {
         Thread.sleep(1000);
         //un-check the 3rd radio button under busyOutLine
         utils.makeSureBoxIsUnChecked(By.id(BUSY_OUT_LINE_RADIOBTN_UNDER_NETWORK_FEATURES), By.id(BUSY_OUT_LINE_RADIOBTN_UNDER_NETWORK_FEATURES));
+    }
+    public void populateAndAssertFeaturesPageForISDN30(){
+utils.waitForElementVisible(By.xpath(BUSINESS_CONTINUITY_TEXT));
+        utils.clickBtn(By.id(BUSINESS_CONTINUITY_CHECKBOX));
+        utils.waitForElementVisible(By.id(BUSINESS_CONTINUITY_USER_NAME));
+
+
     }
 
 }
