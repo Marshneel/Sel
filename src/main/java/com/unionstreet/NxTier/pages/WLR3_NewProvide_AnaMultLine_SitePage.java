@@ -65,7 +65,7 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
     }
 
     public void populateSiteContactUnderSITE(String number) throws InterruptedException {
-        //select contact from the list
+        Thread.sleep(1000);
         utils.selectByVisibleText(By.id(SELECT_CONTACT_UNDER_SITEINFO), ", Jeroen");
         //assert that the contact phone number is mandatory(click next with out selecting the phone number)
         utils.waitForElementVisible(By.xpath(SITE_CONTACTS_TEXT));
