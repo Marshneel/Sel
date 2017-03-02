@@ -34,6 +34,7 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
     }
 
     public void populateAndAssertInstallationAddressUnderSITE(String postCode) throws InterruptedException {
+        utils.waitForElementVisible(By.xpath("//h3[contains(text(),'New Line')]"));
         try {
             utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
             utils.clickBtn(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));

@@ -24,7 +24,7 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
     private final String AUTOMATICALLY_ASSIGN_TEXT_UNDER_NUMBERING_OPTIONS_POPUP = "//legend[text()='Automatically assign']";
     private final String CONTINUE_BUTTON_UNDER_NUMBERING_OPTIONS_POPUP = "//a[contains(@onclick,'ISDNLine.saveAndCloseDDIOption')]";
     private final String ADDNEW_DDIRANGE_BUTTON = "add_row";
-    private final String SNDDI_DDI_DROPDOWN = "DDIInfo_1__ddi_type";
+    private final String SNDDI_DDI_DROPDOWN = "DDIInfo_1__action";
     private final String MORE_DIRECTORY_INFO_TAB = "//a[contains(@onclick,'newProvideWizard.ValidateAndSubmitNumberingFormAndExecuteNext')]";
     private final String SNDDI_TAB_ON_DIRINFO_POPUP = "//a[contains(text(),'SNDDI')]";
 
@@ -86,7 +86,6 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         Thread.sleep(1000);
         utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
         utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN));
-        utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN), "SNDDI");
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
