@@ -11,9 +11,9 @@ public class WLR3_SiteInformationPage {
     private final String TEXT_ON_SITE_INFORMATION = "//legend[text()='Site Contact']";
     private final String SELECTCONTACT_UNDER_SITEINFO = "ContactList";
     private final String SUBMIT_BUTTON = "saveBtn";
-    private final String RECOVER_LINE_PLANT="WLR3Order_recover_line_plant";
-    private final String TRC_BAND_DROPDOWN="WLR3Order_trc_band";
-    private final String TERMINATION_TYPE="WLR3Order_termination_type";
+    private final String RECOVER_LINE_PLANT = "WLR3Order_recover_line_plant";
+    private final String TRC_BAND_DROPDOWN = "WLR3Order_trc_band";
+    private final String TERMINATION_TYPE = "WLR3Order_termination_type";
 
 
     ElementUtils utils = new ElementUtils();
@@ -68,16 +68,19 @@ public class WLR3_SiteInformationPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 
-    public void populateTelNumberOnChangeOfAddress(String number){
+    public void populateTelNumberOnChangeOfAddress(String number) {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.sendText(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
     }
+
     public void populateSiteInfoPhoneAndAssertIncOfTerminationType(String phone, String terminationType) throws InterruptedException {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         try {
+            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
             Thread.sleep(1000);
             utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         } catch (Exception e) {
+            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
             Thread.sleep(1000);
             utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         }
@@ -88,6 +91,7 @@ public class WLR3_SiteInformationPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
 
     }
+
     public void siteInfoPopupPopulateWithAssertionsForBasicLineSwitch(String unAvailableTerminationType, String selectTerminationType) throws InterruptedException {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         try {
