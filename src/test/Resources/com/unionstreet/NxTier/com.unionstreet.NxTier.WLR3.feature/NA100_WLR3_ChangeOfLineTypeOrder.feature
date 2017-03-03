@@ -1,4 +1,4 @@
-@NA100
+@E2ETests
 Feature: NA100 - scenarios for change of line type order
 
   Scenario: scenario for change of line type from basic analogue line to premium analogue line
