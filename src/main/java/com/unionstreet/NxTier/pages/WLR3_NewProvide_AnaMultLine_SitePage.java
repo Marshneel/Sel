@@ -16,7 +16,6 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
     private final String NEW_PROVIDE_SITEINFO_SCREEN = "NewProvideSiteInfoForm";
     private final String PHONE_NUMBER_MANDATORY_ERROR_MESSAGE = "//span[text()='Contact Telephone number is required']";
     private final String SITE_CONTACTS_TEXT="//legend[text()='Site Contact']";
-    private final String TEXT_ON_NEW_PROVIDE_WIZARD="//h3[contains(text(),'New Line')]";
 
     WLR3_InstallationAddressPage wlr3_installationAddressPage = new WLR3_InstallationAddressPage();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
@@ -34,7 +33,6 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
     }
 
     public void populateAndAssertInstallationAddressUnderSITE(String postCode) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(TEXT_ON_NEW_PROVIDE_WIZARD));
         try {
             utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
             utils.clickBtn(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
