@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_SiteInformationPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_SiteInformationPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_SitePage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_SitePage.java" />
     </list>
     <ignored path="NxTier automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -103,8 +103,18 @@
       <file leaf-file-name="WLR3_NewProvide_AnaMultLine_SitePage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_SitePage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <state relative-caret-position="245">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NA87_WLR3_New_Provide_Order_Analogue_multiline.feature" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA87_WLR3_New_Provide_Order_Analogue_multiline.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -185,8 +195,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_NumberingPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/RunnerTest.java" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA100_WLR3_ChangeOfLineTypeOrder.feature" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_SitePage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_SiteInformationPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_SitePage.java" />
       </list>
     </option>
   </component>
@@ -582,7 +592,7 @@
       <recent name="C:\Users\rajeshg\Desktop\Intellij projects\NxTier automation\src\test\Resources\com\unionstreet\NxTier\com.unionstreet.NxTier.WLR3.feature" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RunnerTest">
+  <component name="RunManager" selected="Cucumber java.Feature: NA100_WLR3_ChangeOfLineTypeOrder">
     <configuration default="false" name="RunnerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="com.unionstreet.NxTier_automation" />
@@ -615,30 +625,6 @@
       <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.WLR3" />
       <option name="myNameFilter" value="" />
       <option name="myGeneratedName" value="Feature: NA98_WLR3_AmendOrder" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="com.unionstreet.NxTier_automation" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="Feature: NxTier_smokePack" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="myFilePath" value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature" />
-      <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.smokePack" />
-      <option name="myNameFilter" value="" />
-      <option name="myGeneratedName" value="Feature: NxTier_smokePack" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
@@ -687,6 +673,30 @@
       <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.WLR3" />
       <option name="myNameFilter" value="" />
       <option name="myGeneratedName" value="Feature: NA100_WLR3_ChangeOfLineTypeOrder" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="com.unionstreet.NxTier_automation" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Feature: NA87_WLR3_New_Provide_Order_Analogue_multiline" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="myFilePath" value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA87_WLR3_New_Provide_Order_Analogue_multiline.feature" />
+      <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.WLR3" />
+      <option name="myNameFilter" value="" />
+      <option name="myGeneratedName" value="Feature: NA87_WLR3_New_Provide_Order_Analogue_multiline" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
@@ -995,17 +1005,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.RunnerTest" />
       <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA98_WLR3_AmendOrder" />
-      <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NxTier_smokePack" />
-      <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA64_WLR3_Analogue_Line_Transfer_line_Numbering" />
-      <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA100_WLR3_ChangeOfLineTypeOrder" />
+      <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA64_WLR3_Analogue_Line_Transfer_line_Numbering" />
+      <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA100_WLR3_ChangeOfLineTypeOrder" />
+      <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA87_WLR3_New_Provide_Order_Analogue_multiline" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.RunnerTest" />
-        <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA100_WLR3_ChangeOfLineTypeOrder" />
-        <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA98_WLR3_AmendOrder" />
-        <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA64_WLR3_Analogue_Line_Transfer_line_Numbering" />
-        <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NxTier_smokePack" />
+        <item index="0" class="java.lang.String" itemvalue="Cucumber java.Feature: NA100_WLR3_ChangeOfLineTypeOrder" />
+        <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA87_WLR3_New_Provide_Order_Analogue_multiline" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.RunnerTest" />
+        <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA98_WLR3_AmendOrder" />
+        <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA64_WLR3_Analogue_Line_Transfer_line_Numbering" />
       </list>
     </recent_temporary>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -1050,13 +1060,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
-    </task>
-    <task id="LOCAL-00134" summary="@E2ETests and @smokePack&#10;">
-      <created>1486145011580</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1486145011581</updated>
     </task>
     <task id="LOCAL-00135" summary="@E2ETests and @smokePack&#10;">
       <created>1486157127653</created>
@@ -1394,15 +1397,22 @@
       <option name="project" value="LOCAL" />
       <updated>1488492025182</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="testing NA100 and NA101 only&#10;">
+      <created>1488526419565</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1488526419565</updated>
+    </task>
+    <option name="localTasksCounter" value="184" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RunnerTest - 2017.03.02 at 13h 36m 15s.xml">
-      <configuration name="RunnerTest" configurationId="JUnit" />
+    <history-entry file="Feature__NA100_WLR3_ChangeOfLineTypeOrder - 2017.03.03 at 08h 17m 19s.xml">
+      <configuration name="Feature: NA100_WLR3_ChangeOfLineTypeOrder" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="RunnerTest - 2017.03.02 at 13h 40m 10s.xml">
-      <configuration name="RunnerTest" configurationId="JUnit" />
+    <history-entry file="Feature__NA87_WLR3_New_Provide_Order_Analogue_multiline - 2017.03.03 at 08h 14m 34s.xml">
+      <configuration name="Feature: NA87_WLR3_New_Provide_Order_Analogue_multiline" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
     <history-entry file="RunnerTest - 2017.03.02 at 13h 42m 54s.xml">
       <configuration name="RunnerTest" configurationId="JUnit" />
@@ -1450,8 +1460,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7458493" sideWeight="0.50931233" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34240687" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12643678" sideWeight="0.493553" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822478" sideWeight="0.493553" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24393359" sideWeight="0.49068767" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32822478" sideWeight="0.493553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24393359" sideWeight="0.49068767" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34455588" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -1642,14 +1652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA87_WLR3_New_Provide_Order_Analogue_multiline.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1969,10 +1971,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA87_WLR3_New_Provide_Order_Analogue_multiline.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_SitePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state relative-caret-position="245">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
