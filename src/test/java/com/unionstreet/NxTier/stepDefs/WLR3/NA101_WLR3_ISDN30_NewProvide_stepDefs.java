@@ -38,7 +38,7 @@ public class NA101_WLR3_ISDN30_NewProvide_stepDefs {
         webModel.getWlr3_newProvide_anaMultLine_datePage().populateHazardAndWarningNotesUnderDATE("hazardNotes","warningNotes");
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
         webModel.getEditOrderPage().verifyOrderCompletion();
-        //assetions on order summary page
+        //assertions on order summary page
         webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();
         webModel.getWlr3_orderDetails_page().assertISDNNewProvideSummaryPage("8");
 

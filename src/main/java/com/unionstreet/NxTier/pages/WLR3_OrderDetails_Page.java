@@ -53,7 +53,7 @@ public class WLR3_OrderDetails_Page {
     public final String MANUAL_ENTRY_TAB="manualEntryBtn";
     private final String WLR3_WARNING_PANEL_LOCATOR="//div[@id='WLR3OrderWarnings']";
     public final String CARE_LEVEL_PLAN_WARNING_MESSAGE="//div[@id='divValidationMessages']//div[contains(text(),'Care Level must be 2.5 or higher for Premium lines')]";
-    private final String ISDN_LABEL_UNDERCHARGES="//div[@id='chargesSummaryPanel']//label[contains(text(),'ISDN30E')]";
+    private final String ISDN_LABEL_UNDERCHARGES="//div[@id='chargesSummaryPanel']//td[contains(text(),'ISDN30E')]";
     private final String SNDDI_LABEL_UNDER_DIRINFO="//b[contains(text(),'SNDDI - To be allocated')]";
     private final String AUTOMATICALLY_ALLOCATED_TEXT_UNDER_LINNUM="//div[contains(text(),'Automatically allocated')]";
 
@@ -298,8 +298,8 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//div[@id='lineNumberingSummaryPanel']//p[contains(text(),'" + CLI + "')]"));
     }
 
-    public void assertLineCharges(String lineCharge) {
-        utils.waitForElementVisible(By.xpath("//div[@id='chargesSummaryPanel']//label[contains(text(),'" + lineCharge + "')]"));
+    public void assertLineCharges(String changedLine) {
+        utils.waitForElementVisible(By.xpath("//div[@id='chargesSummaryPanel']//td[contains(text(),'"+changedLine+"')]"));
     }
 
     public void assertAbsenceOfTerminationType(String terminationType) {
