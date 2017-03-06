@@ -15,6 +15,10 @@ public class WLR3_DirectoryInformationPage {
     private final String BUSINESSNAME_UNDER_DIRECTORYINFO = "DirectoryInfo_0__dir_TradingTitleSurname";
     //// TODO: 06/01/2017  
     private final String SAVED_BUSINESSNAME_UNDER_DIRECTORYINFO = "//div[@style='display: block;'][contains(text(),'vodafone')]";
+    public final String CLOSE_POPUP = "//div[@id='popupDiv']//button[@id='closeBtn']";
+    private final String CALL_SIGN_TAB = "//ul[@id='directoryInformationNavigation']//a[contains(text(),'Call Sign')]";
+    private final String CHANGE_DIRECTORY_INFO_TAB = "changeDirInfoLabel";
+    private final String RETAIN_DIRECTORY_INFO_TAB = "retainDirInfoLabel";
 
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
@@ -31,7 +35,7 @@ public class WLR3_DirectoryInformationPage {
 
         }
         utils.checkPoint("entered the directory info page to populate");
-        utils.waitForElementVisible(By.id("retainDirInfoLabel"));
+        utils.waitForElementVisible(By.id(RETAIN_DIRECTORY_INFO_TAB));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(ENABLE_CHANGE_DIRECTORY_INFO_BUTTON));
         utils.waitForElementVisible(By.id(EDIT));
@@ -41,7 +45,7 @@ public class WLR3_DirectoryInformationPage {
         utils.sendText(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION), name);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath("//div[@id='popupDiv']//button[@id='closeBtn']"));
+        utils.javaScriptExecutorClick(By.xpath(CLOSE_POPUP));
 
     }
 
@@ -59,7 +63,7 @@ public class WLR3_DirectoryInformationPage {
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         }
         utils.checkPoint("entered the directory info page to edit");
-        utils.waitForElementVisible(By.id("changeDirInfoLabel"));
+        utils.waitForElementVisible(By.id(CHANGE_DIRECTORY_INFO_TAB));
         utils.waitForElementVisible(By.id(EDIT));
         utils.scrollUp(By.id(EDIT));
         Thread.sleep(1000);
@@ -68,6 +72,23 @@ public class WLR3_DirectoryInformationPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath(SAVED_BUSINESSNAME_UNDER_DIRECTORYINFO));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath("//div[@id='popupDiv']//button[@id='closeBtn']"));
+        utils.javaScriptExecutorClick(By.xpath(CLOSE_POPUP));
+    }
+
+    public void assertUniqueNetworkFeatureUnderDirectoryInfoForSingleLine(String feature) throws InterruptedException {
+        utils.waitForElementVisible(By.xpath("//div[@id='directoryInformationSummaryPanel']//b[contains(text(),'" + feature + "')]"));
+
+        try {
+            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
+        } catch (Exception e) {
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
+        }
+        utils.waitForElementVisible(By.xpath("//ul[@id='directoryInformationNavigation']//a[contains(text(),'" + feature + "')]"));
+        utils.clickBtn(By.xpath(CALL_SIGN_TAB));
+        utils.waitForElementVisible(By.id(EDIT));
+        utils.clickBtn(By.xpath(CLOSE_POPUP));
     }
 }

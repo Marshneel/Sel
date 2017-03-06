@@ -14,8 +14,8 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
     public final String TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO = "WLR3Order_contact_number";
     private final String ANALOGUE_MULTILINE_INSTALLATION_CHARGE = "ChargeList_0__install_charge";
     private final String NEW_PROVIDE_SITEINFO_SCREEN = "NewProvideSiteInfoForm";
-    private final String SELECT_CONTACT_UNDER_SITEINFO = "ContactList";
     private final String PHONE_NUMBER_MANDATORY_ERROR_MESSAGE = "//span[text()='Contact Telephone number is required']";
+    private final String SITE_CONTACTS_TEXT="//legend[text()='Site Contact']";
 
     WLR3_InstallationAddressPage wlr3_installationAddressPage = new WLR3_InstallationAddressPage();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
@@ -63,14 +63,20 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
     }
 
     public void populateSiteContactUnderSITE(String number) throws InterruptedException {
-        //select contact from the list
-        utils.selectByVisibleText(By.id(SELECT_CONTACT_UNDER_SITEINFO), ", Jeroen");
         //assert that the contact phone number is mandatory(click next with out selecting the phone number)
-        utils.clickBtn(By.xpath(wlr3_new_provide_analogue_multiline_orderPage.NEXT_BUTTON));
+        utils.waitForElementVisible(By.xpath(SITE_CONTACTS_TEXT));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
+        try { Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(wlr3_new_provide_analogue_multiline_orderPage.NEXT_BUTTON));
+        } catch (Exception e) {
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(wlr3_new_provide_analogue_multiline_orderPage.NEXT_BUTTON));
+        }
         //verify the presence of error message
         utils.waitForElementVisible(By.xpath(PHONE_NUMBER_MANDATORY_ERROR_MESSAGE));
         //enter contact phone number
         utils.sendText(By.id(TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
+
     }
 
     public void editAndAssertServicesChargesUnderSITE(String charges) throws InterruptedException {

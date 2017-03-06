@@ -33,6 +33,7 @@ public class EditOrderPage {
     private final String ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION = "//input[contains(@onclick,'ShowOrderHistoryPopup')]";
     private final String AMEND_SENT_TEXT_ON_OPENREACH_NOTIFICATIONS = "//div[@id='divorderHistory']//td[contains(text(),'Amend sent')]";
     private final String SERVICE_NOT_COMPLETED_ERROR_MESSAGE = "//div[@id='Message_Info'][contains(text(),'Services are not completed')]";
+    public final String VALIDATE_LINE_TYPE_BUTTON = "//button[contains(@onclick,'return ValidateLineType()')]";
 
     public static String RanNumber;
     public static String currentDate;
@@ -223,5 +224,4 @@ public class EditOrderPage {
     public void errorMessageWhenOrderSubmittedWithOutOIDs() {
         utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_ERROR_MESSAGE));
     }
-
 }

@@ -17,10 +17,10 @@ public class WLR3_AddRemoveAuxLinePage {
     private final String INCREASED_NUM_OF_LINES_ON_ORDER_SUMMARY_PAGE="//div[@id='div_WLR3Order_num_lines']//span[contains(text(),'9')]";
     private final String DECREASED_NUM_OF_LINES_ON_ORDER_SUMMARY_PAGE="//div[@id='div_WLR3Order_num_lines']//span[contains(text(),'7')]";
     private final String  ERROR_MESSAGE_UPON_DUPLICATING_CLI="//div[@id='validationSummary']//h5[contains(text(),'Sorry, this number cannot be processed')]";
-    private final String CHARGES_RECURRING_TEXT="//div[@id='chargesSummaryPanel']//div[contains(text(),'Recurring')]";
+    private final String CHARGES_RECURRING_TEXT="//div[@id='chargesSummaryPanel']//td[contains(text(),'Analogue Multi-Line')]";
     private final String CHARGES_SETUP_TEXT="//div[@id='chargesSummaryPanel']//div[contains(text(),'Setup')]";
     private final String CHARGES_FREQUENCY_TEXT="//div[@id='chargesSummaryPanel']//div[contains(text(),'Frequency')]";
-    private final String MANUAL_ENTRY_TAB="manualEntryBtn";
+    private final String ANALOGUE_MULTILINE_CHARGES="//div[@id='chargesSummaryPanel']//label[contains(text(),'Analogue Multi-Line')]";
 
 
     ElementUtils utils=new ElementUtils();
@@ -33,7 +33,7 @@ public class WLR3_AddRemoveAuxLinePage {
     }
 
     public void populateCLIandPostCode(String phoneNumber,String postCode){
-        utils.clickBtn(By.id(MANUAL_ENTRY_TAB));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.MANUAL_ENTRY_TAB));
         utils.sendText(By.id(companyMenuPage.CLI_NUMBER_FIELD),phoneNumber);
         utils.sendText(By.id("Postcode"),postCode);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
@@ -69,11 +69,9 @@ public void errorMessage(){
 
     public void assertPresenceOfCharges(){
         utils.waitForElementVisible(By.xpath(CHARGES_RECURRING_TEXT));
-        utils.waitForElementVisible(By.xpath(CHARGES_SETUP_TEXT));
-        utils.waitForElementVisible(By.xpath(CHARGES_FREQUENCY_TEXT));
     }
     public void assertAbsenceOfCharges(){
-        utils.assertElementNotPresent(By.xpath("//div[@id='chargesSummaryPanel']//label[contains(text(),'Analogue Multi-Line')]"));
+        utils.assertElementNotPresent(By.xpath(ANALOGUE_MULTILINE_CHARGES));
 
     }
 

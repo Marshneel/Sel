@@ -39,6 +39,7 @@ public class WLR3_LineNumberingPage {
 
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
+    WLR3_DirectoryInformationPage wlr3_directoryInformationPage=new WLR3_DirectoryInformationPage();
 
 
     public void lineNumberingAutomaticallyAssignWithAssertions() throws InterruptedException {
@@ -185,7 +186,7 @@ public class WLR3_LineNumberingPage {
 
     public void closeLineNumberingPage() throws InterruptedException {
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath("//div[@id='popupDiv']//button[@id='closeBtn']"));
+        utils.javaScriptExecutorClick(By.xpath(wlr3_directoryInformationPage.CLOSE_POPUP));
     }
 
     public void assertionForLineNumberingWithAddress() {
