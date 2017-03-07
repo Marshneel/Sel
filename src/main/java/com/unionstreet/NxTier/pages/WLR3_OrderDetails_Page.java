@@ -214,12 +214,13 @@ public class WLR3_OrderDetails_Page {
             Thread.sleep(1000);
             utils.javaScriptExecutorClick(By.xpath(ORDERTYPE_TAB));
         }
-        utils.waitForElementVisible(By.id(CLOSE));
+        utils.waitForElementVisible(By.xpath("//h3[contains(text(),'Order Type')]"));
         try {
+            Thread.sleep(1000);
             utils.clickBtn(By.id(CANCEL));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.javaScriptExecutorClick(By.id(CANCEL));
+            utils.clickBtnWithWait(By.id(CANCEL));
         }
     }
     public void assertAppointmentInfo() {
