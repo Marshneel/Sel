@@ -220,7 +220,7 @@ public class WLR3_OrderDetails_Page {
             utils.clickBtn(By.id(CANCEL));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.id(CANCEL));
+            utils.javaScriptExecutorClick(By.id(CANCEL));
         }
     }
     public void assertAppointmentInfo() {
