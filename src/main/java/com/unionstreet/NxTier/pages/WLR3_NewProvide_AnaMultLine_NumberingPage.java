@@ -82,6 +82,12 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         utils.clickBtn(By.xpath(EDITICON_ON_SNDDI_POPUP));
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGN_TEXT_UNDER_NUMBERING_OPTIONS_POPUP));
         utils.clickBtn(By.xpath(CONTINUE_BUTTON_UNDER_NUMBERING_OPTIONS_POPUP));
+      utils.waitForElementVisible(By.id("DDIInfo_0__action"));
+        utils.selectByVisibleText(By.id("DDIInfo_0__action"),"New DDI range");
+        utils.sendText(By.id("DDIInfo_0__range"),"10000");
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Please enter a value less than or equal to 9999.')]"));
+        utils.sendText(By.id("DDIInfo_0__range"),"100");
         utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
         Thread.sleep(1000);
         utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));

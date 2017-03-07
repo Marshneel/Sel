@@ -328,11 +328,12 @@ public class WLR3_OrderDetails_Page {
         utils.assertElementNotPresent(By.xpath("//ul[@id='directoryInformationNavigation']//a[contains(text(),'" + ntwrkFeature + "')]"));
 
     }
-    public void assertISDNNewProvideSummaryPage(String numberOfLines){
+    public void assertISDNNewProvideSummaryPage(String numberOfLines,String ddiRange){
         utils.waitForElementVisible(By.xpath(ISDN_LABEL_UNDERCHARGES));
         utils.waitForElementVisible(By.xpath(SNDDI_LABEL_UNDER_DIRINFO));
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+numberOfLines+"')]"));
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ALLOCATED_TEXT_UNDER_LINNUM));
+        utils.waitForElementVisible(By.xpath("//div[@id='lineNumberingSummaryPanel']//label[contains(text(),'DDI range of "+ddiRange+"')]"));
 
 
     }
