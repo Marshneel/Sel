@@ -75,7 +75,7 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
     }
 
     public void populateAndAssertNumberingPageForISDN30(String label1UnderLineNum, String label2UnderLineNum, String labelOnPopUP) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//label[text()='" + label1UnderLineNum + "']"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'"+label1UnderLineNum+"')]"));
         utils.waitForElementVisible(By.xpath("//label[text()='" + label2UnderLineNum + "']"));
         utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         utils.waitForElementVisible(By.xpath("//label[text()='" + labelOnPopUP + "']"));

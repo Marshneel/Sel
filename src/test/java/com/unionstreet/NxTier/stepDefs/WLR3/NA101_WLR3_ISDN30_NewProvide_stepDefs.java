@@ -31,7 +31,7 @@ public class NA101_WLR3_ISDN30_NewProvide_stepDefs {
         webModel.getWlr3_newProvide_anaMultLine_featuresPage().populateAndAssertFeaturesPageForISDN30();
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
         //populate NUMBERING with assertions
-        webModel.getWlr3_newProvide_anaMultLine_numberingPage().populateAndAssertNumberingPageForISDN30("SNDDI","Automatically Allocated","Auto allocate number");
+        webModel.getWlr3_newProvide_anaMultLine_numberingPage().populateAndAssertNumberingPageForISDN30("New SNDDI","Automatically Allocated","Auto allocate number");
        webModel.getWlr3_newProvide_anaMultLine_numberingPage().directoryInfoForISDN30();
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
         //populate DATE with assertions
