@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/report.html" afterPath="$PROJECT_DIR$/output/report.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_EngineeringPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_EngineeringPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_NumberingPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_NumberingPage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA101_WLR3_NewProvide_ISDN30.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA101_WLR3_NewProvide_ISDN30.feature" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA101_WLR3_ISDN30_NewProvide_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA101_WLR3_ISDN30_NewProvide_stepDefs.java" />
     </list>
@@ -1077,13 +1074,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00144" summary="@E2ETests and @smokePack&#10;completed the add/remove Aux line&#10;">
-      <created>1486411819049</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1486411819049</updated>
-    </task>
     <task id="LOCAL-00145" summary="@E2ETests and @smokePack&#10;completed the add/remove Aux line&#10;">
       <created>1486476960512</created>
       <option name="number" value="00145" />
@@ -1420,7 +1410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488916285166</updated>
     </task>
-    <option name="localTasksCounter" value="193" />
+    <task id="LOCAL-00193" summary="@smokePack&#10;@E2ETests&#10;updated NA101 with delete SNDDI validations">
+      <created>1488992009575</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1488992009575</updated>
+    </task>
+    <option name="localTasksCounter" value="194" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1562,7 +1559,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="E2ETests and smokePack tests" />
     <MESSAGE value="E2ETests only" />
     <MESSAGE value="E2ETests and smokePack" />
     <MESSAGE value="contains NA88" />
@@ -1587,7 +1583,8 @@
     <MESSAGE value="@smokePack&#10;@E2ETests&#10;updated the locators under charges summary panel , on WLR3 summary page&#10;" />
     <MESSAGE value="@smokePack&#10;@E2ETests&#10;updated to New SNDDI locator in new provide ISDN line&#10;" />
     <MESSAGE value="@smokePack&#10;@E2ETests&#10;added code to validate new SNDDI range limits for NA101" />
-    <option name="LAST_COMMIT_MESSAGE" value="@smokePack&#10;@E2ETests&#10;added code to validate new SNDDI range limits for NA101" />
+    <MESSAGE value="@smokePack&#10;@E2ETests&#10;updated NA101 with delete SNDDI validations" />
+    <option name="LAST_COMMIT_MESSAGE" value="@smokePack&#10;@E2ETests&#10;updated NA101 with delete SNDDI validations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

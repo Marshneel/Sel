@@ -26,24 +26,40 @@ public class NA101_WLR3_ISDN30_NewProvide_stepDefs {
         //populate PROVISION with assertions
         webModel.getWlr3_newProvide_anaMultLine_provisionPage().populateProvisionPageWithAssertionsForISDN30();
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
+        webModel.getWlr3_newProvide_anaMultLine_engineeringPage().assertionsForISDN();
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
         //populate FEATURES with assertions
         webModel.getWlr3_newProvide_anaMultLine_featuresPage().populateAndAssertFeaturesPageForISDN30();
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
         //populate NUMBERING with assertions
-        webModel.getWlr3_newProvide_anaMultLine_numberingPage().populateAndAssertNumberingPageForISDN30("New SNDDI","Automatically Allocated","Auto allocate number");
-       webModel.getWlr3_newProvide_anaMultLine_numberingPage().directoryInfoForISDN30();
+        webModel.getWlr3_newProvide_anaMultLine_numberingPage().populateAndAssertNumberingPageForISDN30("New SNDDI", "Automatically Allocated", "Auto allocate number");
+        webModel.getWlr3_newProvide_anaMultLine_numberingPage().clickMoreDirInfoTab();
+        webModel.getWlr3_newProvide_anaMultLine_numberingPage().assertPresenceOfSNDDITabInDirInfo();
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
         //populate DATE with assertions
-        webModel.getWlr3_newProvide_anaMultLine_datePage().populateHazardAndWarningNotesUnderDATE("hazardNotes","warningNotes");
+        webModel.getWlr3_newProvide_anaMultLine_datePage().populateHazardAndWarningNotesUnderDATE("hazardNotes", "warningNotes");
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
         webModel.getEditOrderPage().verifyOrderCompletion();
         //assertions on order summary page
         webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();
-        webModel.getWlr3_orderDetails_page().assertISDNNewProvideSummaryPage("8","100");
+        webModel.getWlr3_orderDetails_page().assertISDNNewProvideSummaryPage("8", "100");
 
 
+    }
 
+    @When("^I initiate a new provide ISDN line order and navigate to advanced line numbering options$")
+    public void iInitiateANewProvideISDNLineOrderAndNavigateToAdvancedLineNumberingOptions() throws InterruptedException {
+        webModel.getAddServicePage().searchAndAddService("New Provide Order");
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().selectLineTypeForNewProvide("ISDN30E");
+        webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ");
+        webModel.getwlr3_newProvide_anaMultLine_sitePage().populateSiteContactUnderSITE("07894040256");
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton();
 
+    }
+
+    @Then("^I should be able to navigate through and perform assertions$")
+    public void iShouldBeAbleToNavigateThroughAndPerformAssertions() throws InterruptedException {
+        webModel.getWlr3_newProvide_anaMultLine_numberingPage().newDDIRangeHasNoTabUnderDirInfoUnlessMBNclicked();
+    webModel.getWlr3_newProvide_anaMultLine_numberingPage().deleteAndAssertAddedDDIRange();
     }
 }
