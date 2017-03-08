@@ -26,7 +26,7 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
     private final String ADDNEW_DDIRANGE_BUTTON = "add_row";
     private final String SNDDI_DDI_DROPDOWN = "DDIInfo_1__action";
     private final String MORE_DIRECTORY_INFO_TAB = "//a[contains(@onclick,'newProvideWizard.ValidateAndSubmitNumberingFormAndExecuteNext')]";
-    private final String SNDDI_TAB_ON_DIRINFO_POPUP = "//a[contains(text(),'SNDDI')]";
+    private final String SNDDI_TAB_ON_DIRINFO_POPUP = "//ul[@id='directoryInformationNavigation']//a[contains(text(),'SNDDI')]";
 
     ElementUtils utils = new ElementUtils();
     WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage = new WLR3_New_Provide_Analogue_Multiline_OrderPage();
@@ -75,19 +75,25 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
     }
 
     public void populateAndAssertNumberingPageForISDN30(String label1UnderLineNum, String label2UnderLineNum, String labelOnPopUP) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'"+label1UnderLineNum+"')]"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'" + label1UnderLineNum + "')]"));
         utils.waitForElementVisible(By.xpath("//label[text()='" + label2UnderLineNum + "']"));
         utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         utils.waitForElementVisible(By.xpath("//label[text()='" + labelOnPopUP + "']"));
         utils.clickBtn(By.xpath(EDITICON_ON_SNDDI_POPUP));
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGN_TEXT_UNDER_NUMBERING_OPTIONS_POPUP));
         utils.clickBtn(By.xpath(CONTINUE_BUTTON_UNDER_NUMBERING_OPTIONS_POPUP));
-      utils.waitForElementVisible(By.id("DDIInfo_0__action"));
-        utils.selectByVisibleText(By.id("DDIInfo_0__action"),"New DDI range");
-        utils.sendText(By.id("DDIInfo_0__range"),"10000");
+        utils.waitForElementVisible(By.id("DDIInfo_0__action"));
+        utils.selectByVisibleText(By.id("DDIInfo_0__action"), "New DDI range");
+        utils.sendText(By.id("DDIInfo_0__range"), "10000");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Please enter a value less than or equal to 9999.')]"));
-        utils.sendText(By.id("DDIInfo_0__range"),"100");
+        utils.sendText(By.id("DDIInfo_0__range"), "9");
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Invalid DDI Range. Range value must be in blocks of 10.')]"));
+        utils.sendText(By.id("DDIInfo_0__range"), "0");
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Invalid DDI Range. Range value must be in blocks of 10.')]"));
+        utils.sendText(By.id("DDIInfo_0__range"), "100");
         utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
         Thread.sleep(1000);
         utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
@@ -96,7 +102,31 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 
-    public void directoryInfoForISDN30() {
+    public void newDDIRangeHasNoTabUnderDirInfoUnlessMBNclicked() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
+        Thread.sleep(1000);
+        utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
+        utils.selectByVisibleText(By.id("DDIInfo_1__action"), "New DDI range");
+        Thread.sleep(1000);
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        clickMoreDirInfoTab();
+        Thread.sleep(1000);
+        utils.assertElementNotPresent(By.xpath(SNDDI_TAB_ON_DIRINFO_POPUP));
+        utils.clickBtn(By.xpath(wlr3_directoryInformationPage.CLOSE_POPUP));
+        utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.xpath("//input[contains(@onclick,'ISDNLine.setMBN(1);')]"));
+        utils.clickBtn(By.xpath("//input[contains(@onclick,'ISDNLine.setMBN(1);')]"));
+        Thread.sleep(1000);
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        clickMoreDirInfoTab();
+        utils.waitForElementVisible(By.xpath(SNDDI_TAB_ON_DIRINFO_POPUP));
+    }
+
+    public void clickMoreDirInfoTab() {
         utils.waitForElementVisible(By.xpath(MORE_DIRECTORY_INFO_TAB));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         try {
@@ -105,10 +135,28 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
             utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
             utils.clickBtn(By.xpath(MORE_DIRECTORY_INFO_TAB));
         }
+    }
+
+    public void assertPresenceOfSNDDITabInDirInfo() {
         utils.waitForElementVisible(By.xpath(SNDDI_TAB_ON_DIRINFO_POPUP));
         utils.clickBtn(By.xpath(wlr3_directoryInformationPage.CLOSE_POPUP));
+    }
 
+    public void deleteAndAssertAddedDDIRange() throws InterruptedException {
+        utils.clickBtn(By.xpath(wlr3_directoryInformationPage.CLOSE_POPUP));
+        utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
+        Thread.sleep(1000);
+        utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
+        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(1);')]"));
+        utils.clickBtn(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(1);')]"));
+        Thread.sleep(1000);
+        utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
+        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(3);')]"));
 
     }
+
 }
 
