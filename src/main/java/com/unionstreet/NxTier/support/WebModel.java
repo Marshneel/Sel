@@ -39,6 +39,7 @@ public class WebModel {
     private WLR3_BatchTransferPage wlr3_batchTransferPage;
     private WLR3_ChangeOfLineTypeOrderPage wlr3_changeOfLineTypeOrderPage;
     private WLR3_Line_Information_Page wlr3_line_information_page;
+    private WLR3_BusinessContinuityPage wlr3_businessContinuityPage;
 
 
     public WebModel() {
@@ -75,8 +76,9 @@ public class WebModel {
         wlr3_cease_orderPage = new WLR3_Cease_OrderPage();
         wlr3_addRemoveAuxLinePage = new WLR3_AddRemoveAuxLinePage();
         wlr3_batchTransferPage = new WLR3_BatchTransferPage();
-        wlr3_changeOfLineTypeOrderPage =new WLR3_ChangeOfLineTypeOrderPage();
-        wlr3_line_information_page=new WLR3_Line_Information_Page();
+        wlr3_changeOfLineTypeOrderPage = new WLR3_ChangeOfLineTypeOrderPage();
+        wlr3_line_information_page = new WLR3_Line_Information_Page();
+        wlr3_businessContinuityPage = new WLR3_BusinessContinuityPage();
 
     }
 
@@ -208,12 +210,18 @@ public class WebModel {
         return wlr3_batchTransferPage;
     }
 
-    public WLR3_ChangeOfLineTypeOrderPage getWlr3_changeOfLineTypeOrderPage(){
+    public WLR3_ChangeOfLineTypeOrderPage getWlr3_changeOfLineTypeOrderPage() {
         return wlr3_changeOfLineTypeOrderPage;
     }
-    public WLR3_Line_Information_Page getWlr3_line_information_page(){
+
+    public WLR3_Line_Information_Page getWlr3_line_information_page() {
         return wlr3_line_information_page;
     }
+
+    public WLR3_BusinessContinuityPage getWlr3_businessContinuityPage() {
+        return wlr3_businessContinuityPage;
+    }
 }
+
 
 

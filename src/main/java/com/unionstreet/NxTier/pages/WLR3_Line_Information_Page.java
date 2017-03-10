@@ -66,4 +66,13 @@ public class WLR3_Line_Information_Page {
         //save the changes
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
+
+    public void verifyLineInfoForISDN30(String number1, String number2, String number3) {
+        utils.clickBtn(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
+        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number1 + "')]"));
+        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number2 + "')]"));
+        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number3 + "')]"));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+
+    }
 }

@@ -16,7 +16,6 @@ public class WLR3_OrderDetails_Page {
     public final String NETWORK_FEATURES_BUTTON = "//a[contains(@onclick,'return showNetworkFeatures')]";
     public final String SITE_INFORMATION_BUTTON = "//a[contains(@onclick,'return showSiteInformation')]";
     public final String DIRECTORY_INFORMATION_BUTTON = "//a[contains(@onclick,'loadDirectoryInformationPopup')]";
-    public final String CLOSE = "closeBtn";
     public final String SAVE = "saveBtn";
     public final String CANCEL = "cancelBtn";
     private final String INVALID_ADDRESSKEY = "//span[text()='Invalid Address Key']";
@@ -273,7 +272,7 @@ public class WLR3_OrderDetails_Page {
         textOnWLR3OrderPage();
         utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
         utils.waitForElementVisible(By.id(EDIT_EMERGENCY_INFO_TAB));
-        Thread.sleep(1000);
+       // Thread.sleep(1000);
         utils.clickBtn(By.id(EDIT_EMERGENCY_INFO_TAB));
         utils.sendText(By.id(EMERGENCY_INFO_TEXT_BOX), EMERGENCY_INFO_TEXT_BOX);
         utils.clickBtn(By.xpath(SAVE_EMERGENCY_INFO));
@@ -335,8 +334,18 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+numberOfLines+"')]"));
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ALLOCATED_TEXT_UNDER_LINNUM));
         utils.waitForElementVisible(By.xpath("//div[@id='lineNumberingSummaryPanel']//label[contains(text(),'DDI range of "+ddiRange+"')]"));
+    }
+    public void assertLineInfoForISDN30(String careLevelNum){
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'Care Level "+careLevelNum+" - ISDN30')]"));
+        utils.waitForElementVisible(By.xpath("//p[@id='display_WLR3Order_care_level'][contains(text(),'"+careLevelNum+"')]"));
+    }
+    public void assertBusinessContinuity(){
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Site Assurance Option 1')]"));
 
-
+    }
+    public void assertLineNumberingForISDN(String action1,String action2){
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'"+action1+"')]"));
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'"+action2+"')]"));
     }
 }
 

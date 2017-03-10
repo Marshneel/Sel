@@ -9,6 +9,7 @@ com\unionstreet\NxTier\pages\NxTierServicesPage.class
 com\unionstreet\NxTier\support\WebModel.class
 com\unionstreet\NxTier\pages\WLR3_NewProvide_AnaMultLine_EngineeringPage.class
 com\unionstreet\NxTier\pages\EditOrderPage.class
+com\unionstreet\NxTier\pages\WLR3_BusinessContinuityPage.class
 com\unionstreet\NxTier\pages\WLR3_SiteInformationPage.class
 com\unionstreet\NxTier\pages\DashBoardPage.class
 com\unionstreet\NxTier\pages\WLR3_Modify_OrderPage.class

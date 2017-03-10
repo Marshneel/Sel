@@ -112,4 +112,13 @@ public class WLR3_SiteInformationPage {
         utils.selectByVisibleText(By.id(TRC_BAND_DROPDOWN), "Band 1 - Up to 2 Hours");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
+    public void siteInfoForISDN(String bandRange) throws InterruptedException {
+       Thread.sleep(1000);
+        utils.clickBtn(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+        utils.selectByVisibleText(By.id("WLR3Order_trc_band"),""+bandRange+"");
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+bandRange+"')]"));
+
+
+    }
 }

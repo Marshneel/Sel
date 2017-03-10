@@ -224,4 +224,13 @@ public class EditOrderPage {
     public void errorMessageWhenOrderSubmittedWithOutOIDs() {
         utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_ERROR_MESSAGE));
     }
+    public void processBusinessContinuityAlert(){
+        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Business Continuity Alert!')]"));
+        utils.clickBtn(By.xpath("//button[contains(text(),'Yes')]"));
+        utils.waitForElementVisible(By.xpath("//h3[contains(text(),'Business Continuity')]"));
+        utils.clickBtn(By.id("WLR3Order_site_assurance_option_1"));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+
+
+    }
 }

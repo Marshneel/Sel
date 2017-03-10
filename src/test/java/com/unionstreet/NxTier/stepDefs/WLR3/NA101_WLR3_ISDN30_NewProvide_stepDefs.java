@@ -46,20 +46,4 @@ public class NA101_WLR3_ISDN30_NewProvide_stepDefs {
 
 
     }
-
-    @When("^I initiate a new provide ISDN line order and navigate to advanced line numbering options$")
-    public void iInitiateANewProvideISDNLineOrderAndNavigateToAdvancedLineNumberingOptions() throws InterruptedException {
-        webModel.getAddServicePage().searchAndAddService("New Provide Order");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().selectLineTypeForNewProvide("ISDN30E");
-        webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ");
-        webModel.getwlr3_newProvide_anaMultLine_sitePage().populateSiteContactUnderSITE("07894040256");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton();
-
-    }
-
-    @Then("^I should be able to navigate through and perform assertions$")
-    public void iShouldBeAbleToNavigateThroughAndPerformAssertions() throws InterruptedException {
-        webModel.getWlr3_newProvide_anaMultLine_numberingPage().newDDIRangeHasNoTabUnderDirInfoUnlessMBNclicked();
-    webModel.getWlr3_newProvide_anaMultLine_numberingPage().deleteAndAssertAddedDDIRange();
-    }
 }

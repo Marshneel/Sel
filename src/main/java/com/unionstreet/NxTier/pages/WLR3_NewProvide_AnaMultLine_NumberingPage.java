@@ -151,10 +151,21 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         Thread.sleep(1000);
         utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
         utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(1);')]"));
+        utils.assertElementNotPresent(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(0);')]"));
         utils.clickBtn(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(1);')]"));
         Thread.sleep(1000);
         utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
         utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(3);')]"));
+
+    }
+
+    public void checkLineNumberingForISDN(String action1, String action2) throws InterruptedException {
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Add or Remove SNDDI/DDI Ranges')]"));
+        utils.selectByVisibleText(By.id("DDIInfo_0__action"), "" + action1 + "");
+        utils.selectByVisibleText(By.id("DDIInfo_1__action"), "" + action2 + "");
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
 
     }
 
