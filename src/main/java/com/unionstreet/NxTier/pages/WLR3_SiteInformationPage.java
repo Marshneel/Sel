@@ -74,16 +74,7 @@ public class WLR3_SiteInformationPage {
     }
 
     public void populateSiteInfoPhoneAndAssertIncOfTerminationType(String phone, String terminationType) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        try {
-            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        } catch (Exception e) {
-            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        }
+      loadSiteInfo();
         utils.waitForElementVisible(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO));
         utils.sendText(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), "" + phone + "");
         //setup termination type
@@ -93,14 +84,7 @@ public class WLR3_SiteInformationPage {
     }
 
     public void siteInfoPopupPopulateWithAssertionsForBasicLineSwitch(String unAvailableTerminationType, String selectTerminationType) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        try {
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        } catch (Exception e) {
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        }
+      loadSiteInfo();
         utils.waitForElementVisible(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO));
         //populate phone number under site contacts
         utils.sendText(By.id(wlr3_newProvide_anaMultLine_sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), "07894040256");
@@ -113,12 +97,21 @@ public class WLR3_SiteInformationPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
     public void siteInfoForISDN(String bandRange) throws InterruptedException {
-       Thread.sleep(1000);
-        utils.clickBtn(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+      loadSiteInfo();
         utils.selectByVisibleText(By.id("WLR3Order_trc_band"),""+bandRange+"");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+bandRange+"')]"));
-
-
+    }
+    public void loadSiteInfo() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+        try {
+            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+        } catch (Exception e) {
+            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+        }
     }
 }

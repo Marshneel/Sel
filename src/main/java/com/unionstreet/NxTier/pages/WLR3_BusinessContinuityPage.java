@@ -17,10 +17,7 @@ public class WLR3_BusinessContinuityPage {
             Thread.sleep(1000);
             utils.clickBtn(By.xpath("//a[contains(@onclick,'loadBusinessContinuityPopup')]"));
         } catch (Exception e) {
-            utils.getOrdersPage();
-            ordersManagerPage.clickOnQuoteID();
-            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
-            utils.clickBtn(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
+           wlr3_orderDetails_page.loadTabOnWLR3OrderSummaryPage();
             Thread.sleep(1000);
             utils.clickBtn(By.xpath("//a[contains(@onclick,'loadBusinessContinuityPopup')]"));
         }

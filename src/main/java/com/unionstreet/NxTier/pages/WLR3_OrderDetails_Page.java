@@ -347,5 +347,11 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'"+action1+"')]"));
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'"+action2+"')]"));
     }
+    public void loadTabOnWLR3OrderSummaryPage() throws InterruptedException {
+        utils.getOrdersPage();
+        ordersManagerPage.clickOnQuoteID();
+        utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
+        utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
+    }
 }
 

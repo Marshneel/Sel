@@ -161,7 +161,11 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
 
     public void checkLineNumberingForISDN(String action1, String action2) throws InterruptedException {
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+     try{   utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));}
+     catch (Exception e){wlr3_orderDetails_page.loadTabOnWLR3OrderSummaryPage();
+     Thread.sleep(1000);
+         utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+     }
         utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Add or Remove SNDDI/DDI Ranges')]"));
         utils.selectByVisibleText(By.id("DDIInfo_0__action"), "" + action1 + "");
         utils.selectByVisibleText(By.id("DDIInfo_1__action"), "" + action2 + "");
