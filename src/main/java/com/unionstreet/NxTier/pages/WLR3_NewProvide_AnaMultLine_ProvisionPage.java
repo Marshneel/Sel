@@ -84,15 +84,7 @@ public class WLR3_NewProvide_AnaMultLine_ProvisionPage {
         utils.sendText(By.id(FLOOR_TEXT_BOX), "1st floor");
         utils.sendText(By.id(ROOM_TEXT_BOX), "central Hall");
         enterChannelsInISDNNewProvide("7", MINIMUM_CHANNELS_ERROR_MESSAGE);
-//        utils.sendText(By.id(CHENNELS),"7");
-//        Thread.sleep(1000);
-//        utils.clickBtn(By.xpath(wlr3_new_provide_analogue_multiline_orderPage.NEXT_BUTTON));
-//        utils.waitForElementVisible(By.xpath(MINIMUM_CHANNELS_ERROR_MESSAGE));
        enterChannelsInISDNNewProvide("1000",MAXIMUM_CHANNELS_ERROR_MESSAGE);
-//        utils.sendText(By.id(CHENNELS), "1000");
-//        Thread.sleep(1000);
-//        utils.clickBtn(By.xpath(wlr3_new_provide_analogue_multiline_orderPage.NEXT_BUTTON));
-//        utils.waitForElementVisible(By.xpath(MAXIMUM_CHANNELS_ERROR_MESSAGE));
         utils.sendText(By.id(CHENNELS), "8");
 
     }
