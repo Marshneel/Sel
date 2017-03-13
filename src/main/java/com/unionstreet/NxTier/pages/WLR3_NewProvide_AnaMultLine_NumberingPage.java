@@ -74,7 +74,7 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         utils.waitForElementVisible(By.xpath(RETENTION_OPTION_UNAVAILABLE));
     }
 
-    public void populateAndAssertNumberingPageForISDN30(String label1UnderLineNum, String label2UnderLineNum, String labelOnPopUP) throws InterruptedException {
+    public void assertNumberingOptionsForISDN30NewProvide(String label1UnderLineNum, String label2UnderLineNum, String labelOnPopUP) {
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'" + label1UnderLineNum + "')]"));
         utils.waitForElementVisible(By.xpath("//label[text()='" + label2UnderLineNum + "']"));
         utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
@@ -82,17 +82,20 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         utils.clickBtn(By.xpath(EDITICON_ON_SNDDI_POPUP));
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGN_TEXT_UNDER_NUMBERING_OPTIONS_POPUP));
         utils.clickBtn(By.xpath(CONTINUE_BUTTON_UNDER_NUMBERING_OPTIONS_POPUP));
+    }
+
+    public void checkDDIrangeValidationWithMessage(String range, String message) {
+        utils.sendText(By.id("DDIInfo_0__range"), range);
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        utils.waitForElementVisible(By.xpath(message));
+    }
+
+    public void populateAndAssertSNDDIrangeForISDN30() throws InterruptedException {
         utils.waitForElementVisible(By.id("DDIInfo_0__action"));
         utils.selectByVisibleText(By.id("DDIInfo_0__action"), "New DDI range");
-        utils.sendText(By.id("DDIInfo_0__range"), "10000");
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Please enter a value less than or equal to 9999.')]"));
-        utils.sendText(By.id("DDIInfo_0__range"), "9");
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Invalid DDI Range. Range value must be in blocks of 10.')]"));
-        utils.sendText(By.id("DDIInfo_0__range"), "0");
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Invalid DDI Range. Range value must be in blocks of 10.')]"));
+        checkDDIrangeValidationWithMessage("10000", "//span[contains(text(),'Please enter a value less than or equal to 9999.')]");
+        checkDDIrangeValidationWithMessage("9", "//span[contains(text(),'Invalid DDI Range. Range value must be in blocks of 10.')]");
+        checkDDIrangeValidationWithMessage("0", "//span[contains(text(),'Invalid DDI Range. Range value must be in blocks of 10.')]");
         utils.sendText(By.id("DDIInfo_0__range"), "100");
         utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
         Thread.sleep(1000);
@@ -161,11 +164,13 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
 
     public void checkLineNumberingForISDN(String action1, String action2) throws InterruptedException {
         Thread.sleep(1000);
-     try{   utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));}
-     catch (Exception e){wlr3_orderDetails_page.loadTabOnWLR3OrderSummaryPage();
-     Thread.sleep(1000);
-         utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
-     }
+        try {
+            utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        } catch (Exception e) {
+            wlr3_orderDetails_page.loadTabOnWLR3OrderSummaryPage();
+            Thread.sleep(1000);
+            utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        }
         utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Add or Remove SNDDI/DDI Ranges')]"));
         utils.selectByVisibleText(By.id("DDIInfo_0__action"), "" + action1 + "");
         utils.selectByVisibleText(By.id("DDIInfo_1__action"), "" + action2 + "");

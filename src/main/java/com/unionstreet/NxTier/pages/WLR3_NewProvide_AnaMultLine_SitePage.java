@@ -32,7 +32,7 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.INSTALLATION_ADDRESS_SUMMARY_PANEL));
     }
 
-    public void populateAndAssertInstallationAddressUnderSITE(String postCode) throws InterruptedException {
+    public void loadInstallationAddress(){
         try {
             utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
             utils.clickBtn(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
@@ -40,6 +40,10 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
             utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
             utils.clickBtn(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
         }
+    }
+
+    public void populateAndAssertInstallationAddressUnderSITE(String postCode) throws InterruptedException {
+       loadInstallationAddress();
         wlr3_installationAddressPage.EnterPostCodeInSearchAddressByPostCode(postCode);
         utils.clickBtn(By.id(wlr3_orderDetails_page.ADDRESS_SEARCH_RESULT));
         utils.javaScriptExecutorClick(By.xpath(wlr3_orderDetails_page.CONTINUE_AFTER_ADDRESS_IS_CHOOSEN));
