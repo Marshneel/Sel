@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA103_WLR3_ISDN30_Advanced_Line_Numbering_Options.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA103_WLR3_ISDN30_Advanced_Line_Numbering_Options.feature" />
     </list>
     <ignored path="NxTier automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1089,13 +1088,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00152" summary="@E2ETests and @smokePack&#10;completed the add/remove Aux line&#10;">
-      <created>1486571400229</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1486571400229</updated>
-    </task>
     <task id="LOCAL-00153" summary="@E2ETests and @smokePack&#10;completed the add/remove Aux line&#10;">
       <created>1486572765049</created>
       <option name="number" value="00153" />
@@ -1432,7 +1424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489428619535</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL-00201" summary="@smokePack,@E2ETests">
+      <created>1489435608763</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1489435608763</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1478,7 +1477,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="685" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950193" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
