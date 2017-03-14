@@ -34,7 +34,6 @@ public class NA104_WLR3_ISDN30_Line_Transfer_stepDefs {
     public void iProvideAllTheValidInfo() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().enterEmergencyInfo();
         webModel.getWlr3_line_information_page().verifyLineInfoForISDN30("2", "3", "4");
-        webModel.getWlr3_orderDetails_page().assertLineInfoForISDN30("4");
         webModel.getWlr3_businessContinuityPage().loadBusinessContinuity();
         webModel.getWlr3_businessContinuityPage().selectBusinessContinuity();
         webModel.getWlr3_orderDetails_page().assertBusinessContinuity();

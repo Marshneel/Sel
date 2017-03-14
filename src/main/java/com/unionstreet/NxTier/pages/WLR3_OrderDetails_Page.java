@@ -335,10 +335,6 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ALLOCATED_TEXT_UNDER_LINNUM));
         utils.waitForElementVisible(By.xpath("//div[@id='lineNumberingSummaryPanel']//label[contains(text(),'DDI range of "+ddiRange+"')]"));
     }
-    public void assertLineInfoForISDN30(String careLevelNum){
-        utils.waitForElementVisible(By.xpath("//td[contains(text(),'Care Level "+careLevelNum+" - ISDN30')]"));
-        utils.waitForElementVisible(By.xpath("//p[@id='display_WLR3Order_care_level'][contains(text(),'"+careLevelNum+"')]"));
-    }
     public void assertBusinessContinuity(){
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Site Assurance Option 1')]"));
 
