@@ -72,6 +72,7 @@ public class WLR3_Line_Information_Page {
             Thread.sleep(1000);
             utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
         } catch (Exception e) {
+            wlr3_orderDetails_page.loadTabOnWLR3OrderSummaryPage();
             Thread.sleep(1000);
             utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
         }
