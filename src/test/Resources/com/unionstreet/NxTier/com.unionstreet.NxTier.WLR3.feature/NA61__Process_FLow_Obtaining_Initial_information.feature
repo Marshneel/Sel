@@ -1,4 +1,4 @@
-@E2ETests
+
 Feature: NA61 - WLR3 Transfer order- populating network calling features, directory information and site information
 
   Scenario Outline: Populating network calling features and directory information by logging as a CP, agent and reseller
