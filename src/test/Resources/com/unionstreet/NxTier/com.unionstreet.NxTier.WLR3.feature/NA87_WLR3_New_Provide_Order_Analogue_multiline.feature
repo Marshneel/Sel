@@ -1,4 +1,4 @@
-
+@E2ETests
 Feature: NA87 - WLR3 New Provide Order Analogue multiLine
 
   Scenario: Populating the analogue multiline under WLR3 new provide order and verify for flow

@@ -1,4 +1,4 @@
-
+@E2ETests
 Feature: NA94 - Test scripts to add/remove existing aux line
 
   Scenario: Adding an extra line to existing multi-line

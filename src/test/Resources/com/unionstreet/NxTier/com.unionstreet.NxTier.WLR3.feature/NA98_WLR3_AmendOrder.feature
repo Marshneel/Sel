@@ -1,4 +1,4 @@
-
+@E2ETests
 Feature: NA98 - Test script to verify the steps involved in submit and amend an order, and receive notification responses using CmdController
 
   Scenario: Create an order submit, amend and process it, verify the steps involved.
