@@ -16,12 +16,13 @@ public class NA103_WLR3_Advanced_Line_Numbering_Options_ISDN30_stepDefs {
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().selectLineTypeForNewProvide("ISDN30E");
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ");
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateSiteContactUnderSITE("07894040256");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton();
+
 
     }
 
     @Then("^I should be able to navigate through and perform assertions$")
     public void iShouldBeAbleToNavigateThroughAndPerformAssertions() throws InterruptedException {
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton();
         webModel.getWlr3_newProvide_anaMultLine_numberingPage().newDDIRangeHasNoTabUnderDirInfoUnlessMBNclicked();
         webModel.getWlr3_newProvide_anaMultLine_numberingPage().deleteAndAssertAddedDDIRange();
     }

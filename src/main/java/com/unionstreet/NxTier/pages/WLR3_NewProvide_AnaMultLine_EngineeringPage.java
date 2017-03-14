@@ -17,7 +17,7 @@ public class WLR3_NewProvide_AnaMultLine_EngineeringPage {
         utils.waitForElementVisible(By.xpath(ENGINEERING_INFO_TEXT_UNDER_SITEINFO));
         utils.sendText(By.id(ENGINEERING_NOTES_TEXTBOX_UNDER_SITEINFO),notes);
     }
-    public void assertionsForISDN(){
+    public void assertionsForISDNEngineeringNotes(){
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Mains power within 3 meters')]"));
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Events and exhibitions')]"));
     }
