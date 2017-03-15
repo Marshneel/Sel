@@ -35,16 +35,7 @@ public class WLR3_Line_Information_Page {
     public void setCareLevelForPremiumLineSwitch(String unavailable, String available) throws InterruptedException {
         //assert message that recommends care level plan greater than or equal to 2.5 on the order summary page, for premium line switch
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.CARE_LEVEL_PLAN_WARNING_MESSAGE));
-        //enter line info panel
-
-        try {
-            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
-        } catch (Exception e) {
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
-        }
+        loadLineInfo();
         //verify that the care level plan is defaulted to select
         utils.waitForElementVisible(By.xpath(CARE_LEVEL_DEFAULTED_TO_SELECT));
         //verify that care level plan 1 that is recommended for basic line is not available for the premium line switch
@@ -65,5 +56,25 @@ public class WLR3_Line_Information_Page {
         utils.selectByVisibleText(By.id(SERVICE_MAINTENANCE_TAB), "" + available + "");
         //save the changes
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
+
+    public void verifyLineInfoForISDN30(String number1, String number2, String number3) throws InterruptedException {
+        loadLineInfo();
+        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number1 + "')]"));
+        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number2 + "')]"));
+        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number3 + "')]"));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+
+    }
+    public void loadLineInfo() throws InterruptedException {
+        try {
+            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
+        } catch (Exception e) {
+            wlr3_orderDetails_page.loadTabOnWLR3OrderSummaryPage();
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
+        }
     }
 }
