@@ -328,19 +328,19 @@ public class ElementUtils {
     }
 
     public void getOrdersPage() {
-        driver.get("http://test01-web01/nxtiere2e/orders/ordersmanager");
+        driver.get("http://localhost:9090/nxtiere2e/orders/ordersmanager");
     }
 
     public void getLoginPage() {
-        driver.get("http://test01-web01/nxtiere2e");
+        driver.get("http://localhost:9090/nxtiere2e");
     }
 
     public void getDashBoardPage() {
-        driver.get("http://test01-web01/nxtiere2e/Dashboard/index");
+        driver.get("http://localhost:9090/nxtiere2e/Dashboard/index");
     }
 
     public void getCpAddUserPage() {
-        driver.get("http://test01-web01/nxtiere2e/CPUsers/CPUsersList");
+        driver.get("http://localhost:9090/nxtiere2e/CPUsers/CPUsersList");
     }
 
     public void assertElementNotPresent(By by) {
@@ -446,7 +446,7 @@ public class ElementUtils {
     }
 
     public void getCreateCustomerPage() {
-        driver.get("http://test01-web01/nxtiere2e/company/endcustomer?type=1");
+        driver.get("http://localhost:9090/nxtiere2e/company/endcustomer?type=1");
     }
 
     public void checkPoint(String text) {

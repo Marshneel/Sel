@@ -10,8 +10,8 @@ import cucumber.api.java.en.When;
 public class NA99_WLR3_BatchTransfer_stepDefs {
     WebModel webModel=new WebModel();
 
-    @When("^I initiate a batch transfer and submit it with out generating OIDs$")
-    public void iInitiateABatchTransferAndSubmitItWithOutGeneratingOIDs() throws InterruptedException {
+    @When("^I initiate a batch transfer and submit it withOut selecting the order owner$")
+    public void iInitiateABatchTransferAndSubmitItWithOutSelectingTheOrderOwner() throws InterruptedException {
         webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
         webModel.getWlr3_batchTransferPage().addCLIsToTheOrder("01202300908","LU1 1DQ");
         webModel.getEditOrderPage().submitBatchOrderBeforeOIDsGenerated();
@@ -20,6 +20,5 @@ public class NA99_WLR3_BatchTransfer_stepDefs {
     @Then("^An error message should be thrown$")
     public void anErrorMessageShouldBeThrown() {
         webModel.getEditOrderPage().errorMessageWhenOrderSubmittedWithOutOIDs();
-
     }
 }

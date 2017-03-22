@@ -24,7 +24,7 @@ public class NA98_WLR3_AmendOrder_stepDefs {
 
     @When("^I access edit order page and click the order ID$")
     public void iAccessEditOrderPageAndClickTheOrderID() throws InterruptedException {
-       webModel.getEditOrderPage().accessOrder();
+        webModel.getEditOrderPage().accessOrder();
     }
 
     @Then("^I should be able to amend and submit the order successful$")
@@ -40,12 +40,26 @@ public class NA98_WLR3_AmendOrder_stepDefs {
         //check for amend order sent on the order notifications
         webModel.getEditOrderPage().checkOpenReachNotificationForAmend();
         //push the 4 notifications from the CmdController
-        webModel.getEditOrderPage().pushOpenReachNotificationsForSubmittedOrder("01202300908","A00001043137");
+        webModel.getEditOrderPage().pushOpenReachNotificationsForSubmittedOrder("01202300908", "A00001043137");
         //check the text for the 4 notifications on the openReach notifications
         webModel.getEditOrderPage().checkOpenReachNotificationsForOrderSuccessfulSubmission();
-        //delete the CLI from the site
-        webModel.getUtils().sqlExeQuery("Portal", "test01-sql01", "nxtiere2e", "delete from CustomerCLIBase where cli='01202300908'");
         // clicks each of the tasks and process them
-       webModel.getOrdersManagerPage().clickDone();
+        webModel.getOrdersManagerPage().clickDone();
+    }
+
+    @And("^There is a processed transfer order available$")
+    public void thereIsAProcessedTransferOrderAvailable() {
+    webModel.getOrdersManagerPage().proofOfProcessedOrder("Analogue Premium - Transfer");
+    }
+    @When("^I initiate an unsolicited cease on the line and push notifications to cancel it using CmdController$")
+    public void iInitiateAnUnsolicitedCeaseOnTheLineAndPushNotificationsToCancelItUsingCmdController() throws Exception {
+        webModel.getEditOrderPage().acknowledgeNotificationForUCease("01202300908");
+    }
+
+    @Then("^The cease should be cancelled on the line$")
+    public void theCeaseShouldBeCancelledOnTheLine() throws Throwable {
+        webModel.getOrdersManagerPage().processCease("vodafone","01202300908");
+        webModel.getEditOrderPage().commitAndCompletedNotificationForUCease("01202300908");
+        webModel.getEditOrderPage().assertCeaseIsCancelled();
     }
 }
