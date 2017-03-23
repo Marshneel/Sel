@@ -25,6 +25,9 @@ public class OrdersManagerPage {
     private final String ORDER_TASK = "//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]";
     private final String DONE_CHECKBOX = "//label[text()='Done']";
     private final String SUBMIT_DONE = DONE_CHECKBOX;
+    private final String CEASE_REASON="UnsolicitedCeaseDetail_CancelReason";
+    public final String TASK_POPUP="//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]";
+    public final String ORDERID_UNDER_TASK="//div[@id='tasksContentPanel']//a[contains(@href,'nxtiere2e/Orders/EditOrder')]";
 
     ElementUtils utils = new ElementUtils();
     WLR_and_NxTierServicesPage wlr_and_nxTierServicesPage = new WLR_and_NxTierServicesPage();
@@ -278,5 +281,22 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath(DONE_CHECKBOX));
         utils.clickBtn(By.xpath(DONE_CHECKBOX));
         utils.clickBtn(By.xpath(SUBMIT_DONE));
+    }
+    public void processCease(String company, String CLI){
+        utils.getOrdersPage();
+        utils.getOrdersPage();
+        utils.waitForElementVisible(By.xpath(TASK_POPUP));
+        utils.clickBtn(By.xpath(ORDERID_UNDER_TASK));
+        utils.switchToNewWindow();
+        utils.waitForElementVisible(By.xpath("//a[text()='"+company+"']"));
+        utils.clickBtn(By.xpath("//a[text()='"+company+"']"));
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'"+CLI+"')]"));
+       utils.selectByIndex(By.id(CEASE_REASON),1);
+        utils.clickBtn(By.id("saveBtn"));
+    }
+    public void proofOfProcessedOrder(String order){
+        utils.getOrdersPage();
+        utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//td[contains(text(),'"+order+"')]"));
+        utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//td[contains(text(),'"+newBusinessCustomerPage.RanName+"')]"));
     }
 }

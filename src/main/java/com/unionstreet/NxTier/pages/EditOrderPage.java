@@ -32,10 +32,11 @@ public class EditOrderPage {
     private final String OPENREACH_NOTIFICATIONS_BUTTON_ON_ORDER_SUMMARY_PAGE = "//button[contains(@onclick,'ShowOrderHistoryPopup')]";
     private final String ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION = "//input[contains(@onclick,'ShowOrderHistoryPopup')]";
     private final String AMEND_SENT_TEXT_ON_OPENREACH_NOTIFICATIONS = "//div[@id='divorderHistory']//td[contains(text(),'Amend sent')]";
-    private final String SERVICE_NOT_COMPLETED_ERROR_MESSAGE = "//div[@id='Message_Info'][contains(text(),'Services are not completed')]";
+    private final String SERVICE_NOT_COMPLETED_ERROR_MESSAGE = "//div[@id='Message_Info'][contains(text(),'Error: This order requires Owner to be set!')]";
     public final String VALIDATE_LINE_TYPE_BUTTON = "//button[contains(@onclick,'return ValidateLineType()')]";
 
-    public static String RanNumber;
+    public static String RanNumberForSubmission;
+    public static String RanNumberForCancellation;
     public static String currentDate;
 
 
@@ -198,19 +199,39 @@ public class EditOrderPage {
         utils.waitForElementVisible(By.xpath(ORDER_COMMITTED_TEXT_IN_NOTIFICATIONS));
         utils.waitForElementVisible(By.xpath(ORDER_COMPLETED_TEXT_IN_NOTIFICATIONS));
     }
+    public void assertCeaseIsCancelled() throws InterruptedException {
+        utils.getOrdersPage();
+        utils.waitForElementVisible(By.xpath(ordersManagerPage.TASK_POPUP));
+        utils.waitForElementVisible(By.xpath(ordersManagerPage.ORDERID_UNDER_TASK));
+        utils.clickBtn(By.xpath(ordersManagerPage.ORDERID_UNDER_TASK));
+        utils.switchToNewWindow();
+        utils.waitForElementVisible(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
+        utils.clickBtn(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'End User not moving')]"));
+
+    }
 
     public void textOnChangeOfAddressOrderPage() {
         utils.waitForElementVisible(By.xpath(TEXT_ON_CHANGE_OF_ADDRESS_POPUP));
     }
 
     public void pushOpenReachNotificationsForSubmittedOrder(String CLI, String addressKey) throws Exception {
-        RanNumber = utils.randomNumber();
+        RanNumberForSubmission = utils.randomNumber();
         currentDate = utils.getCurrentDate();
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"Order Pending\" +0 " + RanNumber + "");
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Acknowledged\" +0 " + RanNumber + " notes");
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 " + RanNumber + " notes " + currentDate + " " + CLI + " " + addressKey + " " + '"' + '"');
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 " + RanNumber + " notes " + currentDate + " " + CLI + " " + addressKey + " " + '"' + '"');
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"Order Pending\" +0 "+RanNumberForSubmission+ "");
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Acknowledged\" +0 "+RanNumberForSubmission+" notes");
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 "+RanNumberForSubmission+" notes "+currentDate+" "+CLI+" "+addressKey+" "+'"'+'"');
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 "+RanNumberForSubmission+" notes "+currentDate+" "+CLI+" "+addressKey+" "+'"'+'"');
+    }
 
+    public void acknowledgeNotificationForUCease(String CLI) throws Exception {
+        RanNumberForCancellation = utils.randomNumber();
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Acknowledged\" +0 " + RanNumberForCancellation + " DMA " + CLI + " CP Requested O2 " + '"' + '"');
+        System.out.println(RanNumberForCancellation);
+    }
+    public void commitAndCompletedNotificationForUCease(String CLI) throws Exception {
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Committed\" +0 "+RanNumberForCancellation+" DMA "+CLI+" CP Requested O2 "+'"'+'"'+" "+currentDate);
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Completed\" +0 "+RanNumberForCancellation+" DMA "+CLI+" CP Requested O2 "+'"'+'"'+" "+currentDate);
     }
 
     public void submitBatchOrderBeforeOIDsGenerated() throws InterruptedException {
@@ -218,13 +239,15 @@ public class EditOrderPage {
         utils.selectByIndex(By.id(ORDER_CONTACT), 1);
         utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_QUOTE));
     }
 
     public void errorMessageWhenOrderSubmittedWithOutOIDs() {
         utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_ERROR_MESSAGE));
     }
-    public void processBusinessContinuityAlert(){
+
+    public void processBusinessContinuityAlert() {
         utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Business Continuity Alert!')]"));
         utils.clickBtn(By.xpath("//button[contains(text(),'Yes')]"));
         utils.waitForElementVisible(By.xpath("//h3[contains(text(),'Business Continuity')]"));
