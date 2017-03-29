@@ -22,7 +22,6 @@ public class EditOrderPage {
     private final String ORDER_ACKNOWLEDGED_TEXT_IN_NOTIFICATIONS = "//table[@id='orderHistory-table']//td[contains(text(),'Order Acknowledged')]";
     private final String ORDER_COMMITTED_TEXT_IN_NOTIFICATIONS = "//table[@id='orderHistory-table']//td[contains(text(),'Committed')]";
     private final String ORDER_COMPLETED_TEXT_IN_NOTIFICATIONS = "//table[@id='orderHistory-table']//td[contains(text(),'Order Completed')]";
-    private final String TEXT_ON_CHANGE_OF_ADDRESS_POPUP = "//div[@id='wlr3OrderDetailPopupDiv']//h3[contains(text(),'WLR3 Change Of Address Order')]";
     private final String LINE_TESTING_TEXT_ON_ORDERS_PAGE = "//div[@id='contentPanel']//td[contains(text(),'Line Testing')]";
     private final String ORDER_OWNER_DROPDOWN_ON_EDIT_ORDER_PAGE = "Order_owned_by_id";
     private final String SAVE_AND_SUBMIT_QUOTE = "//div[@id='buttonMenu']//span[contains(text(),'Save & Submit Order')]";
@@ -161,15 +160,24 @@ public class EditOrderPage {
         utils.switchToPreviousWindow();
 
     }
-
-    public void amendOrder() throws InterruptedException {
+    public void getToAmendOrderButton() throws InterruptedException {
         utils.getOrdersPage();
         ordersManagerPage.clickOnQuoteID();
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
         utils.clickBtn(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
         utils.waitForElementVisible(By.id(AMEND_ORDER_BUTTON));
         utils.clickBtn(By.id(AMEND_ORDER_BUTTON));
+    }
+
+    public void startOrderAmend() throws InterruptedException {
+       getToAmendOrderButton();
         utils.selectByIndex(By.id(REASON_FOR_AMENDING_ORDER), 1);
+        Thread.sleep(1000);
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
+    public void startAmendWithCustomerDelayReason() throws InterruptedException {
+      getToAmendOrderButton();
+        utils.selectByVisibleText(By.id(REASON_FOR_AMENDING_ORDER),"In Response To Customer Delay");
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
@@ -208,11 +216,6 @@ public class EditOrderPage {
         utils.waitForElementVisible(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
         utils.clickBtn(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'End User not moving')]"));
-
-    }
-
-    public void textOnChangeOfAddressOrderPage() {
-        utils.waitForElementVisible(By.xpath(TEXT_ON_CHANGE_OF_ADDRESS_POPUP));
     }
 
     public void pushOpenReachNotificationsForSubmittedOrder(String CLI, String addressKey) throws Exception {
@@ -246,14 +249,9 @@ public class EditOrderPage {
     public void errorMessageWhenOrderSubmittedWithOutOIDs() {
         utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_ERROR_MESSAGE));
     }
-
-    public void processBusinessContinuityAlert() {
-        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Business Continuity Alert!')]"));
-        utils.clickBtn(By.xpath("//button[contains(text(),'Yes')]"));
-        utils.waitForElementVisible(By.xpath("//h3[contains(text(),'Business Continuity')]"));
-        utils.clickBtn(By.id("WLR3Order_site_assurance_option_1"));
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
-
-
+    public void postCodeTextForModifyOrder(){
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Existing Postcode')]"));
     }
+
+
 }

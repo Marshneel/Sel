@@ -39,8 +39,8 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         } catch (Exception e) {
         }
     }
-    public void multipleClicksOnNextButton() throws InterruptedException {
-        utils.multipleCLick(By.xpath(NEXT_BUTTON),By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT),4);
+    public void multipleClicksOnNextButton(int number) throws InterruptedException {
+        utils.multipleCLick(By.xpath(NEXT_BUTTON),By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT),number);
     }
     public void multipleCLicksOnPreviousButton(){
         utils.multipleCLick(By.xpath(PREVIOUS_BUTTON),By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT),4);

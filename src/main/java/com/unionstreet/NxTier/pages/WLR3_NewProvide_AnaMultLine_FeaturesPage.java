@@ -33,8 +33,12 @@ public class WLR3_NewProvide_AnaMultLine_FeaturesPage {
 utils.waitForElementVisible(By.xpath(BUSINESS_CONTINUITY_TEXT));
         utils.clickBtn(By.id(BUSINESS_CONTINUITY_CHECKBOX));
         utils.waitForElementVisible(By.id(BUSINESS_CONTINUITY_USER_NAME));
-
-
+    }
+    public void serviceMaintenanceForISBN2(){
+        utils.waitForElementVisible(By.id("WLR3Order_care_level"));
+        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'Level 2')]"));
+        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'Level 3')]"));
+        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'Level 4')]"));
     }
 
 }

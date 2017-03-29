@@ -88,4 +88,34 @@ public class WLR3_NewProvide_AnaMultLine_ProvisionPage {
         utils.sendText(By.id(CHENNELS), "8");
 
     }
+    public void setProvisionType() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath("//div[@id='divlineplantoptionsctrl']//input[@id='order_type_0']"));
+        utils.clickBtn(By.xpath("//div[@id='divlineplantoptionsctrl']//input[@id='order_type_0']"));
+        utils.waitForElementVisible(By.id("lnklineplantgridcall"));
+        wlr3_new_provide_analogue_multiline_orderPage.navigateToNextScreen();
+        utils.waitForElementVisible(By.xpath("//div[@id='ItemError'][contains(text(),'Please specify which working line to take over')]"));
+        utils.clickBtn(By.id("lnklineplantgridcall"));
+        utils.waitForElementVisible(By.xpath("//h3[contains(text(),'Line Plant Information')]"));
+        utils.clickBtn(By.xpath("//div[@id='popupDiv']//button[@id='closeBtn']"));
+       utils.waitForElementVisible(By.xpath("//div[@id='divlineplantoptionsctrl']//input[@id='order_type_3']"));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath("//div[@id='divlineplantoptionsctrl']//input[@id='order_type_3']"));
+        utils.selectByVisibleText(By.id("WLR3Order_ecc_band"),"Band 1 - Up to £300");
+    }
+
+    public void validatingNumberOfChannelsForISDN2System() throws InterruptedException {
+        utils.waitForElementVisible(By.id("WLR3Order_num_lines"));
+        utils.sendText(By.id("WLR3Order_num_lines"),"0");
+        wlr3_new_provide_analogue_multiline_orderPage.navigateToNextScreen();
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Minimum 2 Channels required for this product.')]"));
+        utils.sendText(By.id("WLR3Order_num_lines"),"70");
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Maximum 60 Channels allowed for this product.')]"));
+        utils.sendText(By.id("WLR3Order_num_lines"),"3");
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Number of channels for ISDN2 System must be in multiples of 2.')]"));
+        utils.sendText(By.id("WLR3Order_num_lines"),"2");
+        wlr3_new_provide_analogue_multiline_orderPage.navigateToNextScreen();
+        utils.waitForElementVisible(By.xpath("//legend[text()='Engineering Information']"));
+    }
+
+
 }

@@ -96,4 +96,10 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
         utils.waitForElementVisible(By.xpath("//td[text()='£" + charges + ".00']"));
 
     }
+    public void assertAddressMatchErrorMessage(){
+        utils.waitForElementVisible(By.xpath("//span[text()='This order requires the address to match with Openreach records. Please select an address from the address search.']"));
+    }
+    public void assertLineSuitabilityMessage(){
+        utils.waitForElementVisible(By.xpath("//label[text()='Green - High likelihood of ISDN line being available']"));
+    }
 }

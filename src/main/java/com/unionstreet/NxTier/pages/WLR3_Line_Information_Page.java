@@ -77,4 +77,11 @@ public class WLR3_Line_Information_Page {
             utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
         }
     }
+    public void assertLineInfoForISDN30(){
+        utils.waitForElementVisible(By.id("WLR3Order_standby_power_required"));
+        utils.waitForElementVisible(By.id("WLR3Order_radio_delivery_accepted"));
+        utils.clickBtn(By.id("cancelBtn"));
+
+    }
+
 }

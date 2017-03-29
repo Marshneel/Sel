@@ -19,7 +19,7 @@ public class NA97_WLR3_Change_Of_Address_stepDefs {
     public void iInitiateAChangeOfAddressService() throws InterruptedException {
        //initiating the change of address service
         webModel.getAddServicePage().searchAndAddService("Change of Address");
-        webModel.getEditOrderPage().textOnChangeOfAddressOrderPage();
+        webModel.getWlr3_orderDetails_page().textOnChangeOfAddressOrderPage();
         webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("02063678369","LU1 1DQ");
         webModel.getWlr_and_nxTierServicesPage().verifyCurrentLine("Premium Analogue (Current)");
 
@@ -33,7 +33,7 @@ public class NA97_WLR3_Change_Of_Address_stepDefs {
         webModel.getWlr3_orderDetails_page().pickAddressFromSearchResults();
         //entering phone number under siteInfo
         webModel.getWlr3_siteInformationPage().populateTelNumberOnChangeOfAddress("07894040256");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton();
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton(4);
     }
 
     @Then("^Retain option availability is displayed$")
@@ -49,7 +49,7 @@ public class NA97_WLR3_Change_Of_Address_stepDefs {
         webModel.getWlr3_orderDetails_page().pickAddressFromSearchResults();
         //entering phone number under siteInfo
         webModel.getWlr3_siteInformationPage().populateTelNumberOnChangeOfAddress("07894040256");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton();
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton(4);
     }
 
 

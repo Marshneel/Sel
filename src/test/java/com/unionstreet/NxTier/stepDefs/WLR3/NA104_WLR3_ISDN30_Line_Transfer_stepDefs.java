@@ -19,7 +19,7 @@ public class NA104_WLR3_ISDN30_Line_Transfer_stepDefs {
 
     @Then("^An alert message should be displayed$")
     public void anAlertMessageShouldBeDisplayed() {
-        webModel.getEditOrderPage().processBusinessContinuityAlert();
+        webModel.getWlr3_orderDetails_page().processBusinessContinuityAlert();
 
     }
 
@@ -39,7 +39,7 @@ public class NA104_WLR3_ISDN30_Line_Transfer_stepDefs {
         webModel.getWlr3_orderDetails_page().assertBusinessContinuity();
         webModel.getWlr3_newProvide_anaMultLine_numberingPage().checkLineNumberingForISDN("Renumber", "Renumber with QCR");
         webModel.getWlr3_orderDetails_page().assertLineNumberingForISDN("Renumber", "Renumber with QCR");
-        webModel.getWlr3_siteInformationPage().siteInfoForISDN("Band 1 - Up to 2 Hours");
+        webModel.getWlr3_siteInformationPage().siteInfoForISDNNewProvide("Band 1 - Up to 2 Hours");
     }
 
     @Then("^I should be able to complete the order$")

@@ -208,4 +208,49 @@ public class WLR3_LineNumberingPage {
         utils.waitForElementVisible(By.xpath(ALERT_ON_LINE_INFO));
         System.out.println("NA64a completed");
     }
+    public void editLineNumberingForISDN30Modify() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'Add New DDI/ DDI Range')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'Add New DDI/ DDI Range')]"));
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'Maximum 5 SNDDIs/DDI Ranges can be active. You can delete an existing row to add a new one.')]"));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath("//button[contains(text(),'Ok')]"));
+        utils.waitForElementVisible(By.id("DDIInfo_1__action"));
+        utils.selectByVisibleText(By.id("DDIInfo_1__action"),"Delete");
+        utils.clickBtn(By.xpath("//a[contains(text(),'Add New DDI/ DDI Range')]"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Auto allocate number')]"));
+        utils.waitForElementVisible(By.xpath("//option[contains(text(),'New SNDDI')]"));
+        utils.clickBtn(By.id("saveBtn"));
+        utils.clickBtn(By.xpath("//div[contains(text(),'Delete')]"));
+        wlr3_orderDetails_page.clickLineNumbering();
+        utils.waitForElementVisible(By.id("DDIInfo_1__action"));
+        utils.selectByVisibleText(By.id("DDIInfo_1__action"),"Renumber");
+        utils.clickBtn(By.id("saveBtn"));
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'Maximum 5 SNDDIs/DDI Ranges can be active. Please correct this and try again.')]"));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath("//button[contains(text(),'Ok')]"));
+        utils.selectByVisibleText(By.id("DDIInfo_2__action"),"Delete");
+        utils.selectByVisibleText(By.id("DDIInfo_3__action"),"Delete");
+        utils.selectByVisibleText(By.id("DDIInfo_2__action"),"Delete");
+        utils.clickBtn(By.id("saveBtn"));
+        utils.waitForElementVisible(By.xpath("//b[text()='SNDDI - 01202300923']"));
+        utils.waitForElementVisible(By.xpath("//b[text()='SNDDI - 01202300924']"));
+        utils.waitForElementVisible(By.xpath("//b[text()='SNDDI - To be allocated']"));
+        wlr3_orderDetails_page.clickLineNumbering();
+        utils.waitForElementVisible(By.xpath("//input[contains(@onclick,'ISDNLine.setMBN(2);')]"));
+       Thread.sleep(1000);
+        utils.makeSureBoxIsChecked(By.xpath("//input[contains(@onclick,'ISDNLine.setMBN(1);')]"),By.xpath("//input[contains(@onclick,'ISDNLine.setMBN(1);')]"));
+       Thread.sleep(1000);
+        utils.clickBtn(By.id("saveBtn"));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+Thread.sleep(1000);
+        utils.assertElementNotPresent(By.xpath("//b[text()='SNDDI - 01202300930']"));
+
+
+
+
+
+
+
+
+    }
 }

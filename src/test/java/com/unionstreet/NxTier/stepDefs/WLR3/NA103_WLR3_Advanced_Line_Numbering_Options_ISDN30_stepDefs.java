@@ -22,7 +22,7 @@ public class NA103_WLR3_Advanced_Line_Numbering_Options_ISDN30_stepDefs {
 
     @Then("^I should be able to navigate through and perform assertions$")
     public void iShouldBeAbleToNavigateThroughAndPerformAssertions() throws InterruptedException {
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton();
+        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton(4);
         webModel.getWlr3_newProvide_anaMultLine_numberingPage().newDDIRangeHasNoTabUnderDirInfoUnlessMBNclicked();
         webModel.getWlr3_newProvide_anaMultLine_numberingPage().deleteAndAssertAddedDDIRange();
     }

@@ -165,16 +165,24 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
     public void checkLineNumberingForISDN(String action1, String action2) throws InterruptedException {
         Thread.sleep(1000);
         try {
-            utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+            utils.clickBtnWithWait(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         } catch (Exception e) {
             wlr3_orderDetails_page.loadTabOnWLR3OrderSummaryPage();
             Thread.sleep(1000);
-            utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+            utils.clickBtnWithWait(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         }
         utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Add or Remove SNDDI/DDI Ranges')]"));
         utils.selectByVisibleText(By.id("DDIInfo_0__action"), "" + action1 + "");
         utils.selectByVisibleText(By.id("DDIInfo_1__action"), "" + action2 + "");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
+    public void directoryInfoForISDN2() throws InterruptedException {
+        utils.waitForElementVisible(By.id("chkNoDirectory"));
+       Thread.sleep(1000);
+        utils.clickBtn(By.id("chkNoDirectory"));
+       utils.waitForElementToVanish(By.id("DirectoryInfo_0__dir_Type"));
+
+
 
     }
 

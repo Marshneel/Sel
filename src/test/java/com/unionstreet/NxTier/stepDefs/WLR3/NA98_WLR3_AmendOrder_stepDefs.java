@@ -30,7 +30,7 @@ public class NA98_WLR3_AmendOrder_stepDefs {
     @Then("^I should be able to amend and submit the order successful$")
     public void iShouldBeAbleToAmendAndSubmitTheOrderSuccessful() throws Exception {
         webModel.getEditOrderPage().submitOrder();
-        webModel.getEditOrderPage().amendOrder();
+        webModel.getEditOrderPage().startOrderAmend();
         //editing network calling features and directory info
         webModel.getWlr3_networkCallingFeaturesPage().populateNetworkCallingFeatures();
         webModel.getWlr3_directoryInformationPage().populatingDirectoryInformation("Telecom");
