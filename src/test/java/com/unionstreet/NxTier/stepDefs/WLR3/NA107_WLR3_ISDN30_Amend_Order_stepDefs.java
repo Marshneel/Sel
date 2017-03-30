@@ -45,6 +45,7 @@ public class NA107_WLR3_ISDN30_Amend_Order_stepDefs {
         webModel.getWlr3_orderDetails_page().cancelAmendOrder();
         webModel.getEditOrderPage().startOrderAmend();
         webModel.getWlr3_orderDetails_page().editTabsForISDN30AmendOrder();
+        webModel.getWlr3_siteInformationPage().clickSiteInfo();
 
 
 

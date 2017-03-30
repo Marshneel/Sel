@@ -31,10 +31,14 @@ public class WLR3_NewProvide_AnaMultLine_ProvisionPage {
     private final String CHENNELS = "WLR3Order_num_lines";
     private final String MINIMUM_CHANNELS_ERROR_MESSAGE = "//span[text()='Minimum 8 Channels required for this product.']";
     private final String MAXIMUM_CHANNELS_ERROR_MESSAGE = "//span[text()='Maximum 999 Channels allowed for this product.']";
+    private final String MINIMUM_TWO_CHANNELS_REQUIRED="//span[contains(text(),'Minimum 2 Channels required for this product.')]";
+    private final String MAXIMUM_SIXTY_CHANNELS_ALLOWED="//span[contains(text(),'Maximum 60 Channels allowed for this product.')]";
+    private final String NUMBER_OF_CHANNELS_MUST_BE_MULTIPLES_OF_TWO="//span[contains(text(),'Number of channels for ISDN2 System must be in multiples of 2.')]";
 
 
     ElementUtils utils = new ElementUtils();
     WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage = new WLR3_New_Provide_Analogue_Multiline_OrderPage();
+    CommonMethods commonMethods=new CommonMethods();
 
     public void populateLinePlantSummaryUnderPROVISION() throws InterruptedException {
         //verify the error message when termination type is not selected
@@ -96,7 +100,7 @@ public class WLR3_NewProvide_AnaMultLine_ProvisionPage {
         utils.waitForElementVisible(By.xpath("//div[@id='ItemError'][contains(text(),'Please specify which working line to take over')]"));
         utils.clickBtn(By.id("lnklineplantgridcall"));
         utils.waitForElementVisible(By.xpath("//h3[contains(text(),'Line Plant Information')]"));
-        utils.clickBtn(By.xpath("//div[@id='popupDiv']//button[@id='closeBtn']"));
+        utils.clickBtn(By.xpath(commonMethods.CLOSE_POPUP));
        utils.waitForElementVisible(By.xpath("//div[@id='divlineplantoptionsctrl']//input[@id='order_type_3']"));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath("//div[@id='divlineplantoptionsctrl']//input[@id='order_type_3']"));
@@ -107,11 +111,11 @@ public class WLR3_NewProvide_AnaMultLine_ProvisionPage {
         utils.waitForElementVisible(By.id("WLR3Order_num_lines"));
         utils.sendText(By.id("WLR3Order_num_lines"),"0");
         wlr3_new_provide_analogue_multiline_orderPage.navigateToNextScreen();
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Minimum 2 Channels required for this product.')]"));
+        utils.waitForElementVisible(By.xpath(MINIMUM_TWO_CHANNELS_REQUIRED));
         utils.sendText(By.id("WLR3Order_num_lines"),"70");
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Maximum 60 Channels allowed for this product.')]"));
+        utils.waitForElementVisible(By.xpath(MAXIMUM_SIXTY_CHANNELS_ALLOWED));
         utils.sendText(By.id("WLR3Order_num_lines"),"3");
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Number of channels for ISDN2 System must be in multiples of 2.')]"));
+        utils.waitForElementVisible(By.xpath(NUMBER_OF_CHANNELS_MUST_BE_MULTIPLES_OF_TWO));
         utils.sendText(By.id("WLR3Order_num_lines"),"2");
         wlr3_new_provide_analogue_multiline_orderPage.navigateToNextScreen();
         utils.waitForElementVisible(By.xpath("//legend[text()='Engineering Information']"));

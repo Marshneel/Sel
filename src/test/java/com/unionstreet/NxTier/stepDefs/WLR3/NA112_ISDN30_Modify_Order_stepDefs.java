@@ -34,8 +34,9 @@ public class NA112_ISDN30_Modify_Order_stepDefs {
 
 
         //check the post code text (existing postCode for Modify order)
-        webModel.getEditOrderPage().postCodeTextForModifyOrder();
+        webModel.getWlr3_orderDetails_page().postCodeTextForModifyOrder();
         //assert that the site info do not have main power with in 3 meters and events& exhibitions
+       webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         webModel.getWlr3_siteInformationPage().clickSiteInfo();
         webModel.getWlr3_siteInformationPage().assertionForISDN30ModifyEngineeringNotes();
         //assert that site info do not have provision info
@@ -46,12 +47,10 @@ public class NA112_ISDN30_Modify_Order_stepDefs {
         webModel.getWlr3_summary_charges_page().editChargesForISDN30Modify();
         webModel.getWlr3_orderDetails_page().assertEditedChargesForISDN30Modify();
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
-        webModel.getWlr3_lineNumberingPage().editLineNumberingForISDN30Modify();
-
-
-
-
-
+        webModel.getWlr3_lineNumberingPage().addingNewSNDDIBeyondTheRangeForISDN30Modify();
+        webModel.getWlr3_lineNumberingPage().deleteActionAndAddingNewSNDDIForISDN30Modify();
+        webModel.getWlr3_lineNumberingPage().revertingDeleteActionOnLineNumberingPopUpForISDN30Modify();
+        webModel.getWlr3_lineNumberingPage().mBNValidationOnLineNumberingPopUpForISDN30Modify("01202300923","01202300924","01202300930","To be allocated");
 //disown the ISDN 30 line
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='OI3000000001'");
     }

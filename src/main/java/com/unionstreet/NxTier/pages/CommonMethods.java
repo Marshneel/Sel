@@ -11,6 +11,7 @@ public class CommonMethods {
     public final String ADD_BUTTON = ".add";
     public final String SAVE_BUTTON = ".save";
     public final String SAVE_AND_CLOSE_BUTTON = ".save_close";
+    public final String CLOSE_POPUP = "//div[@id='popupDiv']//button[@id='closeBtn']";
 
     ElementUtils utils = new ElementUtils();
 

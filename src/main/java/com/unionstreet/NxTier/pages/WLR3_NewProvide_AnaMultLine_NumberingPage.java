@@ -24,7 +24,6 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
     private final String AUTOMATICALLY_ASSIGN_TEXT_UNDER_NUMBERING_OPTIONS_POPUP = "//legend[text()='Automatically assign']";
     private final String CONTINUE_BUTTON_UNDER_NUMBERING_OPTIONS_POPUP = "//a[contains(@onclick,'ISDNLine.saveAndCloseDDIOption')]";
     private final String ADDNEW_DDIRANGE_BUTTON = "add_row";
-    private final String SNDDI_DDI_DROPDOWN = "DDIInfo_1__action";
     private final String MORE_DIRECTORY_INFO_TAB = "//a[contains(@onclick,'newProvideWizard.ValidateAndSubmitNumberingFormAndExecuteNext')]";
     private final String SNDDI_TAB_ON_DIRINFO_POPUP = "//ul[@id='directoryInformationNavigation']//a[contains(text(),'SNDDI')]";
 
@@ -32,7 +31,7 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
     WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage = new WLR3_New_Provide_Analogue_Multiline_OrderPage();
     WLR3_LineNumberingPage wlr3_lineNumberingPage = new WLR3_LineNumberingPage();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
-    WLR3_DirectoryInformationPage wlr3_directoryInformationPage = new WLR3_DirectoryInformationPage();
+    CommonMethods commonMethods = new CommonMethods();
 
 
     public void PopulateDirectoryInfoUnderNUMBERING(String info) throws InterruptedException {
@@ -100,7 +99,7 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
         Thread.sleep(1000);
         utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
-        utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN));
+        utils.waitForElementVisible(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW2));
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
@@ -111,13 +110,13 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
         Thread.sleep(1000);
         utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
-        utils.selectByVisibleText(By.id("DDIInfo_1__action"), "New DDI range");
+        utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW2), "New DDI range");
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         clickMoreDirInfoTab();
         Thread.sleep(1000);
         utils.assertElementNotPresent(By.xpath(SNDDI_TAB_ON_DIRINFO_POPUP));
-        utils.clickBtn(By.xpath(wlr3_directoryInformationPage.CLOSE_POPUP));
+        utils.clickBtn(By.xpath(commonMethods.CLOSE_POPUP));
         utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
@@ -142,11 +141,11 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
 
     public void assertPresenceOfSNDDITabInDirInfo() {
         utils.waitForElementVisible(By.xpath(SNDDI_TAB_ON_DIRINFO_POPUP));
-        utils.clickBtn(By.xpath(wlr3_directoryInformationPage.CLOSE_POPUP));
+        utils.clickBtn(By.xpath(commonMethods.CLOSE_POPUP));
     }
 
     public void deleteAndAssertAddedDDIRange() throws InterruptedException {
-        utils.clickBtn(By.xpath(wlr3_directoryInformationPage.CLOSE_POPUP));
+        utils.clickBtn(By.xpath(commonMethods.CLOSE_POPUP));
         utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
@@ -163,8 +162,9 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
     }
 
     public void checkLineNumberingForISDN(String action1, String action2) throws InterruptedException {
-        Thread.sleep(1000);
+
         try {
+            Thread.sleep(1000);
             utils.clickBtnWithWait(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         } catch (Exception e) {
             wlr3_orderDetails_page.loadTabOnWLR3OrderSummaryPage();
@@ -172,16 +172,22 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
             utils.clickBtnWithWait(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         }
         utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Add or Remove SNDDI/DDI Ranges')]"));
-        utils.selectByVisibleText(By.id("DDIInfo_0__action"), "" + action1 + "");
-        utils.selectByVisibleText(By.id("DDIInfo_1__action"), "" + action2 + "");
+        try {
+            utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1), "" + action1 + "");
+        } catch (Exception e) {
+            wlr3_orderDetails_page.getToWLR3QuotePage();
+            wlr3_orderDetails_page.clickLineNumbering();
+            utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1), "" + action1 + "");
+        }
+        utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW2), "" + action2 + "");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
+
     public void directoryInfoForISDN2() throws InterruptedException {
         utils.waitForElementVisible(By.id("chkNoDirectory"));
-       Thread.sleep(1000);
+        Thread.sleep(1000);
         utils.clickBtn(By.id("chkNoDirectory"));
-       utils.waitForElementToVanish(By.id("DirectoryInfo_0__dir_Type"));
-
+        utils.waitForElementToVanish(By.id("DirectoryInfo_0__dir_Type"));
 
 
     }

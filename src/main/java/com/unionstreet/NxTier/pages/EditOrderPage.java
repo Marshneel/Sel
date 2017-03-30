@@ -249,9 +249,7 @@ public class EditOrderPage {
     public void errorMessageWhenOrderSubmittedWithOutOIDs() {
         utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_ERROR_MESSAGE));
     }
-    public void postCodeTextForModifyOrder(){
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Existing Postcode')]"));
-    }
+
 
 
 }

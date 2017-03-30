@@ -56,10 +56,14 @@ public class WLR3_OrderDetails_Page {
     private final String SNDDI_LABEL_UNDER_DIRINFO = "//b[contains(text(),'SNDDI - To be allocated')]";
     private final String AUTOMATICALLY_ALLOCATED_TEXT_UNDER_LINNUM = "//div[contains(text(),'Automatically allocated')]";
     private final String TEXT_ON_CHANGE_OF_ADDRESS_POPUP = "//div[@id='wlr3OrderDetailPopupDiv']//h3[contains(text(),'WLR3 Change Of Address Order')]";
+    private final String BUSINESS_CONTINUITY_LABEL_ON_THE_BUSINESS_CONTINUITY_POPUP="//h4[contains(text(),'Business Continuity Alert!')]";
+    private final String YES_BUTTON_ON_POPUP="//button[contains(text(),'Yes')]";
+    private final String BUSINESS_CONTINUITY_LABEL_ON_BUSINESS_CONTINUITY_CHECKBOX_POPUP="//h3[contains(text(),'Business Continuity')]";
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
+    CommonMethods commonMethods=new CommonMethods();
 
     public void enterPhoneNumberAndPostCodeToInitiateTheTransfer(String number, String postCode) {
         utils.waitForElementVisible(By.id(SAVE));
@@ -368,7 +372,7 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath(APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE));
         clickOnAppointment();
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath("//div[@id='popupDiv']//button[@id='closeBtn']"));
+        utils.clickBtn(By.xpath(commonMethods.CLOSE_POPUP));
         //order type
         utils.waitForElementVisible(By.xpath(ORDERTYPE_TAB));
         verifyOrderTypeTab();
@@ -380,6 +384,7 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath(APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE));
         utils.waitForElementVisible(By.xpath(ORDERTYPE_TAB));
         utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
+
     }
 
     public void cancelAmendOrder() throws InterruptedException {
@@ -394,9 +399,9 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void processBusinessContinuityAlert() {
-        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Business Continuity Alert!')]"));
-        utils.clickBtn(By.xpath("//button[contains(text(),'Yes')]"));
-        utils.waitForElementVisible(By.xpath("//h3[contains(text(),'Business Continuity')]"));
+        utils.waitForElementVisible(By.xpath(BUSINESS_CONTINUITY_LABEL_ON_THE_BUSINESS_CONTINUITY_POPUP));
+        utils.clickBtn(By.xpath(YES_BUTTON_ON_POPUP));
+        utils.waitForElementVisible(By.xpath(BUSINESS_CONTINUITY_LABEL_ON_BUSINESS_CONTINUITY_CHECKBOX_POPUP));
         utils.clickBtn(By.id("WLR3Order_site_assurance_option_1"));
         utils.clickBtn(By.id(SAVE));
     }
@@ -404,6 +409,9 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'£100.00')]"));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'£200.00')]"));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'Annual')]"));
+    }
+    public void postCodeTextForModifyOrder(){
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Existing Postcode')]"));
     }
 }
 

@@ -16,12 +16,12 @@ public class WLR3_SiteInformationPage {
     private final String TERMINATION_TYPE = "WLR3Order_termination_type";
 
 
+
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
     WLR3_NewProvide_AnaMultLine_SitePage wlr3_newProvide_anaMultLine_sitePage = new WLR3_NewProvide_AnaMultLine_SitePage();
 
 public void clickSiteInfo(){
-    wlr3_orderDetails_page.textOnWLR3OrderPage();
     utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SITE_INFO_SUMMARY_PANEL));
     utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
     try {
@@ -33,7 +33,8 @@ public void clickSiteInfo(){
     utils.waitForElementVisible(By.xpath(TEXT_ON_SITE_INFORMATION));
 }
     public void populatingSiteInformation() throws InterruptedException {
-       clickSiteInfo();
+        wlr3_orderDetails_page.textOnWLR3OrderPage();
+        clickSiteInfo();
         utils.selectByIndex(By.id(SELECTCONTACT_UNDER_SITEINFO), 1);
         utils.waitForElementVisible(By.id(SUBMIT_BUTTON));
         utils.scrollUp(By.id(SUBMIT_BUTTON));
@@ -117,6 +118,7 @@ public void clickSiteInfo(){
         }
     }
     public void populateFloorAndRoomForNewProvideIDSN2(){
+        wlr3_orderDetails_page.textOnWLR3OrderPage();
         clickSiteInfo();
         utils.sendText(By.id("WLR3Order_floor"),"floor");
         utils.sendText(By.id("WLR3Order_room"),"room");

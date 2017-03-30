@@ -10,7 +10,8 @@ public class WLR3_NewProvide_AnaMultLine_EngineeringPage {
 
     private final String ENGINEERING_NOTES_TEXTBOX_UNDER_SITEINFO = "WLR3Order_engineering_notes";
     private final String ENGINEERING_INFO_TEXT_UNDER_SITEINFO = "//legend[text()='Engineering Information']";
-
+    private final String MAINS_POWER_WITHIN_THREE_METERS_LABEL_UNDER_ENGINEERING_INFO="//label[contains(text(),'Mains power within 3 meters')]";
+    private final String EVENTS_AND_EXHIBITIONS_LABEL_UNDER_ENGINEERING_INFO="//label[contains(text(),'Events and exhibitions')]";
     ElementUtils utils = new ElementUtils();
     WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage=new WLR3_New_Provide_Analogue_Multiline_OrderPage();
 
@@ -19,8 +20,8 @@ public class WLR3_NewProvide_AnaMultLine_EngineeringPage {
         utils.sendText(By.id(ENGINEERING_NOTES_TEXTBOX_UNDER_SITEINFO),notes);
     }
     public void assertionsForISDNE30NewProvidengineeringNotes(){
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Mains power within 3 meters')]"));
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Events and exhibitions')]"));
+        utils.waitForElementVisible(By.xpath(MAINS_POWER_WITHIN_THREE_METERS_LABEL_UNDER_ENGINEERING_INFO));
+        utils.waitForElementVisible(By.xpath(EVENTS_AND_EXHIBITIONS_LABEL_UNDER_ENGINEERING_INFO));
     }
 
     public void sBusExtension() throws InterruptedException {
