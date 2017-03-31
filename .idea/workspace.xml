@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/CommonMethods.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/CommonMethods.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/CompanyMenuPage.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/CompanyMenuPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/ContactManagerPage.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/ContactManagerPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/DashBoardPage.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/DashBoardPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/LoginPage.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/LoginPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/SettingsPage.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/SettingsPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/support/ElementUtils.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/support/ElementUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddServicePage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddServicePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddSiteDetailsPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddSiteDetailsPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CommonMethods.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CommonMethods.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CompanyMenuPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CompanyMenuPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ContactManagerPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ContactManagerPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/DashBoardPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/DashBoardPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/LoginPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/LoginPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NxTierServicesPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NxTierServicesPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/OrdersManagerPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/OrdersManagerPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/SettingsPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/SettingsPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_AddRemoveAuxLinePage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_AddRemoveAuxLinePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_Analogue_Multiline_OrderPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_Analogue_Multiline_OrderPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/RunnerTest.java" afterPath="$PROJECT_DIR$/src/test/java/RunnerTest.java" />
     </list>
     <ignored path="NxTier automation.iws" />
@@ -137,7 +116,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/RunnerTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="5" column="181" selection-start-line="5" selection-start-column="181" selection-end-line="5" selection-end-column="181" />
+              <caret line="5" column="184" selection-start-line="5" selection-start-column="184" selection-end-line="5" selection-end-column="184" />
               <folding />
             </state>
           </provider>
@@ -1111,13 +1090,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00167" summary="@E2ETests and @smokePack&#10;completed NA99 (batchTransfer)&#10;">
-      <created>1487594236275</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1487594236276</updated>
-    </task>
     <task id="LOCAL-00168" summary="@E2ETests and @smokePack&#10;completed NA99 (batchTransfer)&#10;">
       <created>1487608931493</created>
       <option name="number" value="00168" />
@@ -1454,7 +1426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490958480083</updated>
     </task>
-    <option name="localTasksCounter" value="216" />
+    <task id="LOCAL-00216" summary="@E2ETests">
+      <created>1490964767217</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1490964767217</updated>
+    </task>
+    <option name="localTasksCounter" value="217" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2039,7 +2018,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/RunnerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="5" column="181" selection-start-line="5" selection-start-column="181" selection-end-line="5" selection-end-column="181" />
+          <caret line="5" column="184" selection-start-line="5" selection-start-column="184" selection-end-line="5" selection-end-column="184" />
           <folding />
         </state>
       </provider>
