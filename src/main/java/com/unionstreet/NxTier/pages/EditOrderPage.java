@@ -64,7 +64,14 @@ public class EditOrderPage {
         } catch (Exception e) {
             utils.getOrdersPage();
             commonMethods.search(newBusinessCustomerPage.RanName);
-            utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
+            try {
+                utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
+            } catch (Exception e1) {
+                try {
+                    utils.checkAlert();
+                } catch (Exception e2) {
+                }
+            }
             utils.switchToNewWindow();
             utils.waitForElementVisible(By.xpath(REDCROSS));
         }
@@ -83,7 +90,14 @@ public class EditOrderPage {
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         } catch (Exception e) {
             utils.getOrdersPage();
-            utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
+            try {
+                utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
+            } catch (Exception e1) {
+                try {
+                    utils.checkAlert();
+                } catch (Exception e2) {
+                }
+            }
             utils.switchToNewWindow();
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         }
@@ -160,6 +174,7 @@ public class EditOrderPage {
         utils.switchToPreviousWindow();
 
     }
+
     public void getToAmendOrderButton() throws InterruptedException {
         utils.getOrdersPage();
         ordersManagerPage.clickOnQuoteID();
@@ -170,14 +185,15 @@ public class EditOrderPage {
     }
 
     public void startOrderAmend() throws InterruptedException {
-       getToAmendOrderButton();
+        getToAmendOrderButton();
         utils.selectByIndex(By.id(REASON_FOR_AMENDING_ORDER), 1);
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
+
     public void startAmendWithCustomerDelayReason() throws InterruptedException {
-      getToAmendOrderButton();
-        utils.selectByVisibleText(By.id(REASON_FOR_AMENDING_ORDER),"In Response To Customer Delay");
+        getToAmendOrderButton();
+        utils.selectByVisibleText(By.id(REASON_FOR_AMENDING_ORDER), "In Response To Customer Delay");
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
@@ -207,6 +223,7 @@ public class EditOrderPage {
         utils.waitForElementVisible(By.xpath(ORDER_COMMITTED_TEXT_IN_NOTIFICATIONS));
         utils.waitForElementVisible(By.xpath(ORDER_COMPLETED_TEXT_IN_NOTIFICATIONS));
     }
+
     public void assertCeaseIsCancelled() throws InterruptedException {
         utils.getOrdersPage();
         utils.waitForElementVisible(By.xpath(ordersManagerPage.TASK_POPUP));
@@ -221,10 +238,10 @@ public class EditOrderPage {
     public void pushOpenReachNotificationsForSubmittedOrder(String CLI, String addressKey) throws Exception {
         RanNumberForSubmission = utils.randomNumber();
         currentDate = utils.getCurrentDate();
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"Order Pending\" +0 "+RanNumberForSubmission+ "");
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Acknowledged\" +0 "+RanNumberForSubmission+" notes");
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 "+RanNumberForSubmission+" notes "+currentDate+" "+CLI+" "+addressKey+" "+'"'+'"');
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 "+RanNumberForSubmission+" notes "+currentDate+" "+CLI+" "+addressKey+" "+'"'+'"');
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"Order Pending\" +0 " + RanNumberForSubmission + "");
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Acknowledged\" +0 " + RanNumberForSubmission + " notes");
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 " + RanNumberForSubmission + " notes " + currentDate + " " + CLI + " " + addressKey + " " + '"' + '"');
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 " + RanNumberForSubmission + " notes " + currentDate + " " + CLI + " " + addressKey + " " + '"' + '"');
     }
 
     public void acknowledgeNotificationForUCease(String CLI) throws Exception {
@@ -232,9 +249,10 @@ public class EditOrderPage {
         utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Acknowledged\" +0 " + RanNumberForCancellation + " DMA " + CLI + " CP Requested O2 " + '"' + '"');
         System.out.println(RanNumberForCancellation);
     }
+
     public void commitAndCompletedNotificationForUCease(String CLI) throws Exception {
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Committed\" +0 "+RanNumberForCancellation+" DMA "+CLI+" CP Requested O2 "+'"'+'"'+" "+currentDate);
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Completed\" +0 "+RanNumberForCancellation+" DMA "+CLI+" CP Requested O2 "+'"'+'"'+" "+currentDate);
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Committed\" +0 " + RanNumberForCancellation + " DMA " + CLI + " CP Requested O2 " + '"' + '"' + " " + currentDate);
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Completed\" +0 " + RanNumberForCancellation + " DMA " + CLI + " CP Requested O2 " + '"' + '"' + " " + currentDate);
     }
 
     public void submitBatchOrderBeforeOIDsGenerated() throws InterruptedException {
@@ -249,7 +267,6 @@ public class EditOrderPage {
     public void errorMessageWhenOrderSubmittedWithOutOIDs() {
         utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_ERROR_MESSAGE));
     }
-
 
 
 }

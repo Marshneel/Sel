@@ -56,14 +56,14 @@ public class WLR3_OrderDetails_Page {
     private final String SNDDI_LABEL_UNDER_DIRINFO = "//b[contains(text(),'SNDDI - To be allocated')]";
     private final String AUTOMATICALLY_ALLOCATED_TEXT_UNDER_LINNUM = "//div[contains(text(),'Automatically allocated')]";
     private final String TEXT_ON_CHANGE_OF_ADDRESS_POPUP = "//div[@id='wlr3OrderDetailPopupDiv']//h3[contains(text(),'WLR3 Change Of Address Order')]";
-    private final String BUSINESS_CONTINUITY_LABEL_ON_THE_BUSINESS_CONTINUITY_POPUP="//h4[contains(text(),'Business Continuity Alert!')]";
-    private final String YES_BUTTON_ON_POPUP="//button[contains(text(),'Yes')]";
-    private final String BUSINESS_CONTINUITY_LABEL_ON_BUSINESS_CONTINUITY_CHECKBOX_POPUP="//h3[contains(text(),'Business Continuity')]";
+    private final String BUSINESS_CONTINUITY_LABEL_ON_THE_BUSINESS_CONTINUITY_POPUP = "//h4[contains(text(),'Business Continuity Alert!')]";
+    private final String YES_BUTTON_ON_POPUP = "//button[contains(text(),'Yes')]";
+    private final String BUSINESS_CONTINUITY_LABEL_ON_BUSINESS_CONTINUITY_CHECKBOX_POPUP = "//h3[contains(text(),'Business Continuity')]";
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
-    CommonMethods commonMethods=new CommonMethods();
+    CommonMethods commonMethods = new CommonMethods();
 
     public void enterPhoneNumberAndPostCodeToInitiateTheTransfer(String number, String postCode) {
         utils.waitForElementVisible(By.id(SAVE));
@@ -202,14 +202,20 @@ public class WLR3_OrderDetails_Page {
 
     public void getToWLR3QuotePage() {
         utils.getOrdersPage();
-        utils.waitForElementVisible(By.xpath(ordersManagerPage.QUOTEID));
-        utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
-        utils.switchToNewWindow();
-        utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
-        utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
-        utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        try {
+            utils.waitForElementVisible(By.xpath(ordersManagerPage.QUOTEID));
+            utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
+        } catch (Exception e) {
+            try {
+                utils.checkAlert();
+            } catch (Exception e1) {
+            }
+            utils.switchToNewWindow();
+            utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
+            utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
+            utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        }
     }
-
 
     public void verifyOrderTypeTab() throws InterruptedException {
         Thread.sleep(1000);
@@ -389,7 +395,7 @@ public class WLR3_OrderDetails_Page {
 
     public void cancelAmendOrder() throws InterruptedException {
         utils.waitForElementVisible(By.id("CancelAmend"));
-       Thread.sleep(1000);
+        Thread.sleep(1000);
         utils.clickBtn(By.id("CancelAmend"));
         utils.waitForElementVisible(By.id("AmendOrder"));
     }
@@ -405,12 +411,14 @@ public class WLR3_OrderDetails_Page {
         utils.clickBtn(By.id("WLR3Order_site_assurance_option_1"));
         utils.clickBtn(By.id(SAVE));
     }
-    public void assertEditedChargesForISDN30Modify(){
+
+    public void assertEditedChargesForISDN30Modify() {
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'£100.00')]"));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'£200.00')]"));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'Annual')]"));
     }
-    public void postCodeTextForModifyOrder(){
+
+    public void postCodeTextForModifyOrder() {
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Existing Postcode')]"));
     }
 }
