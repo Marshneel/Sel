@@ -24,12 +24,11 @@ public class DashBoardPage {
         try {Thread.sleep(1000);
             utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
         } catch (Exception e) {
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
-        }
-        try {
-            utils.checkAlert();
-        } catch (Exception e) {
+            try { Thread.sleep(1000);
+                utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
+            } catch (Exception e1) {
+                utils.checkAlert();
+            }
         }
     }
 

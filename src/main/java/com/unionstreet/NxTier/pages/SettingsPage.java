@@ -255,10 +255,10 @@ public class SettingsPage {
         utils.javaScriptExecutorClick(By.id(ADDUSERLOGIN_ISLOGINALLOWED));
         utils.waitForElementVisible(By.id("pg"));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
-            utils.checkAlert();
+            utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         } catch (Exception e) {
+            utils.checkAlert();
         }
         utils.switchToParentWindow();
     }
@@ -270,6 +270,7 @@ public class SettingsPage {
         utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
         utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
     }
+
     ///////////////////////////////////////////////////////CP///////////////////////////////////////////////////////////////
     public void addCPPermissionGroups_General() {
         utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
@@ -317,10 +318,10 @@ public class SettingsPage {
         utils.javaScriptExecutorClick(By.id(ADDUSERLOGIN_ISLOGINALLOWED));
         utils.waitForElementVisible(By.id("pg"));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.clickBtnWithWait(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
-            utils.checkAlert();
+            utils.clickBtnWithWait(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         } catch (Exception e) {
+            utils.checkAlert();
         }
         utils.switchToParentWindow();
     }
@@ -343,10 +344,10 @@ public class SettingsPage {
         utils.scrollUp(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.makeSureBoxIsUnChecked(By.id(WLR3_ORDERS_VIEW), By.id(WLR3_ORDERS_VIEW));
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
-            utils.checkAlert();
+            utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         } catch (Exception e) {
+            utils.checkAlert();
         }
         utils.switchToParentWindow();
     }
@@ -387,12 +388,11 @@ public class SettingsPage {
         utils.makeSureBoxIsChecked(By.id(WLR3_ORDERS_VIEW), By.id(WLR3_ORDERS_VIEW));
         utils.makeSureBoxIsChecked(By.id(WLR3_ORDERS_ADD), By.id(WLR3_ORDERS_ADD));
         utils.makeSureBoxIsChecked(By.id(WLR3_ORDERS_EDIT), By.id(WLR3_ORDERS_EDIT));
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
-            utils.checkAlert();
+            utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         } catch (Exception e) {
+            utils.checkAlert();
         }
-
         utils.switchToParentWindow();
 
     }

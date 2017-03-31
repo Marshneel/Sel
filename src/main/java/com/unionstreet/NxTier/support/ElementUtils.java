@@ -18,7 +18,6 @@ import java.util.*;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
 import static com.unionstreet.NxTier.support.BaseClass.utils;
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertTrue;
 
@@ -79,11 +78,6 @@ public class ElementUtils {
     public void assertURL(String expectedURL) {
         String actualURL = driver.getCurrentUrl();
         Assert.assertEquals(expectedURL, actualURL);
-    }
-
-    //implicit wait
-    public void timeOut() {
-        driver.manage().timeouts().implicitlyWait(2000, MILLISECONDS);
     }
 
     //explicit wait element to be present
@@ -185,16 +179,6 @@ public class ElementUtils {
         }
     }
 
-    public void jumpToPopUpWindowByJavaExeClick(By by) {
-        Set parentWindow = driver.getWindowHandles();
-        javaScriptExecutorClick(by);
-        Set afterPopup = driver.getWindowHandles();
-        afterPopup.removeAll(parentWindow);
-        if (afterPopup.size() == 1) {
-            driver.switchTo().window((String) afterPopup.toArray()[0]);
-        }
-    }
-
     public boolean isAlertPresent() {
         try {
             driver.switchTo().alert();
@@ -208,7 +192,7 @@ public class ElementUtils {
     //exception handling
     public void checkAlert() {
         try {
-            if (isAlertPresent()) {
+            if (isAlertPresent() == true) {
                 Alert alert = driver.switchTo().alert();
                 alert.accept();
             }
@@ -279,10 +263,10 @@ public class ElementUtils {
     }
 
     public void closeCurrentPage() {
-        driver.close();
         try {
-            checkAlert();
+            driver.close();
         } catch (Exception e) {
+            checkAlert();
         }
     }
 
@@ -328,7 +312,11 @@ public class ElementUtils {
     }
 
     public void getOrdersPage() {
-       try{ driver.get("http://test01-web01/nxtiere2e/orders/ordersmanager");}catch (Exception e){checkAlert();}
+        try {
+            driver.get("http://test01-web01/nxtiere2e/orders/ordersmanager");
+        } catch (Exception e) {
+            checkAlert();
+        }
     }
 
     public void getLoginPage() {
@@ -451,12 +439,6 @@ public class ElementUtils {
 
     public void checkPoint(String text) {
         System.out.println(text);
-    }
-
-    public void zoom(By by) {
-        for (int i = 0; i < 3; i++) {
-            driver.findElement(by).sendKeys(Keys.CONTROL, Keys.SUBTRACT);
-        }
     }
 
     public void zoomOut(By by) {

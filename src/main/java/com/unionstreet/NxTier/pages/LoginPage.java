@@ -51,10 +51,10 @@ public class LoginPage {
         utils.sendText(By.id(USENAME_FIELD), "agentlogin");
         utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
-        utils.clickBtn(By.cssSelector(LOGINBUTTON));
         try {
-            utils.checkAlert();
+            utils.clickBtn(By.cssSelector(LOGINBUTTON));
         } catch (Exception e) {
+            utils.checkAlert();
         }
     }
 
@@ -70,10 +70,10 @@ public class LoginPage {
         utils.sendText(By.id(USENAME_FIELD), "resellerlogin");
         utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
-        utils.clickBtn(By.cssSelector(LOGINBUTTON));
         try {
-            utils.checkAlert();
+            utils.clickBtn(By.cssSelector(LOGINBUTTON));
         } catch (Exception e) {
+            utils.checkAlert();
         }
     }
 
@@ -87,10 +87,10 @@ public class LoginPage {
         utils.sendText(By.id(USENAME_FIELD), "cp");
         utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), "password");
-        utils.clickBtn(By.cssSelector(LOGINBUTTON));
         try {
-            utils.checkAlert();
+            utils.clickBtn(By.cssSelector(LOGINBUTTON));
         } catch (Exception e) {
+            utils.checkAlert();
         }
     }
 

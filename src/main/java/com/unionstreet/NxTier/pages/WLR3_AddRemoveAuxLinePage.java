@@ -18,8 +18,6 @@ public class WLR3_AddRemoveAuxLinePage {
     private final String DECREASED_NUM_OF_LINES_ON_ORDER_SUMMARY_PAGE="//div[@id='div_WLR3Order_num_lines']//span[contains(text(),'7')]";
     private final String  ERROR_MESSAGE_UPON_DUPLICATING_CLI="//div[@id='validationSummary']//h5[contains(text(),'Sorry, this number cannot be processed')]";
     private final String CHARGES_RECURRING_TEXT="//div[@id='chargesSummaryPanel']//td[contains(text(),'Analogue Multi-Line')]";
-    private final String CHARGES_SETUP_TEXT="//div[@id='chargesSummaryPanel']//div[contains(text(),'Setup')]";
-    private final String CHARGES_FREQUENCY_TEXT="//div[@id='chargesSummaryPanel']//div[contains(text(),'Frequency')]";
     private final String ANALOGUE_MULTILINE_CHARGES="//div[@id='chargesSummaryPanel']//label[contains(text(),'Analogue Multi-Line')]";
 
 

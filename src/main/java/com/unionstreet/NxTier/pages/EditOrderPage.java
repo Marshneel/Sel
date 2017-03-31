@@ -101,10 +101,7 @@ public class EditOrderPage {
 
     public void assertCustomer_InternalTabsPresent() throws InterruptedException {
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        try {
-            utils.checkAlert();
-        } catch (Exception e) {
-        }
+        utils.checkAlert();
         utils.waitForElementVisible(By.id(CUSTOMER_RADIOBUTTON));
         utils.clickBtn(By.id("OrderPopup"));
         utils.clickBtnWithWait(By.id(CUSTOMER_RADIOBUTTON));
@@ -115,25 +112,15 @@ public class EditOrderPage {
 
     public void assertCustomer_InternalTabsNotPresent() {
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        try {
-            utils.checkAlert();
-        } catch (Exception e) {
-        }
+        utils.checkAlert();
         utils.assertElementNotPresent(By.id(CUSTOMER_RADIOBUTTON));
         utils.assertElementNotPresent(By.id(INTERNAL_RADIOBUTTON));
     }
 
     public void verifyOrderCompletion() throws InterruptedException {
         //load created quote
-        try {
-            utils.getOrdersPage();
-            ordersManagerPage.clickOnQuoteID();
-            try {
-                utils.checkAlert();
-            } catch (Exception e) {
-            }
-        } catch (Exception e) {
-        }
+        utils.getOrdersPage();
+        ordersManagerPage.clickOnQuoteID();
         // check for the green tick
         try {
             utils.waitForElementVisible(By.xpath(GREEN_TICK));

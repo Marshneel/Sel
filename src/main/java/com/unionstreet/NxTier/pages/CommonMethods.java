@@ -17,15 +17,16 @@ public class CommonMethods {
 
     public void search(String text) {
         utils.waitForElementVisible(By.id(SEARCH_BUTTON));
-        utils.sendText(By.id(SEARCH_BUTTON),text);
+        utils.sendText(By.id(SEARCH_BUTTON), text);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
     }
 
     public void saveAndClosePage() {
-        utils.clickBtn(By.cssSelector(SAVE_AND_CLOSE_BUTTON));
         try {
-            utils.checkAlert();
+            utils.clickBtn(By.cssSelector(SAVE_AND_CLOSE_BUTTON));
         } catch (Exception e) {
+            utils.checkAlert();
         }
+
     }
 }

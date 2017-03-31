@@ -24,13 +24,13 @@ public class AddSiteDetailsPage {
         utils.switchToNewWindow();
         utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SITE_NAME));
         Reseller_RanName = utils.randomName();
-        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SITE_NAME),Reseller_RanName);
+        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SITE_NAME), Reseller_RanName);
         utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME));
-        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME),Reseller_RanName);
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.sendText(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME), Reseller_RanName);
         try {
-            utils.checkAlert();
+            utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         } catch (Exception e) {
+            utils.checkAlert();
         }
         utils.switchToParentWindow();
         utils.getDashBoardPage();
@@ -41,7 +41,7 @@ public class AddSiteDetailsPage {
     }
 
     public void assignAddressKeyToSite() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
-       utils.sqlExeQuery("Portal", "test01-sql01", "nxtiere2e", "update Sitedetails set bt_address_key='A00001043137', bt_address_key_type='Gold' where SiteName='"+newBusinessCustomerPage.RanName+"'");
+        utils.sqlExeQuery("Portal", "test01-sql01", "nxtiere2e", "update Sitedetails set bt_address_key='A00001043137', bt_address_key_type='Gold' where SiteName='" + newBusinessCustomerPage.RanName + "'");
     }
 
 

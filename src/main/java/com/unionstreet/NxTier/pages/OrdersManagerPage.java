@@ -125,10 +125,6 @@ public class OrdersManagerPage {
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath(AGENT));
         utils.getOrdersPage();
-        try {
-            utils.checkAlert();
-        } catch (Exception e) {
-        }
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         Thread.sleep(1000);
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
@@ -219,10 +215,10 @@ public class OrdersManagerPage {
 
     public void savingQuoteAndExtractingOrderServiceID() throws InterruptedException {
         utils.switchToNewWindow();
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         try {
-            utils.checkAlert();
+            utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         } catch (Exception e) {
+            utils.checkAlert();
         }
         utils.waitForElementVisible(By.xpath(INVISIBLE_ORDER_SERVICESID));
         utils.getAttributeOfElement(By.xpath(INVISIBLE_ORDER_SERVICESID), "value");
