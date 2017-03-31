@@ -26,10 +26,10 @@ public class AddServicePage {
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
         utils.pageJumpWithoutClose(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         try {
-            utils.checkAlert();
+            utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         } catch (Exception e) {
+            utils.checkAlert();
         }
         utils.switchToPreviousWindow();
     }

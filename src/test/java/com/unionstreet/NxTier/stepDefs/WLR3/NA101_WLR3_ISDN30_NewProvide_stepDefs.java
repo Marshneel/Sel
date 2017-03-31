@@ -26,7 +26,7 @@ public class NA101_WLR3_ISDN30_NewProvide_stepDefs {
         //populate PROVISION with assertions
         webModel.getWlr3_newProvide_anaMultLine_provisionPage().populateProvisionPageWithAssertionsForISDN30();
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
-        webModel.getWlr3_newProvide_anaMultLine_engineeringPage().assertionsForISDNEngineeringNotes();
+        webModel.getWlr3_newProvide_anaMultLine_engineeringPage().assertionsForISDNE30NewProvidengineeringNotes();
         webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
         //populate FEATURES with assertions
         webModel.getWlr3_newProvide_anaMultLine_featuresPage().populateAndAssertFeaturesPageForISDN30();

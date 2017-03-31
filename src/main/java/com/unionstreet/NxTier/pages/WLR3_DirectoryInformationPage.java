@@ -15,13 +15,13 @@ public class WLR3_DirectoryInformationPage {
     private final String BUSINESSNAME_UNDER_DIRECTORYINFO = "DirectoryInfo_0__dir_TradingTitleSurname";
     //// TODO: 06/01/2017  
     private final String SAVED_BUSINESSNAME_UNDER_DIRECTORYINFO = "//div[@style='display: block;'][contains(text(),'vodafone')]";
-    public final String CLOSE_POPUP = "//div[@id='popupDiv']//button[@id='closeBtn']";
     private final String CALL_SIGN_TAB = "//ul[@id='directoryInformationNavigation']//a[contains(text(),'Call Sign')]";
     private final String CHANGE_DIRECTORY_INFO_TAB = "changeDirInfoLabel";
     private final String RETAIN_DIRECTORY_INFO_TAB = "retainDirInfoLabel";
 
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
+    CommonMethods commonMethods=new CommonMethods();
 
     public void populatingDirectoryInformation(String name) throws InterruptedException {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.DIRECTORY_INFO_SUMMARY_PANEL));
@@ -45,7 +45,7 @@ public class WLR3_DirectoryInformationPage {
         utils.sendText(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION), name);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath(CLOSE_POPUP));
+        utils.javaScriptExecutorClick(By.xpath(commonMethods.CLOSE_POPUP));
 
     }
 
@@ -72,7 +72,7 @@ public class WLR3_DirectoryInformationPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath(SAVED_BUSINESSNAME_UNDER_DIRECTORYINFO));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath(CLOSE_POPUP));
+        utils.javaScriptExecutorClick(By.xpath(commonMethods.CLOSE_POPUP));
     }
 
     public void assertUniqueNetworkFeatureUnderDirectoryInfoForSingleLine(String feature) throws InterruptedException {
@@ -89,6 +89,6 @@ public class WLR3_DirectoryInformationPage {
         utils.waitForElementVisible(By.xpath("//ul[@id='directoryInformationNavigation']//a[contains(text(),'" + feature + "')]"));
         utils.clickBtn(By.xpath(CALL_SIGN_TAB));
         utils.waitForElementVisible(By.id(EDIT));
-        utils.clickBtn(By.xpath(CLOSE_POPUP));
+        utils.clickBtn(By.xpath(commonMethods.CLOSE_POPUP));
     }
 }

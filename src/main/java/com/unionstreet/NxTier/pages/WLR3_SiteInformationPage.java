@@ -16,22 +16,25 @@ public class WLR3_SiteInformationPage {
     private final String TERMINATION_TYPE = "WLR3Order_termination_type";
 
 
+
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
     WLR3_NewProvide_AnaMultLine_SitePage wlr3_newProvide_anaMultLine_sitePage = new WLR3_NewProvide_AnaMultLine_SitePage();
 
-
+public void clickSiteInfo(){
+    utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SITE_INFO_SUMMARY_PANEL));
+    utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+    try {
+        utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+    } catch (Exception e) {
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+        utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+    }
+    utils.waitForElementVisible(By.xpath(TEXT_ON_SITE_INFORMATION));
+}
     public void populatingSiteInformation() throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
-        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SITE_INFO_SUMMARY_PANEL));
-        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        try {
-            utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        } catch (Exception e) {
-            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-            utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        }
-        utils.waitForElementVisible(By.xpath(TEXT_ON_SITE_INFORMATION));
+        clickSiteInfo();
         utils.selectByIndex(By.id(SELECTCONTACT_UNDER_SITEINFO), 1);
         utils.waitForElementVisible(By.id(SUBMIT_BUTTON));
         utils.scrollUp(By.id(SUBMIT_BUTTON));
@@ -96,7 +99,7 @@ public class WLR3_SiteInformationPage {
         utils.selectByVisibleText(By.id(TRC_BAND_DROPDOWN), "Band 1 - Up to 2 Hours");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
-    public void siteInfoForISDN(String bandRange) throws InterruptedException {
+    public void siteInfoForISDNNewProvide(String bandRange) throws InterruptedException {
       loadSiteInfo();
         utils.selectByVisibleText(By.id("WLR3Order_trc_band"),""+bandRange+"");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
@@ -114,4 +117,24 @@ public class WLR3_SiteInformationPage {
             utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         }
     }
+    public void populateFloorAndRoomForNewProvideIDSN2() throws InterruptedException {
+        wlr3_orderDetails_page.textOnWLR3OrderPage();
+        clickSiteInfo();
+        utils.sendText(By.id("WLR3Order_floor"),"floor");
+        utils.sendText(By.id("WLR3Order_room"),"room");
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
+    public void assertProvisionTypeAbsentInISDN30Modify() throws InterruptedException {
+       Thread.sleep(1000);
+        utils.assertElementNotPresent(By.xpath("//legend[text()='Provision Type']"));
+        utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Take Over Working Line')]"));
+        utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Provide Line')]"));
+    }
+    public void assertionForISDN30ModifyEngineeringNotes() throws InterruptedException {
+       Thread.sleep(1000);
+        utils.assertElementNotPresent(By.id("WLR3Order_mains_within_3m"));
+        utils.assertElementNotPresent(By.id("WLR3Order_events_and_exhibitions"));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.CANCEL));}
+
 }

@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 /**
  * Created by RajeshG on 06/01/2017.
  */
-public class WLR3_AppointmentPage {
+public class  WLR3_AppointmentPage {
     //// TODO: 06/01/2017
     private final String GET_AVAILABILITY_UNDER_APPOINTMENTPAGE = "//a[contains(@onclick,'showNewBookAppointmentPopup')]";
 

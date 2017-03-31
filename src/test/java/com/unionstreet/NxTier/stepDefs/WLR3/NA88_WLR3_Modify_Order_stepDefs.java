@@ -30,7 +30,7 @@ public class NA88_WLR3_Modify_Order_stepDefs {
     }
 
     @And("^Access the WLR order details page$")
-    public void accessTheWLROrderDetailsPage() {
+    public void accessTheWLROrderDetailsPage() throws InterruptedException {
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrderWithWrongCLI();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("02063678369", "LU1 1DQ");

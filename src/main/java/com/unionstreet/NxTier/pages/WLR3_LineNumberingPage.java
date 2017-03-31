@@ -36,10 +36,22 @@ public class WLR3_LineNumberingPage {
     public final String AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO = "//a[@href='#default-tab-Automatically_assign_now']";
     private final String ALERT_ON_LINE_INFO = "//div[@class='alert alert-danger']";
     private final String CONTINUETAB_UNDER_IMPORT_FROM_OTHER_NETWORK_LINE_INFO = "submitImportFromOtherNetworkContinue";
+    private final String ADD_NEW_DDI="//a[contains(text(),'Add New DDI/ DDI Range')]";
+    private final String VALIDATION_TO_PREVENT_ADDITION_OF_NEW_SNDDI="//div[contains(text(),'Maximum 5 SNDDIs/DDI Ranges can be active. You can delete an existing row to add a new one.')]";
+    private final String VALIDATION_TO_PREVENT_ACTIVATION_OF_EXISTING_SNDDI="//div[contains(text(),'Maximum 5 SNDDIs/DDI Ranges can be active. Please correct this and try again.')]";
+   private final String OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP="//button[contains(text(),'Ok')]";
+   public final String SNDDI_DDI_DROPDOWN_ROW1="DDIInfo_0__action";
+    public final String SNDDI_DDI_DROPDOWN_ROW2 = "DDIInfo_1__action";
+    private final String SNDDI_DDI_DROPDOWN_ROW3="DDIInfo_2__action";
+    private final String DELETE_TEXT_UNDER_LINE_NUMBERING_WLR3_ORDER_DETAILS_PAGE="//div[contains(text(),'Delete')]";
+    private final String ASSERTING_NEWLY_ADDED_SNDDI_UNDER_NUMBERING_SUMMARY="//label[contains(text(),'Auto allocate number')]";
+    private final String ASSERTING_NEWLY_ADDED_SNDDI_UNDER_ACTION="//option[contains(text(),'New SNDDI')]";
+    private final String THIRD_ROW_MBN_RADIO_BUTTON="//input[contains(@onclick,'ISDNLine.setMBN(2);')]";
+    private final String SECOND_ROW_MBN_RADIO_BUTTON="//input[contains(@onclick,'ISDNLine.setMBN(1);')]";
 
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
-    WLR3_DirectoryInformationPage wlr3_directoryInformationPage=new WLR3_DirectoryInformationPage();
+    CommonMethods commonMethods=new CommonMethods();
 
 
     public void lineNumberingAutomaticallyAssignWithAssertions() throws InterruptedException {
@@ -104,7 +116,7 @@ public class WLR3_LineNumberingPage {
     }
 
 
-    public void lineNumberingAutomaticallyAssignNumber(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
+    public void lineNumberingAutomaticallyAssignNumber(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
         try {
             utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
@@ -186,7 +198,7 @@ public class WLR3_LineNumberingPage {
 
     public void closeLineNumberingPage() throws InterruptedException {
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath(wlr3_directoryInformationPage.CLOSE_POPUP));
+        utils.javaScriptExecutorClick(By.xpath(commonMethods.CLOSE_POPUP));
     }
 
     public void assertionForLineNumberingWithAddress() {
@@ -207,5 +219,57 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
         utils.waitForElementVisible(By.xpath(ALERT_ON_LINE_INFO));
         System.out.println("NA64a completed");
+    }
+    public void addingNewSNDDIBeyondTheRangeForISDN30Modify() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(ADD_NEW_DDI));
+        utils.clickBtn(By.xpath(ADD_NEW_DDI));
+        utils.waitForElementVisible(By.xpath(VALIDATION_TO_PREVENT_ADDITION_OF_NEW_SNDDI));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath(OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP));}
+
+    public void deleteActionAndAddingNewSNDDIForISDN30Modify() throws InterruptedException {
+        utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN_ROW2));
+        utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW2),"Delete");
+        utils.clickBtn(By.xpath(ADD_NEW_DDI));
+        Thread.sleep(1000);
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        utils.waitForElementVisible(By.xpath(DELETE_TEXT_UNDER_LINE_NUMBERING_WLR3_ORDER_DETAILS_PAGE));
+        wlr3_orderDetails_page.clickLineNumbering();
+        utils.waitForElementVisible(By.xpath(ASSERTING_NEWLY_ADDED_SNDDI_UNDER_NUMBERING_SUMMARY));
+        utils.waitForElementVisible(By.xpath(ASSERTING_NEWLY_ADDED_SNDDI_UNDER_ACTION));}
+
+    public void revertingDeleteActionOnLineNumberingPopUpForISDN30Modify() throws InterruptedException {
+        utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN_ROW2));
+        utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW2),"Renumber");
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        utils.waitForElementVisible(By.xpath(VALIDATION_TO_PREVENT_ACTIVATION_OF_EXISTING_SNDDI));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath(OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP));}
+
+    public void mBNValidationOnLineNumberingPopUpForISDN30Modify(String number1, String number2, String number3, String allocationType) throws InterruptedException {
+        utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW3),"Delete");
+        utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW3),"Delete");
+        utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW3),"Delete");
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        utils.waitForElementVisible(By.xpath("//b[text()='SNDDI - "+number1+"']"));
+        utils.waitForElementVisible(By.xpath("//b[text()='SNDDI - "+number2+"']"));
+        utils.waitForElementVisible(By.xpath("//b[text()='SNDDI - "+allocationType+"']"));
+        wlr3_orderDetails_page.clickLineNumbering();
+        utils.waitForElementVisible(By.xpath(THIRD_ROW_MBN_RADIO_BUTTON));
+       Thread.sleep(1000);
+        utils.makeSureBoxIsChecked(By.xpath(SECOND_ROW_MBN_RADIO_BUTTON),By.xpath(SECOND_ROW_MBN_RADIO_BUTTON));
+       Thread.sleep(1000);
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+Thread.sleep(1000);
+        utils.assertElementNotPresent(By.xpath("//b[text()='SNDDI - "+number3+"']"));
+
+
+
+
+
+
+
+
     }
 }

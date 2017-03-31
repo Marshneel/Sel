@@ -53,7 +53,6 @@ public class CompanyMenuPage {
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
-    DashBoardPage dashBoardPage = new DashBoardPage();
     private long today;
     private String day;
 

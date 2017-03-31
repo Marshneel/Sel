@@ -49,16 +49,21 @@ public class WLR3_OrderDetails_Page {
     private final String EDIT_EMERGENCY_INFO_TAB = "div_EmergencyInfo";
     private final String EMERGENCY_INFO_TEXT_BOX = "EmergencyInfo";
     private final String SAVE_EMERGENCY_INFO = "//img[contains(@onclick,'jet_update_value_FromTextbox')]";
-    public final String MANUAL_ENTRY_TAB="manualEntryBtn";
-    private final String WLR3_WARNING_PANEL_LOCATOR="//div[@id='WLR3OrderWarnings']";
-    public final String CARE_LEVEL_PLAN_WARNING_MESSAGE="//div[@id='divValidationMessages']//div[contains(text(),'Care Level must be 2.5 or higher for Premium lines')]";
-    private final String ISDN_LABEL_UNDERCHARGES="//div[@id='chargesSummaryPanel']//td[contains(text(),'ISDN30E')]";
-    private final String SNDDI_LABEL_UNDER_DIRINFO="//b[contains(text(),'SNDDI - To be allocated')]";
-    private final String AUTOMATICALLY_ALLOCATED_TEXT_UNDER_LINNUM="//div[contains(text(),'Automatically allocated')]";
+    public final String MANUAL_ENTRY_TAB = "manualEntryBtn";
+    private final String WLR3_WARNING_PANEL_LOCATOR = "//div[@id='WLR3OrderWarnings']";
+    public final String CARE_LEVEL_PLAN_WARNING_MESSAGE = "//div[@id='divValidationMessages']//div[contains(text(),'Care Level must be 2.5 or higher for Premium lines')]";
+    private final String ISDN_LABEL_UNDERCHARGES = "//div[@id='chargesSummaryPanel']//td[contains(text(),'ISDN30E')]";
+    private final String SNDDI_LABEL_UNDER_DIRINFO = "//b[contains(text(),'SNDDI - To be allocated')]";
+    private final String AUTOMATICALLY_ALLOCATED_TEXT_UNDER_LINNUM = "//div[contains(text(),'Automatically allocated')]";
+    private final String TEXT_ON_CHANGE_OF_ADDRESS_POPUP = "//div[@id='wlr3OrderDetailPopupDiv']//h3[contains(text(),'WLR3 Change Of Address Order')]";
+    private final String BUSINESS_CONTINUITY_LABEL_ON_THE_BUSINESS_CONTINUITY_POPUP = "//h4[contains(text(),'Business Continuity Alert!')]";
+    private final String YES_BUTTON_ON_POPUP = "//button[contains(text(),'Yes')]";
+    private final String BUSINESS_CONTINUITY_LABEL_ON_BUSINESS_CONTINUITY_CHECKBOX_POPUP = "//h3[contains(text(),'Business Continuity')]";
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
+    CommonMethods commonMethods = new CommonMethods();
 
     public void enterPhoneNumberAndPostCodeToInitiateTheTransfer(String number, String postCode) {
         utils.waitForElementVisible(By.id(SAVE));
@@ -143,8 +148,8 @@ public class WLR3_OrderDetails_Page {
     public void clickLineNumbering() throws InterruptedException {
         textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id(LINE_NUMBERING_SUMMARY_PANEL));
-        Thread.sleep(1000);
         try {
+            Thread.sleep(1000);
             utils.clickBtnWithWait(By.xpath(LINE_NUMBERING_BUTTON));
         } catch (Exception e) {
             Thread.sleep(1000);
@@ -164,6 +169,7 @@ public class WLR3_OrderDetails_Page {
         utils.clickBtn(By.xpath(APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE));
         utils.waitForElementVisible(By.xpath(TEXT_ON_APPOINTMENT_PAGE));
     }
+
 
     public void assertImportedLineWithChangeOfPostCodeAndAidOfGoldAddress(String importedNumber) throws InterruptedException {
         textOnWLR3OrderPage();
@@ -186,7 +192,7 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
 
-    public void textOnWLR3OrderPage() {
+    public void textOnWLR3OrderPage() throws InterruptedException {
         try {
             utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         } catch (Exception e) {
@@ -194,15 +200,13 @@ public class WLR3_OrderDetails_Page {
         }
     }
 
-    public void getToWLR3QuotePage() {
+    public void getToWLR3QuotePage() throws InterruptedException {
         utils.getOrdersPage();
-        utils.waitForElementVisible(By.xpath(ordersManagerPage.QUOTEID));
-        utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
-        utils.switchToNewWindow();
-        utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
-        utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
-        utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
-    }
+       ordersManagerPage.clickOnQuoteID();
+            utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
+            utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
+            utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+        }
 
 
     public void verifyOrderTypeTab() throws InterruptedException {
@@ -222,6 +226,7 @@ public class WLR3_OrderDetails_Page {
             utils.javaScriptExecutorClick(By.id(CANCEL));
         }
     }
+
     public void assertAppointmentInfo() {
         utils.waitForElementVisible(By.xpath(HAZARD_ASSERTION_TEXT));
         utils.waitForElementVisible(By.xpath(WARNING_ASSERTION_TEXT));
@@ -258,6 +263,7 @@ public class WLR3_OrderDetails_Page {
             utils.clickBtnWithWait(By.xpath(SITE_INFO_FOR_LINE_DECREASE));
         }
     }
+
     public void assertQuoteSummaryPageForAddAuxLine() {
         utils.waitForElementVisible(By.xpath(LINE_INFO_TAB));
         utils.waitForElementVisible(By.xpath(NETWORK_FEATURES_BUTTON));
@@ -272,7 +278,7 @@ public class WLR3_OrderDetails_Page {
         textOnWLR3OrderPage();
         utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
         utils.waitForElementVisible(By.id(EDIT_EMERGENCY_INFO_TAB));
-       // Thread.sleep(1000);
+        // Thread.sleep(1000);
         utils.clickBtn(By.id(EDIT_EMERGENCY_INFO_TAB));
         utils.sendText(By.id(EMERGENCY_INFO_TEXT_BOX), EMERGENCY_INFO_TEXT_BOX);
         utils.clickBtn(By.xpath(SAVE_EMERGENCY_INFO));
@@ -299,7 +305,7 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void assertLineCharges(String changedLine) {
-        utils.waitForElementVisible(By.xpath("//div[@id='chargesSummaryPanel']//td[contains(text(),'"+changedLine+"')]"));
+        utils.waitForElementVisible(By.xpath("//div[@id='chargesSummaryPanel']//td[contains(text(),'" + changedLine + "')]"));
     }
 
     public void assertAbsenceOfTerminationType(String terminationType) {
@@ -328,26 +334,84 @@ public class WLR3_OrderDetails_Page {
         utils.assertElementNotPresent(By.xpath("//ul[@id='directoryInformationNavigation']//a[contains(text(),'" + ntwrkFeature + "')]"));
 
     }
-    public void assertISDNNewProvideSummaryPage(String numberOfChannels,String ddiRange){
+
+    public void assertISDNNewProvideSummaryPage(String numberOfChannels, String ddiRange) {
         utils.waitForElementVisible(By.xpath(ISDN_LABEL_UNDERCHARGES));
         utils.waitForElementVisible(By.xpath(SNDDI_LABEL_UNDER_DIRINFO));
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+numberOfChannels+"')]"));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'" + numberOfChannels + "')]"));
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ALLOCATED_TEXT_UNDER_LINNUM));
-        utils.waitForElementVisible(By.xpath("//div[@id='lineNumberingSummaryPanel']//label[contains(text(),'DDI range of "+ddiRange+"')]"));
+        utils.waitForElementVisible(By.xpath("//div[@id='lineNumberingSummaryPanel']//label[contains(text(),'DDI range of " + ddiRange + "')]"));
     }
-    public void assertBusinessContinuity(){
+
+    public void assertBusinessContinuity() {
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Site Assurance Option 1')]"));
 
     }
-    public void assertLineNumberingForISDN(String action1,String action2){
-        utils.waitForElementVisible(By.xpath("//div[contains(text(),'"+action1+"')]"));
-        utils.waitForElementVisible(By.xpath("//div[contains(text(),'"+action2+"')]"));
+
+    public void assertLineNumberingForISDN(String action1, String action2) {
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'" + action1 + "')]"));
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'" + action2 + "')]"));
     }
+
     public void loadTabOnWLR3OrderSummaryPage() throws InterruptedException {
         utils.getOrdersPage();
         ordersManagerPage.clickOnQuoteID();
         utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
         utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
+    }
+
+    public void siteInfoValidationMessagesForISDN2OnOrderSummaryPage() {
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'You must specify a Floor for Digital products')]"));
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'You must specify a Room for Digital products')]"));
+    }
+
+    public void editTabsForISDN30AmendWithCustomerDelayReason() throws InterruptedException {
+        //appointment tab
+        utils.waitForElementVisible(By.xpath(APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE));
+        clickOnAppointment();
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath(commonMethods.CLOSE_POPUP));
+        //order type
+        utils.waitForElementVisible(By.xpath(ORDERTYPE_TAB));
+        verifyOrderTypeTab();
+
+        utils.assertElementNotPresent(By.xpath(SITE_INFORMATION_BUTTON));
+    }
+
+    public void editTabsForISDN30AmendOrder() {
+        utils.waitForElementVisible(By.xpath(APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE));
+        utils.waitForElementVisible(By.xpath(ORDERTYPE_TAB));
+        utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
+
+    }
+
+    public void cancelAmendOrder() throws InterruptedException {
+        utils.waitForElementVisible(By.id("CancelAmend"));
+        Thread.sleep(1000);
+        utils.clickBtn(By.id("CancelAmend"));
+        utils.waitForElementVisible(By.id("AmendOrder"));
+    }
+
+    public void textOnChangeOfAddressOrderPage() {
+        utils.waitForElementVisible(By.xpath(TEXT_ON_CHANGE_OF_ADDRESS_POPUP));
+    }
+
+    public void processBusinessContinuityAlert() {
+        utils.waitForElementVisible(By.xpath(BUSINESS_CONTINUITY_LABEL_ON_THE_BUSINESS_CONTINUITY_POPUP));
+        utils.clickBtn(By.xpath(YES_BUTTON_ON_POPUP));
+        utils.waitForElementVisible(By.xpath(BUSINESS_CONTINUITY_LABEL_ON_BUSINESS_CONTINUITY_CHECKBOX_POPUP));
+        utils.clickBtn(By.id("WLR3Order_site_assurance_option_1"));
+        utils.clickBtn(By.id(SAVE));
+    }
+
+    public void assertEditedChargesForISDN30Modify() {
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'£100.00')]"));
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'£200.00')]"));
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'Annual')]"));
+    }
+
+    public void postCodeTextForModifyOrder() {
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Existing Postcode')]"));
     }
 }
 

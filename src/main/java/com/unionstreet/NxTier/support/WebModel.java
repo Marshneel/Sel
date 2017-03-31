@@ -40,6 +40,7 @@ public class WebModel {
     private WLR3_ChangeOfLineTypeOrderPage wlr3_changeOfLineTypeOrderPage;
     private WLR3_Line_Information_Page wlr3_line_information_page;
     private WLR3_BusinessContinuityPage wlr3_businessContinuityPage;
+    private WLR3_Summary_Charges_Page wlr3_summary_charges_page;
 
 
     public WebModel() {
@@ -79,6 +80,7 @@ public class WebModel {
         wlr3_changeOfLineTypeOrderPage = new WLR3_ChangeOfLineTypeOrderPage();
         wlr3_line_information_page = new WLR3_Line_Information_Page();
         wlr3_businessContinuityPage = new WLR3_BusinessContinuityPage();
+        wlr3_summary_charges_page=new WLR3_Summary_Charges_Page();
 
     }
 
@@ -220,6 +222,10 @@ public class WebModel {
 
     public WLR3_BusinessContinuityPage getWlr3_businessContinuityPage() {
         return wlr3_businessContinuityPage;
+    }
+
+    public WLR3_Summary_Charges_Page getWlr3_summary_charges_page(){
+        return wlr3_summary_charges_page;
     }
 }
 

@@ -1,3 +1,4 @@
+com\unionstreet\NxTier\stepDefs\WLR3\NA108_WLR3_ISDN2_New_Provide_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA64_WLR3_Analogue_Line_Transfer_line_Numbering_StepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA101_WLR3_ISDN30_NewProvide_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs.class
@@ -8,7 +9,9 @@ com\unionstreet\NxTier\stepDefs\WLR3\NA94_WLR3_Add_Remove_Aux_line_stepDefs.clas
 com\unionstreet\NxTier\stepDefs\WLR3\NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA103_WLR3_Advanced_Line_Numbering_Options_ISDN30_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA87_WLR3_New_Provide_Analogue_Multiline_stepDefs.class
+com\unionstreet\NxTier\stepDefs\WLR3\NA107_WLR3_ISDN30_Amend_Order_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA51_ServiceDesignerApplication_Familiarise_stepDefs.class
+com\unionstreet\NxTier\stepDefs\WLR3\NA109_WLR3_ISDN2_Line_Suitability_DIalogue_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA45_Reseller_Login_stepDefs.class
 com\unionstreet\NxTier\stepDefs\smokePack\NxTier_smokePack_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA61_Process_FLow_Obtaining_Initial_information_stepdefs.class
@@ -17,6 +20,7 @@ com\unionstreet\NxTier\stepDefs\WLR3\NA53_laying_AddOnActivation_charge_forCP_Ag
 RunnerTest.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA88_WLR3_Modify_Order_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA91_WLR3_Cease_Order_stepDefs.class
+com\unionstreet\NxTier\stepDefs\WLR3\NA112_ISDN30_Modify_Order_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA97_WLR3_Change_Of_Address_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA99_WLR3_BatchTransfer_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA52_Accessing_controls_In_Services_with_different_permissions_CP_Agent_Reseller_stepDefs.class

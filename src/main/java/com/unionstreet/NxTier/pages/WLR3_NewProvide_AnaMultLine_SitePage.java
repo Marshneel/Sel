@@ -12,7 +12,6 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
     private final String SAVE_SERVICECHARGES_BUTTON = "//button[starts-with(@onclick,'saveWLR3Charges')]";
     private final String EMERGENCY_INFO_TEXTBOX = "EmergencyInfo";
     public final String TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO = "WLR3Order_contact_number";
-    private final String ANALOGUE_MULTILINE_INSTALLATION_CHARGE = "ChargeList_0__install_charge";
     private final String NEW_PROVIDE_SITEINFO_SCREEN = "NewProvideSiteInfoForm";
     private final String PHONE_NUMBER_MANDATORY_ERROR_MESSAGE = "//span[text()='Contact Telephone number is required']";
     private final String SITE_CONTACTS_TEXT="//legend[text()='Site Contact']";
@@ -21,7 +20,7 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
     ElementUtils utils = new ElementUtils();
     WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage = new WLR3_New_Provide_Analogue_Multiline_OrderPage();
-
+    WLR3_Summary_Charges_Page wlr3_summary_charges_page=new WLR3_Summary_Charges_Page();
 
     //populate and assert installation address
     public void zoomOutOnInstallationAddressUnderSITE() throws InterruptedException {
@@ -91,9 +90,15 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
             utils.javaScriptExecutorClick(By.xpath(EDIT_SERVICECHARGES_BUTTON));
         }
         utils.waitForElementVisible(By.xpath(SAVE_SERVICECHARGES_BUTTON));
-        utils.sendText(By.id(ANALOGUE_MULTILINE_INSTALLATION_CHARGE), "" + charges + "");
+        utils.sendText(By.id(wlr3_summary_charges_page.FIRST_ROW_CHARGE_FIELD_UNDER_SETUP), "" + charges + "");
         utils.clickBtn(By.xpath(SAVE_SERVICECHARGES_BUTTON));
         utils.waitForElementVisible(By.xpath("//td[text()='£" + charges + ".00']"));
 
+    }
+    public void assertAddressMatchErrorMessage(){
+        utils.waitForElementVisible(By.xpath("//span[text()='This order requires the address to match with Openreach records. Please select an address from the address search.']"));
+    }
+    public void assertLineSuitabilityMessage(){
+        utils.waitForElementVisible(By.xpath("//label[text()='Green - High likelihood of ISDN line being available']"));
     }
 }

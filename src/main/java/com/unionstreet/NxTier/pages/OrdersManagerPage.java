@@ -25,9 +25,9 @@ public class OrdersManagerPage {
     private final String ORDER_TASK = "//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]";
     private final String DONE_CHECKBOX = "//label[text()='Done']";
     private final String SUBMIT_DONE = DONE_CHECKBOX;
-    private final String CEASE_REASON="UnsolicitedCeaseDetail_CancelReason";
-    public final String TASK_POPUP="//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]";
-    public final String ORDERID_UNDER_TASK="//div[@id='tasksContentPanel']//a[contains(@href,'nxtiere2e/Orders/EditOrder')]";
+    private final String CEASE_REASON = "UnsolicitedCeaseDetail_CancelReason";
+    public final String TASK_POPUP = "//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]";
+    public final String ORDERID_UNDER_TASK = "//div[@id='tasksContentPanel']//a[contains(@href,'nxtiere2e/Orders/EditOrder')]";
 
     ElementUtils utils = new ElementUtils();
     WLR_and_NxTierServicesPage wlr_and_nxTierServicesPage = new WLR_and_NxTierServicesPage();
@@ -125,10 +125,6 @@ public class OrdersManagerPage {
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath(AGENT));
         utils.getOrdersPage();
-        try {
-            utils.checkAlert();
-        } catch (Exception e) {
-        }
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         Thread.sleep(1000);
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
@@ -197,36 +193,32 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
     }
 
-    public void clickOnQuoteID() throws InterruptedException {
+    public void tryClickingOnQuoteID() {
         try {
             utils.waitForElementVisible(By.xpath(QUOTEID));
             Thread.sleep(1000);
             utils.clickBtn(By.xpath(QUOTEID));
-            try {
-                utils.checkAlert();
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-            utils.switchToNewWindow();
+        } catch (Exception e) {
+            utils.checkAlert();
+        }
+    }
+
+    public void clickOnQuoteID() throws InterruptedException {
+        try {
+            tryClickingOnQuoteID();
         } catch (Exception e) {
             utils.getOrdersPage();
-            utils.waitForElementVisible(By.xpath(QUOTEID));
-            utils.clickBtn(By.xpath(QUOTEID));
-            try {
-                utils.checkAlert();
-            } catch (Exception ex) {
-            }
-            Thread.sleep(1000);
-            utils.switchToNewWindow();
+            tryClickingOnQuoteID();
         }
+        utils.switchToNewWindow();
     }
 
     public void savingQuoteAndExtractingOrderServiceID() throws InterruptedException {
         utils.switchToNewWindow();
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         try {
-            utils.checkAlert();
+            utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         } catch (Exception e) {
+            utils.checkAlert();
         }
         utils.waitForElementVisible(By.xpath(INVISIBLE_ORDER_SERVICESID));
         utils.getAttributeOfElement(By.xpath(INVISIBLE_ORDER_SERVICESID), "value");
@@ -282,21 +274,23 @@ public class OrdersManagerPage {
         utils.clickBtn(By.xpath(DONE_CHECKBOX));
         utils.clickBtn(By.xpath(SUBMIT_DONE));
     }
-    public void processCease(String company, String CLI){
+
+    public void processCease(String company, String CLI) {
         utils.getOrdersPage();
         utils.getOrdersPage();
         utils.waitForElementVisible(By.xpath(TASK_POPUP));
         utils.clickBtn(By.xpath(ORDERID_UNDER_TASK));
         utils.switchToNewWindow();
-        utils.waitForElementVisible(By.xpath("//a[text()='"+company+"']"));
-        utils.clickBtn(By.xpath("//a[text()='"+company+"']"));
-        utils.waitForElementVisible(By.xpath("//div[contains(text(),'"+CLI+"')]"));
-       utils.selectByIndex(By.id(CEASE_REASON),1);
+        utils.waitForElementVisible(By.xpath("//a[text()='" + company + "']"));
+        utils.clickBtn(By.xpath("//a[text()='" + company + "']"));
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'" + CLI + "')]"));
+        utils.selectByIndex(By.id(CEASE_REASON), 1);
         utils.clickBtn(By.id("saveBtn"));
     }
-    public void proofOfProcessedOrder(String order){
+
+    public void proofOfProcessedOrder(String order) {
         utils.getOrdersPage();
-        utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//td[contains(text(),'"+order+"')]"));
-        utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//td[contains(text(),'"+newBusinessCustomerPage.RanName+"')]"));
+        utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//td[contains(text(),'" + order + "')]"));
+        utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//td[contains(text(),'" + newBusinessCustomerPage.RanName + "')]"));
     }
 }

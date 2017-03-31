@@ -27,6 +27,7 @@ com\unionstreet\NxTier\pages\WLR3_NewProvide_AnaMultLine_ProvisionPage.class
 com\unionstreet\NxTier\pages\WLR_and_NxTierServicesPage.class
 com\unionstreet\NxTier\pages\SettingsPage.class
 com\unionstreet\NxTier\pages\WLR3_NetworkCallingFeaturesPage.class
+com\unionstreet\NxTier\pages\WLR3_Summary_Charges_Page.class
 com\unionstreet\NxTier\pages\WLR3_BatchTransferPage.class
 com\unionstreet\NxTier\pages\WLR3_DirectoryInformationPage.class
 com\unionstreet\NxTier\pages\AddSiteDetailsPage.class

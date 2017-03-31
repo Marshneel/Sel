@@ -22,7 +22,6 @@ public class EditOrderPage {
     private final String ORDER_ACKNOWLEDGED_TEXT_IN_NOTIFICATIONS = "//table[@id='orderHistory-table']//td[contains(text(),'Order Acknowledged')]";
     private final String ORDER_COMMITTED_TEXT_IN_NOTIFICATIONS = "//table[@id='orderHistory-table']//td[contains(text(),'Committed')]";
     private final String ORDER_COMPLETED_TEXT_IN_NOTIFICATIONS = "//table[@id='orderHistory-table']//td[contains(text(),'Order Completed')]";
-    private final String TEXT_ON_CHANGE_OF_ADDRESS_POPUP = "//div[@id='wlr3OrderDetailPopupDiv']//h3[contains(text(),'WLR3 Change Of Address Order')]";
     private final String LINE_TESTING_TEXT_ON_ORDERS_PAGE = "//div[@id='contentPanel']//td[contains(text(),'Line Testing')]";
     private final String ORDER_OWNER_DROPDOWN_ON_EDIT_ORDER_PAGE = "Order_owned_by_id";
     private final String SAVE_AND_SUBMIT_QUOTE = "//div[@id='buttonMenu']//span[contains(text(),'Save & Submit Order')]";
@@ -59,14 +58,13 @@ public class EditOrderPage {
         }
     }
 
-    public void assertInvalidQuoteBeforeSubmitting() {
+    public void assertInvalidQuoteBeforeSubmitting() throws InterruptedException {
         try {
             utils.waitForElementVisible(By.xpath(REDCROSS));
         } catch (Exception e) {
             utils.getOrdersPage();
             commonMethods.search(newBusinessCustomerPage.RanName);
-            utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
-            utils.switchToNewWindow();
+            ordersManagerPage.clickOnQuoteID();
             utils.waitForElementVisible(By.xpath(REDCROSS));
         }
     }
@@ -78,14 +76,13 @@ public class EditOrderPage {
         utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_MESSAGE));
     }
 
-    public void assertValidQuoteBeforeSubmitting() {
+    public void assertValidQuoteBeforeSubmitting() throws InterruptedException {
 
         try {
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         } catch (Exception e) {
             utils.getOrdersPage();
-            utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
-            utils.switchToNewWindow();
+            ordersManagerPage.clickOnQuoteID();
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         }
     }
@@ -104,10 +101,7 @@ public class EditOrderPage {
 
     public void assertCustomer_InternalTabsPresent() throws InterruptedException {
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        try {
-            utils.checkAlert();
-        } catch (Exception e) {
-        }
+        utils.checkAlert();
         utils.waitForElementVisible(By.id(CUSTOMER_RADIOBUTTON));
         utils.clickBtn(By.id("OrderPopup"));
         utils.clickBtnWithWait(By.id(CUSTOMER_RADIOBUTTON));
@@ -118,25 +112,15 @@ public class EditOrderPage {
 
     public void assertCustomer_InternalTabsNotPresent() {
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        try {
-            utils.checkAlert();
-        } catch (Exception e) {
-        }
+        utils.checkAlert();
         utils.assertElementNotPresent(By.id(CUSTOMER_RADIOBUTTON));
         utils.assertElementNotPresent(By.id(INTERNAL_RADIOBUTTON));
     }
 
     public void verifyOrderCompletion() throws InterruptedException {
         //load created quote
-        try {
-            utils.getOrdersPage();
-            ordersManagerPage.clickOnQuoteID();
-            try {
-                utils.checkAlert();
-            } catch (Exception e) {
-            }
-        } catch (Exception e) {
-        }
+        utils.getOrdersPage();
+        ordersManagerPage.clickOnQuoteID();
         // check for the green tick
         try {
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
@@ -162,14 +146,25 @@ public class EditOrderPage {
 
     }
 
-    public void amendOrder() throws InterruptedException {
+    public void getToAmendOrderButton() throws InterruptedException {
         utils.getOrdersPage();
         ordersManagerPage.clickOnQuoteID();
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
         utils.clickBtn(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
         utils.waitForElementVisible(By.id(AMEND_ORDER_BUTTON));
         utils.clickBtn(By.id(AMEND_ORDER_BUTTON));
+    }
+
+    public void startOrderAmend() throws InterruptedException {
+        getToAmendOrderButton();
         utils.selectByIndex(By.id(REASON_FOR_AMENDING_ORDER), 1);
+        Thread.sleep(1000);
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
+
+    public void startAmendWithCustomerDelayReason() throws InterruptedException {
+        getToAmendOrderButton();
+        utils.selectByVisibleText(By.id(REASON_FOR_AMENDING_ORDER), "In Response To Customer Delay");
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
@@ -199,6 +194,7 @@ public class EditOrderPage {
         utils.waitForElementVisible(By.xpath(ORDER_COMMITTED_TEXT_IN_NOTIFICATIONS));
         utils.waitForElementVisible(By.xpath(ORDER_COMPLETED_TEXT_IN_NOTIFICATIONS));
     }
+
     public void assertCeaseIsCancelled() throws InterruptedException {
         utils.getOrdersPage();
         utils.waitForElementVisible(By.xpath(ordersManagerPage.TASK_POPUP));
@@ -208,20 +204,15 @@ public class EditOrderPage {
         utils.waitForElementVisible(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
         utils.clickBtn(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'End User not moving')]"));
-
-    }
-
-    public void textOnChangeOfAddressOrderPage() {
-        utils.waitForElementVisible(By.xpath(TEXT_ON_CHANGE_OF_ADDRESS_POPUP));
     }
 
     public void pushOpenReachNotificationsForSubmittedOrder(String CLI, String addressKey) throws Exception {
         RanNumberForSubmission = utils.randomNumber();
         currentDate = utils.getCurrentDate();
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"Order Pending\" +0 "+RanNumberForSubmission+ "");
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Acknowledged\" +0 "+RanNumberForSubmission+" notes");
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 "+RanNumberForSubmission+" notes "+currentDate+" "+CLI+" "+addressKey+" "+'"'+'"');
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 "+RanNumberForSubmission+" notes "+currentDate+" "+CLI+" "+addressKey+" "+'"'+'"');
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"Order Pending\" +0 " + RanNumberForSubmission + "");
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Acknowledged\" +0 " + RanNumberForSubmission + " notes");
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 " + RanNumberForSubmission + " notes " + currentDate + " " + CLI + " " + addressKey + " " + '"' + '"');
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 " + RanNumberForSubmission + " notes " + currentDate + " " + CLI + " " + addressKey + " " + '"' + '"');
     }
 
     public void acknowledgeNotificationForUCease(String CLI) throws Exception {
@@ -229,9 +220,10 @@ public class EditOrderPage {
         utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Acknowledged\" +0 " + RanNumberForCancellation + " DMA " + CLI + " CP Requested O2 " + '"' + '"');
         System.out.println(RanNumberForCancellation);
     }
+
     public void commitAndCompletedNotificationForUCease(String CLI) throws Exception {
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Committed\" +0 "+RanNumberForCancellation+" DMA "+CLI+" CP Requested O2 "+'"'+'"'+" "+currentDate);
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Completed\" +0 "+RanNumberForCancellation+" DMA "+CLI+" CP Requested O2 "+'"'+'"'+" "+currentDate);
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Committed\" +0 " + RanNumberForCancellation + " DMA " + CLI + " CP Requested O2 " + '"' + '"' + " " + currentDate);
+        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Completed\" +0 " + RanNumberForCancellation + " DMA " + CLI + " CP Requested O2 " + '"' + '"' + " " + currentDate);
     }
 
     public void submitBatchOrderBeforeOIDsGenerated() throws InterruptedException {
@@ -247,13 +239,5 @@ public class EditOrderPage {
         utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_ERROR_MESSAGE));
     }
 
-    public void processBusinessContinuityAlert() {
-        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Business Continuity Alert!')]"));
-        utils.clickBtn(By.xpath("//button[contains(text(),'Yes')]"));
-        utils.waitForElementVisible(By.xpath("//h3[contains(text(),'Business Continuity')]"));
-        utils.clickBtn(By.id("WLR3Order_site_assurance_option_1"));
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
 
-
-    }
 }
