@@ -117,7 +117,7 @@ public void clickSiteInfo(){
             utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         }
     }
-    public void populateFloorAndRoomForNewProvideIDSN2(){
+    public void populateFloorAndRoomForNewProvideIDSN2() throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
         clickSiteInfo();
         utils.sendText(By.id("WLR3Order_floor"),"floor");

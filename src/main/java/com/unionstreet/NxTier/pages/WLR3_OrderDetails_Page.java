@@ -192,7 +192,7 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
 
-    public void textOnWLR3OrderPage() {
+    public void textOnWLR3OrderPage() throws InterruptedException {
         try {
             utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         } catch (Exception e) {
@@ -200,22 +200,14 @@ public class WLR3_OrderDetails_Page {
         }
     }
 
-    public void getToWLR3QuotePage() {
+    public void getToWLR3QuotePage() throws InterruptedException {
         utils.getOrdersPage();
-        try {
-            utils.waitForElementVisible(By.xpath(ordersManagerPage.QUOTEID));
-            utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
-        } catch (Exception e) {
-            try {
-                utils.checkAlert();
-            } catch (Exception e1) {
-            }
-            utils.switchToNewWindow();
+       ordersManagerPage.clickOnQuoteID();
             utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
             utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
             utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         }
-    }
+
 
     public void verifyOrderTypeTab() throws InterruptedException {
         Thread.sleep(1000);

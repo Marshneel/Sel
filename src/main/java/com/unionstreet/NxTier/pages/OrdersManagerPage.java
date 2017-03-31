@@ -197,32 +197,24 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
     }
 
-    public void clickOnQuoteID() throws InterruptedException {
+    public void tryClickingOnQuoteID() {
         try {
             utils.waitForElementVisible(By.xpath(QUOTEID));
             Thread.sleep(1000);
             utils.clickBtn(By.xpath(QUOTEID));
-            try {
-                utils.checkAlert();
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-            utils.switchToNewWindow();
+        } catch (Exception e) {
+            utils.checkAlert();
+        }
+    }
+
+    public void clickOnQuoteID() throws InterruptedException {
+        try {
+            tryClickingOnQuoteID();
         } catch (Exception e) {
             utils.getOrdersPage();
-            utils.waitForElementVisible(By.xpath(QUOTEID));
-
-            try {
-                utils.clickBtn(By.xpath(QUOTEID));
-                try {
-                    utils.checkAlert();
-                } catch (Exception e1) {
-                }
-            } catch (Exception ex) {
-            }
-            Thread.sleep(1000);
-            utils.switchToNewWindow();
+            tryClickingOnQuoteID();
         }
+        utils.switchToNewWindow();
     }
 
     public void savingQuoteAndExtractingOrderServiceID() throws InterruptedException {

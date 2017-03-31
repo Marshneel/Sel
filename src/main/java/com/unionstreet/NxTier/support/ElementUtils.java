@@ -328,7 +328,7 @@ public class ElementUtils {
     }
 
     public void getOrdersPage() {
-        driver.get("http://test01-web01/nxtiere2e/orders/ordersmanager");
+       try{ driver.get("http://test01-web01/nxtiere2e/orders/ordersmanager");}catch (Exception e){checkAlert();}
     }
 
     public void getLoginPage() {

@@ -116,7 +116,7 @@ public class WLR3_LineNumberingPage {
     }
 
 
-    public void lineNumberingAutomaticallyAssignNumber(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
+    public void lineNumberingAutomaticallyAssignNumber(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
         try {
             utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));

@@ -58,21 +58,13 @@ public class EditOrderPage {
         }
     }
 
-    public void assertInvalidQuoteBeforeSubmitting() {
+    public void assertInvalidQuoteBeforeSubmitting() throws InterruptedException {
         try {
             utils.waitForElementVisible(By.xpath(REDCROSS));
         } catch (Exception e) {
             utils.getOrdersPage();
             commonMethods.search(newBusinessCustomerPage.RanName);
-            try {
-                utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
-            } catch (Exception e1) {
-                try {
-                    utils.checkAlert();
-                } catch (Exception e2) {
-                }
-            }
-            utils.switchToNewWindow();
+            ordersManagerPage.clickOnQuoteID();
             utils.waitForElementVisible(By.xpath(REDCROSS));
         }
     }
@@ -84,21 +76,13 @@ public class EditOrderPage {
         utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_MESSAGE));
     }
 
-    public void assertValidQuoteBeforeSubmitting() {
+    public void assertValidQuoteBeforeSubmitting() throws InterruptedException {
 
         try {
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         } catch (Exception e) {
             utils.getOrdersPage();
-            try {
-                utils.clickBtn(By.xpath(ordersManagerPage.QUOTEID));
-            } catch (Exception e1) {
-                try {
-                    utils.checkAlert();
-                } catch (Exception e2) {
-                }
-            }
-            utils.switchToNewWindow();
+            ordersManagerPage.clickOnQuoteID();
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         }
     }
