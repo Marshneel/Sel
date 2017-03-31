@@ -1,4 +1,4 @@
-@NA108
+@E2ETests
 Feature: NA107 - ISDN30 amend
   Scenario: amend a submitted ISDN30 new provide order
     Given I am logged in as CP

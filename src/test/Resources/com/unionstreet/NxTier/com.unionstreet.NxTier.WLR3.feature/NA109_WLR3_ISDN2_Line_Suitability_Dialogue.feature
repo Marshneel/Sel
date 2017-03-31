@@ -1,4 +1,4 @@
-@NA108
+@E2ETests
 Feature: NA109 - Scenarios to check line suitability dialogue for ISDN2
 
   Scenario: verify the absence and presence of the line suitability dialogue without and with addressKey assigned respectively, under siteDetails

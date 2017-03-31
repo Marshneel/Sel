@@ -27,7 +27,7 @@ public class WLR3_Line_Information_Page {
         utils.waitForElementVisible(By.id(SERVICE_MAINTENANCE_TAB));
         utils.selectByVisibleText(By.id(SERVICE_MAINTENANCE_TAB), level);
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+       utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath("//div[@id='lineInformationSummaryPanel']//p[contains(text(),'" + level_no + "')]"));
     }
 

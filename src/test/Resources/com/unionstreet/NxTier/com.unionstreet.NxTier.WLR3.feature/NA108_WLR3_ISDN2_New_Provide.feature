@@ -1,4 +1,4 @@
-@NA108
+@E2ETests
 Feature: NA108 - Creation of a new ISDN2-Standard line
 
   Scenario: create a new ISND2 standard line

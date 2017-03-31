@@ -1,4 +1,4 @@
-@NA108
+@E2ETests
 Feature: NA112 - modify an ISDN30 line
   Scenario: initiate a modify order on an ISDN30 line that you own
     Given I am logged in as CP
