@@ -87,7 +87,7 @@ public class CompanyMenuPage {
     }
 
     public void assertNewSite() {
-        driver.switchTo().window(utils.parentWindow);
+        utils.parentWindow;
         utils.verifyStringMatch(By.linkText(newBusinessCustomerPage.RanName + RanNumber), newBusinessCustomerPage.RanName + RanNumber);
     }
 
