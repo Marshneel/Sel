@@ -45,10 +45,12 @@ public class OrdersManagerPage {
 
         try {
             utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
+           Thread.sleep(1000);
             utils.jumpToPopUpWindow(By.xpath(CREATEQUOTE_BUTTON));
         } catch (Exception e) {
             utils.getOrdersPage();
             utils.waitForElementVisible(By.xpath(CREATEQUOTE_BUTTON));
+            Thread.sleep(1000);
             utils.jumpToPopUpWindow(By.xpath(CREATEQUOTE_BUTTON));
         }
     }

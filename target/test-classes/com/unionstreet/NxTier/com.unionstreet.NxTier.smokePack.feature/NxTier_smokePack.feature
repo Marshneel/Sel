@@ -20,12 +20,12 @@ Feature: SmokePack - Creating new business customer and assigning all the requir
     When I access add new business customer page
     And  Provide all the required info
     Then A new customer should be successfully created
-@test
-  Scenario: Creating a sub-site for a newly created customer
-    Given I am logged in as an admin
-    And I have added a new business customer
-    When I access Company Sites under the company menu and provide all the required info
-    Then A new site should appear under the respective company's menu
+
+#  Scenario: Creating a sub-site for a newly created customer
+#    Given I am logged in as an admin
+#    And I have added a new business customer
+#    When I access Company Sites under the company menu and provide all the required info
+#    Then A new site should appear under the respective company's menu
 
   Scenario: Adding invoice details and billing information to a newly created customer
     Given I am logged in as an admin
