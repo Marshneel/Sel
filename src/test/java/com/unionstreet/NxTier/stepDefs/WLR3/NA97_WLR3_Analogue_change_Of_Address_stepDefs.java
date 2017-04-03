@@ -11,7 +11,7 @@ import java.sql.SQLException;
 /**
  * Created by RajeshG on 13/02/2017.
  */
-public class NA97_WLR3_Change_Of_Address_stepDefs {
+public class NA97_WLR3_Analogue_change_Of_Address_stepDefs {
 
     WebModel webModel = new WebModel();
 

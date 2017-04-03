@@ -8,10 +8,10 @@ import cucumber.api.java.en.When;
 /**
  * Created by RajeshG on 27/03/2017.
  */
-public class NA107_WLR3_ISDN30_Amend_Order_stepDefs {
+public class NA107_ISDN30_Amend_stepDefs {
 
     WebModel webModel=new WebModel();
-    NA88_WLR3_Modify_Order_stepDefs na88=new NA88_WLR3_Modify_Order_stepDefs();
+    NA88_WLR3_Analogue_Modify_stepDefs na88=new NA88_WLR3_Analogue_Modify_stepDefs();
 
     @And("^there is an ISDN(\\d+) new provide order already submitted and in processing stage$")
     public void thereIsAnISDNNewProvideOrderAlreadySubmittedAndInProcessingStage(int arg0) throws InterruptedException {

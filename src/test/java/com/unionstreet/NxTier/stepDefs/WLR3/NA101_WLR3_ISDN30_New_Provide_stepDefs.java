@@ -7,7 +7,7 @@ import cucumber.api.java.en.When;
 /**
  * Created by RajeshG on 28/02/2017.
  */
-public class NA101_WLR3_ISDN30_NewProvide_stepDefs {
+public class NA101_WLR3_ISDN30_New_Provide_stepDefs {
     WebModel webModel = new WebModel();
 
     @When("^I initiate a new provide ISDN line order$")

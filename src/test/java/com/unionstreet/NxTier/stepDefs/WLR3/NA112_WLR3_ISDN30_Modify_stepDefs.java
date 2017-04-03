@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * Created by RajeshG on 28/03/2017.
  */
 
-public class NA112_ISDN30_Modify_Order_stepDefs {
+public class NA112_WLR3_ISDN30_Modify_stepDefs {
     WebModel webModel = new WebModel();
 
     @When("^I initiate a modify order on an ISDN(\\d+) line$")

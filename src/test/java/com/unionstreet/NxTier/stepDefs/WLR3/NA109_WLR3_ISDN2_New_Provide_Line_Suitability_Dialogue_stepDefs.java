@@ -11,7 +11,7 @@ import java.sql.SQLException;
 /**
  * Created by RajeshG on 27/03/2017.
  */
-public class NA109_WLR3_ISDN2_Line_Suitability_DIalogue_stepDefs {
+public class NA109_WLR3_ISDN2_New_Provide_Line_Suitability_Dialogue_stepDefs {
     WebModel webModel=new WebModel();
 
     @When("^I initiate any of the ISDN(\\d+) new provide without addressKey$")

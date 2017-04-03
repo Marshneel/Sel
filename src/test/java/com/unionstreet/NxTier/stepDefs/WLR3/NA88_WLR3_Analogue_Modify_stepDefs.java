@@ -8,7 +8,7 @@ import cucumber.api.java.en.When;
 /**
  * Created by RajeshG on 26/01/2017.
  */
-public class NA88_WLR3_Modify_Order_stepDefs {
+public class NA88_WLR3_Analogue_Modify_stepDefs {
 
     WebModel webModel = new WebModel();
     NA44_Agent_Login_stepDefs na44_agent_login_stepDefs = new NA44_Agent_Login_stepDefs();

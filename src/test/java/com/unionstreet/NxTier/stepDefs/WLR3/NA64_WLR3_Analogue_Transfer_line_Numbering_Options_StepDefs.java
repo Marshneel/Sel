@@ -11,7 +11,7 @@ import java.sql.SQLException;
 /**
  * Created by rajeshg on 26/10/2016.
  */
-public class NA64_WLR3_Analogue_Line_Transfer_line_Numbering_StepDefs {
+public class NA64_WLR3_Analogue_Transfer_line_Numbering_Options_StepDefs {
     WebModel webModel = new WebModel();
 
 

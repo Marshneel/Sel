@@ -8,7 +8,7 @@ import cucumber.api.java.en.When;
 /**
  * Created by RajeshG on 13/01/2017.
  */
-public class NA87_WLR3_New_Provide_Analogue_Multiline_stepDefs {
+public class NA87_WLR3_Analogue_multiline_New_provide_stepDefs {
 
     WebModel webModel = new WebModel();
 
