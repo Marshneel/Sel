@@ -7,7 +7,7 @@ import cucumber.api.java.en.When;
 /**
  * Created by RajeshG on 10/03/2017.
  */
-public class NA103_WLR3_Advanced_Line_Numbering_Options_ISDN30_stepDefs {
+public class NA103_WLR3_ISDN30_New_Provide_Advanced_LIne_Numbering_Options_stepDefs {
     WebModel webModel=new WebModel();
 
     @When("^I initiate a new provide ISDN line order and navigate to advanced line numbering options$")

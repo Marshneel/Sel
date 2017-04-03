@@ -7,7 +7,7 @@ import cucumber.api.java.en.When;
 /**
  * Created by RajeshG on 24/02/2017.
  */
-public class NA100_Change_Of_LineType_Order_stepDefs {
+public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
     WebModel webModel=new WebModel();
 
     @When("^I initiate a change of line from basic single to premium single$")

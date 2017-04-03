@@ -10,7 +10,7 @@ import cucumber.api.java.en.When;
  */
 
 
-public class NA98_WLR3_AmendOrder_stepDefs {
+public class NA98_WLR3_Analogue_Amend_stepDefs {
     WebModel webModel = new WebModel();
 
 

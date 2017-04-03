@@ -8,7 +8,7 @@ import cucumber.api.java.en.When;
 /**
  * Created by RajeshG on 03/02/2017.
  */
-public class NA94_WLR3_Add_Remove_Aux_line_stepDefs {
+public class NA94_WLR3_Analogue_Add_Remove_Aux_line_stepDefs {
 
     WebModel webModel = new WebModel();
 

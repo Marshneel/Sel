@@ -7,7 +7,7 @@ import cucumber.api.java.en.When;
 /**
  * Created by RajeshG on 17/02/2017.
  */
-public class NA99_WLR3_BatchTransfer_stepDefs {
+public class NA99_WLR3_Analogue_Batch_Transfer_stepDefs {
     WebModel webModel=new WebModel();
 
     @When("^I initiate a batch transfer and submit it withOut selecting the order owner$")
