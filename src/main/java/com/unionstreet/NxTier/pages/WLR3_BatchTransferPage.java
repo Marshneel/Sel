@@ -48,11 +48,12 @@ public class WLR3_BatchTransferPage {
        utils.clickBtn(By.id("FileUpload"));
         StringSelection ss=new StringSelection("C:\\CSV files\\"+path+"");
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss,null);
-       Thread.sleep(5000);
+        Thread.sleep(5000);
         Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_ENTER);
         robot.keyRelease(KeyEvent.VK_ENTER);
         robot.keyPress(KeyEvent.VK_CONTROL);
+        Thread.sleep(5000);
         robot.keyPress(KeyEvent.VK_V);
         robot.keyRelease(KeyEvent.VK_V);
         robot.keyRelease(KeyEvent.VK_CONTROL);
