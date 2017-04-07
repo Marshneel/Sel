@@ -3,6 +3,10 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+
 /**
  * Created by RajeshG on 17/02/2017.
  */
@@ -34,6 +38,33 @@ public class WLR3_BatchTransferPage {
         utils.waitForElementVisible(By.xpath("//input[@id='AssettList_0__Postcode'][@value='"+postCode+"']"));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.xpath(ADD_TO_BATCH_BUTTON));
+    }
+    public void loadCSVFile(String path) throws InterruptedException, AWTException {
+        utils.waitForElementVisible(By.xpath(TEXT_ON_BATCH_ORDER_POPUP));
+        utils.waitForElementVisible(By.id("FileUpload"));
+       utils.clickBtn(By.id("FileUpload"));
+        Thread.sleep(5000);
+        StringSelection ss=new StringSelection("C:\\CSV files\\"+path+"");
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss,null);
+        Robot robot=new Robot();
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+Thread.sleep(5000);
+
+        utils.waitForElementVisible(By.xpath("//button[contains(@onclick,'return wlr3BatchTransferFeatures.ValidateUpload();')]"));
+        utils.clickBtn(By.xpath("//button[contains(@onclick,'return wlr3BatchTransferFeatures.ValidateUpload();')]"));}
+     public void assertNoErrorUponImport(){
+       utils.waitForElementVisible(By.xpath("//div[@id='assettlistmessagelist'][@style='display:none;']"));
+    }
+    public void assertErrorMessageUponUploadingCSVfileWithOutCLI(){
+        utils.waitForElementVisible(By.xpath("//p[contains(text(),'Telephone Number cannot be empty')]"));
+        utils.assertElementNotPresent(By.xpath("//div[@id='assettlistmessagelist'][@style='display:none;']"));
     }
 
 

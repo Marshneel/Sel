@@ -1,0 +1,4 @@
+cli,postcode,site,emergency info
+01202300908,LU1 1DQ,vodafone,test
+02012345678,LU1 1DQ,vodafone,test
+
