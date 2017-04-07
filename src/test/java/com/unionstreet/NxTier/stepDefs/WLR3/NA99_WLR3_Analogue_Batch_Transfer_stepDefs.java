@@ -5,6 +5,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 import java.awt.*;
+import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
 
 /**
  * Created by RajeshG on 17/02/2017.
@@ -27,7 +29,8 @@ public class NA99_WLR3_Analogue_Batch_Transfer_stepDefs {
     @When("^I initiate a batch transfer and enter the CLIs with a happy path CSV file$")
     public void iInitiateABatchTransferAndEnterTheCLIsWithAHappyPathCSVFile() throws Throwable {
         webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
-        webModel.getWlr3_batchTransferPage().loadCSVFile("happyPathcsvFile.txt");
+        webModel.getWlr3_batchTransferPage().
+        loadCSVFile("happyPathcsvFile.txt");
 
 }
 
@@ -47,5 +50,27 @@ public class NA99_WLR3_Analogue_Batch_Transfer_stepDefs {
         webModel.getWlr3_batchTransferPage().assertErrorMessageUponUploadingCSVfileWithOutCLI();
 
 
+    }
+
+    @When("^I initiate a batch order and upload a csv file with populate missing PC and EI box checked$")
+    public void iInitiateABatchOrderAndUploadACsvFileWithPopulateMissingPCAndEIBoxChecked() throws AWTException, InterruptedException {
+        webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
+        webModel.getWlr3_batchTransferPage().loadCSVFile("nopostCodeAndNoEIcsvFile.txt");
+
+    }
+
+    @Then("^An error stating the missing parameters is displayed$")
+    public void anErrorStatingTheMissingParametersIsDisplayed()  {
+        webModel.getWlr3_batchTransferPage().assertErrorMessageForPostCodeAndEmergencyInfo();
+
+    }
+
+    @When("^I upload the file with populate missing postCode and emergencyInfo checked in$")
+    public void iUploadTheFileWithPopulateMissingPostCodeAndEmergencyInfoCheckedIn() throws InterruptedException, AWTException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+       webModel.getWlr3_batchTransferPage().insertPostCodeInToSite();
+        webModel.getEditOrderPage().getToAddServicePage();
+        webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
+        webModel.getWlr3_batchTransferPage().checkPopulateMissingPostCodeAndEmergencyInfo();
+        webModel.getWlr3_batchTransferPage().loadCSVFile("nopostCodeAndNoEIcsvFile.txt");
     }
 }

@@ -1,3 +1,4 @@
+
 @smokePack
 Feature: SmokePack - Creating new business customer and assigning all the required inputs to generate an invoice bill
 
