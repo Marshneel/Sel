@@ -43,6 +43,9 @@ public class ElementUtils {
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
         return wait;
     }
+    public void findFieldAndSendKeys(By by, String filePath){
+        driver.findElement(by).sendKeys(filePath);
+    }
 
     //method to find the element, clear the box if needed and send text
     public void sendText(By by, String txt) {

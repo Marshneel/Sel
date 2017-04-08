@@ -4,8 +4,6 @@ import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
 import java.awt.*;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
@@ -45,21 +43,7 @@ public class WLR3_BatchTransferPage {
     public void loadCSVFile(String path) throws InterruptedException, AWTException {
         utils.waitForElementVisible(By.xpath(TEXT_ON_BATCH_ORDER_POPUP));
         utils.waitForElementVisible(By.id("FileUpload"));
-       utils.clickBtn(By.id("FileUpload"));
-        StringSelection ss=new StringSelection("C:\\CSV files\\"+path+"");
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss,null);
-        Thread.sleep(5000);
-        Robot robot = new Robot();
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
-        robot.keyPress(KeyEvent.VK_CONTROL);
-        Thread.sleep(5000);
-        robot.keyPress(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
-        Thread.sleep(5000);
+        utils.findFieldAndSendKeys(By.id("FileUpload"),"C:\\CSV files\\"+path+"");
         utils.waitForElementVisible(By.xpath("//button[contains(@onclick,'return wlr3BatchTransferFeatures.ValidateUpload();')]"));
         utils.clickBtn(By.xpath("//button[contains(@onclick,'return wlr3BatchTransferFeatures.ValidateUpload();')]"));}
 
