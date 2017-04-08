@@ -1,4 +1,4 @@
-@test
+ @test
 Feature: NA99 - create a batch order and submit it without completion
 
   Scenario: submit a batch order with out generating OIDs
