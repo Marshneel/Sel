@@ -40,7 +40,7 @@ public class WLR3_BatchTransferPage {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.xpath(ADD_TO_BATCH_BUTTON));
     }
-    public void loadCSVFile(String path) throws InterruptedException, AWTException {
+    public void loadTXTFile(String path) throws InterruptedException, AWTException {
         utils.waitForElementVisible(By.xpath(TEXT_ON_BATCH_ORDER_POPUP));
         utils.waitForElementVisible(By.id("FileUpload"));
         utils.findFieldAndSendKeys(By.id("FileUpload"),"C:\\CSV files\\"+path+"");
@@ -51,7 +51,7 @@ public class WLR3_BatchTransferPage {
         utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Batch to be transferred')]"));
        utils.waitForElementVisible(By.xpath("//div[@id='assettlistmessagelist'][@style='display:none;']"));
     }
-    public void assertErrorMessageUponUploadingCSVfileWithOutCLI(){
+    public void assertErrorMessageUponUploadingTXTfileWithOutCLI(){
         utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Batch to be transferred')]"));
         utils.waitForElementVisible(By.xpath("//p[contains(text(),'Telephone Number cannot be empty')]"));
         utils.assertElementNotPresent(By.xpath("//div[@id='assettlistmessagelist'][@style='display:none;']"));

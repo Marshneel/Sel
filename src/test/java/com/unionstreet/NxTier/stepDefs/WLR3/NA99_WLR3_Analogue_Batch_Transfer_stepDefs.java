@@ -26,11 +26,10 @@ public class NA99_WLR3_Analogue_Batch_Transfer_stepDefs {
         webModel.getEditOrderPage().errorMessageWhenOrderSubmittedWithOutOIDs();
     }
 
-    @When("^I initiate a batch transfer and enter the CLIs with a happy path CSV file$")
-    public void iInitiateABatchTransferAndEnterTheCLIsWithAHappyPathCSVFile() throws Throwable {
+    @When("^I initiate a batch transfer and enter the CLIs with a happy path TXT file$")
+    public void iInitiateABatchTransferAndEnterTheCLIsWithAHappyPathTXTFile() throws Throwable {
         webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
-        webModel.getWlr3_batchTransferPage().
-        loadCSVFile("happyPathcsvFile.txt");
+        webModel.getWlr3_batchTransferPage().loadTXTFile("happyPathTXTFile.txt");
 
 }
 
@@ -39,23 +38,23 @@ public class NA99_WLR3_Analogue_Batch_Transfer_stepDefs {
         webModel.getWlr3_batchTransferPage().assertNoErrorUponImport();
     }
 
-    @When("^I initiate a batch transfer and upload a csv file that has no CLI$")
-    public void iInitiateABatchTransferAndUploadACsvFileThatHasNoCLI() throws AWTException, InterruptedException {
+    @When("^I initiate a batch transfer and upload a TXT file that has no CLI$")
+    public void iInitiateABatchTransferAndUploadATXTFileThatHasNoCLI() throws AWTException, InterruptedException {
         webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
-        webModel.getWlr3_batchTransferPage().loadCSVFile("noCLIcsvFile.txt");
+        webModel.getWlr3_batchTransferPage().loadTXTFile("noCLITXTFile.txt");
     }
 
     @Then("^an error list message should be thrown$")
     public void anErrorListMessageShouldBeThrown()  {
-        webModel.getWlr3_batchTransferPage().assertErrorMessageUponUploadingCSVfileWithOutCLI();
+        webModel.getWlr3_batchTransferPage().assertErrorMessageUponUploadingTXTfileWithOutCLI();
 
 
     }
 
-    @When("^I initiate a batch order and upload a csv file with populate missing PC and EI box checked$")
-    public void iInitiateABatchOrderAndUploadACsvFileWithPopulateMissingPCAndEIBoxChecked() throws AWTException, InterruptedException {
+    @When("^I initiate a batch order and upload a TXT file with populate missing PC and EI box checked$")
+    public void iInitiateABatchOrderAndUploadATXTFileWithPopulateMissingPCAndEIBoxChecked() throws AWTException, InterruptedException {
         webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
-        webModel.getWlr3_batchTransferPage().loadCSVFile("nopostCodeAndNoEIcsvFile.txt");
+        webModel.getWlr3_batchTransferPage().loadTXTFile("nopostCodeAndNoEITXTFile.txt");
 
     }
 
@@ -71,6 +70,6 @@ public class NA99_WLR3_Analogue_Batch_Transfer_stepDefs {
         webModel.getEditOrderPage().getToAddServicePage();
         webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
         webModel.getWlr3_batchTransferPage().checkPopulateMissingPostCodeAndEmergencyInfo();
-        webModel.getWlr3_batchTransferPage().loadCSVFile("nopostCodeAndNoEIcsvFile.txt");
+        webModel.getWlr3_batchTransferPage().loadTXTFile("nopostCodeAndNoEITXTFile.txt");
     }
 }
