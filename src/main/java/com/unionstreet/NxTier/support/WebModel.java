@@ -85,7 +85,7 @@ public class WebModel {
     }
 
     public ElementUtils getUtils() {
-        return utils;
+        return utils ;
     }
 
     public LoginPage getLoginPage() {

@@ -263,13 +263,23 @@ public class WLR3_LineNumberingPage {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
 Thread.sleep(1000);
         utils.assertElementNotPresent(By.xpath("//b[text()='SNDDI - "+number3+"']"));
-
-
-
-
-
-
-
-
+    }
+    public void validatePreviousNumberManagementOptionsInModifyOrder(String selectTypeOfForward, String forwardToCLI){
+        utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
+        utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
+        utils.waitForElementVisible(By.xpath("//label[text()[contains(.,'"+selectTypeOfForward+"')]]"));
+        utils.clickBtn(By.xpath("//label[text()[contains(.,'"+selectTypeOfForward+"')]]"));
+        utils.waitForElementVisible(By.id("WLR3Order_ForwardedOrRedirectedTo"));
+        utils.sendText(By.id("WLR3Order_ForwardedOrRedirectedTo"),""+forwardToCLI+"");
+       utils.waitForElementVisible(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
+        utils.clickBtn(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
+    }
+    public void takeNumberFromAnotherWorkingLine(){
+        utils.waitForElementVisible(By.xpath("//a[contains(@href,'#default-tab-Take_from_another_working_line')]"));
+        utils.clickBtn(By.xpath("//a[contains(@href,'#default-tab-Take_from_another_working_line')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'Take Number')]"));
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'Please specify the number to take over.')]"));
+        utils.waitForElementVisible(By.xpath(""));
     }
 }
+

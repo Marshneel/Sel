@@ -45,6 +45,12 @@ public class EditOrderPage {
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
+    public void getToAddServicePage() throws InterruptedException {
+        utils.getOrdersPage();
+        ordersManagerPage.clickOnQuoteID();
+    }
+
+
     public void clickAddProductsAndServicesButton() throws InterruptedException {
         try {
             utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
