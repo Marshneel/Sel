@@ -76,10 +76,7 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void assertAddress(String roadName, String premiseName, String subpremiseName, String premiseNumber) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//tr[@id='address_0']//td[contains(text(),'" + premiseName + "')]"));
-        utils.waitForElementVisible(By.xpath("//tr[@id='address_0']//td[contains(text(),'" + subpremiseName + "')]"));
-        utils.waitForElementVisible(By.xpath("//tr[@id='address_0']//td[contains(text(),'" + premiseNumber + "')]"));
-        utils.waitForElementVisible(By.xpath("//tr[@id='address_0']//td[contains(text(),'" + roadName + "')]"));
+       utils.waitForElementVisible(By.xpath("//p[contains(text(),'"+subpremiseName+", "+premiseName+", "+premiseNumber+" "+roadName+", Luton, LU1 1DQ')]"));
     }
 
     public void pickAndAssertPostCodeOnWLR3OrderPage(String postCode) throws InterruptedException {
@@ -412,6 +409,10 @@ public class WLR3_OrderDetails_Page {
 
     public void postCodeTextForModifyOrder() {
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Existing Postcode')]"));
+    }
+    public void assertCallForwardAndRedirect(String existingCLI,String redirectToNumber, String typeOfForward){
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Calls to "+existingCLI+" will be redirected to "+redirectToNumber+"')]"));
+    utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+typeOfForward+"')]"));
     }
 }
 
