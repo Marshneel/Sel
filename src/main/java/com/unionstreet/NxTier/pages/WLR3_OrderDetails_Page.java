@@ -414,5 +414,6 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Calls to "+existingCLI+" will be redirected to "+redirectToNumber+"')]"));
     utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+typeOfForward+"')]"));
     }
-}
+    }
+
 
