@@ -92,6 +92,12 @@ public class WLR3_NewProvide_AnaMultLine_ProvisionPage {
         utils.sendText(By.id(CHENNELS), "8");
 
     }
+    public void provisionPageForISDN30ChangeOfAddress(){
+        utils.waitForElementVisible(By.id(FLOOR_TEXT_BOX));
+        utils.sendText(By.id(FLOOR_TEXT_BOX), "1st floor");
+        utils.sendText(By.id(ROOM_TEXT_BOX), "central Hall");
+        utils.sendText(By.id(CHENNELS), "9");
+    }
     public void setProvisionType() throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//div[@id='divlineplantoptionsctrl']//input[@id='order_type_0']"));
         utils.clickBtn(By.xpath("//div[@id='divlineplantoptionsctrl']//input[@id='order_type_0']"));

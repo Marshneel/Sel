@@ -61,5 +61,6 @@ public class NA98_WLR3_Analogue_Amend_stepDefs {
         webModel.getOrdersManagerPage().processCease("vodafone","01202300908");
         webModel.getEditOrderPage().commitAndCompletedNotificationForUCease("01202300908");
         webModel.getEditOrderPage().assertCeaseIsCancelled();
+
     }
 }
