@@ -1,39 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="contains NA113- Analogue multi-line modify">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA117_WLR3_ISDN30_Change_Of_Address.feature" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA117_WLR3_ISDN30_Change_Of_Address_stepDefs.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ScreenShots/Initiate a WLR3 multi-line modify order and verify line numbering validations.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ScreenShots/Initiate a WLR3 multi-line modify order and verify validations on empty call forwarding CLI field, under automatically assign.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ScreenShots/Initiate and verify the flow in a WLR3 modify order.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/report.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1491995654293.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1491996099761.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1491997602740.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1491997913437.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1492004767617.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1492005067981.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1492005839154.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1492006065353.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1492006297613.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1492006917237.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1492007302751.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1492007676631.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1492010032620.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1492012333137.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1492013233869.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1492014403341.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/screenshot-1492014772531.png" afterPath="" />
+    <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_ChangeOfLineTypeOrderPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_ChangeOfLineTypeOrderPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_ProvisionPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_ProvisionPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_SitePage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_AnaMultLine_SitePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA98_WLR3_Analogue_Amend_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA98_WLR3_Analogue_Amend_stepDefs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature" afterPath="$PROJECT_DIR$/target/test-classes/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature" />
     </list>
     <ignored path="NxTier automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -93,8 +62,8 @@
       <file leaf-file-name="NA117_WLR3_ISDN30_Change_Of_Address.feature" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA117_WLR3_ISDN30_Change_Of_Address.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+            <state relative-caret-position="102">
+              <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -1119,13 +1088,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00187" summary="@smokePack&#10;@E2ETests&#10;@NA100- 5 scenarios&#10;@NA101 - single scenario&#10;">
-      <created>1488790700449</created>
-      <option name="number" value="00187" />
-      <option name="presentableId" value="LOCAL-00187" />
-      <option name="project" value="LOCAL" />
-      <updated>1488790700449</updated>
-    </task>
     <task id="LOCAL-00188" summary="@smokePack&#10;@E2ETests&#10;updated the locators under charges summary panel , on WLR3 summary page&#10;">
       <created>1488808753435</created>
       <option name="number" value="00188" />
@@ -1462,7 +1424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492014891567</updated>
     </task>
-    <option name="localTasksCounter" value="236" />
+    <task id="LOCAL-00236" summary="contains NA117- ISDN30 change of address">
+      <created>1492099114390</created>
+      <option name="number" value="00236" />
+      <option name="presentableId" value="LOCAL-00236" />
+      <option name="project" value="LOCAL" />
+      <updated>1492099114390</updated>
+    </task>
+    <option name="localTasksCounter" value="237" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1522,7 +1491,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19650067" sideWeight="0.49068767" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3538682" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3538682" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27203065" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1604,7 +1573,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="@E2ETests and @smokePack&#10;contains NA100&#10;" />
     <MESSAGE value="@E2ETests and @smokePack&#10;contains NA100 and NA101&#10;" />
     <MESSAGE value="testing NA100 and NA101 only&#10;" />
     <MESSAGE value="@smokePack&#10;@E2ETests&#10;@NA100- 5 scenarios&#10;@NA101 - single scenario&#10;" />
@@ -1629,7 +1597,8 @@
     <MESSAGE value="testing TXT upload in batch order" />
     <MESSAGE value="contains batch order (txt file upload)" />
     <MESSAGE value="contains NA113- Analogue multi-line modify" />
-    <option name="LAST_COMMIT_MESSAGE" value="contains NA113- Analogue multi-line modify" />
+    <MESSAGE value="contains NA117- ISDN30 change of address" />
+    <option name="LAST_COMMIT_MESSAGE" value="contains NA117- ISDN30 change of address" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2051,8 +2020,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA117_WLR3_ISDN30_Change_Of_Address.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+        <state relative-caret-position="102">
+          <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
           <folding />
         </state>
       </provider>
