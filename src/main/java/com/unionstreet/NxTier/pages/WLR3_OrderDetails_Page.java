@@ -47,7 +47,7 @@ public class WLR3_OrderDetails_Page {
     public final String NETWORK_FEATURES_SUMMARY_PANEL = "networkFeaturesSummaryPanel";
     public final String DIRECTORY_INFO_SUMMARY_PANEL = "directoryInformationSummaryPanel";
     private final String EDIT_EMERGENCY_INFO_TAB = "div_EmergencyInfo";
-    private final String EMERGENCY_INFO_TEXT_BOX = "EmergencyInfo";
+    public final String EMERGENCY_INFO_TEXT_BOX = "EmergencyInfo";
     private final String SAVE_EMERGENCY_INFO = "//img[contains(@onclick,'jet_update_value_FromTextbox')]";
     public final String MANUAL_ENTRY_TAB = "manualEntryBtn";
     private final String WLR3_WARNING_PANEL_LOCATOR = "//div[@id='WLR3OrderWarnings']";
@@ -59,6 +59,10 @@ public class WLR3_OrderDetails_Page {
     private final String BUSINESS_CONTINUITY_LABEL_ON_THE_BUSINESS_CONTINUITY_POPUP = "//h4[contains(text(),'Business Continuity Alert!')]";
     private final String YES_BUTTON_ON_POPUP = "//button[contains(text(),'Yes')]";
     private final String BUSINESS_CONTINUITY_LABEL_ON_BUSINESS_CONTINUITY_CHECKBOX_POPUP = "//h3[contains(text(),'Business Continuity')]";
+    private final String OPEN_REACH_MANAGED_ERROR_MESSAGE_FOR_ISDN30="//div[contains(text(),'Currently Openreach does not allow Openreach Managed change of address for ISDN30 orders')]";
+    private final String EDIT_OPENREACH_MANAGED="//div[@id='div_coa_openreach']//div[@id='divLabel']/img";
+    private final String OPENREACH_MANAGED_DROP_DOWN="coa_openreach";
+    private final String SAVE_EDITED_OPENREACH_MANAGED="//img[contains(@onclick,'jet_update_value_FromDropdown')]";
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
@@ -413,6 +417,17 @@ public class WLR3_OrderDetails_Page {
     public void assertCallForwardAndRedirect(String existingCLI,String redirectToNumber, String typeOfForward){
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Calls to "+existingCLI+" will be redirected to "+redirectToNumber+"')]"));
     utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+typeOfForward+"')]"));
+    }
+    public void openReachAddressValidationForISDN30(){
+        utils.waitForElementVisible(By.xpath(OPEN_REACH_MANAGED_ERROR_MESSAGE_FOR_ISDN30));
+    }
+    public void editOpenReachManaged() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(EDIT_OPENREACH_MANAGED));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath(EDIT_OPENREACH_MANAGED));
+        utils.selectByVisibleText(By.id(OPENREACH_MANAGED_DROP_DOWN),"No (CP Managed)");
+        utils.clickBtn(By.xpath(SAVE_EDITED_OPENREACH_MANAGED));
+
     }
     }
 

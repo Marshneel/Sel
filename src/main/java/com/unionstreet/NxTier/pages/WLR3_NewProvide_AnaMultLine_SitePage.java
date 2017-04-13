@@ -101,4 +101,8 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
     public void assertLineSuitabilityMessage(){
         utils.waitForElementVisible(By.xpath("//label[text()='Green - High likelihood of ISDN line being available']"));
     }
+    public void populateEmergencyInfo(){
+        utils.sendText(By.id(wlr3_orderDetails_page.EMERGENCY_INFO_TEXT_BOX), wlr3_orderDetails_page.EMERGENCY_INFO_TEXT_BOX);
+    }
+
 }

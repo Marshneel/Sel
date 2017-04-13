@@ -36,5 +36,10 @@ private final String CONFIRM_OWNERSHIP_MESSAGE="//legend[text()='Confirm Change 
         utils.waitForElementVisible(By.xpath(CONFIRM_OWNERSHIP_MESSAGE));
         utils.waitForElementVisible(By.id(CONFIRM_MEMBERSHIP_CHECKBOX));
     }
+    public void confirmChangeOfOwnerShip(){
+        utils.waitForElementVisible(By.id(CONFIRM_MEMBERSHIP_CHECKBOX));
+         utils.clickBtn(By.id(CONFIRM_MEMBERSHIP_CHECKBOX));
+        utils.clickBtn(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON));
+    }
 
 }
