@@ -427,7 +427,12 @@ public class WLR3_OrderDetails_Page {
         utils.clickBtn(By.xpath(EDIT_OPENREACH_MANAGED));
         utils.selectByVisibleText(By.id(OPENREACH_MANAGED_DROP_DOWN),"No (CP Managed)");
         utils.clickBtn(By.xpath(SAVE_EDITED_OPENREACH_MANAGED));
-
+    }
+    public void assertingPointToMultiPointTextOnSummaryPage(){
+        utils.waitForElementVisible(By.xpath("//p[contains(text(),'Point-to-Multipoint')]"));
+    }
+    public void assertingPointToPointTextOnSummaryPage(){
+        utils.waitForElementVisible(By.xpath("//p[contains(text(),'Point-to-Point')]"));
     }
     }
 

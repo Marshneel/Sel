@@ -337,5 +337,6 @@ public class WLR3_LineNumberingPage {
         utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_TO_PROVIDE_CORRECT_DETAILS));
         utils.waitForElementVisible(By.xpath(EMPTY_FIELD_ERROR_MESSAGE));
     }
+
 }
 

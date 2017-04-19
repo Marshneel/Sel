@@ -51,8 +51,10 @@ public class WLR3_BatchTransferPage {
     public void loadTXTFile(String path) throws InterruptedException, AWTException {
         utils.waitForElementVisible(By.xpath(TEXT_ON_BATCH_ORDER_POPUP));
         utils.waitForElementVisible(By.id(UPLOAD_FILE));
+        Thread.sleep(1000);
         utils.findFieldAndSendKeys(By.id(UPLOAD_FILE),"C:\\TXT files\\"+path+"");
         utils.waitForElementVisible(By.xpath(IMPORT_FILE_BUTTON));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath(IMPORT_FILE_BUTTON));}
 
     public void assertNoErrorUponImport(){

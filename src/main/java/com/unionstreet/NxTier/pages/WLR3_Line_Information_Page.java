@@ -83,5 +83,23 @@ public class WLR3_Line_Information_Page {
         utils.clickBtn(By.id(wlr3_orderDetails_page.CANCEL));
 
     }
+    public void assertPointToMultiPointConfigForISDN2Standard(){
+        utils.waitForElementVisible(By.xpath("//input[@checked='checked'][@id='rdop2mp']"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Point-to-Point')]"));
+        utils.makeSureBoxIsChecked(By.id("rdop2p"),By.id("rdop2p"));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'This is not a valid selection for this line type / DDI configuration.')]"));
+    }
+    public void convertingPointToPoint_To_PointToMultiPointWithSingleSNDDI(){
+        utils.waitForElementVisible(By.xpath("//input[@checked='checked'][@id='rdop2p']"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Point-to-Multipoint')]"));
+        utils.makeSureBoxIsChecked(By.id("rdop2mp"),By.id("rdop2mp"));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+
+
+
+
+
+    }
 
 }
