@@ -14,7 +14,13 @@ public class WLR3_Line_Information_Page {
     private final String TEXT_ON_LINEINFO_PAGE = "//h3[contains(text(),'Line Information')]";
     private final String SERVICE_MAINTENANCE_TAB = "WLR3Order_care_level";
     private final String CARE_LEVEL_DEFAULTED_TO_SELECT = "//select[@id='WLR3Order_care_level']//option[contains(text(),'Select')]";
-
+    private final String POINT_TO_MULTIPOINT_TEXT_ON_LINE_INFO_PAGE="//label[contains(text(),'Point-to-Multipoint')]";
+   private final String POINT_TO_POINT_TEXT_ON_LINE_INFO_PAGE="//label[contains(text(),'Point-to-Point')]";
+   private final String DEFAULTED_TO_POINT_TO_MULTIPOINT="//input[@checked='checked'][@id='rdop2mp']";
+   private final String DEFAULTED_TO_POINT_TO_POINT="//input[@checked='checked'][@id='rdop2p']";
+    private final String ERROR_MESSAGE_WHEN_CHANGED_FROM_DEFAULT_POINT_TO_MULTIPOINT__TO__POINT_TO_POINT="//span[contains(text(),'This is not a valid selection for this line type / DDI configuration.')]";
+    private final String POINT_TO_POINT_RADIO_BUTTON="rdop2p";
+   private final String POINT_TO_MULTIPOINT_RADIO_BUTTON="rdop2mp";
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
@@ -84,16 +90,16 @@ public class WLR3_Line_Information_Page {
 
     }
     public void assertPointToMultiPointConfigForISDN2Standard(){
-        utils.waitForElementVisible(By.xpath("//input[@checked='checked'][@id='rdop2mp']"));
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Point-to-Point')]"));
-        utils.makeSureBoxIsChecked(By.id("rdop2p"),By.id("rdop2p"));
+        utils.waitForElementVisible(By.xpath(DEFAULTED_TO_POINT_TO_MULTIPOINT));
+        utils.waitForElementVisible(By.xpath(POINT_TO_POINT_TEXT_ON_LINE_INFO_PAGE));
+        utils.makeSureBoxIsChecked(By.id(POINT_TO_POINT_RADIO_BUTTON),By.id(POINT_TO_POINT_RADIO_BUTTON));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'This is not a valid selection for this line type / DDI configuration.')]"));
+        utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_WHEN_CHANGED_FROM_DEFAULT_POINT_TO_MULTIPOINT__TO__POINT_TO_POINT));
     }
     public void convertingPointToPoint_To_PointToMultiPointWithSingleSNDDI(){
-        utils.waitForElementVisible(By.xpath("//input[@checked='checked'][@id='rdop2p']"));
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Point-to-Multipoint')]"));
-        utils.makeSureBoxIsChecked(By.id("rdop2mp"),By.id("rdop2mp"));
+        utils.waitForElementVisible(By.xpath(DEFAULTED_TO_POINT_TO_POINT));
+        utils.waitForElementVisible(By.xpath(POINT_TO_MULTIPOINT_TEXT_ON_LINE_INFO_PAGE));
+        utils.makeSureBoxIsChecked(By.id(POINT_TO_MULTIPOINT_RADIO_BUTTON),By.id(POINT_TO_MULTIPOINT_RADIO_BUTTON));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
 
 

@@ -63,6 +63,9 @@ public class WLR3_OrderDetails_Page {
     private final String EDIT_OPENREACH_MANAGED="//div[@id='div_coa_openreach']//div[@id='divLabel']/img";
     private final String OPENREACH_MANAGED_DROP_DOWN="coa_openreach";
     private final String SAVE_EDITED_OPENREACH_MANAGED="//img[contains(@onclick,'jet_update_value_FromDropdown')]";
+    private final String ERROR_MESSAGE_POINT_TO_POINT__TO__POINT_TO_MULTIPOINT="//div[contains(text(),'An ISDN2 System line must be set to Point-To-Point configuration when either DDI Ranges or more than 1 SNDDI is selected')]";
+    private final String POINT_TO_MULTIPOINT_TEXT_ON_SUMMARY_PAGE="//p[contains(text(),'Point-to-Multipoint')]";
+    private final String POINT_TO_POINT_TEXT_ON_SUMMARY_PAGE="//p[contains(text(),'Point-to-Point')]";
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
@@ -429,10 +432,15 @@ public class WLR3_OrderDetails_Page {
         utils.clickBtn(By.xpath(SAVE_EDITED_OPENREACH_MANAGED));
     }
     public void assertingPointToMultiPointTextOnSummaryPage(){
-        utils.waitForElementVisible(By.xpath("//p[contains(text(),'Point-to-Multipoint')]"));
+        utils.waitForElementVisible(By.xpath(POINT_TO_MULTIPOINT_TEXT_ON_SUMMARY_PAGE));
     }
     public void assertingPointToPointTextOnSummaryPage(){
-        utils.waitForElementVisible(By.xpath("//p[contains(text(),'Point-to-Point')]"));
+        utils.waitForElementVisible(By.xpath(POINT_TO_POINT_TEXT_ON_SUMMARY_PAGE));
+    }
+    public void assertingErrorMessageChangeFromPointToPoint_To_PointToMultiPoint(){
+        utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_POINT_TO_POINT__TO__POINT_TO_MULTIPOINT));
+
+
     }
     }
 

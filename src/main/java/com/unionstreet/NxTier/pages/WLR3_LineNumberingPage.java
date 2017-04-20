@@ -337,6 +337,22 @@ public class WLR3_LineNumberingPage {
         utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_TO_PROVIDE_CORRECT_DETAILS));
         utils.waitForElementVisible(By.xpath(EMPTY_FIELD_ERROR_MESSAGE));
     }
+    public void addingExtraSNDDI() throws InterruptedException {
+        wlr3_orderDetails_page.clickLineNumbering();
+        utils.waitForElementVisible(By.xpath(ADD_NEW_DDI));
+        utils.clickBtn(By.xpath(ADD_NEW_DDI));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        Thread.sleep(1000);
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
+    public void addingExtraDDIRange() throws InterruptedException {
+        wlr3_orderDetails_page.clickLineNumbering();
+        utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN_ROW2));
+        utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW2),"New DDI range");
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        Thread.sleep(1000);
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
 
 }
 
