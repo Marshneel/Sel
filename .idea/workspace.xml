@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA120_WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA120_WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint.feature" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA120_WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA120_WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint_stepDefs.java" />
     </list>
     <ignored path="NxTier automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1104,13 +1102,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00191" summary="@smokePack&#10;@E2ETests&#10;added code to validate new SNDDI range limits for NA101">
-      <created>1488908241376</created>
-      <option name="number" value="00191" />
-      <option name="presentableId" value="LOCAL-00191" />
-      <option name="project" value="LOCAL" />
-      <updated>1488908241376</updated>
-    </task>
     <task id="LOCAL-00192" summary="@smokePack&#10;@E2ETests&#10;added code to validate new SNDDI range limits for NA101">
       <created>1488916285166</created>
       <option name="number" value="00192" />
@@ -1447,7 +1438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492682540414</updated>
     </task>
-    <option name="localTasksCounter" value="240" />
+    <task id="LOCAL-00240" summary="contains NA120- corrected text errors">
+      <created>1492684445586</created>
+      <option name="number" value="00240" />
+      <option name="presentableId" value="LOCAL-00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1492684445586</updated>
+    </task>
+    <option name="localTasksCounter" value="241" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1507,7 +1505,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1954023" sideWeight="0.49068767" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3252149" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3252149" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1589,7 +1587,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="@smokePack&#10;@E2ETests&#10;@NA100- 5 scenarios&#10;@NA101 - single scenario&#10;" />
     <MESSAGE value="@smokePack&#10;@E2ETests&#10;updated the locators under charges summary panel , on WLR3 summary page&#10;" />
     <MESSAGE value="@smokePack&#10;@E2ETests&#10;updated to New SNDDI locator in new provide ISDN line&#10;" />
     <MESSAGE value="@smokePack&#10;@E2ETests&#10;added code to validate new SNDDI range limits for NA101" />
@@ -1614,7 +1611,8 @@
     <MESSAGE value="contains NA117- ISDN30 change of address" />
     <MESSAGE value="contains NA120- partially completed point to point and point to multi point logic" />
     <MESSAGE value="contains NA120- completed point to point and point to multi point logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="contains NA120- completed point to point and point to multi point logic" />
+    <MESSAGE value="contains NA120- corrected text errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="contains NA120- corrected text errors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
