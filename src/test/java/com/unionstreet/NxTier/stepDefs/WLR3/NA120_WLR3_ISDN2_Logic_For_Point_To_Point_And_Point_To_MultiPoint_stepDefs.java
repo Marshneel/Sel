@@ -19,7 +19,7 @@ public class NA120_WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint_s
         webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();
     }
 
-    @Then("^I should be able to check all point_to_point validations$")
+    @Then("^I should be able to check all point_to_multipoint validations$")
     public void iShouldBeAbleToCheckAllPoint_to_pointValidations() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().assertingPointToMultiPointTextOnSummaryPage();
         webModel.getWlr3_line_information_page().loadLineInfo();
@@ -29,7 +29,7 @@ public class NA120_WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint_s
 
     }
 
-    @Then("^I should be able to check all point_to_multiPoint validations$")
+    @Then("^I should be able to check all point_to_Point validations$")
     public void iShouldBeAbleToCheckAllPoint_to_multiPointValidations() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().assertingPointToPointTextOnSummaryPage();
         webModel.getWlr3_line_information_page().loadLineInfo();
