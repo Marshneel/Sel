@@ -17,7 +17,7 @@ public class NA109_WLR3_ISDN2_New_Provide_Line_Suitability_Dialogue_stepDefs {
     @When("^I initiate any of the ISDN(\\d+) new provide without addressKey$")
     public void iInitiateAnyOfTheISDNNewProvideWithoutAddressKey(int arg0) throws InterruptedException {
         webModel.getAddServicePage().searchAndAddService("New Provide Order");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().selectLineTypeForNewProvide("ISDN2 Standard");
+        webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN2 Standard");
     }
 
     @Then("^An error message requesting the address match is highlighted$")
@@ -33,7 +33,7 @@ public class NA109_WLR3_ISDN2_New_Provide_Line_Suitability_Dialogue_stepDefs {
         webModel.getOrdersManagerPage().searchQuoteByBcRN();
         webModel.getOrdersManagerPage().clickOnQuoteID();
         webModel.getAddServicePage().searchAndAddService("New Provide Order");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().selectLineTypeForNewProvide("ISDN2 Standard");
+        webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN2 Standard");
     }
 
     @Then("^The line suitability dialogue should be highlighted$")
@@ -43,6 +43,6 @@ public class NA109_WLR3_ISDN2_New_Provide_Line_Suitability_Dialogue_stepDefs {
 
     @And("^perform an address search and choose the address under installation address$")
     public void performAnAddressSearchAndChooseTheAddressUnderInstallationAddress() throws InterruptedException {
-       webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ");
+       webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ","A00001043137");
     }
 }

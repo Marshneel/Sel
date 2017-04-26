@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA112 - modify an ISDN30 line
+Feature: NA112 - WLR3_ISDN30_Modify
   Scenario: initiate a modify order on an ISDN30 line that you own
     Given I am logged in as CP
     And   I create a new business customer with a quote

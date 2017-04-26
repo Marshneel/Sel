@@ -37,7 +37,7 @@ public class NA104_ISDN30_Transfer_stepDefs {
         webModel.getWlr3_businessContinuityPage().loadBusinessContinuity();
         webModel.getWlr3_businessContinuityPage().selectBusinessContinuity();
         webModel.getWlr3_orderDetails_page().assertBusinessContinuity();
-        webModel.getWlr3_newProvide_anaMultLine_numberingPage().checkLineNumberingForISDN("Renumber", "Renumber with QCR");
+        webModel.getWlr3_newProvide__numberingPage().checkLineNumberingForISDN("Renumber", "Renumber with QCR");
         webModel.getWlr3_orderDetails_page().assertLineNumberingForISDN("Renumber", "Renumber with QCR");
         webModel.getWlr3_siteInformationPage().siteInfoForISDNNewProvide("Band 1 - Up to 2 Hours");
     }

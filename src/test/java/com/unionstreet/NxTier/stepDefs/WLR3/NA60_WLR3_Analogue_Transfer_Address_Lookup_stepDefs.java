@@ -50,7 +50,7 @@ public class NA60_WLR3_Analogue_Transfer_Address_Lookup_stepDefs {
 
     @Then("^I should be able to search and select the address by post code$")
     public void iShouldBeAbleToSearchAndSelectTheAddressByPostCode() throws InterruptedException {
-        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
+        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26","A00001043137");
         webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage("LU1 1DQ");
         System.out.println("NA60a completed");
     }
@@ -74,7 +74,7 @@ public class NA60_WLR3_Analogue_Transfer_Address_Lookup_stepDefs {
 
     @Then("^I should be able to search and select the address by address key$")
     public void iShouldBeAbleToSearchAndSelectTheAddressByAddressKey() throws InterruptedException {
-        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
+        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26","A00001043137");
         webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage("LU1 1DQ");
         System.out.println("NA60b completed");
     }
@@ -88,7 +88,7 @@ public class NA60_WLR3_Analogue_Transfer_Address_Lookup_stepDefs {
 
     @Then("^I should be able to search and select the address$")
     public void iShouldBeAbleToSearchAndSelectTheAddress() throws InterruptedException {
-        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
+        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26","A00001043137");
         webModel.getUtils().checkPoint("NA60c completed");
 
     }

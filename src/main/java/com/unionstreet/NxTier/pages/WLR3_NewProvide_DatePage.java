@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 /**
  * Created by RajeshG on 23/01/2017.
  */
-public class WLR3_NewProvide_AnaMultLine_DatePage {
+public class WLR3_NewProvide_DatePage {
 
     public final String HAZARD_NOTES_TEXTBOX = "HazardNotesId";
     public final String WARNING_NOTES_TEXTBOX = "WarningNotesId";

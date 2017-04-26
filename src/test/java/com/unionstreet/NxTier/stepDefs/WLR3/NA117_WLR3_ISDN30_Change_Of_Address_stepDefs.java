@@ -27,13 +27,13 @@ public class NA117_WLR3_ISDN30_Change_Of_Address_stepDefs {
     public void iShouldBeAbleToCheckTheValidationsAndCompleteTheChangeOfAddress() throws InterruptedException {
         webModel.getWlr3_installationAddressPage().searchForAddress("LU1 1DQ");
         webModel.getWlr3_orderDetails_page().pickAddressFromSearchResults();
-        webModel.getWlr3_siteInformationPage().populateTelNumberOnChangeOfAddress("07894040256");
+        webModel.getWlr3_siteInformationPage().populateTelNumberUnderSiteInfo("07894040256");
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateEmergencyInfo();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
-        webModel.getWlr3_newProvide_anaMultLine_provisionPage().provisionPageForISDN30ChangeOfAddress();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton(4);
-        webModel.getWlr3_newProvide_anaMultLine_datePage().populateHazardAndWarningNotesUnderDATE("hazardNotes", "warningNotes");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
+        webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
+        webModel.getWlr3_newProvide__provisionPage().provisionPageForISDN30ChangeOfAddress();
+        webModel.getWlr3_new_provide__orderPage().multipleClicksOnNextButton(4);
+        webModel.getWlr3_newProvide__datePage().populateHazardAndWarningNotesUnderDATE("hazardNotes", "warningNotes");
+        webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
         webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();
         webModel.getWlr3_orderDetails_page().openReachAddressValidationForISDN30();
         webModel.getWlr3_orderDetails_page().editOpenReachManaged();

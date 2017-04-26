@@ -66,6 +66,15 @@ public class WLR3_OrderDetails_Page {
     private final String ERROR_MESSAGE_POINT_TO_POINT__TO__POINT_TO_MULTIPOINT="//div[contains(text(),'An ISDN2 System line must be set to Point-To-Point configuration when either DDI Ranges or more than 1 SNDDI is selected')]";
     private final String POINT_TO_MULTIPOINT_TEXT_ON_SUMMARY_PAGE="//p[contains(text(),'Point-to-Multipoint')]";
     private final String POINT_TO_POINT_TEXT_ON_SUMMARY_PAGE="//p[contains(text(),'Point-to-Point')]";
+    public final String TEXT_ON_SITE_INFORMATION = "//legend[text()='Site Contact']";
+    private final String HAZARD_NOTES_REQUISITION_ERROR_MESSAGE="//div[contains(text(),'An engineer visit is required, but Hazard Notes have not been supplied')]";
+    private final String WARNING_NOTES_REQUISITION_ERROR_MESSAGE="//div[contains(text(),'An engineer visit is required, but Warning Notes have not been supplied')]";
+    private final String EDIT_NUMBER_OF_CHANNELS="//div[@id='div_WLR3Order_num_lines']//img[contains(@onclick,'editMode')]";
+    private final String SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE="//img[contains(@onclick,'jet_update_value_FromTextbox')]";
+    public final String EDIT_NUMBER_OF_CHANNELS_TEXT_BOX="WLR3Order_num_lines";
+    private final String NO_ENGINEERING_NOTES_WITH_OUT_SITE_VISIT_MESSAGE="//div[contains(text(),'Engineering Notes cannot be entered when an engineer visit is not required')]";
+
+
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
@@ -82,8 +91,9 @@ public class WLR3_OrderDetails_Page {
 
     }
 
-    public void assertAddress(String roadName, String premiseName, String subpremiseName, String premiseNumber) throws InterruptedException {
+    public void assertAddress(String roadName, String premiseName, String subpremiseName, String premiseNumber, String addressKey) throws InterruptedException {
        utils.waitForElementVisible(By.xpath("//p[contains(text(),'"+subpremiseName+", "+premiseName+", "+premiseNumber+" "+roadName+", Luton, LU1 1DQ')]"));
+        utils.waitForElementVisible(By.xpath("//p[contains(text(),'Address Key: "+addressKey+"')]"));
     }
 
     public void pickAndAssertPostCodeOnWLR3OrderPage(String postCode) throws InterruptedException {
@@ -439,9 +449,62 @@ public class WLR3_OrderDetails_Page {
     }
     public void assertingErrorMessageChangeFromPointToPoint_To_PointToMultiPoint(){
         utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_POINT_TO_POINT__TO__POINT_TO_MULTIPOINT));
-
-
     }
+    public void loadLineInfo() throws InterruptedException {
+        try {
+            utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(LINE_INFO_TAB));
+        } catch (Exception e) {
+            loadTabOnWLR3OrderSummaryPage();
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(LINE_INFO_TAB));
+        }}
+    public void assertNumberOfDigitsToSwitchOnOrderDetailsPage(String actualNumber){
+        utils.waitForElementVisible(By.xpath("//p[@id='display_WLR3Order_digits_to_switch'][contains(text(),'"+actualNumber+"')]"));
     }
-
-
+    public void clickSiteInfo(){
+        utils.waitForElementVisible(By.id(SITE_INFO_SUMMARY_PANEL));
+        utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
+        try {
+            utils.jumpToPopUpWindow(By.xpath(SITE_INFORMATION_BUTTON));
+        } catch (Exception e) {
+            utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
+            utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
+            utils.jumpToPopUpWindow(By.xpath(SITE_INFORMATION_BUTTON));
+        }
+        utils.waitForElementVisible(By.xpath(TEXT_ON_SITE_INFORMATION));
+    }
+    public void assertErrorMessageForHazardAndWarningNotes(){
+        utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
+        utils.waitForElementVisible(By.xpath(HAZARD_NOTES_REQUISITION_ERROR_MESSAGE));
+        utils.waitForElementVisible(By.xpath(WARNING_NOTES_REQUISITION_ERROR_MESSAGE));
+    }
+    public void assertAbsenceOfErrorMessageForHazardAndWarningNotes(){
+        utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
+        utils.assertElementNotPresent(By.xpath(HAZARD_NOTES_REQUISITION_ERROR_MESSAGE));
+        utils.assertElementNotPresent(By.xpath(WARNING_NOTES_REQUISITION_ERROR_MESSAGE));
+    }
+    public void editChannelNumberForISDNlines(String minNumber, String maxNumber){
+        utils.waitForElementVisible(By.xpath(EDIT_NUMBER_OF_CHANNELS));
+        utils.clickBtn(By.xpath(EDIT_NUMBER_OF_CHANNELS));
+        utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"0");
+        utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
+        // TODO: 26/04/2017  
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Numer of Channels must be greater or equal to "+minNumber+" for this product.')]"));
+        utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"100");
+        utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Numer of Channels must be less than or equal to "+maxNumber+" for this product.')]"));
+        utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"10");
+        utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
+    }
+    public void assertErrorMessageForUnwantedEngineeringNotes(){
+        utils.waitForElementVisible(By.xpath(NO_ENGINEERING_NOTES_WITH_OUT_SITE_VISIT_MESSAGE));
+    }
+    public void assertAbsentErrorMessageForUnwantedEngineeringNotes(){
+        utils.assertElementNotPresent(By.xpath(NO_ENGINEERING_NOTES_WITH_OUT_SITE_VISIT_MESSAGE));
+    }
+    public void assertExcessConstructionCharges(String charges){
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+charges+"')]"));
+    }
+}

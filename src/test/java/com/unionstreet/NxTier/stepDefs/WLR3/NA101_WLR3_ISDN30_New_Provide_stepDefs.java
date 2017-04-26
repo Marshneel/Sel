@@ -13,33 +13,33 @@ public class NA101_WLR3_ISDN30_New_Provide_stepDefs {
     @When("^I initiate a new provide ISDN line order$")
     public void iInitiateANewProvideISDNLineOrder() throws InterruptedException {
         webModel.getAddServicePage().searchAndAddService("New Provide Order");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().selectLineTypeForNewProvide("ISDN30E");
+        webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN30E");
 
     }
 
     @Then("^I should be able to check the flow$")
     public void iShouldBeAbleToCheckTheFlow() throws InterruptedException {
         //populate SITE with assertions
-        webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ");
+        webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ","A00001043137");
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateSiteContactUnderSITE("07894040256");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
+        webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
         //populate PROVISION with assertions
-        webModel.getWlr3_newProvide_anaMultLine_provisionPage().populateProvisionPageWithAssertionsForISDN30();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
-        webModel.getWlr3_newProvide_anaMultLine_engineeringPage().assertionsForISDNE30NewProvidengineeringNotes();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
+        webModel.getWlr3_newProvide__provisionPage().populateProvisionPageWithAssertionsForISDN30();
+        webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
+        webModel.getWlr3_newProvide__engineeringPage().assertionsForISDNE30NewProvidengineeringNotes();
+        webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
         //populate FEATURES with assertions
-        webModel.getWlr3_newProvide_anaMultLine_featuresPage().populateAndAssertFeaturesPageForISDN30();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
+        webModel.getWlr3_newProvide__featuresPage().populateAndAssertFeaturesPageForISDN30();
+        webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
         //populate NUMBERING with assertions
-        webModel.getWlr3_newProvide_anaMultLine_numberingPage().assertNumberingOptionsForISDN30NewProvide("New SNDDI", "Automatically Allocated", "Auto allocate number");
-        webModel.getWlr3_newProvide_anaMultLine_numberingPage().populateAndAssertSNDDIrangeForISDN30();
-        webModel.getWlr3_newProvide_anaMultLine_numberingPage().clickMoreDirInfoTab();
-        webModel.getWlr3_newProvide_anaMultLine_numberingPage().assertPresenceOfSNDDITabInDirInfo();
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
+        webModel.getWlr3_newProvide__numberingPage().assertNumberingOptionsForISDN30NewProvide("New SNDDI", "Automatically Allocated", "Auto allocate number");
+        webModel.getWlr3_newProvide__numberingPage().populateAndAssertSNDDIrangeForISDN30();
+        webModel.getWlr3_newProvide__numberingPage().clickMoreDirInfoTab();
+        webModel.getWlr3_newProvide__numberingPage().assertPresenceOfSNDDITabInDirInfo();
+        webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
         //populate DATE with assertions
-        webModel.getWlr3_newProvide_anaMultLine_datePage().populateHazardAndWarningNotesUnderDATE("hazardNotes", "warningNotes");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
+        webModel.getWlr3_newProvide__datePage().populateHazardAndWarningNotesUnderDATE("hazardNotes", "warningNotes");
+        webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
         webModel.getEditOrderPage().verifyOrderCompletion();
         //assertions on order summary page
         webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();

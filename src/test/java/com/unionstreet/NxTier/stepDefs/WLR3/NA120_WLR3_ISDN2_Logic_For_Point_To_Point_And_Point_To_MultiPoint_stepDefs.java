@@ -9,7 +9,7 @@ import cucumber.api.java.en.When;
  */
 public class NA120_WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint_stepDefs {
     WebModel webModel=new WebModel();
-    NA108_WLR3_ISDN2_New_Provide_stepDefs na108=new NA108_WLR3_ISDN2_New_Provide_stepDefs();
+    NA108_WLR3_ISDN2_New_Provide_Standard_And_System_stepDefs na108=new NA108_WLR3_ISDN2_New_Provide_Standard_And_System_stepDefs();
 
 
 
@@ -22,7 +22,7 @@ public class NA120_WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint_s
     @Then("^I should be able to check all point_to_multipoint validations$")
     public void iShouldBeAbleToCheckAllPoint_to_pointValidations() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().assertingPointToMultiPointTextOnSummaryPage();
-        webModel.getWlr3_line_information_page().loadLineInfo();
+        webModel.getWlr3_orderDetails_page().loadLineInfo();
         webModel.getWlr3_line_information_page().assertPointToMultiPointConfigForISDN2Standard();
 
 
@@ -32,7 +32,7 @@ public class NA120_WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint_s
     @Then("^I should be able to check all point_to_Point validations$")
     public void iShouldBeAbleToCheckAllPoint_to_multiPointValidations() throws InterruptedException {
         webModel.getWlr3_orderDetails_page().assertingPointToPointTextOnSummaryPage();
-        webModel.getWlr3_line_information_page().loadLineInfo();
+        webModel.getWlr3_orderDetails_page().loadLineInfo();
         webModel.getWlr3_line_information_page().convertingPointToPoint_To_PointToMultiPointWithSingleSNDDI();
         webModel.getWlr3_orderDetails_page().assertingPointToMultiPointTextOnSummaryPage();
         webModel.getWlr3_lineNumberingPage().addingExtraSNDDI();

@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA61 - WLR3 Transfer order- populating network calling features, directory information and site information
+Feature: NA61 - WLR3_Analogue_Transfer_Obtaining_Initial_information
 
   Scenario Outline: Populating network calling features and directory information by logging as a CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"

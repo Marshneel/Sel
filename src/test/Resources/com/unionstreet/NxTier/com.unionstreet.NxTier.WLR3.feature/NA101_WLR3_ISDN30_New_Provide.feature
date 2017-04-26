@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA101 - scenario for new provide ISDN30 line
+Feature: NA101 - WLR3_ISDN30_New_Provide
   Scenario: creating a new provide ISDN30 line
     Given I am logged in as CP
     And   I create a new business customer with a quote

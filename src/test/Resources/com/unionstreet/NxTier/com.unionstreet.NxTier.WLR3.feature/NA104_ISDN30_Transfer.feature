@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA104 - Scenarios for transfer order ISDN30
+Feature: NA104 - ISDN30_Transfer
   Scenario: Initiate a transfer order on the CLI that has Business continuity set and validate the alert message
     Given I am logged in as CP
     And   I create a new business customer with a quote

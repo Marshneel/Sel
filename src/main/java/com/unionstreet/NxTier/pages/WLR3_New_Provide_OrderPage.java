@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 /**
  * Created by RajeshG on 13/01/2017.
  */
-public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
+public class WLR3_New_Provide_OrderPage {
 
 
     public final String NEXT_BUTTON = "//a[starts-with(@onclick,'newProvideWizard.moveNext()')]";
@@ -21,6 +21,12 @@ public class WLR3_New_Provide_Analogue_Multiline_OrderPage {
         utils.waitForElementVisible(By.id(ANALOGUE_MULTILINE_TAB));
         utils.clickBtn(By.id(ANALOGUE_MULTILINE_TAB));
         utils.clickBtn(By.xpath(SUBMIT_BUTTON));
+    }
+    public void selectLineTypeTab(String lineType){
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'"+lineType+"')]"));
+        utils.clickBtn(By.xpath("//label[contains(text(),'"+lineType+"')]"));
+        utils.clickBtn(By.xpath(SUBMIT_BUTTON));
+
     }
 
     public void navigateToNextScreen() throws InterruptedException {

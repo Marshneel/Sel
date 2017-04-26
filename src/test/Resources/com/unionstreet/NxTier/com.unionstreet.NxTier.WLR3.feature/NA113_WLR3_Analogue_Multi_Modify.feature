@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA113 - Initiate a WLR3 multi line modify order and check the flow
+Feature: NA113 - WLR3_Analogue_Multi_Modify
 
 Scenario: Initiate a WLR3 multi-line modify order and verify line numbering validations
 Given I am logged in as CP

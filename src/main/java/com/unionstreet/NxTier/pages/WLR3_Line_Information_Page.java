@@ -21,6 +21,11 @@ public class WLR3_Line_Information_Page {
     private final String ERROR_MESSAGE_WHEN_CHANGED_FROM_DEFAULT_POINT_TO_MULTIPOINT__TO__POINT_TO_POINT="//span[contains(text(),'This is not a valid selection for this line type / DDI configuration.')]";
     private final String POINT_TO_POINT_RADIO_BUTTON="rdop2p";
    private final String POINT_TO_MULTIPOINT_RADIO_BUTTON="rdop2mp";
+    private final String ERROR_MESSAGE_STATING_SIGNAL_TYPE_MANDATORY_FOR_NTTP="//div[contains(text(),'You must select a Signal Type when the Termination Type of NTTP has been specified')]";
+   private final String CHOOSE_SIGNAL_TYPE="WLR3Order_signal_type";
+    private final String DIGITS_TO_SWITCH_TEXT_BOX="WLR3Order_digits_to_switch";
+
+
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
@@ -41,7 +46,7 @@ public class WLR3_Line_Information_Page {
     public void setCareLevelForPremiumLineSwitch(String unavailable, String available) throws InterruptedException {
         //assert message that recommends care level plan greater than or equal to 2.5 on the order summary page, for premium line switch
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.CARE_LEVEL_PLAN_WARNING_MESSAGE));
-        loadLineInfo();
+       wlr3_orderDetails_page.loadLineInfo();
         //verify that the care level plan is defaulted to select
         utils.waitForElementVisible(By.xpath(CARE_LEVEL_DEFAULTED_TO_SELECT));
         //verify that care level plan 1 that is recommended for basic line is not available for the premium line switch
@@ -65,24 +70,13 @@ public class WLR3_Line_Information_Page {
     }
 
     public void verifyLineInfoForISDN30(String number1, String number2, String number3) throws InterruptedException {
-        loadLineInfo();
+        wlr3_orderDetails_page.loadLineInfo();
         utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number1 + "')]"));
         utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number2 + "')]"));
         utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number3 + "')]"));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
 
-    }
-    public void loadLineInfo() throws InterruptedException {
-        try {
-            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
-        } catch (Exception e) {
-            wlr3_orderDetails_page.loadTabOnWLR3OrderSummaryPage();
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
-        }
-    }
     public void assertLineInfoForISDN30(){
         utils.waitForElementVisible(By.id("WLR3Order_standby_power_required"));
         utils.waitForElementVisible(By.id("WLR3Order_radio_delivery_accepted"));
@@ -101,11 +95,26 @@ public class WLR3_Line_Information_Page {
         utils.waitForElementVisible(By.xpath(POINT_TO_MULTIPOINT_TEXT_ON_LINE_INFO_PAGE));
         utils.makeSureBoxIsChecked(By.id(POINT_TO_MULTIPOINT_RADIO_BUTTON),By.id(POINT_TO_MULTIPOINT_RADIO_BUTTON));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
-
-
-
-
-
     }
+    public void setSignalType() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_STATING_SIGNAL_TYPE_MANDATORY_FOR_NTTP));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
+        utils.waitForElementVisible(By.id(CHOOSE_SIGNAL_TYPE));
+        utils.selectByVisibleText(By.id(CHOOSE_SIGNAL_TYPE),"Dual Tone");
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
+    public void assertDigitsToSwitchForAllISDN(String allowedRange, String digits){
+        utils.waitForElementVisible(By.id(DIGITS_TO_SWITCH_TEXT_BOX));
+        utils.sendText(By.id(DIGITS_TO_SWITCH_TEXT_BOX),"0");
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Please enter a value between "+allowedRange+".')]"));
+    utils.sendText(By.id(DIGITS_TO_SWITCH_TEXT_BOX),"100");
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Please enter a value between "+allowedRange+".')]"));
+        utils.sendText(By.id(DIGITS_TO_SWITCH_TEXT_BOX),""+digits+"");
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
+
 
 }

@@ -37,12 +37,12 @@ public class NA112_WLR3_ISDN30_Modify_stepDefs {
         webModel.getWlr3_orderDetails_page().postCodeTextForModifyOrder();
         //assert that the site info do not have main power with in 3 meters and events& exhibitions
        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
-        webModel.getWlr3_siteInformationPage().clickSiteInfo();
+        webModel.getWlr3_orderDetails_page().clickSiteInfo();
         webModel.getWlr3_siteInformationPage().assertionForISDN30ModifyEngineeringNotes();
         //assert that site info do not have provision info
         webModel.getWlr3_siteInformationPage().assertProvisionTypeAbsentInISDN30Modify();
         //assert standby power and radioDeliveryOK buttons are present under lineInfo
-        webModel.getWlr3_line_information_page().loadLineInfo();
+        webModel.getWlr3_orderDetails_page().loadLineInfo();
         webModel.getWlr3_line_information_page().assertLineInfoForISDN30();
         webModel.getWlr3_summary_charges_page().editChargesForISDN30Modify();
         webModel.getWlr3_orderDetails_page().assertEditedChargesForISDN30Modify();

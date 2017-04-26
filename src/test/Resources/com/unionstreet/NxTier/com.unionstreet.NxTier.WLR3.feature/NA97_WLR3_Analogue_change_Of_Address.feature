@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA97 - Test script to verify the steps involved in change of address
+Feature: NA97 - WLR3_Analogue_change_Of_Address
 
   Scenario: scenario to verify the retain line number option availability when postCode that is within the same exchange is used
     Given I am logged in as CP

@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 /**
  * Created by RajeshG on 23/01/2017.
  */
-public class WLR3_NewProvide_AnaMultLine_SitePage {
+public class WLR3_NewProvide_SitePage {
 
     private final String EDIT_SERVICECHARGES_BUTTON = "//a[starts-with(@onclick,'getWLR3ChargesEdit')]";
     private final String SAVE_SERVICECHARGES_BUTTON = "//button[starts-with(@onclick,'saveWLR3Charges')]";
@@ -19,7 +19,7 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
     WLR3_InstallationAddressPage wlr3_installationAddressPage = new WLR3_InstallationAddressPage();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
     ElementUtils utils = new ElementUtils();
-    WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage = new WLR3_New_Provide_Analogue_Multiline_OrderPage();
+    WLR3_New_Provide_OrderPage wlr3_new_provide__orderPage = new WLR3_New_Provide_OrderPage();
     WLR3_Summary_Charges_Page wlr3_summary_charges_page=new WLR3_Summary_Charges_Page();
 
     //populate and assert installation address
@@ -41,9 +41,10 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
         }
     }
 
-    public void populateAndAssertInstallationAddressUnderSITE(String postCode) throws InterruptedException {
+    public void populateAndAssertInstallationAddressUnderSITE(String postCode,String addressKey) throws InterruptedException {
        loadInstallationAddress();
         wlr3_installationAddressPage.EnterPostCodeInSearchAddressByPostCode(postCode);
+        utils.waitForElementVisible(By.xpath("//p[contains(text(),'Address Key: "+addressKey+"')]"));
         utils.clickBtn(By.id(wlr3_orderDetails_page.ADDRESS_SEARCH_RESULT));
         utils.javaScriptExecutorClick(By.xpath(wlr3_orderDetails_page.CONTINUE_AFTER_ADDRESS_IS_CHOOSEN));
         utils.jumpToParentPopUp();
@@ -70,10 +71,10 @@ public class WLR3_NewProvide_AnaMultLine_SitePage {
         utils.waitForElementVisible(By.xpath(SITE_CONTACTS_TEXT));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         try { Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_new_provide_analogue_multiline_orderPage.NEXT_BUTTON));
+            utils.clickBtnWithWait(By.xpath(wlr3_new_provide__orderPage.NEXT_BUTTON));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_new_provide_analogue_multiline_orderPage.NEXT_BUTTON));
+            utils.clickBtnWithWait(By.xpath(wlr3_new_provide__orderPage.NEXT_BUTTON));
         }
         //verify the presence of error message
         utils.waitForElementVisible(By.xpath(PHONE_NUMBER_MANDATORY_ERROR_MESSAGE));
