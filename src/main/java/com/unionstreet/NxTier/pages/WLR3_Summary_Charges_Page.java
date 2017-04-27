@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 public class WLR3_Summary_Charges_Page {
     ElementUtils utils=new ElementUtils();
     CommonMethods commonMethods=new CommonMethods();
+    WLR3_OrderDetails_Page wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
 
 
     private final String LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE="//a[contains(@onclick,'loadWLR3Charges')]";
@@ -20,7 +21,7 @@ public class WLR3_Summary_Charges_Page {
 
     public void editChargesForISDN30Modify() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE));
-        Thread.sleep(1000);
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.xpath(LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE));
         utils.clickBtn(By.xpath(EDIT_BUTTON_ON_WLR3_CHARGE_SUMMARY_POPUP));
         utils.waitForElementVisible(By.xpath(SAVE_EDITED_CHARGES_ON_WLR3_CHARGES_POPUP));

@@ -487,12 +487,13 @@ public class WLR3_OrderDetails_Page {
     }
     public void editChannelNumberForISDNlines(String minNumber, String maxNumber){
         utils.waitForElementVisible(By.xpath(EDIT_NUMBER_OF_CHANNELS));
+        utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.xpath(EDIT_NUMBER_OF_CHANNELS));
         utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"0");
         utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
         // TODO: 26/04/2017  
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Numer of Channels must be greater or equal to "+minNumber+" for this product.')]"));
-        utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"100");
+        utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"1000");
         utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Numer of Channels must be less than or equal to "+maxNumber+" for this product.')]"));
         utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"10");
