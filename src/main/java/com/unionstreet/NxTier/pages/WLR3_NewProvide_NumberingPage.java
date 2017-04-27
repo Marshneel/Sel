@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 /**
  * Created by RajeshG on 23/01/2017.
  */
-public class WLR3_NewProvide_AnaMultLine_NumberingPage {
+public class WLR3_NewProvide_NumberingPage {
 
     private final String BUSINESS_DESC_TEXTBOX_UNDER_DIRECTORY_INFO = "DirectoryInfo_0__dir_TradingTitleSurname";
     private final String RESIDENTIAL_RADIOBTN_UNDER_DIRECTORYINFO = "DirectoryInfo_0__dir_LocationResidential";
@@ -26,9 +26,12 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
     private final String ADDNEW_DDIRANGE_BUTTON = "add_row";
     private final String MORE_DIRECTORY_INFO_TAB = "//a[contains(@onclick,'newProvideWizard.ValidateAndSubmitNumberingFormAndExecuteNext')]";
     private final String SNDDI_TAB_ON_DIRINFO_POPUP = "//ul[@id='directoryInformationNavigation']//a[contains(text(),'SNDDI')]";
+    private final String DIRECTORY_TYPE_DROPDOWN="DirectoryInfo_0__dir_Type";
+    private final String CHECKBOX_TO_HIDE_DIRECTORY_INFO="chkNoDirectory";
+    private final String ADD_REMOVE_SNDDI_OR_DDI_RANGE="//h4[contains(text(),'Add or Remove SNDDI/DDI Ranges')]";
 
     ElementUtils utils = new ElementUtils();
-    WLR3_New_Provide_Analogue_Multiline_OrderPage wlr3_new_provide_analogue_multiline_orderPage = new WLR3_New_Provide_Analogue_Multiline_OrderPage();
+    WLR3_New_Provide_OrderPage wlr3_new_provide__orderPage = new WLR3_New_Provide_OrderPage();
     WLR3_LineNumberingPage wlr3_lineNumberingPage = new WLR3_LineNumberingPage();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
     CommonMethods commonMethods = new CommonMethods();
@@ -39,7 +42,7 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         //check residential tab under directory location
         utils.clickBtn(By.id(RESIDENTIAL_RADIOBTN_UNDER_DIRECTORYINFO));
         //assert that the error is thrown when the contact and initials are not populated
-        utils.clickBtn(By.xpath(wlr3_new_provide_analogue_multiline_orderPage.NEXT_BUTTON));
+        utils.clickBtn(By.xpath(wlr3_new_provide__orderPage.NEXT_BUTTON));
         utils.waitForElementVisible(By.xpath(MANDATORYMSG_FOR_RESIDENTIAL_UNDER_DIRECTORY_INFO));
         //populate contact,initials and surname
         utils.selectByVisibleText(By.id(CONTACT_TITLE_UNDER_DIRECTORY_INFO), "Dr");
@@ -154,6 +157,7 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
         utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
         utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(1);')]"));
         utils.assertElementNotPresent(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(0);')]"));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(1);')]"));
         Thread.sleep(1000);
         utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
@@ -171,7 +175,7 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
             Thread.sleep(1000);
             utils.clickBtnWithWait(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         }
-        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Add or Remove SNDDI/DDI Ranges')]"));
+        utils.waitForElementVisible(By.xpath(ADD_REMOVE_SNDDI_OR_DDI_RANGE));
         try {
             utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1), "" + action1 + "");
         } catch (Exception e) {
@@ -184,10 +188,10 @@ public class WLR3_NewProvide_AnaMultLine_NumberingPage {
     }
 
     public void directoryInfoForISDN2() throws InterruptedException {
-        utils.waitForElementVisible(By.id("chkNoDirectory"));
+        utils.waitForElementVisible(By.id(CHECKBOX_TO_HIDE_DIRECTORY_INFO));
         Thread.sleep(1000);
-        utils.clickBtn(By.id("chkNoDirectory"));
-        utils.waitForElementToVanish(By.id("DirectoryInfo_0__dir_Type"));
+        utils.clickBtn(By.id(CHECKBOX_TO_HIDE_DIRECTORY_INFO));
+        utils.waitForElementToVanish(By.id(DIRECTORY_TYPE_DROPDOWN));
 
 
     }

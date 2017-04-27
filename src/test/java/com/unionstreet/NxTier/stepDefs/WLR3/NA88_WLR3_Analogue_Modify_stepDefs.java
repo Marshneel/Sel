@@ -41,8 +41,8 @@ public class NA88_WLR3_Analogue_Modify_stepDefs {
     public void iShouldBeAbleToCheckAllTheTabsAndVerifyAssertions() throws Throwable {
         //add installation address and assert on the orderDetails screen
         webModel.getwlr3_newProvide_anaMultLine_sitePage().zoomOutOnInstallationAddressUnderModifyOrder();
-        webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ");
-        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
+        webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ","A00001043137");
+        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26","A00001043137");
         //verify OrderType tab
         webModel.getWlr3_orderDetails_page().verifyOrderTypeTab();
         //verify lineInformation tab
@@ -56,7 +56,7 @@ public class NA88_WLR3_Analogue_Modify_stepDefs {
         webModel.getWlr3_networkCallingFeaturesPage().rePopulateNetworkCallingFeatures();
         //verify appointment page
         webModel.getWlr3_appointmentPage().accessAppointmentpage();
-        webModel.getWlr3_newProvide_anaMultLine_datePage().populateHazardAndWarningNotesUnderDATE("hazard note", "warning notes");
+        webModel.getWlr3_newProvide__datePage().populateHazardAndWarningNotesUnderDATE("hazard note", "warning notes");
         webModel.getWlr3_appointmentPage().saveAppointments();
         webModel.getWlr3_orderDetails_page().assertAppointmentInfo();
     }

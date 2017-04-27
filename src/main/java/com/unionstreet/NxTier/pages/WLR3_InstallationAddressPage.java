@@ -56,7 +56,7 @@ public class WLR3_InstallationAddressPage {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.INSTALLATION_ADDRESS_SUMMARY_PANEL));
         utils.jumpToPopUpWindow(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         EnterPostCodeInSearchAddressByPostCode("lu1 1dq");
-        wlr3_orderDetails_page.assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
+        wlr3_orderDetails_page.assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26","A00001043137");
     }
     public void searchForAddress(String postCode) throws InterruptedException {
        utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));

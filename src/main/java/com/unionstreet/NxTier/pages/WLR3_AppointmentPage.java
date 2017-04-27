@@ -13,7 +13,7 @@ public class  WLR3_AppointmentPage {
 
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
-    WLR3_NewProvide_AnaMultLine_DatePage wlr3_newProvide_anaMultLine_datePage = new WLR3_NewProvide_AnaMultLine_DatePage();
+    WLR3_NewProvide_DatePage wlr3_newProvide__datePage = new WLR3_NewProvide_DatePage();
 
     public void accessAppointmentpage() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
@@ -44,10 +44,10 @@ public class  WLR3_AppointmentPage {
             Thread.sleep(1000);
             utils.javaScriptExecutorClick(By.xpath(wlr3_orderDetails_page.APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE));
         }
-        utils.waitForElementVisible(By.id(wlr3_newProvide_anaMultLine_datePage.HAZARD_NOTES_TEXTBOX));
+        utils.waitForElementVisible(By.id(wlr3_newProvide__datePage.HAZARD_NOTES_TEXTBOX));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
-        utils.sendText(By.id(wlr3_newProvide_anaMultLine_datePage.HAZARD_NOTES_TEXTBOX), "hazardNotes");
-        utils.sendText(By.id(wlr3_newProvide_anaMultLine_datePage.WARNING_NOTES_TEXTBOX), "warningNotes");
+        utils.sendText(By.id(wlr3_newProvide__datePage.HAZARD_NOTES_TEXTBOX), "hazardNotes");
+        utils.sendText(By.id(wlr3_newProvide__datePage.WARNING_NOTES_TEXTBOX), "warningNotes");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
 
     }

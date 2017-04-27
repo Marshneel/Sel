@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA64 - WLR3 Transfer Scenarios for line numbering
+Feature: NA64 - WLR3_Analogue_Transfer_line_Numbering_Options
 
   Scenario Outline: Assigning specify new number, select from list, automatically assign now by logging as CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"

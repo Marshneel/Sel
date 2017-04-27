@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA99 - create a batch order and submit it without completion
+Feature: NA99 - WLR3_Analogue_Batch_Transfer
 
   Scenario: submit a batch order with out generating OIDs
     Given I am logged in as CP

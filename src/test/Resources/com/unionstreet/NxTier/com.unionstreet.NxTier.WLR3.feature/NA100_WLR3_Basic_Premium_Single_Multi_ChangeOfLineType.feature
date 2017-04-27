@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA100 - scenarios for change of line type order
+Feature: NA100 - WLR3_Basic_Premium_Single_Multi_ChangeOfLineType
 
   Scenario: scenario for change of line type from basic analogue line to premium analogue line
     Given I am logged in as CP

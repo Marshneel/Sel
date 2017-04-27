@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA94 - Test scripts to add/remove existing aux line
+Feature: NA94 - WLR3_Analogue_Add_Remove_Aux_line
 
   Scenario: Adding an extra line to existing multi-line
     Given I am logged in as CP

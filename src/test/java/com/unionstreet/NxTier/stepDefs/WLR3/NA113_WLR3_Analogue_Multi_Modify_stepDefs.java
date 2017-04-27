@@ -20,8 +20,8 @@ public class NA113_WLR3_Analogue_Multi_Modify_stepDefs {
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("01202300909", "LU1 1DQ");
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         webModel.getwlr3_newProvide_anaMultLine_sitePage().zoomOutOnInstallationAddressUnderModifyOrder();
-        webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ");
-        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26");
+        webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ","A00001043137");
+        webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26","A00001043137");
     }
 
 

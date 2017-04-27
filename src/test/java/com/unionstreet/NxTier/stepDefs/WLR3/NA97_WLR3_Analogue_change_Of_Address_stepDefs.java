@@ -32,14 +32,14 @@ public class NA97_WLR3_Analogue_change_Of_Address_stepDefs {
         webModel.getWlr3_installationAddressPage().searchForAddress("LU1 1DQ");
         webModel.getWlr3_orderDetails_page().pickAddressFromSearchResults();
         //entering phone number under siteInfo
-        webModel.getWlr3_siteInformationPage().populateTelNumberOnChangeOfAddress("07894040256");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton(4);
+        webModel.getWlr3_siteInformationPage().populateTelNumberUnderSiteInfo("07894040256");
+        webModel.getWlr3_new_provide__orderPage().multipleClicksOnNextButton(4);
     }
 
     @Then("^Retain option availability is displayed$")
     public void retainOptionAvailabilityIsDisplayed() throws InterruptedException {
         //check for the retain option
-        webModel.getWlr3_newProvide_anaMultLine_numberingPage().checkPresenceOfRetainOptionInChangeOfAddress();
+        webModel.getWlr3_newProvide__numberingPage().checkPresenceOfRetainOptionInChangeOfAddress();
     }
 
     @When("^Provide a postCode that is outside the exchange$")
@@ -48,23 +48,23 @@ public class NA97_WLR3_Analogue_change_Of_Address_stepDefs {
         webModel.getWlr3_installationAddressPage().searchForAddress("CB1 3NL");
         webModel.getWlr3_orderDetails_page().pickAddressFromSearchResults();
         //entering phone number under siteInfo
-        webModel.getWlr3_siteInformationPage().populateTelNumberOnChangeOfAddress("07894040256");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().multipleClicksOnNextButton(4);
+        webModel.getWlr3_siteInformationPage().populateTelNumberUnderSiteInfo("07894040256");
+        webModel.getWlr3_new_provide__orderPage().multipleClicksOnNextButton(4);
     }
 
 
     @Then("^Message stating retain option unavailability should be displayed$")
     public void messageStatingRetainOptionUnavailabilityShouldBeDisplayed() {
        //check that the retain option is unavailable
-        webModel.getWlr3_newProvide_anaMultLine_numberingPage().checkAbsenceOfRetainInChangeOfAddress();
+        webModel.getWlr3_newProvide__numberingPage().checkAbsenceOfRetainInChangeOfAddress();
     }
 
     @And("^when i navigate forward and provide all required information$")
     public void whenINavigateForwardAndProvideAllRequiredInformation() throws InterruptedException {
        //populate the hazard warning notes
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
-        webModel.getWlr3_newProvide_anaMultLine_datePage().populateHazardAndWarningNotesUnderDATE("hazard note", "warning notes");
-        webModel.getWlr3_new_provide_analogue_multiline_orderPage().navigateToNextScreen();
+        webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
+        webModel.getWlr3_newProvide__datePage().populateHazardAndWarningNotesUnderDATE("hazard note", "warning notes");
+        webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
     }
 
     @Then("^I should be able to complete the order and see a green tick$")

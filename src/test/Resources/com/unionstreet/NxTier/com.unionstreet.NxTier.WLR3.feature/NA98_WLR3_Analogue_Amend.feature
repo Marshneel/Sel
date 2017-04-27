@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA98 - Test script to verify the steps involved in submit and amend an order, and receive notification responses using CmdController
+Feature: NA98 - WLR3_Analogue_Amend
 
   Scenario: Create an order submit, amend and process it, verify the steps involved.
     Given I am logged in as CP

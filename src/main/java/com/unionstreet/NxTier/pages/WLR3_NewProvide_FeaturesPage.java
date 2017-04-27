@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 /**
  * Created by RajeshG on 23/01/2017.
  */
-public class WLR3_NewProvide_AnaMultLine_FeaturesPage {
+public class WLR3_NewProvide_FeaturesPage {
 
     private final String NETWORK_FEATURES_TEXT = "//legend[text()='Network Features']";
     private final String CALL_DIVERSION_RADIOBUTTON_UNDER_NETWORK_FEATURES = "Features_7__value";

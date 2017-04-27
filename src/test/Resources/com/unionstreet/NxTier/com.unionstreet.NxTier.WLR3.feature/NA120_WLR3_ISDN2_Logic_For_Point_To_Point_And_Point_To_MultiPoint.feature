@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA120 - Logic for point-to-multipoint and point-to-point for ISDN2 Standard and ISDN2 System, respectively
+Feature: NA120 - WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint
 
   Scenario: testing logic for ISDN2 Standard: point-to-multiPoint
     Given I am logged in as CP
