@@ -21,7 +21,7 @@ public class WLR3_Summary_Charges_Page {
 
     public void editChargesForISDN30Modify() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE));
-        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath(LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE));
         utils.clickBtn(By.xpath(EDIT_BUTTON_ON_WLR3_CHARGE_SUMMARY_POPUP));
         utils.waitForElementVisible(By.xpath(SAVE_EDITED_CHARGES_ON_WLR3_CHARGES_POPUP));
