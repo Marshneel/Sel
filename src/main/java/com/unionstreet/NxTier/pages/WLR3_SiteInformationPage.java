@@ -124,13 +124,13 @@ public class WLR3_SiteInformationPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
     public void assertProvisionTypeAbsentInISDN30Modify() throws InterruptedException {
-       Thread.sleep(1000);
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.assertElementNotPresent(By.xpath(PROVISION_TYPE_PANEL));
         utils.assertElementNotPresent(By.xpath(TAKE_OVER_AN_EXISTING_LINE));
         utils.assertElementNotPresent(By.xpath(PROVIDE_A_NEW_LINE));
     }
     public void assertionForISDN30ModifyEngineeringNotes() throws InterruptedException {
-       Thread.sleep(1000);
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.assertElementNotPresent(By.id("WLR3Order_mains_within_3m"));
         utils.assertElementNotPresent(By.id("WLR3Order_events_and_exhibitions"));
         utils.clickBtn(By.id(wlr3_orderDetails_page.CANCEL));}
