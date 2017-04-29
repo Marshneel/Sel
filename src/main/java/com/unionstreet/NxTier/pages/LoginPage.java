@@ -10,6 +10,7 @@ public class LoginPage {
     public final String LOGINBUTTON = ".DivButton";
     ElementUtils utils = new ElementUtils();
 
+
     public void doLogin() {
         try {
             utils.waitForElementVisible(By.id(USENAME_FIELD));
