@@ -27,7 +27,6 @@ public class BaseClass {
 
     @Before
     public void startUp() {
-
         try {
             driver = utils.browser();
             driver.get(utils.getProperty("url"));
