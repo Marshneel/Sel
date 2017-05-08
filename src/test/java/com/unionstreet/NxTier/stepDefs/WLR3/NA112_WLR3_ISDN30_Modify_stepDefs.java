@@ -46,7 +46,7 @@ public class NA112_WLR3_ISDN30_Modify_stepDefs {
         webModel.getWlr3_line_information_page().assertLineInfoForISDN30();
         webModel.getWlr3_line_information_page().assertDigitsToSwitchForAllISDN("3 and 8","6");
         webModel.getWlr3_orderDetails_page().assertNumberOfDigitsToSwitchOnOrderDetailsPage("6");
-        webModel.getWlr3_orderDetails_page().editChannelNumberForISDNlines("8","999");
+        webModel.getWlr3_orderDetails_page().editChannelNumberForPremiumAndISDNlines("Numer of Channels","8","999");
         webModel.getWlr3_summary_charges_page().editChargesForISDN30Modify();
         webModel.getWlr3_orderDetails_page().assertEditedChargesForISDN30Modify();
         webModel.getWlr3_orderDetails_page().clickLineNumbering();

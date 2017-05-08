@@ -8,7 +8,7 @@ import cucumber.api.java.en.When;
 /**
  * Created by RajeshG on 31/01/2017.
  */
-public class NA91_WLR3_Analogue_Cease_stepDefs {
+public class NA91_WLR3_Analogue_Premium_Single_Cease_stepDefs {
 
 
     WebModel webModel = new WebModel();

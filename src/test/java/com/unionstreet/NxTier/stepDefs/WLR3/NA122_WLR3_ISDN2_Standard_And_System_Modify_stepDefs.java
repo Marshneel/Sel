@@ -58,7 +58,7 @@ public class NA122_WLR3_ISDN2_Standard_And_System_Modify_stepDefs {
         webModel.getWlr3_siteInformationPage().populateTelNumberUnderSiteInfo("07894040256");
         webModel.getWlr3_siteInformationPage().populateAndSaveEngineeringNotes();
         webModel.getWlr3_orderDetails_page().assertErrorMessageForUnwantedEngineeringNotes();
-        webModel.getWlr3_orderDetails_page().editChannelNumberForISDNlines("2","60");
+        webModel.getWlr3_orderDetails_page().editChannelNumberForPremiumAndISDNlines("Numer of Channels","2","60");
         webModel.getWlr3_orderDetails_page().assertErrorMessageForHazardAndWarningNotes();
         webModel.getWlr3_appointmentPage().accessAppointmentpage();
         webModel.getWlr3_newProvide__datePage().populateHazardAndWarningNotesUnderDATE("hazard note", "warning notes");

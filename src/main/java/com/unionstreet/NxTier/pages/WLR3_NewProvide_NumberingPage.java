@@ -192,8 +192,15 @@ public class WLR3_NewProvide_NumberingPage {
         Thread.sleep(1000);
         utils.clickBtn(By.id(CHECKBOX_TO_HIDE_DIRECTORY_INFO));
         utils.waitForElementToVanish(By.id(DIRECTORY_TYPE_DROPDOWN));
-
-
+    }
+    public void alertMessageForVirtualLines(){
+        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'This line requires a number To be reserved.')]"));
+    }
+    public void loadAdvancedLineNumbering() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
     }
 
 }

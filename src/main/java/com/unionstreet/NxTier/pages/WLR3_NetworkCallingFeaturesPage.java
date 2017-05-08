@@ -61,4 +61,20 @@ public class WLR3_NetworkCallingFeaturesPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
 
     }
+    public void assertFeaturesForRemoteCallFor_VirtualLines(){
+                utils.waitForElementVisible(By.xpath("//label[contains(text(),'Raw Call Data')]"));
+        utils.clickBtn(By.xpath("//label[contains(text(),'Raw Call Data')]"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Remote Call Forwarding')]"));
+
+    }
+    public void editCallFeaturesForRemoteCallFor_VirtualLines() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Raw Call Data')]"));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
+        utils.clickBtn(By.id("Features_0__value"));
+        utils.sendText(By.id("Features_1__cli"),"0201234567");
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+
+
+    }
 }

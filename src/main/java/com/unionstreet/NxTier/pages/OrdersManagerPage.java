@@ -201,16 +201,18 @@ public class OrdersManagerPage {
             Thread.sleep(1000);
             utils.clickBtn(By.xpath(QUOTEID));
         } catch (Exception e) {
-            utils.checkAlert();
+
         }
     }
 
     public void clickOnQuoteID() throws InterruptedException {
         try {
             tryClickingOnQuoteID();
-        } catch (Exception e) {
+        } catch (Exception e) {utils.checkAlert();
             utils.getOrdersPage();
+            Thread.sleep(1000);
             tryClickingOnQuoteID();
+            utils.checkAlert();
         }
         utils.switchToNewWindow();
     }

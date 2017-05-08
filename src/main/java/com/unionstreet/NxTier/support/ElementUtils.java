@@ -490,4 +490,7 @@ public class ElementUtils {
             System.out.println(line);
         }
     }
+    public void hreadSleep(int time) throws InterruptedException {
+        Thread.sleep(time);
+    }
 }
