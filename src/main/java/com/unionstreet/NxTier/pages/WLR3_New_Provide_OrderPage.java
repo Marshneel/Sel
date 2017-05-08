@@ -28,6 +28,12 @@ public class WLR3_New_Provide_OrderPage {
         utils.clickBtn(By.xpath(SUBMIT_BUTTON));
 
     }
+    public void saveAndSwitchToOrderSummaryPage() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(NEXT_BUTTON));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
+        Thread.sleep(1000);
+        utils.closeCurrentWindowAndJump(By.xpath(NEXT_BUTTON));
+    }
 
     public void navigateToNextScreen() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(NEXT_BUTTON));

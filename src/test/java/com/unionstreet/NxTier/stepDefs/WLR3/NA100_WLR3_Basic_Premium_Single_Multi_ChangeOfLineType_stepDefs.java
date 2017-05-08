@@ -20,7 +20,7 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
 
     @Then("^I should be able to check all the required validations and complete the change order for basic to premium analogue$")
     public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOrderForBasicToPremiumAnalogue() throws InterruptedException {
-        webModel.getWlr3_line_information_page().setCareLevelForPremiumLineSwitch("Level 1","Level 2.5");
+        webModel.getWlr3_line_information_page().setCareLevelForPremiumAndISDNLineSwitch("Level 1","2.5");
         //assert that the common features for single lines are highlighted
         webModel.getWlr3_orderDetails_page().verifyCommonNetworkCallingFeaturesForSingleLine("Call Sign","Presentation Number");
         webModel.getWlr3_directoryInformationPage().assertUniqueNetworkFeatureUnderDirectoryInfoForSingleLine("Call Sign");
@@ -68,7 +68,7 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
         webModel.getWlr3_orderDetails_page().assertingTheNumberOfLinesForMultiLineSwitch("2");
        //assert that the features that are native to single line are not available during multiline switch
         webModel.getWlr3_orderDetails_page().assertTheAbsenceOfFeatureUnderNetworkFeatures("Call Sign");
-        webModel.getWlr3_line_information_page().setCareLevelForPremiumLineSwitch("Level 1","Level 2.5");
+        webModel.getWlr3_line_information_page().setCareLevelForPremiumAndISDNLineSwitch("Level 1","2.5");
         webModel.getWlr3_siteInformationPage().populateSiteInfoPhoneAndAssertIncOfTerminationType("07894040256","NTTP");
         webModel.getWlr3_appointmentPage().populateHazardAndWarningNotes();
         webModel.getWlr3_orderDetails_page().assertLineCharges("Analogue Multi-Line");

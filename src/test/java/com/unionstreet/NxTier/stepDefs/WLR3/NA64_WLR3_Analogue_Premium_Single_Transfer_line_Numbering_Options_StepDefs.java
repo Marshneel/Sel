@@ -11,7 +11,7 @@ import java.sql.SQLException;
 /**
  * Created by rajeshg on 26/10/2016.
  */
-public class NA64_WLR3_Analogue_Transfer_line_Numbering_Options_StepDefs {
+public class NA64_WLR3_Analogue_Premium_Single_Transfer_line_Numbering_Options_StepDefs {
     WebModel webModel = new WebModel();
 
 
@@ -57,6 +57,7 @@ public class NA64_WLR3_Analogue_Transfer_line_Numbering_Options_StepDefs {
         //select from the list
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
         webModel.getWlr3_lineNumberingPage().lineNumberingSelectFromList("01582213000");
+        webModel.getWlr3_lineNumberingPage().assertionForSelectFromList("01582213000");
         //webModel.getWlr3_orderDetails_page().clickLineNumbering();
         //importing number from other networks: move number from another address
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
@@ -73,6 +74,7 @@ public class NA64_WLR3_Analogue_Transfer_line_Numbering_Options_StepDefs {
         //automatically assign now
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
         webModel.getWlr3_lineNumberingPage().lineNumberingAutomaticallyAssignNumber("01582213000");
+        webModel.getWlr3_lineNumberingPage().assertionForAutomaticallyAssign("01582213000");
     }
 
     @When("^I access appointments page on the WLR order details page$")

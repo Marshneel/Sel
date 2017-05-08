@@ -143,7 +143,7 @@ public void terminationTypeForAnalogueBasicLine(){
     utils.waitForElementVisible(By.xpath(LINEBOX_SELECTED_AS_DEFAULT_UNDER_TERMINATION_TYPE));
     utils.assertElementNotPresent(By.xpath(NTTP_OPTION_UNDER_TERMINATION_TYPE));
 }
-public void terminationTypeForAnaloguePremiumLine(){
+public void terminationTypeForPremiumLine(){
     utils.waitForElementVisible(By.xpath(LINEBOX_OPTION_UNDER_TERMINATION_TYPE));
     utils.waitForElementVisible(By.xpath(NTTP_OPTION_UNDER_TERMINATION_TYPE));
     utils.selectByVisibleText(By.id(TERMINATION_TYPE_DROPDOWN_UNDER_SITEINFO),"NTTP");

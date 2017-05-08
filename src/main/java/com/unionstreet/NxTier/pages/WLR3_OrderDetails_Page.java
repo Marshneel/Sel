@@ -51,7 +51,6 @@ public class WLR3_OrderDetails_Page {
     private final String SAVE_EMERGENCY_INFO = "//img[contains(@onclick,'jet_update_value_FromTextbox')]";
     public final String MANUAL_ENTRY_TAB = "manualEntryBtn";
     private final String WLR3_WARNING_PANEL_LOCATOR = "//div[@id='WLR3OrderWarnings']";
-    public final String CARE_LEVEL_PLAN_WARNING_MESSAGE = "//div[@id='divValidationMessages']//div[contains(text(),'Care Level must be 2.5 or higher for Premium lines')]";
     private final String ISDN_LABEL_UNDERCHARGES = "//div[@id='chargesSummaryPanel']//td[contains(text(),'ISDN30E')]";
     private final String SNDDI_LABEL_UNDER_DIRINFO = "//b[contains(text(),'SNDDI - To be allocated')]";
     private final String AUTOMATICALLY_ALLOCATED_TEXT_UNDER_LINNUM = "//div[contains(text(),'Automatically allocated')]";
@@ -215,8 +214,12 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void getToWLR3QuotePage() throws InterruptedException {
+        Thread.sleep(2000);
         utils.getOrdersPage();
-       ordersManagerPage.clickOnQuoteID();
+        clickOnQuoteID();
+        }
+        public void clickOnQuoteID() throws InterruptedException {
+            ordersManagerPage.clickOnQuoteID();
             utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
             utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
             utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
@@ -463,15 +466,16 @@ public class WLR3_OrderDetails_Page {
     public void assertNumberOfDigitsToSwitchOnOrderDetailsPage(String actualNumber){
         utils.waitForElementVisible(By.xpath("//p[@id='display_WLR3Order_digits_to_switch'][contains(text(),'"+actualNumber+"')]"));
     }
-    public void clickSiteInfo(){
-        utils.waitForElementVisible(By.id(SITE_INFO_SUMMARY_PANEL));
+    public void clickSiteInfo() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
         utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
-        try {
-            utils.jumpToPopUpWindow(By.xpath(SITE_INFORMATION_BUTTON));
+        try {Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(SITE_INFORMATION_BUTTON));
         } catch (Exception e) {
             utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
             utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
-            utils.jumpToPopUpWindow(By.xpath(SITE_INFORMATION_BUTTON));
+            Thread.sleep(1000);
+            utils.clickBtnWithWait(By.xpath(SITE_INFORMATION_BUTTON));
         }
         utils.waitForElementVisible(By.xpath(TEXT_ON_SITE_INFORMATION));
     }
@@ -485,19 +489,23 @@ public class WLR3_OrderDetails_Page {
         utils.assertElementNotPresent(By.xpath(HAZARD_NOTES_REQUISITION_ERROR_MESSAGE));
         utils.assertElementNotPresent(By.xpath(WARNING_NOTES_REQUISITION_ERROR_MESSAGE));
     }
-    public void editChannelNumberForISDNlines(String minNumber, String maxNumber){
+    public void editChannelNumberForPremiumAndISDNlines(String linesOrChannels, String minNumber, String maxNumber){
         utils.waitForElementVisible(By.xpath(EDIT_NUMBER_OF_CHANNELS));
         utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.xpath(EDIT_NUMBER_OF_CHANNELS));
         utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"0");
         utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
         // TODO: 26/04/2017  
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Numer of Channels must be greater or equal to "+minNumber+" for this product.')]"));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+linesOrChannels+" must be greater or equal to "+minNumber+" for this product.')]"));
         utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"1000");
         utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Numer of Channels must be less than or equal to "+maxNumber+" for this product.')]"));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+linesOrChannels+" must be less than or equal to "+maxNumber+" for this product.')]"));
         utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"10");
         utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
+    }
+    public void assertDefaultAndEditableChannels(String defaultChannels){
+        utils.waitForElementVisible(By.xpath(EDIT_NUMBER_OF_CHANNELS));
+        utils.waitForElementVisible(By.xpath("//span[text()='"+defaultChannels+"']"));
     }
     public void assertErrorMessageForUnwantedEngineeringNotes(){
         utils.waitForElementVisible(By.xpath(NO_ENGINEERING_NOTES_WITH_OUT_SITE_VISIT_MESSAGE));
@@ -507,5 +515,35 @@ public class WLR3_OrderDetails_Page {
     }
     public void assertExcessConstructionCharges(String charges){
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+charges+"')]"));
+    }
+    public void assertExclusiveFeatures(String exclusiveFeature){
+        utils.waitForElementVisible(By.xpath("//div[text()[contains(.,'"+exclusiveFeature+"')]]"));
+    }
+
+    public void assertCommonFeatures(String commonFeature){
+        utils.waitForElementVisible(By.xpath("//label[text()[contains(.,'"+commonFeature+"')]]"));
+    }
+    public void assertRemovedFeature(String commonFeature){
+        utils.assertElementNotPresent(By.xpath("//label[text()[contains(.,'"+commonFeature+"')]]"));
+    }
+    public void errorMessages_WhenLineIsChangedFromAnalogueToISDN(){
+        utils.waitForElementVisible(By.xpath("//div[text()[contains(.,'You must specify a Position for Digital products')]]"));
+        utils.waitForElementVisible(By.xpath("//div[text()[contains(.,'You must specify a Room for Digital products')]]"));
+        utils.waitForElementVisible(By.xpath("//div[text()[contains(.,'You must specify a Floor for Digital products')]]"));
+    }
+    public void errorMessagesWhenEngineeringVisitIsRequired(){
+        utils.waitForElementVisible(By.xpath("//div[text()[contains(.,'An engineer visit is required, but Hazard Notes have not been supplied')]]"));
+        utils.waitForElementVisible(By.xpath("//div[text()[contains(.,'An engineer visit is required, but Warning Notes have not been supplied')]]"));
+    }
+    public void assertCLIrequiredAlertMessageForVirtualLines(){
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'A CLI is required for the Remote Call Forwarding Network And Calling Feature')]"));
+    }
+    public void clickOnTheCLIAlertMessage(){
+        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'wlr3PopupWindows')]"));
+        utils.jumpToPopUpWindow(By.xpath("//a[contains(@onclick,'wlr3PopupWindows')]"));
+
+    }
+    public void assertNetworkFeaturesForRemoteCallForwarding_VirtualLines(){
+
     }
 }

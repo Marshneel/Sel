@@ -9,7 +9,7 @@ import cucumber.api.java.en.When;
 /**
  * Created by rajeshg on 17/10/2016.
  */
-public class NA60_WLR3_Analogue_Transfer_Address_Lookup_stepDefs {
+public class NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs {
 
     WebModel webModel = new WebModel();
     NA44_Agent_Login_stepDefs na44_agent_login_stepDefs = new NA44_Agent_Login_stepDefs();

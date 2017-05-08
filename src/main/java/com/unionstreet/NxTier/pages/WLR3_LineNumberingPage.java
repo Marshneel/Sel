@@ -118,14 +118,12 @@ public class WLR3_LineNumberingPage {
         utils.waitForElementVisible(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
-
-
-        utils.jumpToParentPopUp();
+        utils.jumpToParentPopUp();}
+        public void assertionForSelectFromList(String number) throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisibleForWLR3Page(By.id(wlr3_orderDetails_page.LINE_NUMBERING_SUMMARY_PANEL));
-        utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
+            utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
     }
-
 
     public void lineNumberingAutomaticallyAssignNumber(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
@@ -138,7 +136,9 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(ALLOCATENOW_TAB_UNDER_AUTOMATICALLY_ASSIGN_NOW_LINE_INFO));
         utils.waitForElementVisible(By.xpath("//h1[text()='" + number + "']"));
         utils.javaScriptExecutorClick(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
-        utils.jumpToParentPopUp();
+        utils.jumpToParentPopUp();}
+
+        public void assertionForAutomaticallyAssign(String number) throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.LINE_NUMBERING_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));

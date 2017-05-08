@@ -9,7 +9,7 @@ import cucumber.api.java.en.When;
 /**
  * Created by rajeshg on 18/10/2016.
  */
-public class NA61_WLR3_Analogue_Transfer_Obtaining_Initial_information_stepdefs {
+public class NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_information_stepdefs {
 
     WebModel webModel = new WebModel();
 

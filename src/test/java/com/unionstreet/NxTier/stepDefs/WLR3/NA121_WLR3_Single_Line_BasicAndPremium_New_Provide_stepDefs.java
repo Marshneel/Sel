@@ -50,7 +50,7 @@ public class NA121_WLR3_Single_Line_BasicAndPremium_New_Provide_stepDefs {
         webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26","A00001043137");
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateSiteContactUnderSITE("07894040256");
         webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
-        webModel.getWlr3_newProvide__provisionPage().terminationTypeForAnaloguePremiumLine();
+        webModel.getWlr3_newProvide__provisionPage().terminationTypeForPremiumLine();
         webModel.getWlr3_newProvide__provisionPage().setProvisionTypeNonAnalogueMultiLine();
         webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
         webModel.getWlr3_newProvide__engineeringPage().populatingEngineeringNotesUnderENGINEERING("engineering notes");

@@ -116,10 +116,10 @@ public class WLR3_SiteInformationPage {
         }
     }
     public void populateFloorAndRoomForNewProvideIDSN2() throws InterruptedException {
-        wlr3_orderDetails_page.textOnWLR3OrderPage();
-       wlr3_orderDetails_page.clickSiteInfo();
         utils.sendText(By.id(FLOOR_TEXT_BOX),"floor");
         utils.sendText(By.id(ROOM_TEXT_BOX),"room");
+    }
+    public void saveSiteInfoChanges(){
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }

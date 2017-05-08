@@ -13,7 +13,6 @@ public class WLR3_Line_Information_Page {
 
     private final String TEXT_ON_LINEINFO_PAGE = "//h3[contains(text(),'Line Information')]";
     private final String SERVICE_MAINTENANCE_TAB = "WLR3Order_care_level";
-    private final String CARE_LEVEL_DEFAULTED_TO_SELECT = "//select[@id='WLR3Order_care_level']//option[contains(text(),'Select')]";
     private final String POINT_TO_MULTIPOINT_TEXT_ON_LINE_INFO_PAGE="//label[contains(text(),'Point-to-Multipoint')]";
    private final String POINT_TO_POINT_TEXT_ON_LINE_INFO_PAGE="//label[contains(text(),'Point-to-Point')]";
    private final String DEFAULTED_TO_POINT_TO_MULTIPOINT="//input[@checked='checked'][@id='rdop2mp']";
@@ -43,16 +42,17 @@ public class WLR3_Line_Information_Page {
     }
 
 
-    public void setCareLevelForPremiumLineSwitch(String unavailable, String available) throws InterruptedException {
-        //assert message that recommends care level plan greater than or equal to 2.5 on the order summary page, for premium line switch
-        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.CARE_LEVEL_PLAN_WARNING_MESSAGE));
+    public void setCareLevelForPremiumAndISDNLineSwitch(String unavailable, String available) throws InterruptedException {
+        //assert message that recommends care level plan greater than or equal to - on the order summary page, for premium/ISDN line switch
+        utils.waitForElementVisible(By.xpath("//div[@id='divValidationMessages']//div[contains(text(),'Care Level must be "+available+" or higher')]"));
        wlr3_orderDetails_page.loadLineInfo();
+        utils.waitForElementVisible(By.xpath(TEXT_ON_LINEINFO_PAGE));
         //verify that the care level plan is defaulted to select
-        utils.waitForElementVisible(By.xpath(CARE_LEVEL_DEFAULTED_TO_SELECT));
+        utils.assertElementNotPresent(By.xpath("//select[@id='WLR3Order_care_level']//option[@selected='selected']"));
         //verify that care level plan 1 that is recommended for basic line is not available for the premium line switch
         utils.assertElementNotPresent(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + unavailable + "')]"));
         //choose care level plan 2.5 from the drop down
-        utils.selectByVisibleText(By.id(SERVICE_MAINTENANCE_TAB), "" + available + "");
+        utils.selectByVisibleText(By.id(SERVICE_MAINTENANCE_TAB), "Level "+available+"");
         //save the changes
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
@@ -115,6 +115,12 @@ public class WLR3_Line_Information_Page {
         utils.sendText(By.id(DIGITS_TO_SWITCH_TEXT_BOX),""+digits+"");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
-
+public void checkServiceMaintenanceForVirtualLines(){
+    utils.waitForElementVisible(By.xpath("//option[@selected='selected'][contains(text(),'Level 1')]"));
+    utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level 2')]"));
+    utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level 2.5')]"));
+    utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level 3')]"));
+    utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level 4')]"));
+}
 
 }
