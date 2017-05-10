@@ -95,7 +95,9 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(RESERVETAB_UNDER_SPECIFY_NEW_NUMBER_LINE_INFO));
         utils.waitForElementVisible(By.xpath("//h1[text()='" + number + "']"));
         utils.clickBtn(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
-        utils.jumpToParentPopUp();
+        utils.jumpToParentPopUp();}
+
+    public void assertionForLineNumberingSpecifyNewNumber(String number) throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.LINE_NUMBERING_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
@@ -138,10 +140,15 @@ public class WLR3_LineNumberingPage {
         utils.javaScriptExecutorClick(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
         utils.jumpToParentPopUp();}
 
+
         public void assertionForAutomaticallyAssign(String number) throws InterruptedException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.LINE_NUMBERING_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
+    }
+    public void assertionForNumberAllocationOnWizard(String number){
+        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'A new number has been reserved for this line')]"));
+        utils.waitForElementVisible(By.xpath("//p[contains(text(),'"+number+"')]"));
 
 
     }

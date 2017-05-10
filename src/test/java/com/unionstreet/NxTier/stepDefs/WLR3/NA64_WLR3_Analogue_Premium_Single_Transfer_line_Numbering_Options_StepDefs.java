@@ -54,6 +54,7 @@ public class NA64_WLR3_Analogue_Premium_Single_Transfer_line_Numbering_Options_S
         //specify new number
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
         webModel.getWlr3_lineNumberingPage().lineNumberingSpecifyNewNumber("01582213000");
+        webModel.getWlr3_lineNumberingPage().assertionForLineNumberingSpecifyNewNumber("01582213000");
         //select from the list
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
         webModel.getWlr3_lineNumberingPage().lineNumberingSelectFromList("01582213000");

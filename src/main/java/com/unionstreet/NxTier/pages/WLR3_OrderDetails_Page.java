@@ -535,15 +535,24 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//div[text()[contains(.,'An engineer visit is required, but Hazard Notes have not been supplied')]]"));
         utils.waitForElementVisible(By.xpath("//div[text()[contains(.,'An engineer visit is required, but Warning Notes have not been supplied')]]"));
     }
-    public void assertCLIrequiredAlertMessageForVirtualLines(){
-        utils.waitForElementVisible(By.xpath("//div[contains(text(),'A CLI is required for the Remote Call Forwarding Network And Calling Feature')]"));
+    public void assertCLIrequiredAlertMessageForVirtualLines(String lineName){
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'A CLI is required for the "+lineName+" Network And Calling Feature')]"));
     }
     public void clickOnTheCLIAlertMessage(){
         utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'wlr3PopupWindows')]"));
         utils.jumpToPopUpWindow(By.xpath("//a[contains(@onclick,'wlr3PopupWindows')]"));
 
     }
-    public void assertNetworkFeaturesForRemoteCallForwarding_VirtualLines(){
-
+    public void loadNetworkFeatures() throws InterruptedException {
+        Thread.sleep(1000);
+        utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
+        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'return showNetworkFeaturesPopup')]"));
+        utils.clickBtn(By.xpath("//a[contains(@onclick,'return showNetworkFeaturesPopup')]"));
+    }
+    public void assertSavedSiteContactTelephoneNumber(String telephone){
+        utils.waitForElementVisible(By.xpath("//p[contains(text(),'"+telephone+"')]"));
+    }
+    public void assertTextUnderCharges(String text){
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+text+"')]"));
     }
 }
