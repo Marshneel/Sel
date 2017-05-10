@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA128_WLR3_Virtual_Lines_Modify.feature" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA128_WLR3_Virtual_Lines_Modify_stepDefs.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/report.html" afterPath="$PROJECT_DIR$/output/report.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_LineNumberingPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_LineNumberingPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NetworkCallingFeaturesPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NetworkCallingFeaturesPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_NumberingPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_NumberingPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA125_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_And_vice_Versa.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA125_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_And_vice_Versa.feature" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA126_Analogue_Basic_To_ISDN30_Change_Of_Line_Type.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA126_Analogue_Basic_To_ISDN30_Change_Of_Line_Type.feature" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA127_WLR3_Virtual_Lines_New_Provide.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA127_WLR3_Virtual_Lines_New_Provide.feature" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/RunnerTest.java" afterPath="$PROJECT_DIR$/src/test/java/RunnerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA125_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA125_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_stepDefs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA127_WLR3_Virtual_Lines_NewProvide_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA127_WLR3_Virtual_Lines_NewProvide_stepDefs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA64_WLR3_Analogue_Premium_Single_Transfer_line_Numbering_Options_StepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA64_WLR3_Analogue_Premium_Single_Transfer_line_Numbering_Options_StepDefs.java" />
     </list>
     <ignored path="NxTier automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,26 +30,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="NA108_WLR3_ISDN2_New_Provide_Standard_And_System.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA108_WLR3_ISDN2_New_Provide_Standard_And_System.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA107_ISDN30_Amend.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA107_ISDN30_Amend.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="NA104_ISDN30_Transfer.feature" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA104_ISDN30_Transfer.feature">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NA127_WLR3_Virtual_Lines_New_Provide.feature" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NA127_WLR3_Virtual_Lines_New_Provide.feature" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA127_WLR3_Virtual_Lines_New_Provide.feature">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -88,6 +55,26 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RunnerTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/RunnerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="5" column="195" selection-start-line="5" selection-start-column="195" selection-end-line="5" selection-end-column="195" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NxTier_smokePack.feature" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="2" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -113,7 +100,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NA121_WLR3_Single_Line_BasicAndPremium_New_Provide.feature" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NA121_WLR3_Single_Line_BasicAndPremium_New_Provide.feature" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA121_WLR3_Single_Line_BasicAndPremium_New_Provide.feature">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -219,9 +206,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NetworkCallingFeaturesPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA128_WLR3_Virtual_Lines_Modify_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java" />
-        <option value="$PROJECT_DIR$/src/test/java/RunnerTest.java" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA128_WLR3_Virtual_Lines_Modify.feature" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA127_WLR3_Virtual_Lines_New_Provide.feature" />
+        <option value="$PROJECT_DIR$/src/test/java/RunnerTest.java" />
       </list>
     </option>
   </component>
@@ -1250,13 +1237,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00203" summary="@E2ETests testing only WLR3 scenarios">
-      <created>1489487121983</created>
-      <option name="number" value="00203" />
-      <option name="presentableId" value="LOCAL-00203" />
-      <option name="project" value="LOCAL" />
-      <updated>1489487121983</updated>
-    </task>
     <task id="LOCAL-00204" summary="@E2ETests testing NA100, 101,102,104">
       <created>1489488945831</created>
       <option name="number" value="00204" />
@@ -1593,7 +1573,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494312099437</updated>
     </task>
-    <option name="localTasksCounter" value="252" />
+    <task id="LOCAL-00252" summary="contains NA128">
+      <created>1494432467115</created>
+      <option name="number" value="00252" />
+      <option name="presentableId" value="LOCAL-00252" />
+      <option name="project" value="LOCAL" />
+      <updated>1494432467115</updated>
+    </task>
+    <option name="localTasksCounter" value="253" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1653,7 +1640,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32950193" sideWeight="0.49068767" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34383956" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34383956" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38254172" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1735,7 +1722,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="@smokePack&#10;@E2ETests&#10;testing ISDN transfer" />
     <MESSAGE value="testing HTML reports" />
     <MESSAGE value="@smokePack,@E2ETests" />
     <MESSAGE value="@E2ETests testing only WLR3 scenarios" />
@@ -1760,7 +1746,8 @@
     <MESSAGE value="contains NA112 updates for ISDN30 modify&#10; 1) introduced validation logic for digits to switch&#10; 2) introduced validation for channel edit on the summary page" />
     <MESSAGE value=" NA125, NA126 and partial NA127" />
     <MESSAGE value="set owning duns for ISDN30 in NA104" />
-    <option name="LAST_COMMIT_MESSAGE" value="set owning duns for ISDN30 in NA104" />
+    <MESSAGE value="contains NA128" />
+    <option name="LAST_COMMIT_MESSAGE" value="contains NA128" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1773,14 +1760,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA103_WLR3_ISDN30_New_Provide_Advanced_LIne_Numbering_Options.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA99_WLR3_Analogue_Premium_Single_Batch_Transfer.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2057,14 +2036,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RunnerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="5" column="181" selection-start-line="5" selection-start-column="181" selection-end-line="5" selection-end-column="181" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA120_WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -2137,32 +2108,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA128_WLR3_Virtual_Lines_Modify.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-          <folding>
-            <marker date="1494432427354" expanded="true" signature="102:403" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA127_WLR3_Virtual_Lines_New_Provide.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA126_Analogue_Basic_To_ISDN30_Change_Of_Line_Type.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA125_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_And_vice_Versa.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2183,6 +2128,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="3" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA126_Analogue_Basic_To_ISDN30_Change_Of_Line_Type.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="2" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RunnerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="5" column="195" selection-start-line="5" selection-start-column="195" selection-end-line="5" selection-end-column="195" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA128_WLR3_Virtual_Lines_Modify.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+          <folding>
+            <marker date="1494432427354" expanded="true" signature="102:403" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA127_WLR3_Virtual_Lines_New_Provide.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
           <folding />
         </state>
       </provider>
