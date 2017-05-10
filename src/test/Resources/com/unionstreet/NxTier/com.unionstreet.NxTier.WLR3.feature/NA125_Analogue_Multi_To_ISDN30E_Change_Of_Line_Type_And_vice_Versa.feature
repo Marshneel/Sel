@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA125 - Analogue Multi to ISDN30E and vice-versa, change of line type
+Feature: NA125 - Analogue Multi To ISDN30E Change Of Line Type And vice Versa
 
   Scenario: change the line type from analogue multi to ISDN30E
     Given I am logged in as CP

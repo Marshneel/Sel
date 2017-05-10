@@ -56,7 +56,7 @@ public class NA125_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_stepDefs {
     }
 
     @Then("^I should be able to check all the required validations and complete the change of line type order from ISDN(\\d+)E to analogue multi$")
-    public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOfLineTypeOrderFromISDNEToAnalogueMulti(int arg0) throws InterruptedException {
+    public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOfLineTypeOrderFromISDNEToAnalogueMulti(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getWlr3_orderDetails_page().editChannelNumberForPremiumAndISDNlines("Numer of Lines","2","99");
         webModel.getWlr3_orderDetails_page().errorMessagesWhenEngineeringVisitIsRequired();
         webModel.getWlr3_orderDetails_page().assertExclusiveFeatures("6 Octet Sub Addressing");
@@ -69,5 +69,6 @@ public class NA125_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_stepDefs {
         webModel.getWlr3_newProvide__datePage().populateHazardAndWarningNotesUnderDATE("hazard note", "warning notes");
         webModel.getWlr3_appointmentPage().saveAppointments();
         webModel.getEditOrderPage().verifyOrderCompletion();
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='OI3000000001'");
     }
 }

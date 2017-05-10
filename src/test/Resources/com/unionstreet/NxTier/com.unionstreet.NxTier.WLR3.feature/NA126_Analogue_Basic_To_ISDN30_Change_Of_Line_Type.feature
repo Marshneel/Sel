@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA126 - Analogue Basic to ISDN30E and vice-versa, change of line type
+Feature: NA126 - Analogue Basic To ISDN30 Change Of Line Type
 
   Scenario: change the line type from analogue basic to ISDN30E
     Given I am logged in as CP

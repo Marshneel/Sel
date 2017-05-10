@@ -67,14 +67,35 @@ public class WLR3_NetworkCallingFeaturesPage {
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Remote Call Forwarding')]"));
 
     }
-    public void editCallFeaturesForRemoteCallFor_VirtualLines() throws InterruptedException {
+    public void assertFeaturesForCallerRedirect(){
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Caller Redirect Quarterly')]"));
+        utils.sendText(By.id("Features_0__cli"),"0201234567");
+
+    }
+    public void editCallFeaturesForRemoteCallFor_VirtualLines(String CLI) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Raw Call Data')]"));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.id("Features_0__value"));
-        utils.sendText(By.id("Features_1__cli"),"0201234567");
+        utils.sendText(By.id("Features_1__cli"),CLI);
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
-
-
+    }
+    public void editCallFeaturesForCallerRedirect_VirtualLines(){
+        utils.waitForElementVisible(By.id("Features_0__cli"));
+        utils.sendText(By.id("Features_0__cli"),"");
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
+    public void toggleBetweenQuarterlyToMonthly_CallerRedirectVirtualLines() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Quarterly')]"));
+        utils.waitForElementVisible(By.xpath("//input[@checked='checked'][@value='False']"));
+        utils.makeSureBoxIsChecked(By.xpath("//input[@id='Features_0__monthly'][@value='True']"),By.xpath("//input[@id='Features_0__monthly'][@value='True']"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    }
+    public void assertChangedFrequencyForCallerRedirect_VirtualLine(){
+        utils.waitForElementVisible(By.xpath("//input[@checked='checked'][@value='True']"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 }
