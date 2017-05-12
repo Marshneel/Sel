@@ -80,9 +80,9 @@ public class WLR3_NetworkCallingFeaturesPage {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
-    public void editCallFeaturesForCallerRedirect_VirtualLines(){
+    public void editCallFeaturesForCallerRedirect_VirtualLines(String text){
         utils.waitForElementVisible(By.id("Features_0__cli"));
-        utils.sendText(By.id("Features_0__cli"),"");
+        utils.sendText(By.id("Features_0__cli"),""+text+"");
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
