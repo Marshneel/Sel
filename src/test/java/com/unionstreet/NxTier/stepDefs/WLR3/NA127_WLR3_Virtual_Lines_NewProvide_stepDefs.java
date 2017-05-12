@@ -74,7 +74,7 @@ public class NA127_WLR3_Virtual_Lines_NewProvide_stepDefs {
         webModel.getWlr3_orderDetails_page().assertCommonFeatures("Quarterly Caller Redirect");
         webModel.getWlr3_orderDetails_page().assertExclusiveFeatures("0201234567");
         webModel.getWlr3_orderDetails_page().loadNetworkFeatures();
-        webModel.getWlr3_networkCallingFeaturesPage().editCallFeaturesForCallerRedirect_VirtualLines();
+        webModel.getWlr3_networkCallingFeaturesPage().editCallFeaturesForCallerRedirect_VirtualLines("");
         webModel.getWlr3_orderDetails_page().assertCLIrequiredAlertMessageForVirtualLines("Caller Redirect");
         webModel.getWlr3_orderDetails_page().loadLineInfo();
         webModel.getWlr3_line_information_page().checkServiceMaintenanceForVirtualLines();
