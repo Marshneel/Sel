@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/LoginPage.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/LoginPage.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/LoginPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/LoginPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/smokePack/NxTier_smokePack_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/smokePack/NxTier_smokePack_stepDefs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature" />
     </list>
     <ignored path="NxTier automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,7 +62,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup.feature" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup.feature" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup.feature">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -72,62 +72,67 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NA47_WLR3_Permissions_For_Agent_Reseller.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA47_WLR3_Permissions_For_Agent_Reseller.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA45_Reseller_Login.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA45_Reseller_Login.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA44_Agent_Login.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA44_Agent_Login.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="172" column="34" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="NA49_OrderServiceAutomation.feature" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-34">
-              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NA51_Service Designer application_Familiarise.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA51_Service Designer application_Familiarise.feature">
+      <file leaf-file-name="ElementUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+            <state relative-caret-position="119">
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NA49_OrderServiceAutomation_stepDefs.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA49_OrderServiceAutomation_stepDefs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="67" column="55" selection-start-line="67" selection-start-column="55" selection-end-line="67" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddServicePage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddServicePage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-281">
+              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditOrderPage.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="17" column="100" selection-start-line="17" selection-start-column="100" selection-end-line="17" selection-end-column="100" />
+              <folding>
+                <element signature="e#5021#5022#0" expanded="true" />
+                <element signature="e#5086#5087#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NA131_WLR3_VirtualLines_Change_Of_Line_Type_stepDefs.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA131_WLR3_VirtualLines_Change_Of_Line_Type_stepDefs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="56" column="50" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,8 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA91_WLR3_Analogue_Premium_Single_Cease_stepDefs.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA94_WLR3_Analogue_Multi_Add_Remove_Aux_line_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA97_WLR3_Analogue_Premium_Single_change_Of_Address_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA98_WLR3_Analogue_Premium_Single_Amend_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA99_WLR3_Analogue_Premium_SIngle_Batch_Transfer_stepDefs.java" />
@@ -209,6 +212,8 @@
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/LoginPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/smokePack/NxTier_smokePack_stepDefs.java" />
+        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java" />
       </list>
     </option>
   </component>
@@ -772,7 +777,7 @@
       <recent name="C:\Users\rajeshg\Desktop\Intellij projects\NxTier automation\src\test\java\com\unionstreet\NxTier\stepDefs\WLR3" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RunnerTest">
+  <component name="RunManager" selected="Cucumber java.Feature: NA49_OrderServiceAutomation">
     <configuration default="false" name="RunnerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="com.unionstreet.NxTier_automation" />
@@ -792,30 +797,6 @@
       </option>
       <envs />
       <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="Feature: NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="myFilePath" value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType.feature" />
-      <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.WLR3" />
-      <option name="myNameFilter" value="" />
-      <option name="myGeneratedName" value="Feature: NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="com.unionstreet.NxTier_automation" />
-      <envs />
       <method />
     </configuration>
     <configuration default="false" name="Feature: NA127_WLR3_Virtual_Lines_New_Provide" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
@@ -877,6 +858,30 @@
       <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.WLR3" />
       <option name="myNameFilter" value="" />
       <option name="myGeneratedName" value="Feature: NA131_WLR3_VirtualLines_Change_Of_Line_Type" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="com.unionstreet.NxTier_automation" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Feature: NA49_OrderServiceAutomation" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="myFilePath" value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature" />
+      <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.WLR3" />
+      <option name="myNameFilter" value="" />
+      <option name="myGeneratedName" value="Feature: NA49_OrderServiceAutomation" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
@@ -1184,18 +1189,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.RunnerTest" />
-      <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType" />
-      <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA127_WLR3_Virtual_Lines_New_Provide" />
-      <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA128_WLR3_Virtual_Lines_Modify" />
-      <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA131_WLR3_VirtualLines_Change_Of_Line_Type" />
+      <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA127_WLR3_Virtual_Lines_New_Provide" />
+      <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA128_WLR3_Virtual_Lines_Modify" />
+      <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA131_WLR3_VirtualLines_Change_Of_Line_Type" />
+      <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA49_OrderServiceAutomation" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.RunnerTest" />
-        <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA131_WLR3_VirtualLines_Change_Of_Line_Type" />
-        <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA128_WLR3_Virtual_Lines_Modify" />
-        <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA127_WLR3_Virtual_Lines_New_Provide" />
-        <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType" />
+        <item index="0" class="java.lang.String" itemvalue="Cucumber java.Feature: NA49_OrderServiceAutomation" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.RunnerTest" />
+        <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA131_WLR3_VirtualLines_Change_Of_Line_Type" />
+        <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA128_WLR3_Virtual_Lines_Modify" />
+        <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA127_WLR3_Virtual_Lines_New_Provide" />
       </list>
     </recent_temporary>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -1240,13 +1245,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
-    </task>
-    <task id="LOCAL-00207" summary="@E2ETests ,@smokePack">
-      <created>1489500679779</created>
-      <option name="number" value="00207" />
-      <option name="presentableId" value="LOCAL-00207" />
-      <option name="project" value="LOCAL" />
-      <updated>1489500679779</updated>
     </task>
     <task id="LOCAL-00208" summary="@E2ETests ,@smokePack">
       <created>1489509822950</created>
@@ -1584,22 +1582,17 @@
       <option name="project" value="LOCAL" />
       <updated>1494602664471</updated>
     </task>
-    <option name="localTasksCounter" value="256" />
+    <task id="LOCAL-00256" summary="added zoom-out function for few tests">
+      <created>1494661284289</created>
+      <option name="number" value="00256" />
+      <option name="presentableId" value="LOCAL-00256" />
+      <option name="project" value="LOCAL" />
+      <updated>1494661284289</updated>
+    </task>
+    <option name="localTasksCounter" value="257" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Feature__NA131_WLR3_VirtualLines_Change_Of_Line_Type - 2017.05.12 at 14h 37m 22s.xml">
-      <configuration name="Feature: NA131_WLR3_VirtualLines_Change_Of_Line_Type" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__NA131_WLR3_VirtualLines_Change_Of_Line_Type - 2017.05.12 at 14h 49m 15s.xml">
-      <configuration name="Feature: NA131_WLR3_VirtualLines_Change_Of_Line_Type" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__NA131_WLR3_VirtualLines_Change_Of_Line_Type - 2017.05.12 at 14h 52m 25s.xml">
-      <configuration name="Feature: NA131_WLR3_VirtualLines_Change_Of_Line_Type" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__NA131_WLR3_VirtualLines_Change_Of_Line_Type - 2017.05.12 at 14h 56m 18s.xml">
-      <configuration name="Feature: NA131_WLR3_VirtualLines_Change_Of_Line_Type" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
     <history-entry file="Feature__NA131_WLR3_VirtualLines_Change_Of_Line_Type - 2017.05.12 at 15h 01m 46s.xml">
       <configuration name="Feature: NA131_WLR3_VirtualLines_Change_Of_Line_Type" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
@@ -1614,6 +1607,18 @@
     </history-entry>
     <history-entry file="Feature__NA131_WLR3_VirtualLines_Change_Of_Line_Type - 2017.05.12 at 16h 02m 22s.xml">
       <configuration name="Feature: NA131_WLR3_VirtualLines_Change_Of_Line_Type" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__NA49_OrderServiceAutomation - 2017.05.13 at 14h 02m 15s.xml">
+      <configuration name="Feature: NA49_OrderServiceAutomation" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__NA49_OrderServiceAutomation - 2017.05.13 at 14h 09m 55s.xml">
+      <configuration name="Feature: NA49_OrderServiceAutomation" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__NA49_OrderServiceAutomation - 2017.05.13 at 14h 14m 20s.xml">
+      <configuration name="Feature: NA49_OrderServiceAutomation" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__NA49_OrderServiceAutomation - 2017.05.13 at 14h 20m 08s.xml">
+      <configuration name="Feature: NA49_OrderServiceAutomation" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
     <history-entry file="RunnerTest - 2017.05.12 at 16h 25m 06s.xml">
       <configuration name="RunnerTest" configurationId="JUnit" />
@@ -1634,13 +1639,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950193" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22184874" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22184874" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7458493" sideWeight="0.50931233" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34240687" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.067294754" sideWeight="0.493553" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12941177" sideWeight="0.493553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3092437" sideWeight="0.493553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950193" sideWeight="0.49068767" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1726,7 +1731,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="@smokePack,@E2ETests" />
     <MESSAGE value="@E2ETests testing only WLR3 scenarios" />
     <MESSAGE value="@E2ETests testing NA100, 101,102,104" />
     <MESSAGE value="@E2ETests ,@smokePack" />
@@ -1751,7 +1755,8 @@
     <MESSAGE value="set owning duns for ISDN30 in NA104" />
     <MESSAGE value="contains NA128" />
     <MESSAGE value="contains NA131" />
-    <option name="LAST_COMMIT_MESSAGE" value="contains NA131" />
+    <MESSAGE value="added zoom-out function for few tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="added zoom-out function for few tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1764,22 +1769,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA107_ISDN30_Amend_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA104_ISDN30_Transfer_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA103_WLR3_ISDN30_New_Provide_Advanced_LIne_Numbering_Options_stepDefs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1942,26 +1931,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="125" column="26" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NetworkCallingFeaturesPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="74" column="16" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2003,16 +1976,6 @@
         <state relative-caret-position="242">
           <caret line="44" column="59" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="83" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA131_WLR3_VirtualLines_Change_Of_Line_Type_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="57" column="118" selection-start-line="57" selection-start-column="118" selection-end-line="57" selection-end-column="118" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2114,14 +2077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA51_Service Designer application_Familiarise.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -2167,6 +2122,59 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA49_OrderServiceAutomation.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA49_OrderServiceAutomation_stepDefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="67" column="55" selection-start-line="67" selection-start-column="55" selection-end-line="67" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA131_WLR3_VirtualLines_Change_Of_Line_Type_stepDefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="56" column="50" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddServicePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-281">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="17" column="100" selection-start-line="17" selection-start-column="100" selection-end-line="17" selection-end-column="100" />
+          <folding>
+            <element signature="e#5021#5022#0" expanded="true" />
+            <element signature="e#5086#5087#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
