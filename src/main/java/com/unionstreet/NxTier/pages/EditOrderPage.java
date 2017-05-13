@@ -10,12 +10,12 @@ import org.openqa.selenium.NoSuchElementException;
 public class EditOrderPage {
 
     public final String ADD_PRODUCT_AND_SERVICE_BUTTON = "//span[text()='Add a product or service']";
-    private final String REDCROSS = "//td[@class='red-cross']";
+    private final String REDCROSS = "//td[contains(@title,'Information Missing')]";
     public final String GREEN_TICK = "//td[@class='green-tick']";
     private final String ADD_VIEW_NOTES = "//span[text()='Add / View Notes']";
     private final String CUSTOMER_RADIOBUTTON = "SendToCustomer";
     private final String INTERNAL_RADIOBUTTON = "SendToInternal";
-    private final String SERVICE_NOT_COMPLETED_MESSAGE = "//div[text()='Services are not completed']";
+    private final String SERVICE_NOT_COMPLETED_MESSAGE = "//div[text()='Error: Incomplete Services']";
     private final String SAVE_AND_SUBMIT_ORDER = "//span[text()='Save & Submit Order']";
     private final String ORDER_CONTACT = "Order_order_contact_id";
     private final String ORDER_PENDING_TEXT_IN_NOTIFICATIONS = "//table[@id='orderHistory-table']//td[contains(text(),'Order Pending')]";
@@ -69,7 +69,6 @@ public class EditOrderPage {
             utils.waitForElementVisible(By.xpath(REDCROSS));
         } catch (Exception e) {
             utils.getOrdersPage();
-            commonMethods.search(newBusinessCustomerPage.RanName);
             ordersManagerPage.clickOnQuoteID();
             utils.waitForElementVisible(By.xpath(REDCROSS));
         }

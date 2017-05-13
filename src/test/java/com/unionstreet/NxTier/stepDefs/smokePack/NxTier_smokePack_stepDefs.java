@@ -21,7 +21,7 @@ public class NxTier_smokePack_stepDefs {
     }
 
     @When("^I enter valid username and password$")
-    public void iEnterValidUsernameAndPassword() throws IOException {
+    public void iEnterValidUsernameAndPassword() throws IOException, InterruptedException {
         webModel.getLoginPage().doLogin();
 
 
@@ -45,7 +45,7 @@ public class NxTier_smokePack_stepDefs {
     }
 
     @Given("^I am logged in as an admin$")
-    public void iAmLoggedInAsAnAdmin() {
+    public void iAmLoggedInAsAnAdmin() throws InterruptedException {
         webModel.getLoginPage().doLogin();
     }
 
