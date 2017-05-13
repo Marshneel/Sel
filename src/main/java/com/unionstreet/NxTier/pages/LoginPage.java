@@ -11,13 +11,17 @@ public class LoginPage {
     ElementUtils utils = new ElementUtils();
 
 
-    public void doLogin() {
+    public void doLogin() throws InterruptedException {
         try {
             utils.waitForElementVisible(By.id(USENAME_FIELD));
+            utils.zoomOut(By.id(USENAME_FIELD));
+            Thread.sleep(1000);
             utils.sendText(By.id(USENAME_FIELD), utils.getProperty("userName"));
         } catch (Exception e) {
             utils.getLoginPage();
             utils.waitForElementVisible(By.id(USENAME_FIELD));
+            utils.zoomOut(By.id(USENAME_FIELD));
+            Thread.sleep(1000);
             utils.sendText(By.id(USENAME_FIELD), utils.getProperty("userName"));
         }
         utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("passWord"));
@@ -41,12 +45,16 @@ public class LoginPage {
     }
 
 
-    public void loginAsAgent() {
+    public void loginAsAgent() throws InterruptedException {
         try {
             utils.waitForElementVisible(By.id(USENAME_FIELD));
+            utils.zoomOut(By.id(USENAME_FIELD));
+            Thread.sleep(1000);
         } catch (Exception e) {
             utils.getLoginPage();
             utils.waitForElementVisible(By.id(USENAME_FIELD));
+            utils.zoomOut(By.id(USENAME_FIELD));
+            Thread.sleep(1000);
         }
         utils.clickBtn(By.id(USENAME_FIELD));
         utils.sendText(By.id(USENAME_FIELD), "agentlogin");
@@ -60,12 +68,16 @@ public class LoginPage {
     }
 
 
-    public void loginAsReseller() {
+    public void loginAsReseller() throws InterruptedException {
         try {
             utils.waitForElementVisible(By.id(USENAME_FIELD));
+            utils.zoomOut(By.id(USENAME_FIELD));
+            Thread.sleep(1000);
         } catch (Exception e) {
             utils.getLoginPage();
             utils.waitForElementVisible(By.id(USENAME_FIELD));
+            utils.zoomOut(By.id(USENAME_FIELD));
+            Thread.sleep(1000);
         }
         utils.clickBtn(By.id(USENAME_FIELD));
         utils.sendText(By.id(USENAME_FIELD), "resellerlogin");
