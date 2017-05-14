@@ -17,7 +17,6 @@ public class NA131_WLR3_VirtualLines_Change_Of_Line_Type_stepDefs {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='ORCF00000002'");
         webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300912","LU1 1DQ");
-        webModel.getWlr3_changeOfLineTypeOrderPage().confirmChangeOfOwnerShip();
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("ISDN Remote Call Forward (Current)","ISDN Caller Redirect");
     }
 
@@ -38,7 +37,6 @@ public class NA131_WLR3_VirtualLines_Change_Of_Line_Type_stepDefs {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='OCR00000002'");
         webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300911","LU1 1DQ");
-        webModel.getWlr3_changeOfLineTypeOrderPage().confirmChangeOfOwnerShip();
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("ISDN Caller Redirect (Current)","ISDN Remote Call Forward");
 
     }
