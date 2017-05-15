@@ -555,4 +555,7 @@ public class WLR3_OrderDetails_Page {
     public void assertTextUnderCharges(String text){
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+text+"')]"));
     }
+    public void assertChannelsNotEditable(){
+        utils.assertElementNotPresent(By.xpath("//div[@id='div_WLR3Order_num_lines']//img[contains(@onclick,'editMode')]"));
+    }
 }

@@ -190,7 +190,7 @@ public class OrdersManagerPage {
         utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
     }
 
-    public void searchQuoteByBcRN() {
+    public void searchQuoteByBcRN() throws InterruptedException {
         commonMethods.search(newBusinessCustomerPage.RanName);
         utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
     }
@@ -238,7 +238,7 @@ public class OrdersManagerPage {
         utils.getAttributeOfElement(By.xpath(INVISIBLE_ORDER_SERVICESID), "value");
     }
 
-    public void makeSureAgentDoesNotHaveAgentAndResellerService() {
+    public void makeSureAgentDoesNotHaveAgentAndResellerService() throws InterruptedException {
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         commonMethods.search("agent");
         utils.waitForElementVisible(By.id(LOCATOR_FOR_BOX_HEADER));

@@ -352,7 +352,7 @@ public class SettingsPage {
         utils.switchToParentWindow();
     }
 
-    public void assertingWLROrdersWithOutRights() {
+    public void assertingWLROrdersWithOutRights() throws InterruptedException {
         try {
             commonMethods.search("WLR3");
         } catch (Exception e) {

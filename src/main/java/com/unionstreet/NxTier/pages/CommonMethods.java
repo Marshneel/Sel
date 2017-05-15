@@ -15,8 +15,9 @@ public class CommonMethods {
 
     ElementUtils utils = new ElementUtils();
 
-    public void search(String text) {
+    public void search(String text) throws InterruptedException {
         utils.waitForElementVisible(By.id(SEARCH_BUTTON));
+        Thread.sleep(1000);
         utils.sendText(By.id(SEARCH_BUTTON), text);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
     }

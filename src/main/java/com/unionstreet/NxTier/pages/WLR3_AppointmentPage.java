@@ -16,11 +16,13 @@ public class  WLR3_AppointmentPage {
     WLR3_NewProvide_DatePage wlr3_newProvide__datePage = new WLR3_NewProvide_DatePage();
 
     public void accessAppointmentpage() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.waitForElementVisible(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
         try {
             Thread.sleep(1000);
             utils.clickBtnWithWait(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
         } catch (Exception e) {
+            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
             Thread.sleep(1000);
             utils.clickBtnWithWait(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
         }
