@@ -122,5 +122,13 @@ public void checkServiceMaintenanceForVirtualLines(){
     utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level 3')]"));
     utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level 4')]"));
 }
+public void setCareLevelPlanAndDigitsToSwitchForISDNLines(String unavailable, String available,String allowedRange, String digits){
+    utils.waitForElementVisible(By.xpath(TEXT_ON_LINEINFO_PAGE));
+    utils.assertElementNotPresent(By.xpath("//select[@id='WLR3Order_care_level']//option[@selected='selected']"));
+    utils.assertElementNotPresent(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + unavailable + "')]"));
+    utils.selectByVisibleText(By.id(SERVICE_MAINTENANCE_TAB), "Level "+available+"");
+    assertDigitsToSwitchForAllISDN(allowedRange, digits);
+
+}
 
 }
