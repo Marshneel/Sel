@@ -68,7 +68,7 @@ public class WLR3_NetworkCallingFeaturesPage {
 
     }
     public void assertFeaturesForCallerRedirect(){
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Caller Redirect Quarterly')]"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Caller Redirect')]"));
         utils.sendText(By.id("Features_0__cli"),"0201234567");
 
     }

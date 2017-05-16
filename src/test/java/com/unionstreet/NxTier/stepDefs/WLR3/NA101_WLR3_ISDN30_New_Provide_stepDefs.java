@@ -32,7 +32,7 @@ public class NA101_WLR3_ISDN30_New_Provide_stepDefs {
         webModel.getWlr3_newProvide__featuresPage().populateAndAssertFeaturesPageForISDN30();
         webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
         //populate NUMBERING with assertions
-        webModel.getWlr3_newProvide__numberingPage().assertNumberingOptionsForISDN30NewProvide("New SNDDI", "Automatically Allocated", "Auto allocate number");
+        webModel.getWlr3_newProvide__numberingPage().assertNumberingOptionsForISDN30NewProvide("New SNDDI", "Automatically Allocated");
         webModel.getWlr3_newProvide__numberingPage().populateAndAssertSNDDIrangeForISDN30();
         webModel.getWlr3_newProvide__numberingPage().clickMoreDirInfoTab();
         webModel.getWlr3_newProvide__numberingPage().assertPresenceOfSNDDITabInDirInfo();

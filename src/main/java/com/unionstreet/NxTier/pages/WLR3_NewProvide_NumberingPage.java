@@ -20,15 +20,14 @@ public class WLR3_NewProvide_NumberingPage {
     private final String RETAIN_EXITING_NUMBER_TAB_UNDER_LINE_NUMBERING = "//a[@href='#default-tab-coa-retainnumber']";
     private final String EXISTING_NUMBER_WILL_BE_RETAINED_TEXT_UNDER_LINE_NUMBERING = "//h3[text()='Existing Number will be retained']";
     private final String RETENTION_OPTION_UNAVAILABLE = "//h4[text()='Retain number option is not available for this address.']";
-    private final String EDITICON_ON_SNDDI_POPUP = "//a[contains(@onclick,'ISDNLine.showISDNNumberingOption')]";
-    private final String AUTOMATICALLY_ASSIGN_TEXT_UNDER_NUMBERING_OPTIONS_POPUP = "//legend[text()='Automatically assign']";
-    private final String CONTINUE_BUTTON_UNDER_NUMBERING_OPTIONS_POPUP = "//a[contains(@onclick,'ISDNLine.saveAndCloseDDIOption')]";
     private final String ADDNEW_DDIRANGE_BUTTON = "add_row";
     private final String MORE_DIRECTORY_INFO_TAB = "//a[contains(@onclick,'newProvideWizard.ValidateAndSubmitNumberingFormAndExecuteNext')]";
     private final String SNDDI_TAB_ON_DIRINFO_POPUP = "//ul[@id='directoryInformationNavigation']//a[contains(text(),'SNDDI')]";
     private final String DIRECTORY_TYPE_DROPDOWN="DirectoryInfo_0__dir_Type";
     private final String CHECKBOX_TO_HIDE_DIRECTORY_INFO="chkNoDirectory";
     private final String ADD_REMOVE_SNDDI_OR_DDI_RANGE="//h4[contains(text(),'Add or Remove SNDDI/DDI Ranges')]";
+    private final String DDI_RANGE_BOX_1="DDIInfo_1__range";
+    private final String DDI_RANGE_BOX_0="DDIInfo_0__range";
 
     ElementUtils utils = new ElementUtils();
     WLR3_New_Provide_OrderPage wlr3_new_provide__orderPage = new WLR3_New_Provide_OrderPage();
@@ -76,18 +75,18 @@ public class WLR3_NewProvide_NumberingPage {
         utils.waitForElementVisible(By.xpath(RETENTION_OPTION_UNAVAILABLE));
     }
 
-    public void assertNumberingOptionsForISDN30NewProvide(String label1UnderLineNum, String label2UnderLineNum, String labelOnPopUP) {
+    public void assertNumberingOptionsForISDN30NewProvide(String label1UnderLineNum, String label2UnderLineNum) {
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'" + label1UnderLineNum + "')]"));
         utils.waitForElementVisible(By.xpath("//label[text()='" + label2UnderLineNum + "']"));
         utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
-        utils.waitForElementVisible(By.xpath("//label[text()='" + labelOnPopUP + "']"));
-        utils.clickBtn(By.xpath(EDITICON_ON_SNDDI_POPUP));
-        utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGN_TEXT_UNDER_NUMBERING_OPTIONS_POPUP));
-        utils.clickBtn(By.xpath(CONTINUE_BUTTON_UNDER_NUMBERING_OPTIONS_POPUP));
+        utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
+        utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW0),"New DDI range");
+
+
     }
 
     public void checkDDIrangeValidationWithMessage(String range, String message) {
-        utils.sendText(By.id("DDIInfo_0__range"), range);
+        utils.sendText(By.id(DDI_RANGE_BOX_0), range);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath(message));
     }
@@ -98,22 +97,24 @@ public class WLR3_NewProvide_NumberingPage {
         checkDDIrangeValidationWithMessage("10000", "//span[contains(text(),'Please enter a value less than or equal to 9999.')]");
         checkDDIrangeValidationWithMessage("9", "//span[contains(text(),'Invalid DDI Range. Range value must be in blocks of 10.')]");
         checkDDIrangeValidationWithMessage("0", "//span[contains(text(),'Invalid DDI Range. Range value must be in blocks of 10.')]");
-        utils.sendText(By.id("DDIInfo_0__range"), "100");
+        utils.sendText(By.id(DDI_RANGE_BOX_0), "100");
         utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
         Thread.sleep(1000);
         utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
-        utils.waitForElementVisible(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW2));
+        utils.waitForElementVisible(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1));
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 
-    public void newDDIRangeHasNoTabUnderDirInfoUnlessMBNclicked() throws InterruptedException {
+    public void newDDIRangeHasNoTabUnderDirInfoUnlessMBNclicked(String range) throws InterruptedException {
         utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
         Thread.sleep(1000);
         utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
-        utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW2), "New DDI range");
+        utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1), "New DDI range");
+        utils.waitForElementVisible(By.id(DDI_RANGE_BOX_1));
+        utils.sendText(By.id(DDI_RANGE_BOX_1),range);
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         clickMoreDirInfoTab();
@@ -177,13 +178,13 @@ public class WLR3_NewProvide_NumberingPage {
         }
         utils.waitForElementVisible(By.xpath(ADD_REMOVE_SNDDI_OR_DDI_RANGE));
         try {
-            utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1), "" + action1 + "");
+            utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW0), "" + action1 + "");
         } catch (Exception e) {
             wlr3_orderDetails_page.getToWLR3QuotePage();
             wlr3_orderDetails_page.clickLineNumbering();
-            utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1), "" + action1 + "");
+            utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW0), "" + action1 + "");
         }
-        utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW2), "" + action2 + "");
+        utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1), "" + action2 + "");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 

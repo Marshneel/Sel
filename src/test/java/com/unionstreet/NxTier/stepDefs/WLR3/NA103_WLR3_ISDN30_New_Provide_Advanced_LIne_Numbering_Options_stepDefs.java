@@ -23,7 +23,7 @@ public class NA103_WLR3_ISDN30_New_Provide_Advanced_LIne_Numbering_Options_stepD
     @Then("^I should be able to navigate through and perform assertions$")
     public void iShouldBeAbleToNavigateThroughAndPerformAssertions() throws InterruptedException {
         webModel.getWlr3_new_provide__orderPage().multipleClicksOnNextButton(4);
-        webModel.getWlr3_newProvide__numberingPage().newDDIRangeHasNoTabUnderDirInfoUnlessMBNclicked();
+        webModel.getWlr3_newProvide__numberingPage().newDDIRangeHasNoTabUnderDirInfoUnlessMBNclicked("10");
         webModel.getWlr3_newProvide__numberingPage().deleteAndAssertAddedDDIRange();
     }
 }
