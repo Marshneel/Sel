@@ -15,7 +15,9 @@ public class NA113_WLR3_Analogue_Multi_Modify_stepDefs {
     WebModel webModel = new WebModel();
 
     @And("^Provide a valid CLI and post code$")
-    public void provideAValidCLIAndPostCode() throws InterruptedException {
+    public void provideAValidCLIAndPostCode() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='01202300909'");
+
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("01202300909", "LU1 1DQ");
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
@@ -44,9 +46,10 @@ public class NA113_WLR3_Analogue_Multi_Modify_stepDefs {
 
 
     @Then("^I should be able to check the validations$")
-    public void iShouldBeAbleToCheckTheValidations() throws InterruptedException {
+    public void iShouldBeAbleToCheckTheValidations() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
         webModel.getWlr3_lineNumberingPage().checkValidationsOnEmptyCLIField_UnderAutomaticallyAssign("Caller Redirect");
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='01202300909'");
 
     }
 }

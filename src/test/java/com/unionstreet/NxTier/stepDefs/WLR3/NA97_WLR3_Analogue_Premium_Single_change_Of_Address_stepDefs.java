@@ -16,8 +16,10 @@ public class NA97_WLR3_Analogue_Premium_Single_change_Of_Address_stepDefs {
     WebModel webModel = new WebModel();
 
     @When("^I initiate a change of address service$")
-    public void iInitiateAChangeOfAddressService() throws InterruptedException {
+    public void iInitiateAChangeOfAddressService() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02063678369'");
        //initiating the change of address service
+
         webModel.getAddServicePage().searchAndAddService("Change of Address");
         webModel.getWlr3_orderDetails_page().textOnChangeOfAddressOrderPage();
         webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("02063678369","LU1 1DQ");
@@ -79,8 +81,9 @@ public class NA97_WLR3_Analogue_Premium_Single_change_Of_Address_stepDefs {
     }
 
     @Then("^The validation message is absent under the installation address panel$")
-    public void theValidationMessageIsAbsentUnderTheInstallationAddressPanel() {
+    public void theValidationMessageIsAbsentUnderTheInstallationAddressPanel() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getWlr3_installationAddressPage().assertTheAbsenceOfAddressMatchValidationMessage();
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='02063678369'");
 
     }
 

@@ -42,13 +42,14 @@ public class NA129_WLR3_ISDN2_Standard_To_Basic_Analogue_Change_Of_Line_Type_ste
 
     @When("^I initiate a change of line from basic analogue to ISDN(\\d+) standard$")
     public void iInitiateAChangeOfLineFromBasicAnalogueToISDNStandard(int arg0) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02012345678'");
         webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("02012345678","LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("Basic Analogue (Current)","ISDN2 Standard");
     }
 
     @Then("^Then I should be able to check all the required validations and complete the change of line type order from basic analogue to ISDN(\\d+) standard$")
-    public void thenIShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOfLineTypeOrderFromBasicAnalogueToISDNStandard(int arg0) throws InterruptedException {
+    public void thenIShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOfLineTypeOrderFromBasicAnalogueToISDNStandard(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getWlr3_orderDetails_page().assertExclusiveFeatures("Number of lines increased to 2");
         webModel.getWlr3_orderDetails_page().assertExclusiveFeatures("Call Sign");
         webModel.getWlr3_orderDetails_page().assertChannelsNotEditable();
@@ -67,5 +68,6 @@ public class NA129_WLR3_ISDN2_Standard_To_Basic_Analogue_Change_Of_Line_Type_ste
         webModel.getWlr3_newProvide__datePage().populateHazardAndWarningNotesUnderDATE("hazard note", "warning notes");
         webModel.getWlr3_appointmentPage().saveAppointments();
         webModel.getEditOrderPage().verifyOrderCompletion();
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='02012345678'");
     }
 }

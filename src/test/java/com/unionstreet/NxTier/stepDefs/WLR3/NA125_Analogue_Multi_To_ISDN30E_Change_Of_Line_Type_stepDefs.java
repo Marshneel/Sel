@@ -13,7 +13,8 @@ import java.sql.SQLException;
 public class NA125_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_stepDefs {
     WebModel webModel=new WebModel();
     @When("^I initiate a change of line from analogue multi to ISDN(\\d+)E$")
-    public void iInitiateAChangeOfLineFromAnalogueMultiToISDNE(int arg0) throws InterruptedException {
+    public void iInitiateAChangeOfLineFromAnalogueMultiToISDNE(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='01202300909'");
         webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
         //former is the current line and the later is the line that you are switching to
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300909","LU1 1DQ");
@@ -22,7 +23,7 @@ public class NA125_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_stepDefs {
     }
 
     @Then("^I should be able to check all the required validations and complete the change of line type order from analogue Multi to ISDN(\\d+)E$")
-    public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOfLineTypeOrderFromAnalogueMultiToISDNE(int arg0) throws InterruptedException {
+    public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOfLineTypeOrderFromAnalogueMultiToISDNE(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
     webModel.getWlr3_orderDetails_page().assertDefaultAndEditableChannels("8");
         webModel.getWlr3_orderDetails_page().editChannelNumberForPremiumAndISDNlines("Numer of Channels","8","999");
         webModel.getWlr3_orderDetails_page().assertExclusiveFeatures("Bypass number");
@@ -39,6 +40,7 @@ public class NA125_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_stepDefs {
         webModel.getWlr3_newProvide__datePage().populateHazardAndWarningNotesUnderDATE("hazard note", "warning notes");
         webModel.getWlr3_appointmentPage().saveAppointments();
         webModel.getEditOrderPage().verifyOrderCompletion();
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='01202300909'");
 
 
 

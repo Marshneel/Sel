@@ -55,17 +55,12 @@ public class WLR3_SiteInformationPage {
         utils.javaScriptExecutorClick(By.id(SUBMIT_BUTTON));
     }
 
-    public void enterTelephoneNumberUnderSiteInfoAndAssertAbsenceOfRLPcheckBox(String number) {
-        utils.sendText(By.id(wlr3_newProvide__sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
+    public void assertAbsenceOfRLPcheckBoxUnderSiteInfo() {
         utils.assertElementNotPresent(By.id(RECOVER_LINE_PLANT));
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
-
     }
 
-    public void enterTelephoneNumberUnderSiteInfoAndAssertPresenceOfRLPcheckBox(String number) {
-        utils.sendText(By.id(wlr3_newProvide__sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
+    public void enterTelephoneNumberUnderSiteInfoAndAssertPresenceOfRLPcheckBox() {
         utils.waitForElementVisible(By.id(RECOVER_LINE_PLANT));
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 
     public void populateTelNumberUnderSiteInfo(String number) {
@@ -74,28 +69,30 @@ public class WLR3_SiteInformationPage {
         utils.sendText(By.id(wlr3_newProvide__sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
     }
 
-    public void populateSiteInfoPhoneAndAssertIncOfTerminationType(String phone, String terminationType) throws InterruptedException {
-      loadSiteInfo();
-        utils.waitForElementVisible(By.id(wlr3_newProvide__sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO));
-        utils.sendText(By.id(wlr3_newProvide__sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), "" + phone + "");
-        //setup termination type
-        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_termination_type']//option[contains(text(),'" + terminationType + "')]"));
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    public void assertTerminationTypeForPremiumLine(String terminationType1,String terminationType2) throws InterruptedException {
+        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_termination_type']//option[contains(text(),'" + terminationType1 + "')]"));
+        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_termination_type']//option[contains(text(),'" + terminationType2 + "')]"));
+    }
+    public void switchBetweenTerminationTypes(String changeTo){
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_SITE_INFORMATION));
+        utils.selectByVisibleText(By.id("WLR3Order_termination_type"),changeTo);
 
     }
+    public void assertTerminationTypeForBasicLines(String available, String unavailable){
+        utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_termination_type']//option[contains(text(),'" + available + "')]"));
+        utils.assertElementNotPresent(By.xpath("//select[@id='WLR3Order_termination_type']//option[contains(text(),'" + unavailable + "')]"));
+    }
 
-    public void siteInfoPopupPopulateWithAssertionsForBasicLineSwitch(String unAvailableTerminationType, String selectTerminationType) throws InterruptedException {
-      loadSiteInfo();
-        utils.waitForElementVisible(By.id(wlr3_newProvide__sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO));
-        //populate phone number under site contacts
-        utils.sendText(By.id(wlr3_newProvide__sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), "07894040256");
+    public void assertAndPopulateTerminationTypeForBasicLineSwitch(String unAvailableTerminationType, String selectTerminationType) throws InterruptedException {
+
         //assert that the termination type for premium line is unavailable for selection for basic line switch
         utils.assertElementNotPresent(By.xpath("//select[@id='WLR3Order_termination_type']//option[contains(text(),'" + unAvailableTerminationType + "')]"));
         //select termination type from the drop down
         utils.selectByVisibleText(By.id(wlr3_newProvide_provisionPage.TERMINATION_TYPE_DROPDOWN_UNDER_SITEINFO), "" + selectTerminationType + "");
-        //setup TRC band
+    }
+    public void setUpTRCband(){
+    //setup TRC band
         utils.selectByVisibleText(By.id(TRC_BAND_DROPDOWN), "Band 1 - Up to 2 Hours");
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
     public void siteInfoForISDNNewProvide(String bandRange) throws InterruptedException {
       loadSiteInfo();
@@ -119,7 +116,7 @@ public class WLR3_SiteInformationPage {
         utils.sendText(By.id(FLOOR_TEXT_BOX),"floor");
         utils.sendText(By.id(ROOM_TEXT_BOX),"room");
     }
-    public void saveSiteInfoChanges(){
+    public void saveSiteInfoChanges() {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
@@ -154,4 +151,18 @@ public class WLR3_SiteInformationPage {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
+    public void assertInstallTypeAbsentInModifyOrder(){
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_SITE_INFORMATION));
+        utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Install Type')]"));
+        utils.assertElementNotPresent(By.id("WLR3Order_installation_type"));
+    }
+    public void assertInstallTypePresentInTransferOrder(){
+
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Install Type')]"));
+        utils.waitForElementVisible(By.id("WLR3Order_installation_type"));
+    }
+    public void assertValidationMessageForSiteInfoPhoneNumber(){
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'Please specify Site Contact telephone number')]"));
+    }
+
 }

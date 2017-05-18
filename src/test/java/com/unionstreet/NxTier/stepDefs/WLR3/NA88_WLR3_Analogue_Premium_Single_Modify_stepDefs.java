@@ -5,6 +5,9 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 26/01/2017.
  */
@@ -24,7 +27,8 @@ public class NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs {
     }
 
     @When("^Initiate a modify order on the quote$")
-    public void initiateAModifyOrderOnTheQuote() throws InterruptedException {
+    public void initiateAModifyOrderOnTheQuote() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02063678369'");
         webModel.getAddServicePage().searchAndAddService("Modify Order");
 
     }
@@ -46,6 +50,7 @@ public class NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs {
         //verify OrderType tab
         webModel.getWlr3_orderDetails_page().verifyOrderTypeTab();
         //verify lineInformation tab
+        webModel.getWlr3_orderDetails_page().loadLineInfo();
         webModel.getWlr3_line_information_page().verifyLineInformationTab("Level 3", "3");
         //verify network call features (verify by revoking and issuing the features)
         webModel.getWlr3_orderDetails_page().checkNetworkCallFeaturesBeforeRemoval();
@@ -65,5 +70,7 @@ public class NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs {
     public void makeSureOrderIsCompletedAndReadyForSubmission() throws Throwable {
         //assert that the order is completed by verifying for the presence of green tick
         webModel.getEditOrderPage().verifyOrderCompletion();
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='02063678369'");
+
     }
 }
