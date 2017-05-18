@@ -5,6 +5,9 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 03/02/2017.
  */
@@ -13,8 +16,9 @@ public class NA94_WLR3_Analogue_Multi_Add_Remove_Aux_line_stepDefs {
     WebModel webModel = new WebModel();
 
     @When("^I Initiate an add_remove aux order on the quote$")
-    public void iInitiateAnAdd_removeAuxOrderOnTheQuote() throws InterruptedException {
-       //initiating the AUX line service
+    public void iInitiateAnAdd_removeAuxOrderOnTheQuote() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='01202300909'");
+        //initiating the AUX line service
         webModel.getAddServicePage().searchAndAddService("Add/Remove Aux Lines");
         webModel.getWlr3_addRemoveAuxLinePage().textOnAddRemoveAuxLinePage();
         webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("01202300909","LU1 1DQ");
@@ -42,7 +46,9 @@ public class NA94_WLR3_Analogue_Multi_Add_Remove_Aux_line_stepDefs {
         webModel.getWlr3_orderDetails_page().assertQuoteSummaryPageForAddAuxLine();
         //provide phone number under site info and verify recovery line plant checkBox
         webModel.getWlr3_orderDetails_page().clickOnSiteInfoErrorTabForIncrease();
-        webModel.getWlr3_siteInformationPage().enterTelephoneNumberUnderSiteInfoAndAssertAbsenceOfRLPcheckBox("07894040256");
+        webModel.getWlr3_siteInformationPage().populateTelNumberUnderSiteInfo("07894040256");
+        webModel.getWlr3_siteInformationPage().assertAbsenceOfRLPcheckBoxUnderSiteInfo();
+        webModel.getWlr3_siteInformationPage().saveSiteInfoChanges();
         //provide hazard and warning notes
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         webModel.getWlr3_appointmentPage().populateHazardAndWarningNotes();
@@ -58,7 +64,9 @@ public class NA94_WLR3_Analogue_Multi_Add_Remove_Aux_line_stepDefs {
         webModel.getWlr3_addRemoveAuxLinePage().assertNumberDecrease();
         //provide phone number under site info and verify recovery line plant checkBox
         webModel.getWlr3_orderDetails_page().clickOnSiteInfoErrorTabForDecrease();
-        webModel.getWlr3_siteInformationPage().enterTelephoneNumberUnderSiteInfoAndAssertPresenceOfRLPcheckBox("07894040256");
+        webModel.getWlr3_siteInformationPage().populateTelNumberUnderSiteInfo("07894040256");
+        webModel.getWlr3_siteInformationPage().enterTelephoneNumberUnderSiteInfoAndAssertPresenceOfRLPcheckBox();
+        webModel.getWlr3_siteInformationPage().saveSiteInfoChanges();
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         //assert charges absent
         webModel.getWlr3_addRemoveAuxLinePage().assertAbsenceOfCharges();
@@ -69,14 +77,14 @@ public class NA94_WLR3_Analogue_Multi_Add_Remove_Aux_line_stepDefs {
     }
 
     @And("^When I try to reuse the same CLI for a service within the sale quote$")
-    public void whenITryToReuseTheSameCLIForAServiceWithinTheSaleQuote() throws InterruptedException {
+    public void whenITryToReuseTheSameCLIForAServiceWithinTheSaleQuote() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         iInitiateAnAdd_removeAuxOrderOnTheQuote();
     }
 
     @Then("^An error with relevant text message should be thrown$")
-    public void anErrorWithRelevantTextMessageShouldBeThrown() {
+    public void anErrorWithRelevantTextMessageShouldBeThrown() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getWlr3_addRemoveAuxLinePage().errorMessage();
-
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='01202300909'");
     }
 
 

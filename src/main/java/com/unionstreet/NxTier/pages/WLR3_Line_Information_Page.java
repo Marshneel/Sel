@@ -29,10 +29,8 @@ public class WLR3_Line_Information_Page {
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
 
+
     public void verifyLineInformationTab(String level, String level_no) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
-        Thread.sleep(1000);
-        utils.clickBtn(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
         utils.waitForElementVisible(By.xpath(TEXT_ON_LINEINFO_PAGE));
         utils.waitForElementVisible(By.id(SERVICE_MAINTENANCE_TAB));
         utils.selectByVisibleText(By.id(SERVICE_MAINTENANCE_TAB), level);
@@ -69,11 +67,12 @@ public class WLR3_Line_Information_Page {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 
-    public void verifyLineInfoForISDN30(String number1, String number2, String number3) throws InterruptedException {
+    public void verifyLineInfoForISDN30(String number1, String number2, String number3,String number4) throws InterruptedException {
         wlr3_orderDetails_page.loadLineInfo();
         utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number1 + "')]"));
         utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number2 + "')]"));
         utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number3 + "')]"));
+        utils.assertElementNotPresent(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number4 + "')]"));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 
@@ -129,6 +128,27 @@ public void setCareLevelPlanAndDigitsToSwitchForISDNLines(String unavailable, St
     utils.selectByVisibleText(By.id(SERVICE_MAINTENANCE_TAB), "Level "+available+"");
     assertDigitsToSwitchForAllISDN(allowedRange, digits);
 
+}
+public void assertSignalTypeIsUnAvailableForLineBox(){
+    utils.waitForElementVisible(By.xpath("//p[contains(text(),'Not-Applicable')]"));
+}
+//TODO
+public void assertDisabledFieldsUnderLineInfoForInModifyOrder(){
+    //disabled calling type
+    utils.waitForElementVisible(By.xpath("//*[@id='modal-dialog-LineInformation']/div/div/div[2]/div/div[3]/div/p"));
+    //disabled disconnect time
+    utils.waitForElementVisible(By.xpath("//*[@id='modal-dialog-LineInformation']/div/div/div[2]/div/div[4]/div/p"));
+    //disabled PBX Hunting
+    utils.waitForElementVisible(By.xpath("//*[@id='modal-dialog-LineInformation']/div/div/div[2]/div/div[5]/div/p"));
+}
+public void assertEnabledFieldsUnderLineInfoForTransferOrder(){
+    utils.waitForElementVisible(By.id("WLR3Order_calling_type"));
+    utils.waitForElementVisible(By.id("WLR3Order_disconnect_time"));
+    utils.waitForElementVisible(By.id("WLR3Order_hunting_type"));
+}
+public void assertAndPopulateSignalTypeWhenSwitchedToNTTP(){
+    utils.assertElementNotPresent(By.xpath("//select[@id='WLR3Order_signal_type']//option[@selected='selected']"));
+    utils.selectByVisibleText(By.id("WLR3Order_signal_type"),"Pulse Tone");
 }
 
 }

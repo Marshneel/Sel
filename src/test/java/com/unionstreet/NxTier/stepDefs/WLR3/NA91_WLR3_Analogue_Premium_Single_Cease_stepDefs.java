@@ -5,6 +5,9 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 31/01/2017.
  */
@@ -15,7 +18,8 @@ public class NA91_WLR3_Analogue_Premium_Single_Cease_stepDefs {
 
 
     @When("^I Initiate a cease order on the quote$")
-    public void iInitiateACeaseOrderOnTheQuote() throws InterruptedException {
+    public void iInitiateACeaseOrderOnTheQuote() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02063678369'");
         //select cease service
         webModel.getAddServicePage().searchAndAddService("Cease Order");
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
@@ -40,12 +44,12 @@ public class NA91_WLR3_Analogue_Premium_Single_Cease_stepDefs {
     }
 
     @And("^check for order completion and final assertions on order summary page$")
-    public void checkForOrderCompletionAndFinalAssertionsOnOrderSummaryPage() throws InterruptedException {
+    public void checkForOrderCompletionAndFinalAssertionsOnOrderSummaryPage() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         //verify the gree tick
         webModel.getEditOrderPage().verifyOrderCompletion();
         webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();
         //perform assertions on the order page
         webModel.getWlr3_orderDetails_page().assertQuoteForCeaseOrder();
-
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL' where serviceid='02063678369'");
     }
 }

@@ -558,4 +558,11 @@ public class WLR3_OrderDetails_Page {
     public void assertChannelsNotEditable(){
         utils.assertElementNotPresent(By.xpath("//div[@id='div_WLR3Order_num_lines']//img[contains(@onclick,'editMode')]"));
     }
+    public void verifyLineTypeAndProvisionType(String lineType,String provisionType){
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'"+lineType+"')]"));
+        utils.waitForElementVisible(By.xpath("//p[contains(text(),'"+provisionType+"')]"));
+    }
+    public void assertValidationMessageWhenTerminationTypeIsSwitched(){
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'You must select a Signal Type when the Termination Type of NTTP has been specified')]"));
+    }
 }
