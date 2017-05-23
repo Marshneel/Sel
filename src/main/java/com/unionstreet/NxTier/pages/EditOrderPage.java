@@ -4,6 +4,8 @@ import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 06/01/2017.
  */
@@ -45,31 +47,29 @@ public class EditOrderPage {
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
-    public void getToAddServicePage() throws InterruptedException {
+    public void getToAddServicePage() throws InterruptedException, SQLException {
         utils.getOrdersPage();
-        ordersManagerPage.clickOnQuoteID();
+        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
     }
 
 
-    public void clickAddProductsAndServicesButton() throws InterruptedException {
+    public void clickAddProductsAndServicesButton() throws InterruptedException, SQLException {
         try {
             utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.clickBtnWithWait(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
         } catch (NoSuchElementException e) {
-            utils.getOrdersPage();
-            ordersManagerPage.clickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
             utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.clickBtnWithWait(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
 
         }
     }
 
-    public void assertInvalidQuoteBeforeSubmitting() throws InterruptedException {
+    public void assertInvalidQuoteBeforeSubmitting() throws InterruptedException, SQLException {
         try {
             utils.waitForElementVisible(By.xpath(REDCROSS));
         } catch (Exception e) {
-            utils.getOrdersPage();
-            ordersManagerPage.clickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
             utils.waitForElementVisible(By.xpath(REDCROSS));
         }
     }
@@ -81,13 +81,12 @@ public class EditOrderPage {
         utils.waitForElementVisible(By.xpath(SERVICE_NOT_COMPLETED_MESSAGE));
     }
 
-    public void assertValidQuoteBeforeSubmitting() throws InterruptedException {
+    public void assertValidQuoteBeforeSubmitting() throws InterruptedException, SQLException {
 
         try {
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         } catch (Exception e) {
-            utils.getOrdersPage();
-            ordersManagerPage.clickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         }
     }
@@ -122,24 +121,21 @@ public class EditOrderPage {
         utils.assertElementNotPresent(By.id(INTERNAL_RADIOBUTTON));
     }
 
-    public void verifyOrderCompletion() throws InterruptedException {
+    public void verifyOrderCompletion() throws InterruptedException, SQLException {
         //load created quote
-        utils.getOrdersPage();
-        ordersManagerPage.clickOnQuoteID();
+        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
         // check for the green tick
         try {
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         } catch (Exception e) {
-            utils.getOrdersPage();
-            ordersManagerPage.clickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         }
         System.out.println("NA87 completed");
     }
 
-    public void accessOrder() throws InterruptedException {
-        utils.getOrdersPage();
-        ordersManagerPage.clickOnQuoteID();
+    public void accessOrder() throws InterruptedException, SQLException {
+        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
         utils.waitForElementVisible(By.xpath(GREEN_TICK));
     }
 
@@ -151,23 +147,22 @@ public class EditOrderPage {
 
     }
 
-    public void getToAmendOrderButton() throws InterruptedException {
-        utils.getOrdersPage();
-        ordersManagerPage.clickOnQuoteID();
+    public void getToAmendOrderButton() throws InterruptedException, SQLException {
+        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
         utils.clickBtn(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
         utils.waitForElementVisible(By.id(AMEND_ORDER_BUTTON));
         utils.clickBtn(By.id(AMEND_ORDER_BUTTON));
     }
 
-    public void startOrderAmend() throws InterruptedException {
+    public void startOrderAmend() throws InterruptedException, SQLException {
         getToAmendOrderButton();
         utils.selectByIndex(By.id(REASON_FOR_AMENDING_ORDER), 1);
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 
-    public void startAmendWithCustomerDelayReason() throws InterruptedException {
+    public void startAmendWithCustomerDelayReason() throws InterruptedException, SQLException {
         getToAmendOrderButton();
         utils.selectByVisibleText(By.id(REASON_FOR_AMENDING_ORDER), "In Response To Customer Delay");
         Thread.sleep(1000);
@@ -187,11 +182,11 @@ public class EditOrderPage {
         utils.waitForElementVisible(By.xpath(AMEND_SENT_TEXT_ON_OPENREACH_NOTIFICATIONS));
     }
 
-    public void checkOpenReachNotificationsForOrderSuccessfulSubmission() throws InterruptedException {
+    public void checkOpenReachNotificationsForOrderSuccessfulSubmission() throws InterruptedException, SQLException {
         utils.getOrdersPage();
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.waitForElementVisible(By.xpath(LINE_TESTING_TEXT_ON_ORDERS_PAGE));
-        ordersManagerPage.clickOnQuoteID();
+        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
         utils.waitForElementVisible(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
         utils.clickBtn(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
         utils.waitForElementVisible(By.xpath(ORDER_PENDING_TEXT_IN_NOTIFICATIONS));

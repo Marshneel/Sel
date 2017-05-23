@@ -15,7 +15,7 @@ public class NA109_WLR3_ISDN2_New_Provide_Line_Suitability_Dialogue_stepDefs {
     WebModel webModel=new WebModel();
 
     @When("^I initiate any of the ISDN(\\d+) new provide without addressKey$")
-    public void iInitiateAnyOfTheISDNNewProvideWithoutAddressKey(int arg0) throws InterruptedException {
+    public void iInitiateAnyOfTheISDNNewProvideWithoutAddressKey(int arg0) throws InterruptedException, SQLException {
         webModel.getAddServicePage().searchAndAddService("New Provide Order");
         webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN2 Standard");
     }
@@ -31,7 +31,7 @@ public class NA109_WLR3_ISDN2_New_Provide_Line_Suitability_Dialogue_stepDefs {
         webModel.getAddSiteDetailsPage().assignAddressKeyToSite();
         webModel.getUtils().getOrdersPage();
         webModel.getOrdersManagerPage().searchQuoteByBcRN();
-        webModel.getOrdersManagerPage().clickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
         webModel.getAddServicePage().searchAndAddService("New Provide Order");
         webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN2 Standard");
     }

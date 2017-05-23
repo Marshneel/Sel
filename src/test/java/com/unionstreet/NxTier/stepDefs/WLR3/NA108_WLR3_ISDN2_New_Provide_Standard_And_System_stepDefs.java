@@ -4,6 +4,8 @@ import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 24/03/2017.
  */
@@ -11,18 +13,18 @@ public class NA108_WLR3_ISDN2_New_Provide_Standard_And_System_stepDefs {
    WebModel webModel=new WebModel();
 
     @When("^I initiate a new provide ISDN Standard line order$")
-    public void iInitiateANewProvideISDNStandardLineOrder() throws InterruptedException {
+    public void iInitiateANewProvideISDNStandardLineOrder() throws InterruptedException, SQLException {
         webModel.getAddServicePage().searchAndAddService("New Provide Order");
         webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN2 Standard");
     }
 
 
     @Then("^I should be able to check and validate the flow of ISDN_Standard line$")
-    public void iShouldBeAbleToCheckAndValidateTheFlowOfISDN_StandardLine() throws InterruptedException {
+    public void iShouldBeAbleToCheckAndValidateTheFlowOfISDN_StandardLine() throws InterruptedException, SQLException {
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ","A00001043137");
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateSiteContactUnderSITE("07894040256");
         webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
-        webModel.getWlr3_newProvide__provisionPage().setProvisionTypeNonAnalogueMultiLine();
+        webModel.getWlr3_newProvide__provisionPage().setProvisionTypeForNonMultiLine();
         webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
         webModel.getWlr3_newProvide__engineeringPage().sBusExtension();
         webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
@@ -42,7 +44,7 @@ public class NA108_WLR3_ISDN2_New_Provide_Standard_And_System_stepDefs {
     }
 
     @When("^I initiate a new provide ISDN System line order$")
-    public void iInitiateANewProvideISDNSystemLineOrder() throws InterruptedException {
+    public void iInitiateANewProvideISDNSystemLineOrder() throws InterruptedException, SQLException {
         webModel.getAddServicePage().searchAndAddService("New Provide Order");
         webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN2 System");
     }

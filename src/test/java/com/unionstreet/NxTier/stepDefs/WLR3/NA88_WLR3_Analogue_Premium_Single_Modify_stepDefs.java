@@ -17,13 +17,13 @@ public class NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs {
     NA44_Agent_Login_stepDefs na44_agent_login_stepDefs = new NA44_Agent_Login_stepDefs();
 
     @And("^I create a new business customer with a quote$")
-    public void iCreateANewBusinessCustomerWithAQuote() throws InterruptedException {
+    public void iCreateANewBusinessCustomerWithAQuote() throws InterruptedException, SQLException {
         na44_agent_login_stepDefs.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
         webModel.getOrdersManagerPage().searchQuoteByBcRN();
-        webModel.getOrdersManagerPage().clickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
     }
 
     @When("^Initiate a modify order on the quote$")
@@ -34,7 +34,7 @@ public class NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs {
     }
 
     @And("^Access the WLR order details page$")
-    public void accessTheWLROrderDetailsPage() throws InterruptedException {
+    public void accessTheWLROrderDetailsPage() throws InterruptedException, SQLException {
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrderWithWrongCLI();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("02063678369", "LU1 1DQ");

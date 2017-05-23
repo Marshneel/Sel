@@ -3,6 +3,8 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 23/01/2017.
  */
@@ -166,7 +168,7 @@ public class WLR3_NewProvide_NumberingPage {
 
     }
 
-    public void checkLineNumberingForISDN(String action1, String action2) throws InterruptedException {
+    public void checkLineNumberingForISDN(String action1, String action2) throws InterruptedException, SQLException {
 
         try {
             Thread.sleep(1000);

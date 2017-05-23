@@ -65,7 +65,7 @@ public class WLR3_LineNumberingPage {
     CommonMethods commonMethods = new CommonMethods();
 
 
-    public void lineNumberingAutomaticallyAssignWithAssertions() throws InterruptedException {
+    public void lineNumberingAutomaticallyAssignWithAssertions() throws InterruptedException, SQLException {
         utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
         try {
             utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
@@ -97,7 +97,7 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
         utils.jumpToParentPopUp();}
 
-    public void assertionForLineNumberingSpecifyNewNumber(String number) throws InterruptedException {
+    public void assertionForLineNumberingSpecifyNewNumber(String number) throws InterruptedException, SQLException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.LINE_NUMBERING_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
@@ -121,7 +121,7 @@ public class WLR3_LineNumberingPage {
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
         utils.jumpToParentPopUp();}
-        public void assertionForSelectFromList(String number) throws InterruptedException {
+        public void assertionForSelectFromList(String number) throws InterruptedException, SQLException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisibleForWLR3Page(By.id(wlr3_orderDetails_page.LINE_NUMBERING_SUMMARY_PANEL));
             utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
@@ -141,7 +141,7 @@ public class WLR3_LineNumberingPage {
         utils.jumpToParentPopUp();}
 
 
-        public void assertionForAutomaticallyAssign(String number) throws InterruptedException {
+        public void assertionForAutomaticallyAssign(String number) throws InterruptedException, SQLException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.LINE_NUMBERING_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
@@ -181,7 +181,7 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(NO_CHANGES_TO_LINE_CONTINUE_BUTTON));
     }
 
-    public void importFromOtherNetworkWithLetterOfAuthority(String number) throws InterruptedException {
+    public void importFromOtherNetworkWithLetterOfAuthority(String number) throws InterruptedException, SQLException {
         depopulateImportFromOtherNetworkFields();
         enterNumberOnImportFromOtherNetworkPage(number);
         utils.clickBtn(By.id(LETTER_OF_AUTHORITY_CHECKBOX));
@@ -189,7 +189,7 @@ public class WLR3_LineNumberingPage {
         utils.jumpToParentPopUp();
     }
 
-    public void importNumberWithVic(String number, String vic) throws InterruptedException {
+    public void importNumberWithVic(String number, String vic) throws InterruptedException, SQLException {
         depopulateImportFromOtherNetworkFields();
         enterNumberOnImportFromOtherNetworkPage(number);
         utils.clickBtn(By.id(VIC_TEXTBOX_UNDER_LINE_INFO));
@@ -204,7 +204,7 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(NO_CHANGE_TAB));
     }
 
-    public void depopulateImportFromOtherNetworkFields() throws InterruptedException {
+    public void depopulateImportFromOtherNetworkFields() throws InterruptedException, SQLException {
         clickNoChangeTab();
         clickContinueUnderNoChange();
         utils.jumpToParentPopUp();
@@ -247,7 +247,7 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP));
     }
 
-    public void deleteActionAndAddingNewSNDDIForISDN30Modify() throws InterruptedException {
+    public void deleteActionAndAddingNewSNDDIForISDN30Modify() throws InterruptedException, SQLException {
         utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN_ROW1));
         utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW1), "Remove");
         utils.clickBtn(By.xpath(ADD_NEW_DDI));
@@ -268,7 +268,7 @@ public class WLR3_LineNumberingPage {
         utils.clickBtn(By.xpath(OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP));
     }
 
-    public void mBNValidationOnLineNumberingPopUpForISDN30Modify(String number1, String number2, String number3, String allocationType) throws InterruptedException {
+    public void mBNValidationOnLineNumberingPopUpForISDN30Modify(String number1, String number2, String number3, String allocationType) throws InterruptedException, SQLException {
         utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW2), "Remove");
         utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW2), "Remove");
         utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW2), "Remove");
@@ -344,7 +344,7 @@ public class WLR3_LineNumberingPage {
         utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_TO_PROVIDE_CORRECT_DETAILS));
         utils.waitForElementVisible(By.xpath(EMPTY_FIELD_ERROR_MESSAGE));
     }
-    public void addingExtraSNDDI() throws InterruptedException {
+    public void addingExtraSNDDI() throws InterruptedException, SQLException {
         wlr3_orderDetails_page.clickLineNumbering();
         utils.waitForElementVisible(By.xpath(ADD_NEW_DDI));
         utils.clickBtn(By.xpath(ADD_NEW_DDI));
@@ -352,7 +352,7 @@ public class WLR3_LineNumberingPage {
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
-    public void addingExtraDDIRange() throws InterruptedException {
+    public void addingExtraDDIRange() throws InterruptedException, SQLException {
         wlr3_orderDetails_page.clickLineNumbering();
         utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN_ROW1));
         utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW1),"New DDI range");

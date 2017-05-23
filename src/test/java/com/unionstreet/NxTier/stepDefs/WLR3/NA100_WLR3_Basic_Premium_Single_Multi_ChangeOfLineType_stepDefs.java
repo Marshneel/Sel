@@ -122,7 +122,7 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
     }
 
     @When("^I initiate a change of line type service on the CLI that is not owned$")
-    public void iInitiateAChangeOfLineTypeServiceOnTheCLIThatIsNotOwned() throws InterruptedException {
+    public void iInitiateAChangeOfLineTypeServiceOnTheCLIThatIsNotOwned() throws InterruptedException, SQLException {
         webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300908","LU1 1DQ");
     }

@@ -5,6 +5,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 13/01/2017.
  */
@@ -14,7 +16,7 @@ public class NA87_WLR3_Analogue_multiline_New_provide_stepDefs {
 
 
     @And("^add WLR new provide order to the quote$")
-    public void addWLRNewProvideOrderToTheQuote() throws InterruptedException {
+    public void addWLRNewProvideOrderToTheQuote() throws InterruptedException, SQLException {
         webModel.getAddServicePage().searchAndAddService("New Provide Order");
 
     }
@@ -60,7 +62,7 @@ public class NA87_WLR3_Analogue_multiline_New_provide_stepDefs {
     }
 
     @Then("^I should be able to navigate throught the wizard and complete the order$")
-    public void iShouldBeAbleToNavigateThroughtTheWizardAndCompleteTheOrder() throws InterruptedException {
+    public void iShouldBeAbleToNavigateThroughtTheWizardAndCompleteTheOrder() throws InterruptedException, SQLException {
         webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();
         webModel.getWlr3_line_information_page().setSignalType();
         webModel.getEditOrderPage().verifyOrderCompletion();

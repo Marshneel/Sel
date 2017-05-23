@@ -14,7 +14,7 @@ public class NA127_WLR3_Virtual_Lines_NewProvide_stepDefs {
     WebModel webModel = new WebModel();
 
     @When("^I initiate a virtual line order for ISDN Remote Call Forward$")
-    public void iInitiateAVirtualLineOrderForISDNRemoteCallForward() throws InterruptedException {
+    public void iInitiateAVirtualLineOrderForISDNRemoteCallForward() throws InterruptedException, SQLException {
         webModel.getAddServicePage().searchAndAddService("Remote Call Forward");
     }
 
@@ -51,7 +51,7 @@ public class NA127_WLR3_Virtual_Lines_NewProvide_stepDefs {
     }
 
     @When("^I initiate a virtual line order for ISDN Caller Redirect$")
-    public void iInitiateAVirtualLineOrderForISDNCallerRedirect() throws InterruptedException {
+    public void iInitiateAVirtualLineOrderForISDNCallerRedirect() throws InterruptedException, SQLException {
         webModel.getAddServicePage().searchAndAddService("Caller Redirect");
     }
 

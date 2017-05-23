@@ -16,13 +16,13 @@ public class NA64_WLR3_Analogue_Premium_Single_Transfer_line_Numbering_Options_S
 
 
     @When("^I access specify new number, select from list and automatically assign now with out populating installation address, an error should be thrown$")
-    public void iAccessSpecifyNewNumberSelectFromListAndAutomaticallyAssignNowWithOutPopulatingInstallationAddressAnErrorShouldBeThrown() throws InterruptedException {
+    public void iAccessSpecifyNewNumberSelectFromListAndAutomaticallyAssignNowWithOutPopulatingInstallationAddressAnErrorShouldBeThrown() throws InterruptedException, SQLException {
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
         webModel.getWlr3_lineNumberingPage().assertionForLineNumberingWithOutAddress();
     }
 
     @And("^when i populate the installation address field and access the same$")
-    public void whenIPopulateTheInstallationAddressFieldAndAccessTheSame() throws InterruptedException {
+    public void whenIPopulateTheInstallationAddressFieldAndAccessTheSame() throws InterruptedException, SQLException {
         webModel.getWlr3_lineNumberingPage().closeLineNumberingPage();
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         webModel.getWlr3_installationAddressPage().populateInstallationAddressPage();
@@ -30,14 +30,14 @@ public class NA64_WLR3_Analogue_Premium_Single_Transfer_line_Numbering_Options_S
     }
 
     @Then("^The error should not be seen$")
-    public void theErrorShouldNotBeSeen() throws InterruptedException {
+    public void theErrorShouldNotBeSeen() throws InterruptedException, SQLException {
         webModel.getWlr3_orderDetails_page().clickLineNumbering();
         webModel.getWlr3_lineNumberingPage().assertionForLineNumberingWithAddress();
     }
 
 
     @When("^I access line numbering page$")
-    public void iAccessLineNumberingPage() throws InterruptedException {
+    public void iAccessLineNumberingPage() throws InterruptedException, SQLException {
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         webModel.getWlr3_installationAddressPage().populateInstallationAddressPage();
         webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage("LU1 1DQ");
@@ -79,7 +79,7 @@ public class NA64_WLR3_Analogue_Premium_Single_Transfer_line_Numbering_Options_S
     }
 
     @When("^I access appointments page on the WLR order details page$")
-    public void iAccessAppointmentsPageOnTheWLROrderDetailsPage() throws InterruptedException {
+    public void iAccessAppointmentsPageOnTheWLROrderDetailsPage() throws InterruptedException, SQLException {
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         webModel.getWlr3_installationAddressPage().populateInstallationAddressPage();
         webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage("LU1 1DQ");

@@ -3,6 +3,8 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.sql.SQLException;
+
 /**
  * Created by rajeshg on 24/10/2016.
  */
@@ -12,7 +14,6 @@ public class OrdersManagerPage {
 
     public final String QUOTE = "bodyContent";
     public final String INVISIBLE_ORDER_SERVICESID = "//input[@id='Service_ID']";
-    public final String QUOTEID = "//a[contains(@href,'Orders/EditOrder')]";
     private final String CREATEQUOTE_BUTTON = "//a[@class='add'][text()[contains(.,'Create Quote')]]";
     //TODO
     private final String ORDER_QUOTE_DESCRIPTION_FIELD = "QuoteDescription";
@@ -195,27 +196,19 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
     }
 
-    public void tryClickingOnQuoteID() {
-        try {
-            utils.waitForElementVisible(By.xpath(QUOTEID));
-            Thread.sleep(1000);
-            utils.clickBtn(By.xpath(QUOTEID));
-        } catch (Exception e) {
+    public void clickOnQuoteID() throws SQLException {
+   try{     utils.sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select order_id from orders where OrderDescription ='"+newBusinessCustomerPage.RanName+"'");
+        utils.result.next();
+        String one = utils.result.getString("order_id");
+            utils.waitForElementVisible(By.xpath("//a[text()='"+one+"']"));
+            utils.clickBtn(By.xpath("//a[text()='"+one+"']"));
+    }catch (Exception e){utils.checkAlert();}}
 
-        }
-    }
-
-    public void clickOnQuoteID() throws InterruptedException {
-        try {
-            tryClickingOnQuoteID();
-        } catch (Exception e) {utils.checkAlert();
-            utils.getOrdersPage();
-            Thread.sleep(1000);
-            tryClickingOnQuoteID();
-            utils.checkAlert();
-        }
+    public void loadOrdersManagerAndClickOnQuoteID() throws InterruptedException, SQLException {
+     try{   utils.getOrdersPage();
+        clickOnQuoteID();
         utils.switchToNewWindow();
-    }
+    }catch (Exception e){utils.checkAlert();}}
 
     public void savingQuoteAndExtractingOrderServiceID() throws InterruptedException {
         utils.switchToNewWindow();

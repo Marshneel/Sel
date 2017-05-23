@@ -3,6 +3,8 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 06/01/2017.
  */
@@ -29,7 +31,7 @@ public class WLR3_SiteInformationPage {
     WLR3_NewProvide_ProvisionPage wlr3_newProvide_provisionPage=new WLR3_NewProvide_ProvisionPage();
 
 
-    public void populatingSiteInformation() throws InterruptedException {
+    public void populatingSiteInformation() throws InterruptedException, SQLException {
         wlr3_orderDetails_page.textOnWLR3OrderPage();
         wlr3_orderDetails_page.clickSiteInfo();
         utils.selectByIndex(By.id(SELECTCONTACT_UNDER_SITEINFO), 1);
@@ -157,12 +159,22 @@ public class WLR3_SiteInformationPage {
         utils.assertElementNotPresent(By.id("WLR3Order_installation_type"));
     }
     public void assertInstallTypePresentInTransferOrder(){
-
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Install Type')]"));
         utils.waitForElementVisible(By.id("WLR3Order_installation_type"));
     }
     public void assertValidationMessageForSiteInfoPhoneNumber(){
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'Please specify Site Contact telephone number')]"));
     }
+    public void changeProvisionTypeToTakeOverWorkingLine(String CLI){
+        utils.waitForElementVisible(By.xpath(TAKE_OVER_AN_EXISTING_LINE));
+        utils.clickBtn(By.xpath(TAKE_OVER_AN_EXISTING_LINE));
+        utils.waitForElementVisible(By.id("WLR3Order_target_serviceid"));
+        utils.sendText(By.id("WLR3Order_target_serviceid"),CLI);
+    }
+    public void assertTakeOverWorkingLineAbsent(){
+        utils.assertElementNotPresent(By.xpath(TAKE_OVER_AN_EXISTING_LINE));
+    }
+
+
 
 }

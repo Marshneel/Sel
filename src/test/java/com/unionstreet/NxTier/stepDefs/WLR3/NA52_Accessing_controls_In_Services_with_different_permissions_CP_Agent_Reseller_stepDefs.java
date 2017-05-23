@@ -4,6 +4,8 @@ import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
+import java.sql.SQLException;
+
 /**
  * Created by rajeshg on 06/10/2016.
  */
@@ -13,12 +15,12 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
     NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
     @And("^create a new quote and access a service$")
-    public void createANewQuoteAndAccessAService() throws InterruptedException {
+    public void createANewQuoteAndAccessAService() throws InterruptedException, SQLException {
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
-        webModel.getOrdersManagerPage().clickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("permissions");
     }
@@ -30,8 +32,8 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
     }
 
     @And("^create a new quote and access a service for reseller$")
-    public void createANewQuoteAndAccessAServiceForReseller() throws InterruptedException {
-        webModel.getOrdersManagerPage().clickOnQuoteID();
+    public void createANewQuoteAndAccessAServiceForReseller() throws InterruptedException, SQLException {
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("permissions");
     }

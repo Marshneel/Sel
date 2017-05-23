@@ -17,12 +17,12 @@ public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
     NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
     @And("^I create a new quote and add a service with addOnActivation charge$")
-    public void iCreateANewQuoteAndAddAServiceWithAddOnActivationCharge() throws InterruptedException {
+    public void iCreateANewQuoteAndAddAServiceWithAddOnActivationCharge() throws InterruptedException, SQLException {
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
-        webModel.getOrdersManagerPage().clickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("addOnActivationCharge");
         webModel.getOrdersManagerPage().savingQuoteAndExtractingOrderServiceID();
@@ -42,11 +42,11 @@ public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
 
 
     @And("^I create a new quote for reseller  and add a service with addOnActivation charge$")
-    public void iCreateANewQuoteForResellerAndAddAServiceWithAddOnActivationCharge() throws InterruptedException {
+    public void iCreateANewQuoteForResellerAndAddAServiceWithAddOnActivationCharge() throws InterruptedException, SQLException {
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuoteForReseller();
-        webModel.getOrdersManagerPage().clickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("addOnActivationCharge");
         webModel.getOrdersManagerPage().savingQuoteAndExtractingOrderServiceID();

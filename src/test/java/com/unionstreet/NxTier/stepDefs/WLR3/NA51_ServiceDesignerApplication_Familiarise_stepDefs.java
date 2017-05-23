@@ -6,6 +6,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.sql.SQLException;
+
 /**
  * Created by rajeshg on 05/10/2016.
  */
@@ -16,12 +18,12 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
 
 
     @When("^I access add_view notes on edit order page$")
-    public void iAccessAdd_viewNotesOnEditOrderPage() throws InterruptedException {
+    public void iAccessAdd_viewNotesOnEditOrderPage() throws InterruptedException, SQLException {
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
-        webModel.getOrdersManagerPage().clickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
         webModel.getEditOrderPage().accessAdd_ViewNotes();
     }
 
@@ -38,8 +40,8 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
     }
 
     @When("^I access add_view notes on edit order page for reseller$")
-    public void iAccessAdd_viewNotesOnEditOrderPageForReseller() throws InterruptedException {
-        webModel.getOrdersManagerPage().clickOnQuoteID();
+    public void iAccessAdd_viewNotesOnEditOrderPageForReseller() throws InterruptedException, SQLException {
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
         webModel.getEditOrderPage().accessAdd_ViewNotes();
 
     }
@@ -55,9 +57,9 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
     }
 
     @When("^I access the services page$")
-    public void iAccessTheServicesPage() throws InterruptedException {
+    public void iAccessTheServicesPage() throws InterruptedException, SQLException {
         webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getOrdersManagerPage().clickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
         webModel.getAddServicePage().clickAddAProductOrService();
     }
 
@@ -68,12 +70,12 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
     }
 
     @And("^I should be able to see the service once CP assigns it to me$")
-    public void iShouldBeAbleToSeeTheServiceOnceCPAssignsItToMe() throws InterruptedException {
+    public void iShouldBeAbleToSeeTheServiceOnceCPAssignsItToMe() throws InterruptedException, SQLException {
         webModel.getOrdersManagerPage().makeSureAgentHasAgentAndResellerService();
         webModel.getOrdersManagerPage().saveAssignServicePage();
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getOrdersManagerPage().clickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
         webModel.getAddServicePage().clickAddAProductOrService();
         webModel.getAddServicePage().assertServicePresent("ServiceForAgent&Reseller");
         webModel.getUtils().checkPoint("NA51c done");

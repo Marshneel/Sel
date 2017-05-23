@@ -34,7 +34,7 @@ public class NA94_WLR3_Analogue_Multi_Add_Remove_Aux_line_stepDefs {
     }
 
     @Then("^I should be able to assert line increase and check the flow$")
-    public void iShouldBeAbleToAssertLineIncreaseAndCheckTheFlow() throws InterruptedException {
+    public void iShouldBeAbleToAssertLineIncreaseAndCheckTheFlow() throws InterruptedException, SQLException {
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
         //assert line number increase
         webModel.getWlr3_addRemoveAuxLinePage().assertLineNumberIncrease();
@@ -60,7 +60,7 @@ public class NA94_WLR3_Analogue_Multi_Add_Remove_Aux_line_stepDefs {
     }
 
     @Then("^I should be able to assert line decrease and check the flow$")
-    public void iShouldBeAbleToAssertLineDecreaseAndCheckTheFlow() throws InterruptedException {
+    public void iShouldBeAbleToAssertLineDecreaseAndCheckTheFlow() throws InterruptedException, SQLException {
         webModel.getWlr3_addRemoveAuxLinePage().assertNumberDecrease();
         //provide phone number under site info and verify recovery line plant checkBox
         webModel.getWlr3_orderDetails_page().clickOnSiteInfoErrorTabForDecrease();
