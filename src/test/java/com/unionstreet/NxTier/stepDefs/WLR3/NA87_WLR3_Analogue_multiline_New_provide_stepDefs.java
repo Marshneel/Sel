@@ -63,7 +63,7 @@ public class NA87_WLR3_Analogue_multiline_New_provide_stepDefs {
 
     @Then("^I should be able to navigate throught the wizard and complete the order$")
     public void iShouldBeAbleToNavigateThroughtTheWizardAndCompleteTheOrder() throws InterruptedException, SQLException {
-        webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();
+        webModel.getWlr3_orderDetails_page().getToWLR3QuotePage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_line_information_page().setSignalType();
         webModel.getEditOrderPage().verifyOrderCompletion();
         //assert that the order is completed by verifying for the presence of green tick

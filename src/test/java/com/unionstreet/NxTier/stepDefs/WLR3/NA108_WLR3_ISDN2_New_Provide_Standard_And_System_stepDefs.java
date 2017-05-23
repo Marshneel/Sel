@@ -34,9 +34,9 @@ public class NA108_WLR3_ISDN2_New_Provide_Standard_And_System_stepDefs {
         webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
         webModel.getWlr3_newProvide__datePage().populateHazardAndWarningNotesUnderDATE("hazardNotes", "warningNotes");
         webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
-        webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();
+        webModel.getWlr3_orderDetails_page().getToWLR3QuotePage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().siteInfoValidationMessagesForISDN2OnOrderSummaryPage();
-        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().clickSiteInfo();
         webModel.getWlr3_siteInformationPage().populateFloorAndRoomForNewProvideIDSN2();
         webModel.getWlr3_siteInformationPage().saveSiteInfoChanges();

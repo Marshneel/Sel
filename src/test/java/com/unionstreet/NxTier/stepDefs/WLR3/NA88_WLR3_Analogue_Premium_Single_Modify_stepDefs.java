@@ -23,7 +23,7 @@ public class NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs {
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
         webModel.getOrdersManagerPage().searchQuoteByBcRN();
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
     }
 
     @When("^Initiate a modify order on the quote$")
@@ -38,7 +38,7 @@ public class NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs {
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrderWithWrongCLI();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("02063678369", "LU1 1DQ");
-        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
     }
 
     @Then("^I should be able to check all the tabs and verify assertions$")
@@ -54,10 +54,10 @@ public class NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs {
         webModel.getWlr3_line_information_page().verifyLineInformationTab("Level 3", "3");
         //verify network call features (verify by revoking and issuing the features)
         webModel.getWlr3_orderDetails_page().checkNetworkCallFeaturesBeforeRemoval();
-        webModel.getWlr3_networkCallingFeaturesPage().enterNetworkFeatures();
+        webModel.getWlr3_networkCallingFeaturesPage().enterNetworkFeatures(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_networkCallingFeaturesPage().depopulateAndVerifyNetworkCallingFeatures();
         webModel.getWlr3_orderDetails_page().checkNetworkCallFeaturesAfterRemoval();
-        webModel.getWlr3_networkCallingFeaturesPage().enterNetworkFeatures();
+        webModel.getWlr3_networkCallingFeaturesPage().enterNetworkFeatures(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_networkCallingFeaturesPage().rePopulateNetworkCallingFeatures();
         //verify appointment page
         webModel.getWlr3_appointmentPage().accessAppointmentpage();

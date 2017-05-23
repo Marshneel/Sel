@@ -18,7 +18,7 @@ public class NA128_WLR3_Virtual_Lines_Modify_stepDefs {
         webModel.getAddServicePage().searchAndAddService("Modify Order");
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("01202300912", "LU1 1DQ");
-        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
     }
 
     @Then("^I should be able to check the flow of the remote call forward_virtual line$")
@@ -50,7 +50,7 @@ public class NA128_WLR3_Virtual_Lines_Modify_stepDefs {
         webModel.getAddServicePage().searchAndAddService("Modify Order");
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("01202300911", "LU1 1DQ");
-        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
     }
 
     @Then("^I should be able to check the flow of the caller redirect_virtual line$")

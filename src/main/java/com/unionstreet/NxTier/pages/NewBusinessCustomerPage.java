@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 
 public class NewBusinessCustomerPage {
     public static String RanName;
+    public static String Reseller_RanName;
     public final String ADD_BUTTON = "Add";
     //TODO
     public final String SAVE_BUTTON = ".save";

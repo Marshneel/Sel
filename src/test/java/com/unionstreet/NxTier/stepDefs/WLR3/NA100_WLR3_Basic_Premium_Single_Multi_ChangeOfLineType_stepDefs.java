@@ -55,7 +55,7 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
         webModel.getWlr3_siteInformationPage().assertAndPopulateTerminationTypeForBasicLineSwitch("NTTP","Line Box");
         webModel.getWlr3_siteInformationPage().setUpTRCband();
         webModel.getWlr3_siteInformationPage().saveSiteInfoChanges();
-        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_appointmentPage().populateHazardAndWarningNotes();
         webModel.getWlr3_orderDetails_page().assertLineCharges("Analogue Residential Line");
         webModel.getEditOrderPage().verifyOrderCompletion();
@@ -104,7 +104,7 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
 
     @Then("^I should be able to check all the required validations and complete the change order from multi to analogue basic$")
     public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOrderFromMultiToAnalogueBasic() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_line_information_page().setCareLevelForBasicLineSwitch("Level 1");
         // assert un availability of network feature that is exclusive to multiline during single line switch
         webModel.getWlr3_orderDetails_page().assertWarningMessageOnSummaryPage("Network Feature unknown: Bypass number - individual line");

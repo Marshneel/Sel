@@ -23,7 +23,7 @@ public class NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs 
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
         webModel.getOrdersManagerPage().searchQuoteByBcRN();
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
     }
 
     @And("^I assign WLR transfer order service to the newly created quote$")
@@ -34,7 +34,7 @@ public class NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs 
 
     @When("^I access postcode search under installation address tab and enter incorrect post code$")
     public void iAccessPostcodeSearchUnderInstallationAddressTabAndEnterIncorrectPostCode() throws InterruptedException, SQLException {
-        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage();
+        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_installationAddressPage().EnterPostCodeInSearchAddressByPostCode("GU22 9DY");
         webModel.getWlr3_installationAddressPage().EnterPostCodeInSearchAddressByPostCode("lu11dq");
     }
@@ -53,13 +53,13 @@ public class NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs 
     @Then("^I should be able to search and select the address by post code$")
     public void iShouldBeAbleToSearchAndSelectTheAddressByPostCode() throws InterruptedException, SQLException {
         webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26","A00001043137");
-        webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage("LU1 1DQ");
+        webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName,"LU1 1DQ");
         System.out.println("NA60a completed");
     }
 
     @When("^Access addressKey search under installation address tab and enter invalid address key$")
     public void accessAddressKeySearchUnderInstallationAddressTabAndEnterInvalidAddressKey() throws InterruptedException, SQLException {
-        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage();
+        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_installationAddressPage().accessAddressKeyTab();
         webModel.getWlr3_installationAddressPage().enterAddressKeyInSearchAddressByAddressKey("00001043137");
     }
@@ -77,13 +77,13 @@ public class NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs 
     @Then("^I should be able to search and select the address by address key$")
     public void iShouldBeAbleToSearchAndSelectTheAddressByAddressKey() throws InterruptedException, SQLException {
         webModel.getWlr3_orderDetails_page().assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26","A00001043137");
-        webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage("LU1 1DQ");
+        webModel.getWlr3_orderDetails_page().pickAndAssertPostCodeOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName,"LU1 1DQ");
         System.out.println("NA60b completed");
     }
 
     @When("^I access advanced search under installation address tab and enter valid combinations$")
     public void iAccessAdvancedSearchUnderInstallationAddressTabAndEnterValidCombinations() throws InterruptedException, SQLException {
-        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage();
+        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_installationAddressPage().accessAdvancedSearchTab();
         webModel.getWlr3_installationAddressPage().enterValidAddressSearchCombinations();
     }

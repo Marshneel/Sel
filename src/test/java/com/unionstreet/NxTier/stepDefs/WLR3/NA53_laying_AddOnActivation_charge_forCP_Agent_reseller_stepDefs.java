@@ -22,7 +22,7 @@ public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("addOnActivationCharge");
         webModel.getOrdersManagerPage().savingQuoteAndExtractingOrderServiceID();
@@ -46,7 +46,7 @@ public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuoteForReseller();
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().Reseller_RanName);
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("addOnActivationCharge");
         webModel.getOrdersManagerPage().savingQuoteAndExtractingOrderServiceID();

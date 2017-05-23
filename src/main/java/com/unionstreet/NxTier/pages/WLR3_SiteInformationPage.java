@@ -31,8 +31,8 @@ public class WLR3_SiteInformationPage {
     WLR3_NewProvide_ProvisionPage wlr3_newProvide_provisionPage=new WLR3_NewProvide_ProvisionPage();
 
 
-    public void populatingSiteInformation() throws InterruptedException, SQLException {
-        wlr3_orderDetails_page.textOnWLR3OrderPage();
+    public void populatingSiteInformation(String type) throws InterruptedException, SQLException {
+        wlr3_orderDetails_page.textOnWLR3OrderPage(type);
         wlr3_orderDetails_page.clickSiteInfo();
         utils.selectByIndex(By.id(SELECTCONTACT_UNDER_SITEINFO), 1);
         utils.waitForElementVisible(By.id(SUBMIT_BUTTON));

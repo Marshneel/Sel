@@ -36,7 +36,7 @@ public class NA104_ISDN30_Transfer_stepDefs {
 
     @When("^I provide all the valid info$")
     public void iProvideAllTheValidInfo() throws InterruptedException, SQLException {
-        webModel.getWlr3_orderDetails_page().enterEmergencyInfo();
+        webModel.getWlr3_orderDetails_page().enterEmergencyInfo(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_line_information_page().verifyLineInfoForISDN30("2", "3", "4","1");
         webModel.getWlr3_businessContinuityPage().loadBusinessContinuity();
         webModel.getWlr3_businessContinuityPage().selectBusinessContinuity();

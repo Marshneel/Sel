@@ -20,6 +20,7 @@ public class AddServicePage {
     NxTierServicesPage nxTierServicesPage = new NxTierServicesPage();
     EditOrderPage editOrderPage = new EditOrderPage();
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
+    NewBusinessCustomerPage newBusinessCustomerPage=new NewBusinessCustomerPage();
 
 
     public void searchAndSelectService() throws InterruptedException {
@@ -48,7 +49,7 @@ public class AddServicePage {
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         } catch (Exception e) {
             utils.getOrdersPage();
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.clickBtnWithWait(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
 
@@ -64,7 +65,7 @@ public class AddServicePage {
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         } catch (Exception e) {
             utils.getOrdersPage();
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.clickBtnWithWait(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
 
@@ -77,7 +78,7 @@ public class AddServicePage {
             utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
         } catch (Exception e) {
             utils.getOrdersPage();
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.waitForElementVisible(By.xpath("//label[@id='selectedSiteLabel'][contains(text(),'vodafone')]"));
@@ -102,7 +103,7 @@ public class AddServicePage {
             utils.jumpToPopUpWindow(By.xpath("//div[text()='" + service + "']"));
         } catch (Exception e) {
             utils.getOrdersPage();
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.waitForElementVisible(By.xpath(TEXT_ON_THE_SELECTQUOTE_PAGE));

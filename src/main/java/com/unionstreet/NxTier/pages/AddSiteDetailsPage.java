@@ -6,12 +6,14 @@ import org.openqa.selenium.By;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
+import static com.unionstreet.NxTier.pages.NewBusinessCustomerPage.Reseller_RanName;
+
 /**
  * Created by RajeshG on 16/01/2017.
  */
 public class AddSiteDetailsPage {
 
-    public static String Reseller_RanName;
+
     public final String HOMEPAGE_BUTTON = "//span[@title='Home']";
     ElementUtils utils = new ElementUtils();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();

@@ -63,8 +63,8 @@ public class OrdersManagerPage {
     }
 
     public void onQuotePageForReseller() throws InterruptedException {
-        addSiteDetailsPage.Reseller_RanName = utils.randomName();
-        utils.sendText(By.id(ORDER_QUOTE_DESCRIPTION_FIELD), addSiteDetailsPage.Reseller_RanName);
+        newBusinessCustomerPage.Reseller_RanName = utils.randomName();
+        utils.sendText(By.id(ORDER_QUOTE_DESCRIPTION_FIELD), newBusinessCustomerPage.Reseller_RanName);
         utils.selectByVisibleText(By.id("CompanyId"), "reseller");
         utils.selectByVisibleText(By.id("SiteId"), "reseller");
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
@@ -143,7 +143,7 @@ public class OrdersManagerPage {
 
     public void assertQuoteForReseller() {
         utils.getOrdersPage();
-        utils.searchAndAssertTextPresent(By.id(QUOTE), addSiteDetailsPage.Reseller_RanName);
+        utils.searchAndAssertTextPresent(By.id(QUOTE), newBusinessCustomerPage.Reseller_RanName);
     }
 
     public void assertCompanyIsAccessibleFromCompanyAndSiteDropDown() {
@@ -165,10 +165,10 @@ public class OrdersManagerPage {
     }
 
     public void createQuoteForReseller() throws InterruptedException {
-        utils.sendText(By.id(ORDER_QUOTE_DESCRIPTION_FIELD), addSiteDetailsPage.Reseller_RanName);
+        utils.sendText(By.id(ORDER_QUOTE_DESCRIPTION_FIELD), newBusinessCustomerPage.Reseller_RanName);
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY), "reseller");
         Thread.sleep(1000);
-        utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), addSiteDetailsPage.Reseller_RanName);
+        utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), newBusinessCustomerPage.Reseller_RanName);
         Thread.sleep(1000);
         utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
     }
@@ -196,17 +196,17 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
     }
 
-    public void clickOnQuoteID() throws SQLException {
-   try{     utils.sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select order_id from orders where OrderDescription ='"+newBusinessCustomerPage.RanName+"'");
+    public void clickOnQuoteID(String type) throws SQLException {
+   try{     utils.sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select order_id from orders where OrderDescription ='"+type+"'");
         utils.result.next();
         String one = utils.result.getString("order_id");
             utils.waitForElementVisible(By.xpath("//a[text()='"+one+"']"));
             utils.clickBtn(By.xpath("//a[text()='"+one+"']"));
     }catch (Exception e){utils.checkAlert();}}
 
-    public void loadOrdersManagerAndClickOnQuoteID() throws InterruptedException, SQLException {
+    public void loadOrdersManagerAndClickOnQuoteID(String type) throws InterruptedException, SQLException {
      try{   utils.getOrdersPage();
-        clickOnQuoteID();
+        clickOnQuoteID(type);
         utils.switchToNewWindow();
     }catch (Exception e){utils.checkAlert();}}
 

@@ -31,7 +31,7 @@ public class NA109_WLR3_ISDN2_New_Provide_Line_Suitability_Dialogue_stepDefs {
         webModel.getAddSiteDetailsPage().assignAddressKeyToSite();
         webModel.getUtils().getOrdersPage();
         webModel.getOrdersManagerPage().searchQuoteByBcRN();
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getAddServicePage().searchAndAddService("New Provide Order");
         webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN2 Standard");
     }

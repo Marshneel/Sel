@@ -49,7 +49,7 @@ public class EditOrderPage {
 
     public void getToAddServicePage() throws InterruptedException, SQLException {
         utils.getOrdersPage();
-        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
     }
 
 
@@ -58,7 +58,7 @@ public class EditOrderPage {
             utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.clickBtnWithWait(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
         } catch (NoSuchElementException e) {
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.clickBtnWithWait(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
 
@@ -69,7 +69,7 @@ public class EditOrderPage {
         try {
             utils.waitForElementVisible(By.xpath(REDCROSS));
         } catch (Exception e) {
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(REDCROSS));
         }
     }
@@ -86,7 +86,7 @@ public class EditOrderPage {
         try {
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         } catch (Exception e) {
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         }
     }
@@ -123,19 +123,19 @@ public class EditOrderPage {
 
     public void verifyOrderCompletion() throws InterruptedException, SQLException {
         //load created quote
-        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
         // check for the green tick
         try {
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         } catch (Exception e) {
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         }
         System.out.println("NA87 completed");
     }
 
     public void accessOrder() throws InterruptedException, SQLException {
-        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
         utils.waitForElementVisible(By.xpath(GREEN_TICK));
     }
 
@@ -148,7 +148,7 @@ public class EditOrderPage {
     }
 
     public void getToAmendOrderButton() throws InterruptedException, SQLException {
-        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
         utils.clickBtn(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
         utils.waitForElementVisible(By.id(AMEND_ORDER_BUTTON));
@@ -186,7 +186,7 @@ public class EditOrderPage {
         utils.getOrdersPage();
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.waitForElementVisible(By.xpath(LINE_TESTING_TEXT_ON_ORDERS_PAGE));
-        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
         utils.waitForElementVisible(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
         utils.clickBtn(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
         utils.waitForElementVisible(By.xpath(ORDER_PENDING_TEXT_IN_NOTIFICATIONS));

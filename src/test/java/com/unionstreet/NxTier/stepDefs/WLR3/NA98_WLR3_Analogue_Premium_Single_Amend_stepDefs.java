@@ -21,7 +21,7 @@ public class NA98_WLR3_Analogue_Premium_Single_Amend_stepDefs {
         //initiating a transfer order
         webModel.getAddServicePage().searchAndAddService("Transfer Order");
         webModel.getWlr3_orderDetails_page().enterPhoneNumberAndPostCodeToInitiateTheTransfer("01202300908", "lu1 1dq");
-        webModel.getWlr3_orderDetails_page().enterEmergencyInfo();
+        webModel.getWlr3_orderDetails_page().enterEmergencyInfo(webModel.getNewBusinessCustomerPage().RanName);
     }
 
     @When("^I access edit order page and click the order ID$")

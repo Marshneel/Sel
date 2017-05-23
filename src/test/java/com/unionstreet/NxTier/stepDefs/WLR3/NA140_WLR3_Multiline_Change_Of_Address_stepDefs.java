@@ -33,7 +33,7 @@ public class NA140_WLR3_Multiline_Change_Of_Address_stepDefs {
         webModel.getWlr3_new_provide__orderPage().multipleClicksOnNextButton(4);
         webModel.getWlr3_newProvide__datePage().populateHazardAndWarningNotesUnderDATE("hazardNotes", "warningNotes");
         webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
-        webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();
+        webModel.getWlr3_orderDetails_page().getToWLR3QuotePage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().assertChannelsAreEditable();
         webModel.getWlr3_orderDetails_page().verifyLineTypeAndProvisionType("Analogue Multiline", "New Line Plant");
         webModel.getWlr3_orderDetails_page().clickSiteInfo();

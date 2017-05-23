@@ -23,7 +23,7 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getEditOrderPage().accessAdd_ViewNotes();
     }
 
@@ -41,7 +41,7 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
 
     @When("^I access add_view notes on edit order page for reseller$")
     public void iAccessAdd_viewNotesOnEditOrderPageForReseller() throws InterruptedException, SQLException {
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().Reseller_RanName);
         webModel.getEditOrderPage().accessAdd_ViewNotes();
 
     }
@@ -59,7 +59,7 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
     @When("^I access the services page$")
     public void iAccessTheServicesPage() throws InterruptedException, SQLException {
         webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getAddServicePage().clickAddAProductOrService();
     }
 
@@ -75,7 +75,7 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
         webModel.getOrdersManagerPage().saveAssignServicePage();
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getAddServicePage().clickAddAProductOrService();
         webModel.getAddServicePage().assertServicePresent("ServiceForAgent&Reseller");
         webModel.getUtils().checkPoint("NA51c done");

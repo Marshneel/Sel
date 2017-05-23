@@ -81,6 +81,7 @@ public class WLR3_OrderDetails_Page {
     ElementUtils utils = new ElementUtils();
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
     CommonMethods commonMethods = new CommonMethods();
+    NewBusinessCustomerPage newBusinessCustomerPage=new NewBusinessCustomerPage();
 
     public void enterPhoneNumberAndPostCodeToInitiateTheTransfer(String number, String postCode) {
         utils.waitForElementVisible(By.id(SAVE));
@@ -97,12 +98,12 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//p[contains(text(),'Address Key: "+addressKey+"')]"));
     }
 
-    public void pickAndAssertPostCodeOnWLR3OrderPage(String postCode) throws InterruptedException, SQLException {
+    public void pickAndAssertPostCodeOnWLR3OrderPage(String type, String postCode) throws InterruptedException, SQLException {
 
         utils.clickBtn(By.id(ADDRESS_SEARCH_RESULT));
         utils.javaScriptExecutorClick(By.xpath(CONTINUE_AFTER_ADDRESS_IS_CHOOSEN));
         utils.jumpToParentPopUp();
-        textOnWLR3OrderPage();
+        textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.id(INSTALLATION_ADDRESS_SUMMARY_PANEL));
         utils.verifyStringMatch(By.xpath(ADDRESS_SEARCH_RESULT_FOR_LU1_1DQ_ON_WLR3_ORDER_PAGE), postCode);
     }
@@ -118,9 +119,9 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath(INVALID_ADDRESSKEY));
     }
 
-    public void assertPopulatedNetworkCallingFeaturesOnWlr3OrderPage() throws InterruptedException, SQLException {
+    public void assertPopulatedNetworkCallingFeaturesOnWlr3OrderPage(String type) throws InterruptedException, SQLException {
         utils.jumpToParentPopUp();
-        textOnWLR3OrderPage();
+        textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.id(NETWORK_FEATURES_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(ADMIN_CONT_CAL_DIV_ON_ORDER_DETAIL_PAGE));
         utils.waitForElementVisible(By.xpath(ANO_CAL_REJ_UNDER_ON_ORDER_DETAIL_PAGE));
@@ -139,7 +140,7 @@ public class WLR3_OrderDetails_Page {
 
     public void assertDepopulatedNetworkCallingFeaturesOnWlr3OrderPage() throws InterruptedException, SQLException {
         utils.jumpToParentPopUp();
-        textOnWLR3OrderPage();
+        textOnWLR3OrderPage(newBusinessCustomerPage.RanName);
         utils.waitForElementVisible(By.id(NETWORK_FEATURES_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(NETWORK_FEATURES_BUTTON));
         utils.assertElementNotPresent(By.xpath(ADMIN_CONT_CAL_DIV_ON_ORDER_DETAIL_PAGE));
@@ -151,17 +152,17 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementToVanish(By.xpath(SURNAME_OF_DIRECTORY_INFO_ON_WLR3_ORDER_PAGE));
     }
 
-    public void assertDepopulatedSiteInformationOnWLR3OrderPage() throws InterruptedException, SQLException {
+    public void assertDepopulatedSiteInformationOnWLR3OrderPage(String type) throws InterruptedException, SQLException {
         utils.jumpToParentPopUp();
-        textOnWLR3OrderPage();
+        textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.id(SITE_INFO_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
         utils.waitForElementToVanish(By.xpath(SITE_CONTACT_NAME_ON_WLR3_ORDER_PAGE));
         utils.waitForElementToVanish(By.xpath(SITE_EMAILID_ON_WLR3_ORDER_PAGE));
     }
 
-    public void clickLineNumbering() throws InterruptedException, SQLException {
-        textOnWLR3OrderPage();
+    public void clickLineNumbering(String type) throws InterruptedException, SQLException {
+        textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.id(LINE_NUMBERING_SUMMARY_PANEL));
         try {
             Thread.sleep(1000);
@@ -186,42 +187,42 @@ public class WLR3_OrderDetails_Page {
     }
 
 
-    public void assertImportedLineWithChangeOfPostCodeAndAidOfGoldAddress(String importedNumber) throws InterruptedException, SQLException {
-        textOnWLR3OrderPage();
+    public void assertImportedLineWithChangeOfPostCodeAndAidOfGoldAddress(String type, String importedNumber) throws InterruptedException, SQLException {
+        textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.id(LINE_NUMBERING_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
 
-    public void assertImportedLineWithAidOfLetterOfAuthority(String importedNumber) throws InterruptedException, SQLException {
-        textOnWLR3OrderPage();
+    public void assertImportedLineWithAidOfLetterOfAuthority(String type, String importedNumber) throws InterruptedException, SQLException {
+        textOnWLR3OrderPage(type);
         utils.refreshPage();
         utils.jumpToPopUpWindow(By.xpath(ITEMID_ON_EDITORDER));
         utils.waitForElementVisible(By.id(LINE_NUMBERING_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
 
-    public void assertNumberImportedWithVic(String importedNumber, String vic) throws InterruptedException, SQLException {
-        textOnWLR3OrderPage();
+    public void assertNumberImportedWithVic(String type, String importedNumber, String vic) throws InterruptedException, SQLException {
+        textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.id(LINE_NUMBERING_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath("//p[@id='display_WLR3Order_vic'][contains(text(),'" + vic + "')]"));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
 
-    public void textOnWLR3OrderPage() throws InterruptedException, SQLException {
+    public void textOnWLR3OrderPage(String type) throws InterruptedException, SQLException {
         try {
             utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
         } catch (Exception e) {
-            getToWLR3QuotePage();
+            getToWLR3QuotePage(type);
         }
     }
 
-    public void getToWLR3QuotePage() throws InterruptedException, SQLException {
+    public void getToWLR3QuotePage(String type) throws InterruptedException, SQLException {
         Thread.sleep(2000);
         utils.getOrdersPage();
-        clickOnQuoteID();
+        clickOnQuoteID(type);
         }
-        public void clickOnQuoteID() throws InterruptedException, SQLException {
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+        public void clickOnQuoteID(String type) throws InterruptedException, SQLException {
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(type);
             utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
             utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
             utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
@@ -293,8 +294,8 @@ public class WLR3_OrderDetails_Page {
         utils.assertElementNotPresent(By.xpath(NETWORK_FEATURES_BUTTON));
     }
 
-    public void enterEmergencyInfo() throws InterruptedException, SQLException {
-        textOnWLR3OrderPage();
+    public void enterEmergencyInfo(String type) throws InterruptedException, SQLException {
+        textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
         utils.waitForElementVisible(By.id(EDIT_EMERGENCY_INFO_TAB));
         // Thread.sleep(1000);
@@ -373,7 +374,7 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void loadTabOnWLR3OrderSummaryPage() throws InterruptedException, SQLException {
-        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID();
+        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
         utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
         utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
     }

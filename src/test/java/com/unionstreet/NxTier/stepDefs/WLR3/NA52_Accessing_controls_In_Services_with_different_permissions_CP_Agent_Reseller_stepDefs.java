@@ -20,7 +20,7 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("permissions");
     }
@@ -33,7 +33,7 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
 
     @And("^create a new quote and access a service for reseller$")
     public void createANewQuoteAndAccessAServiceForReseller() throws InterruptedException, SQLException {
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().Reseller_RanName);
 //        TODO
         webModel.getAddServicePage().addServiceToQuote("permissions");
     }

@@ -36,6 +36,7 @@ public class WLR3_NewProvide_NumberingPage {
     WLR3_LineNumberingPage wlr3_lineNumberingPage = new WLR3_LineNumberingPage();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
     CommonMethods commonMethods = new CommonMethods();
+    NewBusinessCustomerPage newBusinessCustomerPage=new NewBusinessCustomerPage();
 
 
     public void PopulateDirectoryInfoUnderNUMBERING(String info) throws InterruptedException {
@@ -182,8 +183,8 @@ public class WLR3_NewProvide_NumberingPage {
         try {
             utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW0), "" + action1 + "");
         } catch (Exception e) {
-            wlr3_orderDetails_page.getToWLR3QuotePage();
-            wlr3_orderDetails_page.clickLineNumbering();
+            wlr3_orderDetails_page.getToWLR3QuotePage(newBusinessCustomerPage.RanName);
+            wlr3_orderDetails_page.clickLineNumbering(newBusinessCustomerPage.RanName);
             utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW0), "" + action1 + "");
         }
         utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1), "" + action2 + "");

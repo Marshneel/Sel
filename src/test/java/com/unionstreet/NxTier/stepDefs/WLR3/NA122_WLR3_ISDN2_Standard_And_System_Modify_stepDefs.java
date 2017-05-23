@@ -23,7 +23,7 @@ public class NA122_WLR3_ISDN2_Standard_And_System_Modify_stepDefs {
 
     @Then("^I should be able to check the flow of the ISDN(\\d+) Standard modify$")
     public void iShouldBeAbleToCheckTheFlowOfTheISDNStandardModify(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().loadLineInfo();
         webModel.getWlr3_line_information_page().assertDigitsToSwitchForAllISDN("1 and 15","15");
         webModel.getWlr3_orderDetails_page().assertNumberOfDigitsToSwitchOnOrderDetailsPage("15");
@@ -53,7 +53,7 @@ public class NA122_WLR3_ISDN2_Standard_And_System_Modify_stepDefs {
 
     @Then("^I should be able to check the flow of the ISDN(\\d+) System modify$")
     public void iShouldBeAbleToCheckTheFlowOfTheISDNSystemModify(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().clickSiteInfo();
         webModel.getWlr3_siteInformationPage().populateTelNumberUnderSiteInfo("07894040256");
         webModel.getWlr3_siteInformationPage().populateAndSaveEngineeringNotes();

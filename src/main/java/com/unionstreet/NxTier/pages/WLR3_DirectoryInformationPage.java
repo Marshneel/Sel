@@ -51,8 +51,8 @@ public class WLR3_DirectoryInformationPage {
 
     }
 
-    public void editDirectoryInformation() throws InterruptedException, SQLException {
-        wlr3_orderDetails_page.textOnWLR3OrderPage();
+    public void editDirectoryInformation(String type) throws InterruptedException, SQLException {
+        wlr3_orderDetails_page.textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.DIRECTORY_INFO_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         Thread.sleep(1000);

@@ -32,9 +32,9 @@ public class WLR3_NetworkCallingFeaturesPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 
-    public void enterNetworkFeatures() throws InterruptedException, SQLException {
+    public void enterNetworkFeatures(String type) throws InterruptedException, SQLException {
 
-        wlr3_orderDetails_page.textOnWLR3OrderPage();
+        wlr3_orderDetails_page.textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.NETWORK_FEATURES_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         Thread.sleep(1000);

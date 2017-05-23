@@ -18,7 +18,7 @@ public class NA120_WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint_s
     @When("^I provide all the required info and access the line information on the edit order page$")
     public void iProvideAllTheRequiredInfoAndAccessTheLineInformationOnTheEditOrderPage() throws InterruptedException, SQLException {
         na108.iShouldBeAbleToCheckAndValidateTheFlowOfISDN_StandardLine();
-        webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();
+        webModel.getWlr3_orderDetails_page().getToWLR3QuotePage(webModel.getNewBusinessCustomerPage().RanName);
     }
 
     @Then("^I should be able to check all point_to_multipoint validations$")
@@ -37,9 +37,9 @@ public class NA120_WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint_s
         webModel.getWlr3_orderDetails_page().loadLineInfo();
         webModel.getWlr3_line_information_page().convertingPointToPoint_To_PointToMultiPointWithSingleSNDDI();
         webModel.getWlr3_orderDetails_page().assertingPointToMultiPointTextOnSummaryPage();
-        webModel.getWlr3_lineNumberingPage().addingExtraSNDDI();
+        webModel.getWlr3_lineNumberingPage().addingExtraSNDDI(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().assertingErrorMessageChangeFromPointToPoint_To_PointToMultiPoint();
-        webModel.getWlr3_lineNumberingPage().addingExtraDDIRange();
+        webModel.getWlr3_lineNumberingPage().addingExtraDDIRange(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().assertingErrorMessageChangeFromPointToPoint_To_PointToMultiPoint();
 
     }

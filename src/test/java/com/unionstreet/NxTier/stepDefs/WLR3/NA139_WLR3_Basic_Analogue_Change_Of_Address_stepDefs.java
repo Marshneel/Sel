@@ -33,7 +33,7 @@ public class NA139_WLR3_Basic_Analogue_Change_Of_Address_stepDefs {
           webModel.getWlr3_new_provide__orderPage().multipleClicksOnNextButton(4);
           webModel.getWlr3_newProvide__datePage().populateHazardAndWarningNotesUnderDATE("hazardNotes", "warningNotes");
           webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
-          webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();
+          webModel.getWlr3_orderDetails_page().getToWLR3QuotePage(webModel.getNewBusinessCustomerPage().RanName);
           webModel.getWlr3_orderDetails_page().assertCPManaged();
           webModel.getWlr3_orderDetails_page().verifyLineTypeAndProvisionType("Basic Analogue", "New Line Plant");
           webModel.getWlr3_orderDetails_page().loadLineInfo();

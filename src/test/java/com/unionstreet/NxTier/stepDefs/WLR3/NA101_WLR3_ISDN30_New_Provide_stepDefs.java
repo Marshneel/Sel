@@ -44,7 +44,7 @@ public class NA101_WLR3_ISDN30_New_Provide_stepDefs {
         webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
         webModel.getEditOrderPage().verifyOrderCompletion();
         //assertions on order summary page
-        webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();
+        webModel.getWlr3_orderDetails_page().getToWLR3QuotePage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().assertISDNNewProvideSummaryPage("8", "100");
 
 
