@@ -28,15 +28,15 @@ public class NA104_ISDN30_Transfer_stepDefs {
     }
 
     @And("^I initiate a transfer service on ISDN line$")
-    public void iInitiateATransferServiceOnISDNLine() throws InterruptedException {
+    public void iInitiateATransferServiceOnISDNLine() throws InterruptedException, SQLException {
         webModel.getAddServicePage().searchAndAddService("Transfer Order");
         webModel.getWlr3_orderDetails_page().enterPhoneNumberAndPostCodeToInitiateTheTransfer("01202300800", "lu1 1dq");
 
     }
 
     @When("^I provide all the valid info$")
-    public void iProvideAllTheValidInfo() throws InterruptedException {
-        webModel.getWlr3_orderDetails_page().enterEmergencyInfo();
+    public void iProvideAllTheValidInfo() throws InterruptedException, SQLException {
+        webModel.getWlr3_orderDetails_page().enterEmergencyInfo(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_line_information_page().verifyLineInfoForISDN30("2", "3", "4","1");
         webModel.getWlr3_businessContinuityPage().loadBusinessContinuity();
         webModel.getWlr3_businessContinuityPage().selectBusinessContinuity();
@@ -47,7 +47,7 @@ public class NA104_ISDN30_Transfer_stepDefs {
     }
 
     @Then("^I should be able to complete the order$")
-    public void iShouldBeAbleToCompleteTheOrder() throws InterruptedException {
+    public void iShouldBeAbleToCompleteTheOrder() throws InterruptedException, SQLException {
         webModel.getEditOrderPage().verifyOrderCompletion();
 
     }

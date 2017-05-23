@@ -5,6 +5,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 09/02/2017.
  */
@@ -15,15 +17,15 @@ public class NA98_WLR3_Analogue_Premium_Single_Amend_stepDefs {
 
 
     @And("^Create an order and submit it$")
-    public void createAnOrderAndSubmitIt() throws InterruptedException {
+    public void createAnOrderAndSubmitIt() throws InterruptedException, SQLException {
         //initiating a transfer order
         webModel.getAddServicePage().searchAndAddService("Transfer Order");
         webModel.getWlr3_orderDetails_page().enterPhoneNumberAndPostCodeToInitiateTheTransfer("01202300908", "lu1 1dq");
-        webModel.getWlr3_orderDetails_page().enterEmergencyInfo();
+        webModel.getWlr3_orderDetails_page().enterEmergencyInfo(webModel.getNewBusinessCustomerPage().RanName);
     }
 
     @When("^I access edit order page and click the order ID$")
-    public void iAccessEditOrderPageAndClickTheOrderID() throws InterruptedException {
+    public void iAccessEditOrderPageAndClickTheOrderID() throws InterruptedException, SQLException {
         webModel.getEditOrderPage().accessOrder();
     }
 

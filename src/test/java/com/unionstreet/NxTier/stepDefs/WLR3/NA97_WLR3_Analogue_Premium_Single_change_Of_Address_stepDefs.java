@@ -70,7 +70,7 @@ public class NA97_WLR3_Analogue_Premium_Single_change_Of_Address_stepDefs {
     }
 
     @Then("^I should be able to complete the order and see a green tick$")
-    public void iShouldBeAbleToCompleteTheOrderAndSeeAGreenTick() throws InterruptedException {
+    public void iShouldBeAbleToCompleteTheOrderAndSeeAGreenTick() throws InterruptedException, SQLException {
         //verify for the presence of the green tick
         webModel.getEditOrderPage().verifyOrderCompletion();
     }

@@ -4,6 +4,8 @@ import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 10/03/2017.
  */
@@ -11,7 +13,7 @@ public class NA103_WLR3_ISDN30_New_Provide_Advanced_LIne_Numbering_Options_stepD
     WebModel webModel=new WebModel();
 
     @When("^I initiate a new provide ISDN line order and navigate to advanced line numbering options$")
-    public void iInitiateANewProvideISDNLineOrderAndNavigateToAdvancedLineNumberingOptions() throws InterruptedException {
+    public void iInitiateANewProvideISDNLineOrderAndNavigateToAdvancedLineNumberingOptions() throws InterruptedException, SQLException {
         webModel.getAddServicePage().searchAndAddService("New Provide Order");
         webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN30E");
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ","A00001043137");

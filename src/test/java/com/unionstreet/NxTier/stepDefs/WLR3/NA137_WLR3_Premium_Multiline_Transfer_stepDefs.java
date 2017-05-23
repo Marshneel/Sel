@@ -22,7 +22,7 @@ public class NA137_WLR3_Premium_Multiline_Transfer_stepDefs {
     }
 
     @Then("^I should be able to check the flow of the transfer order on Multiline$")
-    public void iShouldBeAbleToCheckTheFlowOfTheTransferOrderOnMultiline() throws InterruptedException {
+    public void iShouldBeAbleToCheckTheFlowOfTheTransferOrderOnMultiline() throws InterruptedException, SQLException {
         webModel.getWlr3_orderDetails_page().clickSiteInfo();
         webModel.getWlr3_siteInformationPage().assertTerminationTypeForPremiumLine("NTTP","Line Box");
         webModel.getWlr3_siteInformationPage().saveSiteInfoChanges();

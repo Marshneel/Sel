@@ -22,7 +22,7 @@ public class NA112_WLR3_ISDN30_Modify_stepDefs {
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrderWithWrongCLI();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("01202300945", "LU1 1DQ");
-        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
 
 
 
@@ -36,7 +36,7 @@ public class NA112_WLR3_ISDN30_Modify_stepDefs {
         //check the post code text (existing postCode for Modify order)
         webModel.getWlr3_orderDetails_page().postCodeTextForModifyOrder();
         //assert that the site info do not have main power with in 3 meters and events& exhibitions
-       webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
+       webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().clickSiteInfo();
         webModel.getWlr3_siteInformationPage().assertionForISDN30ModifyEngineeringNotes();
         //assert that site info do not have provision info
@@ -49,11 +49,11 @@ public class NA112_WLR3_ISDN30_Modify_stepDefs {
         webModel.getWlr3_orderDetails_page().editChannelNumberForPremiumAndISDNlines("Numer of Channels","8","999");
         webModel.getWlr3_summary_charges_page().editChargesForISDN30Modify();
         webModel.getWlr3_orderDetails_page().assertEditedChargesForISDN30Modify();
-        webModel.getWlr3_orderDetails_page().clickLineNumbering();
+        webModel.getWlr3_orderDetails_page().clickLineNumbering(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_lineNumberingPage().addingNewSNDDIBeyondTheRangeForISDN30Modify();
-        webModel.getWlr3_lineNumberingPage().deleteActionAndAddingNewSNDDIForISDN30Modify();
+        webModel.getWlr3_lineNumberingPage().deleteActionAndAddingNewSNDDIForISDN30Modify(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_lineNumberingPage().revertingDeleteActionOnLineNumberingPopUpForISDN30Modify();
-        webModel.getWlr3_lineNumberingPage().mBNValidationOnLineNumberingPopUpForISDN30Modify("01202300923","01202300924","01202300930","To be allocated");
+        webModel.getWlr3_lineNumberingPage().mBNValidationOnLineNumberingPopUpForISDN30Modify(webModel.getNewBusinessCustomerPage().RanName,"01202300923","01202300924","01202300930","To be allocated");
 //disown the ISDN 30 line
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='OI3000000001'");
     }

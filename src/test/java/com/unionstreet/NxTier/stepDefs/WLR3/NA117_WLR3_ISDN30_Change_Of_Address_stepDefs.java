@@ -19,12 +19,10 @@ public class NA117_WLR3_ISDN30_Change_Of_Address_stepDefs {
         webModel.getWlr3_orderDetails_page().textOnChangeOfAddressOrderPage();
         webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("01202300945","LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().confirmChangeOfOwnerShip();
-
-
     }
 
-    @Then("^I should be able to check the validations and complete the change of address$")
-    public void iShouldBeAbleToCheckTheValidationsAndCompleteTheChangeOfAddress() throws InterruptedException {
+    @Then("^I should be able to check the validations and complete the change of address for ISDN(\\d+)$")
+    public void iShouldBeAbleToCheckTheValidationsAndCompleteTheChangeOfAddressForISDN(int arg0) throws InterruptedException, SQLException {
         webModel.getWlr3_installationAddressPage().searchForAddress("LU1 1DQ");
         webModel.getWlr3_orderDetails_page().pickAddressFromSearchResults();
         webModel.getWlr3_siteInformationPage().populateTelNumberUnderSiteInfo("07894040256");
@@ -34,12 +32,10 @@ public class NA117_WLR3_ISDN30_Change_Of_Address_stepDefs {
         webModel.getWlr3_new_provide__orderPage().multipleClicksOnNextButton(4);
         webModel.getWlr3_newProvide__datePage().populateHazardAndWarningNotesUnderDATE("hazardNotes", "warningNotes");
         webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
-        webModel.getWlr3_orderDetails_page().getToWLR3QuotePage();
+        webModel.getWlr3_orderDetails_page().getToWLR3QuotePage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().openReachAddressValidationForISDN30();
         webModel.getWlr3_orderDetails_page().editOpenReachManaged();
+        Thread.sleep(1000);
         webModel.getEditOrderPage().verifyOrderCompletion();
-
-
-
     }
 }

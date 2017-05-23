@@ -3,6 +3,8 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 28/02/2017.
  */
@@ -40,7 +42,7 @@ public class WLR3_Line_Information_Page {
     }
 
 
-    public void setCareLevelForPremiumAndISDNLineSwitch(String unavailable, String available) throws InterruptedException {
+    public void setCareLevelForPremiumAndISDNLineSwitch(String unavailable, String available) throws InterruptedException, SQLException {
         //assert message that recommends care level plan greater than or equal to - on the order summary page, for premium/ISDN line switch
         utils.waitForElementVisible(By.xpath("//div[@id='divValidationMessages']//div[contains(text(),'Care Level must be "+available+" or higher')]"));
        wlr3_orderDetails_page.loadLineInfo();
@@ -67,7 +69,7 @@ public class WLR3_Line_Information_Page {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 
-    public void verifyLineInfoForISDN30(String number1, String number2, String number3,String number4) throws InterruptedException {
+    public void verifyLineInfoForISDN30(String number1, String number2, String number3,String number4) throws InterruptedException, SQLException {
         wlr3_orderDetails_page.loadLineInfo();
         utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number1 + "')]"));
         utils.waitForElementVisible(By.xpath("//select[@id='WLR3Order_care_level']//option[contains(text(),'" + number2 + "')]"));
@@ -149,6 +151,10 @@ public void assertEnabledFieldsUnderLineInfoForTransferOrder(){
 public void assertAndPopulateSignalTypeWhenSwitchedToNTTP(){
     utils.assertElementNotPresent(By.xpath("//select[@id='WLR3Order_signal_type']//option[@selected='selected']"));
     utils.selectByVisibleText(By.id("WLR3Order_signal_type"),"Pulse Tone");
+}
+public void verifySMPFcodePresent(){
+    utils.waitForElementVisible(By.id("WLR3Order_smpf_code"));
+
 }
 
 }

@@ -17,7 +17,7 @@ Feature: NA49 - Order service automation for agent, reseller and CP
     Given I am logged in as reseller
     And have created a new site for a company
     And Have created a quote for reseller
-    When I add a service from the quote details page
+    When I add a service from the quote details page for reseller
     Then the control that is CP only should be invisible
 
   Scenario: Login as a CP, create a quote, add a service without selecting the mandatory control and check the behaviour

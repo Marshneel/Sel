@@ -34,8 +34,8 @@ public class NA94_WLR3_Analogue_Multi_Add_Remove_Aux_line_stepDefs {
     }
 
     @Then("^I should be able to assert line increase and check the flow$")
-    public void iShouldBeAbleToAssertLineIncreaseAndCheckTheFlow() throws InterruptedException {
-        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
+    public void iShouldBeAbleToAssertLineIncreaseAndCheckTheFlow() throws InterruptedException, SQLException {
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
         //assert line number increase
         webModel.getWlr3_addRemoveAuxLinePage().assertLineNumberIncrease();
         //assert CLI
@@ -50,7 +50,7 @@ public class NA94_WLR3_Analogue_Multi_Add_Remove_Aux_line_stepDefs {
         webModel.getWlr3_siteInformationPage().assertAbsenceOfRLPcheckBoxUnderSiteInfo();
         webModel.getWlr3_siteInformationPage().saveSiteInfoChanges();
         //provide hazard and warning notes
-        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_appointmentPage().populateHazardAndWarningNotes();
     }
 
@@ -60,14 +60,14 @@ public class NA94_WLR3_Analogue_Multi_Add_Remove_Aux_line_stepDefs {
     }
 
     @Then("^I should be able to assert line decrease and check the flow$")
-    public void iShouldBeAbleToAssertLineDecreaseAndCheckTheFlow() throws InterruptedException {
+    public void iShouldBeAbleToAssertLineDecreaseAndCheckTheFlow() throws InterruptedException, SQLException {
         webModel.getWlr3_addRemoveAuxLinePage().assertNumberDecrease();
         //provide phone number under site info and verify recovery line plant checkBox
         webModel.getWlr3_orderDetails_page().clickOnSiteInfoErrorTabForDecrease();
         webModel.getWlr3_siteInformationPage().populateTelNumberUnderSiteInfo("07894040256");
         webModel.getWlr3_siteInformationPage().enterTelephoneNumberUnderSiteInfoAndAssertPresenceOfRLPcheckBox();
         webModel.getWlr3_siteInformationPage().saveSiteInfoChanges();
-        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage();
+        webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
         //assert charges absent
         webModel.getWlr3_addRemoveAuxLinePage().assertAbsenceOfCharges();
         //assert remove_Aux line

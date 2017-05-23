@@ -14,7 +14,7 @@ public class NA127_WLR3_Virtual_Lines_NewProvide_stepDefs {
     WebModel webModel = new WebModel();
 
     @When("^I initiate a virtual line order for ISDN Remote Call Forward$")
-    public void iInitiateAVirtualLineOrderForISDNRemoteCallForward() throws InterruptedException {
+    public void iInitiateAVirtualLineOrderForISDNRemoteCallForward() throws InterruptedException, SQLException {
         webModel.getAddServicePage().searchAndAddService("Remote Call Forward");
     }
 
@@ -36,7 +36,7 @@ public class NA127_WLR3_Virtual_Lines_NewProvide_stepDefs {
         webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
         webModel.getWlr3_networkCallingFeaturesPage().assertFeaturesForRemoteCallFor_VirtualLines();
         webModel.getWlr3_new_provide__orderPage().saveAndSwitchToOrderSummaryPage();
-        webModel.getWlr3_orderDetails_page().clickOnQuoteID();
+        webModel.getWlr3_orderDetails_page().clickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().assertCommonFeatures("Raw Call Data");
         webModel.getWlr3_orderDetails_page().assertCommonFeatures("Remote Call Forwarding");
         webModel.getWlr3_orderDetails_page().assertCLIrequiredAlertMessageForVirtualLines("Remote Call Forwarding");
@@ -51,7 +51,7 @@ public class NA127_WLR3_Virtual_Lines_NewProvide_stepDefs {
     }
 
     @When("^I initiate a virtual line order for ISDN Caller Redirect$")
-    public void iInitiateAVirtualLineOrderForISDNCallerRedirect() throws InterruptedException {
+    public void iInitiateAVirtualLineOrderForISDNCallerRedirect() throws InterruptedException, SQLException {
         webModel.getAddServicePage().searchAndAddService("Caller Redirect");
     }
 
@@ -70,7 +70,7 @@ public class NA127_WLR3_Virtual_Lines_NewProvide_stepDefs {
         webModel.getWlr3_new_provide__orderPage().navigateToNextScreen();
         webModel.getWlr3_networkCallingFeaturesPage().assertFeaturesForCallerRedirect();
         webModel.getWlr3_new_provide__orderPage().saveAndSwitchToOrderSummaryPage();
-        webModel.getWlr3_orderDetails_page().clickOnQuoteID();
+        webModel.getWlr3_orderDetails_page().clickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().assertCommonFeatures("Quarterly Caller Redirect");
         webModel.getWlr3_orderDetails_page().assertExclusiveFeatures("0201234567");
         webModel.getWlr3_orderDetails_page().loadNetworkFeatures();

@@ -107,7 +107,7 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
         utils.sendText(By.id(ROOM_TEXT_BOX), "central Hall");
         utils.sendText(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX), "9");
     }
-    public void setProvisionTypeNonAnalogueMultiLine() throws InterruptedException {
+    public void setProvisionTypeForNonMultiLine() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(TAKE_OVER_WORKING_LINE_TEXT));
         utils.waitForElementVisible(By.xpath(TAKE_OVER_WORKING_LINE_RADIO_BUTTON));
         utils.clickBtn(By.xpath(TAKE_OVER_WORKING_LINE_RADIO_BUTTON));
@@ -148,6 +148,22 @@ public void terminationTypeForPremiumLine(){
     utils.waitForElementVisible(By.xpath(NTTP_OPTION_UNDER_TERMINATION_TYPE));
     utils.selectByVisibleText(By.id(TERMINATION_TYPE_DROPDOWN_UNDER_SITEINFO),"NTTP");
 }
+public void unTickOpenReachManaged(){
+    utils.waitForElementVisible(By.id("WLR3Order_coa_openreach"));
+    utils.makeSureBoxIsUnChecked(By.id("WLR3Order_coa_openreach"),By.id("WLR3Order_coa_openreach"));
+
+}
+public void validationForNumberOfLinesForMultiline(String min, String max, String validInt) throws InterruptedException {
+    utils.waitForElementVisible(By.id("WLR3Order_num_lines"));
+    utils.sendText(By.id("WLR3Order_num_lines"),min);
+    Thread.sleep(1000);
+    utils.clickBtn(By.xpath(wlr3_new_provide__orderPage.NEXT_BUTTON));
+    utils.waitForElementVisible(By.xpath("//span[contains(text(),'Minimum 2 Lines required for this product.')]"));
+    utils.sendText(By.id("WLR3Order_num_lines"),max);
+    utils.waitForElementVisible(By.xpath("//span[contains(text(),'Maximum 99 Lines allowed for this product.')]"));
+    utils.sendText(By.id("WLR3Order_num_lines"),validInt);
+}
+
 
 
 }

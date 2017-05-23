@@ -4,6 +4,7 @@ import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
 import java.awt.*;
+import java.sql.SQLException;
 
 /**
  * Created by rajeshg on 24/10/2016.
@@ -19,6 +20,7 @@ public class AddServicePage {
     NxTierServicesPage nxTierServicesPage = new NxTierServicesPage();
     EditOrderPage editOrderPage = new EditOrderPage();
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
+    NewBusinessCustomerPage newBusinessCustomerPage=new NewBusinessCustomerPage();
 
 
     public void searchAndSelectService() throws InterruptedException {
@@ -41,13 +43,13 @@ public class AddServicePage {
         utils.switchToNewWindow();
     }
 
-    public void addServiceToQuote(String serviceName) throws InterruptedException {
+    public void addServiceToQuote(String serviceName) throws InterruptedException, SQLException {
         try {
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         } catch (Exception e) {
             utils.getOrdersPage();
-            ordersManagerPage.clickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.clickBtnWithWait(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
 
@@ -57,26 +59,26 @@ public class AddServicePage {
         utils.closeCurrentWindowAndJump(By.xpath("//div[text()='" + serviceName + "']"));
     }
 
-    public void clickAddAProductOrService() throws InterruptedException {
+    public void clickAddAProductOrService() throws InterruptedException, SQLException {
         try {
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         } catch (Exception e) {
             utils.getOrdersPage();
-            ordersManagerPage.clickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.clickBtnWithWait(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
 
         }
     }
 
-    public void assertServicePresent(String serviceName) throws InterruptedException {
+    public void assertServicePresent(String serviceName) throws InterruptedException, SQLException {
         try {
             utils.waitForElementVisible(By.xpath("//label[@id='selectedSiteLabel'][contains(text(),'vodafone')]"));
             utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
         } catch (Exception e) {
             utils.getOrdersPage();
-            ordersManagerPage.clickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.waitForElementVisible(By.xpath("//label[@id='selectedSiteLabel'][contains(text(),'vodafone')]"));
@@ -93,7 +95,7 @@ public class AddServicePage {
         utils.scrollUp(By.xpath(SERVICE_ON_QUOTE_PAGE));
     }
 
-    public void searchAndAddService(String service) throws InterruptedException {
+    public void searchAndAddService(String service) throws InterruptedException, SQLException {
         try {
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
@@ -101,7 +103,7 @@ public class AddServicePage {
             utils.jumpToPopUpWindow(By.xpath("//div[text()='" + service + "']"));
         } catch (Exception e) {
             utils.getOrdersPage();
-            ordersManagerPage.clickOnQuoteID();
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.waitForElementVisible(By.xpath(TEXT_ON_THE_SELECTQUOTE_PAGE));

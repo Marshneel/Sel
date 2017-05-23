@@ -3,6 +3,8 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.sql.SQLException;
+
 /**
  * Created by RajeshG on 06/01/2017.
  */
@@ -30,8 +32,8 @@ public class WLR3_InstallationAddressPage {
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
 
-    public void accessInstallationAddressPage() throws InterruptedException {
-        wlr3_orderDetails_page.textOnWLR3OrderPage();
+    public void accessInstallationAddressPage(String type) throws InterruptedException, SQLException {
+        wlr3_orderDetails_page.textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.INSTALLATION_ADDRESS_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         utils.clickBtn(By.xpath(INSTALLATION_ADDRESS_BUTTON));

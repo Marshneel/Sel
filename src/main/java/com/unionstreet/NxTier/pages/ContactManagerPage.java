@@ -43,7 +43,7 @@ public class ContactManagerPage {
 
     public void assertNewlyCreatedSiteByResellerOnQuotePage() {
         utils.selectByVisibleText(By.id(CREATEQUOTE_SELECTCOMPANY), "reseller");
-        utils.selectByVisibleText(By.id(CREATEQUOTE_SELECTSITE), addSiteDetails.Reseller_RanName);
+        utils.selectByVisibleText(By.id(CREATEQUOTE_SELECTSITE), newBusinessCustomerPage.Reseller_RanName);
     }
 
     public void searchForBusinessCustomer(String customer_name) throws InterruptedException {

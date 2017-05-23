@@ -52,6 +52,7 @@ public class WLR3_New_Provide_OrderPage {
     }
 
     public void multipleClicksOnNextButton(int number) throws InterruptedException {
+      utils.waitForElementVisible(By.xpath(NEXT_BUTTON));
         utils.multipleCLick(By.xpath(NEXT_BUTTON), By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT), number);
     }
 
