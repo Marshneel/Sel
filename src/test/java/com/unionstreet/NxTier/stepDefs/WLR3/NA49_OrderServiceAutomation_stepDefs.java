@@ -25,7 +25,7 @@ public class NA49_OrderServiceAutomation_stepDefs {
 
     @When("^I add a service from the quote details page$")
     public void iAddAServiceFromTheQuoteDetailsPage() throws InterruptedException, SQLException {
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().Agent_RanName);
         webModel.getEditOrderPage().clickAddProductsAndServicesButton();
     }
 
