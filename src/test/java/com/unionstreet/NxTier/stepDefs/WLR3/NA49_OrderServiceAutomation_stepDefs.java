@@ -25,7 +25,7 @@ public class NA49_OrderServiceAutomation_stepDefs {
 
     @When("^I add a service from the quote details page$")
     public void iAddAServiceFromTheQuoteDetailsPage() throws InterruptedException, SQLException {
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().Agent_RanName);
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getEditOrderPage().clickAddProductsAndServicesButton();
     }
 
@@ -79,5 +79,12 @@ public class NA49_OrderServiceAutomation_stepDefs {
     public void iAddAServiceFromTheQuoteDetailsPageForReseller() throws SQLException, InterruptedException {
         webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().Reseller_RanName);
         webModel.getEditOrderPage().clickAddProductsAndServicesButton();
+    }
+
+    @When("^I access quote details and add a service without selecting the mandatory control for agent$")
+    public void iAccessQuoteDetailsAndAddAServiceWithoutSelectingTheMandatoryControlForAgent() throws SQLException, InterruptedException {
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getEditOrderPage().clickAddProductsAndServicesButton();
+        webModel.getAddServicePage().searchAndSelectService();
     }
 }

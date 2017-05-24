@@ -57,7 +57,7 @@ public class NxTier_smokePack_stepDefs {
 
     @And("^Provide all the required info$")
     public void provideAllTheRequiredInfo() {
-        webModel.getNewBusinessCustomerPage().companyInfoForNewBusinessCustomer();
+        webModel.getNewBusinessCustomerPage().addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes();
         webModel.getNewBusinessCustomerPage().addSiteInfoForNewBusinessCustomer();
         webModel.getNewBusinessCustomerPage().addSiteContactInfoForNewBusinessCustomer();
     }
@@ -72,7 +72,7 @@ public class NxTier_smokePack_stepDefs {
     public void iHaveAddedANewBusinessCustomer() throws InterruptedException {
         webModel.getNewBusinessCustomerPage().clickContactManagerButton();
         webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
-        webModel.getNewBusinessCustomerPage().companyInfoForNewBusinessCustomer();
+        webModel.getNewBusinessCustomerPage().addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes();
         webModel.getNewBusinessCustomerPage().addSiteInfoForNewBusinessCustomer();
         webModel.getNewBusinessCustomerPage().addSiteContactInfoForNewBusinessCustomer();
     }
