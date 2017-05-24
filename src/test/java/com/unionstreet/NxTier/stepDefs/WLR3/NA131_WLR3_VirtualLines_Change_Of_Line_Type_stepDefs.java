@@ -52,6 +52,7 @@ public class NA131_WLR3_VirtualLines_Change_Of_Line_Type_stepDefs {
         webModel.getWlr3_orderDetails_page().assertExclusiveFeatures("0201234567");
         webModel.getWlr3_orderDetails_page().loadLineInfo();
         webModel.getWlr3_line_information_page().checkServiceMaintenanceForVirtualLines();
+        webModel.getWlr3_siteInformationPage().saveSiteInfoChanges();
         webModel.getEditOrderPage().verifyOrderCompletion();
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='OCR00000002'");
 

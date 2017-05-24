@@ -205,7 +205,8 @@ public class OrdersManagerPage {
     }catch (Exception e){utils.checkAlert();}}
 
     public void loadOrdersManagerAndClickOnQuoteID(String type) throws InterruptedException, SQLException {
-     try{   utils.getOrdersPage();
+     try{  Thread.sleep(2000);
+         utils.getOrdersPage();
         clickOnQuoteID(type);
         utils.switchToNewWindow();
     }catch (Exception e){utils.checkAlert();}}
