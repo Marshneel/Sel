@@ -498,13 +498,14 @@ public class WLR3_OrderDetails_Page {
         utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"0");
         utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
         // TODO: 26/04/2017  
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+linesOrChannels+" must be greater or equal to "+minNumber+" for this product.')]"));
-        utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"1000");
-        utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+linesOrChannels+" must be less than or equal to "+maxNumber+" for this product.')]"));
-        utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"10");
-        utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
-    }
+      utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+linesOrChannels+" must be greater or equal to "+minNumber+" for this product.')]"));
+          utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"1000");
+          utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
+          utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+linesOrChannels+" must be less than or equal to "+maxNumber+" for this product.')]"));
+          utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"10");
+          utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));}
+
+
     public void assertDefaultAndEditableChannels(String defaultChannels){
         utils.waitForElementVisible(By.xpath(EDIT_NUMBER_OF_CHANNELS));
         utils.waitForElementVisible(By.xpath("//span[text()='"+defaultChannels+"']"));
