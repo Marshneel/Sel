@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 public class NewBusinessCustomerPage {
     public static String RanName;
     public static String Reseller_RanName;
-    public static String Agent_RanName;
     public final String ADD_BUTTON = "Add";
     //TODO
     public final String SAVE_BUTTON = ".save";
@@ -56,7 +55,7 @@ public class NewBusinessCustomerPage {
     }
 
     public void addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes() {
-        Agent_RanName = utils.randomName();
+        RanName = utils.randomName();
         utils.clickBtn(By.id(COMPANYNAME_FIELD));
         try {
             utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
