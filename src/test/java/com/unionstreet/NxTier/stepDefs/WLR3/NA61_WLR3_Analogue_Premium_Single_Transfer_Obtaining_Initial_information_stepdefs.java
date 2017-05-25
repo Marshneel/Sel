@@ -25,7 +25,9 @@ public class NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_inform
        webModel. getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_networkCallingFeaturesPage().populateNetworkCallingFeatures();
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
+       webModel.getWlr3_orderDetails_page().loadDirectoryInfo();
         webModel.getWlr3_directoryInformationPage().populatingDirectoryInformation("Telecom");
+        webModel.getWlr3_directoryInformationPage().saveAndCloseDirectoryInfo();
     }
 
     @Then("^The saved information should be seen on the WLR order details page$")

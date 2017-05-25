@@ -163,6 +163,15 @@ public void validationForNumberOfLinesForMultiline(String min, String max, Strin
     utils.waitForElementVisible(By.xpath("//span[contains(text(),'Maximum 99 Lines allowed for this product.')]"));
     utils.sendText(By.id("WLR3Order_num_lines"),validInt);
 }
+public void assertChannelOptionsAbsent(){
+    utils.waitForElementVisible(By.xpath(LINE_PLANT_SUMMARY_TEXT_ON_SITEINFO));
+    utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Channels')]"));
+    utils.assertElementNotPresent(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX));
+}
+public void assertChannelOptionsPresent(){
+    utils.waitForElementVisible(By.xpath("//label[contains(text(),'Channels')]"));
+    utils.waitForElementVisible(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX));
+}
 
 
 

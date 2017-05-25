@@ -25,17 +25,9 @@ public class WLR3_DirectoryInformationPage {
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
     CommonMethods commonMethods=new CommonMethods();
 
-    public void populatingDirectoryInformation(String name) throws InterruptedException {
-        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.DIRECTORY_INFO_SUMMARY_PANEL));
-        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
-        Thread.sleep(1000);
-        try {
-            utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
-        } catch (Exception e) {
-            Thread.sleep(1000);
-            utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
 
-        }
+
+    public void populatingDirectoryInformation(String name) throws InterruptedException {
         utils.checkPoint("entered the directory info page to populate");
         utils.waitForElementVisible(By.id(RETAIN_DIRECTORY_INFO_TAB));
         Thread.sleep(1000);
@@ -45,10 +37,12 @@ public class WLR3_DirectoryInformationPage {
         utils.clickBtn(By.id(EDIT));
         utils.clickBtn(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION));
         utils.sendText(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION), name);
+    }
+    public void saveAndCloseDirectoryInfo() throws InterruptedException {
+      Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath(commonMethods.CLOSE_POPUP));
-
     }
 
     public void editDirectoryInformation(String type) throws InterruptedException, SQLException {
@@ -93,4 +87,13 @@ public class WLR3_DirectoryInformationPage {
         utils.waitForElementVisible(By.id(EDIT));
         utils.clickBtn(By.xpath(commonMethods.CLOSE_POPUP));
     }
+    public void changeDirectoryType(String type) throws InterruptedException {
+        utils.waitForElementVisible(By.xpath("//ul[@id='directoryInformationNavigation']/li[2]"));
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.xpath("//ul[@id='directoryInformationNavigation']/li[2]"));
+       Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.id("editBtn"));
+        utils.selectByVisibleText(By.xpath("//*[@id=\"DirectoryInfo_0__dir_type_name\"]"),type);
+    }
+
 }

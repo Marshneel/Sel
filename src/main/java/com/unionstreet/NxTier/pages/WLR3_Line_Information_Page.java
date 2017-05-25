@@ -156,5 +156,17 @@ public void verifySMPFcodePresent(){
     utils.waitForElementVisible(By.id("WLR3Order_smpf_code"));
 
 }
+public void assertDisabledFieldsForISDN2linesInTransfer(){
+    utils.waitForElementVisible(By.xpath("//label[contains(text(),'Standby Power')]/following-sibling::div//p"));
+    utils.waitForElementVisible(By.xpath("//label[contains(text(),'Radio Delivery OK')]/following-sibling::div//p"));
+    utils.waitForElementVisible(By.xpath("//label[contains(text(),'SMPF Code')]/following-sibling::div//p"));
+}
+public void setConfigurationForISDN2SystemInTransfer() throws InterruptedException {
+    utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+    utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_WHEN_CHANGED_FROM_DEFAULT_POINT_TO_MULTIPOINT__TO__POINT_TO_POINT));
+    utils.makeSureBoxIsChecked(By.id(POINT_TO_POINT_RADIO_BUTTON),By.id(POINT_TO_POINT_RADIO_BUTTON));
+   Thread.sleep(1000);
+    utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+}
 
 }

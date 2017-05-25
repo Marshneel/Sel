@@ -105,5 +105,9 @@ public class WLR3_NewProvide_SitePage {
     public void populateEmergencyInfo(){
         utils.sendText(By.id(wlr3_orderDetails_page.EMERGENCY_INFO_TEXT_BOX), wlr3_orderDetails_page.EMERGENCY_INFO_TEXT_BOX);
     }
+    public void closeWizard(){
+        utils.waitForElementVisible(By.xpath("//button[@id='closeBtn']"));
+        utils.clickBtn(By.xpath("//button[@id='closeBtn']"));
+    }
 
 }
