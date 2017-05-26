@@ -43,8 +43,6 @@ public class BaseClass {
             TakesScreenshot camera = (TakesScreenshot) driver;
             byte[] screenshot = camera.getScreenshotAs(BYTES);
             scenario.embed(screenshot, "image/png");
-            driver.close();
-            driver.quit();
        }
         driver.close();
         driver.quit();
