@@ -215,6 +215,9 @@ public class WLR3_OrderDetails_Page {
             getToWLR3QuotePage(type);
         }
     }
+    public void assertTextOnWLR3OrderPage(){
+        utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+    }
 
     public void getToWLR3QuotePage(String type) throws InterruptedException, SQLException {
         Thread.sleep(2000);
@@ -591,5 +594,17 @@ public class WLR3_OrderDetails_Page {
     }
     public void assertChangedDirectoryType(String line){
         utils.waitForElementVisible(By.xpath("//b[contains(text(),'"+line+"')]/following-sibling::p[contains(text(),'No Directory Entry Required')]"));
+    }
+    public void checkingValidationForEmergencyInfo(){
+        utils.waitForElementVisible(By.xpath("//div[@id='div_EmergencyInfo']//img[contains(@onclick,'editMode')]"));
+        utils.clickBtn(By.xpath("//div[@id='div_EmergencyInfo']//img[contains(@onclick,'editMode')]"));
+        utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXT_BOX));
+        utils.sendText(By.id(EMERGENCY_INFO_TEXT_BOX),"Emer&*^%");
+        utils.clickBtn(By.xpath(SAVE_EMERGENCY_INFO));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Emergency Information can only contain alphanumeric')]"));
+        utils.sendText(By.id(EMERGENCY_INFO_TEXT_BOX),"Emergency Info");
+        utils.clickBtn(By.xpath(SAVE_EMERGENCY_INFO));
+
+
     }
 }
