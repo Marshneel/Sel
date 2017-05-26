@@ -1,4 +1,4 @@
-@E2ETests
+
 Feature: NA49 - Order service automation for agent, reseller and CP
 
   Scenario: Login as a CP, create a quote, add a service and verify the behaviour of CP only control

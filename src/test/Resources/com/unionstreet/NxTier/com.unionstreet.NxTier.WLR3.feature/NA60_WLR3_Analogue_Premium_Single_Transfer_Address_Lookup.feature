@@ -1,4 +1,4 @@
-@E2ETests
+
 Feature: NA60- WLR3_Analogue_Transfer_Address_Lookup
 
   Scenario Outline:  WLR3 address lookup based on post code, by logging as CP, agent and reseller
