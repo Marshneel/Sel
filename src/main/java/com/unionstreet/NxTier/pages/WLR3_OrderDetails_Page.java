@@ -215,18 +215,21 @@ public class WLR3_OrderDetails_Page {
             getToWLR3QuotePage(type);
         }
     }
+    public void assertTextOnWLR3OrderPage(){
+        utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
+    }
 
     public void getToWLR3QuotePage(String type) throws InterruptedException, SQLException {
         Thread.sleep(2000);
         utils.getOrdersPage();
         clickOnQuoteID(type);
-        }
+    }
         public void clickOnQuoteID(String type) throws InterruptedException, SQLException {
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(type);
+           ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(type);
             utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
             utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
             utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
-        }
+       }
 
 
     public void verifyOrderTypeTab() throws InterruptedException {
@@ -498,13 +501,14 @@ public class WLR3_OrderDetails_Page {
         utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"0");
         utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
         // TODO: 26/04/2017  
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+linesOrChannels+" must be greater or equal to "+minNumber+" for this product.')]"));
-        utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"1000");
-        utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+linesOrChannels+" must be less than or equal to "+maxNumber+" for this product.')]"));
-        utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"10");
-        utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
-    }
+      utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+linesOrChannels+" must be greater or equal to "+minNumber+" for this product.')]"));
+          utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"1000");
+          utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
+          utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+linesOrChannels+" must be less than or equal to "+maxNumber+" for this product.')]"));
+          utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"10");
+          utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));}
+
+
     public void assertDefaultAndEditableChannels(String defaultChannels){
         utils.waitForElementVisible(By.xpath(EDIT_NUMBER_OF_CHANNELS));
         utils.waitForElementVisible(By.xpath("//span[text()='"+defaultChannels+"']"));
@@ -558,6 +562,7 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+text+"')]"));
     }
     public void assertChannelsNotEditable(){
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Number of Channels')]"));
         utils.assertElementNotPresent(By.xpath(EDIT_NUMBER_OF_CHANNELS));
     }
     public void assertChannelsAreEditable(){
@@ -575,5 +580,31 @@ public class WLR3_OrderDetails_Page {
     }
     public void assertWorkingLineTakeOver(){
         utils.waitForElementVisible(By.xpath("//p[contains(text(),'Working Line Takeover')]"));
+    }
+    public void loadDirectoryInfo() throws InterruptedException {
+        utils.waitForElementVisible(By.id(DIRECTORY_INFO_SUMMARY_PANEL));
+        utils.waitForElementVisible(By.xpath(DIRECTORY_INFORMATION_BUTTON));
+        Thread.sleep(1000);
+        try {
+            utils.jumpToPopUpWindow(By.xpath(DIRECTORY_INFORMATION_BUTTON));
+        } catch (Exception e) {
+            Thread.sleep(1000);
+            utils.jumpToPopUpWindow(By.xpath(DIRECTORY_INFORMATION_BUTTON));
+        }
+    }
+    public void assertChangedDirectoryType(String line){
+        utils.waitForElementVisible(By.xpath("//b[contains(text(),'"+line+"')]/following-sibling::p[contains(text(),'No Directory Entry Required')]"));
+    }
+    public void checkingValidationForEmergencyInfo(){
+        utils.waitForElementVisible(By.xpath("//div[@id='div_EmergencyInfo']//img[contains(@onclick,'editMode')]"));
+        utils.clickBtn(By.xpath("//div[@id='div_EmergencyInfo']//img[contains(@onclick,'editMode')]"));
+        utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXT_BOX));
+        utils.sendText(By.id(EMERGENCY_INFO_TEXT_BOX),"Emer&*^%");
+        utils.clickBtn(By.xpath(SAVE_EMERGENCY_INFO));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Emergency Information can only contain alphanumeric')]"));
+        utils.sendText(By.id(EMERGENCY_INFO_TEXT_BOX),"Emergency Info");
+        utils.clickBtn(By.xpath(SAVE_EMERGENCY_INFO));
+
+
     }
 }

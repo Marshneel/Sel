@@ -35,7 +35,9 @@ public class NA98_WLR3_Analogue_Premium_Single_Amend_stepDefs {
         webModel.getEditOrderPage().startOrderAmend();
         //editing network calling features and directory info
         webModel.getWlr3_networkCallingFeaturesPage().populateNetworkCallingFeatures();
+        webModel.getWlr3_orderDetails_page().loadDirectoryInfo();
         webModel.getWlr3_directoryInformationPage().populatingDirectoryInformation("Telecom");
+        webModel.getWlr3_directoryInformationPage().saveAndCloseDirectoryInfo();
         webModel.getWlr3_orderDetails_page().assertChangesForAmendOrder();
         //submitting the amended order
         webModel.getEditOrderPage().submitAmendedOrder();

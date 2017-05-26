@@ -197,18 +197,21 @@ public class OrdersManagerPage {
     }
 
     public void clickOnQuoteID(String type) throws SQLException {
-   try{     utils.sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select order_id from orders where OrderDescription ='"+type+"'");
+        utils.sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select order_id from orders where OrderDescription ='" + type + "'");
         utils.result.next();
         String one = utils.result.getString("order_id");
-            utils.waitForElementVisible(By.xpath("//a[text()='"+one+"']"));
-            utils.clickBtn(By.xpath("//a[text()='"+one+"']"));
-    }catch (Exception e){utils.checkAlert();}}
+        utils.waitForElementVisible(By.xpath("//a[text()='" + one + "']"));
+        utils.clickBtn(By.xpath("//a[text()='" + one + "']"));
+    }
 
     public void loadOrdersManagerAndClickOnQuoteID(String type) throws InterruptedException, SQLException {
-     try{   utils.getOrdersPage();
+       try{
+         utils.getOrdersPage();
         clickOnQuoteID(type);
         utils.switchToNewWindow();
-    }catch (Exception e){utils.checkAlert();}}
+    }catch (Exception e){ utils.getOrdersPage();
+           clickOnQuoteID(type);
+           utils.switchToNewWindow();}}
 
     public void savingQuoteAndExtractingOrderServiceID() throws InterruptedException {
         utils.switchToNewWindow();

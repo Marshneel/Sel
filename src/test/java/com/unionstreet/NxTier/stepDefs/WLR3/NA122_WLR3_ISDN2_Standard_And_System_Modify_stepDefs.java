@@ -48,7 +48,6 @@ public class NA122_WLR3_ISDN2_Standard_And_System_Modify_stepDefs {
         webModel.getAddServicePage().searchAndAddService("Modify Order");
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("01202300920", "LU1 1DQ");
-
     }
 
     @Then("^I should be able to check the flow of the ISDN(\\d+) System modify$")
@@ -65,6 +64,9 @@ public class NA122_WLR3_ISDN2_Standard_And_System_Modify_stepDefs {
         webModel.getWlr3_appointmentPage().saveAppointments();
         webModel.getWlr3_orderDetails_page().assertAbsenceOfErrorMessageForHazardAndWarningNotes();
         webModel.getWlr3_orderDetails_page().assertAbsentErrorMessageForUnwantedEngineeringNotes();
+        webModel.getWlr3_orderDetails_page().loadLineInfo();
+        webModel.getWlr3_line_information_page().assertDigitsToSwitchForAllISDN("1 and 15","15");
+        webModel.getWlr3_orderDetails_page().assertNumberOfDigitsToSwitchOnOrderDetailsPage("15");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='OI2E00000003'");
     }
 }
