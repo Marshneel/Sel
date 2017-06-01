@@ -122,6 +122,7 @@ public class EditOrderPage {
     }
 
     public void verifyOrderCompletion() throws InterruptedException, SQLException {
+        utils.switchToPreviousWindow(0);
         //load created quote
         ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
         // check for the green tick
@@ -143,7 +144,7 @@ public class EditOrderPage {
         utils.selectByIndex(By.id(ORDER_OWNER_DROPDOWN_ON_EDIT_ORDER_PAGE), 1);
         utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
         utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_QUOTE));
-        utils.switchToPreviousWindow();
+        utils.switchToPreviousWindow(1);
 
     }
 

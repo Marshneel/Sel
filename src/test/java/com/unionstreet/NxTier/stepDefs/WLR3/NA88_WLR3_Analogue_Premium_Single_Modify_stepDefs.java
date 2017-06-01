@@ -23,6 +23,7 @@ public class NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs {
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
         webModel.getOrdersManagerPage().searchQuoteByBcRN();
+       // webModel.getUtils().switchToPreviousWindow(0);
         webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
     }
 
@@ -69,6 +70,7 @@ public class NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs {
     @And("^make sure order is completed and ready for submission$")
     public void makeSureOrderIsCompletedAndReadyForSubmission() throws Throwable {
         //assert that the order is completed by verifying for the presence of green tick
+       // webModel.getUtils().switchToPreviousWindow(0);
         webModel.getEditOrderPage().verifyOrderCompletion();
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='02063678369'");
 

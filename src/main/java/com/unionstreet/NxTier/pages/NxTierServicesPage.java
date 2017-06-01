@@ -42,7 +42,7 @@ public class NxTierServicesPage {
         } catch (Exception e) {
             utils.checkAlert();
         }
-        utils.switchToPreviousWindow();
+        utils.switchToPreviousWindow(1);
     }
 
     public void assertCPonlyCheckBoxPresentAndAccessible() {

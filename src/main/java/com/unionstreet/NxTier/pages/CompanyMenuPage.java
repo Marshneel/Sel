@@ -57,7 +57,7 @@ public class CompanyMenuPage {
     private String day;
 
     public void addNewSite() throws InterruptedException {
-        accessCompanyMenu();
+        accessCompanyMenu(NewBusinessCustomerPage.RanName);
         clickCompanySitesButton();
         utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.switchToNewWindow();
@@ -96,12 +96,12 @@ public class CompanyMenuPage {
         utils.clickBtn(By.id(COMPANYSITES_BUTTON));
     }
 
-    public void accessCompanyMenu() throws InterruptedException {
+    public void accessCompanyMenu(String ranName) throws InterruptedException {
         newBusinessCustomerPage.clickContactManagerButton();
-        utils.sendText(By.id(SEARCH_BUTTON), NewBusinessCustomerPage.RanName);
+        utils.sendText(By.id(SEARCH_BUTTON), ranName);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
-        utils.waitForElementVisible(By.linkText(NewBusinessCustomerPage.RanName));
-        utils.clickBtn(By.linkText(NewBusinessCustomerPage.RanName));
+        utils.waitForElementVisible(By.linkText(ranName));
+        utils.clickBtn(By.linkText(ranName));
         utils.switchToNewWindow();
     }
 
@@ -110,7 +110,7 @@ public class CompanyMenuPage {
     }
 
     public void addInvoicingDetails() throws InterruptedException {
-        accessCompanyMenu();
+        accessCompanyMenu(NewBusinessCustomerPage.RanName);
         clickInvoicingDetailsButton();
         utils.selectByVisibleText(By.id(BILLING_REPORT_PROFILE_DROPDOWN), utils.getProperty("billingReportProfile"));
         utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
@@ -144,20 +144,20 @@ public class CompanyMenuPage {
         utils.clickBtn(By.id(CLI_BUTTON));
     }
 
-    public void addCLIs() throws InterruptedException {
-        accessCompanyMenu();
+    public void addCLIs(String ranName, String number) throws InterruptedException {
+        accessCompanyMenu(ranName);
         clickCLIButton();
         utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindow();
         try {
             utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));
             utils.clickBtn(By.id(CLI_NUMBER_FIELD));
-            utils.sendText(By.id(CLI_NUMBER_FIELD), RanNumber);
+            utils.sendText(By.id(CLI_NUMBER_FIELD), number);
         } catch (TimeoutException e) {
-            utils.sendText(By.id(CLI_NUMBER_FIELD), RanNumber);
+            utils.sendText(By.id(CLI_NUMBER_FIELD), number);
         }
         utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
-        utils.verifyStringMatch(By.cssSelector(ADDED_CLI_CHECK_FIELD), RanNumber);
+        utils.verifyStringMatch(By.cssSelector(ADDED_CLI_CHECK_FIELD), number);
         //TODO
         utils.closeCurrentPage();
         utils.switchToParentWindow();
@@ -236,7 +236,7 @@ public class CompanyMenuPage {
     }
 
     public void addPricingDetails() throws InterruptedException {
-        accessCompanyMenu();
+        accessCompanyMenu(NewBusinessCustomerPage.RanName);
         clickPricingDetails();
         utils.selectByIndex(By.id(PRICING_DETAILS_PACKAGE_FIELD), 1);
         utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));

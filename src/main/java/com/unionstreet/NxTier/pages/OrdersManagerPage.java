@@ -178,8 +178,8 @@ public class OrdersManagerPage {
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
     }
 
-    public void assertAgentCannotViewQuotes() {
-        utils.searchAndAssertTextNotPresent(By.id(QUOTE), QUOTE_RanName);
+    public void assertAgentCanViewQuotes() {
+        utils.searchAndAssertTextPresent(By.id(QUOTE), QUOTE_RanName);
     }
 
     public void createQuote() throws InterruptedException {
@@ -192,7 +192,7 @@ public class OrdersManagerPage {
     }
 
     public void searchQuoteByBcRN() throws InterruptedException {
-        commonMethods.search(newBusinessCustomerPage.RanName);
+       // commonMethods.search(newBusinessCustomerPage.RanName);
         utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
     }
 
@@ -200,13 +200,16 @@ public class OrdersManagerPage {
         utils.sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select order_id from orders where OrderDescription ='" + type + "'");
         utils.result.next();
         String one = utils.result.getString("order_id");
-        utils.waitForElementVisible(By.xpath("//a[text()='" + one + "']"));
-        utils.clickBtn(By.xpath("//a[text()='" + one + "']"));
+       try{ utils.waitForElementVisible(By.xpath("//a[text()='" + one + "']"));
+        utils.clickBtn(By.xpath("//a[text()='" + one + "']"));}
+       catch (Exception e){utils.checkAlert();}
+
     }
 
     public void loadOrdersManagerAndClickOnQuoteID(String type) throws InterruptedException, SQLException {
        try{
-         utils.getOrdersPage();
+           utils.switchToPreviousWindow(0);
+        // utils.getOrdersPage();
         clickOnQuoteID(type);
         utils.switchToNewWindow();
     }catch (Exception e){ utils.getOrdersPage();

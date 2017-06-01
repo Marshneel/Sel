@@ -220,8 +220,9 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void getToWLR3QuotePage(String type) throws InterruptedException, SQLException {
-        Thread.sleep(2000);
-        utils.getOrdersPage();
+//        Thread.sleep(2000);
+//        utils.getOrdersPage();
+        utils.switchToPreviousWindow(0);
         clickOnQuoteID(type);
     }
         public void clickOnQuoteID(String type) throws InterruptedException, SQLException {
