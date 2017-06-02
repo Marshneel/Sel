@@ -14,7 +14,7 @@ public class OrdersManagerPage {
 
     public final String QUOTE = "bodyContent";
     public final String INVISIBLE_ORDER_SERVICESID = "//input[@id='Service_ID']";
-    private final String CREATEQUOTE_BUTTON = "//a[@class='add'][text()[contains(.,'Create Quote')]]";
+    private final String CREATEQUOTE_BUTTON = "//a[contains(@onclick,'OpenStartQuote')]";
     //TODO
     private final String ORDER_QUOTE_DESCRIPTION_FIELD = "QuoteDescription";
     private final String ORDERS_SAVEQUOTE_BUTTON = "CreateQuoteButton";

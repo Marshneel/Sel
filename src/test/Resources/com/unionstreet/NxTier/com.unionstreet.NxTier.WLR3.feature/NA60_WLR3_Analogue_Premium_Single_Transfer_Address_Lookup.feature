@@ -11,7 +11,7 @@ Feature: NA60- WLR3_Analogue_Transfer_Address_Lookup
     Then  I should be able to search and select the address by post code
     Examples:
       | userName | passWord |
-      | CP       | password |
+      | CP   | password |
 
   Scenario Outline:  WLR3 address lookup based on Address key, by logging as CP, agent and reseller
     Given I am logged in with "<userName>" and "<passWord>"
