@@ -296,4 +296,14 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//td[contains(text(),'" + order + "')]"));
         utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//td[contains(text(),'" + newBusinessCustomerPage.RanName + "')]"));
     }
+    public void clickOnQuote(){
+      try{  utils.waitForElementVisible(By.xpath("//a[contains(@href,'Orders/EditOrder')]"));
+        utils.clickBtn(By.xpath("//a[contains(@href,'Orders/EditOrder')]"));
+      utils.switchToNewWindow();}
+      catch (Exception e){utils.getOrdersPage();
+          utils.waitForElementVisible(By.xpath("//a[contains(@href,'Orders/EditOrder')]"));
+          utils.clickBtn(By.xpath("//a[contains(@href,'Orders/EditOrder')]"));
+          utils.switchToNewWindow();
+      }
+    }
 }

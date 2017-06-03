@@ -44,22 +44,19 @@ public class LoginPage {
         utils.assertURL("http://test01-web01/nxtiere2e");
     }
 
+public void zoomOutOnLoginPage() throws InterruptedException {
+    utils.waitForElementVisible(By.id(USENAME_FIELD));
+    utils.zoomOut(By.id(USENAME_FIELD));
+    Thread.sleep(1000);
+}
+
 
     public void loginAsAgent() throws InterruptedException {
-        try {
-            utils.waitForElementVisible(By.id(USENAME_FIELD));
-            utils.zoomOut(By.id(USENAME_FIELD));
-            Thread.sleep(1000);
-        } catch (Exception e) {
-            utils.getLoginPage();
-            utils.waitForElementVisible(By.id(USENAME_FIELD));
-            utils.zoomOut(By.id(USENAME_FIELD));
-            Thread.sleep(1000);
-        }
+        utils.waitForElementVisible(By.id(USENAME_FIELD));
         utils.clickBtn(By.id(USENAME_FIELD));
         utils.sendText(By.id(USENAME_FIELD), "agentlogin");
         utils.clickBtn(By.id(PASSWORD_FIELD));
-        utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
+        utils.sendText(By.id(PASSWORD_FIELD), "password");
         try {
             utils.clickBtn(By.cssSelector(LOGINBUTTON));
         } catch (Exception e) {

@@ -65,7 +65,9 @@ public class AddServicePage {
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         } catch (Exception e) {
             utils.getOrdersPage();
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
+            ordersManagerPage.clickOnQuote();
+
+            // ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.clickBtnWithWait(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
 
