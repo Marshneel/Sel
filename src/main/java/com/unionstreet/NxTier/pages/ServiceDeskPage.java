@@ -47,10 +47,9 @@ public class ServiceDeskPage {
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+shortName+"')]"));
         utils.clickBtn(By.xpath("//td[contains(text(),'"+shortName+"')]"));
     }
-    public void assertAccountDetails(String companyName, String accountStatus,String SLAstatus){
+    public void assertAccountDetails(String companyName){
         utils.waitForElementVisible(By.xpath("//h4[contains(text(),'"+companyName+"')]"));
-        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Account Status')]/following-sibling::p[contains(text(),'"+accountStatus+"')]"));
-        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'sla')]/following-sibling::p[contains(text(),'"+SLAstatus+"')]"));
+
     }
     public void assertSiteUnderAccountDetails(String companyName){
         utils.waitForElementVisible(By.xpath("//h5[contains(text(),'"+companyName+"')]"));

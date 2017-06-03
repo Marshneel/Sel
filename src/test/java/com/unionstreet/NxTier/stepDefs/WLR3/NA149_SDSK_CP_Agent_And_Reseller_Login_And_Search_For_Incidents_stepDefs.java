@@ -25,7 +25,7 @@ public class NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents_ste
     }
     @Then("^I should be able to search and find incidents relevant to CP$")
     public void iShouldBeAbleToSearchAndFindIncidentsRelevantToCP()  {
-        webModel.getServiceDeskPage().assertAccountDetails("business customer created by CP","Ok","Default");
+        webModel.getServiceDeskPage().assertAccountDetails("business customer created by CP");
         webModel.getServiceDeskPage().assertIncidents("Customer has moved and would like address updated");
         webModel.getServiceDeskPage().assertIncidents("Slow connection speed");
         webModel.getServiceDeskPage().assertIncidents("Changed bank and need new dd");
@@ -43,7 +43,7 @@ public class NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents_ste
 
     @Then("^I should be able to search and find incidents relevant to agent$")
     public void iShouldBeAbleToSearchAndFindIncidentsRelevantToAgent() {
-        webModel.getServiceDeskPage().assertAccountDetails("business customer agent assigned","Ok","Default");
+        webModel.getServiceDeskPage().assertAccountDetails("business customer agent assigned");
         webModel.getServiceDeskPage().assertIncidents("Customer has moved and would like address updated");
         webModel.getServiceDeskPage().assertIncidents("Slow connection speed");
         webModel.getServiceDeskPage().assertIncidents("Changed bank and need new dd");
@@ -62,7 +62,7 @@ public class NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents_ste
     @Then("^I should be able to search and find incidents relevant to reseller$")
     public void iShouldBeAbleToSearchAndFindIncidentsRelevantToReseller(){
         webModel.getServiceDeskPage().assertSiteUnderAccountDetails("business customer reseller");
-        webModel.getServiceDeskPage().assertAccountDetails("reseller","Ok","Default");
+        webModel.getServiceDeskPage().assertAccountDetails("reseller");
         webModel.getServiceDeskPage().assertIncidents("Customer has moved and would like address updated");
         webModel.getServiceDeskPage().assertIncidents("Slow connection speed");
         webModel.getServiceDeskPage().assertIncidents("Changed bank and need new dd");
