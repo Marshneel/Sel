@@ -1,4 +1,4 @@
-@E2ETests
+
 Feature: NA - 145 SDSK CP Agent and Reseller And Search Accounts
 
   Scenario: login as a CP and search the service desk menu for accounts

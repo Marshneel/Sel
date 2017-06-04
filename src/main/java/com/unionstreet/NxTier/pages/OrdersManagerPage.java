@@ -219,7 +219,7 @@ public class OrdersManagerPage {
     public void savingQuoteAndExtractingOrderServiceID() throws InterruptedException {
         utils.switchToNewWindow();
         try {
-            utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+            utils.clickBtn(By.xpath("//input[contains(@onclick,'Save')]"));
         } catch (Exception e) {
             utils.checkAlert();
         }
@@ -232,7 +232,7 @@ public class OrdersManagerPage {
     }
 
     public void saveTheServiceAndGetTheOrderServicesID() {
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.xpath("//input[contains(@onclick,'Save')]"));
         utils.waitForElementVisible(By.xpath(INVISIBLE_ORDER_SERVICESID));
         utils.getAttributeOfElement(By.xpath(INVISIBLE_ORDER_SERVICESID), "value");
     }

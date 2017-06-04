@@ -13,7 +13,7 @@ public class NxTierServicesPage {
 
     public final String CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE = "//div[text()='customService']";
     private final String MANDATORY_CONTROL_FIELD = "//input[@controlid='mandatoryControl']";
-    private final String CPONLY = "//label[@class='helpIcon'][contains(text(),'CPonly')]";
+    private final String CPONLY = "//label[contains(text(),'CPonly')]";
     private final String CPONLY_CHECKBOX = "Checkbox0";
     private final String LABEL_WITHIN_A_SERVICE = "//label[@for='Service_Details']";
     ElementUtils utils = new ElementUtils();
@@ -38,7 +38,7 @@ public class NxTierServicesPage {
         utils.clickBtn(By.xpath(MANDATORY_CONTROL_FIELD));
         utils.sendText(By.xpath(MANDATORY_CONTROL_FIELD), "hello");
         try {
-            utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+            utils.clickBtn(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
         } catch (Exception e) {
             utils.checkAlert();
         }
