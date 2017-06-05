@@ -11,6 +11,7 @@ import java.sql.SQLException;
  */
 public class ServiceDeskPage {
     ElementUtils utils = new ElementUtils();
+    WLR3_OrderDetails_Page wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
 
 
     public void assertTextOnServiceDesk(){
@@ -43,8 +44,9 @@ public class ServiceDeskPage {
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath("//input[@id='search_CLI']/following-sibling::span//span[contains(text(),'Search')]"));
     }
-    public void clickOnResult(String shortName){
+    public void clickOnResult(String shortName) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+shortName+"')]"));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath("//td[contains(text(),'"+shortName+"')]"));
     }
     public void assertAccountDetails(String companyName){
@@ -73,10 +75,16 @@ public class ServiceDeskPage {
         utils.waitForElementVisible(By.xpath("//h4[contains(text(),'No SLA')]"));
         utils.waitForElementVisible(By.xpath("//p[contains(text(),'You can not create a ticket for this account because there is no SLA in place.Please contact your Service Desk administrator.')]"));
     }
-    public void assertAccountOhHoldPopUp(){
+    public void assertAccountOhHoldYellowPopUp(){
         utils.waitForElementVisible(By.xpath("//h4[@id='modal-alert-label'][contains(text(),'Account Status')]"));
         utils.waitForElementVisible(By.xpath("//p[contains(text(),'This account has been flagged as being on hold. Would you still like to log an Incident?')]"));
         utils.clickBtn(By.xpath("//a[contains(text(),'Yes, continue.')]"));
+    }
+
+    public void assertAccountOnHoldRedPopUp(){
+        utils.waitForElementVisible(By.xpath("//p[contains(text(),'You can not create a ticket for this account')]"));
+        utils.waitForElementVisible(By.xpath("//button[contains(text(),'Ok')]"));
+        utils.clickBtn(By.xpath("//button[contains(text(),'Ok')]"));
     }
 
     }
