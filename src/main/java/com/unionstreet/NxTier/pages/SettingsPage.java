@@ -265,7 +265,7 @@ public class SettingsPage {
 
     public void loginAsAgent() throws InterruptedException {
         dashBoardPage.logOut();
-        utils.sendText(By.id(loginPage.USENAME_FIELD), newBusinessCustomerPage.RanName);
+        utils.sendText(By.id(loginPage.USERNAME_FIELD), newBusinessCustomerPage.RanName);
         utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
         utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
         utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
@@ -328,7 +328,7 @@ public class SettingsPage {
 
     public void loginAsCpUser() throws InterruptedException {
         dashBoardPage.logOut();
-        utils.sendText(By.id(loginPage.USENAME_FIELD), CP_RanName);
+        utils.sendText(By.id(loginPage.USERNAME_FIELD), CP_RanName);
         utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
         utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
         utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");

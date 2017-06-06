@@ -46,7 +46,7 @@ public class ServiceDeskPage {
     }
     public void clickOnResult(String shortName) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+shortName+"')]"));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         utils.clickBtn(By.xpath("//td[contains(text(),'"+shortName+"')]"));
     }
     public void assertAccountDetails(String companyName){

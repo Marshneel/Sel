@@ -251,6 +251,7 @@ public class CompanyMenuPage {
     }
 
     public void clickConfigManager() {
+        utils.waitForElementVisible(By.id(CONFIGMANAGER_BUTTON));
         utils.clickBtn(By.id(CONFIGMANAGER_BUTTON));
     }
 }
