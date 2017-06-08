@@ -394,6 +394,21 @@ public class SettingsPage {
             utils.checkAlert();
         }
         utils.switchToParentWindow();
+    }
+    public void issueTariffAndFreeMinutePermissionsToAgent(String agentName) throws InterruptedException {
+        utils.clickBtn(By.linkText(""+agentName+""));
+        utils.switchToNewWindow();
+        utils.scrollUp(By.xpath(ADDPERMISSION_CONFIGURATION));
+        utils.clickBtn(By.xpath(ADDPERMISSION_CONFIGURATION));
+        utils.scrollUp(By.xpath(CONFIGURATION_FREEMINUTES));
+        utils.clickBtn(By.xpath(CONFIGURATION_FREEMINUTES));
+        utils.makeSureBoxIsChecked(By.id(CONFIGURATION_FREEMINUTES_SELECTALL),By.id(CONFIGURATION_FREEMINUTES_SELECTALL));
+        utils.scrollUp(By.xpath(CONFIGURATION_TARIFFMANAGER));
+        utils.clickBtn(By.xpath(CONFIGURATION_TARIFFMANAGER));
+        utils.makeSureBoxIsChecked(By.id(CONFIGURATION_TARIFFMANAGER_SELECTALL),By.id(CONFIGURATION_TARIFFMANAGER_SELECTALL));
+        saveAndCloseAddPermissions();
+
+
 
     }
 }

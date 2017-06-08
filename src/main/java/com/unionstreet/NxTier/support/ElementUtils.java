@@ -297,8 +297,8 @@ public class ElementUtils {
     public void makeSureBoxIsChecked(By by1, By by2) {
         WebElement element = driver.findElement(by1);
         if (element.isSelected() == true) {
-        } else {
-            javaScriptExecutorClick(by2);
+        } else {javaScriptExecutorClick(by2);
+
         }
     }
 

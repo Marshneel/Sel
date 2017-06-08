@@ -47,6 +47,9 @@ public class NA150_SDSK_CP_Agent_and_Reseller_incident_Button_Functionality_step
         webModel.getServiceDeskPage().assertAccountOnHoldRedPopUp();
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='1', defServiceLevel_id='1' where ID='"+ID+"'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update account_onhold_actions set servicedesk_action=1");
+        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getServiceDeskPage().assertTextOnServiceDesk();
+        webModel.getServiceDeskPage().searchByAccountName(accountName);
         webModel.getServiceDeskPage().clickOnResult(accountName);
         webModel.getServiceDeskPage().accountStatus_And_SlaStatus("On Hold","Default");
         webModel.getServiceDeskPage().clickIncidentButton();

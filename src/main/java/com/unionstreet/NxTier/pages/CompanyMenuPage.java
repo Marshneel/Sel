@@ -53,6 +53,7 @@ public class CompanyMenuPage {
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
+    ConfigManagerPage configManagerPage=new ConfigManagerPage();
     private long today;
     private String day;
 
@@ -247,12 +248,27 @@ public class CompanyMenuPage {
     }
 
     public void clickPricingDetails() {
+        utils.waitForElementVisible(By.id(PRICING_DETAILS_BUTTON));
         utils.clickBtn(By.id(PRICING_DETAILS_BUTTON));
     }
 
     public void clickConfigManager() {
         utils.waitForElementVisible(By.id(CONFIGMANAGER_BUTTON));
         utils.clickBtn(By.id(CONFIGMANAGER_BUTTON));
+    }
+    public void assertAgentCreatedTariffandFreeMinutes() throws InterruptedException {
+        utils.switchToNewWindow();
+        clickPricingDetails();
+        utils.waitForElementVisible(By.id("ChkPerFreeMinutes"));
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.id("ChkPerFreeMinutes"));
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+configManagerPage.RanFreeMinutePlanName+"')]"));
+        utils.searchAndAssertTextPresent(By.id("GroupTable"), ""+configManagerPage.RanFreeMinutePlanName+"");
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),configManagerPage.RanTariffPlanName);
+
+
+
+
     }
 }
 
