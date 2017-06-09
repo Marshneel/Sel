@@ -17,6 +17,7 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'Config Manager')]"));
         commonMethods.search("Sell 2p NGCS AC (+60 sec)");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+tariffplan+"')]"));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'Sell 2p NGCS AC (+60 sec)')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id("HrefAssignTarrifs"));
@@ -33,6 +34,7 @@ public class ConfigManagerPage {
         utils.clickBtn(By.xpath("//a[contains(@href,'freeminuteslistview')]"));
         commonMethods.search(""+freeMinutePlan+"");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+freeMinutePlan+"')]"));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'"+freeMinutePlan+"')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id("HrefAssignFreeMinutes"));
@@ -109,6 +111,7 @@ public class ConfigManagerPage {
     public void editTariffPlan() throws InterruptedException {
         commonMethods.search(RanTariffPlanName);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
        utils.switchToNewWindow();
         utils.waitForElementVisible(By.id("TariffName1"));
@@ -123,6 +126,8 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.xpath("//a[contains(@href,'freeminuteslistview')]"));
         utils.clickBtn(By.xpath("//a[contains(@href,'freeminuteslistview')]"));
         commonMethods.search(RanFreeMinutePlanName);
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+RanFreeMinutePlanName+"')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id("Plan_name"));
         utils.sendText(By.id("Plan_name"),RanFreeMinutePlanName+"changed name");
