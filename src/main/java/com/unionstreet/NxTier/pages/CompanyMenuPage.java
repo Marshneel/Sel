@@ -265,8 +265,47 @@ public class CompanyMenuPage {
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+configManagerPage.RanFreeMinutePlanName+"')]"));
         utils.searchAndAssertTextPresent(By.id("GroupTable"), ""+configManagerPage.RanFreeMinutePlanName+"");
         utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),configManagerPage.RanTariffPlanName);
-
-
+    }
+    public void assignTariffAndFreeMinutesToCustomer(String FreeMinutePlan,String TariffPlan) throws InterruptedException {
+        utils.waitForElementVisible(By.id("ChkPerFreeMinutes"));
+        Thread.sleep(1000);
+        utils.makeSureBoxIsChecked(By.id("ChkPerFreeMinutes"),By.id("ChkPerFreeMinutes"));
+        utils.waitForElementVisible(By.xpath("//table[@id='GroupTable']//td[contains(text(),'"+FreeMinutePlan+"')]/..//input[@id='SelectFreeMins_13']"));
+       Thread.sleep(1000);
+        utils.makeSureBoxIsChecked(By.id("SelectFreeMins_13"),By.id("SelectFreeMins_13"));
+        utils.waitForElementVisible(By.id("sinfo_LCR_Tariff"));
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),""+TariffPlan+"");
+        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),"Sell Data Tariff");
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.switchToPreviousWindow(0);
+    }
+    public void assertCPAssignedTariffAndFreeMinutes(String tariffVoiceField, String tariffDataField, String tariffPlan, String freeMinutePlan){
+        utils.waitForElementVisible(By.xpath("//select[@id='"+tariffVoiceField+"']//option[@selected='selected'][contains(text(),'"+tariffPlan+"')]"));
+        utils.waitForElementVisible(By.xpath("//select[@id='"+tariffDataField+"']//option[@selected='selected'][contains(text(),'"+tariffPlan+"')]"));
+        utils.waitForElementVisible(By.xpath("//table[@id='GroupTable']//td[contains(text(),'"+freeMinutePlan+"')]/..//input[@checked='checked']"));
+    }
+    public void removeCPAssignedTariffAndFreeMinutes() throws InterruptedException {
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.id("ChkPerFreeMinutes"));
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),"Select");
+        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),"Select");
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+    }
+    public void assertAgentCannotSeeCPAssignedTariffAndFreeMinutes(String tariffPlan, String freeMinutePlan) throws InterruptedException {
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.id("ChkPerFreeMinutes"));
+        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'"+tariffPlan+"')]"));
+        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_Data_Tariff']//option[contains(text(),'"+tariffPlan+"')]"));
+        utils.assertElementNotPresent(By.xpath("//table[@id='GroupTable']//tr[contains(text(),'"+freeMinutePlan+"')]"));
+    }
+    public void assertAgentCanOnlySeeAndAssignTariffAndFreeMinutePlansThatCPHasGivenPermissionFor(String tariffPlan, String unavailableTariffPlan) throws InterruptedException {
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),tariffPlan);
+        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),tariffPlan);
+        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'"+unavailableTariffPlan+"')]"));
+        Thread.sleep(1000);
+        utils.makeSureBoxIsChecked(By.id("SelectFreeMins_2"),By.id("SelectFreeMins_2"));
 
 
     }

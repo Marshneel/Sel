@@ -48,3 +48,4 @@ com\unionstreet\NxTier\stepDefs\WLR3\NA127_WLR3_Virtual_Lines_NewProvide_stepDef
 com\unionstreet\NxTier\stepDefs\WLR3\NA129_WLR3_ISDN2_Standard_To_Basic_Analogue_Change_Of_Line_Type_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA113_WLR3_Analogue_Multi_Modify_stepDefs.class
 com\unionstreet\NxTier\stepDefs\WLR3\NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs.class
+com\unionstreet\NxTier\stepDefs\WLR3\NA152_Agent_Permissions_stepDefs.class

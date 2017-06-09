@@ -16,6 +16,7 @@ public class NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents_ste
 
     @When("^I navigate to service desk page and provide relevant info as a CP$")
     public void iNavigateToServiceDeskPageAndProvideRelevantInfoAsACP() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", " update Group_Permissions set [Add]='1', [View]='1',[Edit]='1', [Delete]='1' where Name='Incident'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update incidents set site_id ='166',company_id='138'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set defServiceLevel_id='1' where name='business customer created by CP'");
         webModel.getDashBoardPage().loadServiceDesk();

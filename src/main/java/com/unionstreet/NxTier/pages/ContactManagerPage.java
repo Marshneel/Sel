@@ -66,4 +66,10 @@ public class ContactManagerPage {
         utils.switchToParentWindow();
         utils.getOrdersPage();
     }
+    public  void searchAndClickBusinessCustomer(String customerName) throws InterruptedException {
+        commonMethods.search(""+customerName+"");
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+customerName+"')]"));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+customerName+"')]"));
+    }
 }

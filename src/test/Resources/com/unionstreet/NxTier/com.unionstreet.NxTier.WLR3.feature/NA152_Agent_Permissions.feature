@@ -24,9 +24,9 @@ Feature: NA - 152 Agent Permission
     When I create tariff and free minute plans
     Then I should be able to assign them to my customers
 
-#  Scenario: An agent can see and revoke tariff plans and free minutes assigned by CP to his customers, he cannot obviously reissue them
-#    Given CP has issued tariff and free minute plans to customers assigned under me
-#    When I am logged in as agent
-#    And navigate to pricing details of that particular customer
-#    Then I should be able to see and remove them
-#    And I should not be able to see them once they are removed unless they are assigned to me
+  Scenario: An agent can see and revoke tariff plans and free minutes assigned by CP to his customers, he cannot obviously reissue them
+    Given CP has issued tariff and free minute plans to customers assigned under me
+    When I am logged in as agent with out Zoom
+    And navigate to pricing details of that particular customer
+    Then I should be able to see and remove them
+    And I should not be able to see them once they are removed unless they are assigned to me

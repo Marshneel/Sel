@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA - 149 login as a CP, Agent and Reseller and search for Incidents
+Feature: NA - 149 SDSK login as a CP, Agent and Reseller and search for Incidents
 
   Scenario: login as a CP and search for incidents
     Given I am logged in as CP

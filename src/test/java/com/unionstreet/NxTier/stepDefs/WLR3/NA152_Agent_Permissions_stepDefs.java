@@ -105,15 +105,36 @@ public class NA152_Agent_Permissions_stepDefs {
         webModel.getLoginPage().loginAsCP();
         webModel.getCompanyMenuPage().clickConfigManager();
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)");
+        webModel.getCommonMethods().search("Buy BT Wholesale");
+        webModel.getConfigManagerPage().assignTariffPlanToAgent("Buy BT Wholesale");
         webModel.getConfigManagerPage().assignFreeMinutesPlanToAgent("Mobile 250 Free Mins (UK and Mob");
-        webModel.getSettingsPage().clickSettingsButton();
-        webModel.getSettingsPage().issueTariffAndFreeMinutePermissionsToAgent("agent");
         webModel.getDashBoardPage().clickContactManagerTab();
-        webModel.getCommonMethods().search("business customer agent assigned");
-        webModel.getUtils().clickBtn(By.xpath("//a[contains(text(),'business customer agent assigned')]"));
+        webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
         webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
+        webModel.getCompanyMenuPage().assignTariffAndFreeMinutesToCustomer("Mobile Gamma 1GB Data","Sell Data Tariff");
+        webModel.getDashBoardPage().logOut();
 
 
+    }
+
+    @And("^navigate to pricing details of that particular customer$")
+    public void navigateToPricingDetailsOfThatParticularCustomer() throws InterruptedException {
+        webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
+        webModel.getUtils().switchToNewWindow();
+        webModel.getCompanyMenuPage().clickPricingDetails();
+    }
+
+    @Then("^I should be able to see and remove them$")
+    public void iShouldBeAbleToSeeAndRemoveThem() throws InterruptedException {
+        webModel.getCompanyMenuPage().assertCPAssignedTariffAndFreeMinutes("sinfo_LCR_Tariff","sinfo_Data_Tariff","Sell Data Tariff","Mobile Gamma 1GB Data");
+        webModel.getCompanyMenuPage().removeCPAssignedTariffAndFreeMinutes();
+    }
+
+    @And("^I should not be able to see them once they are removed unless they are assigned to me$")
+    public void iShouldNotBeAbleToSeeThemOnceTheyAreRemovedUnlessTheyAreAssignedToMe() throws InterruptedException {
+    webModel.getCompanyMenuPage().assertAgentCannotSeeCPAssignedTariffAndFreeMinutes("Sell Data Tariff","Mobile Gamma 1GB Data");
+    webModel.getCompanyMenuPage().assertAgentCanOnlySeeAndAssignTariffAndFreeMinutePlansThatCPHasGivenPermissionFor("Sell 2p NGCS AC (+60 sec)","Buy BT Wholesale");
     }
 }
