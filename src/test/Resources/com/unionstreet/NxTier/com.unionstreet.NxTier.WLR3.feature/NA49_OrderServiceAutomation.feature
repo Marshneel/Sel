@@ -38,6 +38,6 @@ Feature: NA49 - Order service automation for agent, reseller and CP
     Given I am logged in as reseller
     And have created a new site for a company
     And Have created a quote for reseller
-    When I access quote details and add a service without selecting the mandatory control
+    When I access quote details and add a service without selecting the mandatory control for reseller
     Then The quote should become invalid
     And When I add the omitted control, the quote should become valid

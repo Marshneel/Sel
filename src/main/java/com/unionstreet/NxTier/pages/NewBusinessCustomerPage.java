@@ -19,6 +19,7 @@ public class NewBusinessCustomerPage {
     private final String CONTACTTYPE_AGENT = "//label[@for='DCompany_Is_Agent']";
     private final String CONTACTTYPE_RESELLER = "//label[@for='DCompany_is_reseller']";
     private final String VATPOPUP = "//span[@class='ui-button-text'][contains(text(),'Yes')]";
+    public final String CHANNELDETAILS_AGENT = "DAgentCommission_agent_id";
 
     ElementUtils utils = new ElementUtils();
 
@@ -48,7 +49,8 @@ public class NewBusinessCustomerPage {
             utils.clickBtn(By.linkText(ADD_BUTTON));
             utils.switchToNewWindow();
             utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
-        }
+        }}
+    public void createContactType(){
         utils.clickBtn(By.xpath(CONTACTTYPE_AGENT));
         utils.jumpToPopUpWindow(By.xpath(CONTACTTYPE_RESELLER));
         utils.clickBtn(By.xpath(VATPOPUP));

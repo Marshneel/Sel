@@ -11,7 +11,7 @@ Feature: NA44 - Agent login functionality
     Given I am logged in as an agent after the CP has created a quote for a "<customer_name>" assigned to me
     And a quote been created for my "<customer_name>" by a CP
     When I access orders manager
-    Then I should not see that particular quote
+    Then I should see that particular quote
     Examples:
       | customer_name    |
       | businessCustomer |

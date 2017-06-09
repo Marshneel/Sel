@@ -59,7 +59,9 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
     @When("^I access the services page$")
     public void iAccessTheServicesPage() throws InterruptedException, SQLException {
         webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getOrdersManagerPage().clickOnQuote();
+
+       // webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getAddServicePage().clickAddAProductOrService();
     }
 
@@ -75,7 +77,8 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
         webModel.getOrdersManagerPage().saveAssignServicePage();
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
+      //  webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
+       webModel.getOrdersManagerPage().clickOnQuote();
         webModel.getAddServicePage().clickAddAProductOrService();
         webModel.getAddServicePage().assertServicePresent("ServiceForAgent&Reseller");
         webModel.getUtils().checkPoint("NA51c done");

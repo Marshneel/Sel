@@ -4,7 +4,7 @@ import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
 public class LoginPage {
-    public final String USENAME_FIELD = "UserName";
+    public final String USERNAME_FIELD = "UserName";
     public final String PASSWORD_FIELD = "Password";
     //TODO
     public final String LOGINBUTTON = ".DivButton";
@@ -13,16 +13,16 @@ public class LoginPage {
 
     public void doLogin() throws InterruptedException {
         try {
-            utils.waitForElementVisible(By.id(USENAME_FIELD));
-            utils.zoomOut(By.id(USENAME_FIELD));
+            utils.waitForElementVisible(By.id(USERNAME_FIELD));
+            utils.zoomOut(By.id(USERNAME_FIELD));
             Thread.sleep(1000);
-            utils.sendText(By.id(USENAME_FIELD), utils.getProperty("userName"));
+            utils.sendText(By.id(USERNAME_FIELD), utils.getProperty("userName"));
         } catch (Exception e) {
             utils.getLoginPage();
-            utils.waitForElementVisible(By.id(USENAME_FIELD));
-            utils.zoomOut(By.id(USENAME_FIELD));
+            utils.waitForElementVisible(By.id(USERNAME_FIELD));
+            utils.zoomOut(By.id(USERNAME_FIELD));
             Thread.sleep(1000);
-            utils.sendText(By.id(USENAME_FIELD), utils.getProperty("userName"));
+            utils.sendText(By.id(USERNAME_FIELD), utils.getProperty("userName"));
         }
         utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("passWord"));
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
@@ -30,7 +30,7 @@ public class LoginPage {
 
 
     public void failedLogin(String username, String password) {
-        utils.sendText(By.id(USENAME_FIELD), username);
+        utils.sendText(By.id(USERNAME_FIELD), username);
         utils.sendText(By.id(PASSWORD_FIELD), password);
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
@@ -44,22 +44,19 @@ public class LoginPage {
         utils.assertURL("http://test01-web01/nxtiere2e");
     }
 
+public void zoomOutOnLoginPage() throws InterruptedException {
+    utils.waitForElementVisible(By.id(USERNAME_FIELD));
+    utils.zoomOut(By.id(USERNAME_FIELD));
+    Thread.sleep(1000);
+}
+
 
     public void loginAsAgent() throws InterruptedException {
-        try {
-            utils.waitForElementVisible(By.id(USENAME_FIELD));
-            utils.zoomOut(By.id(USENAME_FIELD));
-            Thread.sleep(1000);
-        } catch (Exception e) {
-            utils.getLoginPage();
-            utils.waitForElementVisible(By.id(USENAME_FIELD));
-            utils.zoomOut(By.id(USENAME_FIELD));
-            Thread.sleep(1000);
-        }
-        utils.clickBtn(By.id(USENAME_FIELD));
-        utils.sendText(By.id(USENAME_FIELD), "agentlogin");
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.clickBtn(By.id(USERNAME_FIELD));
+        utils.sendText(By.id(USERNAME_FIELD), "agentlogin");
         utils.clickBtn(By.id(PASSWORD_FIELD));
-        utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
+        utils.sendText(By.id(PASSWORD_FIELD), "password");
         try {
             utils.clickBtn(By.cssSelector(LOGINBUTTON));
         } catch (Exception e) {
@@ -70,17 +67,17 @@ public class LoginPage {
 
     public void loginAsReseller() throws InterruptedException {
         try {
-            utils.waitForElementVisible(By.id(USENAME_FIELD));
-            utils.zoomOut(By.id(USENAME_FIELD));
+            utils.waitForElementVisible(By.id(USERNAME_FIELD));
+            utils.zoomOut(By.id(USERNAME_FIELD));
             Thread.sleep(1000);
         } catch (Exception e) {
             utils.getLoginPage();
-            utils.waitForElementVisible(By.id(USENAME_FIELD));
-            utils.zoomOut(By.id(USENAME_FIELD));
+            utils.waitForElementVisible(By.id(USERNAME_FIELD));
+            utils.zoomOut(By.id(USERNAME_FIELD));
             Thread.sleep(1000);
         }
-        utils.clickBtn(By.id(USENAME_FIELD));
-        utils.sendText(By.id(USENAME_FIELD), "resellerlogin");
+        utils.clickBtn(By.id(USERNAME_FIELD));
+        utils.sendText(By.id(USERNAME_FIELD), "resellerlogin");
         utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
         try {
@@ -92,12 +89,12 @@ public class LoginPage {
 
 
     public void loginAsCP() throws InterruptedException {
-        utils.waitForElementVisible(By.id(USENAME_FIELD));
-        utils.zoomOut(By.id(USENAME_FIELD));
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.zoomOut(By.id(USERNAME_FIELD));
         Thread.sleep(1000);
-        utils.waitForElementVisible(By.id(USENAME_FIELD));
-        utils.clickBtn(By.id(USENAME_FIELD));
-        utils.sendText(By.id(USENAME_FIELD), "cp");
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.clickBtn(By.id(USERNAME_FIELD));
+        utils.sendText(By.id(USERNAME_FIELD), "cp");
         utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), "password");
         try {
@@ -108,12 +105,12 @@ public class LoginPage {
     }
 
     public void login(String userName, String passWord) throws InterruptedException {
-        utils.waitForElementVisible(By.id(USENAME_FIELD));
-        utils.zoomOut(By.id(USENAME_FIELD));
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.zoomOut(By.id(USERNAME_FIELD));
         Thread.sleep(1000);
-        utils.waitForElementVisible(By.id(USENAME_FIELD));
-        utils.clickBtn(By.id(USENAME_FIELD));
-        utils.sendText(By.id(USENAME_FIELD), userName);
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.clickBtn(By.id(USERNAME_FIELD));
+        utils.sendText(By.id(USERNAME_FIELD), userName);
         utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), passWord);
         utils.clickBtn(By.cssSelector(LOGINBUTTON));

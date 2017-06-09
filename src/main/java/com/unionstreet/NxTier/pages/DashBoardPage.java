@@ -42,4 +42,14 @@ public class DashBoardPage {
         utils.waitForElementVisible(By.id(CONTACT_MANAGER_BUTTON));
         utils.clickBtn(By.id(CONTACT_MANAGER_BUTTON));
     }
+    public void loadServiceDesk() {
+        try { utils.getDashBoardPage();
+            utils.waitForElementVisible(By.id("HrefServiceDesk"));
+            utils.clickBtn(By.id("HrefServiceDesk"));
+        } catch (Exception e) {
+            utils.getDashBoardPage();
+            utils.waitForElementVisible(By.id("HrefServiceDesk"));
+            utils.clickBtn(By.id("HrefServiceDesk"));
+        }
+    }
 }

@@ -27,6 +27,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
         webModel.getNewBusinessCustomerPage().clickContactManagerButton();
         webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
         webModel.getNewBusinessCustomerPage().companyInfoForNewBusinessCustomer();
+        webModel.getNewBusinessCustomerPage().createContactType();
         webModel.getNewBusinessCustomerPage().addSiteInfoForNewBusinessCustomer();
         webModel.getNewBusinessCustomerPage().addSiteContactInfoForNewBusinessCustomer();
     }
@@ -109,6 +110,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
 
     @Given("^I am logged in as agent$")
     public void iAmLoggedInAsAgent() throws InterruptedException {
+        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsAgent();
     }
 

@@ -50,6 +50,7 @@ public class NA91_WLR3_Analogue_Premium_Single_Cease_stepDefs {
         webModel.getWlr3_orderDetails_page().getToWLR3QuotePage(webModel.getNewBusinessCustomerPage().RanName);
         //perform assertions on the order page
         webModel.getWlr3_orderDetails_page().assertQuoteForCeaseOrder();
-        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL' where serviceid='02063678369'");
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='02063678369'");
+
     }
 }

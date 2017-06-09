@@ -265,7 +265,7 @@ public class SettingsPage {
 
     public void loginAsAgent() throws InterruptedException {
         dashBoardPage.logOut();
-        utils.sendText(By.id(loginPage.USENAME_FIELD), newBusinessCustomerPage.RanName);
+        utils.sendText(By.id(loginPage.USERNAME_FIELD), newBusinessCustomerPage.RanName);
         utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
         utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
         utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
@@ -328,7 +328,7 @@ public class SettingsPage {
 
     public void loginAsCpUser() throws InterruptedException {
         dashBoardPage.logOut();
-        utils.sendText(By.id(loginPage.USENAME_FIELD), CP_RanName);
+        utils.sendText(By.id(loginPage.USERNAME_FIELD), CP_RanName);
         utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
         utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
         utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
@@ -394,6 +394,21 @@ public class SettingsPage {
             utils.checkAlert();
         }
         utils.switchToParentWindow();
+    }
+    public void issueTariffAndFreeMinutePermissionsToAgent(String agentName) throws InterruptedException {
+        utils.clickBtn(By.linkText(""+agentName+""));
+        utils.switchToNewWindow();
+        utils.scrollUp(By.xpath(ADDPERMISSION_CONFIGURATION));
+        utils.clickBtn(By.xpath(ADDPERMISSION_CONFIGURATION));
+        utils.scrollUp(By.xpath(CONFIGURATION_FREEMINUTES));
+        utils.clickBtn(By.xpath(CONFIGURATION_FREEMINUTES));
+        utils.makeSureBoxIsChecked(By.id(CONFIGURATION_FREEMINUTES_SELECTALL),By.id(CONFIGURATION_FREEMINUTES_SELECTALL));
+        utils.scrollUp(By.xpath(CONFIGURATION_TARIFFMANAGER));
+        utils.clickBtn(By.xpath(CONFIGURATION_TARIFFMANAGER));
+        utils.makeSureBoxIsChecked(By.id(CONFIGURATION_TARIFFMANAGER_SELECTALL),By.id(CONFIGURATION_TARIFFMANAGER_SELECTALL));
+        saveAndCloseAddPermissions();
+
+
 
     }
 }

@@ -56,10 +56,10 @@ public class NA44_Agent_Login_stepDefs {
         webModel.getDashBoardPage().clickOrderManagerButton();
     }
 
-    @Then("^I should not see that particular quote$")
-    public void iShouldNotSeeThatParticularQuote() {
+    @Then("^I should see that particular quote$")
+    public void iShouldSeeThatParticularQuote() {
         webModel.getOrdersManagerPage().searchQuoteByQRN();
-        webModel.getOrdersManagerPage().assertAgentCannotViewQuotes();
+        webModel.getOrdersManagerPage().assertAgentCanViewQuotes();
         webModel.getUtils().checkPoint("NA44b completed");
     }
 }

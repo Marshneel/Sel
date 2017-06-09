@@ -11,12 +11,12 @@ public class ContactManagerPage {
 
     private final String COMPANYDETAILS_BUTTON = "HrefCompanyDetails";
     private final String COMPANYSITES = "HrefCompanySites";
-    private final String CHANNELDETAILS_AGENT = "DAgentCommission_agent_id";
+
 
     ElementUtils utils = new ElementUtils();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
     CommonMethods commonMethods = new CommonMethods();
-    AddSiteDetailsPage addSiteDetails = new AddSiteDetailsPage();
+
 
 
     public void assertNewBusinessCustomer() {
@@ -57,7 +57,7 @@ public class ContactManagerPage {
     public void assignAnAgentForBC() {
         utils.waitForElementVisible(By.id(COMPANYDETAILS_BUTTON));
         utils.clickBtn(By.id(COMPANYDETAILS_BUTTON));
-        utils.selectByVisibleText(By.id(CHANNELDETAILS_AGENT), "agent");
+        utils.selectByVisibleText(By.id(newBusinessCustomerPage.CHANNELDETAILS_AGENT), "agent");
         try {
             utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         } catch (Exception e) {
@@ -65,5 +65,11 @@ public class ContactManagerPage {
         }
         utils.switchToParentWindow();
         utils.getOrdersPage();
+    }
+    public  void searchAndClickBusinessCustomer(String customerName) throws InterruptedException {
+        commonMethods.search(""+customerName+"");
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+customerName+"')]"));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+customerName+"')]"));
     }
 }

@@ -14,7 +14,7 @@ public class OrdersManagerPage {
 
     public final String QUOTE = "bodyContent";
     public final String INVISIBLE_ORDER_SERVICESID = "//input[@id='Service_ID']";
-    private final String CREATEQUOTE_BUTTON = "//a[@class='add'][text()[contains(.,'Create Quote')]]";
+    private final String CREATEQUOTE_BUTTON = "//a[contains(@onclick,'OpenStartQuote')]";
     //TODO
     private final String ORDER_QUOTE_DESCRIPTION_FIELD = "QuoteDescription";
     private final String ORDERS_SAVEQUOTE_BUTTON = "CreateQuoteButton";
@@ -178,8 +178,8 @@ public class OrdersManagerPage {
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
     }
 
-    public void assertAgentCannotViewQuotes() {
-        utils.searchAndAssertTextNotPresent(By.id(QUOTE), QUOTE_RanName);
+    public void assertAgentCanViewQuotes() {
+        utils.searchAndAssertTextPresent(By.id(QUOTE), QUOTE_RanName);
     }
 
     public void createQuote() throws InterruptedException {
@@ -192,7 +192,7 @@ public class OrdersManagerPage {
     }
 
     public void searchQuoteByBcRN() throws InterruptedException {
-        commonMethods.search(newBusinessCustomerPage.RanName);
+       // commonMethods.search(newBusinessCustomerPage.RanName);
         utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
     }
 
@@ -200,13 +200,16 @@ public class OrdersManagerPage {
         utils.sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select order_id from orders where OrderDescription ='" + type + "'");
         utils.result.next();
         String one = utils.result.getString("order_id");
-        utils.waitForElementVisible(By.xpath("//a[text()='" + one + "']"));
-        utils.clickBtn(By.xpath("//a[text()='" + one + "']"));
+       try{ utils.waitForElementVisible(By.xpath("//a[text()='" + one + "']"));
+        utils.clickBtn(By.xpath("//a[text()='" + one + "']"));}
+       catch (Exception e){utils.checkAlert();}
+
     }
 
     public void loadOrdersManagerAndClickOnQuoteID(String type) throws InterruptedException, SQLException {
        try{
-         utils.getOrdersPage();
+           utils.switchToPreviousWindow(0);
+        // utils.getOrdersPage();
         clickOnQuoteID(type);
         utils.switchToNewWindow();
     }catch (Exception e){ utils.getOrdersPage();
@@ -216,7 +219,7 @@ public class OrdersManagerPage {
     public void savingQuoteAndExtractingOrderServiceID() throws InterruptedException {
         utils.switchToNewWindow();
         try {
-            utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+            utils.clickBtn(By.xpath("//input[contains(@onclick,'Save')]"));
         } catch (Exception e) {
             utils.checkAlert();
         }
@@ -229,7 +232,7 @@ public class OrdersManagerPage {
     }
 
     public void saveTheServiceAndGetTheOrderServicesID() {
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.xpath("//input[contains(@onclick,'Save')]"));
         utils.waitForElementVisible(By.xpath(INVISIBLE_ORDER_SERVICESID));
         utils.getAttributeOfElement(By.xpath(INVISIBLE_ORDER_SERVICESID), "value");
     }
@@ -292,5 +295,15 @@ public class OrdersManagerPage {
         utils.getOrdersPage();
         utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//td[contains(text(),'" + order + "')]"));
         utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//td[contains(text(),'" + newBusinessCustomerPage.RanName + "')]"));
+    }
+    public void clickOnQuote(){
+      try{  utils.waitForElementVisible(By.xpath("//a[contains(@href,'Orders/EditOrder')]"));
+        utils.clickBtn(By.xpath("//a[contains(@href,'Orders/EditOrder')]"));
+      utils.switchToNewWindow();}
+      catch (Exception e){utils.getOrdersPage();
+          utils.waitForElementVisible(By.xpath("//a[contains(@href,'Orders/EditOrder')]"));
+          utils.clickBtn(By.xpath("//a[contains(@href,'Orders/EditOrder')]"));
+          utils.switchToNewWindow();
+      }
     }
 }

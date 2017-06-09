@@ -27,13 +27,13 @@ public class AddServicePage {
         utils.waitForElementVisible(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
         utils.pageJumpWithoutClose(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
-        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.waitForElementVisible(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
         try {
-            utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+            utils.clickBtn(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
         } catch (Exception e) {
             utils.checkAlert();
         }
-        utils.switchToPreviousWindow();
+        utils.switchToPreviousWindow(1);
     }
 
     public void clickService() throws InterruptedException, AWTException {
@@ -65,7 +65,9 @@ public class AddServicePage {
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         } catch (Exception e) {
             utils.getOrdersPage();
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
+            ordersManagerPage.clickOnQuote();
+
+            // ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.clickBtnWithWait(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
 

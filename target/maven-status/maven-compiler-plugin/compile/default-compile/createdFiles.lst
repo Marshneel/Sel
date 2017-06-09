@@ -12,6 +12,7 @@ com\unionstreet\NxTier\pages\WLR3_NewProvide_ProvisionPage.class
 com\unionstreet\NxTier\pages\WLR3_New_Provide_OrderPage.class
 com\unionstreet\NxTier\pages\EditOrderPage.class
 com\unionstreet\NxTier\pages\WLR3_NewProvide_FeaturesPage.class
+com\unionstreet\NxTier\pages\ServiceDeskPage.class
 com\unionstreet\NxTier\pages\WLR3_BusinessContinuityPage.class
 com\unionstreet\NxTier\pages\WLR3_NewProvide_EngineeringPage.class
 com\unionstreet\NxTier\pages\WLR3_SiteInformationPage.class
@@ -24,6 +25,7 @@ com\unionstreet\NxTier\pages\CompanyMenuPage.class
 com\unionstreet\NxTier\pages\WLR3_LineNumberingPage.class
 com\unionstreet\NxTier\pages\WLR3_NewProvide_DatePage.class
 com\unionstreet\NxTier\pages\NewBusinessCustomerPage.class
+com\unionstreet\NxTier\pages\ConfigManagerPage.class
 com\unionstreet\NxTier\support\BaseClass.class
 com\unionstreet\NxTier\pages\WLR3_NewProvide_SitePage.class
 com\unionstreet\NxTier\pages\WLR_and_NxTierServicesPage.class

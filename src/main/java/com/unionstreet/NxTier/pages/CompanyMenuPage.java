@@ -53,11 +53,12 @@ public class CompanyMenuPage {
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
+    ConfigManagerPage configManagerPage=new ConfigManagerPage();
     private long today;
     private String day;
 
     public void addNewSite() throws InterruptedException {
-        accessCompanyMenu();
+        accessCompanyMenu(NewBusinessCustomerPage.RanName);
         clickCompanySitesButton();
         utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.switchToNewWindow();
@@ -96,12 +97,12 @@ public class CompanyMenuPage {
         utils.clickBtn(By.id(COMPANYSITES_BUTTON));
     }
 
-    public void accessCompanyMenu() throws InterruptedException {
+    public void accessCompanyMenu(String ranName) throws InterruptedException {
         newBusinessCustomerPage.clickContactManagerButton();
-        utils.sendText(By.id(SEARCH_BUTTON), NewBusinessCustomerPage.RanName);
+        utils.sendText(By.id(SEARCH_BUTTON), ranName);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
-        utils.waitForElementVisible(By.linkText(NewBusinessCustomerPage.RanName));
-        utils.clickBtn(By.linkText(NewBusinessCustomerPage.RanName));
+        utils.waitForElementVisible(By.linkText(ranName));
+        utils.clickBtn(By.linkText(ranName));
         utils.switchToNewWindow();
     }
 
@@ -110,7 +111,7 @@ public class CompanyMenuPage {
     }
 
     public void addInvoicingDetails() throws InterruptedException {
-        accessCompanyMenu();
+        accessCompanyMenu(NewBusinessCustomerPage.RanName);
         clickInvoicingDetailsButton();
         utils.selectByVisibleText(By.id(BILLING_REPORT_PROFILE_DROPDOWN), utils.getProperty("billingReportProfile"));
         utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
@@ -144,20 +145,20 @@ public class CompanyMenuPage {
         utils.clickBtn(By.id(CLI_BUTTON));
     }
 
-    public void addCLIs() throws InterruptedException {
-        accessCompanyMenu();
+    public void addCLIs(String ranName, String number) throws InterruptedException {
+        accessCompanyMenu(ranName);
         clickCLIButton();
         utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindow();
         try {
             utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));
             utils.clickBtn(By.id(CLI_NUMBER_FIELD));
-            utils.sendText(By.id(CLI_NUMBER_FIELD), RanNumber);
+            utils.sendText(By.id(CLI_NUMBER_FIELD), number);
         } catch (TimeoutException e) {
-            utils.sendText(By.id(CLI_NUMBER_FIELD), RanNumber);
+            utils.sendText(By.id(CLI_NUMBER_FIELD), number);
         }
         utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
-        utils.verifyStringMatch(By.cssSelector(ADDED_CLI_CHECK_FIELD), RanNumber);
+        utils.verifyStringMatch(By.cssSelector(ADDED_CLI_CHECK_FIELD), number);
         //TODO
         utils.closeCurrentPage();
         utils.switchToParentWindow();
@@ -236,7 +237,7 @@ public class CompanyMenuPage {
     }
 
     public void addPricingDetails() throws InterruptedException {
-        accessCompanyMenu();
+        accessCompanyMenu(NewBusinessCustomerPage.RanName);
         clickPricingDetails();
         utils.selectByIndex(By.id(PRICING_DETAILS_PACKAGE_FIELD), 1);
         utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
@@ -247,11 +248,66 @@ public class CompanyMenuPage {
     }
 
     public void clickPricingDetails() {
+        utils.waitForElementVisible(By.id(PRICING_DETAILS_BUTTON));
         utils.clickBtn(By.id(PRICING_DETAILS_BUTTON));
     }
 
     public void clickConfigManager() {
+        utils.waitForElementVisible(By.id(CONFIGMANAGER_BUTTON));
         utils.clickBtn(By.id(CONFIGMANAGER_BUTTON));
+    }
+    public void assertAgentCreatedTariffandFreeMinutes() throws InterruptedException {
+        utils.switchToNewWindow();
+        clickPricingDetails();
+        utils.waitForElementVisible(By.id("ChkPerFreeMinutes"));
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.id("ChkPerFreeMinutes"));
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+configManagerPage.RanFreeMinutePlanName+"')]"));
+        utils.searchAndAssertTextPresent(By.id("GroupTable"), ""+configManagerPage.RanFreeMinutePlanName+"");
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),configManagerPage.RanTariffPlanName);
+    }
+    public void assignTariffAndFreeMinutesToCustomer(String FreeMinutePlan,String TariffPlan) throws InterruptedException {
+        utils.waitForElementVisible(By.id("ChkPerFreeMinutes"));
+        Thread.sleep(1000);
+        utils.makeSureBoxIsChecked(By.id("ChkPerFreeMinutes"),By.id("ChkPerFreeMinutes"));
+        utils.waitForElementVisible(By.xpath("//table[@id='GroupTable']//td[contains(text(),'"+FreeMinutePlan+"')]/..//input[@id='SelectFreeMins_13']"));
+       Thread.sleep(1000);
+        utils.makeSureBoxIsChecked(By.id("SelectFreeMins_13"),By.id("SelectFreeMins_13"));
+        utils.waitForElementVisible(By.id("sinfo_LCR_Tariff"));
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),""+TariffPlan+"");
+        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),"Sell Data Tariff");
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.switchToPreviousWindow(0);
+    }
+    public void assertCPAssignedTariffAndFreeMinutes(String tariffVoiceField, String tariffDataField, String tariffPlan, String freeMinutePlan){
+        utils.waitForElementVisible(By.xpath("//select[@id='"+tariffVoiceField+"']//option[@selected='selected'][contains(text(),'"+tariffPlan+"')]"));
+        utils.waitForElementVisible(By.xpath("//select[@id='"+tariffDataField+"']//option[@selected='selected'][contains(text(),'"+tariffPlan+"')]"));
+        utils.waitForElementVisible(By.xpath("//table[@id='GroupTable']//td[contains(text(),'"+freeMinutePlan+"')]/..//input[@checked='checked']"));
+    }
+    public void removeCPAssignedTariffAndFreeMinutes() throws InterruptedException {
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.id("ChkPerFreeMinutes"));
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),"Select");
+        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),"Select");
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+    }
+    public void assertAgentCannotSeeCPAssignedTariffAndFreeMinutes(String tariffPlan, String freeMinutePlan) throws InterruptedException {
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.id("ChkPerFreeMinutes"));
+        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'"+tariffPlan+"')]"));
+        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_Data_Tariff']//option[contains(text(),'"+tariffPlan+"')]"));
+        utils.assertElementNotPresent(By.xpath("//table[@id='GroupTable']//tr[contains(text(),'"+freeMinutePlan+"')]"));
+    }
+    public void assertAgentCanOnlySeeAndAssignTariffAndFreeMinutePlansThatCPHasGivenPermissionFor(String tariffPlan, String unavailableTariffPlan) throws InterruptedException {
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),tariffPlan);
+        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),tariffPlan);
+        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'"+unavailableTariffPlan+"')]"));
+        Thread.sleep(1000);
+        utils.makeSureBoxIsChecked(By.id("SelectFreeMins_2"),By.id("SelectFreeMins_2"));
+
+
     }
 }
 

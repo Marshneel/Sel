@@ -297,8 +297,8 @@ public class ElementUtils {
     public void makeSureBoxIsChecked(By by1, By by2) {
         WebElement element = driver.findElement(by1);
         if (element.isSelected() == true) {
-        } else {
-            javaScriptExecutorClick(by2);
+        } else {javaScriptExecutorClick(by2);
+
         }
     }
 
@@ -327,7 +327,7 @@ public class ElementUtils {
     }
 
     public void getDashBoardPage() {
-        driver.get("http://test01-web01/nxtiere2e/Dashboard/index");
+       try{ driver.get("http://test01-web01/nxtiere2e/Dashboard/index");}catch (Exception e){checkAlert();}
     }
 
     public void getCpAddUserPage() {
@@ -431,9 +431,10 @@ public class ElementUtils {
         }
     }
 
-    public void switchToPreviousWindow() {
+
+    public void switchToPreviousWindow(int number) {
         ArrayList<String> tabs = new ArrayList(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
+        driver.switchTo().window(tabs.get(number));
     }
 
     public void getCreateCustomerPage() {
@@ -490,7 +491,9 @@ public class ElementUtils {
             System.out.println(line);
         }
     }
-    public void hreadSleep(int time) throws InterruptedException {
-        Thread.sleep(time);
+    public void scrollBack(){
+        driver.navigate().back();
+
     }
-}
+    }
+
