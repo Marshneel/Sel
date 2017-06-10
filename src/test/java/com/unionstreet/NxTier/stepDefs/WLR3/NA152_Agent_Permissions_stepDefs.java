@@ -105,7 +105,6 @@ public class NA152_Agent_Permissions_stepDefs {
         webModel.getLoginPage().loginAsCP();
         webModel.getCompanyMenuPage().clickConfigManager();
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)");
-        webModel.getCommonMethods().search("Buy BT Wholesale");
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Buy BT Wholesale");
         webModel.getConfigManagerPage().assignFreeMinutesPlanToAgent("Mobile 250 Free Mins (UK and Mob");
         webModel.getDashBoardPage().clickContactManagerTab();

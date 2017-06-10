@@ -15,10 +15,10 @@ public class ConfigManagerPage {
 
     public void assignTariffPlanToAgent(String tariffplan) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'Config Manager')]"));
-        commonMethods.search("Sell 2p NGCS AC (+60 sec)");
+        commonMethods.search(""+tariffplan+"");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+tariffplan+"')]"));
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath("//a[contains(text(),'Sell 2p NGCS AC (+60 sec)')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+tariffplan+"')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id("HrefAssignTarrifs"));
         utils.clickBtn(By.id("HrefAssignTarrifs"));

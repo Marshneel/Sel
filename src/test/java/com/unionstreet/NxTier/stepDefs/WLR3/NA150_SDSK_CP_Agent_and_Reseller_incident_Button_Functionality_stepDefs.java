@@ -16,7 +16,7 @@ public class NA150_SDSK_CP_Agent_and_Reseller_incident_Button_Functionality_step
 
     @When("^I access service desk page and search for a \"([^\"]*)\" with \"([^\"]*)\"$")
     public void iAccessServiceDeskPageAndSearchForAWith(String accountName, String ID) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
-        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", " update Group_Permissions set [Add]='1', [View]='1',[Edit]='1', [Delete]='1' where Name='Incident'");
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Group_Permissions set [Add]='1', [View]='1',[Edit]='1', [Delete]='1' where Name='Incident'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='0', defServiceLevel_id='1' where ID='"+ID+"'");
         webModel.getDashBoardPage().loadServiceDesk();
         webModel.getServiceDeskPage().assertTextOnServiceDesk();

@@ -19,7 +19,7 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @And("^have created a business customer and assigned required data$")
     public void haveCreatedABusinessCustomerAndAssignedRequiredData() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", " update Group_Permissions set [Add]='1', [View]='1',[Edit]='1', [Delete]='1' where Name='Incident'");
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Group_Permissions set [Add]='1', [View]='1',[Edit]='1', [Delete]='1' where Name='Incident'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03012345678'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03087654321'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03012348765'");
