@@ -14,9 +14,10 @@ public class ServiceDeskPage {
     WLR3_OrderDetails_Page wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
 
 
-    public void assertTextOnServiceDesk(){
-        utils.waitForElementVisible(By.xpath("//h1[contains(text(),'Log an incident')]"));
-    }
+
+    public void assertTextOnServiceDesk() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
+       utils.waitForElementVisible(By.xpath("//h1[contains(text(),'Log an incident')]"));}
+
     public void searchByAccountName(String accountName) throws InterruptedException {
         utils.waitForElementVisible(By.id("search_Account_Name"));
         utils.sendText(By.id("search_Account_Name"),accountName);

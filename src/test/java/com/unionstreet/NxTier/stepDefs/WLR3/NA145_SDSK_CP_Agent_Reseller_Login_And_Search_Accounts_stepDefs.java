@@ -13,26 +13,27 @@ import java.sql.SQLException;
  * Created by RajeshG on 30/05/2017.
  */
 public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
-    WebModel webModel=new WebModel();
-
+    WebModel webModel = new WebModel();
 
 
     @And("^have created a business customer and assigned required data$")
     public void haveCreatedABusinessCustomerAndAssignedRequiredData() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Group_Permissions set [Add]='1', [View]='1',[Edit]='1', [Delete]='1' where Name='Incident'");
+
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03012345678'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03087654321'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03012348765'");
-        webModel.getCompanyMenuPage().addCLIs("business customer created by CP","03012345678");
+        webModel.getCompanyMenuPage().addCLIs("business customer created by CP", "03012345678");
         webModel.getUtils().switchToPreviousWindow(0);
-        webModel.getCompanyMenuPage().addCLIs("business customer agent assigned","03087654321");
+        webModel.getCompanyMenuPage().addCLIs("business customer agent assigned", "03087654321");
         webModel.getUtils().switchToPreviousWindow(0);
-        webModel.getCompanyMenuPage().addCLIs("site called business customer","03012348765");
+        webModel.getCompanyMenuPage().addCLIs("site called business customer", "03012348765");
         webModel.getUtils().switchToPreviousWindow(0);
 
 
-    } @When("^I am on the service desk page$")
-    public void iAmOnTheServiceDeskPage()  {
+    }
+
+    @When("^I am on the service desk page$")
+    public void iAmOnTheServiceDeskPage() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         webModel.getDashBoardPage().loadServiceDesk();
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
     }
@@ -51,7 +52,7 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
         //results
         webModel.getServiceDeskPage().searchResultsForServiceDesk("site called business customer");
         ////search by short name////////////////////////////////////////////
-       //search for CP by short name
+        //search for CP by short name
         webModel.getServiceDeskPage().searchByShortName("CP");
         //results
         webModel.getServiceDeskPage().searchResultsForServiceDesk("business customer created by CP");
@@ -80,7 +81,7 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03087654321'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03012348765'");
     }
- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Given("^I am logged in as agent and CP has already assigned me a business customer$")
     public void iAmLoggedInAsAgentAndCPHasAlreadyAssignedMeABusinessCustomer() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
@@ -91,7 +92,7 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
     }
 
     @When("^I am on the service desk page as an agent$")
-    public void iAmOnTheServiceDeskPageAsAnAgent() throws InterruptedException {
+    public void iAmOnTheServiceDeskPageAsAnAgent() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getDashBoardPage().loadServiceDesk();
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
     }
@@ -99,18 +100,18 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
     @Then("^I should be able search by Account name, Account number & CLI and get all the relevant details in the agent search$")
     public void iShouldBeAbleSearchByAccountNameAccountNumberCLIAndGetAllTheRelevantDetailsInTheAgentSearch() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
 
-      ////search by account name///////////////////////////////////////
+        ////search by account name///////////////////////////////////////
         //search for CP and agent by account name
         webModel.getServiceDeskPage().searchByAccountName("business customer");
         //results
         webModel.getServiceDeskPage().searchResultsForServiceDesk("business customer agent assigned");
         webModel.getServiceDeskPage().assertNotFound("business customer created by CP");
-    //search for reseller by account name
+        //search for reseller by account name
         webModel.getServiceDeskPage().searchByAccountName("reseller");
         //result
         webModel.getServiceDeskPage().assertNotFound("site called business customer");
 
-    ////search by short name////////////////////////////////////////////
+        ////search by short name////////////////////////////////////////////
         //search for CP by short name
         webModel.getServiceDeskPage().searchByShortName("CP");
         //results
@@ -123,7 +124,7 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
         webModel.getServiceDeskPage().searchByShortName("site called business customer");
         //results
         webModel.getServiceDeskPage().assertNotFound("site called business customer");
-    ///search by CLI//////////////////////////////////////////////////
+        ///search by CLI//////////////////////////////////////////////////
         //search for CP by CLI
         webModel.getServiceDeskPage().searchByCLI("03012345678");
         //results
@@ -149,8 +150,9 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsReseller();
     }
+
     @When("^I am on the service desk page as a reseller$")
-    public void iAmOnTheServiceDeskPageAsAReseller() throws InterruptedException {
+    public void iAmOnTheServiceDeskPageAsAReseller() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getDashBoardPage().loadServiceDesk();
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
 
@@ -196,5 +198,25 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03012348765'");
     }
 
+
+    @Given("^I am logged in as CP and assign service desk permissions$")
+    public void iAmLoggedInAsCPAndAssignServiceDeskPermissions() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
+        webModel.getLoginPage().loginAsCP();
+        webModel.getUtils().sqlQuery("portal", "test01-sql01", "NxtierE2E", "select * from Group_Permissions where GTypeID='58dbb78d-8c9f-495f-99e6-0dbce29f02fe' and Name='Incident'");
+        if (webModel.getUtils().result.next() == false) {
+            webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "insert into Group_Permissions ([Add],[View],[Edit],[Delete],GTypeID,Name,BaseID)values ('1','1','1', '1' ,'58dbb78d-8c9f-495f-99e6-0dbce29f02fe', 'Incident', '12081')");
+        } else {
+        }
+        Thread.sleep(1000);
+        webModel.getUtils().sqlQuery("portal", "test01-sql01", "NxtierE2E", "select * from Group_Permissions where GTypeID='b99d95f9-bbec-45b1-abc2-db70df79c4ce' and Name='Incident'");
+        if (webModel.getUtils().result.next() == false) {
+            webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "insert into Group_Permissions ([Add],[View],[Edit],[Delete],GTypeID,Name,BaseID)values ('1','1','1', '1' ,'b99d95f9-bbec-45b1-abc2-db70df79c4ce', 'Incident', '12081')");
+        } else {
+        }
+        Thread.sleep(1000);
+        webModel.getDashBoardPage().logOut();
+        webModel.getLoginPage().loginAsCPWithOutZoom();
+
+    }
 
 }
