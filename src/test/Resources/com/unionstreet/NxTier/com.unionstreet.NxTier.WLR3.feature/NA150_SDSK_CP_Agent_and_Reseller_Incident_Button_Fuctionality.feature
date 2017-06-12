@@ -7,7 +7,7 @@ Feature: NA - 150 SDSK CP, agent and reseller incident button functionality
 
     Examples:
       | userName     | passWord | accountName                     | ID |
-      | CP           | password | business customer created by CP | 138|
+      | CPlogin      | password | business customer created by CP | 138|
       | agentlogin   | password | business customer agent assigned| 139|
       | resellerlogin| password | business customer reseller      | 109|
 
