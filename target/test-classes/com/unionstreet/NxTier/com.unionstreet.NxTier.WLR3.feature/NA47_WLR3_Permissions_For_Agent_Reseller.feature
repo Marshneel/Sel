@@ -3,7 +3,7 @@ Feature: NA47 - Granting and Revoking WLR3 permissions for Agent and Reseller
 
   Scenario: CP revokes the WLR3 order permissions for an agent so that the WLR3 orders are hidden from the agent when he logs in and vice versa
     Given CP has revoked my WLR order permissions
-    When I am logged in as agent
+    When I am logged in as agent with out Zoom
     Then I should not be able to see and edit them
     And the orders are visible and editable once the CP issues the orders back agent rights
 

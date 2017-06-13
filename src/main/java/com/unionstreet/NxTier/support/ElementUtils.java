@@ -11,10 +11,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.*;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.*;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.List;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
 import static com.unionstreet.NxTier.support.BaseClass.utils;
@@ -494,6 +497,20 @@ public class ElementUtils {
     public void scrollBack(){
         driver.navigate().back();
 
+    }
+    public void clickEnter() throws AWTException {
+
+        try {
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+            robot.delay(200);
+        }catch (Exception e){}
+
+    }
+    public void enterServiceDeskURLandCLickEnter(String siteID) throws AWTException {
+        driver.get("http://test01-web01/nxtiere2e/ServiceDesk/LogIncident/"+siteID+"");
+        clickEnter();
     }
     }
 

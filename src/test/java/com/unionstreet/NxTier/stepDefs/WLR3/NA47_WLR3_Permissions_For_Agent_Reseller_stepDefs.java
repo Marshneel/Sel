@@ -14,7 +14,8 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
 
     @Given("^CP has revoked my WLR order permissions$")
     public void cpHasRevokedMyWLROrderPermissions() throws InterruptedException {
-        webModel.getLoginPage().doLogin();
+        webModel.getLoginPage().zoomOutOnLoginPage();
+        webModel.getLoginPage().loginAsCP();
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().revokingAgentWLRPermissions();
         webModel.getDashBoardPage().logOut();
@@ -30,7 +31,8 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
 
     @And("^the orders are visible and editable once the CP issues the orders back agent rights$")
     public void theOrdersAreVisibleAndEditableOnceTheCPIssuesTheOrdersBack() throws InterruptedException {
-        webModel.getLoginPage().doLogin();
+        webModel.getLoginPage().zoomOutOnLoginPage();
+        webModel.getLoginPage().loginAsCP();
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().issuingWLRPermissions();
         webModel.getDashBoardPage().logOut();
@@ -43,7 +45,8 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
 
     @And("^the orders are visible and editable once the CP issues the orders back reseller rights$")
     public void theOrdersAreVisibleAndEditableOnceTheCPIssuesTheOrdersBackResellerRights() throws InterruptedException {
-        webModel.getLoginPage().doLogin();
+        webModel.getLoginPage().zoomOutOnLoginPage();
+        webModel.getLoginPage().loginAsCP();
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().issuingWLRPermissions();
         webModel.getDashBoardPage().logOut();

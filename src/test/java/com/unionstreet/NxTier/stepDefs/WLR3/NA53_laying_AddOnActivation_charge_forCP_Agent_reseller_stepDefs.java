@@ -51,6 +51,4 @@ public class NA53_laying_AddOnActivation_charge_forCP_Agent_reseller_stepDefs {
         webModel.getAddServicePage().addServiceToQuote("addOnActivationCharge");
         webModel.getOrdersManagerPage().savingQuoteAndExtractingOrderServiceID();
     }
-
-
 }

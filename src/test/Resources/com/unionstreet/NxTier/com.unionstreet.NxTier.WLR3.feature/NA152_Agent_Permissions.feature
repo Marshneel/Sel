@@ -17,7 +17,7 @@ Feature: NA - 152 Agent Permission
     Given I am logged in as agent
     And  Have created a new customer
     When I navigate to contact manager page and search for the contact
-   Then I should be able to find it
+    Then I should be able to find it
 
   Scenario: An agent can assign free minutes and tariff plans created by him to the customers under him
     Given I am logged in as agent
