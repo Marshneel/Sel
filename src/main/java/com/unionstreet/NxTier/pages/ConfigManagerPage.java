@@ -81,8 +81,8 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.id("TariffName1"));
         RanTariffPlanName=utils.randomName();
         utils.sendText(By.id("TariffName1"),RanTariffPlanName);
-        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.waitForElementVisible(By.id("tariffSaveAndCloseButton"));
+        utils.clickBtn(By.id("tariffSaveAndCloseButton"));
         utils.switchToPreviousWindow(0);
     }
     public void addFreeMinutesPlan(){

@@ -18,22 +18,11 @@ public class NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_inform
 
     @Given("^I am logged in with \"([^\"]*)\" and \"([^\"]*)\"$")
     public void iAmLoggedInWithAnd(String userName, String passWord) throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
+       webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().login(userName, passWord);
-        webModel.getUtils().sqlQuery("portal", "test01-sql01", "NxtierE2E", "select * from Group_Permissions where GTypeID='b99d95f9-bbec-45b1-abc2-db70df79c4ce' and Name='Incident'");
-        if (webModel.getUtils().result.next() == false) {
-            webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "insert into Group_Permissions ([Add],[View],[Edit],[Delete],GTypeID,Name,BaseID)values ('1','1','1', '1' ,'b99d95f9-bbec-45b1-abc2-db70df79c4ce', 'Incident', '12081')");
-        } else {
-        }
-        Thread.sleep(1000);
-
-        webModel.getUtils().sqlQuery("portal", "test01-sql01", "NxtierE2E", "select * from Group_Permissions where GTypeID='58dbb78d-8c9f-495f-99e6-0dbce29f02fe' and Name='Incident'");
-        if (webModel.getUtils().result.next() == false) {
-            webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "insert into Group_Permissions ([Add],[View],[Edit],[Delete],GTypeID,Name,BaseID)values ('1','1','1', '1' ,'58dbb78d-8c9f-495f-99e6-0dbce29f02fe', 'Incident', '12081')");
-        } else {
-        }
-        Thread.sleep(1000);
+        webModel.getServiceDeskPage().grantingServiceDeskAccess();
         webModel.getDashBoardPage().logOut();
-        webModel.getLoginPage().loginWithOutZoom(userName, passWord);
+        webModel.getLoginPage().login(userName, passWord);
     }
 
     @When("^I populate network calling features and directory information$")

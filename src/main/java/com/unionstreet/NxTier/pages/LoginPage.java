@@ -14,14 +14,10 @@ public class LoginPage {
     public void doLogin() throws InterruptedException {
         try {
             utils.waitForElementVisible(By.id(USERNAME_FIELD));
-            utils.zoomOut(By.id(USERNAME_FIELD));
-            Thread.sleep(1000);
             utils.sendText(By.id(USERNAME_FIELD), utils.getProperty("userName"));
         } catch (Exception e) {
             utils.getLoginPage();
             utils.waitForElementVisible(By.id(USERNAME_FIELD));
-            utils.zoomOut(By.id(USERNAME_FIELD));
-            Thread.sleep(1000);
             utils.sendText(By.id(USERNAME_FIELD), utils.getProperty("userName"));
         }
         utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("passWord"));
@@ -50,7 +46,6 @@ public void zoomOutOnLoginPage() throws InterruptedException {
     Thread.sleep(1000);
 }
 
-
     public void loginAsAgent() throws InterruptedException {
         utils.waitForElementVisible(By.id(USERNAME_FIELD));
         utils.clickBtn(By.id(USERNAME_FIELD));
@@ -64,18 +59,8 @@ public void zoomOutOnLoginPage() throws InterruptedException {
         }
     }
 
-
     public void loginAsReseller() throws InterruptedException {
-        try {
-            utils.waitForElementVisible(By.id(USERNAME_FIELD));
-            utils.zoomOut(By.id(USERNAME_FIELD));
-            Thread.sleep(1000);
-        } catch (Exception e) {
-            utils.getLoginPage();
-            utils.waitForElementVisible(By.id(USERNAME_FIELD));
-            utils.zoomOut(By.id(USERNAME_FIELD));
-            Thread.sleep(1000);
-        }
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
         utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), "resellerlogin");
         utils.clickBtn(By.id(PASSWORD_FIELD));
@@ -87,12 +72,8 @@ public void zoomOutOnLoginPage() throws InterruptedException {
         }
     }
 
-
     public void loginAsCP() throws InterruptedException {
         utils.waitForElementVisible(By.id(USERNAME_FIELD));
-        utils.zoomOut(By.id(USERNAME_FIELD));
-        Thread.sleep(1000);
-        utils.waitForElementVisible(By.id(USERNAME_FIELD));
         utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), "cplogin");
         utils.clickBtn(By.id(PASSWORD_FIELD));
@@ -103,32 +84,8 @@ public void zoomOutOnLoginPage() throws InterruptedException {
             utils.checkAlert();
         }
     }
-    public void loginAsCPWithOutZoom() throws InterruptedException {
-        utils.waitForElementVisible(By.id(USERNAME_FIELD));
-        utils.clickBtn(By.id(USERNAME_FIELD));
-        utils.sendText(By.id(USERNAME_FIELD), "cplogin");
-        utils.clickBtn(By.id(PASSWORD_FIELD));
-        utils.sendText(By.id(PASSWORD_FIELD), "password");
-        try {
-            utils.clickBtn(By.cssSelector(LOGINBUTTON));
-        } catch (Exception e) {
-            utils.checkAlert();
-        }
-    }
-
 
     public void login(String userName, String passWord) throws InterruptedException {
-        utils.waitForElementVisible(By.id(USERNAME_FIELD));
-        utils.zoomOut(By.id(USERNAME_FIELD));
-        Thread.sleep(1000);
-        utils.waitForElementVisible(By.id(USERNAME_FIELD));
-        utils.clickBtn(By.id(USERNAME_FIELD));
-        utils.sendText(By.id(USERNAME_FIELD), userName);
-        utils.clickBtn(By.id(PASSWORD_FIELD));
-        utils.sendText(By.id(PASSWORD_FIELD), passWord);
-        utils.clickBtn(By.cssSelector(LOGINBUTTON));
-    }
-    public void loginWithOutZoom(String userName, String passWord) throws InterruptedException {
         utils.waitForElementVisible(By.id(USERNAME_FIELD));
         utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), userName);

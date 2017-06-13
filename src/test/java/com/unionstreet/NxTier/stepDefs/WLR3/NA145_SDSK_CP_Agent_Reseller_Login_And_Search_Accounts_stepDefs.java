@@ -18,7 +18,7 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @And("^have created a business customer and assigned required data$")
     public void haveCreatedABusinessCustomerAndAssignedRequiredData() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-
+        webModel.getServiceDeskPage().grantingServiceDeskAccess();
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03012345678'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03087654321'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03012348765'");
@@ -85,6 +85,7 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @Given("^I am logged in as agent and CP has already assigned me a business customer$")
     public void iAmLoggedInAsAgentAndCPHasAlreadyAssignedMeABusinessCustomer() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         haveCreatedABusinessCustomerAndAssignedRequiredData();
         webModel.getDashBoardPage().logOut();
@@ -201,21 +202,11 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @Given("^I am logged in as CP and assign service desk permissions$")
     public void iAmLoggedInAsCPAndAssignServiceDeskPermissions() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
+        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
-        webModel.getUtils().sqlQuery("portal", "test01-sql01", "NxtierE2E", "select * from Group_Permissions where GTypeID='58dbb78d-8c9f-495f-99e6-0dbce29f02fe' and Name='Incident'");
-        if (webModel.getUtils().result.next() == false) {
-            webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "insert into Group_Permissions ([Add],[View],[Edit],[Delete],GTypeID,Name,BaseID)values ('1','1','1', '1' ,'58dbb78d-8c9f-495f-99e6-0dbce29f02fe', 'Incident', '12081')");
-        } else {
-        }
-        Thread.sleep(1000);
-        webModel.getUtils().sqlQuery("portal", "test01-sql01", "NxtierE2E", "select * from Group_Permissions where GTypeID='b99d95f9-bbec-45b1-abc2-db70df79c4ce' and Name='Incident'");
-        if (webModel.getUtils().result.next() == false) {
-            webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "insert into Group_Permissions ([Add],[View],[Edit],[Delete],GTypeID,Name,BaseID)values ('1','1','1', '1' ,'b99d95f9-bbec-45b1-abc2-db70df79c4ce', 'Incident', '12081')");
-        } else {
-        }
-        Thread.sleep(1000);
+       webModel.getServiceDeskPage().grantingServiceDeskAccess();
         webModel.getDashBoardPage().logOut();
-        webModel.getLoginPage().loginAsCPWithOutZoom();
+        webModel.getLoginPage().loginAsCP();
 
     }
 

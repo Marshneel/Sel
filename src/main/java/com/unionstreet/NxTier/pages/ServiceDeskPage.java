@@ -87,6 +87,27 @@ public class ServiceDeskPage {
         utils.waitForElementVisible(By.xpath("//button[contains(text(),'Ok')]"));
         utils.clickBtn(By.xpath("//button[contains(text(),'Ok')]"));
     }
+    public void grantingServiceDeskAccess() throws SQLException, UnsupportedEncodingException, ClassNotFoundException, InterruptedException {
+        utils.sqlQuery("portal", "test01-sql01", "NxtierE2E", "select * from Group_Permissions where GTypeID='58dbb78d-8c9f-495f-99e6-0dbce29f02fe' and Name='Incident'");
+        if (utils.result.next() == false) {
+            utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "insert into Group_Permissions ([Add],[View],[Edit],[Delete],PTypeID,GTypeID,Name,BaseID)values ('1','1','1','1','Service Desk','58dbb78d-8c9f-495f-99e6-0dbce29f02fe','Incident','12081')");
+        } else {
+        }
+        Thread.sleep(1000);
+        utils.sqlQuery("portal", "test01-sql01", "NxtierE2E", "select * from Group_Permissions where GTypeID='b99d95f9-bbec-45b1-abc2-db70df79c4ce' and Name='Incident'");
+        if (utils.result.next() == false) {
+            utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "insert into Group_Permissions ([Add],[View],[Edit],[Delete],PTypeID,GTypeID,Name,BaseID)values ('1','1','1','1','Service Desk','b99d95f9-bbec-45b1-abc2-db70df79c4ce','Incident','12081')");
+        } else {
+        }
+        Thread.sleep(1000);
+    }
+    public void revokingServiceDeskPermissions() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from Group_Permissions where BaseID='12081'");
+
+    }
+    public void assertServiceDeskAccessDenied(){
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'Access Denied')]"));
+    }
 
     }
 

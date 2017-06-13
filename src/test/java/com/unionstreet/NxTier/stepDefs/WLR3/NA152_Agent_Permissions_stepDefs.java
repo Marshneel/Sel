@@ -20,6 +20,7 @@ public class NA152_Agent_Permissions_stepDefs {
 
     @Given("^CP has issued few tariff and free minute plans$")
     public void cpHasIssuedFewTariffAndFreeMinutePlans() throws InterruptedException {
+        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         webModel.getCompanyMenuPage().clickConfigManager();
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)");
@@ -102,6 +103,7 @@ public class NA152_Agent_Permissions_stepDefs {
 
     @Given("^CP has issued tariff and free minute plans to customers assigned under me$")
     public void cpHasIssuedTariffAndFreeMinutePlansToCustomersAssignedUnderMe() throws InterruptedException {
+        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         webModel.getCompanyMenuPage().clickConfigManager();
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)");
@@ -136,4 +138,6 @@ public class NA152_Agent_Permissions_stepDefs {
     webModel.getCompanyMenuPage().assertAgentCannotSeeCPAssignedTariffAndFreeMinutes("Sell Data Tariff","Mobile Gamma 1GB Data");
     webModel.getCompanyMenuPage().assertAgentCanOnlySeeAndAssignTariffAndFreeMinutePlansThatCPHasGivenPermissionFor("Sell 2p NGCS AC (+60 sec)","Buy BT Wholesale");
     }
+
+
 }
