@@ -3,6 +3,7 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
 /**
@@ -25,18 +26,18 @@ public class WLR3_NewProvide_NumberingPage {
     private final String ADDNEW_DDIRANGE_BUTTON = "add_row";
     private final String MORE_DIRECTORY_INFO_TAB = "//a[contains(@onclick,'newProvideWizard.ValidateAndSubmitNumberingFormAndExecuteNext')]";
     private final String SNDDI_TAB_ON_DIRINFO_POPUP = "//ul[@id='directoryInformationNavigation']//a[contains(text(),'SNDDI')]";
-    private final String DIRECTORY_TYPE_DROPDOWN="DirectoryInfo_0__dir_Type";
-    private final String CHECKBOX_TO_HIDE_DIRECTORY_INFO="chkNoDirectory";
-    private final String ADD_REMOVE_SNDDI_OR_DDI_RANGE="//h4[contains(text(),'Add or Remove SNDDI/DDI Ranges')]";
-    private final String DDI_RANGE_BOX_1="DDIInfo_1__range";
-    private final String DDI_RANGE_BOX_0="DDIInfo_0__range";
+    private final String DIRECTORY_TYPE_DROPDOWN = "DirectoryInfo_0__dir_Type";
+    private final String CHECKBOX_TO_HIDE_DIRECTORY_INFO = "chkNoDirectory";
+    private final String ADD_REMOVE_SNDDI_OR_DDI_RANGE = "//h4[contains(text(),'Add or Remove SNDDI/DDI Ranges')]";
+    private final String DDI_RANGE_BOX_1 = "DDIInfo_1__range";
+    private final String DDI_RANGE_BOX_0 = "DDIInfo_0__range";
 
     ElementUtils utils = new ElementUtils();
     WLR3_New_Provide_OrderPage wlr3_new_provide__orderPage = new WLR3_New_Provide_OrderPage();
     WLR3_LineNumberingPage wlr3_lineNumberingPage = new WLR3_LineNumberingPage();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
     CommonMethods commonMethods = new CommonMethods();
-    NewBusinessCustomerPage newBusinessCustomerPage=new NewBusinessCustomerPage();
+    NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
 
 
     public void PopulateDirectoryInfoUnderNUMBERING(String info) throws InterruptedException {
@@ -83,7 +84,7 @@ public class WLR3_NewProvide_NumberingPage {
         utils.waitForElementVisible(By.xpath("//label[text()='" + label2UnderLineNum + "']"));
         utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
-        utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW0),"New DDI range");
+        utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW0), "New DDI range");
 
 
     }
@@ -117,7 +118,7 @@ public class WLR3_NewProvide_NumberingPage {
         utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
         utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1), "New DDI range");
         utils.waitForElementVisible(By.id(DDI_RANGE_BOX_1));
-        utils.sendText(By.id(DDI_RANGE_BOX_1),range);
+        utils.sendText(By.id(DDI_RANGE_BOX_1), range);
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         clickMoreDirInfoTab();
@@ -197,11 +198,15 @@ public class WLR3_NewProvide_NumberingPage {
         utils.clickBtn(By.id(CHECKBOX_TO_HIDE_DIRECTORY_INFO));
         utils.waitForElementToVanish(By.id(DIRECTORY_TYPE_DROPDOWN));
     }
-    public void lineNumberingAlertMessageForVirtualLines(){
-        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'This line requires a number To be reserved.')]"));}
 
-       public void disabledNext(){utils.waitForElementVisible(By.xpath("//li[@id='button-next'][@class='next disabled']"));
+    public void lineNumberingAlertMessageForVirtualLines() {
+        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'This line requires a number To be reserved.')]"));
     }
+
+    public void disabledNext() {
+        utils.waitForElementVisible(By.xpath("//li[@id='button-next'][@class='next disabled']"));
+    }
+
     public void loadAdvancedLineNumbering() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
@@ -209,5 +214,99 @@ public class WLR3_NewProvide_NumberingPage {
         utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
     }
 
+    public void ISDN2system_selectFromList() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
+        utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from reserved_numbers");
+        utils.waitForElementVisible(By.xpath("//div[@id='numberOptionAllocate0']//a"));
+        utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate0']//a"));
+        utils.waitForElementVisible(By.id("option-rating"));
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.id("option-rating"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'01582213131')]/../../following-sibling::li[@data-thenumber='01582213333']"));
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.id("option-numeric"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'01202300908')]"));
+        utils.clickBtn(By.xpath("//label[contains(text(),'01202300908')]"));
+        utils.waitForElementVisible(By.xpath("//li[contains(@data-thenumber,'01202300908')][@class='selectedNumber currentSelectedNumber']"));
+        utils.clickBtn(By.id("add_row"));
+        utils.waitForElementVisible(By.xpath("//div[@id='numberOptionAllocate1']//a"));
+        utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate1']//a"));
+        utils.waitForElementVisible(By.xpath("//li[@data-thenumber='01202300908'][@class='selectedNumber']"));
+        utils.clickBtn(By.xpath("//li[@data-thenumber='01202300908'][@class='selectedNumber']"));
+        utils.waitForElementVisible(By.id("saveBtn"));
+        utils.clickBtn(By.id("saveBtn"));
+        loadAdvancedLineNumbering();
+        utils.waitForElementVisible(By.xpath("//div[@id='numberOptionAllocate1']//a"));
+        utils.assertElementNotPresent(By.xpath("//input[@id='DDIInfo_1__new_dn'][@value='01202300908']"));
+        utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate1']//a"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'01582213000')]"));
+        utils.assertElementNotPresent(By.xpath("//li[@data-thenumber='01202300908'][@class='selectedNumber']"));
+        utils.assertElementNotPresent(By.xpath("//label[contains(text(),'01582216165')]"));
+        utils.selectByVisibleText(By.id("DDIInfo_1__action"), "New DDI range");
+        utils.sendText(By.id("DDIInfo_1__range"), "10");
+        utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate1']//a"));
+        utils.waitForElementVisible(By.xpath("//h5[contains(text(),'Ranges of 10')]"));
+        utils.waitForElementVisible(By.xpath("//span[contains(@onclick,'return ISDNLine.increaseDDIValue(1);')]"));
+        utils.clickBtn(By.xpath("//span[contains(@onclick,'return ISDNLine.increaseDDIValue(1);')]"));
+        utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate1']//a"));
+        utils.waitForElementVisible(By.xpath("//h5[contains(text(),'Ranges of 20')]"));
+        utils.selectByVisibleText(By.id("DDIInfo_1__action"), "New SNDDI");
+        utils.waitForElementVisible(By.xpath("//div[@id='numberOptionAllocate1']//a"));
+        utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate1']//a"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'01582213000')]"));
+        utils.assertElementNotPresent(By.xpath("//label[contains(text(),'01582216000')]"));
+        utils.clickBtn(By.xpath("//label[contains(text(),'01582213000')]"));
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'This change will lose your number reservation, do you wish to continue?')]"));
+        Thread.sleep(1000);
+        utils.waitForElementVisible(By.xpath("//button[contains(text(),'No')]"));
+        utils.clickBtn(By.xpath("//button[contains(text(),'No')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(1);')]"));
+        utils.clickBtn(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(1);')]"));
+        utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from reserved_numbers");
+        utils.selectByVisibleText(By.id("DDIInfo_0__action"), "New DDI range");
+        utils.sendText(By.id("DDIInfo_0__range"), "10");
+        utils.waitForElementVisible(By.id("saveBtn"));
+        utils.clickBtn(By.id("saveBtn"));
+        loadAdvancedLineNumbering();
+        utils.waitForElementVisible(By.xpath("//div[@id='numberOptionAllocate0']//a"));
+        utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate0']//a"));
+        utils.waitForElementVisible(By.xpath("//h5[contains(text(),'Ranges of 10')]"));
+        utils.clickBtn(By.xpath("//label[contains(text(),'01582220000')]"));
+      utils.waitForElementVisible(By.id("add_row"));
+      try{  utils.clickBtn(By.id("add_row"));}
+      catch (Exception e){
+        utils.waitForElementVisible(By.xpath("//button[contains(text(),'Yes')]"));
+        utils.clickBtn(By.xpath("//button[contains(text(),'Yes')]"));}
+       utils.waitForElementVisible(By.id("add_row"));
+        utils.clickBtn(By.id("add_row"));
+        utils.waitForElementVisible(By.xpath("//div[@id='numberOptionAllocate1']//a"));
+        utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate1']//a"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'01582216027')]"));
+        utils.assertElementNotPresent(By.xpath("//label[contains(text(),'01582214235')]"));
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 

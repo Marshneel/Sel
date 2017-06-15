@@ -38,8 +38,8 @@ public class NA151_SDSK_URL_Manipulation_stepDefs {
         webModel.getDashBoardPage().loadServiceDesk();
     }
 
-    @Then("^Based on the status of the account and SLA, I should be able to or unable to log a ticket for site with \"([^\"]*)\" and \"([^\"]*)\" via pasting the URL$")
-    public void basedOnTheStatusOfTheAccountAndSLAIShouldBeAbleToOrUnableToLogATicketForSiteWithAndViaPastingTheURL(String ID, String SiteID) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, AWTException {
+    @Then("^Based on the status of the account and SLA, I should be able to or unable to log a ticket for business customer with \"([^\"]*)\" and \"([^\"]*)\" via pasting the URL$")
+    public void basedOnTheStatusOfTheAccountAndSLAIShouldBeAbleToOrUnableToLogATicketForBusinessCustomerWithAndViaPastingTheURL(String ID, String SiteID) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, AWTException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='0', defServiceLevel_id='1' where ID='"+ID+"'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update account_onhold_actions set servicedesk_action=0");
         webModel.getUtils().enterServiceDeskURLandCLickEnter(""+SiteID+"");

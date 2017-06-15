@@ -1,4 +1,4 @@
-@test
+@E2ETests
 Feature: NA87 - WLR3_Analogue_multiline_New_provide
 
   Scenario: Populating the analogue multiline under WLR3 new provide order and verify for flow
