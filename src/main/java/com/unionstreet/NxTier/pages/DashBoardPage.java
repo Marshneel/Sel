@@ -12,7 +12,7 @@ public class DashBoardPage {
     public final String LOGOUT_BUTTON = ".logout";
     public final String QUOTE = "bodyContent";
     private final String ORDERSMANAGER_BUTTON = "HrefOrdersManager";
-    private final String CONTACT_MANAGER_BUTTON="HrefContactManager";
+    private final String CONTACT_MANAGER_BUTTON = "HrefContactManager";
 
     ElementUtils utils = new ElementUtils();
 
@@ -21,10 +21,12 @@ public class DashBoardPage {
     }
 
     public void logOut() throws InterruptedException {
-        try {Thread.sleep(1000);
+        try {
+            Thread.sleep(1000);
             utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
         } catch (Exception e) {
-            try { Thread.sleep(1000);
+            try {
+                Thread.sleep(1000);
                 utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
             } catch (Exception e1) {
                 utils.checkAlert();
@@ -38,12 +40,18 @@ public class DashBoardPage {
         utils.clickBtn(By.id(ORDERSMANAGER_BUTTON));
     }
 
-    public void clickContactManagerTab() {
-        utils.waitForElementVisible(By.id(CONTACT_MANAGER_BUTTON));
-        utils.clickBtn(By.id(CONTACT_MANAGER_BUTTON));
+    public void clickContactManagerTab(){
+
+            utils.waitForElementVisible(By.id(CONTACT_MANAGER_BUTTON));
+            utils.clickBtn(By.id(CONTACT_MANAGER_BUTTON));
+
+
+
     }
+
     public void loadServiceDesk() {
-        try { utils.getDashBoardPage();
+        try {
+            utils.getDashBoardPage();
             utils.waitForElementVisible(By.id("HrefServiceDesk"));
             utils.clickBtn(By.id("HrefServiceDesk"));
         } catch (Exception e) {

@@ -64,6 +64,7 @@ public class NA152_Agent_Permissions_stepDefs {
 
     @Then("^I should be able to make editable tariff and free minute plans$")
     public void iShouldBeAbleToMakeEditableTariffAndFreeMinutePlans() throws InterruptedException {
+       webModel.getConfigManagerPage().navigateToAddTariffPlan();
         webModel.getConfigManagerPage().addTariffPlan();
         webModel.getConfigManagerPage().addFreeMinutesPlan();
        webModel.getCompanyMenuPage().clickConfigManager();
@@ -72,7 +73,7 @@ public class NA152_Agent_Permissions_stepDefs {
     }
 
     @When("^I navigate to contact manager page and search for the contact$")
-    public void iNavigateToContactManagerPageAndSearchForTheContact() throws InterruptedException {
+    public void iNavigateToContactManagerPageAndSearchForTheContact() throws InterruptedException  {
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getCommonMethods().search(webModel.getNewBusinessCustomerPage().RanName);
 
@@ -87,6 +88,7 @@ public class NA152_Agent_Permissions_stepDefs {
     @When("^I create tariff and free minute plans$")
     public void iCreateTariffAndFreeMinutePlans() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         iNavigateToConfigManager();
+        webModel.getConfigManagerPage().navigateToAddTariffPlan();
         webModel.getConfigManagerPage().addTariffPlan();
         webModel.getConfigManagerPage().addFreeMinutesPlan();
     }
@@ -102,7 +104,7 @@ public class NA152_Agent_Permissions_stepDefs {
     }
 
     @Given("^CP has issued tariff and free minute plans to customers assigned under me$")
-    public void cpHasIssuedTariffAndFreeMinutePlansToCustomersAssignedUnderMe() throws InterruptedException {
+    public void cpHasIssuedTariffAndFreeMinutePlansToCustomersAssignedUnderMe() throws InterruptedException{
         webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         webModel.getCompanyMenuPage().clickConfigManager();

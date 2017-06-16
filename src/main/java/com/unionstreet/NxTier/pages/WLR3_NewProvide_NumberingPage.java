@@ -214,8 +214,8 @@ public class WLR3_NewProvide_NumberingPage {
         utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
     }
 
-    public void ISDN2system_selectFromList() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
-        utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from reserved_numbers");
+
+       public void ISDN2_selectFromList_fancyNumbers() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from reserved_numbers");
         utils.waitForElementVisible(By.xpath("//div[@id='numberOptionAllocate0']//a"));
         utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate0']//a"));
         utils.waitForElementVisible(By.id("option-rating"));
@@ -223,7 +223,9 @@ public class WLR3_NewProvide_NumberingPage {
         utils.javaScriptExecutorClick(By.id("option-rating"));
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'01582213131')]/../../following-sibling::li[@data-thenumber='01582213333']"));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.id("option-numeric"));
+        utils.javaScriptExecutorClick(By.id("option-numeric"));}
+
+    public void ISDN2_selectFromList_selectingSameNumberTwice() throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'01202300908')]"));
         utils.clickBtn(By.xpath("//label[contains(text(),'01202300908')]"));
         utils.waitForElementVisible(By.xpath("//li[contains(@data-thenumber,'01202300908')][@class='selectedNumber currentSelectedNumber']"));
@@ -236,11 +238,16 @@ public class WLR3_NewProvide_NumberingPage {
         utils.clickBtn(By.id("saveBtn"));
         loadAdvancedLineNumbering();
         utils.waitForElementVisible(By.xpath("//div[@id='numberOptionAllocate1']//a"));
-        utils.assertElementNotPresent(By.xpath("//input[@id='DDIInfo_1__new_dn'][@value='01202300908']"));
+        utils.assertElementNotPresent(By.xpath("//input[@id='DDIInfo_1__new_dn'][@value='01202300908']"));}
+
+    public void ISDN2_selectFromList_assertAssignedNumberAbsentFromList(){
         utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate1']//a"));
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'01582213000')]"));
         utils.assertElementNotPresent(By.xpath("//li[@data-thenumber='01202300908'][@class='selectedNumber']"));
         utils.assertElementNotPresent(By.xpath("//label[contains(text(),'01582216165')]"));
+    }
+
+        public void ISDN2system_selectFromList_addingDDIrange(){
         utils.selectByVisibleText(By.id("DDIInfo_1__action"), "New DDI range");
         utils.sendText(By.id("DDIInfo_1__range"), "10");
         utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate1']//a"));
@@ -248,8 +255,10 @@ public class WLR3_NewProvide_NumberingPage {
         utils.waitForElementVisible(By.xpath("//span[contains(@onclick,'return ISDNLine.increaseDDIValue(1);')]"));
         utils.clickBtn(By.xpath("//span[contains(@onclick,'return ISDNLine.increaseDDIValue(1);')]"));
         utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate1']//a"));
-        utils.waitForElementVisible(By.xpath("//h5[contains(text(),'Ranges of 20')]"));
-        utils.selectByVisibleText(By.id("DDIInfo_1__action"), "New SNDDI");
+        utils.waitForElementVisible(By.xpath("//h5[contains(text(),'Ranges of 20')]"));}
+
+        public void ISDN2system_selectFromList_switchingToSNDDIandAssigingASingleNumber() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+            utils.selectByVisibleText(By.id("DDIInfo_1__action"), "New SNDDI");
         utils.waitForElementVisible(By.xpath("//div[@id='numberOptionAllocate1']//a"));
         utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate1']//a"));
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'01582213000')]"));
@@ -265,7 +274,8 @@ public class WLR3_NewProvide_NumberingPage {
         utils.selectByVisibleText(By.id("DDIInfo_0__action"), "New DDI range");
         utils.sendText(By.id("DDIInfo_0__range"), "10");
         utils.waitForElementVisible(By.id("saveBtn"));
-        utils.clickBtn(By.id("saveBtn"));
+        utils.clickBtn(By.id("saveBtn"));}
+    public void ISDN2system_selectFromList_changingNumberCluster() throws InterruptedException {
         loadAdvancedLineNumbering();
         utils.waitForElementVisible(By.xpath("//div[@id='numberOptionAllocate0']//a"));
         utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate0']//a"));
@@ -282,15 +292,16 @@ public class WLR3_NewProvide_NumberingPage {
         utils.clickBtn(By.xpath("//div[@id='numberOptionAllocate1']//a"));
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'01582216027')]"));
         utils.assertElementNotPresent(By.xpath("//label[contains(text(),'01582214235')]"));
-
-
-
-
-
-
-
-
-
+    }
+    public void ISDN2standard_selectingANewNumber() throws InterruptedException {
+        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(1);')]"));
+        utils.clickBtn(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(1);')]"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'01582213000')]"));
+        utils.clickBtn(By.xpath("//label[contains(text(),'01582213000')]"));
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'This change will lose your number reservation, do you wish to continue?')]"));
+        Thread.sleep(1000);
+        utils.waitForElementVisible(By.xpath("//button[contains(text(),'Yes')]"));
+        utils.clickBtn(By.xpath("//button[contains(text(),'Yes')]"));
 
 
     }
