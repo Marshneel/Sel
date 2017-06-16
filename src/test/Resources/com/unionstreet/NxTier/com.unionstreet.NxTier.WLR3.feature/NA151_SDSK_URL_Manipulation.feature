@@ -1,19 +1,15 @@
-Feature: NA - 151 NA151_SDSK_URL_Manipulation
+@E2ETests
+Feature: NA - 151 SDSK URL Manipulation
 
 
-  Scenario: login and perform URL manipulation tests
-    Given I am logged in as a CP without access rights
+  Scenario Outline: login as a CP and perform URL manipulation tests
+    Given I am logged in with "<userName>" and "<passWord>" without access rights
     When I try to navigate to service desk page the access should be denied
-    And when I am granted the service desk access to CP
-    Then Based on the status of the account and SLA, I should be able to or unable to navigate ahead via pasting the URL for CP
+    And when I am granted the service desk access and I login with "<userName>" and "<passWord>"
+    Then Based on the status of the account and SLA, I should be able to or unable to log a ticket for business customer with "<ID>" and "<SiteID>" via pasting the URL
 
-
-    Given I am logged in as a agent without access rights
-    When I try to navigate to service desk page the access should be denied
-    And when I am granted the service desk access to agent
-    Then Based on the status of the account and SLA, I should be able to or unable to navigate ahead via pasting the URL for agent
-
-    Given I am logged in as a reseller without access rights
-    When I try to navigate to service desk page the access should be denied
-    And when I am granted the service desk access to reseller
-    Then Based on the status of the account and SLA, I should be able to or unable to navigate ahead via pasting the URL for reseller
+    Examples:
+      | userName      | passWord | ID | SiteID |
+      | CPlogin       | password |138 | 166    |
+      | agentlogin    | password |139 | 167    |
+      | resellerlogin | password |109 | 168    |

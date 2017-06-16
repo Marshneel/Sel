@@ -290,7 +290,7 @@ public class CompanyMenuPage {
         utils.javaScriptExecutorClick(By.id("ChkPerFreeMinutes"));
         utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),"Select");
         utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),"Select");
-        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.waitForElementVisible(By.id(commonMethods.SAVE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
     }
     public void assertAgentCannotSeeCPAssignedTariffAndFreeMinutes(String tariffPlan, String freeMinutePlan) throws InterruptedException {

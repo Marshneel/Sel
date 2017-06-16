@@ -16,7 +16,7 @@ public class NewBusinessCustomerPage {
     private final String SHORTNAME_FIELD = "DSiteDetails_ShortName";
     private final String FIRSTNAME = "DSiteContact_christian";
     private final String EMAIL_FIELD = "DSiteContact_EMail";
-    private final String CONTACTTYPE_AGENT = "//label[@for='DCompany_Is_Agent']";
+    private final String CONTACTTYPE_AGENT = "//label[@for='DCompany_is_agent']";
     private final String CONTACTTYPE_RESELLER = "//label[@for='DCompany_is_reseller']";
     private final String VATPOPUP = "//span[@class='ui-button-text'][contains(text(),'Yes')]";
     public final String CHANNELDETAILS_AGENT = "DAgentCommission_agent_id";

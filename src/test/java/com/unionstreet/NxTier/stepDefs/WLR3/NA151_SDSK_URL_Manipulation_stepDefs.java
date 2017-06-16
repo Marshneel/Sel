@@ -16,86 +16,50 @@ import java.sql.SQLException;
 public class NA151_SDSK_URL_Manipulation_stepDefs {
 
     WebModel webModel=new WebModel();
-    @Given("^I am logged in as a CP without access rights$")
-    public void iAmLoggedInAsACPWithoutAccessRights() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getServiceDeskPage().revokingServiceDeskPermissions();
-        webModel.getLoginPage().zoomOutOnLoginPage();
-        webModel.getLoginPage().loginAsCP();
-        webModel.getDashBoardPage().loadServiceDesk();
 
+    @Given("^I am logged in with \"([^\"]*)\" and \"([^\"]*)\" without access rights$")
+    public void iAmLoggedInWithAndWithoutAccessRights(String userName, String passWord) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        webModel.getLoginPage().zoomOutOnLoginPage();
+        webModel.getLoginPage().login(userName, passWord);
+       webModel.getServiceDeskPage().revokingServiceDeskPermissions();
+        webModel.getDashBoardPage().loadServiceDesk();
     }
     @When("^I try to navigate to service desk page the access should be denied$")
     public void iTryToNavigateToServiceDeskPageTheAccessShouldBeDenied()  {
         webModel.getServiceDeskPage().assertServiceDeskAccessDenied();
-
     }
 
-    @And("^when I am granted the service desk access to CP$")
-    public void whenIAmGrantedTheServiceDeskAccessToCP() throws ClassNotFoundException, SQLException, InterruptedException, UnsupportedEncodingException {
+    @And("^when I am granted the service desk access and I login with \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void whenIAmGrantedTheServiceDeskAccessAndILoginWithAnd(String userName, String passWord) throws ClassNotFoundException, SQLException, InterruptedException, UnsupportedEncodingException {
         webModel.getUtils().scrollBack();
         webModel.getServiceDeskPage().grantingServiceDeskAccess();
         webModel.getDashBoardPage().logOut();
-        webModel.getLoginPage().loginAsCP();
-
+        webModel.getLoginPage().login(userName, passWord);
+        webModel.getDashBoardPage().loadServiceDesk();
     }
 
-    @Then("^Based on the status of the account and SLA, I should be able to or unable to navigate ahead via pasting the URL$")
-    public void basedOnTheStatusOfTheAccountAndSLAIShouldBeAbleToOrUnableToNavigateAheadViaPastingTheURL() throws AWTException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='0', defServiceLevel_id='1' where ID='138'");
+    @Then("^Based on the status of the account and SLA, I should be able to or unable to log a ticket for business customer with \"([^\"]*)\" and \"([^\"]*)\" via pasting the URL$")
+    public void basedOnTheStatusOfTheAccountAndSLAIShouldBeAbleToOrUnableToLogATicketForBusinessCustomerWithAndViaPastingTheURL(String ID, String SiteID) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, AWTException {
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='0', defServiceLevel_id='1' where ID='"+ID+"'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update account_onhold_actions set servicedesk_action=0");
-        webModel.getUtils().enterServiceDeskURLandCLickEnter("166");
+        webModel.getUtils().enterServiceDeskURLandCLickEnter(""+SiteID+"");
         webModel.getServiceDeskPage().assertAccessGrantedToLoginIncident();
-        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='1', defServiceLevel_id='0' where ID='138'");
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='1', defServiceLevel_id='0' where ID='"+ID+"'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update account_onhold_actions set servicedesk_action=0");
-        webModel.getUtils().enterServiceDeskURLandCLickEnter("166");
+        webModel.getUtils().enterServiceDeskURLandCLickEnter(""+SiteID+"");
         webModel.getServiceDeskPage().assertServiceDeskAccessDenied();
-        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='1', defServiceLevel_id='1' where ID='138'");
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='1', defServiceLevel_id='1' where ID='"+ID+"'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update account_onhold_actions set servicedesk_action=0");
-        webModel.getUtils().enterServiceDeskURLandCLickEnter("166");
+        webModel.getUtils().enterServiceDeskURLandCLickEnter(""+SiteID+"");
         webModel.getServiceDeskPage().assertAccessGrantedToLoginIncident();
-        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='1', defServiceLevel_id='1' where ID='138'");
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='1', defServiceLevel_id='1' where ID='"+ID+"'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update account_onhold_actions set servicedesk_action=1");
-        webModel.getUtils().enterServiceDeskURLandCLickEnter("166");
+        webModel.getUtils().enterServiceDeskURLandCLickEnter(""+SiteID+"");
         webModel.getServiceDeskPage().assertAccessGrantedToLoginIncident();
-        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='1', defServiceLevel_id='1' where ID='138'");
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='1', defServiceLevel_id='1' where ID='"+ID+"'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update account_onhold_actions set servicedesk_action=2");
-        webModel.getUtils().enterServiceDeskURLandCLickEnter("166");
+        webModel.getUtils().enterServiceDeskURLandCLickEnter(""+SiteID+"");
         webModel.getServiceDeskPage().assertServiceDeskAccessDenied();
-
-
-
-    }
-
-    @Given("^I am logged in as a agent without access rights$")
-    public void iAmLoggedInAsAAgentWithoutAccessRights() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getServiceDeskPage().revokingServiceDeskPermissions();
-        webModel.getLoginPage().zoomOutOnLoginPage();
-        webModel.getLoginPage().loginAsAgent();
-        webModel.getDashBoardPage().loadServiceDesk();
-    }
-
-
-    @And("^when I am granted the service desk access to agent$")
-    public void whenIAmGrantedTheServiceDeskAccessToAgent() throws ClassNotFoundException, SQLException, InterruptedException, UnsupportedEncodingException {
-        webModel.getUtils().scrollBack();
-        webModel.getServiceDeskPage().grantingServiceDeskAccess();
-        webModel.getDashBoardPage().logOut();
-        webModel.getLoginPage().loginAsAgent();
-    }
-
-    @Given("^I am logged in as a reseller without access rights$")
-    public void iAmLoggedInAsAResellerWithoutAccessRights() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getServiceDeskPage().revokingServiceDeskPermissions();
-        webModel.getLoginPage().zoomOutOnLoginPage();
-        webModel.getLoginPage().loginAsReseller();
-        webModel.getDashBoardPage().loadServiceDesk();
-    }
-
-    @And("^when I am granted the service desk access to reseller$")
-    public void whenIAmGrantedTheServiceDeskAccessToReseller() throws Throwable {
-        webModel.getUtils().scrollBack();
-        webModel.getServiceDeskPage().grantingServiceDeskAccess();
-        webModel.getDashBoardPage().logOut();
-        webModel.getLoginPage().loginAsReseller();
     }
 }
