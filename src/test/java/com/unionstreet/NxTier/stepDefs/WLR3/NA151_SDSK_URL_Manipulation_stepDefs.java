@@ -24,10 +24,22 @@ public class NA151_SDSK_URL_Manipulation_stepDefs {
        webModel.getServiceDeskPage().revokingServiceDeskPermissions();
         webModel.getDashBoardPage().loadServiceDesk();
     }
-    @When("^I try to navigate to service desk page the access should be denied$")
-    public void iTryToNavigateToServiceDeskPageTheAccessShouldBeDenied()  {
-        webModel.getServiceDeskPage().assertServiceDeskAccessDenied();
-    }
+    @When("^I try to navigate to service desk page the access should be denied with  \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void iTryToNavigateToServiceDeskPageTheAccessShouldBeDeniedWithAnd(String userName, String passWord) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
+     try{   webModel.getServiceDeskPage().assertServiceDeskAccessDenied();
+    }catch (Exception e){
+         webModel.getServiceDeskPage().revokingServiceDeskPermissions();
+         webModel.getUtils().scrollBack();
+         webModel.getDashBoardPage().logOut();
+         webModel.getLoginPage().login(userName, passWord);
+         webModel.getDashBoardPage().loadServiceDesk();
+         webModel.getServiceDeskPage().assertServiceDeskAccessDenied();
+
+
+
+
+
+     }}
 
     @And("^when I am granted the service desk access and I login with \"([^\"]*)\" and \"([^\"]*)\"$")
     public void whenIAmGrantedTheServiceDeskAccessAndILoginWithAnd(String userName, String passWord) throws ClassNotFoundException, SQLException, InterruptedException, UnsupportedEncodingException {
@@ -62,4 +74,6 @@ public class NA151_SDSK_URL_Manipulation_stepDefs {
         webModel.getServiceDeskPage().assertServiceDeskAccessDenied();
         webModel.getServiceDeskPage().revokingServiceDeskPermissions();
     }
+
+
 }
