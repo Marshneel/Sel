@@ -7,6 +7,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 
+import java.awt.*;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
@@ -19,11 +20,11 @@ public class NA152_Agent_Permissions_stepDefs {
     NA44_Agent_Login_stepDefs na44_agent_login_stepDefs = new NA44_Agent_Login_stepDefs();
 
     @Given("^CP has issued few tariff and free minute plans$")
-    public void cpHasIssuedFewTariffAndFreeMinutePlans() throws InterruptedException {
+    public void cpHasIssuedFewTariffAndFreeMinutePlans() throws InterruptedException, AWTException {
         webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         webModel.getCompanyMenuPage().clickConfigManager();
-        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)");
+        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10");
         webModel.getConfigManagerPage().assignFreeMinutesPlanToAgent("Mobile 250 Free Mins (UK and Mob");
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().issueTariffAndFreeMinutePermissionsToAgent("agent");
@@ -42,13 +43,14 @@ public class NA152_Agent_Permissions_stepDefs {
     }
 
     @Then("^I should be able to see the tariff and free minute plans$")
-    public void iShouldBeAbleToSeeTheTariffAndFreeMinutePlans() {
+    public void iShouldBeAbleToSeeTheTariffAndFreeMinutePlans() throws InterruptedException {
+        webModel.getCommonMethods().search("Sell 2p NGCS AC (+60 sec)");
         webModel.getConfigManagerPage().assertTariff("Sell 2p NGCS AC (+60 sec)");
         webModel.getConfigManagerPage().assertFreeMinutes("Mobile 250 Free Mins (UK and Mob");
     }
 
     @And("^I should not be able to edit them$")
-    public void iShouldNotBeAbleToEditThem() {
+    public void iShouldNotBeAbleToEditThem() throws InterruptedException {
         webModel.getConfigManagerPage().assertFreeMinutesAreNotEditable("Mobile 250 Free Mins (UK and Mob");
         webModel.getConfigManagerPage().assertTariffAreNotEditable("Sell 2p NGCS AC (+60 sec)");
     }
@@ -65,10 +67,10 @@ public class NA152_Agent_Permissions_stepDefs {
     @Then("^I should be able to make editable tariff and free minute plans$")
     public void iShouldBeAbleToMakeEditableTariffAndFreeMinutePlans() throws InterruptedException {
        webModel.getConfigManagerPage().navigateToAddTariffPlan();
-        webModel.getConfigManagerPage().addTariffPlan();
+        webModel.getCreateTariffPage().addTariffPlan();
         webModel.getConfigManagerPage().addFreeMinutesPlan();
        webModel.getCompanyMenuPage().clickConfigManager();
-        webModel.getConfigManagerPage().editTariffPlan();
+        webModel.getCreateTariffPage().editTariffPlan();
         webModel.getConfigManagerPage().editFreeMinutePlan();
     }
 
@@ -89,7 +91,7 @@ public class NA152_Agent_Permissions_stepDefs {
     public void iCreateTariffAndFreeMinutePlans() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         iNavigateToConfigManager();
         webModel.getConfigManagerPage().navigateToAddTariffPlan();
-        webModel.getConfigManagerPage().addTariffPlan();
+        webModel.getCreateTariffPage().addTariffPlan();
         webModel.getConfigManagerPage().addFreeMinutesPlan();
     }
 
@@ -104,12 +106,12 @@ public class NA152_Agent_Permissions_stepDefs {
     }
 
     @Given("^CP has issued tariff and free minute plans to customers assigned under me$")
-    public void cpHasIssuedTariffAndFreeMinutePlansToCustomersAssignedUnderMe() throws InterruptedException{
+    public void cpHasIssuedTariffAndFreeMinutePlansToCustomersAssignedUnderMe() throws InterruptedException, AWTException {
         webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         webModel.getCompanyMenuPage().clickConfigManager();
-        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)");
-        webModel.getConfigManagerPage().assignTariffPlanToAgent("Buy BT Wholesale");
+        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10");
+        webModel.getConfigManagerPage().assignTariffPlanToAgent("Buy BT Wholesale","10");
         webModel.getConfigManagerPage().assignFreeMinutesPlanToAgent("Mobile 250 Free Mins (UK and Mob");
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");

@@ -54,6 +54,7 @@ public class CompanyMenuPage {
     CommonMethods commonMethods = new CommonMethods();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
     ConfigManagerPage configManagerPage=new ConfigManagerPage();
+    CreateTariffPage createTariffPage=new CreateTariffPage();
     private long today;
     private String day;
 
@@ -264,7 +265,7 @@ public class CompanyMenuPage {
         utils.javaScriptExecutorClick(By.id("ChkPerFreeMinutes"));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+configManagerPage.RanFreeMinutePlanName+"')]"));
         utils.searchAndAssertTextPresent(By.id("GroupTable"), ""+configManagerPage.RanFreeMinutePlanName+"");
-        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),configManagerPage.RanTariffPlanName);
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),createTariffPage.RanTariffPlanName);
     }
     public void assignTariffAndFreeMinutesToCustomer(String FreeMinutePlan,String TariffPlan) throws InterruptedException {
         utils.waitForElementVisible(By.id("ChkPerFreeMinutes"));
@@ -290,7 +291,7 @@ public class CompanyMenuPage {
         utils.javaScriptExecutorClick(By.id("ChkPerFreeMinutes"));
         utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),"Select");
         utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),"Select");
-        utils.waitForElementVisible(By.id(commonMethods.SAVE_BUTTON));
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
     }
     public void assertAgentCannotSeeCPAssignedTariffAndFreeMinutes(String tariffPlan, String freeMinutePlan) throws InterruptedException {

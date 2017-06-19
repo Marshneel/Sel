@@ -43,6 +43,7 @@ public class WebModel {
     private WLR3_Summary_Charges_Page wlr3_summary_charges_page;
     private ServiceDeskPage serviceDeskPage;
     private ConfigManagerPage configManagerPage;
+    private CreateTariffPage createTariffPage;
 
 
     public WebModel() {
@@ -85,6 +86,8 @@ public class WebModel {
         wlr3_summary_charges_page=new WLR3_Summary_Charges_Page();
         serviceDeskPage=new ServiceDeskPage();
         configManagerPage=new ConfigManagerPage();
+        createTariffPage = new CreateTariffPage();
+
 
     }
 
@@ -237,6 +240,10 @@ public class WebModel {
 
     public ConfigManagerPage getConfigManagerPage(){
         return configManagerPage;
+    }
+
+    public CreateTariffPage getCreateTariffPage(){
+        return createTariffPage;
     }
 }
 
