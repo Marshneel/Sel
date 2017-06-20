@@ -19,6 +19,8 @@ public class NA156_CreateDifferentTypesOfBaseTariffs_As_An_Agent_stepDefs {
         webModel.getLoginPage().loginAsCP();
         webModel.getCompanyMenuPage().clickConfigManager();
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10");
+        webModel.getSettingsPage().clickSettingsButton();
+        webModel.getSettingsPage().issueTariffAndFreeMinutePermissionsToAgent("agent");
         webModel.getDashBoardPage().logOut();
     }
 
@@ -28,12 +30,14 @@ public class NA156_CreateDifferentTypesOfBaseTariffs_As_An_Agent_stepDefs {
 
     }
 
-    @Then("^I should be able to create the (\\d+) different types of base tariffs$")
-    public void iShouldBeAbleToCreateTheDifferentTypesOfBaseTariffs(int arg0) throws InterruptedException, AWTException {
-        webModel.getCreateTariffPage().createBlankTariff();
+    @Then("^I should be able to create the (\\d+) different types of agent tariffs$")
+    public void iShouldBeAbleToCreateTheDifferentTypesOfAgentTariffs(int arg0) throws InterruptedException, AWTException {
+        webModel.getCreateTariffPage().createBlankTariff("1","2","0");
         webModel.getCommonMethods().search(webModel.getCreateTariffPage().RanTariffPlanName);
+        webModel.getCreateTariffPage().assertCreatedTariff("Baseline","Mobile");
+        webModel.getCreateTariffPage().assertChargesOfTariffThatIsBasedOnAnAnotherTariff("","@value",true);
         webModel.getConfigManagerPage().navigateToAddTariffPlan();
-        webModel.getCreateTariffPage().createTariffPlanBasedOnOtherPlan("1");
+        webModel.getCreateTariffPage().createTariffPlanBasedOnOtherPlan("3","2","1","0","Sell 2p NGCS AC (+60 sec)");
         webModel.getCreateTariffPage().assertChargesOfTariffThatIsBasedOnAnAnotherTariff("20","@value",true);
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsCP();
@@ -44,7 +48,7 @@ public class NA156_CreateDifferentTypesOfBaseTariffs_As_An_Agent_stepDefs {
         webModel.getCompanyMenuPage().clickConfigManager();
         webModel.getCreateTariffPage().assertChargesOfTariffThatIsBasedOnAnAnotherTariff("20","@value",true);
         webModel.getConfigManagerPage().navigateToAddTariffPlan();
-        webModel.getCreateTariffPage().createTariffPlanBasedOnOtherPlan("2");
+        webModel.getCreateTariffPage().createTariffPlanBasedOnOtherPlan("3","2","2","0","Sell 2p NGCS AC (+60 sec)");
         webModel.getCreateTariffPage().assertChargesOfTariffThatIsBasedOnAnAnotherTariff("40.0000","@basevalue",false);
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsCP();
@@ -54,14 +58,5 @@ public class NA156_CreateDifferentTypesOfBaseTariffs_As_An_Agent_stepDefs {
         webModel.getLoginPage().loginAsAgent();
         webModel.getCompanyMenuPage().clickConfigManager();
         webModel.getCreateTariffPage().assertChargesOfTariffThatIsBasedOnAnAnotherTariff("20.0000","@basevalue",false);
-
-
-
-
-
-
     }
-
-
-
 }

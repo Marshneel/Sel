@@ -62,32 +62,32 @@ public class CreateTariffPage {
         utils.switchToPreviousWindow(0);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+tariffName+"')]/../following-sibling::td[contains(text(),'Baseline')]"));
     }
-    public void createBlankTariff(){
+    public void createBlankTariff(String tariffCategory, String tariffType, String baseTariffSetting){
         RanTariffPlanName = utils.randomName();
         utils.sendText(By.id("TariffName1"), RanTariffPlanName);
-        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label[1]"));
-        utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label[1]"));
-        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label[1]"));
-        utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label[1]"));
-        utils.waitForElementVisible(By.xpath("//input[@id='BasedOnType'][@value='0']"));
-        utils.clickBtn(By.xpath("//input[@id='BasedOnType'][@value='0']"));
+        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
+        utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
+        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]"));
+        utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]"));
+        utils.waitForElementVisible(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSetting+"']"));
+        utils.clickBtn(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSetting+"']"));
         utils.waitForElementVisible(By.id("tariffSaveAndCloseButton"));
         utils.clickBtn(By.id("tariffSaveAndCloseButton"));
         utils.switchToPreviousWindow(0);
     }
-    public void createTariffPlanBasedOnOtherPlan(String value) throws InterruptedException {
+    public void createTariffPlanBasedOnOtherPlan(String tariffCategory, String tariffType ,String baseTariffSettings, String buyOrSell, String basedOnPlan) throws InterruptedException {
         RanTariffPlanName = utils.randomName();
         utils.sendText(By.id("TariffName1"), RanTariffPlanName);
-        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label[3]"));
-        utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label[3]"));
-        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label[2]"));
-        utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label[2]"));
-        utils.waitForElementVisible(By.xpath("//input[@id='BasedOnType'][@value='"+value+"']"));
-        utils.clickBtn(By.xpath("//input[@id='BasedOnType'][@value='"+value+"']"));
-        utils.waitForElementVisible(By.xpath("//input[@id='buyOrSale'][@value='0']"));
-        utils.clickBtn(By.xpath("//input[@id='buyOrSale'][@value='0']"));
+        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
+        utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
+        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]"));
+        utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]"));
+        utils.waitForElementVisible(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSettings+"']"));
+        utils.clickBtn(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSettings+"']"));
+        utils.waitForElementVisible(By.xpath("//input[@id='buyOrSale'][@value='"+buyOrSell+"']"));
+        utils.clickBtn(By.xpath("//input[@id='buyOrSale'][@value='"+buyOrSell+"']"));
         utils.waitForElementVisible(By.id("basetariff"));
-        utils.selectByVisibleText(By.id("basetariff"),"Sell 2p NGCS AC (+60 sec)");
+        utils.selectByVisibleText(By.id("basetariff"),""+basedOnPlan+"");
         utils.waitForElementVisible(By.id("basemarkup"));
         utils.sendText(By.id("basemarkup"),"100");
         utils.waitForElementVisible(By.id("tariffSaveAndCloseButton"));
@@ -116,11 +116,10 @@ public class CreateTariffPage {
         utils.waitForElementVisible(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
       utils.clickBtn(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
         utils.switchToPreviousWindow(0);
-
-
-
-
-
+    }
+    public void assertCreatedTariff(String tariffType, String category){
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+tariffType+"')]"));
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+category+"')]"));
 
     }
 

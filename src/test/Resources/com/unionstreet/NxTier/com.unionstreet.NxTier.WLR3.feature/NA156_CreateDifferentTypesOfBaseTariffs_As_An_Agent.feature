@@ -5,5 +5,5 @@ Feature: NA - 156 Create Different Types Of Base Tariffs (Blank, Copy and Based 
     Given CP has give me permission to create and acess call tariffs
     And when I am logged in as agent
     When I navigate to create tariff screen
-    Then I should be able to create the 3 different types of base tariffs
+    Then I should be able to create the 3 different types of agent tariffs
 
