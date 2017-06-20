@@ -3,6 +3,8 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.awt.*;
+
 /**
  * Created by RajeshG on 06/06/2017.
  */
@@ -10,26 +12,31 @@ public class ConfigManagerPage {
 
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
-    public static String RanTariffPlanName;
     public static String RanFreeMinutePlanName;
 
-    public void assignTariffPlanToAgent(String tariffplan) throws InterruptedException {
+    public void assignTariffPlanToAgent(String tariffplan, String rates) throws InterruptedException, AWTException {
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'Config Manager')]"));
         commonMethods.search("" + tariffplan + "");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
         utils.switchToNewWindow();
+        utils.waitForElementVisible(By.id("HrefTariffRates"));
+        utils.clickBtn(By.id("HrefTariffRates"));
+        utils.checkAlert();
+        utils.waitForElementVisible(By.id("RatesList_0__r_peak"));
+        utils.sendText(By.id("RatesList_0__r_peak"),""+rates+"");
+        utils.clickBtn(By.id("RatesList_0__r_offpeak"));
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.id("HrefAssignTarrifs"));
         utils.clickBtn(By.id("HrefAssignTarrifs"));
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'agent')]/../following-sibling::td[5]//input[@id='checkbox1']"));
-        Thread.sleep(1000);
-        utils.makeSureBoxIsChecked(By.xpath("//a[contains(text(),'agent')]/../following-sibling::td[5]//input[@id='checkbox1']"), By.xpath("//a[contains(text(),'agent')]/../following-sibling::td[5]//input[@id='checkbox1']"));
-        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.switchToPreviousWindow(0);
-    }
-
+            utils.waitForElementVisible(By.xpath("//a[contains(text(),'agent')]/../following-sibling::td[5]//input[@id='checkbox1']"));
+            utils.makeSureBoxIsChecked(By.xpath("//a[contains(text(),'agent')]/../following-sibling::td[5]//input[@id='checkbox1']"), By.xpath("//a[contains(text(),'agent')]/../following-sibling::td[5]//input[@id='checkbox1']"));
+            utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+            utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+            utils.switchToPreviousWindow(0);
+   }
     public void assignFreeMinutesPlanToAgent(String freeMinutePlan) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//a[contains(@href,'freeminuteslistview')]"));
         utils.clickBtn(By.xpath("//a[contains(@href,'freeminuteslistview')]"));
@@ -67,10 +74,11 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.xpath("//select[@id='Dfreeminutedetails_what_id'][@disabled='disabled']"));
     }
 
-    public void assertTariffAreNotEditable(String tariffPlan) {
+    public void assertTariffAreNotEditable(String tariffPlan) throws InterruptedException {
         utils.switchToPreviousWindow(0);
         utils.waitForElementVisible(By.xpath("//div[@id='subMenu']//a[contains(@href,'tariff')]"));
         utils.clickBtn(By.xpath("//div[@id='subMenu']//a[contains(@href,'tariff')]"));
+        commonMethods.search(tariffPlan);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffPlan + "')]"));
         utils.clickBtn(By.xpath("//a[contains(text(),'" + tariffPlan + "')]"));
         utils.switchToNewWindow();
@@ -85,14 +93,6 @@ public class ConfigManagerPage {
         utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id("TariffName1"));
-    }
-
-    public void addTariffPlan() {
-        RanTariffPlanName = utils.randomName();
-        utils.sendText(By.id("TariffName1"), RanTariffPlanName);
-        utils.waitForElementVisible(By.id("tariffSaveAndCloseButton"));
-        utils.clickBtn(By.id("tariffSaveAndCloseButton"));
-        utils.switchToPreviousWindow(0);
     }
 
     public void addFreeMinutesPlan() {
@@ -119,21 +119,6 @@ public class ConfigManagerPage {
         utils.switchToPreviousWindow(0);
     }
 
-    public void editTariffPlan() throws InterruptedException {
-        commonMethods.search(RanTariffPlanName);
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "')]"));
-        Thread.sleep(1000);
-        utils.clickBtn(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "')]"));
-        utils.switchToNewWindow();
-        utils.waitForElementVisible(By.id("TariffName1"));
-        utils.sendText(By.id("TariffName1"), RanTariffPlanName + "changed name");
-        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.switchToPreviousWindow(0);
-        commonMethods.search(RanTariffPlanName + "changed name");
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "changed name')]"));
-    }
-
     public void editFreeMinutePlan() throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//a[contains(@href,'freeminuteslistview')]"));
         utils.clickBtn(By.xpath("//a[contains(@href,'freeminuteslistview')]"));
@@ -153,32 +138,4 @@ public class ConfigManagerPage {
             System.out.println("agent is not able to edit a free minute plan");
         }
     }
-
-    public void validationsForNewTariffScreenByCP() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//input[@value='2'][@id='tariff_type']"));
-        utils.waitForElementVisible(By.xpath("//input[@value='2'][@id='BasedOnType']"));
-        Thread.sleep(1000);
-        utils.clickBtn(By.xpath("//input[@value='2'][@id='BasedOnType']"));
-        utils.waitForElementVisible(By.xpath("//input[@value='2'][@id='buyOrSale']"));
-    }
-    public void validationsForNewTariffScreenByAgent() throws InterruptedException {
-        utils.waitForElementVisible(By.id("TariffName1"));
-        String tariffName=utils.randomName();
-        utils.sendText(By.id("TariffName1"),tariffName);
-        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Tariff Name')]"));
-        utils.assertElementNotPresent(By.xpath("//input[@value='1'][@id='tariff_type']"));
-        Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath("//input[@value='2'][@id='tariff_type']"));
-        utils.waitForElementVisible(By.xpath("//input[@value='1'][@id='BasedOnType']"));
-        Thread.sleep(1000);
-        utils.clickBtn(By.xpath("//input[@value='2'][@id='BasedOnType']"));
-        utils.assertElementNotPresent(By.xpath("//input[@value='1'][@id='buyOrSale']"));
-        Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath("//input[@id='BasedOnType'][@value='0']"));
-        utils.waitForElementVisible(By.id("tariffSaveAndCloseButton"));
-        utils.clickBtn(By.id("tariffSaveAndCloseButton"));
-        utils.switchToPreviousWindow(0);
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+tariffName+"')]/../following-sibling::td[contains(text(),'Baseline')]"));
-    }
-
 }

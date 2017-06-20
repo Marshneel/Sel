@@ -19,13 +19,13 @@ public class NA155_differenceBetween_Agent_And_CP_createTariffScreens_stepDefs {
 
     @Then("^I should be able to compare the differences with that of agent create tariff screen$")
     public void iShouldBeAbleToCompareTheDifferencesWithThatOfAgentCreateTariffScreen() throws InterruptedException {
-        webModel.getConfigManagerPage().validationsForNewTariffScreenByCP();
+        webModel.getCreateTariffPage().validationsForNewTariffScreenByCP();
 
 
     }
 
     @Then("^I should be able to compare the differences with that of CP create tariff screen$")
     public void iShouldBeAbleToCompareTheDifferencesWithThatOfCPCreateTariffScreen() throws InterruptedException {
-        webModel.getConfigManagerPage().validationsForNewTariffScreenByAgent();
+        webModel.getCreateTariffPage().validationsForNewTariffScreenByAgent();
     }
 }

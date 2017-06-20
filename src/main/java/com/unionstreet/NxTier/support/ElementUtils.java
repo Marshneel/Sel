@@ -206,6 +206,14 @@ public class ElementUtils {
 
         }
     }
+    public void checkAlertAndCLickEnter() {
+        try {
+            if (isAlertPresent() == true) {
+                clickEnter();
+            }
+        } catch (Exception e) {
+
+        }}
 
     public boolean isElementPresent(By by) {
         try {

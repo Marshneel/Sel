@@ -1,5 +1,5 @@
 @E2ETests
-Feature: NA - 153 ISDN2 standard new provide line numbering options: select from list
+Feature: NA - 154 ISDN2 standard new provide line numbering options: select from list
 
   Scenario: initiate a new provide service on ISDN2 standard and check select from list functionality under line numbering
     Given I am logged in as CP
