@@ -35,7 +35,7 @@ public class AddSiteDetailsPage {
             utils.checkAlert();
         }
         utils.switchToParentWindow();
-        utils.getDashBoardPage();
+        utils.getDashBoardPage("/nxtiere2e");
     }
 
     public void navigateToHomePage() {

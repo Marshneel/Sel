@@ -10,7 +10,7 @@ import java.sql.SQLException;
 /**
  * Created by RajeshG on 27/03/2017.
  */
-public class NA107_ISDN30_Amend_stepDefs {
+public class NA107_WLR3_ISDN30_Amend_stepDefs {
 
     WebModel webModel=new WebModel();
     NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs na88=new NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs();

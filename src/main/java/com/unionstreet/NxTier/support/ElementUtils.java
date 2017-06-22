@@ -337,8 +337,9 @@ public class ElementUtils {
         driver.get("http://test01-web01/nxtiere2e");
     }
 
-    public void getDashBoardPage() {
-       try{ driver.get("http://test01-web01/nxtiere2e/Dashboard/index");}catch (Exception e){checkAlert();}
+    public void getDashBoardPage(String database) {
+       try{ driver.get("http://test01-web01"+database+"/Dashboard/index");}catch (Exception e){checkAlert();}
+
     }
 
     public void getCpAddUserPage() {
@@ -520,5 +521,10 @@ public class ElementUtils {
         driver.get("http://test01-web01/nxtiere2e/ServiceDesk/LogIncident/"+siteID+"");
         clickEnter();
     }
+    public void loadBranchURLForServiceDesk(){
+        driver.get("http://test01-web01:9080/sn");
+    }
+
+
     }
 

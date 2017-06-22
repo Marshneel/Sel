@@ -1,5 +1,6 @@
-package com.unionstreet.NxTier.stepDefs.WLR3;
+package com.unionstreet.NxTier.stepDefs.WhiteLabel;
 
+import com.unionstreet.NxTier.stepDefs.WLR3.NA44_Agent_Login_stepDefs;
 import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -14,7 +15,7 @@ import java.sql.SQLException;
 /**
  * Created by RajeshG on 06/06/2017.
  */
-public class NA152_Agent_Permissions_stepDefs {
+public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
 
     WebModel webModel=new WebModel();
     NA44_Agent_Login_stepDefs na44_agent_login_stepDefs = new NA44_Agent_Login_stepDefs();

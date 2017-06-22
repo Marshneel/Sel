@@ -11,7 +11,7 @@ import java.sql.SQLException;
 /**
  * Created by RajeshG on 10/03/2017.
  */
-public class NA104_ISDN30_Transfer_stepDefs {
+public class NA104_WLR3_ISDN30_Transfer_stepDefs {
     WebModel webModel = new WebModel();
 
     @When("^I initiate a transfer service on the line that has business continuity set$")

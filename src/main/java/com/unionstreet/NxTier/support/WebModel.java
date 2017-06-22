@@ -44,7 +44,7 @@ public class WebModel {
     private ServiceDeskPage serviceDeskPage;
     private ConfigManagerPage configManagerPage;
     private CreateTariffPage createTariffPage;
-
+    private ServiceDesk_LoginIncidentPage serviceDesk_loginIncidentPage;
 
     public WebModel() {
         utils = new ElementUtils();
@@ -87,6 +87,7 @@ public class WebModel {
         serviceDeskPage=new ServiceDeskPage();
         configManagerPage=new ConfigManagerPage();
         createTariffPage = new CreateTariffPage();
+        serviceDesk_loginIncidentPage=new ServiceDesk_LoginIncidentPage();
 
 
     }
@@ -244,6 +245,9 @@ public class WebModel {
 
     public CreateTariffPage getCreateTariffPage(){
         return createTariffPage;
+    }
+    public ServiceDesk_LoginIncidentPage getServiceDesk_loginIncidentPage(){
+        return serviceDesk_loginIncidentPage;
     }
 }
 

@@ -1,4 +1,4 @@
-package com.unionstreet.NxTier.stepDefs.WLR3;
+package com.unionstreet.NxTier.stepDefs.WhiteLabel;
 
 import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.Then;
@@ -8,7 +8,7 @@ import java.awt.*;
 /**
  * Created by RajeshG on 20/06/2017.
  */
-public class NA157_CreateDifferentTypesOfbaseTariffs_As_A_CP_stepDefs {
+public class NA157_WhiteLabel_CreateDifferentTypesOfbaseTariffs_As_A_CP_stepDefs {
 
     WebModel webModel=new WebModel();
 

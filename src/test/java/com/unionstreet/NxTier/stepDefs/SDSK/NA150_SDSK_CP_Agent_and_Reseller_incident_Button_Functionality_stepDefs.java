@@ -1,4 +1,4 @@
-package com.unionstreet.NxTier.stepDefs.WLR3;
+package com.unionstreet.NxTier.stepDefs.SDSK;
 
 import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.Then;
@@ -17,7 +17,7 @@ public class NA150_SDSK_CP_Agent_and_Reseller_incident_Button_Functionality_step
     @When("^I access service desk page and search for a \"([^\"]*)\" with \"([^\"]*)\"$")
     public void iAccessServiceDeskPageAndSearchForAWith(String accountName, String ID) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='0', defServiceLevel_id='1' where ID='"+ID+"'");
-        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
         webModel.getServiceDeskPage().searchByAccountName(accountName);
         webModel.getServiceDeskPage().clickOnResult(accountName);
@@ -36,7 +36,7 @@ public class NA150_SDSK_CP_Agent_and_Reseller_incident_Button_Functionality_step
         webModel.getServiceDeskPage().clickIncidentButton();
         webModel.getServiceDeskPage().assertNoSLAwarningPopUp();
         webModel.getUtils().scrollBack();
-        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='1', defServiceLevel_id='1' where ID='"+ID+"'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update account_onhold_actions set servicedesk_action=2");
@@ -47,7 +47,7 @@ public class NA150_SDSK_CP_Agent_and_Reseller_incident_Button_Functionality_step
         webModel.getServiceDeskPage().assertAccountOnHoldRedPopUp();
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='1', defServiceLevel_id='1' where ID='"+ID+"'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update account_onhold_actions set servicedesk_action=1");
-        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
         webModel.getServiceDeskPage().searchByAccountName(accountName);
         webModel.getServiceDeskPage().clickOnResult(accountName);
@@ -56,7 +56,7 @@ public class NA150_SDSK_CP_Agent_and_Reseller_incident_Button_Functionality_step
         webModel.getServiceDeskPage().assertAccountOhHoldYellowPopUp();
         webModel.getServiceDeskPage().assertAccessGrantedToLoginIncident();
         webModel.getUtils().scrollBack();
-        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set isOnHold='1', defServiceLevel_id='1' where ID='"+ID+"'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update account_onhold_actions set servicedesk_action=0");

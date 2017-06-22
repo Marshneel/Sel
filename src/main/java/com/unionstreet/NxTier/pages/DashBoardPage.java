@@ -49,13 +49,13 @@ public class DashBoardPage {
 
     }
 
-    public void loadServiceDesk() {
+    public void loadServiceDesk(String database) {
         try {
-            utils.getDashBoardPage();
+          //  utils.getDashBoardPage();
             utils.waitForElementVisible(By.id("HrefServiceDesk"));
             utils.clickBtn(By.id("HrefServiceDesk"));
         } catch (Exception e) {
-            utils.getDashBoardPage();
+            utils.getDashBoardPage(database);
             utils.waitForElementVisible(By.id("HrefServiceDesk"));
             utils.clickBtn(By.id("HrefServiceDesk"));
         }

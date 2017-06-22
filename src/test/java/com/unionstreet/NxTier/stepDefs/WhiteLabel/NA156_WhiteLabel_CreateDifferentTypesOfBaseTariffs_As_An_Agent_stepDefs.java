@@ -1,4 +1,4 @@
-package com.unionstreet.NxTier.stepDefs.WLR3;
+package com.unionstreet.NxTier.stepDefs.WhiteLabel;
 
 import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.And;
@@ -10,7 +10,7 @@ import java.awt.*;
 /**
  * Created by RajeshG on 19/06/2017.
  */
-public class NA156_CreateDifferentTypesOfBaseTariffs_As_An_Agent_stepDefs {
+public class NA156_WhiteLabel_CreateDifferentTypesOfBaseTariffs_As_An_Agent_stepDefs {
     WebModel webModel=new WebModel();
 
     @Given("^CP has give me permission to create and acess call tariffs$")

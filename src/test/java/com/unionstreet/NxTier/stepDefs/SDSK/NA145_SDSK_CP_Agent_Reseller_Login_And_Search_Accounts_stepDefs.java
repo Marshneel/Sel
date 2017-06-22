@@ -1,4 +1,4 @@
-package com.unionstreet.NxTier.stepDefs.WLR3;
+package com.unionstreet.NxTier.stepDefs.SDSK;
 
 import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.And;
@@ -34,7 +34,7 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @When("^I am on the service desk page$")
     public void iAmOnTheServiceDeskPage() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
-        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
     }
 
@@ -94,7 +94,7 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @When("^I am on the service desk page as an agent$")
     public void iAmOnTheServiceDeskPageAsAnAgent() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
     }
 
@@ -154,7 +154,7 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @When("^I am on the service desk page as a reseller$")
     public void iAmOnTheServiceDeskPageAsAReseller() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
 
     }

@@ -1,4 +1,4 @@
-package com.unionstreet.NxTier.stepDefs.WLR3;
+package com.unionstreet.NxTier.stepDefs.WhiteLabel;
 
 import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.Then;
@@ -7,7 +7,7 @@ import cucumber.api.java.en.When;
 /**
  * Created by RajeshG on 16/06/2017.
  */
-public class NA155_differenceBetween_Agent_And_CP_createTariffScreens_stepDefs {
+public class NA155_WhiteLabel_differenceBetween_Agent_And_CP_createTariffScreens_stepDefs {
 
     WebModel webModel= new WebModel();
 
