@@ -24,9 +24,9 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
     public void cpHasIssuedFewTariffAndFreeMinutePlans() throws InterruptedException, AWTException {
         webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
-        webModel.getCompanyMenuPage().clickConfigManager();
-        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10");
-        webModel.getConfigManagerPage().assignFreeMinutesPlanToAgent("Mobile 250 Free Mins (UK and Mob");
+        webModel.getDashBoardPage().clickConfigManager();
+        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10","checkbox0");
+        webModel.getConfigManagerPage().assignFreeMinutesPlanToAgent("Mobile 250 Free Mins (UK and Mob","checkbox0");
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().issueTariffAndFreeMinutePermissionsToAgent("agent");
         webModel.getDashBoardPage().logOut();
@@ -40,7 +40,7 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
 
     @And("^navigate to see config manager page$")
     public void navigateToSeeConfigManagerPage() {
-        webModel.getCompanyMenuPage().clickConfigManager();
+        webModel.getDashBoardPage().clickConfigManager();
     }
 
     @Then("^I should be able to see the tariff and free minute plans$")
@@ -59,7 +59,7 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
 
     @When("^I navigate to config manager$")
     public void iNavigateToConfigManager() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getCompanyMenuPage().clickConfigManager();
+        webModel.getDashBoardPage().clickConfigManager();
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Group_Permissions set [Add]='1', [View]='1',[Edit]='1', [Delete]='1' where GTypeID='b99d95f9-bbec-45b1-abc2-db70df79c4ce' and Name='Free Minutes Details'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Group_Permissions set [Add]='1', [View]='1',[Edit]='1', [Delete]='1' where GTypeID='b99d95f9-bbec-45b1-abc2-db70df79c4ce' and Name='Tariff Details'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Group_Permissions set [Add]='1', [View]='1',[Edit]='1', [Delete]='1' where GTypeID='b99d95f9-bbec-45b1-abc2-db70df79c4ce' and Name='Tariff Rates'");
@@ -70,7 +70,7 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
        webModel.getConfigManagerPage().navigateToAddTariffPlan();
         webModel.getCreateTariffPage().addTariffPlan();
         webModel.getConfigManagerPage().addFreeMinutesPlan();
-       webModel.getCompanyMenuPage().clickConfigManager();
+       webModel.getDashBoardPage().clickConfigManager();
         webModel.getCreateTariffPage().editTariffPlan();
         webModel.getConfigManagerPage().editFreeMinutePlan();
     }
@@ -110,10 +110,10 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
     public void cpHasIssuedTariffAndFreeMinutePlansToCustomersAssignedUnderMe() throws InterruptedException, AWTException {
         webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
-        webModel.getCompanyMenuPage().clickConfigManager();
-        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10");
-        webModel.getConfigManagerPage().assignTariffPlanToAgent("Buy BT Wholesale","10");
-        webModel.getConfigManagerPage().assignFreeMinutesPlanToAgent("Mobile 250 Free Mins (UK and Mob");
+        webModel.getDashBoardPage().clickConfigManager();
+        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10","checkbox0");
+        webModel.getConfigManagerPage().assignTariffPlanToAgent("Buy BT Wholesale","10","checkbox0");
+        webModel.getConfigManagerPage().assignFreeMinutesPlanToAgent("Mobile 250 Free Mins (UK and Mob","checkbox0");
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
         webModel.getUtils().switchToNewWindow();

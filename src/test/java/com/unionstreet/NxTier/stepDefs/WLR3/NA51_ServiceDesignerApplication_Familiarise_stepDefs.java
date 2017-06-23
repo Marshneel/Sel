@@ -50,7 +50,7 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
     public void iAmLoggedInAsAgentAndThereIsAServiceUnassignedToMe() throws InterruptedException {
         webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
-        webModel.getCompanyMenuPage().clickConfigManager();
+        webModel.getDashBoardPage().clickConfigManager();
         webModel.getWlr_and_nxTierServicesPage().accessingAssignServicePage();
         webModel.getOrdersManagerPage().makeSureAgentDoesNotHaveAgentAndResellerService();
         webModel.getOrdersManagerPage().saveAssignServicePage();

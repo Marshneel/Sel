@@ -49,7 +49,6 @@ public class CompanyMenuPage {
     private final String SITEDETAILS_ACCOUNT_REF = "sage_id";
     private final String SITEDETAILS_BILLING_ADDRESS = "InvoiceAddress";
     private final String COMPANYSITES_BUTTON = "HrefCompanySites";
-    private final String CONFIGMANAGER_BUTTON = "HrefConfigManager";
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
@@ -253,27 +252,24 @@ public class CompanyMenuPage {
         utils.clickBtn(By.id(PRICING_DETAILS_BUTTON));
     }
 
-    public void clickConfigManager() {
-        utils.waitForElementVisible(By.id(CONFIGMANAGER_BUTTON));
-        utils.clickBtn(By.id(CONFIGMANAGER_BUTTON));
-    }
+
     public void assertAgentCreatedTariffandFreeMinutes() throws InterruptedException {
         utils.switchToNewWindow();
         clickPricingDetails();
-        utils.waitForElementVisible(By.id("ChkPerFreeMinutes"));
+        utils.waitForElementVisible(By.id("EnableFreeminutes"));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.id("ChkPerFreeMinutes"));
+        utils.javaScriptExecutorClick(By.id("EnableFreeminutes"));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+configManagerPage.RanFreeMinutePlanName+"')]"));
-        utils.searchAndAssertTextPresent(By.id("GroupTable"), ""+configManagerPage.RanFreeMinutePlanName+"");
+        utils.searchAndAssertTextPresent(By.id("fmSiteTable"), ""+configManagerPage.RanFreeMinutePlanName+"");
         utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),createTariffPage.RanTariffPlanName);
     }
     public void assignTariffAndFreeMinutesToCustomer(String FreeMinutePlan,String TariffPlan) throws InterruptedException {
-        utils.waitForElementVisible(By.id("ChkPerFreeMinutes"));
+        utils.waitForElementVisible(By.id("EnableFreeminutes"));
         Thread.sleep(1000);
-        utils.makeSureBoxIsChecked(By.id("ChkPerFreeMinutes"),By.id("ChkPerFreeMinutes"));
-        utils.waitForElementVisible(By.xpath("//table[@id='GroupTable']//td[contains(text(),'"+FreeMinutePlan+"')]/..//input[@id='SelectFreeMins_13']"));
+        utils.makeSureBoxIsChecked(By.id("EnableFreeminutes"),By.id("EnableFreeminutes"));
+        utils.waitForElementVisible(By.xpath(" //table[@id='fmSiteTable']//td[contains(text(),'"+FreeMinutePlan+"')]"));
        Thread.sleep(1000);
-        utils.makeSureBoxIsChecked(By.id("SelectFreeMins_13"),By.id("SelectFreeMins_13"));
+        utils.makeSureBoxIsChecked(By.id("fmSelection13_isSelected"),By.id("fmSelection13_isSelected"));
         utils.waitForElementVisible(By.id("sinfo_LCR_Tariff"));
         utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),""+TariffPlan+"");
         utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),"Sell Data Tariff");
@@ -284,11 +280,11 @@ public class CompanyMenuPage {
     public void assertCPAssignedTariffAndFreeMinutes(String tariffVoiceField, String tariffDataField, String tariffPlan, String freeMinutePlan){
         utils.waitForElementVisible(By.xpath("//select[@id='"+tariffVoiceField+"']//option[@selected='selected'][contains(text(),'"+tariffPlan+"')]"));
         utils.waitForElementVisible(By.xpath("//select[@id='"+tariffDataField+"']//option[@selected='selected'][contains(text(),'"+tariffPlan+"')]"));
-        utils.waitForElementVisible(By.xpath("//table[@id='GroupTable']//td[contains(text(),'"+freeMinutePlan+"')]/..//input[@checked='checked']"));
+        utils.waitForElementVisible(By.xpath("//table[@id='fmSiteTable']//td[contains(text(),'"+freeMinutePlan+"')]/..//input[@checked='checked']"));
     }
     public void removeCPAssignedTariffAndFreeMinutes() throws InterruptedException {
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.id("ChkPerFreeMinutes"));
+        utils.javaScriptExecutorClick(By.id("EnableFreeminutes"));
         utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),"Select");
         utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),"Select");
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
@@ -296,7 +292,7 @@ public class CompanyMenuPage {
     }
     public void assertAgentCannotSeeCPAssignedTariffAndFreeMinutes(String tariffPlan, String freeMinutePlan) throws InterruptedException {
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.id("ChkPerFreeMinutes"));
+        utils.javaScriptExecutorClick(By.id("EnableFreeminutes"));
         utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'"+tariffPlan+"')]"));
         utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_Data_Tariff']//option[contains(text(),'"+tariffPlan+"')]"));
         utils.assertElementNotPresent(By.xpath("//table[@id='GroupTable']//tr[contains(text(),'"+freeMinutePlan+"')]"));

@@ -38,9 +38,7 @@ public class OrdersManagerPage {
     CommonMethods commonMethods = new CommonMethods();
     DashBoardPage dashBoardPage = new DashBoardPage();
     LoginPage loginPage = new LoginPage();
-    CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     SettingsPage settingsPage = new SettingsPage();
-    AddSiteDetailsPage addSiteDetailsPage = new AddSiteDetailsPage();
 
     public void clickCreateQuoteButton() throws InterruptedException {
 
@@ -260,7 +258,7 @@ public class OrdersManagerPage {
         utils.switchToParentWindow();
         dashBoardPage.logOut();
         loginPage.doLogin();
-        companyMenuPage.clickConfigManager();
+        dashBoardPage.clickConfigManager();
         wlr_and_nxTierServicesPage.accessingAssignServicePage();
         commonMethods.search("agent");
         utils.waitForElementVisible(By.xpath("//a[@href='#'][contains(text(),'agent')]"));
