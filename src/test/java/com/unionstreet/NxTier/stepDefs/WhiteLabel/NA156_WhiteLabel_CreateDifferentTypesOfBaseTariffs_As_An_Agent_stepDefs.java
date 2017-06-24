@@ -1,4 +1,4 @@
-package com.unionstreet.NxTier.stepDefs.WLR3;
+package com.unionstreet.NxTier.stepDefs.WhiteLabel;
 
 import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.And;
@@ -10,15 +10,15 @@ import java.awt.*;
 /**
  * Created by RajeshG on 19/06/2017.
  */
-public class NA156_CreateDifferentTypesOfBaseTariffs_As_An_Agent_stepDefs {
+public class NA156_WhiteLabel_CreateDifferentTypesOfBaseTariffs_As_An_Agent_stepDefs {
     WebModel webModel=new WebModel();
 
     @Given("^CP has give me permission to create and acess call tariffs$")
     public void cpHasGiveMePermissionToCreateAndAcessCallTariffs() throws InterruptedException, AWTException {
         webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
-        webModel.getCompanyMenuPage().clickConfigManager();
-        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10");
+        webModel.getDashBoardPage().clickConfigManager();
+        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10","checkbox0");
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().issueTariffAndFreeMinutePermissionsToAgent("agent");
         webModel.getDashBoardPage().logOut();
@@ -41,22 +41,22 @@ public class NA156_CreateDifferentTypesOfBaseTariffs_As_An_Agent_stepDefs {
         webModel.getCreateTariffPage().assertChargesOfTariffThatIsBasedOnAnAnotherTariff("20","@value",true);
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsCP();
-        webModel.getCompanyMenuPage().clickConfigManager();
-        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","20");
+        webModel.getDashBoardPage().clickConfigManager();
+        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","20","checkbox0");
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsAgent();
-        webModel.getCompanyMenuPage().clickConfigManager();
+        webModel.getDashBoardPage().clickConfigManager();
         webModel.getCreateTariffPage().assertChargesOfTariffThatIsBasedOnAnAnotherTariff("20","@value",true);
         webModel.getConfigManagerPage().navigateToAddTariffPlan();
         webModel.getCreateTariffPage().createTariffPlanBasedOnOtherPlan("3","2","2","0","Sell 2p NGCS AC (+60 sec)");
         webModel.getCreateTariffPage().assertChargesOfTariffThatIsBasedOnAnAnotherTariff("40.0000","@basevalue",false);
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsCP();
-        webModel.getCompanyMenuPage().clickConfigManager();
-        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10");
+        webModel.getDashBoardPage().clickConfigManager();
+        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10","checkbox0");
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsAgent();
-        webModel.getCompanyMenuPage().clickConfigManager();
+        webModel.getDashBoardPage().clickConfigManager();
         webModel.getCreateTariffPage().assertChargesOfTariffThatIsBasedOnAnAnotherTariff("20.0000","@basevalue",false);
     }
 }

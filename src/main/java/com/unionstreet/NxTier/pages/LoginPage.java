@@ -93,6 +93,19 @@ public void zoomOutOnLoginPage() throws InterruptedException {
         utils.sendText(By.id(PASSWORD_FIELD), passWord);
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
+    public void loginAsAdamR() throws InterruptedException {
+        utils.loadBranchURLForServiceDesk();
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.clickBtn(By.id(USERNAME_FIELD));
+        utils.sendText(By.id(USERNAME_FIELD), "AdamR");
+        utils.clickBtn(By.id(PASSWORD_FIELD));
+        utils.sendText(By.id(PASSWORD_FIELD), "password");
+        try {
+            utils.clickBtn(By.cssSelector(LOGINBUTTON));
+        } catch (Exception e) {
+            utils.checkAlert();
+        }
+    }
 }
 
 

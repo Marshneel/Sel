@@ -1,4 +1,4 @@
-package com.unionstreet.NxTier.stepDefs.WLR3;
+package com.unionstreet.NxTier.stepDefs.SDSK;
 
 import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.And;
@@ -22,7 +22,7 @@ public class NA151_SDSK_URL_Manipulation_stepDefs {
         webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().login(userName, passWord);
        webModel.getServiceDeskPage().revokingServiceDeskPermissions();
-        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
     }
     @When("^I try to navigate to service desk page the access should be denied with  \"([^\"]*)\" and \"([^\"]*)\"$")
     public void iTryToNavigateToServiceDeskPageTheAccessShouldBeDeniedWithAnd(String userName, String passWord) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
@@ -32,7 +32,7 @@ public class NA151_SDSK_URL_Manipulation_stepDefs {
          webModel.getUtils().scrollBack();
          webModel.getDashBoardPage().logOut();
          webModel.getLoginPage().login(userName, passWord);
-         webModel.getDashBoardPage().loadServiceDesk();
+         webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
          webModel.getServiceDeskPage().assertServiceDeskAccessDenied();
 
 
@@ -47,7 +47,7 @@ public class NA151_SDSK_URL_Manipulation_stepDefs {
         webModel.getServiceDeskPage().grantingServiceDeskAccess();
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().login(userName, passWord);
-        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
     }
 
     @Then("^Based on the status of the account and SLA, I should be able to or unable to log a ticket for business customer with \"([^\"]*)\" and \"([^\"]*)\" via pasting the URL$")

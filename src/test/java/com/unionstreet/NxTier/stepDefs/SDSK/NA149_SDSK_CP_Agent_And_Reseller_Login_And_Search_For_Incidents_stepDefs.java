@@ -1,4 +1,4 @@
-package com.unionstreet.NxTier.stepDefs.WLR3;
+package com.unionstreet.NxTier.stepDefs.SDSK;
 
 import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.Then;
@@ -18,7 +18,7 @@ public class NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents_ste
     public void iNavigateToServiceDeskPageAndProvideRelevantInfoAsACP() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update incidents set site_id ='166',company_id='138'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set defServiceLevel_id='1' where name='business customer created by CP'");
-        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
         webModel.getServiceDeskPage().searchByShortName("CP");
         webModel.getServiceDeskPage().clickOnResult("CP");
@@ -35,7 +35,7 @@ public class NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents_ste
     public void iNavigateToServiceDeskPageAndProvideRelevantInfoAsAnAgent() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update incidents set site_id ='167',company_id='139'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set defServiceLevel_id='1' where name='business customer agent assigned'");
-        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
         webModel.getServiceDeskPage().searchByShortName("agent");
         webModel.getServiceDeskPage().clickOnResult("business customer agent assigned");
@@ -53,7 +53,7 @@ public class NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents_ste
     public void iNavigateToServiceDeskPageAndProvideRelevantInfoAsAReseller() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update incidents set site_id ='168',company_id='109'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set defServiceLevel_id='1' where ID='109'");
-        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
         webModel.getServiceDeskPage().searchByShortName("site called business customer");
         webModel.getServiceDeskPage().clickOnResult("site called business customer");

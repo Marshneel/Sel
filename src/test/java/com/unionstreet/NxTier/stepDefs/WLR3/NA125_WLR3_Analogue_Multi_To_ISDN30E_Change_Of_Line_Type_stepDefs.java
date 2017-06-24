@@ -10,7 +10,7 @@ import java.sql.SQLException;
 /**
  * Created by RajeshG on 04/05/2017.
  */
-public class NA125_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_stepDefs {
+public class NA125_WLR3_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_stepDefs {
     WebModel webModel=new WebModel();
     @When("^I initiate a change of line from analogue multi to ISDN(\\d+)E$")
     public void iInitiateAChangeOfLineFromAnalogueMultiToISDNE(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {

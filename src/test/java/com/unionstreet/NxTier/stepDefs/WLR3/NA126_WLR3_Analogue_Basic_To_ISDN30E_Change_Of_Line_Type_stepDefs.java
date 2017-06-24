@@ -10,7 +10,7 @@ import java.sql.SQLException;
 /**
  * Created by RajeshG on 04/05/2017.
  */
-public class NA126_Analogue_Basic_To_ISDN30E_Change_Of_Line_Type_stepDefs {
+public class NA126_WLR3_Analogue_Basic_To_ISDN30E_Change_Of_Line_Type_stepDefs {
     WebModel webModel = new WebModel();
 
     @When("^I initiate a change of line type from analogue basic single to ISDN(\\d+)E$")
