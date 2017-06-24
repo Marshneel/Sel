@@ -19,6 +19,7 @@ public class ConfigManagerPage {
     public void assignToAnAgent(String assignee) throws InterruptedException {
         commonMethods.search("Agent");
         utils.waitForElementVisible(By.id(assignee));
+       Thread.sleep(1000);
         utils.makeSureBoxIsChecked(By.id(assignee), By.id(assignee));
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
