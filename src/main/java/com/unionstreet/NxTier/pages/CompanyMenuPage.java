@@ -303,8 +303,19 @@ public class CompanyMenuPage {
         utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'"+unavailableTariffPlan+"')]"));
         Thread.sleep(1000);
         utils.makeSureBoxIsChecked(By.id("SelectFreeMins_2"),By.id("SelectFreeMins_2"));
+    }
+    public void assignOrDeletePackageToCustomer(String packageName){
+        utils.waitForElementVisible(By.id("sinfo_package"));
+        utils.selectByVisibleText(By.id("sinfo_package"),""+packageName+"");
+        utils.waitForElementVisible(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
+        utils.clickBtn(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
+        utils.switchToPreviousWindow(0);
 
-
+    }
+    public void assertAgentCannotRe_AssignDeletedCustomerPackageUnlessItsAssignedToHim(String unavailablePackage, String availablePackage){
+        utils.waitForElementVisible(By.id("sinfo_package"));
+        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_package']//option[contains(text(),'"+unavailablePackage+"')]"));
+        utils.waitForElementVisible(By.xpath("//select[@id='sinfo_package']//option[contains(text(),'"+availablePackage+"')]"));
     }
 }
 
