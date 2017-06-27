@@ -74,6 +74,10 @@ public class WLR3_OrderDetails_Page {
     private final String SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE="//img[contains(@onclick,'jet_update_value_FromTextbox')]";
     public final String EDIT_NUMBER_OF_CHANNELS_TEXT_BOX="WLR3Order_num_lines";
     private final String NO_ENGINEERING_NOTES_WITH_OUT_SITE_VISIT_MESSAGE="//div[contains(text(),'Engineering Notes cannot be entered when an engineer visit is not required')]";
+    private final String ORDER_TYPE_TEXT="//h3[contains(text(),'Order Type')]";
+    private final String SITE_ASSURANCE_OPTION_ONE_UNDER_BUSINESS_CONTINUITY="//label[contains(text(),'Site Assurance Option 1')]";
+    private final String YOU_MUST_SPECIFY_A_FLOOR_FOR_DIGITAL_PRODUCTS="//div[contains(text(),'You must specify a Floor for Digital products')]";
+    private final String YOU_MUST_SPECIFY_A_ROOM_FOR_DIGITAL_PRODUCTS="//div[contains(text(),'You must specify a Room for Digital products')]";
 
 
 
@@ -241,7 +245,7 @@ public class WLR3_OrderDetails_Page {
             Thread.sleep(1000);
             utils.javaScriptExecutorClick(By.xpath(ORDERTYPE_TAB));
         }
-        utils.waitForElementVisible(By.xpath("//h3[contains(text(),'Order Type')]"));
+        utils.waitForElementVisible(By.xpath(ORDER_TYPE_TEXT));
         try {
             Thread.sleep(1000);
             utils.clickBtn(By.id(CANCEL));
@@ -368,7 +372,7 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void assertBusinessContinuity() {
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Site Assurance Option 1')]"));
+        utils.waitForElementVisible(By.xpath(SITE_ASSURANCE_OPTION_ONE_UNDER_BUSINESS_CONTINUITY));
 
     }
 
@@ -384,8 +388,8 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void siteInfoValidationMessagesForISDN2OnOrderSummaryPage() {
-        utils.waitForElementVisible(By.xpath("//div[contains(text(),'You must specify a Floor for Digital products')]"));
-        utils.waitForElementVisible(By.xpath("//div[contains(text(),'You must specify a Room for Digital products')]"));
+        utils.waitForElementVisible(By.xpath(YOU_MUST_SPECIFY_A_FLOOR_FOR_DIGITAL_PRODUCTS));
+        utils.waitForElementVisible(By.xpath(YOU_MUST_SPECIFY_A_ROOM_FOR_DIGITAL_PRODUCTS));
     }
 
     public void editTabsForISDN30AmendWithCustomerDelayReason() throws InterruptedException {
