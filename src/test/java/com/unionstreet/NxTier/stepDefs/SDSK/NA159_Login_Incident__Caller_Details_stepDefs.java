@@ -24,6 +24,7 @@ public class NA159_Login_Incident__Caller_Details_stepDefs {
 
     @When("^I navigate to the caller details page of the incident wizard$")
     public void iNavigateToTheCallerDetailsPageOfTheIncidentWizard() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
+        webModel.getUtils().sqlExeQuery("portal", "MOE\\DEVSQL2008", "SN_aBILLity_Portal", "update incident_types set is_default=NULL");
         webModel.getDashBoardPage().loadServiceDesk(":9080/sn");
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
         webModel.getServiceDeskPage().searchByShortName("Adam As A Reseller");

@@ -14,18 +14,20 @@ public class ConfigManagerPage {
     CommonMethods commonMethods = new CommonMethods();
     public static String RanFreeMinutePlanName;
     public static String RanPackageName;
+    CreateTariffPage createTariffPage = new CreateTariffPage();
 
 
     public void assignToAnAgent(String assignee) throws InterruptedException {
         commonMethods.search("Agent");
         utils.waitForElementVisible(By.id(assignee));
-       Thread.sleep(1000);
+        Thread.sleep(1000);
         utils.makeSureBoxIsChecked(By.id(assignee), By.id(assignee));
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.switchToPreviousWindow(0);
 
     }
+
     public void assignTariffPlanToAgent(String tariffplan, String rates, String assignee) throws InterruptedException, AWTException {
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'Config Manager')]"));
         commonMethods.search("" + tariffplan + "");
@@ -58,10 +60,11 @@ public class ConfigManagerPage {
         utils.clickBtn(By.id("HrefAssignFreeMinutes"));
         assignToAnAgent(assignee);
     }
+
     public void assignPackageToAgent(String Package, String assignee) throws InterruptedException {
-        commonMethods.search(""+Package+"");
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+Package+"')]"));
-        utils.clickBtn(By.xpath("//a[contains(text(),'"+Package+"')]"));
+        commonMethods.search("" + Package + "");
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + Package + "')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + Package + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id("HrefAssignPackage"));
         utils.clickBtn(By.id("HrefAssignPackage"));
@@ -167,16 +170,21 @@ public class ConfigManagerPage {
 
     }
 
-    public void createPackage(String packageType, String TariffPlan, String consumerCheck, boolean consumerPackage) throws InterruptedException {
+    public void createPackage(String packageType, String TariffPlan, boolean consumerPackage, boolean verifyCreatedTariffAndFreeMinutes) throws InterruptedException {
         utils.switchToNewWindow();
         RanPackageName = utils.randomName();
         utils.waitForElementVisible(By.id("mpackage_name"));
         utils.sendText(By.id("mpackage_name"), RanPackageName);
         utils.waitForElementVisible(By.xpath("//div[@id='consumerdiv']//input[" + packageType + "]"));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath("//div[@id='consumerdiv']//input["+packageType+"]"));
-        if (consumerPackage==false) {utils.waitForElementVisible(By.xpath("//label[contains(text(),'Only consumer tariffs can be applied to consumer packages')]"));
+        utils.javaScriptExecutorClick(By.xpath("//div[@id='consumerdiv']//input[" + packageType + "]"));
+        if (consumerPackage == false) {
+            utils.waitForElementVisible(By.xpath("//label[contains(text(),'Only consumer tariffs can be applied to consumer packages')]"));
         } else {
+        }
+        if (verifyCreatedTariffAndFreeMinutes) {
+            utils.waitForElementVisible(By.xpath("//option[contains(text(),'" + createTariffPage.RanTariffPlanName + "')]"));
+            utils.waitForElementVisible(By.xpath("//td[contains(text(),'" + RanFreeMinutePlanName + "')]"));
         }
         utils.waitForElementVisible(By.id("mpackage_lcr_tariff"));
         utils.selectByVisibleText(By.id("mpackage_lcr_tariff"), "" + TariffPlan + "");
@@ -184,7 +192,10 @@ public class ConfigManagerPage {
         utils.selectByVisibleText(By.id("mpackage_data_tariff"), "" + TariffPlan + "");
         utils.waitForElementVisible(By.id("_selectedFreemins_0__isSelected"));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.id("_selectedFreemins_0__isSelected"));
+        utils.javaScriptExecutorClick(By.id("_selectedFreemins_0__isSelected"));}
+
+
+public void saveAndAssertThePackage(String consumerCheck) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
         utils.clickBtn(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
         utils.switchToPreviousWindow(0);
@@ -192,5 +203,38 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanPackageName + "')]"));
         utils.waitForElementVisible(By.xpath("//input[@id='Consumer']" + consumerCheck + ""));
     }
+
+
+    public void assertCPAssignedPackagesAreNotEditable(String packageName) throws InterruptedException {
+        commonMethods.search(packageName);
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+packageName+"')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+packageName+"')]"));
+        utils.switchToNewWindow();
+        utils.waitForElementVisible(By.xpath("//input[@id='mpackage_name'][@readonly='readonly']"));
+        utils.waitForElementVisible(By.xpath("//select[@id='mpackage_lcr_tariff'][@readonly='readonly']"));
+        utils.waitForElementVisible(By.xpath("//input[@id='_selectedFreemins_0__isSelected'][@readonly='readonly']"));
+    }
+    public void editCreatedPackage() throws InterruptedException {
+       utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+RanPackageName+"')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+RanPackageName+"')]"));
+       utils.switchToNewWindow();
+        utils.waitForElementVisible(By.id("mpackage_name"));
+        utils.sendText(By.id("mpackage_name"),RanPackageName+"editedName");
+        utils.waitForElementVisible(By.xpath("//table[@id='GroupTable']//td[contains(text(),'"+RanFreeMinutePlanName+"')]/following-sibling::td//label"));
+       Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.xpath("//table[@id='GroupTable']//td[contains(text(),'"+RanFreeMinutePlanName+"')]/following-sibling::td//label"));
+        utils.checkAlert();
+        utils.waitForElementVisible(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
+        utils.clickBtn(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
+        utils.switchToPreviousWindow(0);
+        commonMethods.search(RanPackageName+"editedName");
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanPackageName+"editedName" + "')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + RanPackageName+"editedName" + "')]"));
+        utils.switchToNewWindow();
+        utils.waitForElementVisible(By.xpath("//select[@id='mpackage_lcr_tariff']//option[@selected='selected'][contains(text(),'"+createTariffPage.RanTariffPlanName+"')]"));
+        utils.waitForElementVisible(By.xpath("//table[@id='GroupTable']//tr/following-sibling::tr/td[contains(text(),'"+RanFreeMinutePlanName+"')]/following-sibling::td/label"));
+
+    }
+
 
 }

@@ -22,6 +22,12 @@ public class WLR3_SiteInformationPage {
     private final String PROVISION_TYPE_PANEL="//legend[text()='Provision Type']";
     private final String TAKE_OVER_AN_EXISTING_LINE="//label[contains(text(),'Take over Working Line')]";
     private final String PROVIDE_A_NEW_LINE="//label[contains(text(),'Provide Line')]";
+    private final String INSTALL_TYPE="//label[contains(text(),'Install Type')]";
+    private final String WLR3_ORDER_INSTALLATION_TYPE="WLR3Order_installation_type";
+    private final String WLR3_ORDER_TARGET_SERVICE_ID="WLR3Order_target_serviceid";
+    private final String WLR3_ORDER_MAINS_WITHIN_3M="WLR3Order_mains_within_3m";
+    private final String WLR2_ORDER_EVENTS_AND_EXHIBITIONS="WLR3Order_events_and_exhibitions";
+    private final String PLEASE_SPECIFY_SITE_CONTACT_TELEPHONE="//div[contains(text(),'Please specify Site Contact telephone number')]";
 
 
 
@@ -77,7 +83,7 @@ public class WLR3_SiteInformationPage {
     }
     public void switchBetweenTerminationTypes(String changeTo){
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_SITE_INFORMATION));
-        utils.selectByVisibleText(By.id("WLR3Order_termination_type"),changeTo);
+        utils.selectByVisibleText(By.id(wlr3_newProvide_provisionPage.TERMINATION_TYPE_DROPDOWN_UNDER_SITEINFO),changeTo);
 
     }
     public void assertTerminationTypeForBasicLines(String available, String unavailable){
@@ -98,7 +104,7 @@ public class WLR3_SiteInformationPage {
     }
     public void siteInfoForISDNNewProvide(String bandRange) throws InterruptedException {
       loadSiteInfo();
-        utils.selectByVisibleText(By.id("WLR3Order_trc_band"),""+bandRange+"");
+        utils.selectByVisibleText(By.id(TRC_BAND_DROPDOWN),""+bandRange+"");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+bandRange+"')]"));
     }
@@ -130,8 +136,8 @@ public class WLR3_SiteInformationPage {
     }
     public void assertionForISDN30ModifyEngineeringNotes() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
-        utils.assertElementNotPresent(By.id("WLR3Order_mains_within_3m"));
-        utils.assertElementNotPresent(By.id("WLR3Order_events_and_exhibitions"));
+        utils.assertElementNotPresent(By.id(WLR3_ORDER_MAINS_WITHIN_3M));
+        utils.assertElementNotPresent(By.id(WLR2_ORDER_EVENTS_AND_EXHIBITIONS));
         utils.clickBtn(By.id(wlr3_orderDetails_page.CANCEL));}
 
     public void assignAdditionalSiteVisitReasonThroughCheckBox(){
@@ -155,21 +161,21 @@ public class WLR3_SiteInformationPage {
     }
     public void assertInstallTypeAbsentInModifyOrder(){
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_SITE_INFORMATION));
-        utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Install Type')]"));
-        utils.assertElementNotPresent(By.id("WLR3Order_installation_type"));
+        utils.assertElementNotPresent(By.xpath(INSTALL_TYPE));
+        utils.assertElementNotPresent(By.id(WLR3_ORDER_INSTALLATION_TYPE));
     }
     public void assertInstallTypePresentInTransferOrder(){
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Install Type')]"));
-        utils.waitForElementVisible(By.id("WLR3Order_installation_type"));
+        utils.waitForElementVisible(By.xpath(INSTALL_TYPE));
+        utils.waitForElementVisible(By.id(WLR3_ORDER_INSTALLATION_TYPE));
     }
     public void assertValidationMessageForSiteInfoPhoneNumber(){
-        utils.waitForElementVisible(By.xpath("//div[contains(text(),'Please specify Site Contact telephone number')]"));
+        utils.waitForElementVisible(By.xpath(PLEASE_SPECIFY_SITE_CONTACT_TELEPHONE));
     }
     public void changeProvisionTypeToTakeOverWorkingLine(String CLI){
         utils.waitForElementVisible(By.xpath(TAKE_OVER_AN_EXISTING_LINE));
         utils.clickBtn(By.xpath(TAKE_OVER_AN_EXISTING_LINE));
-        utils.waitForElementVisible(By.id("WLR3Order_target_serviceid"));
-        utils.sendText(By.id("WLR3Order_target_serviceid"),CLI);
+        utils.waitForElementVisible(By.id(WLR3_ORDER_TARGET_SERVICE_ID));
+        utils.sendText(By.id(WLR3_ORDER_TARGET_SERVICE_ID),CLI);
     }
     public void assertTakeOverWorkingLineAbsent(){
         utils.assertElementNotPresent(By.xpath(TAKE_OVER_AN_EXISTING_LINE));

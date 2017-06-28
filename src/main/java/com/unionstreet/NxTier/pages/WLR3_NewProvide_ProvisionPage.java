@@ -41,6 +41,10 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
     private final String SPECIFY_WORKING_LINE_MESSAGE="//div[@id='ItemError'][contains(text(),'Please specify which working line to take over')]";
     private final String PROVIDE_LINE_RADIO_BUTTON_UNDER_PROVISION="//div[@id='divlineplantoptionsctrl']//input[@id='order_type_3']";
     private final String EXCESS_CONSTRUCTION_CHARGES_DROPDOWN="WLR3Order_ecc_band";
+    private final String OPEN_REACH_MANAGED="WLR3Order_coa_openreach";
+    private final String MINIMUM_TWO_LINES_REQUIRED_FOR_THIS_PRODUCT="//span[contains(text(),'Minimum 2 Lines required for this product.')]";
+    private final String MAXIMUM_99_LINES_REQUIRED_FOR_THIS_PRODUCT="//span[contains(text(),'Maximum 99 Lines allowed for this product.')]";
+    private final String CHANNELS_TEXT="//label[contains(text(),'Channels')]";
 
 
     ElementUtils utils = new ElementUtils();
@@ -149,27 +153,27 @@ public void terminationTypeForPremiumLine(){
     utils.selectByVisibleText(By.id(TERMINATION_TYPE_DROPDOWN_UNDER_SITEINFO),"NTTP");
 }
 public void unTickOpenReachManaged(){
-    utils.waitForElementVisible(By.id("WLR3Order_coa_openreach"));
-    utils.makeSureBoxIsUnChecked(By.id("WLR3Order_coa_openreach"),By.id("WLR3Order_coa_openreach"));
+    utils.waitForElementVisible(By.id(OPEN_REACH_MANAGED));
+    utils.makeSureBoxIsUnChecked(By.id(OPEN_REACH_MANAGED),By.id(OPEN_REACH_MANAGED));
 
 }
 public void validationForNumberOfLinesForMultiline(String min, String max, String validInt) throws InterruptedException {
-    utils.waitForElementVisible(By.id("WLR3Order_num_lines"));
-    utils.sendText(By.id("WLR3Order_num_lines"),min);
+    utils.waitForElementVisible(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX));
+    utils.sendText(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),min);
     Thread.sleep(1000);
     utils.clickBtn(By.xpath(wlr3_new_provide__orderPage.NEXT_BUTTON));
-    utils.waitForElementVisible(By.xpath("//span[contains(text(),'Minimum 2 Lines required for this product.')]"));
-    utils.sendText(By.id("WLR3Order_num_lines"),max);
-    utils.waitForElementVisible(By.xpath("//span[contains(text(),'Maximum 99 Lines allowed for this product.')]"));
-    utils.sendText(By.id("WLR3Order_num_lines"),validInt);
+    utils.waitForElementVisible(By.xpath(MINIMUM_TWO_LINES_REQUIRED_FOR_THIS_PRODUCT));
+    utils.sendText(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),max);
+    utils.waitForElementVisible(By.xpath(MAXIMUM_99_LINES_REQUIRED_FOR_THIS_PRODUCT));
+    utils.sendText(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),validInt);
 }
 public void assertChannelOptionsAbsent(){
     utils.waitForElementVisible(By.xpath(LINE_PLANT_SUMMARY_TEXT_ON_SITEINFO));
-    utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Channels')]"));
+    utils.assertElementNotPresent(By.xpath(CHANNELS_TEXT));
     utils.assertElementNotPresent(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX));
 }
 public void assertChannelOptionsPresent(){
-    utils.waitForElementVisible(By.xpath("//label[contains(text(),'Channels')]"));
+    utils.waitForElementVisible(By.xpath(CHANNELS_TEXT));
     utils.waitForElementVisible(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX));
 }
 

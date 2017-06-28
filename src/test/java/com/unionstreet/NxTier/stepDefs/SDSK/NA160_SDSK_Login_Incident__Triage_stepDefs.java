@@ -16,6 +16,7 @@ public class NA160_SDSK_Login_Incident__Triage_stepDefs {
 
     @When("^I navigate to the triage page of the incident wizard$")
     public void iNavigateToTheTriagePageOfTheIncidentWizard() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
+        webModel.getUtils().sqlExeQuery("portal", "MOE\\DEVSQL2008", "SN_aBILLity_Portal", "update incident_types set is_default=NULL");
         webModel.getUtils().sqlExeQuery("portal", "MOE\\DEVSQL2008", "SN_aBILLity_Portal", "update Defaultvalues set ValueNumber='0' where ID='150'");
       na159.iNavigateToTheCallerDetailsPageOfTheIncidentWizard();
         webModel.getServiceDesk_loginIncidentPage().clickNextAfterPopulatingContact();

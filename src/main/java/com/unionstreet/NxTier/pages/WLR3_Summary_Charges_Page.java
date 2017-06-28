@@ -22,7 +22,12 @@ public class WLR3_Summary_Charges_Page {
     public void editChargesForISDN30Modify() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE));
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath(LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE));
+      try{  utils.clickBtn(By.xpath(LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE));}
+      catch (Exception e){
+          Thread.sleep(1000);
+          utils.clickBtn(By.xpath(LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE));
+      }
+
         utils.clickBtn(By.xpath(EDIT_BUTTON_ON_WLR3_CHARGE_SUMMARY_POPUP));
         utils.waitForElementVisible(By.xpath(SAVE_EDITED_CHARGES_ON_WLR3_CHARGES_POPUP));
         utils.sendText(By.id(FIRST_ROW_CHARGE_FIELD_UNDER_SETUP), "100");
