@@ -20,7 +20,7 @@ public class WLR3_SiteInformationPage {
     private final String FLOOR_TEXT_BOX="WLR3Order_floor";
     private final String ROOM_TEXT_BOX="WLR3Order_room";
     private final String PROVISION_TYPE_PANEL="//legend[text()='Provision Type']";
-    private final String TAKE_OVER_AN_EXISTING_LINE="//label[contains(text(),'Take over Working Line')]";
+    private final String TAKE_OVER_AN_EXISTING_LINE="//label[contains(text(),'Take Over Working Line')]";
     private final String PROVIDE_A_NEW_LINE="//label[contains(text(),'Provide Line')]";
     private final String INSTALL_TYPE="//label[contains(text(),'Install Type')]";
     private final String WLR3_ORDER_INSTALLATION_TYPE="WLR3Order_installation_type";
