@@ -271,8 +271,8 @@ public class CompanyMenuPage {
        Thread.sleep(1000);
         utils.makeSureBoxIsChecked(By.id("fmSelection13_isSelected"),By.id("fmSelection13_isSelected"));
         utils.waitForElementVisible(By.id("sinfo_LCR_Tariff"));
-        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),""+TariffPlan+"");
-        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),"Sell Data Tariff");
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),TariffPlan);
+        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),TariffPlan);
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.switchToPreviousWindow(0);
@@ -301,8 +301,8 @@ public class CompanyMenuPage {
         utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),tariffPlan);
         utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),tariffPlan);
         utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'"+unavailableTariffPlan+"')]"));
-        Thread.sleep(1000);
-        utils.makeSureBoxIsChecked(By.id("SelectFreeMins_2"),By.id("SelectFreeMins_2"));
+      //  Thread.sleep(1000);
+      //  utils.makeSureBoxIsChecked(By.id("SelectFreeMins_2"),By.id("SelectFreeMins_2"));
     }
     public void assignOrDeletePackageToCustomer(String packageName){
         utils.waitForElementVisible(By.id("sinfo_package"));
@@ -317,5 +317,53 @@ public class CompanyMenuPage {
         utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_package']//option[contains(text(),'"+unavailablePackage+"')]"));
         utils.waitForElementVisible(By.xpath("//select[@id='sinfo_package']//option[contains(text(),'"+availablePackage+"')]"));
     }
-}
+    public void selectingPackageFromDropDown(String packageName){
+        utils.waitForElementVisible(By.id("sinfo_package"));
+        utils.selectByVisibleText(By.id("sinfo_package"),packageName);
+    }
+    public void validatePricingDetailsPage_assertCheckedTariffsAndInitialSaveWithFreeMinutePackageAssertions() throws InterruptedException {
+        utils.waitTillBoxChecked(By.id("IsVoiceTariffFromPackage"));
+        utils.waitTillBoxChecked(By.id("IsDataTariffFromPackage"));
+        utils.waitTillBoxChecked(By.id("IsMobileTariffFromPackage"));
+        utils.waitTillBoxChecked(By.id("IsSCTariffFromPackage"));
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.waitTillBoxChecked(By.id("EnableFreeminutes"));
+        utils.waitTillBoxChecked(By.id("chkFreeminsfromPackage"));}
+
+    public void validatePricingDetailsPage_unCheckPackageFreeMinutesAndAddNativeFreeMinutes() throws InterruptedException {
+        utils.makeSureBoxIsUnChecked(By.id("chkFreeminsfromPackage"), By.id("chkFreeminsfromPackage"));
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'Voice - 500 UK Loc & Nat')]"));
+        utils.makeSureBoxIsChecked(By.xpath("//table[@id='fmSiteTable']//tr/td[contains(text(),'Voice - 500 UK Loc & Nat')]/following-sibling::td/label"), By.xpath("//table[@id='fmSiteTable']//tr/td[contains(text(),'Voice - 500 UK Loc & Nat')]/following-sibling::td/label"));
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.waitForElementVisible(By.xpath("//table[@id='fmSiteTable']//tr/td[contains(text(),'Voice - 500 UK Loc & Nat')]/following-sibling::td/input[@checked='checked']"));
+    }
+public void validatePricingDetailsPage_assertTariffDropDownCannotBeUnselectedWhenOnPackage(){
+
+        utils.makeSureBoxIsChecked(By.id("chkFreeminsfromPackage"),By.id("chkFreeminsfromPackage"));
+        utils.waitForElementVisible(By.xpath("//div[@id='packageFMList']//td[contains(text(),'Mobile Gamma Sharer 2000')]"));
+        utils.makeSureBoxIsUnChecked(By.id("IsVoiceTariffFromPackage"),By.id("IsVoiceTariffFromPackage"));
+        utils.waitForElementVisible(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'Select')]"));
+        utils.assertUnchecked(By.id("IsVoiceTariffFromPackage"));
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.waitTillBoxChecked(By.id("IsVoiceTariffFromPackage"));}
+public void validatePricingDetailsPage_selectingNativeTariffFromDropDown(){
+        utils.makeSureBoxIsUnChecked(By.id("IsVoiceTariffFromPackage"),By.id("IsVoiceTariffFromPackage"));
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),"Sell Data Tariff");
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.waitForElementVisible(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[@selected='selected'][contains(text(),'Sell Data Tariff')]"));
+       utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'Buy')]"));
+        utils.clickBtn(By.id("imgViewVoiceTariff"));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Tariff Name : Sell Data Tariff')]"));
+
+
+
+
+
+
+
+    }}
 

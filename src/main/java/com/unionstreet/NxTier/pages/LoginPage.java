@@ -40,7 +40,7 @@ public class LoginPage {
         utils.assertURL("http://test01-web01/nxtiere2e");
     }
 
-public void zoomOutOnLoginPage() throws InterruptedException {
+    public void zoomOutOnLoginPage() throws InterruptedException {
     utils.waitForElementVisible(By.id(USERNAME_FIELD));
     utils.zoomOut(By.id(USERNAME_FIELD));
     Thread.sleep(1000);
