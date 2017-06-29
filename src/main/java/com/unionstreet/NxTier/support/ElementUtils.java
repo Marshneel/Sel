@@ -524,7 +524,18 @@ public class ElementUtils {
     public void loadBranchURLForServiceDesk(){
         driver.get("http://test01-web01:9080/sn");
     }
-
-
+    public void assertUnchecked(By by){
+        WebElement element=driver.findElement(by);
+        Assert.assertFalse(element.isSelected());
     }
+    public void assertChecked(By by){
+        WebElement element=driver.findElement(by);
+        Assert.assertTrue(element.isSelected());
+    }
+    public void waitTillBoxChecked(By by){
+        waitForSomeTime().until(ExpectedConditions.elementToBeSelected(by));
+    }
+}
+
+
 

@@ -125,7 +125,7 @@ public class ServiceDesk_LoginIncidentPage {
         } catch (Exception e) {
             clickNext();
         }
-        utils.waitForElementVisible(By.xpath("//a[@href='#tab3'][@aria-expanded='true']"));
+        utils.waitForElementVisible(By.xpath("//h1[contains(text(),'Edit an incident')]"));
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "SN_aBILLity_Portal", "update Defaultvalues set ValueNumber='1' where ID='150'");
         clickPrevious();
 

@@ -28,4 +28,5 @@ public class NA155_WhiteLabel_differenceBetween_Agent_And_CP_createTariffScreens
     public void iShouldBeAbleToCompareTheDifferencesWithThatOfCPCreateTariffScreen() throws InterruptedException {
         webModel.getCreateTariffPage().validationsForNewTariffScreenByAgent();
     }
+
 }
