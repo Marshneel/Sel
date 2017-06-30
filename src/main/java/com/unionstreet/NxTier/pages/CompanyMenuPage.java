@@ -358,12 +358,13 @@ public void validatePricingDetailsPage_selectingNativeTariffFromDropDown(){
        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'Buy')]"));
         utils.clickBtn(By.id("imgViewVoiceTariff"));
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Tariff Name : Sell Data Tariff')]"));
-
-
-
-
-
-
-
-    }}
+    }
+    public void assertBillRunIsPresentForCPUnderInvoicingDetails(){
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Bill Run')]"));
+    }
+public void assertBillRunAndChargeTypePresentUnderAddServicesChargesForCP(){
+    utils.waitForElementVisible(By.xpath("//th[contains(text(),'Cost Price')]"));
+    utils.waitForElementVisible(By.xpath("//th[contains(text(),'Bill Run')]"));
+}
+}
 

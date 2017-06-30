@@ -1,7 +1,5 @@
 @E2ETests
 Feature: NA - 151 SDSK URL Manipulation
-
-
   Scenario Outline: login as a CP and perform URL manipulation tests
     Given I am logged in with "<userName>" and "<passWord>" without access rights
     When I try to navigate to service desk page the access should be denied with  "<userName>" and "<passWord>"
