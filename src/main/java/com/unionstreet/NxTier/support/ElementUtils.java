@@ -535,7 +535,12 @@ public class ElementUtils {
     public void waitTillBoxChecked(By by){
         waitForSomeTime().until(ExpectedConditions.elementToBeSelected(by));
     }
+
+    public void navigateBack(){
+        driver.navigate().back();
+    }
 }
+
 
 
 

@@ -72,4 +72,8 @@ public class ContactManagerPage {
         Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'"+customerName+"')]"));
     }
+    public void assertSiteIsNonBillingSite(){
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Non-Billing')]"));
+        utils.waitForElementVisible(By.xpath("//select[@id='InvoiceAddress']//option[contains(text(),'reseller')]"));
+    }
 }
