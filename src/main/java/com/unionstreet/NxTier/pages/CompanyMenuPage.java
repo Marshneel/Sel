@@ -433,19 +433,19 @@ public class CompanyMenuPage {
         utils.waitForElementVisible(By.xpath("//input[@id='" + field + "'][@placeholder='" + placeHolder + "']"));
     }
 
-    public void editPrice(String field, String placeHolder, String value) {
+    public void editPriceJustBeforeSaving(String field, String placeHolder, String value) {
         utils.waitForElementVisible(By.xpath("//input[@id='" + field + "'][@placeholder='" + placeHolder + "']"));
         utils.sendText(By.id("" + field + ""), "" + value + "");
     }
 
-    public void priceRevertsBackWhenClearEvenAfterSaving(String field, String value, String placeHolder) {
+    public void priceRevertsBackWhenClearedEvenAfterSaving(String field, String value, String placeHolder) {
         utils.waitForElementVisible(By.xpath("//input[@id='" + field + "'][@value='" + value + "']"));
         utils.clearText(By.id("" + field + ""));
         utils.checkAlert();
         utils.waitForElementVisible(By.xpath("//input[@id='" + field + "'][@placeholder='" + placeHolder + "']"));
     }
 
-    public void addServicePage_PriceRevertsBackWhenEmpty() {
+    public void addServicePage_PriceRevertsBackWhenFieldIsEmpty() {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'Add')]"));
         utils.clickBtn(By.xpath("//a[contains(text(),'Add')]"));
         utils.switchToNewWindow();
@@ -456,7 +456,7 @@ public class CompanyMenuPage {
         editAndClearPrice("r_baseline", "9.0000", "10");
     }
 
-    public void addServicePage_editPriceAndCreate() {
+    public void addServicePage_editPriceAndSaveChanges() {
         utils.waitForElementVisible(By.id("r_first_payment"));
         utils.clickBtn(By.id("r_first_payment"));
         today = new java.util.Date().getTime();
@@ -468,9 +468,9 @@ public class CompanyMenuPage {
         RanServiceChargeName = utils.randomName();
         utils.sendText(By.id("r_desc"), RanServiceChargeName);
         utils.checkAlert();
-        editPrice("r_default", "13.0000", "15");
-        editPrice("r_cost_price", "8.6400", "5");
-        editPrice("r_baseline", "9.0000", "10");
+        editPriceJustBeforeSaving("r_default", "13.0000", "15");
+        editPriceJustBeforeSaving("r_cost_price", "8.6400", "5");
+        editPriceJustBeforeSaving("r_baseline", "9.0000", "10");
         utils.waitForElementVisible(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
         utils.clickBtn(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
     }
@@ -480,9 +480,9 @@ public class CompanyMenuPage {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
         utils.clickBtn(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
         utils.switchToNewWindow();
-        priceRevertsBackWhenClearEvenAfterSaving("r_default", "15.0000", "13.0000");
-        priceRevertsBackWhenClearEvenAfterSaving("r_cost_price", "5.0000", "8.6400");
-        priceRevertsBackWhenClearEvenAfterSaving("r_baseline", "10.0000", "9.0000");
+        priceRevertsBackWhenClearedEvenAfterSaving("r_default", "15.0000", "13.0000");
+        priceRevertsBackWhenClearedEvenAfterSaving("r_cost_price", "5.0000", "8.6400");
+        priceRevertsBackWhenClearedEvenAfterSaving("r_baseline", "10.0000", "9.0000");
     }
 }
 

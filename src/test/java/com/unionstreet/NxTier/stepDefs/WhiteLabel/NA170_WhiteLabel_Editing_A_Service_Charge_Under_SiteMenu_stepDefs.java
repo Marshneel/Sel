@@ -19,8 +19,8 @@ public class NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu_stepDefs {
     }
     @Then("^I should be able to perform the required validations and create new service charge for that customer$")
     public void iShouldBeAbleToPerformTheRequiredValidationsAndCreateNewServiceChargeForThatCustomer(){
-        webModel.getCompanyMenuPage().addServicePage_PriceRevertsBackWhenEmpty();
-        webModel.getCompanyMenuPage().addServicePage_editPriceAndCreate();
+        webModel.getCompanyMenuPage().addServicePage_PriceRevertsBackWhenFieldIsEmpty();
+        webModel.getCompanyMenuPage().addServicePage_editPriceAndSaveChanges();
         webModel.getCompanyMenuPage().addServicePage_assertPriceRevertsBackWhenEmptyEvenAfterSavingChanges();
     }
 }
