@@ -2,6 +2,7 @@ package com.unionstreet.NxTier.stepDefs.WhiteLabel;
 
 import com.unionstreet.NxTier.stepDefs.WLR3.NA45_Reseller_Login_stepDefs;
 import com.unionstreet.NxTier.support.WebModel;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -27,18 +28,17 @@ public class NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs {
         webModel.getContactManagerPage().assertSiteIsNonBillingSite();
     }
 
-
-
-
-
-
-    @When("^I navigate to relevant pages and I should be able to perform the required assertions$")
-    public void iNavigateToRelevantPagesAndIShouldBeAbleToPerformTheRequiredAssertions() throws InterruptedException {
-
-
+    @And("^Reseller should not be able to see cost and baseLine prices in service charges under siteMenu$")
+    public void resellerShouldNotBeAbleToSeeCostAndBaseLinePricesInServiceChargesUnderSiteMenu() throws InterruptedException {
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsReseller();
+        webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getContactManagerPage().searchAndClickBusinessCustomer("reseller");
+        webModel.getUtils().switchToNewWindow();
+        webModel.getCompanyMenuPage().clickServiceChargesButton();
+        webModel.getCompanyMenuPage().assertResellerCannotSeeCostAndBaseLinePriceUnderServiceCharges();
+
+
+
     }
-
-
 }

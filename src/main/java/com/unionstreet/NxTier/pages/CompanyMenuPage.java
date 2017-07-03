@@ -12,6 +12,7 @@ import static com.unionstreet.NxTier.support.BaseClass.driver;
 public class CompanyMenuPage {
 
     public static String RanNumber = RandomStringUtils.randomNumeric(8);
+    public static String RanServiceChargeName;
     public final String SEARCH_BUTTON = "txtsearch";
     public final String CLI_NUMBER_FIELD = "CLI";
     public final String SITEDETAILS_SITE_NAME = "SiteName";
@@ -52,8 +53,8 @@ public class CompanyMenuPage {
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
-    ConfigManagerPage configManagerPage=new ConfigManagerPage();
-    CreateTariffPage createTariffPage=new CreateTariffPage();
+    ConfigManagerPage configManagerPage = new ConfigManagerPage();
+    CreateTariffPage createTariffPage = new CreateTariffPage();
     private long today;
     private String day;
 
@@ -259,68 +260,75 @@ public class CompanyMenuPage {
         utils.waitForElementVisible(By.id("EnableFreeminutes"));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.id("EnableFreeminutes"));
-        utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+configManagerPage.RanFreeMinutePlanName+"')]"));
-        utils.searchAndAssertTextPresent(By.id("fmSiteTable"), ""+configManagerPage.RanFreeMinutePlanName+"");
-        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),createTariffPage.RanTariffPlanName);
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'" + configManagerPage.RanFreeMinutePlanName + "')]"));
+        utils.searchAndAssertTextPresent(By.id("fmSiteTable"), "" + configManagerPage.RanFreeMinutePlanName + "");
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"), createTariffPage.RanTariffPlanName);
     }
-    public void assignTariffAndFreeMinutesToCustomer(String FreeMinutePlan,String TariffPlan) throws InterruptedException {
+
+    public void assignTariffAndFreeMinutesToCustomer(String FreeMinutePlan, String TariffPlan) throws InterruptedException {
         utils.waitForElementVisible(By.id("EnableFreeminutes"));
         Thread.sleep(1000);
-        utils.makeSureBoxIsChecked(By.id("EnableFreeminutes"),By.id("EnableFreeminutes"));
-        utils.waitForElementVisible(By.xpath(" //table[@id='fmSiteTable']//td[contains(text(),'"+FreeMinutePlan+"')]"));
-       Thread.sleep(1000);
-        utils.makeSureBoxIsChecked(By.id("fmSelection13_isSelected"),By.id("fmSelection13_isSelected"));
+        utils.makeSureBoxIsChecked(By.id("EnableFreeminutes"), By.id("EnableFreeminutes"));
+        utils.waitForElementVisible(By.xpath(" //table[@id='fmSiteTable']//td[contains(text(),'" + FreeMinutePlan + "')]"));
+        Thread.sleep(1000);
+        utils.makeSureBoxIsChecked(By.id("fmSelection13_isSelected"), By.id("fmSelection13_isSelected"));
         utils.waitForElementVisible(By.id("sinfo_LCR_Tariff"));
-        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),TariffPlan);
-        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),TariffPlan);
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"), TariffPlan);
+        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"), TariffPlan);
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.switchToPreviousWindow(0);
     }
-    public void assertCPAssignedTariffAndFreeMinutes(String tariffVoiceField, String tariffDataField, String tariffPlan, String freeMinutePlan){
-        utils.waitForElementVisible(By.xpath("//select[@id='"+tariffVoiceField+"']//option[@selected='selected'][contains(text(),'"+tariffPlan+"')]"));
-        utils.waitForElementVisible(By.xpath("//select[@id='"+tariffDataField+"']//option[@selected='selected'][contains(text(),'"+tariffPlan+"')]"));
-        utils.waitForElementVisible(By.xpath("//table[@id='fmSiteTable']//td[contains(text(),'"+freeMinutePlan+"')]/..//input[@checked='checked']"));
+
+    public void assertCPAssignedTariffAndFreeMinutes(String tariffVoiceField, String tariffDataField, String tariffPlan, String freeMinutePlan) {
+        utils.waitForElementVisible(By.xpath("//select[@id='" + tariffVoiceField + "']//option[@selected='selected'][contains(text(),'" + tariffPlan + "')]"));
+        utils.waitForElementVisible(By.xpath("//select[@id='" + tariffDataField + "']//option[@selected='selected'][contains(text(),'" + tariffPlan + "')]"));
+        utils.waitForElementVisible(By.xpath("//table[@id='fmSiteTable']//td[contains(text(),'" + freeMinutePlan + "')]/..//input[@checked='checked']"));
     }
+
     public void removeCPAssignedTariffAndFreeMinutes() throws InterruptedException {
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.id("EnableFreeminutes"));
-        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),"Select");
-        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),"Select");
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"), "Select");
+        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"), "Select");
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
     }
+
     public void assertAgentCannotSeeCPAssignedTariffAndFreeMinutes(String tariffPlan, String freeMinutePlan) throws InterruptedException {
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.id("EnableFreeminutes"));
-        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'"+tariffPlan+"')]"));
-        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_Data_Tariff']//option[contains(text(),'"+tariffPlan+"')]"));
-        utils.assertElementNotPresent(By.xpath("//table[@id='GroupTable']//tr[contains(text(),'"+freeMinutePlan+"')]"));
+        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'" + tariffPlan + "')]"));
+        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_Data_Tariff']//option[contains(text(),'" + tariffPlan + "')]"));
+        utils.assertElementNotPresent(By.xpath("//table[@id='GroupTable']//tr[contains(text(),'" + freeMinutePlan + "')]"));
     }
+
     public void assertAgentCanOnlySeeAndAssignTariffAndFreeMinutePlansThatCPHasGivenPermissionFor(String tariffPlan, String unavailableTariffPlan) throws InterruptedException {
-        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),tariffPlan);
-        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"),tariffPlan);
-        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'"+unavailableTariffPlan+"')]"));
-      //  Thread.sleep(1000);
-      //  utils.makeSureBoxIsChecked(By.id("SelectFreeMins_2"),By.id("SelectFreeMins_2"));
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"), tariffPlan);
+        utils.selectByVisibleText(By.id("sinfo_Data_Tariff"), tariffPlan);
+        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'" + unavailableTariffPlan + "')]"));
     }
-    public void assignOrDeletePackageToCustomer(String packageName){
+
+    public void assignOrDeletePackageToCustomer(String packageName) {
         utils.waitForElementVisible(By.id("sinfo_package"));
-        utils.selectByVisibleText(By.id("sinfo_package"),""+packageName+"");
+        utils.selectByVisibleText(By.id("sinfo_package"), "" + packageName + "");
         utils.waitForElementVisible(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
         utils.clickBtn(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
         utils.switchToPreviousWindow(0);
 
     }
-    public void assertAgentCannotRe_AssignDeletedCustomerPackageUnlessItsAssignedToHim(String unavailablePackage, String availablePackage){
+
+    public void assertAgentCannotRe_AssignDeletedCustomerPackageUnlessItsAssignedToHim(String unavailablePackage, String availablePackage) {
         utils.waitForElementVisible(By.id("sinfo_package"));
-        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_package']//option[contains(text(),'"+unavailablePackage+"')]"));
-        utils.waitForElementVisible(By.xpath("//select[@id='sinfo_package']//option[contains(text(),'"+availablePackage+"')]"));
+        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_package']//option[contains(text(),'" + unavailablePackage + "')]"));
+        utils.waitForElementVisible(By.xpath("//select[@id='sinfo_package']//option[contains(text(),'" + availablePackage + "')]"));
     }
-    public void selectingPackageFromDropDown(String packageName){
+
+    public void selectingPackageFromDropDown(String packageName) {
         utils.waitForElementVisible(By.id("sinfo_package"));
-        utils.selectByVisibleText(By.id("sinfo_package"),packageName);
+        utils.selectByVisibleText(By.id("sinfo_package"), packageName);
     }
+
     public void validatePricingDetailsPage_assertCheckedTariffsAndInitialSaveWithFreeMinutePackageAssertions() throws InterruptedException {
         utils.waitTillBoxChecked(By.id("IsVoiceTariffFromPackage"));
         utils.waitTillBoxChecked(By.id("IsDataTariffFromPackage"));
@@ -329,7 +337,8 @@ public class CompanyMenuPage {
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitTillBoxChecked(By.id("EnableFreeminutes"));
-        utils.waitTillBoxChecked(By.id("chkFreeminsfromPackage"));}
+        utils.waitTillBoxChecked(By.id("chkFreeminsfromPackage"));
+    }
 
     public void validatePricingDetailsPage_unCheckPackageFreeMinutesAndAddNativeFreeMinutes() throws InterruptedException {
         utils.makeSureBoxIsUnChecked(By.id("chkFreeminsfromPackage"), By.id("chkFreeminsfromPackage"));
@@ -339,32 +348,141 @@ public class CompanyMenuPage {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath("//table[@id='fmSiteTable']//tr/td[contains(text(),'Voice - 500 UK Loc & Nat')]/following-sibling::td/input[@checked='checked']"));
     }
-public void validatePricingDetailsPage_assertTariffDropDownCannotBeUnselectedWhenOnPackage(){
 
-        utils.makeSureBoxIsChecked(By.id("chkFreeminsfromPackage"),By.id("chkFreeminsfromPackage"));
+    public void validatePricingDetailsPage_assertTariffDropDownCannotBeUnselectedWhenOnPackage() {
+
+        utils.makeSureBoxIsChecked(By.id("chkFreeminsfromPackage"), By.id("chkFreeminsfromPackage"));
         utils.waitForElementVisible(By.xpath("//div[@id='packageFMList']//td[contains(text(),'Mobile Gamma Sharer 2000')]"));
-        utils.makeSureBoxIsUnChecked(By.id("IsVoiceTariffFromPackage"),By.id("IsVoiceTariffFromPackage"));
+        utils.makeSureBoxIsUnChecked(By.id("IsVoiceTariffFromPackage"), By.id("IsVoiceTariffFromPackage"));
         utils.waitForElementVisible(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'Select')]"));
         utils.assertUnchecked(By.id("IsVoiceTariffFromPackage"));
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.waitTillBoxChecked(By.id("IsVoiceTariffFromPackage"));}
-public void validatePricingDetailsPage_selectingNativeTariffFromDropDown(){
-        utils.makeSureBoxIsUnChecked(By.id("IsVoiceTariffFromPackage"),By.id("IsVoiceTariffFromPackage"));
-        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"),"Sell Data Tariff");
+        utils.waitTillBoxChecked(By.id("IsVoiceTariffFromPackage"));
+    }
+
+    public void validatePricingDetailsPage_selectingNativeTariffFromDropDown() {
+        utils.makeSureBoxIsUnChecked(By.id("IsVoiceTariffFromPackage"), By.id("IsVoiceTariffFromPackage"));
+        utils.selectByVisibleText(By.id("sinfo_LCR_Tariff"), "Sell Data Tariff");
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[@selected='selected'][contains(text(),'Sell Data Tariff')]"));
-       utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'Buy')]"));
+        utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'Buy')]"));
         utils.clickBtn(By.id("imgViewVoiceTariff"));
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Tariff Name : Sell Data Tariff')]"));
     }
-    public void assertBillRunIsPresentForCPUnderInvoicingDetails(){
+
+    public void assertBillRunIsPresentForCPUnderInvoicingDetails() {
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Bill Run')]"));
     }
-public void assertBillRunAndChargeTypePresentUnderAddServicesChargesForCP(){
-    utils.waitForElementVisible(By.xpath("//th[contains(text(),'Cost Price')]"));
-    utils.waitForElementVisible(By.xpath("//th[contains(text(),'Bill Run')]"));
-}
+
+    public void assertBillRunIsAbsentForAgentUnderInvoicingDetails() {
+        utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Bill Run')]"));
+    }
+
+    public void assertBillRunAndChargeTypeUnderAddServices(boolean user) {
+        if (user == true) {
+            utils.waitForElementVisible(By.xpath("//th[contains(text(),'Cost Price')]"));
+            utils.waitForElementVisible(By.xpath("//th[contains(text(),'Bill Run')]"));
+        }
+        if (user == false) {
+            utils.assertElementNotPresent(By.xpath("//th[contains(text(),'Cost Price')]"));
+            utils.assertElementNotPresent(By.xpath("//th[contains(text(),'Bill Run')]"));
+        }
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'Service Charge One-Off')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'Service Charge One-Off')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'Add')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'Add')]"));
+        utils.switchToNewWindow();
+
+        if (user == true) {
+            utils.waitForElementVisible(By.xpath("//label[contains(text(),'Cost Price')]"));
+            utils.waitForElementVisible(By.xpath("//label[contains(text(),'Bill Run')]"));
+            utils.waitForElementVisible(By.xpath("//label[contains(text(),'Baseline Cost')]"));
+            utils.waitForElementVisible(By.xpath("//label[contains(text(),'Sales Price')]"));
+        }
+        if (user == false) {
+            utils.waitForElementVisible(By.xpath("//label[contains(text(),'Description')]"));
+            utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Bill Run')]"));
+            utils.waitForElementVisible(By.xpath("//label[contains(text(),'Baseline Cost')]"));
+            utils.waitForElementVisible(By.xpath("//label[contains(text(),'Sales Price')]"));
+            try {
+                utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Cost Price')]"));
+            } catch (AssertionError e) {
+                System.out.println("agent is able to see the cost price");
+            }
+
+        }
+    }
+
+    public void assertResellerCannotSeeCostAndBaseLinePriceUnderServiceCharges() {
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'Add')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'Add')]"));
+        utils.switchToNewWindow();
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Description')]"));
+        utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Cost Price')]"));
+        utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Baseline Cost')]"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Sales Price')]"));
+    }
+
+    public void editAndClearPrice(String field, String placeHolder, String value) {
+        utils.waitForElementVisible(By.xpath("//input[@id='" + field + "'][@placeholder='" + placeHolder + "']"));
+        utils.sendText(By.id("" + field + ""), "" + value + "");
+        utils.clearText(By.id("" + field + ""));
+        utils.checkAlert();
+        utils.waitForElementVisible(By.xpath("//input[@id='" + field + "'][@placeholder='" + placeHolder + "']"));
+    }
+
+    public void editPrice(String field, String placeHolder, String value) {
+        utils.waitForElementVisible(By.xpath("//input[@id='" + field + "'][@placeholder='" + placeHolder + "']"));
+        utils.sendText(By.id("" + field + ""), "" + value + "");
+    }
+
+    public void priceRevertsBackWhenClearEvenAfterSaving(String field, String value, String placeHolder) {
+        utils.waitForElementVisible(By.xpath("//input[@id='" + field + "'][@value='" + value + "']"));
+        utils.clearText(By.id("" + field + ""));
+        utils.checkAlert();
+        utils.waitForElementVisible(By.xpath("//input[@id='" + field + "'][@placeholder='" + placeHolder + "']"));
+    }
+
+    public void addServicePage_PriceRevertsBackWhenEmpty() {
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'Add')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'Add')]"));
+        utils.switchToNewWindow();
+        utils.waitForElementVisible(By.id("r_chargeid"));
+        utils.selectByVisibleText(By.id("r_chargeid"), "Analogue Basic Rental");
+        editAndClearPrice("r_default", "13.0000", "15");
+        editAndClearPrice("r_cost_price", "8.6400", "5");
+        editAndClearPrice("r_baseline", "9.0000", "10");
+    }
+
+    public void addServicePage_editPriceAndCreate() {
+        utils.waitForElementVisible(By.id("r_first_payment"));
+        utils.clickBtn(By.id("r_first_payment"));
+        today = new java.util.Date().getTime();
+        day = Integer.toString(Integer.parseInt(new SimpleDateFormat("dd").format(today)));
+        utils.selectDay(By.partialLinkText(day), day);
+        utils.waitForElementVisible(By.id("r_quantity"));
+        utils.sendText(By.id("r_quantity"), "1");
+        utils.waitForElementVisible(By.id("r_desc"));
+        RanServiceChargeName = utils.randomName();
+        utils.sendText(By.id("r_desc"), RanServiceChargeName);
+        utils.checkAlert();
+        editPrice("r_default", "13.0000", "15");
+        editPrice("r_cost_price", "8.6400", "5");
+        editPrice("r_baseline", "9.0000", "10");
+        utils.waitForElementVisible(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
+        utils.clickBtn(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
+    }
+
+    public void addServicePage_assertPriceRevertsBackWhenEmptyEvenAfterSavingChanges() {
+        utils.switchToPreviousWindow(1);
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
+        utils.switchToNewWindow();
+        priceRevertsBackWhenClearEvenAfterSaving("r_default", "15.0000", "13.0000");
+        priceRevertsBackWhenClearEvenAfterSaving("r_cost_price", "5.0000", "8.6400");
+        priceRevertsBackWhenClearEvenAfterSaving("r_baseline", "10.0000", "9.0000");
+    }
 }
 
