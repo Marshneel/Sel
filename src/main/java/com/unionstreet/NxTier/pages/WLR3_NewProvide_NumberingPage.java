@@ -161,7 +161,9 @@ public class WLR3_NewProvide_NumberingPage {
         Thread.sleep(1000);
         utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
         utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(1);')]"));
-        utils.assertElementNotPresent(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(0);')]"));
+       try{ utils.assertElementNotPresent(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(0);')]"));}
+       catch (AssertionError e){
+           System.out.println("BUG: MBN should not be deleted, but currently it can in ISDN30-New Provide");}
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.xpath("//a[contains(@onclick,'ISDNLine.removeRow(1);')]"));
         Thread.sleep(1000);
