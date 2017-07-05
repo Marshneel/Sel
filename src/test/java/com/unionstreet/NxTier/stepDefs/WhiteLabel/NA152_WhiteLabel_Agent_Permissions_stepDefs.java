@@ -134,7 +134,7 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
 
     @Then("^I should be able to see and remove them$")
     public void iShouldBeAbleToSeeAndRemoveThem() throws InterruptedException {
-        webModel.getCompanyMenuPage().assertCPAssignedTariffAndFreeMinutes("sinfo_LCR_Tariff","sinfo_Data_Tariff","Sell Data Tariff","Mobile Gamma 1GB Data");
+        webModel.getCompanyMenuPage().assertCPAssignedTariffAndFreeMinutes(webModel.getCompanyMenuPage().VOICE_TARIFF_FIELD_DROPDOWN,webModel.getCompanyMenuPage().DATA_TARIFF_FIELD_DROPDOWN,"Sell Data Tariff","Mobile Gamma 1GB Data");
         webModel.getCompanyMenuPage().removeCPAssignedTariffAndFreeMinutes();
     }
 

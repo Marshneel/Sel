@@ -34,9 +34,9 @@ public class NA167_WhiteLabel_ValidatePricingDetailsPage_As_A_CP_stepDefs {
     @Then("^I should be able to perform extensive validations on pricing details page$")
     public void iShouldBeAbleToPerformExtensiveValidationsOnPricingDetailsPage() throws InterruptedException {
         webModel.getCompanyMenuPage().validatePricingDetailsPage_assertCheckedTariffsAndInitialSaveWithFreeMinutePackageAssertions();
-        webModel.getCompanyMenuPage().validatePricingDetailsPage_unCheckPackageFreeMinutesAndAddNativeFreeMinutes();
-        webModel.getCompanyMenuPage().validatePricingDetailsPage_assertTariffDropDownCannotBeUnselectedWhenOnPackage();
-        webModel.getCompanyMenuPage().validatePricingDetailsPage_selectingNativeTariffFromDropDown();
+        webModel.getCompanyMenuPage().validatePricingDetailsPage_unCheckPackageFreeMinutesAndAddNativeFreeMinutes("Voice - 500 UK Loc & Nat");
+        webModel.getCompanyMenuPage().validatePricingDetailsPage_assertTariffDropDownCannotBeUnselectedWhenOnPackage("Mobile Gamma Sharer 2000");
+        webModel.getCompanyMenuPage().validatePricingDetailsPage_selectingNativeTariffFromDropDown("Sell Data Tariff","Buy");
     }
 
 }

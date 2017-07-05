@@ -29,6 +29,7 @@ public class OrdersManagerPage {
     private final String CEASE_REASON = "UnsolicitedCeaseDetail_CancelReason";
     public final String TASK_POPUP = "//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]";
     public final String ORDERID_UNDER_TASK = "//div[@id='tasksContentPanel']//a[contains(@href,'nxtiere2e/Orders/EditOrder')]";
+    public final String CLICK_ON_THE_ORDER_FROM_LIST="//a[contains(@href,'Orders/EditOrder')]";
 
     ElementUtils utils = new ElementUtils();
     WLR_and_NxTierServicesPage wlr_and_nxTierServicesPage = new WLR_and_NxTierServicesPage();
@@ -278,7 +279,6 @@ public class OrdersManagerPage {
 
     public void processCease(String company, String CLI) {
         utils.getOrdersPage();
-        utils.getOrdersPage();
         utils.waitForElementVisible(By.xpath(TASK_POPUP));
         utils.clickBtn(By.xpath(ORDERID_UNDER_TASK));
         utils.switchToNewWindow();
@@ -295,12 +295,12 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//td[contains(text(),'" + newBusinessCustomerPage.RanName + "')]"));
     }
     public void clickOnQuote(){
-      try{  utils.waitForElementVisible(By.xpath("//a[contains(@href,'Orders/EditOrder')]"));
-        utils.clickBtn(By.xpath("//a[contains(@href,'Orders/EditOrder')]"));
+      try{  utils.waitForElementVisible(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
+        utils.clickBtn(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
       utils.switchToNewWindow();}
       catch (Exception e){utils.getOrdersPage();
-          utils.waitForElementVisible(By.xpath("//a[contains(@href,'Orders/EditOrder')]"));
-          utils.clickBtn(By.xpath("//a[contains(@href,'Orders/EditOrder')]"));
+          utils.waitForElementVisible(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
+          utils.clickBtn(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
           utils.switchToNewWindow();
       }
     }

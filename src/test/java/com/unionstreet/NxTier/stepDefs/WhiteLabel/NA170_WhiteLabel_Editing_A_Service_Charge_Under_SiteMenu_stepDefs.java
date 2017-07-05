@@ -13,7 +13,7 @@ public class NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu_stepDefs {
     public void iSearchForABusinessCustomerAndNavigateToAddServiceChargePage() throws InterruptedException {
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
-        webModel.getUtils().switchToNewWindow();
+         webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickServiceChargesButton();
 
     }

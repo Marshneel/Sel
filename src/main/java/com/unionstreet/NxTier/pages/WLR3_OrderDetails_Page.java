@@ -78,7 +78,10 @@ public class WLR3_OrderDetails_Page {
     private final String SITE_ASSURANCE_OPTION_ONE_UNDER_BUSINESS_CONTINUITY="//label[contains(text(),'Site Assurance Option 1')]";
     private final String YOU_MUST_SPECIFY_A_FLOOR_FOR_DIGITAL_PRODUCTS="//div[contains(text(),'You must specify a Floor for Digital products')]";
     private final String YOU_MUST_SPECIFY_A_ROOM_FOR_DIGITAL_PRODUCTS="//div[contains(text(),'You must specify a Room for Digital products')]";
-
+    private final String EDIT_EMERGENCY_INFO="//div[@id='div_EmergencyInfo']//img[contains(@onclick,'editMode')]";
+    private final String WORKING_LINE_TAKEOVER_TEXT="//p[contains(text(),'Working Line Takeover')]";
+    private final String CP_MANAGED_TEXT="//span[contains(text(),'No (CP Managed)')]";
+    private final String NUMBER_OF_CHANNELS_TEXT="//label[contains(text(),'Number of Channels')]";
 
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
@@ -567,7 +570,7 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+text+"')]"));
     }
     public void assertChannelsNotEditable(){
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Number of Channels')]"));
+        utils.waitForElementVisible(By.xpath(NUMBER_OF_CHANNELS_TEXT));
         utils.assertElementNotPresent(By.xpath(EDIT_NUMBER_OF_CHANNELS));
     }
     public void assertChannelsAreEditable(){
@@ -581,10 +584,10 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'You must select a Signal Type when the Termination Type of NTTP has been specified')]"));
     }
     public void assertCPManaged(){
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'No (CP Managed)')]"));
+        utils.waitForElementVisible(By.xpath(CP_MANAGED_TEXT));
     }
     public void assertWorkingLineTakeOver(){
-        utils.waitForElementVisible(By.xpath("//p[contains(text(),'Working Line Takeover')]"));
+        utils.waitForElementVisible(By.xpath(WORKING_LINE_TAKEOVER_TEXT));
     }
     public void loadDirectoryInfo() throws InterruptedException {
         utils.waitForElementVisible(By.id(DIRECTORY_INFO_SUMMARY_PANEL));
@@ -601,8 +604,8 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//b[contains(text(),'"+line+"')]/following-sibling::p[contains(text(),'No Directory Entry Required')]"));
     }
     public void checkingValidationForEmergencyInfo(){
-        utils.waitForElementVisible(By.xpath("//div[@id='div_EmergencyInfo']//img[contains(@onclick,'editMode')]"));
-        utils.clickBtn(By.xpath("//div[@id='div_EmergencyInfo']//img[contains(@onclick,'editMode')]"));
+        utils.waitForElementVisible(By.xpath(EDIT_EMERGENCY_INFO));
+        utils.clickBtn(By.xpath(EDIT_EMERGENCY_INFO));
         utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXT_BOX));
         utils.sendText(By.id(EMERGENCY_INFO_TEXT_BOX),"Emer&*^%");
         utils.clickBtn(By.xpath(SAVE_EMERGENCY_INFO));

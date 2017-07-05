@@ -38,7 +38,7 @@ public class NxTierServicesPage {
         utils.clickBtn(By.xpath(MANDATORY_CONTROL_FIELD));
         utils.sendText(By.xpath(MANDATORY_CONTROL_FIELD), "hello");
         try {
-            utils.clickBtn(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
+            utils.clickBtn(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
         } catch (Exception e) {
             utils.checkAlert();
         }

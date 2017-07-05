@@ -11,35 +11,44 @@ import java.sql.SQLException;
  */
 public class ServiceDesk_LoginIncidentPage {
 
+    private final String PLEASE_SELECT_A_CONTACT_OR_SPECIFY_THAT_THE_CALLER_IS_THIRD_PARTY="//p[contains(text(),'Please select a contact or specify that the caller is third party')]";
+    private final String PLEASE_ENTER_A_CONTACT_NAME="//span[contains(text(),'Please enter a contact name')]";
+    private final String PLEASE_ENTER_EITHER_AN_EMAIL_ADDRESS_OR_A_CONTACT_TELEPHONE_NUMBER="//span[contains(text(),'Please enter either an email address or a contact telephone number.')]";
+    private final String CLICK_NEXT="//a[contains(text(),'Next')]";
+    private final String CLICK_PREVIOUS="//a[contains(text(),'Previous')]";
+    private final String TEXT_ON_CALLER_DETAILS="//span[contains(text(),'Caller Details')]";
+    private final String SELECT_CONTACT_ON_CALLER_DETAILS_PAGE="ContactId";
+    private final String EMAIL_ADDRESS_ON_CALLER_DETAILS_PAGE="ContactEmailAddress";
+
     ElementUtils utils = new ElementUtils();
 
     public void correspondenceDetailsValidations() {
-        utils.waitForElementVisible(By.xpath("//p[contains(text(),'Please select a contact or specify that the caller is third party')]"));
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Please enter a contact name')]"));
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Please enter either an email address or a contact telephone number.')]"));
+        utils.waitForElementVisible(By.xpath(PLEASE_SELECT_A_CONTACT_OR_SPECIFY_THAT_THE_CALLER_IS_THIRD_PARTY));
+        utils.waitForElementVisible(By.xpath(PLEASE_ENTER_A_CONTACT_NAME));
+        utils.waitForElementVisible(By.xpath(PLEASE_ENTER_EITHER_AN_EMAIL_ADDRESS_OR_A_CONTACT_TELEPHONE_NUMBER));
     }
 
     public void clickNext() {
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'Next')]"));
-        utils.clickBtn(By.xpath("//a[contains(text(),'Next')]"));
+        utils.waitForElementVisible(By.xpath(CLICK_NEXT));
+        utils.clickBtn(By.xpath(CLICK_NEXT));
     }
 
     public void clickPrevious() {
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'Previous')]"));
-        utils.clickBtn(By.xpath("//a[contains(text(),'Previous')]"));
+        utils.waitForElementVisible(By.xpath(CLICK_PREVIOUS));
+        utils.clickBtn(By.xpath(CLICK_PREVIOUS));
     }
 
     public void clickNextWithOutPopulatingCallerDetailsTab() {
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Caller Details')]"));
+        utils.waitForElementVisible(By.xpath(TEXT_ON_CALLER_DETAILS));
         clickNext();
         correspondenceDetailsValidations();
     }
 
     public void clickNextAfterPopulatingContact() {
-        utils.waitForElementVisible(By.id("ContactId"));
-        utils.selectByVisibleText(By.id("ContactId"), "Adam Reed (adam.reed@unionstreet.uk.com)");
-        utils.waitForElementVisible(By.id("ContactEmailAddress"));
-        utils.sendText(By.id("ContactEmailAddress"), "adam.reed@unionstreet.uk.com");
+        utils.waitForElementVisible(By.id(SELECT_CONTACT_ON_CALLER_DETAILS_PAGE));
+        utils.selectByVisibleText(By.id(SELECT_CONTACT_ON_CALLER_DETAILS_PAGE), "Adam Reed (adam.reed@unionstreet.uk.com)");
+        utils.waitForElementVisible(By.id(EMAIL_ADDRESS_ON_CALLER_DETAILS_PAGE));
+        utils.sendText(By.id(EMAIL_ADDRESS_ON_CALLER_DETAILS_PAGE), "adam.reed@unionstreet.uk.com");
         clickNext();
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Triage')]"));
     }

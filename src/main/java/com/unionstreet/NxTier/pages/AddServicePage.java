@@ -27,9 +27,9 @@ public class AddServicePage {
         utils.waitForElementVisible(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
         utils.pageJumpWithoutClose(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
-        utils.waitForElementVisible(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
+        utils.waitForElementVisible(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
         try {
-            utils.clickBtn(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
+            utils.clickBtn(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
         } catch (Exception e) {
             utils.checkAlert();
         }

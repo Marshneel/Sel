@@ -12,6 +12,8 @@ public class CommonMethods {
     public final String SAVE_BUTTON = ".save";
     public final String SAVE_AND_CLOSE_BUTTON = ".save_close";
     public final String CLOSE_POPUP = "//div[@id='popupDiv']//button[@id='closeBtn']";
+    public final String SAVE_AND_CLOSE_XPATH="//input[contains(@onclick,'SaveAndClose')]";
+    public final String SAVE_XPATH="//a[contains(text(),'Add')]";
 
     ElementUtils utils = new ElementUtils();
 

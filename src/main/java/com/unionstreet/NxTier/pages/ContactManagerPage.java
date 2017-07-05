@@ -8,9 +8,9 @@ public class ContactManagerPage {
     public final String SEARCH_BUTTON = "txtsearch";
     public final String CREATEQUOTE_SELECTCOMPANY = "CompanyId";
     public final String CREATEQUOTE_SELECTSITE = "SiteId";
-
     private final String COMPANYDETAILS_BUTTON = "HrefCompanyDetails";
     private final String COMPANYSITES = "HrefCompanySites";
+    private final String NON_BILLING_TEXT_UNDER_SITE_INFO="//label[contains(text(),'Non-Billing')]";
 
 
     ElementUtils utils = new ElementUtils();
@@ -72,8 +72,8 @@ public class ContactManagerPage {
         Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'"+customerName+"')]"));
     }
-    public void assertSiteIsNonBillingSite(){
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Non-Billing')]"));
-        utils.waitForElementVisible(By.xpath("//select[@id='InvoiceAddress']//option[contains(text(),'reseller')]"));
+    public void assertSiteIsNonBillingSite(String mainBillingSite){
+        utils.waitForElementVisible(By.xpath(NON_BILLING_TEXT_UNDER_SITE_INFO));
+        utils.waitForElementVisible(By.xpath("//select[@id='InvoiceAddress']//option[contains(text(),'"+mainBillingSite+"')]"));
     }
 }
