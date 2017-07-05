@@ -14,6 +14,7 @@ public class DashBoardPage {
     private final String ORDERSMANAGER_BUTTON = "HrefOrdersManager";
     private final String CONTACT_MANAGER_BUTTON = "HrefContactManager";
     private final String CONFIGMANAGER_BUTTON = "HrefConfigManager";
+    private final String SERVICEDESK_TAB="HrefServiceDesk";
 
     ElementUtils utils = new ElementUtils();
 
@@ -53,12 +54,12 @@ public class DashBoardPage {
     public void loadServiceDesk(String database) {
         try {
           //  utils.getDashBoardPage();
-            utils.waitForElementVisible(By.id("HrefServiceDesk"));
-            utils.clickBtn(By.id("HrefServiceDesk"));
+            utils.waitForElementVisible(By.id(SERVICEDESK_TAB));
+            utils.clickBtn(By.id(SERVICEDESK_TAB));
         } catch (Exception e) {
             utils.getDashBoardPage(database);
-            utils.waitForElementVisible(By.id("HrefServiceDesk"));
-            utils.clickBtn(By.id("HrefServiceDesk"));
+            utils.waitForElementVisible(By.id(SERVICEDESK_TAB));
+            utils.clickBtn(By.id(SERVICEDESK_TAB));
         }
     }
     public void clickConfigManager() {

@@ -25,7 +25,7 @@ public class NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs {
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer(webModel.getNewBusinessCustomerPage().Reseller_RanName);
         webModel.getUtils().switchToNewWindow();
-        webModel.getContactManagerPage().assertSiteIsNonBillingSite();
+        webModel.getContactManagerPage().assertSiteIsNonBillingSite("reseller");
     }
 
     @And("^Reseller should not be able to see cost and baseLine prices in service charges under siteMenu$")

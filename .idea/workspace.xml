@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
+    <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="-contains NA170">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/CommonMethods.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/CommonMethods.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/CompanyMenuPage.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/CompanyMenuPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/ContactManagerPage.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/ContactManagerPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/DashBoardPage.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/DashBoardPage.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddServicePage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddServicePage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CommonMethods.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CommonMethods.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CompanyMenuPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CompanyMenuPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ConfigManagerPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ConfigManagerPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ContactManagerPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ContactManagerPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CreateTariffPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CreateTariffPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/DashBoardPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/DashBoardPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NxTierServicesPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NxTierServicesPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/OrdersManagerPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/OrdersManagerPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_LoginIncidentPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_LoginIncidentPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA152_WhiteLabel_Agent_Permissions_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA152_WhiteLabel_Agent_Permissions_stepDefs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA167_WhiteLabel_ValidatePricingDetailsPage_As_A_CP_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA167_WhiteLabel_ValidatePricingDetailsPage_As_A_CP_stepDefs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu_stepDefs.java" />
     </list>
     <ignored path="NxTier automation.iws" />
@@ -32,8 +48,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="NA150_SDSK_CP_Agent_and_Reseller_Incident_Button_Fuctionality.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA150_SDSK_CP_Agent_and_Reseller_Incident_Button_Fuctionality.feature">
+      <file leaf-file-name="OrdersManagerPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/OrdersManagerPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3740">
+              <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceDesk_LoginIncidentPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_LoginIncidentPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NA161_WhiteLabel_CreatePackage.feature" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA161_WhiteLabel_CreatePackage.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceDeskPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDeskPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddServicePage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddServicePage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ElementUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="55">
+              <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NxTierServicesPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NxTierServicesPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_information.feature" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_information.feature">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -42,97 +128,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NA151_SDSK_URL_Manipulation.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA151_SDSK_URL_Manipulation.feature">
+      <file leaf-file-name="NA98_WLR3_Analogue_Premium_Single_Amend_stepDefs.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA98_WLR3_Analogue_Premium_Single_Amend_stepDefs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+            <state relative-caret-position="55">
+              <caret line="64" column="47" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompanyMenuPage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CompanyMenuPage.java">
+      <file leaf-file-name="NA98_WLR3_Analogue_Premium_Single_Amend.feature" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA98_WLR3_Analogue_Premium_Single_Amend.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="458" column="37" selection-start-line="458" selection-start-column="16" selection-end-line="458" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu_stepDefs.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu_stepDefs.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA159_SDSK_Login_Incident__Caller_Details.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA159_SDSK_Login_Incident__Caller_Details.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA160_SDSK_Login_Incident_Triage.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA160_SDSK_Login_Incident_Triage.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA168_WhiteLabel_Reseller_Permissions_And_Validations.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA168_WhiteLabel_Reseller_Permissions_And_Validations.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA169_WhiteLabel_CP_vs_Reseller_Permissions_misc.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA169_WhiteLabel_CP_vs_Reseller_Permissions_misc.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu.feature" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu.feature">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+            <state relative-caret-position="136">
+              <caret line="8" column="66" selection-start-line="3" selection-start-column="2" selection-end-line="8" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -164,23 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA128_WLR3_Virtual_Lines_Modify.feature" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA117_WLR3_ISDN30_Change_Of_Address.feature" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA109_WLR3_ISDN2_New_Provide_Line_Suitability_Dialogue.feature" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/WhiteLabel/NA168_WhiteLabel_Reseller_Permissions.feature" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/stepDefs/WLR3/NA167_WhiteLabel_ValidatePricingDetailsPage_As_A_CP_stepDefs.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA150_SDSK_CP_Agent_and_Reseller_incident_Button_Functionality_stepDefs.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA155_WhiteLabel_differenceBetween_Agent_And_CP_createTariffScreens_stepDefs.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA167_WhiteLabel_ValidatePricingDetailsPage_As_A_CP_stepDefs.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA152_WhiteLabel_Agent_Permissions_stepDefs.java" />
-        <option value="$PROJECT_DIR$/src/test/java/RunnerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts.feature" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/WhiteLabel/NA167_WhiteLabel_ValidatePricingDetailsPage_As_A_CP.feature" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/WhiteLabel/NA152_WhiteLabel_Agent_Permissions.feature" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_LoginIncidentPage.java" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/stepDefs/WLR3/NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs.java" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/WhiteLabel/NA168_WhiteLabel_Reseller_Permissions_And_Validations.feature" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/Resources/NA169_WhiteLabel_CP_Vs_Agent_Permissions_misc_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA169_WhiteLabel_CP_Vs_Agent_Permissions_misc_stepDefs.java" />
@@ -200,7 +193,6 @@
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA169_SDSK_CP_vs_Agent_Permissions_misc_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA169_SDSK_CP_vs_Agent_Permissions_misc.feature" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA169_SDSK_CP_vs_Agent_Permissions_misc_stepDefs.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ContactManagerPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA169_WhiteLabel_CP_vs_Agent_Permissions_misc_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/WhiteLabel/NA169_WhiteLabel_CP_vs_Agent_Permissions_misc.feature" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/stepDefs/WLR3/NA169_WhiteLabel_CP_vs_Agent_misc_stepDefs.java" />
@@ -211,10 +203,28 @@
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/stepDefs/WLR3/NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA169_WhiteLabel_CP_vs_Agent_misc_stepDefs.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu.feature" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CompanyMenuPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu_stepDefs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddServicePage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NxTierServicesPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA152_WhiteLabel_Agent_Permissions_stepDefs.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA167_WhiteLabel_ValidatePricingDetailsPage_As_A_CP_stepDefs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CreateTariffPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/DashBoardPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CommonMethods.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddSiteDetailsPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CompanyMenuPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ConfigManagerPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ContactManagerPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/SettingsPage.java" />
+        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA98_WLR3_Analogue_Premium_Single_Amend.feature" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/OrdersManagerPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_LoginIncidentPage.java" />
+        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA161_WhiteLabel_CreatePackage.feature" />
       </list>
     </option>
   </component>
@@ -284,9 +294,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -721,24 +731,10 @@
     <property name="SearchEverywhereHistoryKey" value="clickCreateQuote &#9;null&#9;null&#10;closebtn&#9;PSI&#9;JAVA://com.unionstreet.NxTier.pages.WLR3_NewProvide_AnaMultLine_ProvisionPage#WORKING_LINES_POPUP_CLOSEBTN&#10;CLoseBtn&#9;PSI&#9;JAVA://com.unionstreet.NxTier.pages.WLR3_NewProvide_AnaMultLine_ProvisionPage#WORKING_LINES_POPUP_CLOSEBTN&#10;siteInfoForISDN&#9;PSI&#9;JAVA://com.unionstreet.NxTier.pages.WLR3_SiteInformationPage#siteInfoForISDNNewProvide&#10;provision&#9;PSI&#9;JAVA://com.unionstreet.NxTier.pages.WLR3_NewProvide_AnaMultLine_ProvisionPage#setProvisionType&#10;Floor&#9;PSI&#9;JAVA://com.unionstreet.NxTier.pages.WLR3_NewProvide_AnaMultLine_ProvisionPage#FLOOR_TEXT_BOX&#10;//p[text()='Telecom ']&#9;null&#9;null&#10;editBtn&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\rajeshg\IdeaProjects\Test_analysis\src\test\java\com\unionstreet\NxTier\stepDefs\WhiteLabel" />
-      <recent name="C:\Users\rajeshg\IdeaProjects\Test_analysis\src\test\Resources\com\unionstreet\NxTier\WhiteLabel" />
-      <recent name="C:\Users\rajeshg\IdeaProjects\Test_analysis\src\test\java\com\unionstreet\NxTier\stepDefs\SDSK" />
-      <recent name="C:\Users\rajeshg\IdeaProjects\Test_analysis\src\test\Resources\com\unionstreet\NxTier\com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature" />
-      <recent name="C:\Users\rajeshg\IdeaProjects\Test_analysis\src\test\java\com\unionstreet\NxTier\stepDefs\WLR3" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.unionstreet.NxTier.com.unionstreet.NxTier.WLR3" />
       <recent name="com.unionstreet.NxTier.com.unionstreet.NxTier.smokePack" />
       <recent name="" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.unionstreet.NxTier.stepDefs.WLR3" />
-      <recent name="com.unionstreet.NxTier.pages" />
-      <recent name="com.unionstreet.NxTier.stepDefs.smokePack" />
-      <recent name="com.unionstreet.NxTier.support" />
-      <recent name="com.unionstreet.nxtier.pages" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\rajeshg\IdeaProjects\Test_analysis\src\test\Resources\WLR3Tools" />
@@ -747,8 +743,22 @@
       <recent name="C:\Users\rajeshg\IdeaProjects\Sub-Master\src\test\Resources\com\unionstreet\NxTier\com.unionstreet.NxTier.smokePack.feature" />
       <recent name="C:\Users\rajeshg\IdeaProjects\Sub-Master\src\test\java\com\unionstreet\NxTier\stepDefs\WLR3" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.unionstreet.NxTier.stepDefs.WLR3" />
+      <recent name="com.unionstreet.NxTier.pages" />
+      <recent name="com.unionstreet.NxTier.stepDefs.smokePack" />
+      <recent name="com.unionstreet.NxTier.support" />
+      <recent name="com.unionstreet.nxtier.pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rajeshg\IdeaProjects\Test_analysis\src\test\java\com\unionstreet\NxTier\stepDefs\WhiteLabel" />
+      <recent name="C:\Users\rajeshg\IdeaProjects\Test_analysis\src\test\Resources\com\unionstreet\NxTier\WhiteLabel" />
+      <recent name="C:\Users\rajeshg\IdeaProjects\Test_analysis\src\test\java\com\unionstreet\NxTier\stepDefs\SDSK" />
+      <recent name="C:\Users\rajeshg\IdeaProjects\Test_analysis\src\test\Resources\com\unionstreet\NxTier\com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature" />
+      <recent name="C:\Users\rajeshg\IdeaProjects\Test_analysis\src\test\java\com\unionstreet\NxTier\stepDefs\WLR3" />
+    </key>
   </component>
-  <component name="RunManager" selected="Cucumber java.Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu">
+  <component name="RunManager" selected="Cucumber java.Feature: NA98_WLR3_Analogue_Premium_Single_Amend">
     <configuration default="false" name="Feature: NA169_WhiteLabel_CP_vs_Reseller_Permissions_misc (1)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -760,54 +770,6 @@
       <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.WLR3 com.unionstreet.NxTier.stepDefs.WhiteLabel" />
       <option name="myNameFilter" value="" />
       <option name="myGeneratedName" value="Feature: NA169_WhiteLabel_CP_vs_Reseller_Permissions_misc" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="com.unionstreet.NxTier_automation" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="Feature: NA159_SDSK_Login_Incident__Caller_Details" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="myFilePath" value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA159_SDSK_Login_Incident__Caller_Details.feature" />
-      <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.SDSK" />
-      <option name="myNameFilter" value="" />
-      <option name="myGeneratedName" value="Feature: NA159_SDSK_Login_Incident__Caller_Details" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="com.unionstreet.NxTier_automation" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="Feature: NA113_WLR3_Analogue_Multi_Modify" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="myFilePath" value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA113_WLR3_Analogue_Multi_Modify.feature" />
-      <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.WLR3" />
-      <option name="myNameFilter" value="" />
-      <option name="myGeneratedName" value="Feature: NA113_WLR3_Analogue_Multi_Modify" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
@@ -856,6 +818,54 @@
       <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.WLR3 com.unionstreet.NxTier.stepDefs.WhiteLabel" />
       <option name="myNameFilter" value="" />
       <option name="myGeneratedName" value="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="com.unionstreet.NxTier_automation" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Feature: NA161_WhiteLabel_CreatePackage" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="myFilePath" value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA161_WhiteLabel_CreatePackage.feature" />
+      <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.WLR3 com.unionstreet.NxTier.stepDefs.WhiteLabel" />
+      <option name="myNameFilter" value="" />
+      <option name="myGeneratedName" value="Feature: NA161_WhiteLabel_CreatePackage" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="com.unionstreet.NxTier_automation" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Feature: NA98_WLR3_Analogue_Premium_Single_Amend" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="myFilePath" value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA98_WLR3_Analogue_Premium_Single_Amend.feature" />
+      <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.WLR3" />
+      <option name="myNameFilter" value="" />
+      <option name="myGeneratedName" value="Feature: NA98_WLR3_Analogue_Premium_Single_Amend" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
@@ -1163,18 +1173,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Cucumber java.Feature: NA169_WhiteLabel_CP_vs_Reseller_Permissions_misc (1)" />
-      <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA159_SDSK_Login_Incident__Caller_Details" />
-      <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA113_WLR3_Analogue_Multi_Modify" />
-      <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA168_WhiteLabel_Reseller_Permissions_And_Validations" />
-      <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" />
+      <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA168_WhiteLabel_Reseller_Permissions_And_Validations" />
+      <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" />
+      <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA161_WhiteLabel_CreatePackage" />
+      <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA98_WLR3_Analogue_Premium_Single_Amend" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Cucumber java.Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" />
-        <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA169_WhiteLabel_CP_vs_Reseller_Permissions_misc (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA168_WhiteLabel_Reseller_Permissions_And_Validations" />
-        <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA113_WLR3_Analogue_Multi_Modify" />
-        <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA159_SDSK_Login_Incident__Caller_Details" />
+        <item index="0" class="java.lang.String" itemvalue="Cucumber java.Feature: NA98_WLR3_Analogue_Premium_Single_Amend" />
+        <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" />
+        <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA161_WhiteLabel_CreatePackage" />
+        <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA169_WhiteLabel_CP_vs_Reseller_Permissions_misc (1)" />
+        <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA168_WhiteLabel_Reseller_Permissions_And_Validations" />
       </list>
     </recent_temporary>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -1219,13 +1229,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
-    </task>
-    <task id="LOCAL-00254" summary="contains NA128">
-      <created>1494517386831</created>
-      <option name="number" value="00254" />
-      <option name="presentableId" value="LOCAL-00254" />
-      <option name="project" value="LOCAL" />
-      <updated>1494517386832</updated>
     </task>
     <task id="LOCAL-00255" summary="contains NA131">
       <created>1494602664471</created>
@@ -1563,39 +1566,46 @@
       <option name="project" value="LOCAL" />
       <updated>1499098450008</updated>
     </task>
-    <option name="localTasksCounter" value="303" />
+    <task id="LOCAL-00303" summary="-contains NA170">
+      <created>1499098828165</created>
+      <option name="number" value="00303" />
+      <option name="presentableId" value="LOCAL-00303" />
+      <option name="project" value="LOCAL" />
+      <updated>1499098828165</updated>
+    </task>
+    <option name="localTasksCounter" value="304" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.03 at 15h 52m 32s.xml">
-      <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.03 at 15h 56m 11s.xml">
-      <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.03 at 15h 57m 56s.xml">
-      <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.03 at 15h 59m 37s.xml">
-      <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.03 at 16h 01m 36s.xml">
-      <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.03 at 16h 23m 01s.xml">
-      <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.03 at 17h 01m 08s.xml">
-      <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.03 at 17h 02m 55s.xml">
-      <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.03 at 17h 09m 06s.xml">
-      <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__NA161_WhiteLabel_CreatePackage - 2017.07.04 at 10h 59m 43s.xml">
+      <configuration name="Feature: NA161_WhiteLabel_CreatePackage" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
     <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.03 at 17h 20m 07s.xml">
       <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.04 at 11h 42m 48s.xml">
+      <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.04 at 11h 44m 13s.xml">
+      <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.04 at 11h 46m 09s.xml">
+      <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu - 2017.07.04 at 11h 48m 30s.xml">
+      <configuration name="Feature: NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__NA98_WLR3_Analogue_Premium_Single_Amend - 2017.07.05 at 16h 52m 18s.xml">
+      <configuration name="Feature: NA98_WLR3_Analogue_Premium_Single_Amend" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__NA98_WLR3_Analogue_Premium_Single_Amend - 2017.07.05 at 16h 53m 36s.xml">
+      <configuration name="Feature: NA98_WLR3_Analogue_Premium_Single_Amend" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__NA98_WLR3_Analogue_Premium_Single_Amend - 2017.07.05 at 16h 57m 10s.xml">
+      <configuration name="Feature: NA98_WLR3_Analogue_Premium_Single_Amend" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__NA98_WLR3_Analogue_Premium_Single_Amend - 2017.07.05 at 17h 03m 49s.xml">
+      <configuration name="Feature: NA98_WLR3_Analogue_Premium_Single_Amend" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TodoView" selected-index="4">
@@ -1619,12 +1629,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7458493" sideWeight="0.50931233" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34240687" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.06594886" sideWeight="0.493553" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15197957" sideWeight="0.493553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13154534" sideWeight="0.493553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.084033616" sideWeight="0.49068767" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29942694" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.014804846" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39040115" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.014048532" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1711,362 +1721,234 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA169_WhiteLabel_CP_vs_Agent_Permissions_misc_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/test_stepdefs.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/test2_MyStepdefs.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/WhiteLabel/test.feature" />
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/WhiteLabel/169_WhiteLabel_CP_Vs_Agent_Permissions_misc.feature" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA152_WhiteLabel_Agent_Permissions_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="10" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA169_WhiteLabel_CP_vs_Reseller_Permissions_misc_stepDefs.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/WhiteLabel/NA169_WhiteLabel_CP_vs_Reseller_Permissions_misc.feature" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_information_stepdefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA150_SDSK_CP_Agent_and_Reseller_incident_Button_Functionality_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="15" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA112_WLR3_ISDN30_Modify_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA155_WhiteLabel_differenceBetween_Agent_And_CP_createTariffScreens_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA156_WhiteLabel_CreateDifferentTypesOfBaseTariffs_As_An_Agent_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA157_WhiteLabel_CreateDifferentTypesOfbaseTariffs_As_A_CP_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA161_WhiteLabel_CreatePackage_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
-          <caret line="102" column="105" selection-start-line="102" selection-start-column="73" selection-end-line="102" selection-end-column="105" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/WhiteLabel/NA169_WhiteLabel_CP_vs_Agent_Permissions_misc.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA169_WhiteLabel_CP_vs_Agent_Permissions_misc_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="48" selection-start-line="13" selection-start-column="6" selection-end-line="20" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_NumberingPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="-1263">
           <caret line="168" column="27" selection-start-line="168" selection-start-column="27" selection-end-line="168" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_LineNumberingPage.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_FeaturesPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+        <state relative-caret-position="-192">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddSiteDetailsPage.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_EngineeringPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+        <state relative-caret-position="-379">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/DashBoardPage.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NewProvide_DatePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
+        <state relative-caret-position="119">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA159_Login_Incident__Caller_Details_stepDefs.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_OrderPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="27" column="62" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
+        <state relative-caret-position="-498">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ContactManagerPage.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_NetworkCallingFeaturesPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
+        <state relative-caret-position="-1093">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA113_WLR3_Analogue_Multi_Modify.feature">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA152_WhiteLabel_Agent_Permissions_stepDefs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="8" selection-end-column="78" />
+        <state relative-caret-position="393">
+          <caret line="136" column="176" selection-start-line="136" selection-start-column="176" selection-end-line="136" selection-end-column="176" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA167_WhiteLabel_ValidatePricingDetailsPage_As_A_CP_stepDefs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3247">
-          <caret line="211" column="29" selection-start-line="211" selection-start-column="8" selection-end-line="211" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/smokePack/NxTier_smokePack_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="109" column="54" selection-start-line="109" selection-start-column="54" selection-end-line="109" selection-end-column="54" />
+        <state relative-caret-position="512">
+          <caret line="37" column="55" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="96" column="17" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="17" />
+        <state relative-caret-position="459">
+          <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_AddRemoveAuxLinePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+        <state relative-caret-position="-457">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/LoginPage.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_AppointmentPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="-185">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_BatchTransferPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="174" column="0" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+        <state relative-caret-position="-627">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA169_WhiteLabel_CP_vs_Agent_misc_stepDefs.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_BusinessContinuityPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA167_WhiteLabel_ValidatePricingDetailsPage_As_A_CP.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        <state relative-caret-position="84">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA161_WhiteLabel_CreatePackage.feature">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_Cease_OrderPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+        <state relative-caret-position="-831">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA157_WhiteLabel_CreateDifferentTypesOfBaseTariffs_As_A_CP.feature">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_ChangeOfLineTypeOrderPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="55" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="56" />
+        <state relative-caret-position="-117">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA156_WhiteLabel_CreateDifferentTypesOfBaseTariffs_As_An_Agent.feature">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_InstallationAddressPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+        <state relative-caret-position="-2191">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA155_WhiteLabel_differenceBetween_Agent_And_CP_createTariffScreens.feature">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_Line_Information_Page.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="3" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
+        <state relative-caret-position="-2123">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA152_WhiteLabel_Agent_Permissions.feature">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_LineNumberingPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
+        <state relative-caret-position="-5421">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts.feature">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_Modify_OrderPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents.feature">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR_and_NxTierServicesPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA150_SDSK_CP_Agent_and_Reseller_Incident_Button_Fuctionality.feature">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_Summary_Charges_Page.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-15">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA151_SDSK_URL_Manipulation.feature">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_SiteInformationPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        <state relative-caret-position="-2361">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA159_SDSK_Login_Incident__Caller_Details.feature">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA160_SDSK_Login_Incident_Triage.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA168_WhiteLabel_Reseller_Permissions_And_Validations.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA169_WhiteLabel_CP_vs_Reseller_Permissions_misc.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        <state relative-caret-position="-6002">
+          <caret line="221" column="37" selection-start-line="221" selection-start-column="37" selection-end-line="221" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state relative-caret-position="327">
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/smokePack/NxTier_smokePack_stepDefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="85" column="44" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddSiteDetailsPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="32" column="69" selection-start-line="32" selection-start-column="69" selection-end-line="32" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/SettingsPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="391" column="66" selection-start-line="391" selection-start-column="66" selection-end-line="391" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_DirectoryInformationPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="87" column="50" selection-start-line="87" selection-start-column="50" selection-end-line="87" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CommonMethods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2075,21 +1957,179 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CompanyMenuPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="458" column="37" selection-start-line="458" selection-start-column="16" selection-end-line="458" selection-end-column="54" />
+        <state relative-caret-position="636">
+          <caret line="468" column="63" selection-start-line="468" selection-start-column="63" selection-end-line="468" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WhiteLabel/NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu_stepDefs.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/LoginPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-540">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NewBusinessCustomerPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-727">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ConfigManagerPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-231">
+          <caret line="217" column="78" selection-start-line="217" selection-start-column="78" selection-end-line="217" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ContactManagerPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="61" column="67" selection-start-line="61" selection-start-column="67" selection-end-line="61" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/CreateTariffPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2176">
+          <caret line="129" column="59" selection-start-line="129" selection-start-column="59" selection-end-line="129" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/DashBoardPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="61" column="48" selection-start-line="61" selection-start-column="48" selection-end-line="61" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA109_WLR3_ISDN2_New_Provide_Line_Suitability_Dialogue_stepDefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA87_WLR3_Analogue_multiline_New_provide.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA64_WLR3_Analogue_Premium_Single_Transfer_line_Numbering_Options.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_information.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA98_WLR3_Analogue_Premium_Single_Amend.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="66" selection-start-line="3" selection-start-column="2" selection-end-line="8" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA98_WLR3_Analogue_Premium_Single_Amend_stepDefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="64" column="47" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="201" column="73" selection-start-line="201" selection-start-column="73" selection-end-line="201" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NxTierServicesPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/OrdersManagerPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3740">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddServicePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDeskPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_LoginIncidentPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA161_WhiteLabel_CreatePackage.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>

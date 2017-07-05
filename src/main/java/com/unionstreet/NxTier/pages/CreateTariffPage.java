@@ -8,6 +8,19 @@ import org.openqa.selenium.By;
  */
 public class CreateTariffPage {
 
+    public final String TARIFF_RATES_BUTTON="HrefTariffRates";
+    private final String SAVE_AND_CLOSE_CREATED_TARIFF="tariffSaveAndCloseButton";
+    public final String TARIFF_NAME_TEXT_BOX="TariffName1";
+    private final String BASELINE_TARIFF_RADIO_BUTTON="//input[@value='2'][@id='tariff_type']";
+    private final String BUY_TARIFF_RADIO_BUTTON="//input[@value='1'][@id='tariff_type']";
+    private final String BASED_ON_TARIFF_RADIO_BUTTON="//input[@value='2'][@id='BasedOnType']";
+    private final String COPY_TARIFF_RADIO_BUTTON="//input[@value='1'][@id='BasedOnType']";
+    private final String BLANK_TARIFF_RADIO_BUTTON="//input[@id='BasedOnType'][@value='0']";
+    private final String BASE_LINE_RADIO_BUTTON_UNDER_BASE_TARIFF_SETTINGS="//input[@value='2'][@id='buyOrSale']";
+    private final String BUY_RADIO_BUTTON_UNDER_BASE_TARIFF_SETTINGS="//input[@value='1'][@id='buyOrSale']";
+    private final String TARIFF_NAME_TEXT_ON_ADD_TARIFF_PAGE="//h4[contains(text(),'Tariff Name')]";
+    private final String BASE_TARIFF_DROP_DOWN="basetariff";
+    private final String MARKUP_PERCENTAGE_FIELD="basemarkup";
 
     ElementUtils utils=new ElementUtils();
     CommonMethods commonMethods=new CommonMethods();
@@ -15,9 +28,9 @@ public class CreateTariffPage {
 
     public void addTariffPlan() {
         RanTariffPlanName = utils.randomName();
-        utils.sendText(By.id("TariffName1"), RanTariffPlanName);
-        utils.waitForElementVisible(By.id("tariffSaveAndCloseButton"));
-        utils.clickBtn(By.id("tariffSaveAndCloseButton"));
+        utils.sendText(By.id(TARIFF_NAME_TEXT_BOX), RanTariffPlanName);
+        utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+        utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.switchToPreviousWindow(0);
     }
 
@@ -27,57 +40,57 @@ public class CreateTariffPage {
         Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "')]"));
         utils.switchToNewWindow();
-        utils.waitForElementVisible(By.id("TariffName1"));
-        utils.sendText(By.id("TariffName1"), RanTariffPlanName + "changed name");
-        utils.waitForElementVisible(By.id("tariffSaveAndCloseButton"));
-        utils.clickBtn(By.id("tariffSaveAndCloseButton"));
+        utils.waitForElementVisible(By.id(TARIFF_NAME_TEXT_BOX));
+        utils.sendText(By.id(TARIFF_NAME_TEXT_BOX), RanTariffPlanName + "changed name");
+        utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+        utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.switchToPreviousWindow(0);
         commonMethods.search(RanTariffPlanName + "changed name");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "changed name')]"));
     }
 
     public void validationsForNewTariffScreenByCP() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//input[@value='2'][@id='tariff_type']"));
-        utils.waitForElementVisible(By.xpath("//input[@value='2'][@id='BasedOnType']"));
+        utils.waitForElementVisible(By.xpath(BASELINE_TARIFF_RADIO_BUTTON));
+        utils.waitForElementVisible(By.xpath(BASED_ON_TARIFF_RADIO_BUTTON));
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath("//input[@value='2'][@id='BasedOnType']"));
-        utils.waitForElementVisible(By.xpath("//input[@value='2'][@id='buyOrSale']"));
+        utils.clickBtn(By.xpath(BASED_ON_TARIFF_RADIO_BUTTON));
+        utils.waitForElementVisible(By.xpath(BASE_LINE_RADIO_BUTTON_UNDER_BASE_TARIFF_SETTINGS));
     }
     public void validationsForNewTariffScreenByAgent() throws InterruptedException {
-        utils.waitForElementVisible(By.id("TariffName1"));
+        utils.waitForElementVisible(By.id(TARIFF_NAME_TEXT_BOX));
         String tariffName=utils.randomName();
-        utils.sendText(By.id("TariffName1"),tariffName);
-        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Tariff Name')]"));
-        utils.assertElementNotPresent(By.xpath("//input[@value='1'][@id='tariff_type']"));
+        utils.sendText(By.id(TARIFF_NAME_TEXT_BOX),tariffName);
+        utils.waitForElementVisible(By.xpath(TARIFF_NAME_TEXT_ON_ADD_TARIFF_PAGE));
+        utils.assertElementNotPresent(By.xpath(BUY_TARIFF_RADIO_BUTTON));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath("//input[@value='2'][@id='tariff_type']"));
-        utils.waitForElementVisible(By.xpath("//input[@value='1'][@id='BasedOnType']"));
+        utils.javaScriptExecutorClick(By.xpath(BASELINE_TARIFF_RADIO_BUTTON));
+        utils.waitForElementVisible(By.xpath(COPY_TARIFF_RADIO_BUTTON));
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath("//input[@value='2'][@id='BasedOnType']"));
-        utils.assertElementNotPresent(By.xpath("//input[@value='1'][@id='buyOrSale']"));
+        utils.clickBtn(By.xpath(BASED_ON_TARIFF_RADIO_BUTTON));
+        utils.assertElementNotPresent(By.xpath(BUY_RADIO_BUTTON_UNDER_BASE_TARIFF_SETTINGS));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath("//input[@id='BasedOnType'][@value='0']"));
-        utils.waitForElementVisible(By.id("tariffSaveAndCloseButton"));
-        utils.clickBtn(By.id("tariffSaveAndCloseButton"));
+        utils.javaScriptExecutorClick(By.xpath(BLANK_TARIFF_RADIO_BUTTON));
+        utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+        utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.switchToPreviousWindow(0);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+tariffName+"')]/../following-sibling::td[contains(text(),'Baseline')]"));
     }
     public void createBlankTariff(String tariffCategory, String tariffType, String baseTariffSetting){
         RanTariffPlanName = utils.randomName();
-        utils.sendText(By.id("TariffName1"), RanTariffPlanName);
+        utils.sendText(By.id(TARIFF_NAME_TEXT_BOX), RanTariffPlanName);
         utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
         utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
         utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]"));
         utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]"));
         utils.waitForElementVisible(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSetting+"']"));
         utils.clickBtn(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSetting+"']"));
-        utils.waitForElementVisible(By.id("tariffSaveAndCloseButton"));
-        utils.clickBtn(By.id("tariffSaveAndCloseButton"));
+        utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+        utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.switchToPreviousWindow(0);
     }
     public void createTariffPlanBasedOnOtherPlan(String tariffCategory, String tariffType ,String baseTariffSettings, String buyOrSell, String basedOnPlan) throws InterruptedException {
         RanTariffPlanName = utils.randomName();
-        utils.sendText(By.id("TariffName1"), RanTariffPlanName);
+        utils.sendText(By.id(TARIFF_NAME_TEXT_BOX), RanTariffPlanName);
         utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
         utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
         utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]"));
@@ -86,12 +99,12 @@ public class CreateTariffPage {
         utils.clickBtn(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSettings+"']"));
         utils.waitForElementVisible(By.xpath("//input[@id='buyOrSale'][@value='"+buyOrSell+"']"));
         utils.clickBtn(By.xpath("//input[@id='buyOrSale'][@value='"+buyOrSell+"']"));
-        utils.waitForElementVisible(By.id("basetariff"));
-        utils.selectByVisibleText(By.id("basetariff"),""+basedOnPlan+"");
-        utils.waitForElementVisible(By.id("basemarkup"));
-        utils.sendText(By.id("basemarkup"),"100");
-        utils.waitForElementVisible(By.id("tariffSaveAndCloseButton"));
-        utils.clickBtn(By.id("tariffSaveAndCloseButton"));
+        utils.waitForElementVisible(By.id(BASE_TARIFF_DROP_DOWN));
+        utils.selectByVisibleText(By.id(BASE_TARIFF_DROP_DOWN),""+basedOnPlan+"");
+        utils.waitForElementVisible(By.id(MARKUP_PERCENTAGE_FIELD));
+        utils.sendText(By.id(MARKUP_PERCENTAGE_FIELD),"100");
+        utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+        utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.switchToPreviousWindow(0);}
 
 
@@ -101,8 +114,8 @@ public class CreateTariffPage {
      Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
        utils.switchToNewWindow();
-        utils.waitForElementVisible(By.id("HrefTariffRates"));
-        utils.clickBtn(By.id("HrefTariffRates"));
+        utils.waitForElementVisible(By.id(TARIFF_RATES_BUTTON));
+        utils.clickBtn(By.id(TARIFF_RATES_BUTTON));
         utils.checkAlert();
         utils.waitForElementVisible(By.xpath("//input[@id='RatesList_0__r_peak' and "+attribute+"='"+value+"']"));
         utils.waitForElementVisible( By.xpath("//input[@id='RatesList_0__r_offpeak' and "+attribute+"='"+value+"']"));
@@ -113,8 +126,8 @@ public class CreateTariffPage {
 
       }
 
-        utils.waitForElementVisible(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
-      utils.clickBtn(By.xpath("//input[contains(@onclick,'SaveAndClose')]"));
+        utils.waitForElementVisible(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
+      utils.clickBtn(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
         utils.switchToPreviousWindow(0);
     }
     public void assertCreatedTariff(String tariffType, String category){
