@@ -24,7 +24,6 @@ public class WLR3_NewProvide_ProvisionPage {
     private final String ORDER_NOTES_LABEL_FOR_ISDN = "//label[text()='Order Notes']";
     private final String ORDERNOTES_TOOL_TIP_CLICK = "openreachNotes";
     private final String TEXT_ON_ORDER_NOTES_TOOLTIP_POPUP = "//h4[text()='Openreach Notes']";
-    private final String OK_BUTTON = "//button[text()='Ok']";
     private final String FLOOR_TEXT_BOX = "WLR3Order_floor";
     private final String ROOM_TEXT_BOX = "WLR3Order_room";
     private final String MINIMUM_CHANNELS_ERROR_MESSAGE = "//span[text()='Minimum 8 Channels required for this product.']";
@@ -51,6 +50,7 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
     WLR3_New_Provide_OrderPage wlr3_new_provide__orderPage = new WLR3_New_Provide_OrderPage();
     CommonMethods commonMethods=new CommonMethods();
     WLR3_OrderDetails_Page wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
+    WLR3_LineNumberingPage wlr3_lineNumberingPage=new WLR3_LineNumberingPage();
 
     public void populateLinePlantSummaryUnderPROVISION() throws InterruptedException {
         //verify the error message when termination type is not selected
@@ -96,7 +96,7 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
         utils.waitForElementVisible(By.xpath(ORDER_NOTES_LABEL_FOR_ISDN));
         utils.clickBtn(By.id(ORDERNOTES_TOOL_TIP_CLICK));
         utils.waitForElementVisible(By.xpath(TEXT_ON_ORDER_NOTES_TOOLTIP_POPUP));
-        utils.clickBtn(By.xpath(OK_BUTTON));
+        utils.clickBtn(By.xpath(wlr3_lineNumberingPage.OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP));
         utils.waitForElementVisible(By.id(FLOOR_TEXT_BOX));
         utils.sendText(By.id(FLOOR_TEXT_BOX), "1st floor");
         utils.sendText(By.id(ROOM_TEXT_BOX), "central Hall");

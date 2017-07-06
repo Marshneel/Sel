@@ -12,9 +12,14 @@ public class WLR3_NetworkCallingFeaturesPage {
 
     private final String ADMIN_CONTROLLED_CALL_DIV_UNDER_NTWRK_CAL_FEATURES = "Features_0__value";
     private final String ANONYMOUS_CAL_REJ_UNDER_NTWRK_CAL_FEATURES = "Features_1__value";
+    private final String RAW_CALL_DATA="//label[contains(text(),'Raw Call Data')]";
+    private final String REMOTE_CALL_FORWARDING="//label[contains(text(),'Remote Call Forwarding')]";
+    private final String CALLER_REDIRECT="//label[contains(text(),'Caller Redirect')]";
+    private final String QUARTERLY_TEXT="//label[contains(text(),'Quarterly')]";
 
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
     ElementUtils utils = new ElementUtils();
+
 
     public void populateNetworkCallingFeatures() throws InterruptedException {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.NETWORK_FEATURES_SUMMARY_PANEL));
@@ -55,29 +60,29 @@ public class WLR3_NetworkCallingFeaturesPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
     public void depopulateAndVerifyNetworkCallingFeatures() throws InterruptedException {
-        utils.makeSureBoxIsUnChecked(By.id("Features_1__value"), By.id("Features_1__value"));
+        utils.makeSureBoxIsUnChecked(By.id(ANONYMOUS_CAL_REJ_UNDER_NTWRK_CAL_FEATURES), By.id(ANONYMOUS_CAL_REJ_UNDER_NTWRK_CAL_FEATURES));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
     public void rePopulateNetworkCallingFeatures(){
-        utils.makeSureBoxIsChecked(By.id("Features_1__value"),By.id("Features_1__value"));
+        utils.makeSureBoxIsChecked(By.id(ANONYMOUS_CAL_REJ_UNDER_NTWRK_CAL_FEATURES),By.id(ANONYMOUS_CAL_REJ_UNDER_NTWRK_CAL_FEATURES));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
 
     }
     public void assertFeaturesForRemoteCallFor_VirtualLines(){
-                utils.waitForElementVisible(By.xpath("//label[contains(text(),'Raw Call Data')]"));
-        utils.clickBtn(By.xpath("//label[contains(text(),'Raw Call Data')]"));
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Remote Call Forwarding')]"));
+                utils.waitForElementVisible(By.xpath(RAW_CALL_DATA));
+        utils.clickBtn(By.xpath(RAW_CALL_DATA));
+        utils.waitForElementVisible(By.xpath(REMOTE_CALL_FORWARDING));
 
     }
     public void assertFeaturesForCallerRedirect(){
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Caller Redirect')]"));
+        utils.waitForElementVisible(By.xpath(CALLER_REDIRECT));
         utils.sendText(By.id("Features_0__cli"),"0201234567");
 
     }
     public void editCallFeaturesForRemoteCallFor_VirtualLines(String CLI) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Raw Call Data')]"));
+        utils.waitForElementVisible(By.xpath(RAW_CALL_DATA));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
-        utils.clickBtn(By.id("Features_0__value"));
+        utils.clickBtn(By.id(ADMIN_CONTROLLED_CALL_DIV_UNDER_NTWRK_CAL_FEATURES));
         utils.sendText(By.id("Features_1__cli"),CLI);
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
@@ -89,7 +94,7 @@ public class WLR3_NetworkCallingFeaturesPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
     public void toggleBetweenQuarterlyToMonthly_CallerRedirectVirtualLines() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Quarterly')]"));
+        utils.waitForElementVisible(By.xpath(QUARTERLY_TEXT));
         utils.waitForElementVisible(By.xpath("//input[@checked='checked'][@value='False']"));
         utils.makeSureBoxIsChecked(By.xpath("//input[@id='Features_0__monthly'][@value='True']"),By.xpath("//input[@id='Features_0__monthly'][@value='True']"));
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));

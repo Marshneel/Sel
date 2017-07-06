@@ -35,7 +35,7 @@ public class NA128_WLR3_Virtual_Lines_Modify_stepDefs {
         webModel.getWlr3_orderDetails_page().assertSavedSiteContactTelephoneNumber("07894040256");
         webModel.getWlr3_orderDetails_page().assertTextUnderCharges("Raw Call Data");
         webModel.getWlr3_orderDetails_page().loadLineInfo();
-        webModel.getWlr3_line_information_page().checkServiceMaintenanceForVirtualLines();
+        webModel.getWlr3_line_information_page().checkServiceMaintenanceForVirtualLines("1","2","2.5","3","4");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='ORCF00000002'");
 
 

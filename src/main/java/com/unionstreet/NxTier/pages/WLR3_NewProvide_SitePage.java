@@ -15,6 +15,9 @@ public class WLR3_NewProvide_SitePage {
     private final String NEW_PROVIDE_SITEINFO_SCREEN = "NewProvideSiteInfoForm";
     private final String PHONE_NUMBER_MANDATORY_ERROR_MESSAGE = "//span[text()='Contact Telephone number is required']";
     private final String SITE_CONTACTS_TEXT="//legend[text()='Site Contact']";
+    private final String CLOSE_BUTTON="//button[@id='closeBtn']";
+    private final String THIS_ORDER_REQUIRES_ADDRESS_TO_MATCH_OPENREACH_RECORDS="//span[text()='This order requires the address to match with Openreach records. Please select an address from the address search.']";
+    private final String HIGH_LIKELY_HOOD_OF_ISDN_LINE_BEING_AVAILABLE="//label[text()='Green - High likelihood of ISDN line being available']";
 
     WLR3_InstallationAddressPage wlr3_installationAddressPage = new WLR3_InstallationAddressPage();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
@@ -97,17 +100,17 @@ public class WLR3_NewProvide_SitePage {
 
     }
     public void assertAddressMatchErrorMessage(){
-        utils.waitForElementVisible(By.xpath("//span[text()='This order requires the address to match with Openreach records. Please select an address from the address search.']"));
+        utils.waitForElementVisible(By.xpath(THIS_ORDER_REQUIRES_ADDRESS_TO_MATCH_OPENREACH_RECORDS));
     }
     public void assertLineSuitabilityMessage(){
-        utils.waitForElementVisible(By.xpath("//label[text()='Green - High likelihood of ISDN line being available']"));
+        utils.waitForElementVisible(By.xpath(HIGH_LIKELY_HOOD_OF_ISDN_LINE_BEING_AVAILABLE));
     }
     public void populateEmergencyInfo(){
         utils.sendText(By.id(wlr3_orderDetails_page.EMERGENCY_INFO_TEXT_BOX), wlr3_orderDetails_page.EMERGENCY_INFO_TEXT_BOX);
     }
     public void closeWizard(){
-        utils.waitForElementVisible(By.xpath("//button[@id='closeBtn']"));
-        utils.clickBtn(By.xpath("//button[@id='closeBtn']"));
+        utils.waitForElementVisible(By.xpath(CLOSE_BUTTON));
+        utils.clickBtn(By.xpath(CLOSE_BUTTON));
     }
 
 }

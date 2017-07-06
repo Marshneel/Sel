@@ -26,12 +26,12 @@ public class NA153_WLR3_ISDN2_System_NewProvide__line_numbering__SelectFromList_
 
     @Then("^I should be able to check all the validations for select number from the list option for ISDN(\\d+) system line$")
     public void iShouldBeAbleToCheckAllTheValidationsForSelectNumberFromTheListOptionForISDNSystemLine(int arg0) throws ClassNotFoundException, SQLException, InterruptedException, UnsupportedEncodingException {
-        webModel.getWlr3_newProvide__numberingPage().ISDN2_selectFromList_fancyNumbers();
-        webModel.getWlr3_newProvide__numberingPage().ISDN2_selectFromList_selectingSameNumberTwice();
-       webModel.getWlr3_newProvide__numberingPage().ISDN2_selectFromList_assertAssignedNumberAbsentFromList();
+        webModel.getWlr3_newProvide__numberingPage().ISDN2_selectFromList_fancyNumbers("01582213131","01582213333");
+        webModel.getWlr3_newProvide__numberingPage().ISDN2_selectFromList_selectingSameNumberTwice("01202300908");
+       webModel.getWlr3_newProvide__numberingPage().ISDN2_selectFromList_assertAssignedNumberAbsentFromList("01582213000","01202300908","01582216165");
         webModel.getWlr3_newProvide__numberingPage().ISDN2system_selectFromList_addingDDIrange();
-        webModel.getWlr3_newProvide__numberingPage().ISDN2system_selectFromList_switchingToSNDDIandAssigingASingleNumber();
-        webModel.getWlr3_newProvide__numberingPage().ISDN2system_selectFromList_changingNumberCluster();
+        webModel.getWlr3_newProvide__numberingPage().ISDN2system_selectFromList_switchingToSNDDIandAssigingASingleNumber("01582213000","01582216000");
+        webModel.getWlr3_newProvide__numberingPage().ISDN2system_selectFromList_changingNumberCluster("01582220000","01582216027","01582214235");
 
     }
 }

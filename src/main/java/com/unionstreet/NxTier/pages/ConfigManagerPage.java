@@ -35,6 +35,7 @@ public class ConfigManagerPage {
     private final String SELECT_FREE_MINUTES_PLAN_CHECKBOX_FROM_LIST_UNDER_EDIT_PACKAGE="_selectedFreemins_0__isSelected";
     private final String DISABLED_PACKAGE_NAME="//input[@id='mpackage_name'][@readonly='readonly']";
     private final String DISABLED_VOICE_TARIFF_UNDER_EDIT_PACKAGE="//select[@id='mpackage_lcr_tariff'][@readonly='readonly']";
+    private final String ONLY_CONSUMER_TARIFFS_CAN_BE_APPLIED_TO_CONSUMER_PACKAGES="//label[contains(text(),'Only consumer tariffs can be applied to consumer packages')]";
 
 
     ElementUtils utils = new ElementUtils();
@@ -192,8 +193,8 @@ public class ConfigManagerPage {
     }
 
     public void clickAdd() {
-        utils.waitForElementVisible(By.xpath(commonMethods.SAVE_XPATH));
-        utils.clickBtn(By.xpath(commonMethods.SAVE_XPATH));
+        utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
+        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
 
     }
 
@@ -206,7 +207,7 @@ public class ConfigManagerPage {
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath("//div[@id='consumerdiv']//input[" + packageType + "]"));
         if (consumerPackage == false) {
-            utils.waitForElementVisible(By.xpath("//label[contains(text(),'Only consumer tariffs can be applied to consumer packages')]"));
+            utils.waitForElementVisible(By.xpath(ONLY_CONSUMER_TARIFFS_CAN_BE_APPLIED_TO_CONSUMER_PACKAGES));
         } else {
         }
         if (verifyCreatedTariffAndFreeMinutes) {

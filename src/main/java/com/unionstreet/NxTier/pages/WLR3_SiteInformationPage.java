@@ -12,7 +12,6 @@ public class WLR3_SiteInformationPage {
 
 
     private final String SELECTCONTACT_UNDER_SITEINFO = "ContactList";
-    private final String SUBMIT_BUTTON = "saveBtn";
     private final String RECOVER_LINE_PLANT = "WLR3Order_recover_line_plant";
     private final String TRC_BAND_DROPDOWN = "WLR3Order_trc_band";
     private final String ENGINEERING_NOTES_TEXT_BOX="WLR3Order_engineering_notes";
@@ -37,13 +36,14 @@ public class WLR3_SiteInformationPage {
     WLR3_NewProvide_ProvisionPage wlr3_newProvide_provisionPage=new WLR3_NewProvide_ProvisionPage();
 
 
+
     public void populatingSiteInformation(String type) throws InterruptedException, SQLException {
         wlr3_orderDetails_page.textOnWLR3OrderPage(type);
         wlr3_orderDetails_page.clickSiteInfo();
         utils.selectByIndex(By.id(SELECTCONTACT_UNDER_SITEINFO), 1);
-        utils.waitForElementVisible(By.id(SUBMIT_BUTTON));
-        utils.scrollUp(By.id(SUBMIT_BUTTON));
-        utils.javaScriptExecutorClick(By.id(SUBMIT_BUTTON));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.scrollUp(By.id(wlr3_orderDetails_page.SAVE));
+        utils.javaScriptExecutorClick(By.id(wlr3_orderDetails_page.SAVE));
     }
 
     public void depopulateSiteInformation() throws InterruptedException {
@@ -58,9 +58,9 @@ public class WLR3_SiteInformationPage {
         }
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_SITE_INFORMATION));
         utils.selectByVisibleText(By.id(SELECTCONTACT_UNDER_SITEINFO), "Select");
-        utils.waitForElementVisible(By.id(SUBMIT_BUTTON));
-        utils.scrollUp(By.id(SUBMIT_BUTTON));
-        utils.javaScriptExecutorClick(By.id(SUBMIT_BUTTON));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.scrollUp(By.id(wlr3_orderDetails_page.SAVE));
+        utils.javaScriptExecutorClick(By.id(wlr3_orderDetails_page.SAVE));
     }
 
     public void assertAbsenceOfRLPcheckBoxUnderSiteInfo() {
