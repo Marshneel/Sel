@@ -279,7 +279,7 @@ public class WLR3_NewProvide_NumberingPage {
         public void ISDN2system_selectFromList_switchingToSNDDIandAssigingASingleNumber(String number, String unAvailableNumber) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
             utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1), "New SNDDI");
         utils.waitForElementVisible(By.xpath(NUMBER_OPTIONS_ALLOCATE_1));
-        utils.clickBtn(By.xpath(TEXT_LABELLED_NO));
+        utils.clickBtn(By.xpath(NUMBER_OPTIONS_ALLOCATE_1));
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'"+number+"')]"));
         utils.assertElementNotPresent(By.xpath("//label[contains(text(),'"+unAvailableNumber+"')]"));
         utils.clickBtn(By.xpath("//label[contains(text(),'"+number+"')]"));

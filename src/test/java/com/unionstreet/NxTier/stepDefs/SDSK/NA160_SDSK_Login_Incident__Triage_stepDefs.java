@@ -28,7 +28,7 @@ public class NA160_SDSK_Login_Incident__Triage_stepDefs {
     @Then("^I should be able to check all the validations and populate it$")
     public void iShouldBeAbleToCheckAllTheValidationsAndPopulateIt() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getServiceDesk_loginIncidentPage().clickNextWithOutPopulatingTriage();
-        webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage();
+        webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(true);
         webModel.getServiceDesk_loginIncidentPage().non_OpenReachIncident_Triage();
         webModel.getLoginPage().loginAsAdamR();
         na159.iNavigateToTheCallerDetailsPageOfTheIncidentWizard();

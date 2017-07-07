@@ -30,10 +30,11 @@ public class ElementUtils {
     public String parentWindow;
     private Properties prop;
     private FileInputStream fileInputStream;
+    public static ArrayList<String> allValues;
 
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(driver)
-                .withTimeout(20, SECONDS)
+               .withTimeout(20, SECONDS)
                 .pollingEvery(3, SECONDS)
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
         return wait;
@@ -46,6 +47,13 @@ public class ElementUtils {
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
         return wait;
     }
+    public Wait waitForSomeTimeForOpenReach() {
+        Wait wait = new FluentWait(driver)
+                .withTimeout(5000, SECONDS)
+                .pollingEvery(3, SECONDS)
+                .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
+        return wait;}
+
     public void findFieldAndSendKeys(By by, String filePath){
         driver.findElement(by).sendKeys(filePath);
     }
@@ -95,6 +103,10 @@ public class ElementUtils {
         waitForSomeTimeForWLR3().until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public void waitForElementVisibleForOpenReach(By by){
+        waitForSomeTimeForOpenReach().until(ExpectedConditions.presenceOfElementLocated(by));
+
+    }
     //switching to new window
     public void switchToNewWindow() {
         parentWindow = driver.getWindowHandle();
@@ -538,6 +550,11 @@ public class ElementUtils {
 
     public void navigateBack(){
         driver.navigate().back();
+    }
+    public void twoValueArrayList(String valueOne, String valueTwo){
+        allValues=new ArrayList<String>();
+        allValues.add(""+valueOne+"");
+        allValues.add(""+valueTwo+"");
     }
 }
 
