@@ -22,13 +22,16 @@ public class WLR3_Line_Information_Page {
     private final String ERROR_MESSAGE_WHEN_CHANGED_FROM_DEFAULT_POINT_TO_MULTIPOINT__TO__POINT_TO_POINT="//span[contains(text(),'This is not a valid selection for this line type / DDI configuration.')]";
     private final String POINT_TO_POINT_RADIO_BUTTON="rdop2p";
    private final String POINT_TO_MULTIPOINT_RADIO_BUTTON="rdop2mp";
-    private final String ERROR_MESSAGE_STATING_SIGNAL_TYPE_MANDATORY_FOR_NTTP="//div[contains(text(),'You must select a Signal Type when the Termination Type of NTTP has been specified')]";
    private final String CHOOSE_SIGNAL_TYPE="WLR3Order_signal_type";
     private final String DIGITS_TO_SWITCH_TEXT_BOX="WLR3Order_digits_to_switch";
+    private final String SMPF_CODE="WLR3Order_smpf_code";
+    private final String STANDBY_POWER="//label[contains(text(),'Standby Power')]/following-sibling::div//p";
+    private final String RADIO_DELIVERY_OK="//label[contains(text(),'Radio Delivery OK')]/following-sibling::div//p";
 
 
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
+
 
 
 
@@ -98,7 +101,7 @@ public class WLR3_Line_Information_Page {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
     public void setSignalType() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_STATING_SIGNAL_TYPE_MANDATORY_FOR_NTTP));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.ERROR_MESSAGE_STATING_SIGNAL_TYPE_MANDATORY_FOR_NTTP));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
         utils.waitForElementVisible(By.id(CHOOSE_SIGNAL_TYPE));
@@ -116,12 +119,12 @@ public class WLR3_Line_Information_Page {
         utils.sendText(By.id(DIGITS_TO_SWITCH_TEXT_BOX),""+digits+"");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
-public void checkServiceMaintenanceForVirtualLines(){
-    utils.waitForElementVisible(By.xpath("//option[@selected='selected'][contains(text(),'Level 1')]"));
-    utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level 2')]"));
-    utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level 2.5')]"));
-    utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level 3')]"));
-    utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level 4')]"));
+public void checkServiceMaintenanceForVirtualLines(String number1, String number2, String number3, String number4, String number5){
+    utils.waitForElementVisible(By.xpath("//option[@selected='selected'][contains(text(),'Level "+number1+"')]"));
+    utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level "+number2+"')]"));
+    utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level "+number3+"')]"));
+    utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level "+number4+"')]"));
+    utils.assertElementNotPresent(By.xpath("//option[contains(text(),'Level "+number5+"')]"));
 }
 public void setCareLevelPlanAndDigitsToSwitchForISDNLines(String unavailable, String available,String allowedRange, String digits){
     utils.waitForElementVisible(By.xpath(TEXT_ON_LINEINFO_PAGE));
@@ -153,12 +156,12 @@ public void assertAndPopulateSignalTypeWhenSwitchedToNTTP(){
     utils.selectByVisibleText(By.id("WLR3Order_signal_type"),"Pulse Tone");
 }
 public void verifySMPFcodePresent(){
-    utils.waitForElementVisible(By.id("WLR3Order_smpf_code"));
+    utils.waitForElementVisible(By.id(SMPF_CODE));
 
 }
 public void assertDisabledFieldsForISDN2linesInTransfer(){
-    utils.waitForElementVisible(By.xpath("//label[contains(text(),'Standby Power')]/following-sibling::div//p"));
-    utils.waitForElementVisible(By.xpath("//label[contains(text(),'Radio Delivery OK')]/following-sibling::div//p"));
+    utils.waitForElementVisible(By.xpath(STANDBY_POWER));
+    utils.waitForElementVisible(By.xpath(RADIO_DELIVERY_OK));
     utils.waitForElementVisible(By.xpath("//label[contains(text(),'SMPF Code')]/following-sibling::div//p"));
 }
 public void setConfigurationForISDN2SystemInTransfer() throws InterruptedException {

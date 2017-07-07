@@ -10,27 +10,43 @@ import java.sql.SQLException;
  * Created by RajeshG on 28/05/2017.
  */
 public class ServiceDeskPage {
+
+    private final String LOGIN_AN_INCIDENT_HEADER_TEXT="//h1[contains(text(),'Log an incident')]";
+    private final String LOGIN_AN_INCIDENT_CLICK="//span[contains(text(),'Log an Incident')]";
+    private final String ACCESS_DENIED="//div[contains(text(),'Access Denied')]";
+    private final String YOU_CANNOT_CREATE_A_TICKET_AS_THERE_IS_NO_SLA="//p[contains(text(),'You can not create a ticket for this account because there is no SLA in place.Please contact your Service Desk administrator.')]";
+    private final String NO_SLA_TEXT="//h4[contains(text(),'No SLA')]";
+    private final String ACCOUNT_ON_HOLD_DO_YOU_STILL_WANT_TO_CREATE_A_TICKET="//p[contains(text(),'This account has been flagged as being on hold. Would you still like to log an Incident?')]";
+    private final String YOU_CANNOT_CREATE_A_TICKET_FOR_THIS_ACCOUNT="//p[contains(text(),'You can not create a ticket for this account')]";
+    private final String SEARCH_BY_ACCOUNT_NAME_FIELD="search_Account_Name";
+    private final String SEARCH_BY_ACCOUNT_NUMBER_FIELD="search_Account_Number";
+    private final String SEARCH_CLI="search_CLI";
+    private final String INITIATE_SEARCH_BY_ACCOUNT_NUMBER="//input[@id='search_Account_Number']/following-sibling::span//span[contains(text(),'Search')]";
+    private final String INITIATE_SEARCH_BY_ACCOUNT_NAME="//input[@id='search_Account_Name']/following-sibling::span//span[contains(text(),'Search')]";
+    private final String INITIATE_SEARCH_BY_CLI="//input[@id='search_CLI']/following-sibling::span//span[contains(text(),'Search')]";
+
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page=new WLR3_OrderDetails_Page();
+    WLR3_LineNumberingPage wlr3_lineNumberingPage=new WLR3_LineNumberingPage();
 
 
 
     public void assertTextOnServiceDesk() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
-       utils.waitForElementVisible(By.xpath("//h1[contains(text(),'Log an incident')]"));}
+       utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_HEADER_TEXT));}
 
     public void searchByAccountName(String accountName) throws InterruptedException {
-        utils.waitForElementVisible(By.id("search_Account_Name"));
-        utils.sendText(By.id("search_Account_Name"),accountName);
+        utils.waitForElementVisible(By.id(SEARCH_BY_ACCOUNT_NAME_FIELD));
+        utils.sendText(By.id(SEARCH_BY_ACCOUNT_NAME_FIELD),accountName);
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath("//input[@id='search_Account_Name']/following-sibling::span//span[contains(text(),'Search')]"));
+        utils.javaScriptExecutorClick(By.xpath(INITIATE_SEARCH_BY_ACCOUNT_NAME));
 
     }
 
     public void searchByShortName(String shortName) throws InterruptedException {
-        utils.waitForElementVisible(By.id("search_Account_Number"));
-        utils.sendText(By.id("search_Account_Number"),shortName);
+        utils.waitForElementVisible(By.id(SEARCH_BY_ACCOUNT_NUMBER_FIELD));
+        utils.sendText(By.id(SEARCH_BY_ACCOUNT_NUMBER_FIELD),shortName);
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath("//input[@id='search_Account_Number']/following-sibling::span//span[contains(text(),'Search')]"));
+        utils.javaScriptExecutorClick(By.xpath(INITIATE_SEARCH_BY_ACCOUNT_NUMBER));
     }
     public void searchResultsForServiceDesk(String type){
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+type+"')]"));
@@ -40,10 +56,10 @@ public class ServiceDeskPage {
         utils.assertElementNotPresent(By.xpath("//td[contains(text(),'"+type+"')]"));
     }
     public void searchByCLI(String CLI) throws InterruptedException {
-        utils.waitForElementVisible(By.id("search_CLI"));
-        utils.sendText(By.id("search_CLI"),CLI);
+        utils.waitForElementVisible(By.id(SEARCH_CLI));
+        utils.sendText(By.id(SEARCH_CLI),CLI);
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath("//input[@id='search_CLI']/following-sibling::span//span[contains(text(),'Search')]"));
+        utils.javaScriptExecutorClick(By.xpath(INITIATE_SEARCH_BY_CLI));
     }
     public void clickOnResult(String shortName) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+shortName+"')]"));
@@ -65,27 +81,27 @@ public class ServiceDeskPage {
         utils.waitForElementVisible(By.xpath("//h4[contains(text(),'sla')]/following-sibling::p[contains(text(),'"+SLAstatus+"')]"));
 
     }public void clickIncidentButton(){
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Log an Incident')]"));
-        utils.clickBtn(By.xpath("//span[contains(text(),'Log an Incident')]"));
+        utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_CLICK));
+        utils.clickBtn(By.xpath(LOGIN_AN_INCIDENT_CLICK));
     }
     public void assertAccessGrantedToLoginIncident(){
-        utils.waitForElementVisible(By.xpath("//h1[contains(text(),'Log an incident')]"));
+        utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_HEADER_TEXT));
         
     }
     public void assertNoSLAwarningPopUp(){
-        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'No SLA')]"));
-        utils.waitForElementVisible(By.xpath("//p[contains(text(),'You can not create a ticket for this account because there is no SLA in place.Please contact your Service Desk administrator.')]"));
+        utils.waitForElementVisible(By.xpath(NO_SLA_TEXT));
+        utils.waitForElementVisible(By.xpath(YOU_CANNOT_CREATE_A_TICKET_AS_THERE_IS_NO_SLA));
     }
     public void assertAccountOhHoldYellowPopUp(){
         utils.waitForElementVisible(By.xpath("//h4[@id='modal-alert-label'][contains(text(),'Account Status')]"));
-        utils.waitForElementVisible(By.xpath("//p[contains(text(),'This account has been flagged as being on hold. Would you still like to log an Incident?')]"));
+        utils.waitForElementVisible(By.xpath(ACCOUNT_ON_HOLD_DO_YOU_STILL_WANT_TO_CREATE_A_TICKET));
         utils.clickBtn(By.xpath("//a[contains(text(),'Yes, continue.')]"));
     }
 
     public void assertAccountOnHoldRedPopUp(){
-        utils.waitForElementVisible(By.xpath("//p[contains(text(),'You can not create a ticket for this account')]"));
-        utils.waitForElementVisible(By.xpath("//button[contains(text(),'Ok')]"));
-        utils.clickBtn(By.xpath("//button[contains(text(),'Ok')]"));
+        utils.waitForElementVisible(By.xpath(YOU_CANNOT_CREATE_A_TICKET_FOR_THIS_ACCOUNT));
+        utils.waitForElementVisible(By.xpath(wlr3_lineNumberingPage.OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP));
+        utils.clickBtn(By.xpath(wlr3_lineNumberingPage.OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP));
     }
     public void grantingServiceDeskAccess() throws SQLException, UnsupportedEncodingException, ClassNotFoundException, InterruptedException {
         utils.sqlQuery("portal", "test01-sql01", "NxtierE2E", "select * from Group_Permissions where GTypeID='58dbb78d-8c9f-495f-99e6-0dbce29f02fe' and Name='Incident'");
@@ -106,7 +122,7 @@ public class ServiceDeskPage {
 
     }
     public void assertServiceDeskAccessDenied(){
-        utils.waitForElementVisible(By.xpath("//div[contains(text(),'Access Denied')]"));
+        utils.waitForElementVisible(By.xpath(ACCESS_DENIED));
     }
 
 

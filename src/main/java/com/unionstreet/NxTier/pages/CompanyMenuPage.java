@@ -282,7 +282,7 @@ public class CompanyMenuPage {
         utils.javaScriptExecutorClick(By.id(ENABLE_FREEMINUTES_CHECKBOX));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'" + configManagerPage.RanFreeMinutePlanName + "')]"));
         utils.searchAndAssertTextPresent(By.id("fmSiteTable"), "" + configManagerPage.RanFreeMinutePlanName + "");
-        utils.selectByVisibleText(By.id(VOICE_TARIFF_FROM_PACKAGE_CHECKBOX), createTariffPage.RanTariffPlanName);
+        utils.selectByVisibleText(By.id(VOICE_TARIFF_FIELD_DROPDOWN), createTariffPage.RanTariffPlanName);
     }
 
     public void assignTariffAndFreeMinutesToCustomer(String FreeMinutePlan, String TariffPlan) throws InterruptedException {
@@ -411,8 +411,8 @@ public class CompanyMenuPage {
         }
         utils.waitForElementVisible(By.linkText(SERVICECHARGE_ONEOFF_BUTTON));
         utils.clickBtn(By.linkText(SERVICECHARGE_ONEOFF_BUTTON));
-        utils.waitForElementVisible(By.xpath(commonMethods.SAVE_XPATH));
-        utils.clickBtn(By.xpath(commonMethods.SAVE_XPATH));
+        utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
+        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
         utils.switchToNewWindow();
 
         if (user == true) {
@@ -436,8 +436,8 @@ public class CompanyMenuPage {
     }
 
     public void assertResellerCannotSeeCostAndBaseLinePriceUnderServiceCharges() {
-        utils.waitForElementVisible(By.xpath(commonMethods.SAVE_XPATH));
-        utils.clickBtn(By.xpath(commonMethods.SAVE_XPATH));
+        utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
+        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(DESCRIPTION_TEXT_ON_ADD_SURCHARGE_PAGE));
         utils.assertElementNotPresent(By.xpath(COST_PRICE_TEXT_ON_ADD_SURCHARGE_PAGE));
@@ -466,8 +466,8 @@ public class CompanyMenuPage {
     }
 
     public void addServicePage_PriceRevertsBackWhenFieldIsEmpty() {
-        utils.waitForElementVisible(By.xpath(commonMethods.SAVE_XPATH));
-        utils.clickBtn(By.xpath(commonMethods.SAVE_XPATH));
+        utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
+        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(SERVICECHARGE_CHARGETYPE_DROPDOWN));
         utils.selectByVisibleText(By.id(SERVICECHARGE_CHARGETYPE_DROPDOWN), "Analogue Basic Rental");

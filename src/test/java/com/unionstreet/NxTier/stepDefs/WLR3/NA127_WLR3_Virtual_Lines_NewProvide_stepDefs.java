@@ -45,7 +45,7 @@ public class NA127_WLR3_Virtual_Lines_NewProvide_stepDefs {
         webModel.getWlr3_orderDetails_page().assertExclusiveFeatures("0201234567");
         webModel.getWlr3_orderDetails_page().assertRemovedFeature("Raw Call Data");
         webModel.getWlr3_orderDetails_page().loadLineInfo();
-        webModel.getWlr3_line_information_page().checkServiceMaintenanceForVirtualLines();
+        webModel.getWlr3_line_information_page().checkServiceMaintenanceForVirtualLines("1","2","2.5","3","4");
 
 
     }
@@ -77,7 +77,7 @@ public class NA127_WLR3_Virtual_Lines_NewProvide_stepDefs {
         webModel.getWlr3_networkCallingFeaturesPage().editCallFeaturesForCallerRedirect_VirtualLines("");
         webModel.getWlr3_orderDetails_page().assertCLIrequiredAlertMessageForVirtualLines("Caller Redirect");
         webModel.getWlr3_orderDetails_page().loadLineInfo();
-        webModel.getWlr3_line_information_page().checkServiceMaintenanceForVirtualLines();
+        webModel.getWlr3_line_information_page().checkServiceMaintenanceForVirtualLines("1","2","2.5","3","4");
 
 
 

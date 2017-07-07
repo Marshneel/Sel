@@ -30,6 +30,9 @@ public class OrdersManagerPage {
     public final String TASK_POPUP = "//div[@id='tasksContentPanel']//a[contains(@onclick,'return TaskPopup')]";
     public final String ORDERID_UNDER_TASK = "//div[@id='tasksContentPanel']//a[contains(@href,'nxtiere2e/Orders/EditOrder')]";
     public final String CLICK_ON_THE_ORDER_FROM_LIST="//a[contains(@href,'Orders/EditOrder')]";
+    private final String SAVE = "saveBtn";
+    private final String AGENT_TEXT="//a[@href='#'][contains(text(),'agent')]";
+    private final String NO_SEARCH_RECORDS="//div[@id='orderContentPanel']//td[contains(text(),'No Records')]";
 
     ElementUtils utils = new ElementUtils();
     WLR_and_NxTierServicesPage wlr_and_nxTierServicesPage = new WLR_and_NxTierServicesPage();
@@ -89,7 +92,7 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLity");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
-        utils.waitForElementVisible(By.xpath("//div[@id='orderContentPanel']//td[contains(text(),'No Records')]"));
+        utils.waitForElementVisible(By.xpath(NO_SEARCH_RECORDS));
         utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
         try {
             utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
@@ -98,14 +101,14 @@ public class OrdersManagerPage {
             utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "reseller");
         }
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
-        utils.waitForElementVisible(By.xpath("//div[@id='orderContentPanel']//td[contains(text(),'No Records')]"));
+        utils.waitForElementVisible(By.xpath(NO_SEARCH_RECORDS));
     }
 
     public void checkQuoteForReseller() throws InterruptedException {
         utils.waitForElementVisible(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.sendText(By.id(contactManagerPage.SEARCH_BUTTON), "aBILLity");
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
-        utils.waitForElementVisible(By.xpath("//div[@id='orderContentPanel']//td[contains(text(),'No Records')]"));
+        utils.waitForElementVisible(By.xpath(NO_SEARCH_RECORDS));
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         Thread.sleep(1000);
         try {
@@ -117,7 +120,7 @@ public class OrdersManagerPage {
         }
         utils.keyBoardEnter(By.id(contactManagerPage.SEARCH_BUTTON));
         utils.waitForElementToVanish(By.id(settingsPage.AWAITING_PROCESS));
-        utils.waitForElementVisible(By.xpath("//div[@id='orderContentPanel']//td[contains(text(),'No Records')]"));
+        utils.waitForElementVisible(By.xpath(NO_SEARCH_RECORDS));
     }
 
     public void checkQuotesForCP() throws InterruptedException {
@@ -202,7 +205,6 @@ public class OrdersManagerPage {
        try{ utils.waitForElementVisible(By.xpath("//a[text()='" + one + "']"));
         utils.clickBtn(By.xpath("//a[text()='" + one + "']"));}
        catch (Exception e){utils.checkAlert();}
-
     }
 
     public void loadOrdersManagerAndClickOnQuoteID(String type) throws InterruptedException, SQLException {
@@ -218,7 +220,7 @@ public class OrdersManagerPage {
     public void savingQuoteAndExtractingOrderServiceID() throws InterruptedException {
         utils.switchToNewWindow();
         try {
-            utils.clickBtn(By.xpath("//input[contains(@onclick,'Save')]"));
+            utils.clickBtn(By.xpath(commonMethods.SAVE_XPATH));
         } catch (Exception e) {
             utils.checkAlert();
         }
@@ -231,7 +233,7 @@ public class OrdersManagerPage {
     }
 
     public void saveTheServiceAndGetTheOrderServicesID() {
-        utils.clickBtn(By.xpath("//input[contains(@onclick,'Save')]"));
+        utils.clickBtn(By.xpath(commonMethods.SAVE_XPATH));
         utils.waitForElementVisible(By.xpath(INVISIBLE_ORDER_SERVICESID));
         utils.getAttributeOfElement(By.xpath(INVISIBLE_ORDER_SERVICESID), "value");
     }
@@ -240,7 +242,7 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         commonMethods.search("agent");
         utils.waitForElementVisible(By.id(LOCATOR_FOR_BOX_HEADER));
-        utils.waitForElementVisible(By.xpath("//a[@href='#'][contains(text(),'agent')]"));
+        utils.waitForElementVisible(By.xpath(AGENT_TEXT));
         utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
         try {
             utils.makeSureBoxIsUnChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
@@ -262,7 +264,7 @@ public class OrdersManagerPage {
         dashBoardPage.clickConfigManager();
         wlr_and_nxTierServicesPage.accessingAssignServicePage();
         commonMethods.search("agent");
-        utils.waitForElementVisible(By.xpath("//a[@href='#'][contains(text(),'agent')]"));
+        utils.waitForElementVisible(By.xpath(AGENT_TEXT));
         utils.waitForElementVisible(By.id(LOCATOR_FOR_BOX_HEADER));
         utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
         utils.makeSureBoxIsChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
@@ -286,7 +288,7 @@ public class OrdersManagerPage {
         utils.clickBtn(By.xpath("//a[text()='" + company + "']"));
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'" + CLI + "')]"));
         utils.selectByIndex(By.id(CEASE_REASON), 1);
-        utils.clickBtn(By.id("saveBtn"));
+        utils.clickBtn(By.id(SAVE));
     }
 
     public void proofOfProcessedOrder(String order) {

@@ -39,7 +39,7 @@ public class WLR3_LineNumberingPage {
     private final String ADD_NEW_DDI = "//a[contains(text(),'Add New DDI / DDI Range')]";
     private final String VALIDATION_TO_PREVENT_ADDITION_OF_NEW_SNDDI = "//div[contains(text(),'Maximum 5 SNDDIs/DDI Ranges can be active. You can delete an existing row to add a new one.')]";
     private final String VALIDATION_TO_PREVENT_ACTIVATION_OF_EXISTING_SNDDI = "//div[contains(text(),'Maximum 5 SNDDIs/DDI Ranges can be active')]";
-    private final String OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP = "//button[contains(text(),'Ok')]";
+    public final String OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP = "//button[contains(text(),'Ok')]";
     public final String SNDDI_DDI_DROPDOWN_ROW0 = "DDIInfo_0__action";
     public final String SNDDI_DDI_DROPDOWN_ROW1 = "DDIInfo_1__action";
     private final String SNDDI_DDI_DROPDOWN_ROW2 = "DDIInfo_2__action";
@@ -59,6 +59,7 @@ public class WLR3_LineNumberingPage {
     private final String NUMBER_SUCCESSFULLY_TAKEN_AND_SAVED_MESSAGE="//p[contains(text(),'Successfully taken and saved')]";
     private final String  EMPTY_FIELD_ERROR_MESSAGE="//span[contains(text(),'This field is required.')]";
     private final String FIELD_TO_SPECIFY_NUMBER_FOR_RESERVATION="SpecificNewNumberToReserve";
+    private final String A_NUMBER_HAS_BEEN_RESERVED_FOR_THIS_LINE="//h4[contains(text(),'A new number has been reserved for this line')]";
 
     ElementUtils utils = new ElementUtils();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
@@ -149,7 +150,7 @@ public class WLR3_LineNumberingPage {
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + number + "')]]"));
     }
     public void assertionForNumberAllocationOnWizard(String number){
-        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'A new number has been reserved for this line')]"));
+        utils.waitForElementVisible(By.xpath(A_NUMBER_HAS_BEEN_RESERVED_FOR_THIS_LINE));
         utils.waitForElementVisible(By.xpath("//p[contains(text(),'"+number+"')]"));
 
 

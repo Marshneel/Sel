@@ -13,7 +13,7 @@ public class WLR3_NewProvide_FeaturesPage {
     private final String CALL_DIVERSION_RADIOBTN_UNDER_NETWORK_FEATURES = "AllLineBased_123";
     private final String BUSY_OUT_LINE_RADIOBTN_UNDER_NETWORK_FEATURES = "Features_6__value";
     private final String BUSINESS_CONTINUITY_TEXT="//label[text()='Business Continuity - Site Assurance Option']";
-    private final String BUSINESS_CONTINUITY_CHECKBOX="WLR3Order_site_assurance_option_1";
+    public final String BUSINESS_CONTINUITY_CHECKBOX="WLR3Order_site_assurance_option_1";
     private final String BUSINESS_CONTINUITY_USER_NAME="WLR3Order_site_assurance_option1_name";
     private final String CARE_LEVEL_PLAN_TWO="//select[@id='WLR3Order_care_level']//option[contains(text(),'Level 2')]";
     private final String CARE_LEVEL_PLAN_THREE="//select[@id='WLR3Order_care_level']//option[contains(text(),'Level 3')]";

@@ -445,7 +445,7 @@ public class ElementUtils {
 
 
     public void switchToPreviousWindow(int number) {
-        ArrayList<String> tabs = new ArrayList(driver.getWindowHandles());
+      ArrayList<String> tabs = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(number));
     }
 

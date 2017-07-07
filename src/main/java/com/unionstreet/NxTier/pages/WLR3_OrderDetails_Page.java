@@ -58,7 +58,7 @@ public class WLR3_OrderDetails_Page {
     private final String AUTOMATICALLY_ALLOCATED_TEXT_UNDER_LINNUM = "//div[contains(text(),'Automatically allocated')]";
     private final String TEXT_ON_CHANGE_OF_ADDRESS_POPUP = "//div[@id='wlr3OrderDetailPopupDiv']//h3[contains(text(),'WLR3 Change Of Address Order')]";
     private final String BUSINESS_CONTINUITY_LABEL_ON_THE_BUSINESS_CONTINUITY_POPUP = "//h4[contains(text(),'Business Continuity Alert!')]";
-    private final String YES_BUTTON_ON_POPUP = "//button[contains(text(),'Yes')]";
+    public final String YES_BUTTON_ON_POPUP = "//button[contains(text(),'Yes')]";
     private final String BUSINESS_CONTINUITY_LABEL_ON_BUSINESS_CONTINUITY_CHECKBOX_POPUP = "//h3[contains(text(),'Business Continuity')]";
     private final String OPEN_REACH_MANAGED_ERROR_MESSAGE_FOR_ISDN30="//div[contains(text(),'Currently Openreach does not allow Openreach Managed change of address for ISDN30 orders')]";
     private final String EDIT_OPENREACH_MANAGED="//div[@id='div_coa_openreach']//div[@id='divLabel']/img";
@@ -68,8 +68,8 @@ public class WLR3_OrderDetails_Page {
     private final String POINT_TO_MULTIPOINT_TEXT_ON_SUMMARY_PAGE="//p[contains(text(),'Point-to-Multipoint')]";
     private final String POINT_TO_POINT_TEXT_ON_SUMMARY_PAGE="//p[contains(text(),'Point-to-Point')]";
     public final String TEXT_ON_SITE_INFORMATION = "//legend[text()='Site Contact']";
-    private final String HAZARD_NOTES_REQUISITION_ERROR_MESSAGE="//div[contains(text(),'An engineer visit is required, but Hazard Notes have not been supplied')]";
-    private final String WARNING_NOTES_REQUISITION_ERROR_MESSAGE="//div[contains(text(),'An engineer visit is required, but Warning Notes have not been supplied')]";
+    private final String HAZARD_NOTES_REQUISITION_ERROR_MESSAGE="//div[text()[contains(.,'An engineer visit is required, but Hazard Notes have not been supplied')]]";
+    private final String WARNING_NOTES_REQUISITION_ERROR_MESSAGE="//div[text()[contains(.,'An engineer visit is required, but Warning Notes have not been supplied')]]";
     private final String EDIT_NUMBER_OF_CHANNELS="//div[@id='div_WLR3Order_num_lines']//img[contains(@onclick,'editMode')]";
     private final String SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE="//img[contains(@onclick,'jet_update_value_FromTextbox')]";
     public final String EDIT_NUMBER_OF_CHANNELS_TEXT_BOX="WLR3Order_num_lines";
@@ -82,6 +82,12 @@ public class WLR3_OrderDetails_Page {
     private final String WORKING_LINE_TAKEOVER_TEXT="//p[contains(text(),'Working Line Takeover')]";
     private final String CP_MANAGED_TEXT="//span[contains(text(),'No (CP Managed)')]";
     private final String NUMBER_OF_CHANNELS_TEXT="//label[contains(text(),'Number of Channels')]";
+    private final String EXISTING_POST_CODE="//label[contains(text(),'Existing Postcode')]";
+    private final String YOU_MUST_PROVIDE_A_POSITION_FOR_DIGITAL_PRODUCTS="//div[text()[contains(.,'You must specify a Position for Digital products')]]";
+    private final String YOU_MUST_PROVIDE_A_ROOM_FOR_DIGITAL_PRODUCTS="//div[text()[contains(.,'You must specify a Room for Digital products')]]";
+    private final String YOU_MUST_PROVIDE_A_FLOOR_FOR_DIGITAL_PRODUCTS="//div[text()[contains(.,'You must specify a Floor for Digital products')]]";
+    public final String ERROR_MESSAGE_STATING_SIGNAL_TYPE_MANDATORY_FOR_NTTP="//div[contains(text(),'You must select a Signal Type when the Termination Type of NTTP has been specified')]";
+
 
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
@@ -238,7 +244,6 @@ public class WLR3_OrderDetails_Page {
             utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
             utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
        }
-
 
     public void verifyOrderTypeTab() throws InterruptedException {
         Thread.sleep(1000);
@@ -441,7 +446,7 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void postCodeTextForModifyOrder() {
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Existing Postcode')]"));
+        utils.waitForElementVisible(By.xpath(EXISTING_POST_CODE));
     }
     public void assertCallForwardAndRedirect(String existingCLI,String redirectToNumber, String typeOfForward){
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Calls to "+existingCLI+" will be redirected to "+redirectToNumber+"')]"));
@@ -541,13 +546,13 @@ public class WLR3_OrderDetails_Page {
         utils.assertElementNotPresent(By.xpath("//label[text()[contains(.,'"+commonFeature+"')]]"));
     }
     public void errorMessages_WhenLineIsChangedFromAnalogueToISDN(){
-        utils.waitForElementVisible(By.xpath("//div[text()[contains(.,'You must specify a Position for Digital products')]]"));
-        utils.waitForElementVisible(By.xpath("//div[text()[contains(.,'You must specify a Room for Digital products')]]"));
-        utils.waitForElementVisible(By.xpath("//div[text()[contains(.,'You must specify a Floor for Digital products')]]"));
+        utils.waitForElementVisible(By.xpath(YOU_MUST_PROVIDE_A_POSITION_FOR_DIGITAL_PRODUCTS));
+        utils.waitForElementVisible(By.xpath(YOU_MUST_PROVIDE_A_ROOM_FOR_DIGITAL_PRODUCTS));
+        utils.waitForElementVisible(By.xpath(YOU_MUST_PROVIDE_A_FLOOR_FOR_DIGITAL_PRODUCTS));
     }
     public void errorMessagesWhenEngineeringVisitIsRequired(){
-        utils.waitForElementVisible(By.xpath("//div[text()[contains(.,'An engineer visit is required, but Hazard Notes have not been supplied')]]"));
-        utils.waitForElementVisible(By.xpath("//div[text()[contains(.,'An engineer visit is required, but Warning Notes have not been supplied')]]"));
+        utils.waitForElementVisible(By.xpath(HAZARD_NOTES_REQUISITION_ERROR_MESSAGE));
+        utils.waitForElementVisible(By.xpath(WARNING_NOTES_REQUISITION_ERROR_MESSAGE));
     }
     public void assertCLIrequiredAlertMessageForVirtualLines(String lineName){
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'A CLI is required for the "+lineName+" Network And Calling Feature')]"));
@@ -581,7 +586,7 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//p[contains(text(),'"+provisionType+"')]"));
     }
     public void assertValidationMessageWhenTerminationTypeIsSwitched(){
-        utils.waitForElementVisible(By.xpath("//div[contains(text(),'You must select a Signal Type when the Termination Type of NTTP has been specified')]"));
+        utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_STATING_SIGNAL_TYPE_MANDATORY_FOR_NTTP));
     }
     public void assertCPManaged(){
         utils.waitForElementVisible(By.xpath(CP_MANAGED_TEXT));
