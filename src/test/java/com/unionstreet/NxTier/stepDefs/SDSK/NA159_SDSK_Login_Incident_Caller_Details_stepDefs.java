@@ -11,7 +11,7 @@ import java.sql.SQLException;
 /**
  * Created by RajeshG on 21/06/2017.
  */
-public class NA159_Login_Incident__Caller_Details_stepDefs {
+public class NA159_SDSK_Login_Incident_Caller_Details_stepDefs {
 
     WebModel webModel=new WebModel();
 
@@ -24,8 +24,8 @@ public class NA159_Login_Incident__Caller_Details_stepDefs {
 
     @When("^I navigate to the caller details page of the incident wizard$")
     public void iNavigateToTheCallerDetailsPageOfTheIncidentWizard() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
-        webModel.getUtils().sqlExeQuery("portal", "MOE\\DEVSQL2008", "SN_aBILLity_Portal", "update incident_types set is_default=NULL");
-        webModel.getDashBoardPage().loadServiceDesk(":9080/sn");
+        webModel.getUtils().sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_types set is_default=NULL");
+        webModel.getDashBoardPage().loadServiceDesk(":9080/RajeshNB");
         webModel.getServiceDeskPage().assertTextOnServiceDesk();
         webModel.getServiceDeskPage().searchByShortName("Adam As A Reseller");
         webModel.getServiceDeskPage().clickOnResult("Adam As A Reseller");
