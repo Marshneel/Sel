@@ -556,7 +556,8 @@ public class ElementUtils {
         allValues.add(""+valueOne+"");
         allValues.add(""+valueTwo+"");
     }
-}
+    }
+
 
 
 
