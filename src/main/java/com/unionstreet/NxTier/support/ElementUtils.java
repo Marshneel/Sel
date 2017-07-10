@@ -534,7 +534,7 @@ public class ElementUtils {
         clickEnter();
     }
     public void loadBranchURLForServiceDesk(){
-        driver.get("http://test01-web01:9080/sn");
+        driver.get("http://test01-web01:9080/RajeshNB");
     }
     public void assertUnchecked(By by){
         WebElement element=driver.findElement(by);
