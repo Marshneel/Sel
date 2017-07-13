@@ -530,7 +530,7 @@ public class ElementUtils {
 
     }
     public void enterServiceDeskURLandCLickEnter(String siteID) throws AWTException {
-        driver.get("http://test01-web01/nxtiere2e/ServiceDesk/LogIncident/"+siteID+"");
+        driver.get("http://test01-web01/nxtiere2e/ServiceDesk/LogIncident/?SiteID="+siteID+"");
         clickEnter();
     }
     public void loadBranchURLForServiceDesk(){
