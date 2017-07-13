@@ -5,7 +5,6 @@ Feature: NA - ___ WhiteLabel Agent and CP Bug fixes By Adam 12_07_2017
   And When I login as a CP
   Then I should be able to distinguish from the ones agent has created
 
-  //this scenario also caters for the fact that CP should be able to search for the agent in assign package page
   Scenario: Agent should be able to distinguish between the tariffs plans, free minute plans and packages that he has created, from the ones CP has assigned to him
   Given CP has given me permissions and assigned me few tariff plans, freeMinute plans and packages
   When I am logged in as an agent

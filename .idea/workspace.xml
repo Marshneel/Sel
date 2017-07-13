@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA____WhiteLabel_Agent_CP_Bug_Fixes_By_Adam_12_07_2017.feature" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA_____WhiteLabel_WhiteLabelReseller_Bill_Run.feature" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/support/ElementUtils.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/support/ElementUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/RunnerTest.java" afterPath="$PROJECT_DIR$/src/test/java/RunnerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA159_SDSK_Login_Incident_Caller_Details_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA159_SDSK_Login_Incident_Caller_Details_stepDefs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/report.html" afterPath="$PROJECT_DIR$/output/report.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA____WhiteLabel_Agent_CP_Bug_Fixes_By_Adam_12_07_2017.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA____WhiteLabel_Agent_CP_Bug_Fixes_By_Adam_12_07_2017.feature" />
     </list>
     <ignored path="NxTier automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -96,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NA____WhiteLabel_Agent_CP_Bug_Fixes_By_Adam_12_07_2017.feature" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NA____WhiteLabel_Agent_CP_Bug_Fixes_By_Adam_12_07_2017.feature" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA____WhiteLabel_Agent_CP_Bug_Fixes_By_Adam_12_07_2017.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -110,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA_____WhiteLabel_WhiteLabelReseller_Bill_Run.feature">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="45" />
+              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -126,7 +121,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RunnerTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RunnerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/RunnerTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
@@ -209,10 +204,10 @@
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA159_SDSK_Login_Incident_Caller_Details_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA____WhiteLabel_Agent_CP_Bug_Corrections_By_Adam_12_07_2017.feature" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA____WhiteLabel_Agent_CP_Bug_Fixes_By_Adam_12_07_2017.feature" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA_____WhiteLabel_WhiteLabelReseller_Bill_Run.feature" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature" />
         <option value="$PROJECT_DIR$/src/test/java/RunnerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA____WhiteLabel_Agent_CP_Bug_Fixes_By_Adam_12_07_2017.feature" />
       </list>
     </option>
   </component>
@@ -712,7 +707,7 @@
       <recent name="C:\Users\rajeshg\IdeaProjects\Test_analysis\src\test\java\com\unionstreet\NxTier\stepDefs\WLR3" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber java.Feature: NA151_SDSK_URL_Manipulation">
+  <component name="RunManager" selected="JUnit.RunnerTest">
     <configuration default="false" name="Feature: NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -724,30 +719,6 @@
       <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.SDSK" />
       <option name="myNameFilter" value="" />
       <option name="myGeneratedName" value="Feature: NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="com.unionstreet.NxTier_automation" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="Feature: NA152_WhiteLabel_Agent_Permissions" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="myFilePath" value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA152_WhiteLabel_Agent_Permissions.feature" />
-      <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.WhiteLabel com.unionstreet.NxTier.stepDefs.WLR3" />
-      <option name="myNameFilter" value="" />
-      <option name="myGeneratedName" value="Feature: NA152_WhiteLabel_Agent_Permissions" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
@@ -831,6 +802,27 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="com.unionstreet.NxTier_automation" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RunnerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="com.unionstreet.NxTier_automation" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RunnerTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -1127,18 +1119,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Cucumber java.Feature: NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts" />
-      <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA152_WhiteLabel_Agent_Permissions" />
-      <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents" />
-      <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA150_SDSK_CP_Agent_and_Reseller_Incident_Button_Fuctionality" />
-      <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA151_SDSK_URL_Manipulation" />
+      <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents" />
+      <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA150_SDSK_CP_Agent_and_Reseller_Incident_Button_Fuctionality" />
+      <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA151_SDSK_URL_Manipulation" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.RunnerTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Cucumber java.Feature: NA151_SDSK_URL_Manipulation" />
-        <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA150_SDSK_CP_Agent_and_Reseller_Incident_Button_Fuctionality" />
-        <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents" />
-        <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts" />
-        <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA152_WhiteLabel_Agent_Permissions" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.RunnerTest" />
+        <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA151_SDSK_URL_Manipulation" />
+        <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA150_SDSK_CP_Agent_and_Reseller_Incident_Button_Fuctionality" />
+        <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents" />
+        <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts" />
       </list>
     </recent_temporary>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -1183,13 +1175,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
-    </task>
-    <task id="LOCAL-00261" summary="corrected NA101, NA103, NA104, NA112,NA120, NA122, NA127 and NA64&#10;due to digital line numbering">
-      <created>1494950913194</created>
-      <option name="number" value="00261" />
-      <option name="presentableId" value="LOCAL-00261" />
-      <option name="project" value="LOCAL" />
-      <updated>1494950913194</updated>
     </task>
     <task id="LOCAL-00262" summary="contains NA135, NA136 and NA137">
       <created>1495128357976</created>
@@ -1527,16 +1512,17 @@
       <option name="project" value="LOCAL" />
       <updated>1499702303326</updated>
     </task>
-    <option name="localTasksCounter" value="310" />
+    <task id="LOCAL-00310" summary="contains only 1 test for testing new jenkins">
+      <created>1499947883001</created>
+      <option name="number" value="00310" />
+      <option name="presentableId" value="LOCAL-00310" />
+      <option name="project" value="LOCAL" />
+      <updated>1499947883001</updated>
+    </task>
+    <option name="localTasksCounter" value="311" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Feature__NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts - 2017.07.12 at 09h 22m 27s.xml">
-      <configuration name="Feature: NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents - 2017.07.12 at 09h 29m 08s.xml">
-      <configuration name="Feature: NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
     <history-entry file="Feature__NA150_SDSK_CP_Agent_and_Reseller_Incident_Button_Fuctionality - 2017.07.12 at 09h 35m 39s.xml">
       <configuration name="Feature: NA150_SDSK_CP_Agent_and_Reseller_Incident_Button_Fuctionality" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
@@ -1561,6 +1547,12 @@
     <history-entry file="Feature__NA151_SDSK_URL_Manipulation - 2017.07.12 at 10h 59m 14s.xml">
       <configuration name="Feature: NA151_SDSK_URL_Manipulation" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
+    <history-entry file="RunnerTest - 2017.07.13 at 13h 13m 36s.xml">
+      <configuration name="RunnerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RunnerTest - 2017.07.13 at 13h 14m 41s.xml">
+      <configuration name="RunnerTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1577,7 +1569,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.016736401" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.015817223" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7458493" sideWeight="0.50931233" order="7" side_tool="true" content_ui="tabs" />
@@ -1637,7 +1629,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="contains NA138, NA139 and NA140" />
     <MESSAGE value="now the click is targeted against specific quote ID is clicked rather than the first quote ID" />
     <MESSAGE value="NA143 and NA144 fullt completed&#10;introduced a try catch block when the order manager page is loaded and the order ID is clicked" />
     <MESSAGE value="contains NA 144, 145, 146" />
@@ -1662,7 +1653,8 @@
     <MESSAGE value="adding locators reference names (partial completion)" />
     <MESSAGE value="only 1 test to test jenkins restart" />
     <MESSAGE value="contains NA165" />
-    <option name="LAST_COMMIT_MESSAGE" value="contains NA165" />
+    <MESSAGE value="contains only 1 test for testing new jenkins" />
+    <option name="LAST_COMMIT_MESSAGE" value="contains only 1 test for testing new jenkins" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2053,22 +2045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA____WhiteLabel_Agent_CP_Bug_Fixes_By_Adam_12_07_2017.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA_____WhiteLabel_WhiteLabelReseller_Bill_Run.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -2081,6 +2057,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="5" column="180" selection-start-line="5" selection-start-column="180" selection-end-line="5" selection-end-column="180" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA_____WhiteLabel_WhiteLabelReseller_Bill_Run.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA____WhiteLabel_Agent_CP_Bug_Fixes_By_Adam_12_07_2017.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
