@@ -42,11 +42,14 @@ public class CreateTariffPage {
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(TARIFF_NAME_TEXT_BOX));
         utils.sendText(By.id(TARIFF_NAME_TEXT_BOX), RanTariffPlanName + "changed name");
+        utils.waitForElementVisible(By.xpath("//input[@value='Mobile'][@id='tariff_category']"));
+        utils.clickBtn(By.xpath("//input[@value='Mobile'][@id='tariff_category']"));
         utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.switchToPreviousWindow(0);
         commonMethods.search(RanTariffPlanName + "changed name");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "changed name')]"));
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'Mobile')]"));
     }
 
     public void validationsForNewTariffScreenByCP() throws InterruptedException {
@@ -135,6 +138,26 @@ public class CreateTariffPage {
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+category+"')]"));
 
     }
+    public void distinguishAgentCreatedTariffs() throws InterruptedException {
+        commonMethods.search(RanTariffPlanName);
+        utils.waitForElementVisible(By.xpath("//tr[@class='table_row_alt  Bold']//a[contains(text(),'"+RanTariffPlanName+"')]"));
+    }
+    public void distinguishCPCreatedTariff(String tariff) throws InterruptedException {
+        commonMethods.search(tariff);
+        utils.waitForElementVisible(By.xpath("//td[@class=' SemiTransparent'][contains(text(),'Union Street Telecoms')]"));
+}
+    public void cpCannotAssignAgentsPlanToAnyOneElseNorCanHeRevokeIt(String plan, String tabButton, String name) throws InterruptedException {
+        commonMethods.search(plan);
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+plan+"')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+plan+"')]"));
+         utils.switchToNewWindow();
+        utils.waitForElementVisible(By.id(""+tabButton+""));
+        utils.clickBtn(By.id(""+tabButton+""));
+        utils.waitForElementVisible(By.xpath("//tr[@class='SemiTransparent']//a[contains(text(),'"+name+"')]"));
+        utils.assertElementNotPresent(By.xpath("//a[@href='#'][contains(text(),'Union Street Telecoms')]/../../td[6]//input[@checked='checked']"));
+        utils.waitForElementVisible(By.xpath("//a[@href='#'][contains(text(),'agent')]/../../td[6]//input[@checked='checked']"));
 
 
+
+    }
 }
