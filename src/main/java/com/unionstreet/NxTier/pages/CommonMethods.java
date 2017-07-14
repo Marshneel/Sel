@@ -15,6 +15,7 @@ public class CommonMethods {
     public final String SAVE_AND_CLOSE_XPATH="//input[contains(@onclick,'SaveAndClose')]";
     public final String ADD_XPATH="//a[contains(text(),'Add')]";
     public final String SAVE_XPATH="//input[contains(@onclick,'Save')]";
+    public final String NAVIGATE_TO_HOME="//span[@class='home']";
 
     ElementUtils utils = new ElementUtils();
 
@@ -32,5 +33,9 @@ public class CommonMethods {
             utils.checkAlert();
         }
 
+    }
+    public void navigateToHome(){
+        utils.waitForElementVisible(By.xpath(NAVIGATE_TO_HOME));
+        utils.clickBtn(By.xpath(NAVIGATE_TO_HOME));
     }
 }

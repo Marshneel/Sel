@@ -8,7 +8,7 @@ Feature: NA - 161 create a package as an Agent and CP
     Then I should be able to create business and consumer packages
 
   Scenario: agent should not be able to edit a package assigned by CP
-  Given I am logged in as CP
+    Given I am logged in as CP
     When I assign a package to agent
    Then He should not be able to edit it
 
