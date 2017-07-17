@@ -18,9 +18,13 @@ public class CreateTariffPage {
     private final String BLANK_TARIFF_RADIO_BUTTON="//input[@id='BasedOnType'][@value='0']";
     private final String BASE_LINE_RADIO_BUTTON_UNDER_BASE_TARIFF_SETTINGS="//input[@value='2'][@id='buyOrSale']";
     private final String BUY_RADIO_BUTTON_UNDER_BASE_TARIFF_SETTINGS="//input[@value='1'][@id='buyOrSale']";
+    private final String MOBILE_RADIO_BUTTON_UNDER_TARIFF_CAT="//input[@value='Mobile'][@id='tariff_category']";
     private final String TARIFF_NAME_TEXT_ON_ADD_TARIFF_PAGE="//h4[contains(text(),'Tariff Name')]";
     private final String BASE_TARIFF_DROP_DOWN="basetariff";
     private final String MARKUP_PERCENTAGE_FIELD="basemarkup";
+    public final String SEMI_TRANSPARENT_UNION_STREET_TEXT="//td[@class=' SemiTransparent'][contains(text(),'Union Street Telecoms')]";
+    private final String NON_CREATOR_HAS_NO_CHECK_BOX_IN_ASSIGN_PLAN_PAGE="//a[@href='#'][contains(text(),'Union Street Telecoms')]/../../td[6]//input[@checked='checked']";
+    private final String CREATOR_HAS_CHECK_BOX_IN_ASSIGN_PLAN_PAGE="//a[@href='#'][contains(text(),'agent')]/../../td[6]//input[@checked='checked']";
 
     ElementUtils utils=new ElementUtils();
     CommonMethods commonMethods=new CommonMethods();
@@ -42,8 +46,8 @@ public class CreateTariffPage {
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(TARIFF_NAME_TEXT_BOX));
         utils.sendText(By.id(TARIFF_NAME_TEXT_BOX), RanTariffPlanName + "changed name");
-        utils.waitForElementVisible(By.xpath("//input[@value='Mobile'][@id='tariff_category']"));
-        utils.clickBtn(By.xpath("//input[@value='Mobile'][@id='tariff_category']"));
+        utils.waitForElementVisible(By.xpath(MOBILE_RADIO_BUTTON_UNDER_TARIFF_CAT));
+        utils.clickBtn(By.xpath(MOBILE_RADIO_BUTTON_UNDER_TARIFF_CAT));
         utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.switchToPreviousWindow(0);
@@ -144,7 +148,7 @@ public class CreateTariffPage {
     }
     public void distinguishCPCreatedTariff(String tariff) throws InterruptedException {
         commonMethods.search(tariff);
-        utils.waitForElementVisible(By.xpath("//td[@class=' SemiTransparent'][contains(text(),'Union Street Telecoms')]"));
+        utils.waitForElementVisible(By.xpath(SEMI_TRANSPARENT_UNION_STREET_TEXT));
 }
     public void cpCannotAssignAgentsPlanToAnyOneElseNorCanHeRevokeIt(String plan, String tabButton, String name) throws InterruptedException {
         commonMethods.search(plan);
@@ -154,8 +158,8 @@ public class CreateTariffPage {
         utils.waitForElementVisible(By.id(""+tabButton+""));
         utils.clickBtn(By.id(""+tabButton+""));
         utils.waitForElementVisible(By.xpath("//tr[@class='SemiTransparent']//a[contains(text(),'"+name+"')]"));
-        utils.assertElementNotPresent(By.xpath("//a[@href='#'][contains(text(),'Union Street Telecoms')]/../../td[6]//input[@checked='checked']"));
-        utils.waitForElementVisible(By.xpath("//a[@href='#'][contains(text(),'agent')]/../../td[6]//input[@checked='checked']"));
+        utils.assertElementNotPresent(By.xpath(NON_CREATOR_HAS_NO_CHECK_BOX_IN_ASSIGN_PLAN_PAGE));
+        utils.waitForElementVisible(By.xpath(CREATOR_HAS_CHECK_BOX_IN_ASSIGN_PLAN_PAGE));
 
 
 

@@ -13,9 +13,6 @@ public class WLR3_AddRemoveAuxLinePage {
     private final String ERROR_MESSAGE_WHEN_LINENUM_STAYS_THE_SAME="//span[contains(text(),'New number of lines needs to be less or more than the existing number of lines.')]";
     private final String SUBMIT_LINENUM_SELECTION="//button[contains(@onclick,'SubmitLineSelection')]";
     private final String EDIT_NUM_OF_LINES="RequestedNumberOfLines";
-   private final String CLI_TEXT_ON_ORDER_SUMMARY="//div[contains(text(),'01202300909')]";
-    private final String INCREASED_NUM_OF_LINES_ON_ORDER_SUMMARY_PAGE="//div[@id='div_WLR3Order_num_lines']//span[contains(text(),'9')]";
-    private final String DECREASED_NUM_OF_LINES_ON_ORDER_SUMMARY_PAGE="//div[@id='div_WLR3Order_num_lines']//span[contains(text(),'7')]";
     private final String  ERROR_MESSAGE_UPON_DUPLICATING_CLI="//div[@id='validationSummary']//h5[contains(text(),'Sorry, this number cannot be processed')]";
     private final String CHARGES_RECURRING_TEXT="//div[@id='chargesSummaryPanel']//td[contains(text(),'Analogue Multi-Line')]";
     private final String ANALOGUE_MULTILINE_CHARGES="//div[@id='chargesSummaryPanel']//label[contains(text(),'Analogue Multi-Line')]";
@@ -51,15 +48,15 @@ public class WLR3_AddRemoveAuxLinePage {
         utils.clickBtn(By.xpath(SUBMIT_LINENUM_SELECTION));
     }
 
-    public void assertLineNumberIncrease(){
-        utils.waitForElementVisible(By.xpath(INCREASED_NUM_OF_LINES_ON_ORDER_SUMMARY_PAGE));
+    public void assertLineNumberIncrease(String increasedLines){
+        utils.waitForElementVisible(By.xpath("//div[@id='div_WLR3Order_num_lines']//span[contains(text(),'"+increasedLines+"')]"));
     }
-    public void assertNumberDecrease(){
-        utils.waitForElementVisible(By.xpath(DECREASED_NUM_OF_LINES_ON_ORDER_SUMMARY_PAGE));
+    public void assertNumberDecrease(String decreadedCLI){
+        utils.waitForElementVisible(By.xpath("//div[@id='div_WLR3Order_num_lines']//span[contains(text(),'"+decreadedCLI+"')]"));
     }
 
-    public void assertCLI(){
-        utils.waitForElementVisible(By.xpath(CLI_TEXT_ON_ORDER_SUMMARY));
+    public void assertCLI(String CLI){
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'"+CLI+"')]"));
     }
 public void errorMessage(){
     utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_UPON_DUPLICATING_CLI));

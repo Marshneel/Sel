@@ -92,7 +92,7 @@ public class WLR3_DirectoryInformationPage {
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath("//ul[@id='directoryInformationNavigation']/li[2]"));
        Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.id("editBtn"));
+        utils.javaScriptExecutorClick(By.id(EDIT));
         utils.selectByVisibleText(By.id("DirectoryInfo_0__dir_type_name"),type);
     }
 
