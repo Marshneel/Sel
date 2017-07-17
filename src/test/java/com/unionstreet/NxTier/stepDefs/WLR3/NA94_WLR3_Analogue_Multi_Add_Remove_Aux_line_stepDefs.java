@@ -37,9 +37,9 @@ public class NA94_WLR3_Analogue_Multi_Add_Remove_Aux_line_stepDefs {
     public void iShouldBeAbleToAssertLineIncreaseAndCheckTheFlow() throws InterruptedException, SQLException {
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
         //assert line number increase
-        webModel.getWlr3_addRemoveAuxLinePage().assertLineNumberIncrease();
+        webModel.getWlr3_addRemoveAuxLinePage().assertLineNumberIncrease("9");
         //assert CLI
-        webModel.getWlr3_addRemoveAuxLinePage().assertCLI();
+        webModel.getWlr3_addRemoveAuxLinePage().assertCLI("01202300909");
         //assert charges
         webModel.getWlr3_addRemoveAuxLinePage().assertPresenceOfCharges();
         //assert Add_Aux line
@@ -61,7 +61,7 @@ public class NA94_WLR3_Analogue_Multi_Add_Remove_Aux_line_stepDefs {
 
     @Then("^I should be able to assert line decrease and check the flow$")
     public void iShouldBeAbleToAssertLineDecreaseAndCheckTheFlow() throws InterruptedException, SQLException {
-        webModel.getWlr3_addRemoveAuxLinePage().assertNumberDecrease();
+        webModel.getWlr3_addRemoveAuxLinePage().assertNumberDecrease("7");
         //provide phone number under site info and verify recovery line plant checkBox
         webModel.getWlr3_orderDetails_page().clickOnSiteInfoErrorTabForDecrease();
         webModel.getWlr3_siteInformationPage().populateTelNumberUnderSiteInfo("07894040256");

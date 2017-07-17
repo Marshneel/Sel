@@ -72,7 +72,7 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
         webModel.getConfigManagerPage().addFreeMinutesPlan();
        webModel.getDashBoardPage().clickConfigManager();
         webModel.getCreateTariffPage().editTariffPlan();
-        webModel.getConfigManagerPage().editFreeMinutePlan();
+        webModel.getConfigManagerPage().editFreeMinutePlan("1000","Minutes");
     }
 
     @When("^I navigate to contact manager page and search for the contact$")
