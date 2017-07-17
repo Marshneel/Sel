@@ -1,4 +1,4 @@
-@E2ETests
+@SDSK
 Feature: NA - 160 SDSK Login Incident Triage
 
   Scenario: Login as a CP and navigate to triage of incident wizard

@@ -20,7 +20,6 @@ import java.util.*;
 import java.util.List;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
-import static com.unionstreet.NxTier.support.BaseClass.utils;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertTrue;
 
@@ -34,7 +33,7 @@ public class ElementUtils {
 
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(driver)
-               .withTimeout(20, SECONDS)
+                .withTimeout(20, SECONDS)
                 .pollingEvery(3, SECONDS)
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
         return wait;
@@ -47,14 +46,16 @@ public class ElementUtils {
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
         return wait;
     }
+
     public Wait waitForSomeTimeForOpenReach() {
         Wait wait = new FluentWait(driver)
                 .withTimeout(5000, SECONDS)
                 .pollingEvery(3, SECONDS)
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
-        return wait;}
+        return wait;
+    }
 
-    public void findFieldAndSendKeys(By by, String filePath){
+    public void findFieldAndSendKeys(By by, String filePath) {
         driver.findElement(by).sendKeys(filePath);
     }
 
@@ -103,10 +104,11 @@ public class ElementUtils {
         waitForSomeTimeForWLR3().until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
-    public void waitForElementVisibleForOpenReach(By by){
+    public void waitForElementVisibleForOpenReach(By by) {
         waitForSomeTimeForOpenReach().until(ExpectedConditions.presenceOfElementLocated(by));
 
     }
+
     //switching to new window
     public void switchToNewWindow() {
         parentWindow = driver.getWindowHandle();
@@ -115,6 +117,21 @@ public class ElementUtils {
             if (!windowHandle.equals(parentWindow)) {
                 driver.switchTo().window(windowHandle);
                 driver.manage().window().maximize();
+            }
+        }
+    }
+
+    public void loopThroughPagesUntilElementIsDetected(By by) {
+        Set<String> handles = driver.getWindowHandles();
+        Iterator ite = handles.iterator();
+
+        while (ite.hasNext()) {
+            WebElement element = driver.findElement(by);
+            if (element.isDisplayed())
+
+            {
+            } else {
+                driver.switchTo().window(String.valueOf(handles));
             }
         }
     }
@@ -166,18 +183,18 @@ public class ElementUtils {
 
     //browser selector
     public WebDriver browser() {
+         String browser=System.getProperty("browser");
         try {
 
-            if (utils.getProperty("browser").equalsIgnoreCase("chrome")) {
+            if (browser.equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--disable-extensions");
-                options.addArguments("--dns-prefetch-disable");
-                driver = new ChromeDriver(options);
-            } else if (utils.getProperty("browser").equalsIgnoreCase("IE")) {
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--start-maximized");
+                driver = new ChromeDriver(chromeOptions);
+            } else if (browser.equalsIgnoreCase("IE")) {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
                 driver = new InternetExplorerDriver();
-            } else if (utils.getProperty("browser").equalsIgnoreCase("firefox")) {
+            } else if (browser.equalsIgnoreCase("firefox")) {
                 driver = new FirefoxDriver();
             }
 
@@ -218,6 +235,7 @@ public class ElementUtils {
 
         }
     }
+
     public void checkAlertAndCLickEnter() {
         try {
             if (isAlertPresent() == true) {
@@ -225,7 +243,8 @@ public class ElementUtils {
             }
         } catch (Exception e) {
 
-        }}
+        }
+    }
 
     public boolean isElementPresent(By by) {
         try {
@@ -320,7 +339,8 @@ public class ElementUtils {
     public void makeSureBoxIsChecked(By by1, By by2) {
         WebElement element = driver.findElement(by1);
         if (element.isSelected() == true) {
-        } else {javaScriptExecutorClick(by2);
+        } else {
+            javaScriptExecutorClick(by2);
 
         }
     }
@@ -350,7 +370,11 @@ public class ElementUtils {
     }
 
     public void getDashBoardPage(String database) {
-       try{ driver.get("http://test01-web01"+database+"/Dashboard/index");}catch (Exception e){checkAlert();}
+        try {
+            driver.get("http://test01-web01" + database + "/Dashboard/index");
+        } catch (Exception e) {
+            checkAlert();
+        }
 
     }
 
@@ -457,7 +481,7 @@ public class ElementUtils {
 
 
     public void switchToPreviousWindow(int number) {
-      ArrayList<String> tabs = new ArrayList(driver.getWindowHandles());
+        ArrayList<String> tabs = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(number));
     }
 
@@ -515,10 +539,12 @@ public class ElementUtils {
             System.out.println(line);
         }
     }
-    public void scrollBack(){
+
+    public void scrollBack() {
         driver.navigate().back();
 
     }
+
     public void clickEnter() throws AWTException {
 
         try {
@@ -526,37 +552,44 @@ public class ElementUtils {
             robot.keyPress(KeyEvent.VK_ENTER);
             robot.keyRelease(KeyEvent.VK_ENTER);
             robot.delay(1000);
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
 
     }
+
     public void enterServiceDeskURLandCLickEnter(String siteID) throws AWTException {
-        driver.get("http://test01-web01/nxtiere2e/ServiceDesk/LogIncident/?SiteID="+siteID+"");
+        driver.get("http://test01-web01/nxtiere2e/ServiceDesk/LogIncident/?SiteID=" + siteID + "");
         clickEnter();
     }
-    public void loadBranchURLForServiceDesk(){
+
+    public void loadBranchURLForServiceDesk() {
         driver.get("http://test01-web01:9080/RajeshNB");
     }
-    public void assertUnchecked(By by){
-        WebElement element=driver.findElement(by);
+
+    public void assertUnchecked(By by) {
+        WebElement element = driver.findElement(by);
         Assert.assertFalse(element.isSelected());
     }
-    public void assertChecked(By by){
-        WebElement element=driver.findElement(by);
+
+    public void assertChecked(By by) {
+        WebElement element = driver.findElement(by);
         Assert.assertTrue(element.isSelected());
     }
-    public void waitTillBoxChecked(By by){
+
+    public void waitTillBoxChecked(By by) {
         waitForSomeTime().until(ExpectedConditions.elementToBeSelected(by));
     }
 
-    public void navigateBack(){
+    public void navigateBack() {
         driver.navigate().back();
     }
-    public void twoValueArrayList(String valueOne, String valueTwo){
-        allValues=new ArrayList<String>();
-        allValues.add(""+valueOne+"");
-        allValues.add(""+valueTwo+"");
+
+    public void twoValueArrayList(String valueOne, String valueTwo) {
+        allValues = new ArrayList<String>();
+        allValues.add("" + valueOne + "");
+        allValues.add("" + valueTwo + "");
     }
-    }
+}
 
 
 

@@ -18,7 +18,6 @@ public class NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_inform
 
     @Given("^I am logged in with \"([^\"]*)\" and \"([^\"]*)\"$")
     public void iAmLoggedInWithAnd(String userName, String passWord) throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
-       webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().login(userName, passWord);
         webModel.getServiceDeskPage().grantingServiceDeskAccess();
         webModel.getDashBoardPage().logOut();

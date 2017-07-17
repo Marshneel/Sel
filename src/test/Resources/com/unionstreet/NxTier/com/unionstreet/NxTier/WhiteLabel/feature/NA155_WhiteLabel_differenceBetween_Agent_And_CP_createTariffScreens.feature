@@ -1,4 +1,4 @@
-@E2ETests
+@WhiteLabel
 Feature: NA - 155 difference between CP and Agent create tariff screens
   Scenario: login as a CP and navigate to ADD tariff screen and verify the differences to that of screens when logged in as an agent
     Given I am logged in as CP

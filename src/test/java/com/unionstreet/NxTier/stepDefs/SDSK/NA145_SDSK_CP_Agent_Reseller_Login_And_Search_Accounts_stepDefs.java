@@ -85,7 +85,6 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @Given("^I am logged in as agent and CP has already assigned me a business customer$")
     public void iAmLoggedInAsAgentAndCPHasAlreadyAssignedMeABusinessCustomer() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         haveCreatedABusinessCustomerAndAssignedRequiredData();
         webModel.getDashBoardPage().logOut();
@@ -202,7 +201,6 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @Given("^I am logged in as CP and assign service desk permissions$")
     public void iAmLoggedInAsCPAndAssignServiceDeskPermissions() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
-        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
        webModel.getServiceDeskPage().grantingServiceDeskAccess();
         webModel.getDashBoardPage().logOut();
