@@ -30,6 +30,7 @@ public class ElementUtils {
     private Properties prop;
     private FileInputStream fileInputStream;
     public static ArrayList<String> allValues;
+    public static String browser;
 
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(driver)
@@ -169,7 +170,7 @@ public class ElementUtils {
 
     //browser selector
     public WebDriver browser() {
-         String browser=System.getProperty("browser");
+         browser=System.getProperty("browser");
         try {
 
             if (browser.equalsIgnoreCase("chrome")) {
