@@ -51,7 +51,7 @@ public class NxTierServicesPage {
     }
 
     public void assertCPonlyCheckBoxIsAbsent() throws InterruptedException {
-        utils.switchToNewWindow();
+       // utils.switchToNewWindow();
         utils.assertElementNotPresent(By.id(CPONLY_CHECKBOX));
         ordersManagerPage.saveTheServiceAndGetTheOrderServicesID();
     }

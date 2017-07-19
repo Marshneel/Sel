@@ -110,28 +110,14 @@ public class ElementUtils {
     }
 
     //switching to new window
-    public void switchToNewWindow() {
+    public void switchToNewWindow(By by) {
         parentWindow = driver.getWindowHandle();
+        driver.findElement(by).click();
         Set<String> handles = driver.getWindowHandles();
         for (String windowHandle : handles) {
             if (!windowHandle.equals(parentWindow)) {
                 driver.switchTo().window(windowHandle);
                 driver.manage().window().maximize();
-            }
-        }
-    }
-
-    public void loopThroughPagesUntilElementIsDetected(By by) {
-        Set<String> handles = driver.getWindowHandles();
-        Iterator ite = handles.iterator();
-
-        while (ite.hasNext()) {
-            WebElement element = driver.findElement(by);
-            if (element.isDisplayed())
-
-            {
-            } else {
-                driver.switchTo().window(String.valueOf(handles));
             }
         }
     }
@@ -589,7 +575,21 @@ public class ElementUtils {
         allValues.add("" + valueOne + "");
         allValues.add("" + valueTwo + "");
     }
+
+    public void loopThroughWebPagesUntilElementIsFound(By by) {
+        ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+        Iterator<String> iterate = windowHandles.iterator();
+        while (iterate.hasNext()) {
+            WebElement element = driver.findElement(by);
+            while (!element.isDisplayed()) {
+                windowHandles.iterator();
+            }
+            driver.findElement(by);
+        }
+    }
 }
+
+
 
 
 

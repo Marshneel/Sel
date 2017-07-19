@@ -81,8 +81,8 @@ public class CompanyMenuPage {
     public void addNewSite() throws InterruptedException {
         accessCompanyMenu(NewBusinessCustomerPage.RanName);
         clickCompanySitesButton();
-        utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
-        utils.switchToNewWindow();
+        //utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
+        utils.switchToNewWindow(By.cssSelector(commonMethods.ADD_BUTTON));
     }
 
     public void addNewSiteNames() {
@@ -123,8 +123,8 @@ public class CompanyMenuPage {
         utils.sendText(By.id(SEARCH_BUTTON), ranName);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
         utils.waitForElementVisible(By.linkText(ranName));
-        utils.clickBtn(By.linkText(ranName));
-        utils.switchToNewWindow();
+       // utils.clickBtn(By.linkText(ranName));
+        utils.switchToNewWindow(By.linkText(ranName));
     }
 
     public void clickInvoicingDetailsButton() {
@@ -169,10 +169,10 @@ public class CompanyMenuPage {
     public void addCLIs(String ranName, String number) throws InterruptedException {
         accessCompanyMenu(ranName);
         clickCLIButton();
-        utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-        utils.switchToNewWindow();
+       // utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+        utils.switchToNewWindow(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         try {
-            utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));
+          try{  utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));}catch (Exception e){utils.loopThroughWebPagesUntilElementIsFound(By.id(CLI_NUMBER_FIELD));}
             utils.clickBtn(By.id(CLI_NUMBER_FIELD));
             utils.sendText(By.id(CLI_NUMBER_FIELD), number);
         } catch (TimeoutException e) {
@@ -229,8 +229,8 @@ public class CompanyMenuPage {
 
     public void addOneOffChargesPart1() throws InterruptedException {
         clickServiceChargesOneOffButton();
-        utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-        utils.switchToNewWindow();
+        //utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+        utils.switchToNewWindow(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
         utils.sendText(By.id(SERVICECHARGE_DESC_FIELD), utils.getProperty("serviceChargeOneOffDesc"));
         utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));
@@ -275,7 +275,6 @@ public class CompanyMenuPage {
 
 
     public void assertAgentCreatedTariffandFreeMinutes() throws InterruptedException {
-        utils.switchToNewWindow();
         clickPricingDetails();
         utils.waitForElementVisible(By.id(ENABLE_FREEMINUTES_CHECKBOX));
         Thread.sleep(1000);
@@ -412,8 +411,8 @@ public class CompanyMenuPage {
         utils.waitForElementVisible(By.linkText(SERVICECHARGE_ONEOFF_BUTTON));
         utils.clickBtn(By.linkText(SERVICECHARGE_ONEOFF_BUTTON));
         utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
-        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
-        utils.switchToNewWindow();
+       // utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
+        utils.switchToNewWindow(By.xpath(commonMethods.ADD_XPATH));
 
         if (user == true) {
             utils.waitForElementVisible(By.xpath(COST_PRICE_TEXT_ON_ADD_SURCHARGE_PAGE));
@@ -437,8 +436,8 @@ public class CompanyMenuPage {
 
     public void assertResellerCannotSeeCostAndBaseLinePriceUnderServiceCharges() {
         utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
-        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
-        utils.switchToNewWindow();
+      //  utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
+        utils.switchToNewWindow(By.xpath(commonMethods.ADD_XPATH));
         utils.waitForElementVisible(By.xpath(DESCRIPTION_TEXT_ON_ADD_SURCHARGE_PAGE));
         utils.assertElementNotPresent(By.xpath(COST_PRICE_TEXT_ON_ADD_SURCHARGE_PAGE));
         utils.assertElementNotPresent(By.xpath(BASELINE_COST_TEXT_ON_ADD_SURCHARGE_PAGE));
@@ -467,8 +466,8 @@ public class CompanyMenuPage {
 
     public void addServicePage_PriceRevertsBackWhenFieldIsEmpty() {
         utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
-        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
-        utils.switchToNewWindow();
+     //  utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
+        utils.switchToNewWindow(By.xpath(commonMethods.ADD_XPATH));
         utils.waitForElementVisible(By.id(SERVICECHARGE_CHARGETYPE_DROPDOWN));
         utils.selectByVisibleText(By.id(SERVICECHARGE_CHARGETYPE_DROPDOWN), "Analogue Basic Rental");
         editAndClearPrice(SALES_PRICE_FIELD, "13.0000", "15");
@@ -498,8 +497,8 @@ public class CompanyMenuPage {
     public void addServicePage_assertPriceRevertsBackWhenEmptyEvenAfterSavingChanges() {
         utils.switchToPreviousWindow(1);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
-        utils.clickBtn(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
-        utils.switchToNewWindow();
+       // utils.clickBtn(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
+        utils.switchToNewWindow(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
         priceRevertsBackWhenClearedEvenAfterSaving(SALES_PRICE_FIELD, "15.0000", "13.0000");
         priceRevertsBackWhenClearedEvenAfterSaving(COST_PRICE_FIELD, "5.0000", "8.6400");
         priceRevertsBackWhenClearedEvenAfterSaving(BASELINE_COST_FIELD, "10.0000", "9.0000");

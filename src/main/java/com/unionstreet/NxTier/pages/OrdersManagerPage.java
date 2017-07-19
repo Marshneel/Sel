@@ -203,22 +203,24 @@ public class OrdersManagerPage {
         utils.result.next();
         String one = utils.result.getString("order_id");
        try{ utils.waitForElementVisible(By.xpath("//a[text()='" + one + "']"));
-        utils.clickBtn(By.xpath("//a[text()='" + one + "']"));}
+        utils.switchToNewWindow(By.xpath("//a[text()='" + one + "']"));}
        catch (Exception e){utils.checkAlert();}
     }
 
     public void loadOrdersManagerAndClickOnQuoteID(String type) throws InterruptedException, SQLException {
-       try{
-           utils.switchToPreviousWindow(0);
-        // utils.getOrdersPage();
-        clickOnQuoteID(type);
-        utils.switchToNewWindow();
-    }catch (Exception e){ utils.getOrdersPage();
-           clickOnQuoteID(type);
-           utils.switchToNewWindow();}}
-
+        try {
+            utils.switchToPreviousWindow(0);
+            // utils.getOrdersPage();
+            clickOnQuoteID(type);
+            // utils.switchToNewWindow();
+        } catch (Exception e) {
+            utils.getOrdersPage();
+            clickOnQuoteID(type);
+            // utils.switchToNewWindow();
+        }
+    }
     public void savingQuoteAndExtractingOrderServiceID() throws InterruptedException {
-        utils.switchToNewWindow();
+       // utils.switchToNewWindow();
         try {
             utils.clickBtn(By.xpath(commonMethods.SAVE_XPATH));
         } catch (Exception e) {
@@ -282,8 +284,8 @@ public class OrdersManagerPage {
     public void processCease(String company, String CLI) {
         utils.getOrdersPage();
         utils.waitForElementVisible(By.xpath(TASK_POPUP));
-        utils.clickBtn(By.xpath(ORDERID_UNDER_TASK));
-        utils.switchToNewWindow();
+       // utils.clickBtn(By.xpath(ORDERID_UNDER_TASK));
+        utils.switchToNewWindow(By.xpath(ORDERID_UNDER_TASK));
         utils.waitForElementVisible(By.xpath("//a[text()='" + company + "']"));
         utils.clickBtn(By.xpath("//a[text()='" + company + "']"));
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'" + CLI + "')]"));
@@ -298,12 +300,12 @@ public class OrdersManagerPage {
     }
     public void clickOnQuote(){
       try{  utils.waitForElementVisible(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
-        utils.clickBtn(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
-      utils.switchToNewWindow();}
+       // utils.clickBtn(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
+      utils.switchToNewWindow(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));}
       catch (Exception e){utils.getOrdersPage();
           utils.waitForElementVisible(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
-          utils.clickBtn(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
-          utils.switchToNewWindow();
+         // utils.clickBtn(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
+          utils.switchToNewWindow(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
       }
     }
 }

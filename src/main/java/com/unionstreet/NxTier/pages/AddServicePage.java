@@ -39,8 +39,8 @@ public class AddServicePage {
     public void clickService() throws InterruptedException, AWTException {
 
         utils.waitForElementVisible(By.xpath(SERVICE_ON_QUOTE_PAGE));
-        utils.clickBtn(By.xpath(SERVICE_ON_QUOTE_PAGE));
-        utils.switchToNewWindow();
+      //  utils.clickBtn(By.xpath(SERVICE_ON_QUOTE_PAGE));
+        utils.switchToNewWindow(By.xpath(SERVICE_ON_QUOTE_PAGE));
     }
 
     public void addServiceToQuote(String serviceName) throws InterruptedException, SQLException {
@@ -51,7 +51,8 @@ public class AddServicePage {
             utils.getOrdersPage();
             ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-            utils.clickBtnWithWait(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+          Thread.sleep(1000);
+           utils.switchToNewWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
 
         }
         utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));

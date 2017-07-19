@@ -22,8 +22,8 @@ public class AddSiteDetailsPage {
 
 
     public void addNewSiteForReseller() throws InterruptedException {
-        utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-        utils.switchToNewWindow();
+       // utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+        utils.switchToNewWindow(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SITE_NAME));
         Reseller_RanName = utils.randomName();
         utils.sendText(By.id(companyMenuPage.SITEDETAILS_SITE_NAME), Reseller_RanName);

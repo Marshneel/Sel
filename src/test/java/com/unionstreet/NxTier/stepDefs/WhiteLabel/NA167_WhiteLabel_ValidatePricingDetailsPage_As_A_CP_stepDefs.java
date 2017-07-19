@@ -19,7 +19,7 @@ public class NA167_WhiteLabel_ValidatePricingDetailsPage_As_A_CP_stepDefs {
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer(webModel.getNewBusinessCustomerPage().RanName);
-        webModel.getUtils().switchToNewWindow();
+       // webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
 
 

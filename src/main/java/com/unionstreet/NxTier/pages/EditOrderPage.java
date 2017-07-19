@@ -200,8 +200,8 @@ public class EditOrderPage {
         utils.getOrdersPage();
         utils.waitForElementVisible(By.xpath(ordersManagerPage.TASK_POPUP));
         utils.waitForElementVisible(By.xpath(ordersManagerPage.ORDERID_UNDER_TASK));
-        utils.clickBtn(By.xpath(ordersManagerPage.ORDERID_UNDER_TASK));
-        utils.switchToNewWindow();
+     //   utils.clickBtn(By.xpath(ordersManagerPage.ORDERID_UNDER_TASK));
+        utils.switchToNewWindow(By.xpath(ordersManagerPage.ORDERID_UNDER_TASK));
         utils.waitForElementVisible(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
         utils.clickBtn(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'End User not moving')]"));
