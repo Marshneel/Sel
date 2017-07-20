@@ -100,7 +100,7 @@ public class ElementUtils {
     //explicit wait element to be present
     public void waitForElementVisible(By by) {
         waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));
-       // loopThroughWebPagesUntilElementIsFound(by);
+        loopThroughWebPagesUntilElementIsFound(by);
     }
 
     public void waitForElementVisibleForWLR3Page(By by) {
@@ -579,16 +579,21 @@ public class ElementUtils {
     }
 
     public void loopThroughWebPagesUntilElementIsFound(By by) {
-        Iterator iterate = driver.getWindowHandles().iterator();
-        int count = 0;
-        while (iterate.hasNext() && count < 1) {
+        Iterator<String> iterate = driver.getWindowHandles().iterator();
+        String switchWindow = null;
+
+        while (iterate.hasNext()) {
             WebElement element = driver.findElement(by);
-            count++;
-            if (element.isDisplayed()) {
-                break;
+
+            if (!element.isDisplayed()) {
+                switchWindow = iterate.next();
+
             }
+            if (switchWindow != null) driver.switchTo().window(switchWindow);
+            break;
         }
-    }}
+    }
+}
 
 
 
