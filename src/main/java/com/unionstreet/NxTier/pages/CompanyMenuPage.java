@@ -172,7 +172,7 @@ public class CompanyMenuPage {
        // utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindow(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         try {
-          try{  utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));}catch (Exception e){utils.loopThroughWebPagesUntilElementIsFound(By.id(CLI_NUMBER_FIELD));}
+           utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));
             utils.clickBtn(By.id(CLI_NUMBER_FIELD));
             utils.sendText(By.id(CLI_NUMBER_FIELD), number);
         } catch (TimeoutException e) {
@@ -296,6 +296,7 @@ public class CompanyMenuPage {
         utils.selectByVisibleText(By.id(DATA_TARIFF_FIELD_DROPDOWN), TariffPlan);
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.checkAlert();
         utils.switchToPreviousWindow(0);
     }
 
@@ -333,6 +334,7 @@ public class CompanyMenuPage {
         utils.selectByVisibleText(By.id(SELECT_A_PACKAGE_FROM_DROPDOWN), "" + packageName + "");
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.checkAlert();
         utils.switchToPreviousWindow(0);
 
     }
@@ -492,6 +494,7 @@ public class CompanyMenuPage {
         editPriceJustBeforeSaving(BASELINE_COST_FIELD, "9.0000", "10");
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.checkAlert();
     }
 
     public void addServicePage_assertPriceRevertsBackWhenEmptyEvenAfterSavingChanges() {

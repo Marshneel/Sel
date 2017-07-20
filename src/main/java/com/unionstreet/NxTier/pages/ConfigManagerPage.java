@@ -55,6 +55,7 @@ public class ConfigManagerPage {
         utils.makeSureBoxIsChecked(By.id(assignee), By.id(assignee));
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+       utils.checkAlert();
         utils.switchToPreviousWindow(0);
 
     }
@@ -102,6 +103,7 @@ public class ConfigManagerPage {
         utils.makeSureBoxIsChecked(By.id(assignee), By.id(assignee));
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.checkAlert();
         utils.switchToPreviousWindow(0);
     }
 
@@ -165,11 +167,13 @@ public class ConfigManagerPage {
         utils.selectByVisibleText(By.id(EDIT_FREE_MINUTES_FREQUENCY_DROPDOWN), "Daily");
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.checkAlert();
         utils.switchToPreviousWindow(0);
+
     }
 
     public void accessFreeMinutesTab() {
-        utils.waitForElementVisible(By.xpath(FREE_MINUTES_TAB));
+       utils.waitForElementVisible(By.xpath(FREE_MINUTES_TAB));
         utils.clickBtn(By.xpath(FREE_MINUTES_TAB));
     }
 
@@ -183,6 +187,7 @@ public class ConfigManagerPage {
         utils.sendText(By.id(EDIT_FREE_MINUTES_NAME_FIELD), RanFreeMinutePlanName + "changed name");
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.checkAlert();
         utils.waitForElementVisible(By.xpath(EDIT_FREE_MINUTES_ICON));
       //  utils.clickBtn(By.xpath(EDIT_FREE_MINUTES_ICON));
         utils.switchToNewWindow(By.xpath(EDIT_FREE_MINUTES_ICON));
@@ -192,6 +197,7 @@ public class ConfigManagerPage {
         utils.selectByVisibleText(By.id(EDIT_FREEMINS_DISABLED_WHAT),what);
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.checkAlert();
         utils.switchToPreviousWindow(0);
        commonMethods.navigateToHome();
         dashBoardPage.clickConfigManager();
@@ -242,6 +248,7 @@ public class ConfigManagerPage {
     public void saveAndAssertThePackage(String consumerCheck) throws InterruptedException {
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.checkAlert();
         utils.switchToPreviousWindow(0);
         commonMethods.search(RanPackageName);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanPackageName + "')]"));
@@ -271,6 +278,7 @@ public class ConfigManagerPage {
         utils.checkAlert();
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.checkAlert();
         utils.switchToPreviousWindow(0);
         commonMethods.search(RanPackageName + "editedName");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanPackageName + "editedName" + "')]"));

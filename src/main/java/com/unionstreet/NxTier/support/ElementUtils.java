@@ -30,7 +30,7 @@ public class ElementUtils {
     private Properties prop;
     private FileInputStream fileInputStream;
     public static ArrayList<String> allValues;
-    public static String browser;
+
 
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(driver)
@@ -82,6 +82,7 @@ public class ElementUtils {
     public void clickBtn(By by) {
         waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
         driver.findElement(by).click();
+        checkAlert();
     }
 
     //method to assert element text
@@ -99,6 +100,7 @@ public class ElementUtils {
     //explicit wait element to be present
     public void waitForElementVisible(By by) {
         waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));
+       // loopThroughWebPagesUntilElementIsFound(by);
     }
 
     public void waitForElementVisibleForWLR3Page(By by) {
@@ -170,7 +172,7 @@ public class ElementUtils {
 
     //browser selector
     public WebDriver browser() {
-         browser=System.getProperty("browser");
+       String browser=System.getProperty("browser");
         try {
 
             if (browser.equalsIgnoreCase("chrome")) {
@@ -469,8 +471,7 @@ public class ElementUtils {
 
     public void switchToPreviousWindow(int number) {
         ArrayList<String> tabs = new ArrayList(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(number));
-    }
+       driver.switchTo().window(tabs.get(number));}
 
     public void getCreateCustomerPage() {
         driver.get("http://test01-web01/nxtiere2e/company/endcustomer?type=1");
@@ -578,18 +579,16 @@ public class ElementUtils {
     }
 
     public void loopThroughWebPagesUntilElementIsFound(By by) {
-        ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
-        Iterator<String> iterate = windowHandles.iterator();
-        while (iterate.hasNext()) {
+        Iterator iterate = driver.getWindowHandles().iterator();
+        int count = 0;
+        while (iterate.hasNext() && count < 1) {
             WebElement element = driver.findElement(by);
-            while (!element.isDisplayed()) {
-                windowHandles.iterator();
+            count++;
+            if (element.isDisplayed()) {
+                break;
             }
-            driver.findElement(by);
         }
-    }
-}
-
+    }}
 
 
 
