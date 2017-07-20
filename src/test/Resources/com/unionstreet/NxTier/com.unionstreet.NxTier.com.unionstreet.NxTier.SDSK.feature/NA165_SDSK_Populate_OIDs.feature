@@ -1,4 +1,4 @@
-@E2ETests
+@SDSK
 Feature: NA - 165 Populate OIDs
   Scenario: login as a CP and obtain installation details of the selected CLI
     Given I am logged in as AdamR

@@ -14,7 +14,7 @@ public class NA169_WhiteLabel_CP_vs_Agent_misc_stepDefs {
 
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
-        webModel.getUtils().switchToNewWindow();
+        //webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickInvoicingDetailsButton();
         webModel.getCompanyMenuPage().assertBillRunIsPresentForCPUnderInvoicingDetails();
         webModel.getCompanyMenuPage().clickServiceChargesButton();
@@ -26,7 +26,7 @@ public class NA169_WhiteLabel_CP_vs_Agent_misc_stepDefs {
     public void iNavigateToTheRequiredPagesThenIShouldBeAbleToCaryOutRequiredValidationsAsAnAgent() throws InterruptedException {
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
-        webModel.getUtils().switchToNewWindow();
+      //  webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickInvoicingDetailsButton();
         webModel.getCompanyMenuPage().assertBillRunIsAbsentForAgentUnderInvoicingDetails();
         webModel.getCompanyMenuPage().clickServiceChargesButton();

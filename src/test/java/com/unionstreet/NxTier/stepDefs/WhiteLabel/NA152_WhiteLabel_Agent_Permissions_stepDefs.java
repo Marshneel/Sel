@@ -22,7 +22,6 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
 
     @Given("^CP has issued few tariff and free minute plans$")
     public void cpHasIssuedFewTariffAndFreeMinutePlans() throws InterruptedException, AWTException {
-        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickConfigManager();
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10","checkbox0");
@@ -101,14 +100,13 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
         webModel.getDashBoardPage().clickContactManagerTab();
         na44_agent_login_stepDefs.haveCreatedANewCustomer();
         webModel.getCommonMethods().search(webModel.getNewBusinessCustomerPage().RanName);
-        webModel.getUtils().clickBtn(By.xpath("//a[contains(text(),'"+webModel.getNewBusinessCustomerPage().RanName+"')]"));
+        webModel.getUtils().switchToNewWindow(By.xpath("//a[contains(text(),'"+webModel.getNewBusinessCustomerPage().RanName+"')]"));
         webModel.getCompanyMenuPage().assertAgentCreatedTariffandFreeMinutes();
 
     }
 
     @Given("^CP has issued tariff and free minute plans to customers assigned under me$")
     public void cpHasIssuedTariffAndFreeMinutePlansToCustomersAssignedUnderMe() throws InterruptedException, AWTException {
-        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickConfigManager();
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10","checkbox0");
@@ -116,7 +114,7 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
         webModel.getConfigManagerPage().assignFreeMinutesPlanToAgent("Mobile 250 Free Mins (UK and Mob","checkbox0");
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
-        webModel.getUtils().switchToNewWindow();
+      //  webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
         webModel.getCompanyMenuPage().assignTariffAndFreeMinutesToCustomer("Mobile Gamma 1GB Data","Sell Data Tariff");
         webModel.getDashBoardPage().logOut();
@@ -128,7 +126,7 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
     public void navigateToPricingDetailsOfThatParticularCustomer() throws InterruptedException {
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
-        webModel.getUtils().switchToNewWindow();
+      //  webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
     }
 

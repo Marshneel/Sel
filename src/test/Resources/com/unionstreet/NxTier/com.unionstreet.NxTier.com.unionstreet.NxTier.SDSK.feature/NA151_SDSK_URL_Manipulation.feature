@@ -1,4 +1,4 @@
-@E2ETests
+@SDSK
 Feature: NA - 151 SDSK URL Manipulation
   Scenario Outline: login as a CP and perform URL manipulation tests
     Given I am logged in with "<userName>" and "<passWord>" without access rights

@@ -1,4 +1,4 @@
-@E2ETests
+@WhiteLabel
 Feature: NA - 171 WhiteLabel CP Should Distinguish Agents Tariffs, FreeMinutes and Packages from his
 
   Scenario:  CP should be able to distinguish between the Tariffs, Free minutes and Packages that Agent has created

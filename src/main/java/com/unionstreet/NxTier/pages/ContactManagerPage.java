@@ -36,8 +36,8 @@ public class ContactManagerPage {
 
         commonMethods.search("reseller");
         utils.waitForElementVisible(By.linkText("reseller"));
-        utils.clickBtn(By.linkText("reseller"));
-        utils.switchToNewWindow();
+       // utils.clickBtn(By.linkText("reseller"));
+        utils.switchToNewWindow(By.linkText("reseller"));
     }
 
 
@@ -50,8 +50,8 @@ public class ContactManagerPage {
         utils.sendText(By.id(SEARCH_BUTTON), customer_name);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath("//a[text()='" + customer_name + "']"));
-        utils.clickBtn(By.xpath("//a[text()='" + customer_name + "']"));
-        utils.switchToNewWindow();
+      //  utils.clickBtn(By.xpath("//a[text()='" + customer_name + "']"));
+        utils.switchToNewWindow(By.xpath("//a[text()='" + customer_name + "']"));
     }
 
     public void assignAnAgentForBC() {
@@ -70,7 +70,7 @@ public class ContactManagerPage {
         commonMethods.search(""+customerName+"");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+customerName+"')]"));
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath("//a[contains(text(),'"+customerName+"')]"));
+        utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+customerName+"')]"));
     }
     public void assertSiteIsNonBillingSite(String mainBillingSite){
         utils.waitForElementVisible(By.xpath(NON_BILLING_TEXT_UNDER_SITE_INFO));

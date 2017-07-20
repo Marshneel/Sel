@@ -1,4 +1,4 @@
-@E2ETests
+@WhiteLabel
 Feature: NA - 156 Create Different Types Of Base Tariffs (Blank, Copy and Based on) as an agent
 
   Scenario: Login in as agent and create the three types of base tariffs (blank, copy and based on)

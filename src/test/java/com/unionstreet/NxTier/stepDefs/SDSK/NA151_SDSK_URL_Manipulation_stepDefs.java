@@ -19,7 +19,6 @@ public class NA151_SDSK_URL_Manipulation_stepDefs {
 
     @Given("^I am logged in with \"([^\"]*)\" and \"([^\"]*)\" without access rights$")
     public void iAmLoggedInWithAndWithoutAccessRights(String userName, String passWord) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().login(userName, passWord);
        webModel.getServiceDeskPage().revokingServiceDeskPermissions();
         webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");

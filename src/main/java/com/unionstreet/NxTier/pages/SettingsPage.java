@@ -91,8 +91,8 @@ public class SettingsPage {
     }
 
     public void clickAddPermissionsButton() throws InterruptedException {
-        utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-        utils.switchToNewWindow();
+        //utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+        utils.switchToNewWindow(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
     }
 
     public void addAgentPermissionGroups_General() {
@@ -234,8 +234,8 @@ public class SettingsPage {
 
     public void agentUserSelectCompany() throws InterruptedException {
         utils.selectByVisibleText(By.id(ADDUSER_COMPANY), newBusinessCustomerPage.RanName);
-        utils.clickBtn(By.linkText(USERADD_LOGIN));
-        utils.switchToNewWindow();
+      //  utils.clickBtn(By.linkText(USERADD_LOGIN));
+        utils.switchToNewWindow(By.linkText(USERADD_LOGIN));
     }
 
     public void agentUserAddContactDetails() {
@@ -285,8 +285,8 @@ public class SettingsPage {
 
     public void addCPloginUserSelectCompanyandSite() throws InterruptedException {
         utils.selectByIndex(By.id(ADDUSER_COMPANY), 1);
-        utils.clickBtn(By.linkText(USERADD_LOGIN));
-        utils.switchToNewWindow();
+       // utils.clickBtn(By.linkText(USERADD_LOGIN));
+        utils.switchToNewWindow(By.linkText(USERADD_LOGIN));
     }
 
     public void createCPUserAddContactDetails() throws InterruptedException {
@@ -335,8 +335,8 @@ public class SettingsPage {
     }
 
     public void revokingAgentWLRPermissions() throws InterruptedException {
-        utils.clickBtn(By.linkText("agent"));
-        utils.switchToNewWindow();
+       // utils.clickBtn(By.linkText("agent"));
+        utils.switchToNewWindow(By.linkText("agent"));
         utils.waitForElementVisible(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERDETAILS));
@@ -379,8 +379,8 @@ public class SettingsPage {
     public void issuingWLRPermissions() throws InterruptedException {
         commonMethods.search("agent");
         utils.waitForElementVisible(By.linkText("agent"));
-        utils.clickBtn(By.linkText("agent"));
-        utils.switchToNewWindow();
+       // utils.clickBtn(By.linkText("agent"));
+        utils.switchToNewWindow(By.linkText("agent"));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERDETAILS));
         utils.makeSureBoxIsChecked(By.xpath(ORDERDETAILS_SELECTALL_WITHCHECKBOX), By.id(ORDERDETAILS_SELECTALL));
@@ -396,8 +396,8 @@ public class SettingsPage {
         utils.switchToParentWindow();
     }
     public void issueTariffAndFreeMinutePermissionsToAgent(String agentName) throws InterruptedException {
-        utils.clickBtn(By.linkText(""+agentName+""));
-        utils.switchToNewWindow();
+        //utils.clickBtn(By.linkText(""+agentName+""));
+        utils.switchToNewWindow(By.linkText(""+agentName+""));
         utils.scrollUp(By.xpath(ADDPERMISSION_CONFIGURATION));
         utils.clickBtn(By.xpath(ADDPERMISSION_CONFIGURATION));
         utils.scrollUp(By.xpath(CONFIGURATION_FREEMINUTES));

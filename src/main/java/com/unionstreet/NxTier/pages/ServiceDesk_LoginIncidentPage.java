@@ -214,14 +214,10 @@ public class ServiceDesk_LoginIncidentPage {
         String valueForCPS=driver.findElement(By.xpath(CPS_PRESENT_RESULT)).getText();
         String valueForCalAndNetwrkFeatures=driver.findElement(By.xpath(CALLING_AND_NETWORK_FEATURES)).getText();
         utils.twoValueArrayList("Yes","No");
-        Assert.assertTrue(utils.allValues.contains(valueForCPS));
-        Assert.assertTrue(utils.allValues.contains(valueForCalAndNetwrkFeatures));
-
-
-
-
+     Assert.assertTrue(utils.allValues.contains(valueForCPS));
+        Assert.assertTrue(utils.allValues.contains(valueForCalAndNetwrkFeatures));}
 
     }
 
-}
+
 

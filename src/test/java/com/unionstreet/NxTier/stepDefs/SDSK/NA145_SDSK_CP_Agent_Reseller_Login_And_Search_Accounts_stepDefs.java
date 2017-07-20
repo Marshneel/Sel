@@ -23,10 +23,13 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03087654321'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03012348765'");
         webModel.getCompanyMenuPage().addCLIs("business customer created by CP", "03012345678");
+        webModel.getUtils().closeCurrentPage();
         webModel.getUtils().switchToPreviousWindow(0);
         webModel.getCompanyMenuPage().addCLIs("business customer agent assigned", "03087654321");
+        webModel.getUtils().closeCurrentPage();
         webModel.getUtils().switchToPreviousWindow(0);
         webModel.getCompanyMenuPage().addCLIs("site called business customer", "03012348765");
+        webModel.getUtils().closeCurrentPage();
         webModel.getUtils().switchToPreviousWindow(0);
 
 
@@ -85,7 +88,6 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @Given("^I am logged in as agent and CP has already assigned me a business customer$")
     public void iAmLoggedInAsAgentAndCPHasAlreadyAssignedMeABusinessCustomer() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         haveCreatedABusinessCustomerAndAssignedRequiredData();
         webModel.getDashBoardPage().logOut();
@@ -202,7 +204,6 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @Given("^I am logged in as CP and assign service desk permissions$")
     public void iAmLoggedInAsCPAndAssignServiceDeskPermissions() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
-        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
        webModel.getServiceDeskPage().grantingServiceDeskAccess();
         webModel.getDashBoardPage().logOut();
