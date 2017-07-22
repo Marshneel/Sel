@@ -1,4 +1,4 @@
-@WhiteLabel
+@Morning
 Feature: NA - 157 Create Different Types Of Base Tariffs (Blank, Copy and Based on) as a CP
 
   Scenario: Login in a CP and create the three types of base tariffs (blank, copy and based on)

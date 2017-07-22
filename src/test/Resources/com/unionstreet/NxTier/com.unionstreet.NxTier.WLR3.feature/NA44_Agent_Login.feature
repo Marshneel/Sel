@@ -1,4 +1,4 @@
-@E2ETests
+@Night
 Feature: NA44 - Agent login functionality
 
   Scenario: Login as an agent, create a business customer and verify the created customer from the company and site drop downs on create quote page

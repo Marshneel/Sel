@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA138 - WLR3 ISDN2System Basic Analogue Change Of Line Type And ViceVersa
   Scenario: initiate a change of line type service from ISDN2 system to basic analogue
     Given I am logged in as CP

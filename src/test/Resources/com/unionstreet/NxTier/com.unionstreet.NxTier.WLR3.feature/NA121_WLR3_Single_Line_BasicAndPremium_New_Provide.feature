@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA121 - WLR3_Single_Line_BasicAndPremium_New_Provide
 
   Scenario: create a new provide order for analogue single basic

@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA143 - ISDN2 system and Std transfer
   Scenario: initiate a transfer order on ISDN2 system line and capture all required validations
     Given I am logged in as CP

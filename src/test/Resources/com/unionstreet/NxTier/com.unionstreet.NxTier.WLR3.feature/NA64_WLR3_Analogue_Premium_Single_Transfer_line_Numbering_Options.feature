@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA64 - WLR3_Analogue_Transfer_line_Numbering_Options
 
   Scenario Outline: Assigning specify new number, select from list, automatically assign now by logging as CP, agent and reseller

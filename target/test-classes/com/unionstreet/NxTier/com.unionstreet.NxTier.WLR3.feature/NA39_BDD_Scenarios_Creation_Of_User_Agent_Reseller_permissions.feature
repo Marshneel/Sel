@@ -1,4 +1,4 @@
-@E2ETests
+@Night
 Feature: NA39 - Creation Of User, Agent, Reseller permissions
 
   Scenario: Creating an agent permission group and assigning it to an agent

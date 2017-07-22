@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA91 - WLR3_Analogue_Cease
 
   Scenario: Initiate and verify the flow of a WLR3 cease order

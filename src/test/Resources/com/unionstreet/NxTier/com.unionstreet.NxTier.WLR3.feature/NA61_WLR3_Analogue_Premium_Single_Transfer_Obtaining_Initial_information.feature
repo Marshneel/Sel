@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA61 - WLR3_Analogue_Transfer_Obtaining_Initial_information
 
   Scenario Outline: Populating network calling features and directory information by logging as a CP, agent and reseller

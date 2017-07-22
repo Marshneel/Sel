@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA94 - WLR3_Analogue_Add_Remove_Aux_line
 
   Scenario: Adding an extra line to existing multi-line

@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA108 - WLR3_ISDN2_New_Provide_Standard_And_System
 
   Scenario: create a new ISND2 standard line

@@ -1,3 +1,4 @@
+@Morning
 @SDSK
 Feature: NA - 165 Populate OIDs
   Scenario: login as a CP and obtain installation details of the selected CLI

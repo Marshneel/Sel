@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA100 - WLR3_Basic_Premium_Single_Multi_ChangeOfLineType
 
   Scenario: scenario for change of line type from basic analogue line to premium analogue line

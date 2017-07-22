@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA98 - WLR3_Analogue_Amend
 
   Scenario: Create an order submit, amend and process it, verify the steps involved.
