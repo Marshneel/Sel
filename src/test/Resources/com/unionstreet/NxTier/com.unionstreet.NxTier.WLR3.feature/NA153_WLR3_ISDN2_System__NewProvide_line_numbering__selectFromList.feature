@@ -1,4 +1,4 @@
-@E2ETests
+@WLR3
 Feature: NA - 153 ISDN2 system new provide line numbering options: select from list
 
   Scenario: initiate a new provide service on ISDN2 system and check select from list functionality under line numbering

@@ -1,4 +1,4 @@
-@E2ETests
+@WLR3
 Feature: NA136 - WLR3 Basic Analogue Modify
   Scenario: initiate a modify order on basic analogue line
     Given I am logged in as CP

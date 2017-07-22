@@ -1,5 +1,4 @@
-
-@E2ETests
+@WLR3
 Feature: NA139 - WLR3 basic analogue Change Of Address
 Scenario: initiate a change of address service on basic analogue line
   Given I am logged in as CP

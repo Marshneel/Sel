@@ -1,4 +1,4 @@
-@E2ETests
+@WLR3
 Feature: NA127 - WLR3 Virtual Lines NewProvide Remote Call Forward and ISDN Caller Redirect
   Scenario: create a new provide virtual line: ISDN Remote Call Forward
     Given I am logged in as CP

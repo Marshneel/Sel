@@ -1,4 +1,4 @@
-@E2ETests
+@WLR3
 Feature: NA144 - WLR3 ISDN2 standard and system change of address
   Scenario: initiate a change of address service on standard line and verify whether that channels are not editable
     Given I am logged in as CP
