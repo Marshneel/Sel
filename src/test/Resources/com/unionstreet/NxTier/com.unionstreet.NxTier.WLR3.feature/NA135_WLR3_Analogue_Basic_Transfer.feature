@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA135 - WLR3 Analogue basic Transfer
   Scenario: initiating a transfer order on a basic analogue line
     Given I am logged in as CP

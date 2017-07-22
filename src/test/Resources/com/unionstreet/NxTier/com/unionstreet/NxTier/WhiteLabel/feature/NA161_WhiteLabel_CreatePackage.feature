@@ -1,4 +1,4 @@
-@WhiteLabel
+@Morning
 Feature: NA - 161 create a package as an Agent and CP
 
   Scenario: login as an agent and create a business and consumer packages

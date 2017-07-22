@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA109 - WLR3_ISDN2_New_Provide_Line_Suitability_Dialogue
 
 Scenario: verify the absence and presence of the line suitability dialogue without and with addressKey assigned respectively, under siteDetails

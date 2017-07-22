@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA131 - WLR3 VirtualLines change of line type
   Scenario: perform a change of line type from remote call forwarding to caller redirect
     Given I am logged in as CP

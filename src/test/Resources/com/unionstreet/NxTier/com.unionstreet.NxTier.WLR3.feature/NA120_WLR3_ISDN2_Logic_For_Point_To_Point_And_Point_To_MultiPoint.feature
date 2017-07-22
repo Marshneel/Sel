@@ -1,4 +1,4 @@
-@WLR3
+@Night
 Feature: NA120 - WLR3_ISDN2_Logic_For_Point_To_Point_And_Point_To_MultiPoint
 
   Scenario: testing logic for ISDN2 Standard: point-to-multiPoint

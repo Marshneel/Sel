@@ -1,3 +1,4 @@
+@Morning
 @SDSK
 Feature: NA - 151 SDSK URL Manipulation
   Scenario Outline: login as a CP and perform URL manipulation tests
