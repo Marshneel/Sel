@@ -1,4 +1,4 @@
-@E2ETests
+@WLR3
 Feature: NA122 - WLR3_ISDN2_Standard_And_System_Modify
 
   Scenario: ISND2 Standard line modify

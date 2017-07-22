@@ -1,4 +1,4 @@
-@E2ETests
+@WLR3
 Feature: NA107 - ISDN30_Amend
   Scenario: amend a submitted ISDN30 new provide order
     Given I am logged in as CP

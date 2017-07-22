@@ -1,5 +1,4 @@
-
-@E2ETests
+@WLR3
 Feature: NA128 - WLR3 Virtual Lines Modify includes Remote Call Forward and Caller Redirect
   Scenario: modifying a remote call forward_virtual line
     Given I am logged in as CP

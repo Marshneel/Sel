@@ -1,4 +1,4 @@
-@E2ETests
+@WLR3
 Feature: NA125 - Analogue Multi To ISDN30E Change Of Line Type And vice Versa
 
   Scenario: change the line type from analogue multi to ISDN30E

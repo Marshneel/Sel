@@ -1,4 +1,4 @@
-@E2ETests
+@WLR3
 Feature: NA104 - ISDN30_Transfer
   Scenario: Initiate a transfer order on the CLI that has Business continuity set and validate the alert message
     Given I am logged in as CP

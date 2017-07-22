@@ -1,4 +1,4 @@
-@E2ETests
+@WLR3
 Feature: NA112 - WLR3_ISDN30_Modify
   Scenario: initiate a modify order on an ISDN30 line that you own
     Given I am logged in as CP
