@@ -26,11 +26,11 @@ public class NA126_WLR3_Analogue_Basic_To_ISDN30E_Change_Of_Line_Type_stepDefs {
     @Then("^I should be able to check all the required validations and complete the change of line type order from analogue basic to ISDN(\\d+)E$")
     public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOfLineTypeOrderFromAnalogueBasicToISDNE(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getWlr3_orderDetails_page().assertDefaultAndEditableChannels("8");
-        webModel.getWlr3_orderDetails_page().editChannelNumberForPremiumAndISDNlines("Numer of Channels", "8", "999");
         webModel.getWlr3_orderDetails_page().assertExclusiveFeatures("Number of lines increased to 8");
         webModel.getWlr3_orderDetails_page().assertExclusiveFeatures("Call Sign");
         webModel.getWlr3_orderDetails_page().assertExclusiveFeatures("Presentation Number");
         webModel.getWlr3_orderDetails_page().assertCommonFeatures("Raw Call Data");
+        webModel.getWlr3_orderDetails_page().editChannelNumberForPremiumAndISDNlines("Numer of Channels", "8", "999");
         webModel.getWlr3_orderDetails_page().errorMessages_WhenLineIsChangedFromAnalogueToISDN();
         webModel.getWlr3_orderDetails_page().errorMessagesWhenEngineeringVisitIsRequired();
         webModel.getWlr3_orderDetails_page().clickSiteInfo();

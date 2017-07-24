@@ -100,6 +100,7 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
         webModel.getDashBoardPage().clickContactManagerTab();
         na44_agent_login_stepDefs.haveCreatedANewCustomer();
         webModel.getCommonMethods().search(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getUtils().waitForElementVisible(By.xpath("//a[contains(text(),'"+webModel.getNewBusinessCustomerPage().RanName+"')]"));
         webModel.getUtils().switchToNewWindow(By.xpath("//a[contains(text(),'"+webModel.getNewBusinessCustomerPage().RanName+"')]"));
         webModel.getCompanyMenuPage().assertAgentCreatedTariffandFreeMinutes();
 

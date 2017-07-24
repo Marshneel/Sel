@@ -5,6 +5,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
+import java.io.UnsupportedEncodingException;
+
 /**
  * Created by RajeshG on 13/07/2017.
  */
@@ -12,7 +14,7 @@ public class NA171_WhiteLabel_CP_Should_Distinguish_Agents_Tariffs_FreeMinutes_P
    WebModel webModel=new WebModel();
 
     @Given("^Agent has created a Tariff plan, FreeMinute plan and Package$")
-    public void agentHasCreatedATariffPlanFreeMinutePlanAndPackage() throws InterruptedException {
+    public void agentHasCreatedATariffPlanFreeMinutePlanAndPackage() throws InterruptedException, UnsupportedEncodingException, ClassNotFoundException {
         webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         webModel.getSettingsPage().clickSettingsButton();
