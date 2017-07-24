@@ -65,8 +65,6 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.xpath(CONFIG_MANAGER_BLUE_LABEL));
         commonMethods.search("" + tariffplan + "");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
-        Thread.sleep(1000);
-       // utils.clickBtn(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
         utils.switchToNewWindow(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
         utils.waitForElementVisible(By.id(createTariffPage.TARIFF_RATES_BUTTON));
         utils.clickBtn(By.id(createTariffPage.TARIFF_RATES_BUTTON));

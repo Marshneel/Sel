@@ -1,9 +1,12 @@
 @Morning
-Feature: NA - 169 CP vs Agent permissions Misc.
-  Scenario: Login as a CP and check the required validations
+Feature: NA - 169 CP vs Agent view of sell, cost and baseLine prices
+  Scenario: Login as a CP and check sell, cost and baseLine pricing of a serviceCharge
     Given I am logged in as CP
-    When I navigate to the required pages then I should be able to cary out required validations as a CP
+    When I navigate to create service charge page
+    Then I should be able to see the cost, sell and baseline prices during the charge creation
 
-  Scenario: Login as a an agent and check the required validations
-    Given I am logged in as agent
-    When I navigate to the required pages then I should be able to cary out required validations as an agent
+  Scenario: agent will be able to see the pricing on the service charge page in his point of view
+    Given CP has assigned a service charge to one of my customers
+    When I am logged in as agent
+    And navigate to that particular charge page
+    Then I should be able to see the prices as an agent point of view

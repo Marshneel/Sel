@@ -4,12 +4,9 @@ import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-/**
- * Created by RajeshG on 16/06/2017.
- */
 public class NA155_WhiteLabel_differenceBetween_Agent_And_CP_createTariffScreens_stepDefs {
+    WebModel webModel=new WebModel();
 
-    WebModel webModel= new WebModel();
 
     @When("^I navigate to create tariff screen$")
     public void iNavigateToCreateTariffScreen() {

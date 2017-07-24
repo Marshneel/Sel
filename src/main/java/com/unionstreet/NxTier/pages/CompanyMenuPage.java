@@ -122,9 +122,8 @@ public class CompanyMenuPage {
         newBusinessCustomerPage.clickContactManagerButton();
         utils.sendText(By.id(SEARCH_BUTTON), ranName);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
-        utils.waitForElementVisible(By.linkText(ranName));
-       // utils.clickBtn(By.linkText(ranName));
-        utils.switchToNewWindow(By.linkText(ranName));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+ranName+"')]"));
+        utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+ranName+"')]"));
     }
 
     public void clickInvoicingDetailsButton() {
@@ -202,7 +201,7 @@ public class CompanyMenuPage {
         clickServiceChargesButton();
         utils.jumpToPopUpWindow(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
-        utils.sendText(By.id(SERVICECHARGE_DESC_FIELD), utils.getProperty("serviceChargeRecurringDesc"));
+        utils.sendText(By.id(SERVICECHARGE_DESC_FIELD), utils.getProperty("serviceChargeType"));
         utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));
         today = new java.util.Date().getTime();
         utils.selectByVisibleText(By.cssSelector(SELECT_MONTH_DROPDOWN), new SimpleDateFormat("MMM").format(today));
@@ -505,6 +504,35 @@ public class CompanyMenuPage {
         priceRevertsBackWhenClearedEvenAfterSaving(SALES_PRICE_FIELD, "15.0000", "13.0000");
         priceRevertsBackWhenClearedEvenAfterSaving(COST_PRICE_FIELD, "5.0000", "8.6400");
         priceRevertsBackWhenClearedEvenAfterSaving(BASELINE_COST_FIELD, "10.0000", "9.0000");
+    }
+    public void addServiceChargeToCustomerOrSite(String site){
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+site+"')]"));
+        utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+site+"')]"));
+        addRecurringChargesPart1();
+        utils.selectByVisibleText(By.id(SERVICECHARGE_FREQUENCY_DROPDOWN), utils.getProperty("serviceChargeOneOffFrequency"));
+        utils.selectByVisibleText(By.id(SERVICECHARGE_CARRIER_DROPDOWN), utils.getProperty("serviceChargeCarrier"));
+        utils.sendText(By.id(SERVICECHARGE_QUANTITY_FIELD), utils.getProperty("serviceChargeQuantity"));
+        utils.sendText(By.id(SALES_PRICE_FIELD),"100");
+        utils.waitForElementVisible(By.id(COST_PRICE_FIELD));
+        utils.sendText(By.id(COST_PRICE_FIELD),"50");
+        utils.waitForElementVisible(By.id(BASELINE_COST_FIELD));
+        utils.sendText(By.id(BASELINE_COST_FIELD),"25");
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.switchToPreviousWindow(0);
+    }
+    public void assertChargesForResellerAndAgent(String site, String charge,boolean ifReseller, boolean IfAgent){
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+site+"')]"));
+        utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+site+"')]"));
+        clickServiceChargesButton();
+        clickServiceChargesOneOffButton();
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+charge+"')]"));
+        utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+charge+"')]"));
+      if(ifReseller){  utils.waitForElementVisible(By.xpath("//label[contains(text(),'Cost Price')]/../../div[2]/input[@value='100.0000']"));}
+        else {}
+    if (IfAgent){ utils.waitForElementVisible(By.xpath("//label[contains(text(),'Sales Price')]/../../div[2]/input[@value='100.0000']"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Cost Price')]/../../div[2]/input[@value='25.0000']"));}
+        else{}
     }
 }
 

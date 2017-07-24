@@ -80,6 +80,8 @@ public class CreateTariffPage {
         utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.switchToPreviousWindow(0);
+        commonMethods.search(tariffName);
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+tariffName+"')]"));
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+tariffName+"')]/../following-sibling::td[contains(text(),'Baseline')]"));
     }
     public void createBlankTariff(String tariffCategory, String tariffType, String baseTariffSetting){
