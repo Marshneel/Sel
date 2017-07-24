@@ -105,9 +105,9 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
     @Then("^I should be able to check all the required validations and complete the change order from multi to analogue basic$")
     public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOrderFromMultiToAnalogueBasic() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
-        webModel.getWlr3_line_information_page().setCareLevelForBasicLineSwitch("Level 1");
         // assert un availability of network feature that is exclusive to multiline during single line switch
         webModel.getWlr3_orderDetails_page().assertWarningMessageOnSummaryPage("Network Feature unknown: Bypass number - individual line");
+        webModel.getWlr3_line_information_page().setCareLevelForBasicLineSwitch("Level 1");
         webModel.getWlr3_siteInformationPage().loadSiteInfo();
         webModel.getWlr3_siteInformationPage().populateTelNumberUnderSiteInfo("07894040256");
        //assert that the termination type that is exclusive to premium line is absent during the basic line switch

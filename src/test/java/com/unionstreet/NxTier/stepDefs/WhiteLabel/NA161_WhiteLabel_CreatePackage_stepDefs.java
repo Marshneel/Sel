@@ -5,7 +5,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.By;
 
 import java.awt.*;
 import java.io.UnsupportedEncodingException;
@@ -39,15 +38,15 @@ public class NA161_WhiteLabel_CreatePackage_stepDefs {
 
     @Then("^I should be able to create business and consumer packages$")
     public void iShouldBeAbleToCreateBusinessAndConsumerPackages() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getConfigManagerPage().createPackage("1","Sell 2p NGCS AC (+60 sec)",true,true);
+        webModel.getConfigManagerPage().createPackage("1",webModel.getCreateTariffPage().RanTariffPlanName,true,true);
         webModel.getConfigManagerPage().saveAndAssertThePackage("[@disabled='True']");
         webModel.getConfigManagerPage().clickAdd();
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update tariffnames set Consumer='1' where TariffName='Sell 2p NGCS AC (+60 sec)'");
         webModel.getConfigManagerPage().createPackage("2","Sell 2p NGCS AC (+60 sec)",false,false);
         webModel.getConfigManagerPage().saveAndAssertThePackage("[@checked='checked']");
+      //  webModel.getConfigManagerPage().clickAdd();
+     //   webModel.getUtils().assertElementNotPresent(By.xpath("//option[contains(text(),'Sell 2p NGCS AC (+60 sec)')]"));
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update tariffnames set Consumer='0' where TariffName='Sell 2p NGCS AC (+60 sec)'");
-        webModel.getConfigManagerPage().clickAdd();
-        webModel.getUtils().assertElementNotPresent(By.xpath("//option[contains(text(),'Sell 2p NGCS AC (+60 sec)')]"));
-        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update tariffnames set Consumer='1' where TariffName='Sell 2p NGCS AC (+60 sec)'");
 
     }
 
@@ -71,7 +70,7 @@ public class NA161_WhiteLabel_CreatePackage_stepDefs {
 
 
     @When("^I create a package$")
-    public void iCreateAPackage() throws InterruptedException {
+    public void iCreateAPackage() throws InterruptedException, UnsupportedEncodingException, ClassNotFoundException {
         iNavigateToThePackageManager();
         webModel.getConfigManagerPage().createPackage("1",webModel.getCreateTariffPage().RanTariffPlanName,true,false);
         webModel.getConfigManagerPage().saveAndAssertThePackage("[@disabled='True']");

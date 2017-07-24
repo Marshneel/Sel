@@ -172,18 +172,18 @@ public class ElementUtils {
 
     //browser selector
     public WebDriver browser() {
-       String browser=System.getProperty("browser");
+       //String browser=System.getProperty("browser");
         try {
 
-            if (browser.equalsIgnoreCase("chrome")) {
+            if (getProperty("browser").equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--start-maximized");
                 driver = new ChromeDriver(chromeOptions);
-            } else if (browser.equalsIgnoreCase("IE")) {
+            } else if (getProperty("browser").equalsIgnoreCase("IE")) {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
                 driver = new InternetExplorerDriver();
-            } else if (browser.equalsIgnoreCase("firefox")) {
+            } else if (getProperty("browser").equalsIgnoreCase("firefox")) {
                 driver = new FirefoxDriver();
             }
 

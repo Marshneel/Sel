@@ -4,6 +4,7 @@ import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
 import java.awt.*;
+import java.io.UnsupportedEncodingException;
 
 /**
  * Created by RajeshG on 06/06/2017.
@@ -20,7 +21,7 @@ public class ConfigManagerPage {
     private final String ASSIGN_PACKAGE_TAB = "HrefAssignPackage";
     private final String EDIT_FREE_MINUTES_ICON = "//img[@title='Edit Free Minutes Details']";
     private final String EDIT_FREEMINS_DISABLED_DESCRIPTION = "//textarea[@id='Dfreeminutedetails_description'][@disabled='disabled']";
-    private final String EDIT_FREEMINS_DISABLED_WHAT = "//select[@id='Dfreeminutedetails_what_id'][@disabled='disabled']";
+    private final String EDIT_FREEMINS_DISABLED_WHAT = "//select[@id='Dfreeminutedetails_what_id']";
     private final String TARIFF_MANAGER_TAB = "//div[@id='subMenu']//a[contains(@href,'tariff')]";
     private final String DISABLED_TARIFF_NAME = "//input[@id='TariffName1'][@disabled='disabled']";
     private final String DISABLED_MIN_CHARGE_UNDER_TARIFF_RATES_LIST = "//input[@id='RatesList_0__r_mincharge'][@disabled='disabled']";
@@ -193,8 +194,8 @@ public class ConfigManagerPage {
         utils.switchToNewWindow(By.xpath(EDIT_FREE_MINUTES_ICON));
         utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD));
         utils.sendText(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD),amount);
-        utils.waitForElementVisible(By.id(EDIT_FREEMINS_DISABLED_WHAT));
-        utils.selectByVisibleText(By.id(EDIT_FREEMINS_DISABLED_WHAT),what);
+        utils.waitForElementVisible(By.xpath(EDIT_FREEMINS_DISABLED_WHAT));
+        utils.selectByVisibleText(By.xpath(EDIT_FREEMINS_DISABLED_WHAT),what);
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.checkAlert();
@@ -220,7 +221,7 @@ public class ConfigManagerPage {
 
     }
 
-    public void createPackage(String packageType, String TariffPlan, boolean consumerPackage, boolean verifyCreatedTariffAndFreeMinutes) throws InterruptedException {
+    public void createPackage(String packageType, String TariffPlan, boolean consumerPackage, boolean verifyCreatedTariffAndFreeMinutes) throws InterruptedException, UnsupportedEncodingException, ClassNotFoundException {
         RanPackageName = utils.randomName();
         utils.waitForElementVisible(By.id(EDIT_PACKAGE_NAME_FIELD));
         utils.sendText(By.id(EDIT_PACKAGE_NAME_FIELD), RanPackageName);
@@ -234,14 +235,15 @@ public class ConfigManagerPage {
         if (verifyCreatedTariffAndFreeMinutes) {
             utils.waitForElementVisible(By.xpath("//option[contains(text(),'" + createTariffPage.RanTariffPlanName + "')]"));
             utils.waitForElementVisible(By.xpath("//td[contains(text(),'" + RanFreeMinutePlanName + "')]"));
-        }
+        }else{}
         utils.waitForElementVisible(By.id(EDIT_PACKAGE_VOICE_TARIFF_DROPDOWN));
         utils.selectByVisibleText(By.id(EDIT_PACKAGE_VOICE_TARIFF_DROPDOWN), "" + TariffPlan + "");
         utils.waitForElementVisible(By.id(EDIT_PACKAGE_DATA_TARIFF_DROPDOWN));
         utils.selectByVisibleText(By.id(EDIT_PACKAGE_DATA_TARIFF_DROPDOWN), "" + TariffPlan + "");
-        utils.waitForElementVisible(By.id(SELECT_FREE_MINUTES_PLAN_CHECKBOX_FROM_LIST_UNDER_EDIT_PACKAGE));
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'Mobile 250 Free Mins (UK and Mob')]/following-sibling::td/label"));
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+RanFreeMinutePlanName+"')]/following-sibling::td/label"));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.id(SELECT_FREE_MINUTES_PLAN_CHECKBOX_FROM_LIST_UNDER_EDIT_PACKAGE));
+        utils.javaScriptExecutorClick(By.xpath("//td[contains(text(),'"+RanFreeMinutePlanName+"')]/following-sibling::td/label"));
     }
 
 
