@@ -123,6 +123,7 @@ public class CompanyMenuPage {
         utils.sendText(By.id(SEARCH_BUTTON), ranName);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+ranName+"')]"));
+        Thread.sleep(1000);
         utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+ranName+"')]"));
     }
 

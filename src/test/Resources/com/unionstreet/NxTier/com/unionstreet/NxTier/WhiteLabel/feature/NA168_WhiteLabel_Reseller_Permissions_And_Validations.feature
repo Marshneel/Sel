@@ -6,10 +6,7 @@ Feature: NA - 168 Reseller's view of sell, cost and baseLine prices and other va
     Then I should see the charges at reseller's point of view
 
 
-
-
-
-Scenario: any secondary sites created by reseller should automatically become non-billing sites
+Scenario: Any secondary sites created by reseller should automatically become non-billing sites
   Given I am logged in as reseller
   When i create a site
   Then that site should automatically become the non-billing site
