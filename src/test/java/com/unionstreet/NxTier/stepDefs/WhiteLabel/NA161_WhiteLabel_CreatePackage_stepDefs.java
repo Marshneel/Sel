@@ -24,7 +24,7 @@ public class NA161_WhiteLabel_CreatePackage_stepDefs {
     }
 
     @And("^I navigate to the package manager$")
-    public void iNavigateToThePackageManager() {
+    public void iNavigateToThePackageManager() throws InterruptedException {
         webModel.getDashBoardPage().clickConfigManager();
         webModel.getConfigManagerPage().navigateToAddTariffPlan();
         webModel.getCreateTariffPage().addTariffPlan();

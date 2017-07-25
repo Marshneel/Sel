@@ -34,10 +34,10 @@ public class ContactManagerPage {
 
     public void clickOnResellerUnderCustomerDetails() throws InterruptedException {
 
-        commonMethods.search("reseller");
-        utils.waitForElementVisible(By.linkText("reseller"));
+        commonMethods.search("site2");
+        utils.waitForElementVisible(By.linkText("site2"));
        // utils.clickBtn(By.linkText("reseller"));
-        utils.switchToNewWindow(By.linkText("reseller"));
+        utils.switchToNewWindow(By.linkText("site2"));
     }
 
 

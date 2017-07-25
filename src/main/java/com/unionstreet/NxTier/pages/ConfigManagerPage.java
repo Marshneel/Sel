@@ -65,6 +65,7 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.xpath(CONFIG_MANAGER_BLUE_LABEL));
         commonMethods.search("" + tariffplan + "");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
+        Thread.sleep(1000);
         utils.switchToNewWindow(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
         utils.waitForElementVisible(By.id(createTariffPage.TARIFF_RATES_BUTTON));
         utils.clickBtn(By.id(createTariffPage.TARIFF_RATES_BUTTON));
@@ -146,13 +147,14 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.id(createTariffPage.TARIFF_NAME_TEXT_BOX));
     }
 
-    public void addFreeMinutesPlan() {
+    public void addFreeMinutesPlan() throws InterruptedException {
         accessFreeMinutesTab();
         utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
         //utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.switchToNewWindow(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_NAME_FIELD));
         RanFreeMinutePlanName = utils.randomName();
+       Thread.sleep(1000);
         utils.sendText(By.id(EDIT_FREE_MINUTES_NAME_FIELD), RanFreeMinutePlanName);
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
