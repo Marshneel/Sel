@@ -1,4 +1,4 @@
-@Night
+@WLR3
 Feature: NA53 - Laying add on activation charge for quotes created by CP, agent and reseller
 
   Scenario: Laying addOnActivation charge for quote created by CP

@@ -1,4 +1,4 @@
-@Morning
+@WhiteLabel
 Feature: NA - 152 Agent Permission
 
   Scenario: An agent can only see but not edit the free minute and tariff plans issued by CP.

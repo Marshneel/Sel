@@ -1,4 +1,4 @@
-@Night
+@WLR3
 Feature: NA117- WLR3_ISDN30_Change_Of_Address
 Scenario: initiate a change of address for ISDN30 line
   Given I am logged in as CP

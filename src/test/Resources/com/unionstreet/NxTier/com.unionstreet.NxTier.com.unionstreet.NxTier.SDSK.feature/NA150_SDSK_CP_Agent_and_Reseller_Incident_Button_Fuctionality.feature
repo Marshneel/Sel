@@ -1,4 +1,3 @@
-@Morning
 @SDSK
 Feature: NA - 150 SDSK CP, agent and reseller incident button functionality
   Scenario Outline: login as a CP, agent and reseller and check the functionality of the indecent button by placing account on hold/active with and with-out SLA

@@ -1,4 +1,4 @@
-@Morning
+@WhiteLabel
 Feature: NA - 168 Reseller's view of sell, cost and baseLine prices and other validations
   Scenario: login as a reseller and check the sell/cost and baseLine in reseller point of view
     Given CP has added a service charge to one of my sites

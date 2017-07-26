@@ -1,4 +1,4 @@
-@Night
+@WLR3
 Feature: NA113 - WLR3_Analogue_Multi_Modify
 
 Scenario: Initiate a WLR3 multi-line modify order and verify line numbering validations

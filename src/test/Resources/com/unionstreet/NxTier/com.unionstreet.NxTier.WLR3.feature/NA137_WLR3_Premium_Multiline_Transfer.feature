@@ -1,4 +1,4 @@
-@Night
+@WLR3
 Feature: NA137 - WLR3 premium multiline transfer
   Scenario: initiate a transfer order on multiline and check the flow
     Given I am logged in as CP

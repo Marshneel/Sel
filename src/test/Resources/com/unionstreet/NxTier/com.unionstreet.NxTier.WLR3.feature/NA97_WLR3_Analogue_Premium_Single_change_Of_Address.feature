@@ -1,4 +1,4 @@
-@Night
+@WLR3
 Feature: NA97 - WLR3_Analogue_change_Of_Address
 
   Scenario: scenario to verify the retain line number option availability when postCode that is within the same exchange is used

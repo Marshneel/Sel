@@ -1,4 +1,3 @@
-@Morning
 @SDSK
 Feature: Na - 159 SDSK Login Incident Caller Details
 

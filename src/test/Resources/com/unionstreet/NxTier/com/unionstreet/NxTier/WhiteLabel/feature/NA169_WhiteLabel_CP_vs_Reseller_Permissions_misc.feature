@@ -1,4 +1,4 @@
-@Morning
+@WhiteLabel
 Feature: NA - 169 CP vs Agent view of sell, cost and baseLine prices
   Scenario: Login as a CP and check sell, cost and baseLine pricing of a serviceCharge
     Given I am logged in as CP

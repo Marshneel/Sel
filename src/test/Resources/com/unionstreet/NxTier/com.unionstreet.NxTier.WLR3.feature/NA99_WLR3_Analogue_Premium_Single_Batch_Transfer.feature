@@ -1,4 +1,4 @@
-@Night
+@WLR3
 Feature: NA99 - WLR3_Analogue_Batch_Transfer
 
   Scenario: submit a batch order with out generating OIDs

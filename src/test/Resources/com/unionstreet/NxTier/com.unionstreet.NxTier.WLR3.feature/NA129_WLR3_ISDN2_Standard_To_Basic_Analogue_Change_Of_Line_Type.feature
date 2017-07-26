@@ -1,4 +1,4 @@
-@Night
+@WLR3
 Feature: NA129 - ISDN2 Standard to Basic Analogue change of line type and vice versa
   Scenario: initiate a change of line type service on ISDN2 standard line and change it to basic analogue
     Given I am logged in as CP

@@ -1,4 +1,4 @@
-@Night
+@WLR3
 Feature: NA45 - Reseller Login functionality
 
   Scenario: Login as a reseller, create a site and verify the created site from the site drop down on create quote page
