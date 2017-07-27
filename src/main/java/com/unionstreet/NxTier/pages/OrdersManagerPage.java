@@ -203,6 +203,7 @@ public class OrdersManagerPage {
         utils.result.next();
         String one = utils.result.getString("order_id");
        try{ utils.waitForElementVisible(By.xpath("//a[text()='" + one + "']"));
+      Thread.sleep(1000);
         utils.switchToNewWindow(By.xpath("//a[text()='" + one + "']"));}
        catch (Exception e){utils.checkAlert();}
     }
