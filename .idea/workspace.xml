@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/report.html" afterPath="$PROJECT_DIR$/output/report.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA173_WhiteLabel_CP_Should_Not_Assign_The_Stuff_Agent_Has_Created_To_Any_one_Nor_Can_he_Revoke_the_rights_For_The_Same.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA173_WhiteLabel_CP_Should_Not_Assign_The_Stuff_Agent_Has_Created_To_Any_one_Nor_Can_he_Revoke_the_rights_For_The_Same.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature" afterPath="$PROJECT_DIR$/target/test-classes/com/unionstreet/NxTier/com.unionstreet.NxTier.smokePack.feature/NxTier_smokePack.feature" />
     </list>
     <ignored path="NxTier automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,6 +36,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="11" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NA_____WhiteLabel_WhiteLabelReseller_Bill_Run.feature" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA_____WhiteLabel_WhiteLabelReseller_Bill_Run.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -74,8 +84,8 @@
       <file leaf-file-name="NA173_WhiteLabel_CP_Should_Not_Assign_The_Stuff_Agent_Has_Created_To_Any_one_Nor_Can_he_Revoke_the_rights_For_The_Same.feature" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA173_WhiteLabel_CP_Should_Not_Assign_The_Stuff_Agent_Has_Created_To_Any_one_Nor_Can_he_Revoke_the_rights_For_The_Same.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="87" selection-start-line="1" selection-start-column="87" selection-end-line="1" selection-end-column="87" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -106,16 +116,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1887">
-              <caret line="111" column="10" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -1213,13 +1213,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00283" summary="completed NA152">
-      <created>1497035222463</created>
-      <option name="number" value="00283" />
-      <option name="presentableId" value="LOCAL-00283" />
-      <option name="project" value="LOCAL" />
-      <updated>1497035222463</updated>
-    </task>
     <task id="LOCAL-00284" summary="completed NA152">
       <created>1497072425459</created>
       <option name="number" value="00284" />
@@ -1556,7 +1549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1501100698149</updated>
     </task>
-    <option name="localTasksCounter" value="332" />
+    <task id="LOCAL-00332" summary="tags seperated into @smokePack, @WhiteLabel, @WLR3, @SDSK &#10;clean test command being used">
+      <created>1501128180387</created>
+      <option name="number" value="00332" />
+      <option name="presentableId" value="LOCAL-00332" />
+      <option name="project" value="LOCAL" />
+      <updated>1501128180387</updated>
+    </task>
+    <option name="localTasksCounter" value="333" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1987,14 +1987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA_____WhiteLabel_WhiteLabelReseller_Bill_Run.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA165_SDSK_Populate_OIDs.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -2043,14 +2035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA172_WhiteLabel_Agent_Should_Distinguish_CPs_Tariffs_FreeMinutes_And_Packages_From_His.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/RunnerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -2083,10 +2067,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA172_WhiteLabel_Agent_Should_Distinguish_CPs_Tariffs_FreeMinutes_And_Packages_From_His.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA_____WhiteLabel_WhiteLabelReseller_Bill_Run.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com/unionstreet/NxTier/WhiteLabel/feature/NA173_WhiteLabel_CP_Should_Not_Assign_The_Stuff_Agent_Has_Created_To_Any_one_Nor_Can_he_Revoke_the_rights_For_The_Same.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="87" selection-start-line="1" selection-start-column="87" selection-end-line="1" selection-end-column="87" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
