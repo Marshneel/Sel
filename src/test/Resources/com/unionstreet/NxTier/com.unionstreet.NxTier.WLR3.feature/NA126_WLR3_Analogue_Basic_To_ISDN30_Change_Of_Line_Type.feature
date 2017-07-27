@@ -1,4 +1,4 @@
-@Night
+@WLR3
 Feature: NA126 - Analogue Basic To ISDN30 Change Of Line Type
 
   Scenario: change the line type from analogue basic to ISDN30E

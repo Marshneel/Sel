@@ -1,4 +1,3 @@
-@Morning
 @SDSK
 Feature: NA - 160 SDSK Login Incident Triage
 

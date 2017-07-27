@@ -1,4 +1,4 @@
-@Night
+@WLR3
 Feature: NA88 - WLR3_Analogue_Modify
 
   Scenario: Initiate and verify the flow in a WLR3 single line modify order

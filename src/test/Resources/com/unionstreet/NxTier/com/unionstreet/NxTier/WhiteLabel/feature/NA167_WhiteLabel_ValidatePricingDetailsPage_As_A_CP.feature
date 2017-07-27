@@ -1,4 +1,4 @@
-@Morning
+@WhiteLabel
 Feature: NA - 167 WhiteLabel Validating pricing details page as a CP
 
   Scenario: login as a CP and validate the pricing details page by adding a package

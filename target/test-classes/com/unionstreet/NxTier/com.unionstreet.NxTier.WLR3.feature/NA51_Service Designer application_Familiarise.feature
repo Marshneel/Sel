@@ -1,4 +1,4 @@
-@Night
+@WLR3
 Feature: NA51 - Service designer application familiarization
 
   Scenario: Verify that the customer and internal tabs are present and accessible under add/view notes under edit order page
