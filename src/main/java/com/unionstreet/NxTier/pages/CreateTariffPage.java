@@ -120,9 +120,9 @@ public class CreateTariffPage {
   public void assertChargesOfTariffThatIsBasedOnAnAnotherTariff(String value,String attribute,boolean baseVal) throws InterruptedException {
       commonMethods.search(RanTariffPlanName);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
-     Thread.sleep(1000);
+     //Thread.sleep(1000);
       //  utils.clickBtn(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
-       utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
+       utils.switchToNewWindowByJavaExeClick(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
         utils.waitForElementVisible(By.id(TARIFF_RATES_BUTTON));
         utils.clickBtn(By.id(TARIFF_RATES_BUTTON));
         utils.checkAlert();

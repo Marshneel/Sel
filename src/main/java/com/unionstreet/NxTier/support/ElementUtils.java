@@ -124,6 +124,18 @@ public class ElementUtils {
             }
         }
     }
+    public void switchToNewWindowByJavaExeClick(By by) throws InterruptedException {
+        parentWindow = driver.getWindowHandle();
+        Thread.sleep(2000);
+        javaScriptExecutorClick(by);
+        Set<String> handles = driver.getWindowHandles();
+        for (String windowHandle : handles) {
+            if (!windowHandle.equals(parentWindow)) {
+                driver.switchTo().window(windowHandle);
+                driver.manage().window().maximize();
+            }
+        }
+    }
 
     //get properties method
     public String getProperty(String key) {
@@ -551,7 +563,7 @@ public class ElementUtils {
     }
 
     public void loadBranchURLForServiceDesk() {
-        driver.get("http://test01-web01:9080/RajeshNB");
+        driver.get("http://test01-web01/RajeshNB");
     }
 
     public void assertUnchecked(By by) {
