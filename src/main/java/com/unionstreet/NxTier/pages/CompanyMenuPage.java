@@ -506,8 +506,9 @@ public class CompanyMenuPage {
         priceRevertsBackWhenClearedEvenAfterSaving(COST_PRICE_FIELD, "5.0000", "8.6400");
         priceRevertsBackWhenClearedEvenAfterSaving(BASELINE_COST_FIELD, "10.0000", "9.0000");
     }
-    public void addServiceChargeToCustomerOrSite(String site){
+    public void addServiceChargeToCustomerOrSite(String site) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+site+"')]"));
+       Thread.sleep(1000);
         utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+site+"')]"));
         addRecurringChargesPart1();
         utils.selectByVisibleText(By.id(SERVICECHARGE_FREQUENCY_DROPDOWN), utils.getProperty("serviceChargeOneOffFrequency"));
