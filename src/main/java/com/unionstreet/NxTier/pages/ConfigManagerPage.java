@@ -111,8 +111,9 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffName + "')]"));
     }
 
-    public void assertFreeMinutes(String freeMinutePlan) {
+    public void assertFreeMinutes(String freeMinutePlan) throws InterruptedException {
         utils.clickBtn(By.xpath(FREE_MINUTES_TAB));
+        commonMethods.search("Mobile 250 Free Mins (UK and Mob");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
     }
 
