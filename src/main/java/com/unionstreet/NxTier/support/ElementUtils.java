@@ -196,8 +196,7 @@ public class ElementUtils {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
                 driver = new InternetExplorerDriver();
             } else if (browser.equalsIgnoreCase("firefox")) {
-                driver = new FirefoxDriver();
-            }
+                driver = new FirefoxDriver();}
 
         } catch (Exception e) {
             e.printStackTrace();
