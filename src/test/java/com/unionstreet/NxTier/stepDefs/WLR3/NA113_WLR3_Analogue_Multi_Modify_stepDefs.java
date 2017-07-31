@@ -32,11 +32,11 @@ public class NA113_WLR3_Analogue_Multi_Modify_stepDefs {
         webModel.getWlr3_orderDetails_page().clickLineNumbering(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_lineNumberingPage().validationForEmptyCallForwardCLIField_Under_SpecifyNewNumber("Caller Redirect", "01582213000");
         webModel.getWlr3_lineNumberingPage().validatePreviousNumberManagementOptionsInModifyOrder("Caller Redirect", "02012345678");
-        webModel.getWlr3_orderDetails_page().assertCallForwardAndRedirect("01202300909", "02012345678", "Quarterly Caller Redirect");
+        webModel.getWlr3_orderDetails_page().assertCallForwardRedirect("01202300909","redirected", "02012345678", "Quarterly Caller Redirect");
         webModel.getWlr3_orderDetails_page().clickLineNumbering(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_lineNumberingPage().clickNoChangeTab();
         webModel.getWlr3_lineNumberingPage().validatePreviousNumberManagementOptionsInModifyOrder("Remote Call Forward", "02012345678");
-        webModel.getWlr3_orderDetails_page().assertCallForwardAndRedirect("01202300909", "02012345678", "Remote Call Forward");
+        webModel.getWlr3_orderDetails_page().assertCallForwardRedirect("01202300909","forwarded", "02012345678", "Remote Call Forward");
         webModel.getWlr3_orderDetails_page().clickLineNumbering(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_lineNumberingPage().takeNumberFromAnotherWorkingLine_emptyFieldValidations();
         webModel.getWlr3_lineNumberingPage().takeNumberFromAnotherWorkingLine_populateFields("02063678369", "02012345678");
