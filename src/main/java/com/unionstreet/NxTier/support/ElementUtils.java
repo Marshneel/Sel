@@ -50,7 +50,7 @@ public class ElementUtils {
 
     public Wait waitForSomeTimeForOpenReach() {
         Wait wait = new FluentWait(driver)
-                .withTimeout(5000, SECONDS)
+                .withTimeout(3000, SECONDS)
                 .pollingEvery(3, SECONDS)
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
         return wait;
