@@ -96,7 +96,7 @@ public class ConfigManagerPage {
         commonMethods.search("" + Package + "");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + Package + "')]"));
        // utils.clickBtn(By.xpath("//a[contains(text(),'" + Package + "')]"));
-        utils.switchToNewWindow(By.xpath("//a[contains(text(),'" + Package + "')]"));
+        utils.switchToNewWindowByJavaExeClick(By.xpath("//a[contains(text(),'" + Package + "')]"));
         utils.waitForElementVisible(By.id(ASSIGN_PACKAGE_TAB));
         utils.clickBtn(By.id(ASSIGN_PACKAGE_TAB));
         utils.waitForElementVisible(By.id(assignee));
