@@ -50,7 +50,7 @@ public class ElementUtils {
 
     public Wait waitForSomeTimeForOpenReach() {
         Wait wait = new FluentWait(driver)
-                .withTimeout(5000, SECONDS)
+                .withTimeout(3000, SECONDS)
                 .pollingEvery(3, SECONDS)
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
         return wait;
@@ -124,6 +124,18 @@ public class ElementUtils {
             }
         }
     }
+    public void switchToNewWindowByJavaExeClick(By by) throws InterruptedException {
+        parentWindow = driver.getWindowHandle();
+        Thread.sleep(2000);
+        javaScriptExecutorClick(by);
+        Set<String> handles = driver.getWindowHandles();
+        for (String windowHandle : handles) {
+            if (!windowHandle.equals(parentWindow)) {
+                driver.switchTo().window(windowHandle);
+                driver.manage().window().maximize();
+            }
+        }
+    }
 
     //get properties method
     public String getProperty(String key) {
@@ -184,8 +196,7 @@ public class ElementUtils {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
                 driver = new InternetExplorerDriver();
             } else if (browser.equalsIgnoreCase("firefox")) {
-                driver = new FirefoxDriver();
-            }
+                driver = new FirefoxDriver();}
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -551,7 +562,7 @@ public class ElementUtils {
     }
 
     public void loadBranchURLForServiceDesk() {
-        driver.get("http://test01-web01:9080/RajeshNB");
+        driver.get("http://test01-web01/RajeshNB");
     }
 
     public void assertUnchecked(By by) {

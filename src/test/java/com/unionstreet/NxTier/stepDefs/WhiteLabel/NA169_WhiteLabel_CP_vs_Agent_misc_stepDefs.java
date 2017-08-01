@@ -20,7 +20,7 @@ public class NA169_WhiteLabel_CP_vs_Agent_misc_stepDefs {
         webModel.getCommonMethods().search("business customer agent assigned");
     }
     @Then("^I should be able to see the cost, sell and baseline prices during the charge creation$")
-    public void iShouldBeAbleToSeeTheCostSellAndBaselinePricesDuringTheChargeCreation()  {
+    public void iShouldBeAbleToSeeTheCostSellAndBaselinePricesDuringTheChargeCreation() throws InterruptedException {
         webModel.getCompanyMenuPage().addServiceChargeToCustomerOrSite("business customer agent assigned");
 
     }

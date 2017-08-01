@@ -65,8 +65,8 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.xpath(CONFIG_MANAGER_BLUE_LABEL));
         commonMethods.search("" + tariffplan + "");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
-        Thread.sleep(1000);
-        utils.switchToNewWindow(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
+       // Thread.sleep(1000);
+        utils.switchToNewWindowByJavaExeClick(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
         utils.waitForElementVisible(By.id(createTariffPage.TARIFF_RATES_BUTTON));
         utils.clickBtn(By.id(createTariffPage.TARIFF_RATES_BUTTON));
         utils.checkAlert();
@@ -96,7 +96,7 @@ public class ConfigManagerPage {
         commonMethods.search("" + Package + "");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + Package + "')]"));
        // utils.clickBtn(By.xpath("//a[contains(text(),'" + Package + "')]"));
-        utils.switchToNewWindow(By.xpath("//a[contains(text(),'" + Package + "')]"));
+        utils.switchToNewWindowByJavaExeClick(By.xpath("//a[contains(text(),'" + Package + "')]"));
         utils.waitForElementVisible(By.id(ASSIGN_PACKAGE_TAB));
         utils.clickBtn(By.id(ASSIGN_PACKAGE_TAB));
         utils.waitForElementVisible(By.id(assignee));
@@ -111,8 +111,9 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffName + "')]"));
     }
 
-    public void assertFreeMinutes(String freeMinutePlan) {
+    public void assertFreeMinutes(String freeMinutePlan) throws InterruptedException {
         utils.clickBtn(By.xpath(FREE_MINUTES_TAB));
+        commonMethods.search("Mobile 250 Free Mins (UK and Mob");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
     }
 

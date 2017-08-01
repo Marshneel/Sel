@@ -28,6 +28,6 @@ public class NA165_SDSK_Populate_OIDs_stepDefs {
 
     @Then("^I should be able to select a CLI and obtain its installation details$")
     public void iShouldBeAbleToSelectACLIAndObtainItsInstallationDetails() throws InterruptedException {
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01142733952","WLR3 ISDN 2e Standard","2","2");
+        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2");
     }
 }

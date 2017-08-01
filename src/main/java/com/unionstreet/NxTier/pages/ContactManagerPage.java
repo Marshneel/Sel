@@ -36,6 +36,7 @@ public class ContactManagerPage {
 
         commonMethods.search("site2");
         utils.waitForElementVisible(By.linkText("site2"));
+        Thread.sleep(1000);
        // utils.clickBtn(By.linkText("reseller"));
         utils.switchToNewWindow(By.linkText("site2"));
     }

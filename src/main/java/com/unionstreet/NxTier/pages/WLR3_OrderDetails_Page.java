@@ -448,8 +448,8 @@ public class WLR3_OrderDetails_Page {
     public void postCodeTextForModifyOrder() {
         utils.waitForElementVisible(By.xpath(EXISTING_POST_CODE));
     }
-    public void assertCallForwardAndRedirect(String existingCLI,String redirectToNumber, String typeOfForward){
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Calls to "+existingCLI+" will be redirected to "+redirectToNumber+"')]"));
+    public void assertCallForwardRedirect(String existingCLI, String mode, String redirectToNumber, String typeOfForward){
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Calls to "+existingCLI+" will be "+mode+" to "+redirectToNumber+"')]"));
     utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+typeOfForward+"')]"));
     }
     public void openReachAddressValidationForISDN30(){
