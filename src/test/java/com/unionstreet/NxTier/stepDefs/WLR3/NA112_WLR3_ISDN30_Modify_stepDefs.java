@@ -20,6 +20,7 @@ public class NA112_WLR3_ISDN30_Modify_stepDefs {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='OI3000000001'");
         webModel.getAddServicePage().searchAndAddService("Modify Order");
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='01202300908'");
         webModel.getWlr3_modify_orderPage().initiatingModifyOrderWithWrongCLI();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("01202300945", "LU1 1DQ");
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);

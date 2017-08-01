@@ -122,8 +122,9 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
     }
 
     @When("^I initiate a change of line type service on the CLI that is not owned$")
-    public void iInitiateAChangeOfLineTypeServiceOnTheCLIThatIsNotOwned() throws InterruptedException, SQLException {
+    public void iInitiateAChangeOfLineTypeServiceOnTheCLIThatIsNotOwned() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
         webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='01202300908'");
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300908","LU1 1DQ");
     }
 
