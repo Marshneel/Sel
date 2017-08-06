@@ -81,8 +81,8 @@ public class CompanyMenuPage {
     public void addNewSite() throws InterruptedException {
         accessCompanyMenu(NewBusinessCustomerPage.RanName);
         clickCompanySitesButton();
-        //utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
-        utils.switchToNewWindow(By.cssSelector(commonMethods.ADD_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
+        utils.switchToNewWindow();
     }
 
     public void addNewSiteNames() {
@@ -169,6 +169,7 @@ public class CompanyMenuPage {
     public void addCLIs(String ranName, String number) throws InterruptedException {
         accessCompanyMenu(ranName);
         clickCLIButton();
+        utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
        // utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindowByJavaExeClick(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         try {
@@ -229,8 +230,8 @@ public class CompanyMenuPage {
 
     public void addOneOffChargesPart1() throws InterruptedException {
         clickServiceChargesOneOffButton();
-        //utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-        utils.switchToNewWindow(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+        utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+        utils.switchToNewWindowByJavaExeClick(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
         utils.sendText(By.id(SERVICECHARGE_DESC_FIELD), utils.getProperty("serviceChargeOneOffDesc"));
         utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));
@@ -413,8 +414,8 @@ public class CompanyMenuPage {
         utils.waitForElementVisible(By.linkText(SERVICECHARGE_ONEOFF_BUTTON));
         utils.clickBtn(By.linkText(SERVICECHARGE_ONEOFF_BUTTON));
         utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
-       // utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
-        utils.switchToNewWindow(By.xpath(commonMethods.ADD_XPATH));
+        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
+        utils.switchToNewWindow();
 
         if (user == true) {
             utils.waitForElementVisible(By.xpath(COST_PRICE_TEXT_ON_ADD_SURCHARGE_PAGE));
@@ -438,8 +439,8 @@ public class CompanyMenuPage {
 
     public void assertResellerCannotSeeCostAndBaseLinePriceUnderServiceCharges() {
         utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
-      //  utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
-        utils.switchToNewWindow(By.xpath(commonMethods.ADD_XPATH));
+        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
+        utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(DESCRIPTION_TEXT_ON_ADD_SURCHARGE_PAGE));
         utils.assertElementNotPresent(By.xpath(COST_PRICE_TEXT_ON_ADD_SURCHARGE_PAGE));
         utils.assertElementNotPresent(By.xpath(BASELINE_COST_TEXT_ON_ADD_SURCHARGE_PAGE));
@@ -468,8 +469,8 @@ public class CompanyMenuPage {
 
     public void addServicePage_PriceRevertsBackWhenFieldIsEmpty() {
         utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
-     //  utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
-        utils.switchToNewWindow(By.xpath(commonMethods.ADD_XPATH));
+       utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
+        utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(SERVICECHARGE_CHARGETYPE_DROPDOWN));
         utils.selectByVisibleText(By.id(SERVICECHARGE_CHARGETYPE_DROPDOWN), "Analogue Basic Rental");
         editAndClearPrice(SALES_PRICE_FIELD, "13.0000", "15");
@@ -500,16 +501,16 @@ public class CompanyMenuPage {
     public void addServicePage_assertPriceRevertsBackWhenEmptyEvenAfterSavingChanges() {
         utils.switchToPreviousWindow(1);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
-       // utils.clickBtn(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
-        utils.switchToNewWindow(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
+        utils.switchToNewWindow();
         priceRevertsBackWhenClearedEvenAfterSaving(SALES_PRICE_FIELD, "15.0000", "13.0000");
         priceRevertsBackWhenClearedEvenAfterSaving(COST_PRICE_FIELD, "5.0000", "8.6400");
         priceRevertsBackWhenClearedEvenAfterSaving(BASELINE_COST_FIELD, "10.0000", "9.0000");
     }
     public void addServiceChargeToCustomerOrSite(String site) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+site+"')]"));
-       Thread.sleep(1000);
-        utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+site+"')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+site+"')]"));
+        utils.switchToNewWindow();
         addRecurringChargesPart1();
         utils.selectByVisibleText(By.id(SERVICECHARGE_FREQUENCY_DROPDOWN), utils.getProperty("serviceChargeOneOffFrequency"));
         utils.selectByVisibleText(By.id(SERVICECHARGE_CARRIER_DROPDOWN), utils.getProperty("serviceChargeCarrier"));
@@ -525,13 +526,13 @@ public class CompanyMenuPage {
     }
     public void assertChargesForResellerAndAgent(String site, String charge,boolean ifReseller, boolean IfAgent) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+site+"')]"));
-       Thread.sleep(1000);
-        utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+site+"')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+site+"')]"));
+        utils.switchToNewWindow();
         clickServiceChargesButton();
         clickServiceChargesOneOffButton();
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+charge+"')]"));
-       Thread.sleep(1000);
-        utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+charge+"')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+charge+"')]"));
+        utils.switchToNewWindow();
       if(ifReseller){  utils.waitForElementVisible(By.xpath("//label[contains(text(),'Cost Price')]/../../div[2]/input[@value='100.0000']"));}
         else {}
     if (IfAgent){ utils.waitForElementVisible(By.xpath("//label[contains(text(),'Sales Price')]/../../div[2]/input[@value='100.0000']"));

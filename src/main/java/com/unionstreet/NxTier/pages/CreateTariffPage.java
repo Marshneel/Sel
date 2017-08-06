@@ -41,9 +41,8 @@ public class CreateTariffPage {
     public void editTariffPlan() throws InterruptedException {
         commonMethods.search(RanTariffPlanName);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "')]"));
-        Thread.sleep(1000);
-      //utils.clickBtn(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "')]"));
-        utils.switchToNewWindow((By.xpath("//a[contains(text(),'" + RanTariffPlanName + "')]")));
+      utils.clickBtn(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "')]"));
+        utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(TARIFF_NAME_TEXT_BOX));
         utils.sendText(By.id(TARIFF_NAME_TEXT_BOX), RanTariffPlanName + "changed name");
         utils.waitForElementVisible(By.xpath(MOBILE_RADIO_BUTTON_UNDER_TARIFF_CAT));
@@ -120,9 +119,8 @@ public class CreateTariffPage {
   public void assertChargesOfTariffThatIsBasedOnAnAnotherTariff(String value,String attribute,boolean baseVal) throws InterruptedException {
       commonMethods.search(RanTariffPlanName);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
-     //Thread.sleep(1000);
-      //  utils.clickBtn(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
-       utils.switchToNewWindowByJavaExeClick(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
+      utils.clickBtn(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
+       utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(TARIFF_RATES_BUTTON));
         utils.clickBtn(By.id(TARIFF_RATES_BUTTON));
         utils.checkAlert();
@@ -155,8 +153,8 @@ public class CreateTariffPage {
     public void cpCannotAssignAgentsPlanToAnyOneElseNorCanHeRevokeIt(String plan, String tabButton, String name) throws InterruptedException {
         commonMethods.search(plan);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+plan+"')]"));
-     //   utils.clickBtn(By.xpath("//a[contains(text(),'"+plan+"')]"));
-         utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+plan+"')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+plan+"')]"));
+         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(""+tabButton+""));
         utils.clickBtn(By.id(""+tabButton+""));
         utils.waitForElementVisible(By.xpath("//tr[@class='SemiTransparent']//a[contains(text(),'"+name+"')]"));

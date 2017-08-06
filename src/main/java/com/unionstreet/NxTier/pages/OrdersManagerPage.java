@@ -203,8 +203,8 @@ public class OrdersManagerPage {
         utils.result.next();
         String one = utils.result.getString("order_id");
        try{ utils.waitForElementVisible(By.xpath("//a[text()='" + one + "']"));
-     // Thread.sleep(1000);
-        utils.switchToNewWindowByJavaExeClick(By.xpath("//a[text()='" + one + "']"));}
+           utils.clickBtn(By.xpath("//a[text()='" + one + "']"));
+        utils.switchToNewWindow();}
        catch (Exception e){utils.checkAlert();}
     }
 
@@ -285,8 +285,8 @@ public class OrdersManagerPage {
     public void processCease(String company, String CLI) {
         utils.getOrdersPage();
         utils.waitForElementVisible(By.xpath(TASK_POPUP));
-       // utils.clickBtn(By.xpath(ORDERID_UNDER_TASK));
-        utils.switchToNewWindow(By.xpath(ORDERID_UNDER_TASK));
+        utils.clickBtn(By.xpath(ORDERID_UNDER_TASK));
+        utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath("//a[text()='" + company + "']"));
         utils.clickBtn(By.xpath("//a[text()='" + company + "']"));
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'" + CLI + "')]"));
@@ -301,12 +301,12 @@ public class OrdersManagerPage {
     }
     public void clickOnQuote(){
       try{  utils.waitForElementVisible(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
-       // utils.clickBtn(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
-      utils.switchToNewWindow(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));}
+        utils.clickBtn(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
+      utils.switchToNewWindow();}
       catch (Exception e){utils.getOrdersPage();
           utils.waitForElementVisible(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
-         // utils.clickBtn(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
-          utils.switchToNewWindow(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
+          utils.clickBtn(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
+          utils.switchToNewWindow();
       }
     }
 }
