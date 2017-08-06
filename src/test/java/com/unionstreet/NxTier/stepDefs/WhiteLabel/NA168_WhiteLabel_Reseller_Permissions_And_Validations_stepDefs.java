@@ -33,7 +33,7 @@ public class NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs {
     }
 
     @Then("^I should see the charges at reseller's point of view$")
-    public void iShouldSeeTheChargesAtResellerSPointOfView() {
+    public void iShouldSeeTheChargesAtResellerSPointOfView() throws InterruptedException {
         webModel.getCompanyMenuPage().assertChargesForResellerAndAgent("site called business customer","Additional Channels T-Reference",true,false);
     }
 

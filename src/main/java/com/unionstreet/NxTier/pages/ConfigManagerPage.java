@@ -262,8 +262,9 @@ public class ConfigManagerPage {
     public void assertCPAssignedPackagesAreNotEditable(String packageName) throws InterruptedException {
         commonMethods.search(packageName);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + packageName + "')]"));
-       // utils.clickBtn(By.xpath("//a[contains(text(),'" + packageName + "')]"));
-        utils.switchToNewWindow(By.xpath("//a[contains(text(),'" + packageName + "')]"));
+
+        // utils.clickBtn(By.xpath("//a[contains(text(),'" + packageName + "')]"));
+        utils.switchToNewWindowByJavaExeClick(By.xpath("//a[contains(text(),'" + packageName + "')]"));
         utils.waitForElementVisible(By.xpath(DISABLED_PACKAGE_NAME));
         utils.waitForElementVisible(By.xpath(DISABLED_VOICE_TARIFF_UNDER_EDIT_PACKAGE));
         utils.waitForElementVisible(By.xpath("//input[@id='_selectedFreemins_0__isSelected'][@readonly='readonly']"));
@@ -272,6 +273,7 @@ public class ConfigManagerPage {
     public void editCreatedPackage() throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanPackageName + "')]"));
         //utils.clickBtn(By.xpath("//a[contains(text(),'" + RanPackageName + "')]"));
+       Thread.sleep(1000);
         utils.switchToNewWindow(By.xpath("//a[contains(text(),'" + RanPackageName + "')]"));
         utils.waitForElementVisible(By.id(EDIT_PACKAGE_NAME_FIELD));
         utils.sendText(By.id(EDIT_PACKAGE_NAME_FIELD), RanPackageName + "editedName");
@@ -286,7 +288,7 @@ public class ConfigManagerPage {
         commonMethods.search(RanPackageName + "editedName");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanPackageName + "editedName" + "')]"));
        // utils.clickBtn(By.xpath("//a[contains(text(),'" + RanPackageName + "editedName" + "')]"));
-        utils.switchToNewWindow(By.xpath("//a[contains(text(),'" + RanPackageName + "editedName" + "')]"));
+        utils.switchToNewWindowByJavaExeClick(By.xpath("//a[contains(text(),'" + RanPackageName + "editedName" + "')]"));
         utils.waitForElementVisible(By.xpath("//select[@id='mpackage_lcr_tariff']//option[@selected='selected'][contains(text(),'" + createTariffPage.RanTariffPlanName + "')]"));
         utils.waitForElementVisible(By.xpath("//table[@id='GroupTable']//tr/following-sibling::tr/td[contains(text(),'" + RanFreeMinutePlanName + "')]/following-sibling::td/label"));
 

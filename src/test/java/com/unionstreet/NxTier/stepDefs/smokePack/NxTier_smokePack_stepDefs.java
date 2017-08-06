@@ -131,6 +131,7 @@ public class NxTier_smokePack_stepDefs {
 //        webModel.getCompanyMenuPage().assertAddedPricingDetails();
         webModel.getDashBoardPage().logOut();
     }
+
 }
 
 
