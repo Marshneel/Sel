@@ -170,7 +170,7 @@ public class CompanyMenuPage {
         accessCompanyMenu(ranName);
         clickCLIButton();
        // utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-        utils.switchToNewWindow(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+        utils.switchToNewWindowByJavaExeClick(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         try {
            utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));
             utils.clickBtn(By.id(CLI_NUMBER_FIELD));
