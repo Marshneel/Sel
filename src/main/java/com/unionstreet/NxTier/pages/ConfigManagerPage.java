@@ -117,11 +117,12 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
     }
 
-    public void assertFreeMinutesAreNotEditable(String freeMinutePlan) {
+    public void assertFreeMinutesAreNotEditable(String freeMinutePlan) throws InterruptedException {
       //  utils.clickBtn(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
-        utils.switchToNewWindow(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
+        utils.switchToNewWindowByJavaExeClick(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
         utils.waitForElementVisible(By.xpath(EDIT_FREE_MINUTES_ICON));
         //utils.clickBtn(By.xpath(EDIT_FREE_MINUTES_ICON));
+       Thread.sleep(1000);
         utils.switchToNewWindow(By.xpath(EDIT_FREE_MINUTES_ICON));
         utils.waitForElementVisible(By.xpath(EDIT_FREEMINS_DISABLED_DESCRIPTION));
         utils.waitForElementVisible(By.xpath(EDIT_FREEMINS_DISABLED_WHAT));
@@ -152,7 +153,7 @@ public class ConfigManagerPage {
         accessFreeMinutesTab();
         utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
         //utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
-        utils.switchToNewWindow(By.cssSelector(commonMethods.ADD_BUTTON));
+        utils.switchToNewWindowByJavaExeClick(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_NAME_FIELD));
         RanFreeMinutePlanName = utils.randomName();
        Thread.sleep(1000);
@@ -160,7 +161,7 @@ public class ConfigManagerPage {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
        //utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
-        utils.switchToNewWindow(By.cssSelector(commonMethods.ADD_BUTTON));
+        utils.switchToNewWindowByJavaExeClick(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD));
         utils.sendText(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD), "100");
         utils.selectByVisibleText(By.id(EDIT_FREE_MINUTES_WHAT_DROPDOWN), "Calls");
@@ -184,7 +185,7 @@ public class ConfigManagerPage {
         commonMethods.search(RanFreeMinutePlanName);
         Thread.sleep(1000);
        // utils.clickBtn(By.xpath("//a[contains(text(),'" + RanFreeMinutePlanName + "')]"));
-        utils.switchToNewWindow(By.xpath("//a[contains(text(),'" + RanFreeMinutePlanName + "')]"));
+        utils.switchToNewWindowByJavaExeClick(By.xpath("//a[contains(text(),'" + RanFreeMinutePlanName + "')]"));
         utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_NAME_FIELD));
         utils.sendText(By.id(EDIT_FREE_MINUTES_NAME_FIELD), RanFreeMinutePlanName + "changed name");
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
@@ -192,7 +193,7 @@ public class ConfigManagerPage {
         utils.checkAlert();
         utils.waitForElementVisible(By.xpath(EDIT_FREE_MINUTES_ICON));
       //  utils.clickBtn(By.xpath(EDIT_FREE_MINUTES_ICON));
-        utils.switchToNewWindow(By.xpath(EDIT_FREE_MINUTES_ICON));
+        utils.switchToNewWindowByJavaExeClick(By.xpath(EDIT_FREE_MINUTES_ICON));
         utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD));
         utils.sendText(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD),amount);
         utils.waitForElementVisible(By.xpath(EDIT_FREEMINS_DISABLED_WHAT));
