@@ -34,8 +34,8 @@ public class NewBusinessCustomerPage {
         } catch (Exception e) {
             utils.getCreateCustomerPage();
         }
-       // utils.clickBtn(By.linkText(ADD_BUTTON));
-        utils.switchToNewWindow(By.linkText(ADD_BUTTON));
+        utils.waitForElementToBeClickable(By.linkText(ADD_BUTTON));
+        utils.switchToNewWindowByJavaExeClick(By.linkText(ADD_BUTTON));
     }
 
     public void companyInfoForNewBusinessCustomer() {
@@ -46,8 +46,8 @@ public class NewBusinessCustomerPage {
         } catch (Exception e) {
             utils.getCreateCustomerPage();
             utils.waitForElementVisible(By.linkText(ADD_BUTTON));
-            //utils.clickBtn(By.linkText(ADD_BUTTON));
-            utils.switchToNewWindow(By.linkText(ADD_BUTTON));
+            utils.clickBtn(By.linkText(ADD_BUTTON));
+            utils.switchToNewWindow();
             utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
         }}
     public void createContactType(){

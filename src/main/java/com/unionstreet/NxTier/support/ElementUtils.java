@@ -116,17 +116,16 @@ public class ElementUtils {
     }
 
     //switching to new window
-    public void switchToNewWindow(By by) {
+    public void switchToNewWindow() {
         parentWindow = driver.getWindowHandle();
-        driver.findElement(by).click();
         Set<String> handles = driver.getWindowHandles();
         for (String windowHandle : handles) {
             if (!windowHandle.equals(parentWindow)) {
-                driver.switchTo().window(windowHandle);
-                driver.manage().window().maximize();
-            }
+            driver.switchTo().window(windowHandle);
+            driver.manage().window().maximize();
+
         }
-    }
+    }}
     public void switchToNewWindowByJavaExeClick(By by) throws InterruptedException {
         parentWindow = driver.getWindowHandle();
         Thread.sleep(2000);
