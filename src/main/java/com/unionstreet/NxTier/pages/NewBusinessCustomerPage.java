@@ -35,7 +35,8 @@ public class NewBusinessCustomerPage {
             utils.getCreateCustomerPage();
         }
         utils.waitForElementToBeClickable(By.linkText(ADD_BUTTON));
-        utils.switchToNewWindowByJavaExeClick(By.linkText(ADD_BUTTON));
+        utils.clickBtn(By.linkText(ADD_BUTTON));
+        utils.switchToNewWindow();
     }
 
     public void companyInfoForNewBusinessCustomer() {
@@ -79,6 +80,6 @@ public class NewBusinessCustomerPage {
         utils.clickBtn(By.cssSelector(SAVE_BUTTON));
         utils.verifyStringMatch(By.id(SAVEDMESSAGE_INFO), utils.getProperty("savedMessage"));
         utils.closeCurrentPage();
-        utils.switchToParentWindow();
+        utils.switchToPreviousWindow(0);
     }
 }
