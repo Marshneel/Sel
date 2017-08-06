@@ -45,6 +45,8 @@ public class WebModel {
     private ConfigManagerPage configManagerPage;
     private CreateTariffPage createTariffPage;
     private ServiceDesk_LoginIncidentPage serviceDesk_loginIncidentPage;
+    private SipTrunkPlus_DashBoardPage sipTrunkPlus_dashBoardPage;
+    private SipTrunkPlus_AddResellerPage sipTrunkPlus_addResellerPage;
 
     public WebModel() {
         utils = new ElementUtils();
@@ -83,17 +85,19 @@ public class WebModel {
         wlr3_changeOfLineTypeOrderPage = new WLR3_ChangeOfLineTypeOrderPage();
         wlr3_line_information_page = new WLR3_Line_Information_Page();
         wlr3_businessContinuityPage = new WLR3_BusinessContinuityPage();
-        wlr3_summary_charges_page=new WLR3_Summary_Charges_Page();
-        serviceDeskPage=new ServiceDeskPage();
-        configManagerPage=new ConfigManagerPage();
+        wlr3_summary_charges_page = new WLR3_Summary_Charges_Page();
+        serviceDeskPage = new ServiceDeskPage();
+        configManagerPage = new ConfigManagerPage();
         createTariffPage = new CreateTariffPage();
-        serviceDesk_loginIncidentPage=new ServiceDesk_LoginIncidentPage();
+        serviceDesk_loginIncidentPage = new ServiceDesk_LoginIncidentPage();
+        sipTrunkPlus_dashBoardPage = new SipTrunkPlus_DashBoardPage();
+        sipTrunkPlus_addResellerPage = new SipTrunkPlus_AddResellerPage();
 
 
     }
 
     public ElementUtils getUtils() {
-        return utils ;
+        return utils;
     }
 
     public LoginPage getLoginPage() {
@@ -232,22 +236,32 @@ public class WebModel {
         return wlr3_businessContinuityPage;
     }
 
-    public WLR3_Summary_Charges_Page getWlr3_summary_charges_page(){
+    public WLR3_Summary_Charges_Page getWlr3_summary_charges_page() {
         return wlr3_summary_charges_page;
     }
-    public ServiceDeskPage getServiceDeskPage(){
+
+    public ServiceDeskPage getServiceDeskPage() {
         return serviceDeskPage;
     }
 
-    public ConfigManagerPage getConfigManagerPage(){
+    public ConfigManagerPage getConfigManagerPage() {
         return configManagerPage;
     }
 
-    public CreateTariffPage getCreateTariffPage(){
+    public CreateTariffPage getCreateTariffPage() {
         return createTariffPage;
     }
-    public ServiceDesk_LoginIncidentPage getServiceDesk_loginIncidentPage(){
+
+    public ServiceDesk_LoginIncidentPage getServiceDesk_loginIncidentPage() {
         return serviceDesk_loginIncidentPage;
+    }
+
+    public SipTrunkPlus_DashBoardPage getSipTrunkPlus_dashBoardPage() {
+        return sipTrunkPlus_dashBoardPage;
+    }
+
+    public SipTrunkPlus_AddResellerPage getSipTrunkPlus_addResellerPage() {
+        return sipTrunkPlus_addResellerPage;
     }
 }
 

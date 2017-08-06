@@ -523,12 +523,14 @@ public class CompanyMenuPage {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.switchToPreviousWindow(0);
     }
-    public void assertChargesForResellerAndAgent(String site, String charge,boolean ifReseller, boolean IfAgent){
+    public void assertChargesForResellerAndAgent(String site, String charge,boolean ifReseller, boolean IfAgent) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+site+"')]"));
+       Thread.sleep(1000);
         utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+site+"')]"));
         clickServiceChargesButton();
         clickServiceChargesOneOffButton();
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+charge+"')]"));
+       Thread.sleep(1000);
         utils.switchToNewWindow(By.xpath("//a[contains(text(),'"+charge+"')]"));
       if(ifReseller){  utils.waitForElementVisible(By.xpath("//label[contains(text(),'Cost Price')]/../../div[2]/input[@value='100.0000']"));}
         else {}

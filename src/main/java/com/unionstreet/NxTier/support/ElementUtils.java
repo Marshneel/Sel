@@ -102,6 +102,9 @@ public class ElementUtils {
         waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));
       //  loopThroughWebPagesUntilElementIsFound(by);
     }
+    public void waitForElementToBeClickable(By by){
+        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
+    }
 
     public void waitForElementVisibleForWLR3Page(By by) {
         waitForSomeTimeForWLR3().until(ExpectedConditions.presenceOfElementLocated(by));
@@ -184,7 +187,7 @@ public class ElementUtils {
 
     //browser selector
     public WebDriver browser() {
-       String browser=System.getProperty("browser");
+      String browser=System.getProperty("browser");
         try {
 
             if (browser.equalsIgnoreCase("chrome")) {
@@ -564,6 +567,9 @@ public class ElementUtils {
     public void loadBranchURLForServiceDesk() {
         driver.get("http://test01-web01/RajeshNB");
     }
+    public void loadSipTrunkURL(){
+        driver.get("http://159.8.174.50:8080/#!login");
+    }
 
     public void assertUnchecked(By by) {
         WebElement element = driver.findElement(by);
@@ -604,6 +610,16 @@ public class ElementUtils {
 //            break;
 //        }
 //    }
+public void performClickActionTillElementIsDetected(By elementWanted, By clickElement) {
+
+    driver.findElement(clickElement).click();
+    if (driver.findElement(elementWanted).isDisplayed()) {
+    } else {
+        driver.findElement(clickElement).click();
+    }
+    waitForElementVisible(elementWanted);
+
+}
 }
 
 

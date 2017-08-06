@@ -106,6 +106,19 @@ public class LoginPage {
             utils.checkAlert();
         }
     }
+    public void loginAsMasterUser() throws InterruptedException {
+        utils.loadSipTrunkURL();
+        utils.waitForElementVisible(By.id("gwt-uid-3"));
+        utils.sendText(By.id("gwt-uid-3"),"autotest01");
+        utils.waitForElementVisible(By.id("gwt-uid-5"));
+        utils.sendText(By.id("gwt-uid-5"),"nOnzksled8");
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Sign In')]"));
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.xpath("//span[contains(text(),'Sign In')]"));
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'SIP Trunk Plus by 500 Limited')]"));
+
+
+    }
 }
 
 

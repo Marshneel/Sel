@@ -45,7 +45,7 @@ public class NA169_WhiteLabel_CP_vs_Agent_misc_stepDefs {
     }
 
     @Then("^I should be able to see the prices as an agent point of view$")
-    public void iShouldBeAbleToSeeThePricesAsAnAgentPointOfView(){
+    public void iShouldBeAbleToSeeThePricesAsAnAgentPointOfView() throws InterruptedException {
         webModel.getCompanyMenuPage().assertChargesForResellerAndAgent("business customer agent assigned","Additional Channels T-Reference",false,true);
 
     }
