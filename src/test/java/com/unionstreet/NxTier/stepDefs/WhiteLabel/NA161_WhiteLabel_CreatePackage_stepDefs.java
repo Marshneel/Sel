@@ -88,7 +88,7 @@ public class NA161_WhiteLabel_CreatePackage_stepDefs {
         iAssignAPackageToAgent();
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
-      //  webModel.getUtils().switchToNewWindow();
+        webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
       webModel.getCompanyMenuPage().assignOrDeletePackageToCustomer("Gamma Mobile Contract Package 1");
         webModel.getDashBoardPage().logOut();
@@ -100,12 +100,12 @@ public class NA161_WhiteLabel_CreatePackage_stepDefs {
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
-      //  webModel.getUtils().switchToNewWindow();
+        webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
         webModel.getCompanyMenuPage().assignOrDeletePackageToCustomer("Select");
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
-      ///  webModel.getUtils().switchToNewWindow();
+        webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
         webModel.getCompanyMenuPage().assertAgentCannotRe_AssignDeletedCustomerPackageUnlessItsAssignedToHim("Gamma Mobile Contract Package 1","Winter Special Promotion");
 

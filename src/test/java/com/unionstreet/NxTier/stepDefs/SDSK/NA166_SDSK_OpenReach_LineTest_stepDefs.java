@@ -1,6 +1,7 @@
 package com.unionstreet.NxTier.stepDefs.SDSK;
 
 import com.unionstreet.NxTier.support.WebModel;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -20,12 +21,35 @@ public class NA166_SDSK_OpenReach_LineTest_stepDefs {
         webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(false);
         webModel.getServiceDesk_loginIncidentPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_loginIncidentPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2");
+        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2",true);
     }
 
     @Then("^I should be able to validate the line test functionality$")
     public void iShouldBeAbleToValidateTheLineTestFunctionality() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
     webModel.getServiceDesk_loginIncidentPage().lineTest_Fail();
         webModel.getServiceDesk_loginIncidentPage().lineTest_Pass();
+    }
+
+    @And("^I should be able to assert that the line test is absent for ISDN(\\d+) and virtual lines$")
+    public void iShouldBeAbleToAssertThatTheLineTestIsAbsentForISDNAndVirtualLines(int arg0)  {
+
+    }
+
+    @When("^I navigate to obtain installation details page$")
+    public void iNavigateToObtainInstallationDetailsPage() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
+        na160.iNavigateToTheTriagePageOfTheIncidentWizard();
+        webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_loginIncidentPage().assertTextOnTicketDetailsPage();
+        webModel.getServiceDesk_loginIncidentPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
+
+    }
+
+    @Then("^I should be able to assert that the lineTest is un-available for ISDN(\\d+) and virtual lines$")
+    public void iShouldBeAbleToAssertThatTheLineTestIsUnAvailableForISDNAndVirtualLines(int arg0) throws InterruptedException {
+        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01202300945","WLR3 ISDN 30 ETSI","8","4",true);
+        webModel.getServiceDesk_loginIncidentPage().assertLineTestAndTRCAbsentForISDN30AndVirtualLines();
+        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01202300912","WLR RCF","2","2",false);
+        webModel.getServiceDesk_loginIncidentPage().assertLineTestAndTRCAbsentForISDN30AndVirtualLines();
+
     }
 }

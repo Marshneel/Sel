@@ -49,7 +49,7 @@ public class NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs {
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer(webModel.getNewBusinessCustomerPage().Reseller_RanName);
-        //webModel.getUtils().switchToNewWindow();
+        webModel.getUtils().switchToNewWindow();
         webModel.getContactManagerPage().assertSiteIsNonBillingSite("reseller");
     }
 }
