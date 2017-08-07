@@ -84,7 +84,7 @@ public class SipTrunkPlus_AddResellerPage {
         utils.clickBtn(By.xpath("//div[@id='VAADIN_COMBOBOX_OPTIONLIST']//span[contains(text(),'New reseller"+ranResellerName+"')]"));
         utils.waitForElementVisible(By.xpath(NEXT_BUTTON));
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath(NEXT_BUTTON));}
+        utils.javaScriptExecutorClick(By.xpath(NEXT_BUTTON));}
     public void addClient_additional(String profile) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//option[contains(text(),'"+profile+"')]"));
         utils.clickBtn(By.xpath("//option[contains(text(),'"+profile+"')]"));
@@ -92,7 +92,7 @@ public class SipTrunkPlus_AddResellerPage {
         utils.clickBtn(By.xpath(ADD_PROFILE));
         utils.waitForElementVisible(By.xpath(NEXT_BUTTON));
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath(NEXT_BUTTON));
+        utils.javaScriptExecutorClick(By.xpath(NEXT_BUTTON));
     }
 
 

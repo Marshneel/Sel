@@ -29,12 +29,12 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
         webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(false);
         webModel.getServiceDesk_loginIncidentPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_loginIncidentPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-
+        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2",true);
     }
 
     @Then("^I should be able to check validations pertaining to single analogue line$")
     public void iShouldBeAbleToCheckValidationsPertainingToSingleAnalogueLine() throws InterruptedException {
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2");
+
         webModel.getServiceDesk_loginIncidentPage().faultDetails_assertionForAnalogueLines(false);
 
     }
@@ -46,7 +46,7 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
         webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(false);
         webModel.getServiceDesk_loginIncidentPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_loginIncidentPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01202300909","PSTN Multi Line Aux","2","2");
+        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01202300909","PSTN Multi Line Aux","2","2",true);
 
     }
 
@@ -62,7 +62,7 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
         webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(false);
         webModel.getServiceDesk_loginIncidentPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_loginIncidentPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01202300945","WLR3 ISDN 30 ETSI","8","4");
+        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01202300945","WLR3 ISDN 30 ETSI","8","4",true);
 
     }
 
@@ -78,7 +78,7 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
         webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(false);
         webModel.getServiceDesk_loginIncidentPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_loginIncidentPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01202300920","WLR3 ISDN 2e System","2","2");
+        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01202300920","WLR3 ISDN 2e System","2","2",true);
 
 
     }

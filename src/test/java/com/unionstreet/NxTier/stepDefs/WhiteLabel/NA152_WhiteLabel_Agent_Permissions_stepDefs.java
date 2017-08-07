@@ -115,7 +115,7 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
         webModel.getConfigManagerPage().assignFreeMinutesPlanToAgent("Mobile 250 Free Mins (UK and Mob","checkbox0");
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
-      //  webModel.getUtils().switchToNewWindow();
+        webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
         webModel.getCompanyMenuPage().assignTariffAndFreeMinutesToCustomer("Mobile Gamma 1GB Data","Sell Data Tariff");
         webModel.getDashBoardPage().logOut();
@@ -127,7 +127,7 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
     public void navigateToPricingDetailsOfThatParticularCustomer() throws InterruptedException {
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
-      //  webModel.getUtils().switchToNewWindow();
+        webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
     }
 

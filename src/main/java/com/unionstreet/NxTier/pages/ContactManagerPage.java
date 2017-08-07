@@ -70,8 +70,9 @@ public class ContactManagerPage {
     public  void searchAndClickBusinessCustomer(String customerName) throws InterruptedException {
         commonMethods.search(""+customerName+"");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+customerName+"')]"));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'"+customerName+"')]"));
-        utils.switchToNewWindow();
+
     }
     public void assertSiteIsNonBillingSite(String mainBillingSite){
         utils.waitForElementVisible(By.xpath(NON_BILLING_TEXT_UNDER_SITE_INFO));
