@@ -9,7 +9,7 @@ public class NA155_WhiteLabel_differenceBetween_Agent_And_CP_createTariffScreens
 
 
     @When("^I navigate to create tariff screen$")
-    public void iNavigateToCreateTariffScreen() {
+    public void iNavigateToCreateTariffScreen() throws InterruptedException {
         webModel.getDashBoardPage().clickConfigManager();
         webModel.getConfigManagerPage().navigateToAddTariffPlan();
     }

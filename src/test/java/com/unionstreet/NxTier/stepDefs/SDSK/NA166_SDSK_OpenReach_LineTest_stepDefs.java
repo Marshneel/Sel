@@ -18,16 +18,17 @@ public class NA166_SDSK_OpenReach_LineTest_stepDefs {
     @When("^I raise an open reach incident on an analogue line$")
     public void iRaiseAnOpenReachIncidentOnAnAnalogueLine() throws ClassNotFoundException, SQLException, InterruptedException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(false);
-        webModel.getServiceDesk_loginIncidentPage().assertTextOnTicketDetailsPage();
-        webModel.getServiceDesk_loginIncidentPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2",true);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
+        webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2",true);
     }
 
     @Then("^I should be able to validate the line test functionality$")
     public void iShouldBeAbleToValidateTheLineTestFunctionality() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
-    webModel.getServiceDesk_loginIncidentPage().lineTest_Fail();
-        webModel.getServiceDesk_loginIncidentPage().lineTest_Pass();
+    webModel.getServiceDesk_ticketDetailsPage().lineTest_Fail();
+        webModel.getServiceDesk_ticketDetailsPage().lineTest_Pass();
+        webModel.getServiceDesk_ticketDetailsPage().overNightLineTest();
     }
 
     @And("^I should be able to assert that the line test is absent for ISDN(\\d+) and virtual lines$")
@@ -38,18 +39,20 @@ public class NA166_SDSK_OpenReach_LineTest_stepDefs {
     @When("^I navigate to obtain installation details page$")
     public void iNavigateToObtainInstallationDetailsPage() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(false);
-        webModel.getServiceDesk_loginIncidentPage().assertTextOnTicketDetailsPage();
-        webModel.getServiceDesk_loginIncidentPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
+        webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
 
     }
 
     @Then("^I should be able to assert that the lineTest is un-available for ISDN(\\d+) and virtual lines$")
-    public void iShouldBeAbleToAssertThatTheLineTestIsUnAvailableForISDNAndVirtualLines(int arg0) throws InterruptedException {
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01202300945","WLR3 ISDN 30 ETSI","8","4",true);
-        webModel.getServiceDesk_loginIncidentPage().assertLineTestAndTRCAbsentForISDN30AndVirtualLines();
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01202300912","WLR RCF","2","2",false);
-        webModel.getServiceDesk_loginIncidentPage().assertLineTestAndTRCAbsentForISDN30AndVirtualLines();
+    public void iShouldBeAbleToAssertThatTheLineTestIsUnAvailableForISDNAndVirtualLines(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("01202300945","WLR3 ISDN 30 ETSI","8","4",true);
+        webModel.getServiceDesk_ticketDetailsPage().assertLineTestAndTRCAbsentForISDN30AndVirtualLines();
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set product='WLR RCF' where serviceid='ORCF00000002'");
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("01202300912","WLR RCF","2","2",false);
+        webModel.getServiceDesk_ticketDetailsPage().assertLineTestAndTRCAbsentForISDN30AndVirtualLines();
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set product='WLR3 ISDN RCF' where serviceid='ORCF00000002'");
 
     }
 }

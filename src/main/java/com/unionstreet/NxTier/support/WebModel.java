@@ -44,9 +44,10 @@ public class WebModel {
     private ServiceDeskPage serviceDeskPage;
     private ConfigManagerPage configManagerPage;
     private CreateTariffPage createTariffPage;
-    private ServiceDesk_LoginIncidentPage serviceDesk_loginIncidentPage;
+    private ServiceDesk_CallerDetails_TriagePage serviceDesk_callerDetailsTriagePage;
     private SipTrunkPlus_DashBoardPage sipTrunkPlus_dashBoardPage;
     private SipTrunkPlus_AddResellerPage sipTrunkPlus_addResellerPage;
+    private ServiceDesk_TicketDetailsPage serviceDesk_ticketDetailsPage;
 
     public WebModel() {
         utils = new ElementUtils();
@@ -89,9 +90,10 @@ public class WebModel {
         serviceDeskPage = new ServiceDeskPage();
         configManagerPage = new ConfigManagerPage();
         createTariffPage = new CreateTariffPage();
-        serviceDesk_loginIncidentPage = new ServiceDesk_LoginIncidentPage();
+        serviceDesk_callerDetailsTriagePage = new ServiceDesk_CallerDetails_TriagePage();
         sipTrunkPlus_dashBoardPage = new SipTrunkPlus_DashBoardPage();
         sipTrunkPlus_addResellerPage = new SipTrunkPlus_AddResellerPage();
+        serviceDesk_ticketDetailsPage=new ServiceDesk_TicketDetailsPage();
 
 
     }
@@ -252,8 +254,8 @@ public class WebModel {
         return createTariffPage;
     }
 
-    public ServiceDesk_LoginIncidentPage getServiceDesk_loginIncidentPage() {
-        return serviceDesk_loginIncidentPage;
+    public ServiceDesk_CallerDetails_TriagePage getServiceDesk_callerDetailsTriagePage() {
+        return serviceDesk_callerDetailsTriagePage;
     }
 
     public SipTrunkPlus_DashBoardPage getSipTrunkPlus_dashBoardPage() {
@@ -263,6 +265,11 @@ public class WebModel {
     public SipTrunkPlus_AddResellerPage getSipTrunkPlus_addResellerPage() {
         return sipTrunkPlus_addResellerPage;
     }
+
+    public ServiceDesk_TicketDetailsPage getServiceDesk_ticketDetailsPage(){
+        return serviceDesk_ticketDetailsPage;
+    }
+
 }
 
 

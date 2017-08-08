@@ -65,6 +65,7 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.xpath(CONFIG_MANAGER_BLUE_LABEL));
         commonMethods.search("" + tariffplan + "");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
+       Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(createTariffPage.TARIFF_RATES_BUTTON));
@@ -84,6 +85,7 @@ public class ConfigManagerPage {
         accessFreeMinutesTab();
         commonMethods.search("" + freeMinutePlan + "");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(ASSIGN_FREE_MINUTES_TAB));
@@ -94,6 +96,7 @@ public class ConfigManagerPage {
     public void assignPackageToAgent(String Package, String assignee) throws InterruptedException {
         commonMethods.search("" + Package + "");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + Package + "')]"));
+      Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'" + Package + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(ASSIGN_PACKAGE_TAB));
@@ -117,9 +120,11 @@ public class ConfigManagerPage {
     }
 
     public void assertFreeMinutesAreNotEditable(String freeMinutePlan) throws InterruptedException {
+       Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(EDIT_FREE_MINUTES_ICON));
+      Thread.sleep(1000);
         utils.clickBtn(By.xpath(EDIT_FREE_MINUTES_ICON));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(EDIT_FREEMINS_DISABLED_DESCRIPTION));
@@ -132,6 +137,7 @@ public class ConfigManagerPage {
         utils.clickBtn(By.xpath(TARIFF_MANAGER_TAB));
         commonMethods.search(tariffPlan);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffPlan + "')]"));
+       Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'" + tariffPlan + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(DISABLED_TARIFF_NAME));
@@ -140,8 +146,9 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.xpath(DISABLED_MIN_CHARGE_UNDER_TARIFF_RATES_LIST));
     }
 
-    public void navigateToAddTariffPlan() {
+    public void navigateToAddTariffPlan() throws InterruptedException {
         utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
+       Thread.sleep(1000);
         utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(createTariffPage.TARIFF_NAME_TEXT_BOX));
@@ -158,6 +165,7 @@ public class ConfigManagerPage {
         utils.sendText(By.id(EDIT_FREE_MINUTES_NAME_FIELD), RanFreeMinutePlanName);
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
+      Thread.sleep(1000);
        utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD));
@@ -182,6 +190,7 @@ public class ConfigManagerPage {
         accessFreeMinutesTab();
         commonMethods.search(RanFreeMinutePlanName);
         utils.waitForElementToBeClickable(By.xpath("//a[contains(text(),'" + RanFreeMinutePlanName + "')]"));
+       Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'" + RanFreeMinutePlanName + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_NAME_FIELD));
@@ -190,6 +199,7 @@ public class ConfigManagerPage {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.checkAlert();
         utils.waitForElementVisible(By.xpath(EDIT_FREE_MINUTES_ICON));
+       Thread.sleep(1000);
         utils.clickBtn(By.xpath(EDIT_FREE_MINUTES_ICON));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD));
@@ -215,8 +225,9 @@ public class ConfigManagerPage {
         utils.clickBtn(By.xpath(PACKAGE_MANAGER_TAB));
     }
 
-    public void clickAdd() {
+    public void clickAdd() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
+       Thread.sleep(1000);
         utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
         utils.switchToNewWindow();
 
@@ -262,6 +273,7 @@ public class ConfigManagerPage {
     public void assertCPAssignedPackagesAreNotEditable(String packageName) throws InterruptedException {
         commonMethods.search(packageName);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + packageName + "')]"));
+        Thread.sleep(1000);
          utils.clickBtn(By.xpath("//a[contains(text(),'" + packageName + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(DISABLED_PACKAGE_NAME));
@@ -271,6 +283,7 @@ public class ConfigManagerPage {
 
     public void editCreatedPackage() throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanPackageName + "')]"));
+       Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'" + RanPackageName + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(EDIT_PACKAGE_NAME_FIELD));
@@ -285,6 +298,7 @@ public class ConfigManagerPage {
         utils.switchToPreviousWindow(0);
         commonMethods.search(RanPackageName + "editedName");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanPackageName + "editedName" + "')]"));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'" + RanPackageName + "editedName" + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath("//select[@id='mpackage_lcr_tariff']//option[@selected='selected'][contains(text(),'" + createTariffPage.RanTariffPlanName + "')]"));
@@ -317,6 +331,7 @@ public class ConfigManagerPage {
     public void cpCannotAssignAgentsFreeMinutesAndPackagesToAnyOneElseNorCanHeRevokeIt(String plan, String tabButton, String name, String row) throws InterruptedException {
         commonMethods.search(plan);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+plan+"')]"));
+       Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'"+plan+"')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(""+tabButton+""));

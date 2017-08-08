@@ -20,6 +20,7 @@ public class NewBusinessCustomerPage {
     private final String CONTACTTYPE_RESELLER = "//label[@for='DCompany_is_reseller']";
     private final String VATPOPUP = "//span[@class='ui-button-text'][contains(text(),'Yes')]";
     public final String CHANNELDETAILS_AGENT = "DAgentCommission_agent_id";
+    private final String TELEPHONY_CUSTOMER_CHECKBOX="DCompany_is_customer";
 
     ElementUtils utils = new ElementUtils();
 
@@ -52,9 +53,15 @@ public class NewBusinessCustomerPage {
             utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
         }}
     public void createContactType(){
+    utils.waitForElementVisible(By.id(TELEPHONY_CUSTOMER_CHECKBOX));
+        utils.makeSureBoxIsUnChecked(By.id(TELEPHONY_CUSTOMER_CHECKBOX),By.id(TELEPHONY_CUSTOMER_CHECKBOX));
         utils.clickBtn(By.xpath(CONTACTTYPE_AGENT));
-        utils.jumpToPopUpWindow(By.xpath(CONTACTTYPE_RESELLER));
-        utils.clickBtn(By.xpath(VATPOPUP));
+       // utils.jumpToPopUpWindow(By.xpath(CONTACTTYPE_RESELLER));
+       // utils.clickBtn(By.xpath(VATPOPUP));
+    }
+    public void validationMessage_whenAgentAndResellerCheckedIn(){
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Cannot Be Agent And Reseller')]"));
+
     }
 
     public void addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes() {
