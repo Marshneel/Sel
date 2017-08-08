@@ -170,7 +170,7 @@ public class CompanyMenuPage {
         accessCompanyMenu(ranName);
         clickCLIButton();
         utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-       // utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+       Thread.sleep(1000);
         utils.switchToNewWindowByJavaExeClick(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         try {
            utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));
@@ -525,12 +525,14 @@ public class CompanyMenuPage {
         utils.switchToPreviousWindow(0);
     }
     public void assertChargesForResellerAndAgent(String site, String charge,boolean ifReseller, boolean IfAgent) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+site+"')]"));
+        utils.waitForElementToBeClickable(By.xpath("//a[contains(text(),'"+site+"')]"));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'"+site+"')]"));
         utils.switchToNewWindow();
         clickServiceChargesButton();
         clickServiceChargesOneOffButton();
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+charge+"')]"));
+        utils.waitForElementToBeClickable(By.xpath("//a[contains(text(),'"+charge+"')]"));
+       Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'"+charge+"')]"));
         utils.switchToNewWindow();
       if(ifReseller){  utils.waitForElementVisible(By.xpath("//label[contains(text(),'Cost Price')]/../../div[2]/input[@value='100.0000']"));}

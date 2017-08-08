@@ -189,4 +189,17 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
 
+    @When("^i navigate to the add customer page and click both agent and reseller$")
+    public void iNavigateToTheAddCustomerPageAndClickBothAgentAndReseller() throws InterruptedException {
+        webModel.getNewBusinessCustomerPage().clickContactManagerButton();
+        webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
+        webModel.getNewBusinessCustomerPage().companyInfoForNewBusinessCustomer();
+
+    }
+
+    @Then("^A validation message should be thrown$")
+    public void aValidationMessageShouldBeThrown() {
+        webModel.getNewBusinessCustomerPage().validationMessage_whenAgentAndResellerCheckedIn();
+
+    }
 }

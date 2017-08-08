@@ -35,10 +35,10 @@ public class NA159_SDSK_Login_Incident_Caller_Details_stepDefs {
 
     @Then("^I should be able to check all the validations and populate caller details page$")
     public void iShouldBeAbleToCheckAllTheValidationsAndPopulateCallerDetailsPage() {
-        webModel.getServiceDesk_loginIncidentPage().clickNextWithOutPopulatingCallerDetailsTab();
-        webModel.getServiceDesk_loginIncidentPage().clickNextAfterPopulatingContact();
-        webModel.getServiceDesk_loginIncidentPage().clickPrevious();
-        webModel.getServiceDesk_loginIncidentPage().populateThirdParty();
+        webModel.getServiceDesk_callerDetailsTriagePage().clickNextWithOutPopulatingCallerDetailsTab();
+        webModel.getServiceDesk_callerDetailsTriagePage().clickNextAfterPopulatingContact();
+        webModel.getServiceDesk_callerDetailsTriagePage().clickPrevious();
+        webModel.getServiceDesk_callerDetailsTriagePage().populateThirdParty();
 
 
     }

@@ -19,7 +19,7 @@ public class NA160_SDSK_Login_Incident__Triage_stepDefs {
         webModel.getUtils().sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_types set is_default=NULL");
         webModel.getUtils().sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueNumber='0' where ID='150'");
       na159.iNavigateToTheCallerDetailsPageOfTheIncidentWizard();
-        webModel.getServiceDesk_loginIncidentPage().clickNextAfterPopulatingContact();
+        webModel.getServiceDesk_callerDetailsTriagePage().clickNextAfterPopulatingContact();
 
 
 
@@ -27,12 +27,12 @@ public class NA160_SDSK_Login_Incident__Triage_stepDefs {
 
     @Then("^I should be able to check all the validations and populate it$")
     public void iShouldBeAbleToCheckAllTheValidationsAndPopulateIt() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
-        webModel.getServiceDesk_loginIncidentPage().clickNextWithOutPopulatingTriage();
-        webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(true);
-        webModel.getServiceDesk_loginIncidentPage().non_OpenReachIncident_Triage();
+        webModel.getServiceDesk_callerDetailsTriagePage().clickNextWithOutPopulatingTriage();
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(true);
+        webModel.getServiceDesk_callerDetailsTriagePage().non_OpenReachIncident_Triage();
         webModel.getLoginPage().loginAsAdamR();
         na159.iNavigateToTheCallerDetailsPageOfTheIncidentWizard();
-        webModel.getServiceDesk_loginIncidentPage().clickNextAfterPopulatingContact();
-        webModel.getServiceDesk_loginIncidentPage().choosePriorityOverCategory();
+        webModel.getServiceDesk_callerDetailsTriagePage().clickNextAfterPopulatingContact();
+        webModel.getServiceDesk_callerDetailsTriagePage().choosePriorityOverCategory();
     }
 }

@@ -26,16 +26,16 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
     @When("^I navigate to fault details page and choose single analogue line$")
     public void iNavigateToFaultDetailsPageAndChooseSingleAnalogueLine() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(false);
-        webModel.getServiceDesk_loginIncidentPage().assertTextOnTicketDetailsPage();
-        webModel.getServiceDesk_loginIncidentPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2",true);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
+        webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2",true);
     }
 
     @Then("^I should be able to check validations pertaining to single analogue line$")
     public void iShouldBeAbleToCheckValidationsPertainingToSingleAnalogueLine() throws InterruptedException {
 
-        webModel.getServiceDesk_loginIncidentPage().faultDetails_assertionForAnalogueLines(false);
+        webModel.getServiceDesk_ticketDetailsPage().faultDetails_assertionForAnalogueLines(false);
 
     }
 
@@ -43,49 +43,49 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
     @When("^I navigate to fault details page and choose multi-line$")
     public void iNavigateToFaultDetailsPageAndChooseMultiLine() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(false);
-        webModel.getServiceDesk_loginIncidentPage().assertTextOnTicketDetailsPage();
-        webModel.getServiceDesk_loginIncidentPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01202300909","PSTN Multi Line Aux","2","2",true);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
+        webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("01202300909","PSTN Multi Line Aux","2","2",true);
 
     }
 
     @Then("^I should be able to check validations pertaining to multi-line$")
     public void iShouldBeAbleToCheckValidationsPertainingToMultiLine() throws InterruptedException {
-        webModel.getServiceDesk_loginIncidentPage().faultDetails_assertionForAnalogueLines(true);
+        webModel.getServiceDesk_ticketDetailsPage().faultDetails_assertionForAnalogueLines(true);
 
     }
 
     @When("^I navigate to fault details page and choose ISDN(\\d+)E$")
     public void iNavigateToFaultDetailsPageAndChooseISDNE(int arg0) throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(false);
-        webModel.getServiceDesk_loginIncidentPage().assertTextOnTicketDetailsPage();
-        webModel.getServiceDesk_loginIncidentPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01202300945","WLR3 ISDN 30 ETSI","8","4",true);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
+        webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("01202300945","WLR3 ISDN 30 ETSI","8","4",true);
 
     }
 
     @Then("^I should be able to check validations pertaining to ISDN(\\d+)E$")
     public void iShouldBeAbleToCheckValidationsPertainingToISDNE(int arg0) throws InterruptedException {
-        webModel.getServiceDesk_loginIncidentPage().faultDetails_assertionForISDN30E();
-        webModel.getServiceDesk_loginIncidentPage().validateSampleCalls();
+        webModel.getServiceDesk_ticketDetailsPage().faultDetails_assertionForISDN30E();
+        webModel.getServiceDesk_ticketDetailsPage().validateSampleCalls();
     }
 
     @When("^I navigate to fault details page and choose ISDN(\\d+) System$")
     public void iNavigateToFaultDetailsPageAndChooseISDNSystem(int arg0) throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(false);
-        webModel.getServiceDesk_loginIncidentPage().assertTextOnTicketDetailsPage();
-        webModel.getServiceDesk_loginIncidentPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("01202300920","WLR3 ISDN 2e System","2","2",true);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
+        webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("01202300920","WLR3 ISDN 2e System","2","2",true);
 
 
     }
 
     @Then("^I should be able to check validations pertaining to ISDN(\\d+) System$")
     public void iShouldBeAbleToCheckValidationsPertainingToISDNSystem(int arg0) throws InterruptedException {
-        webModel.getServiceDesk_loginIncidentPage().faultDetails_assertionForISDN2();
+        webModel.getServiceDesk_ticketDetailsPage().faultDetails_assertionForISDN2();
 
     }
 }

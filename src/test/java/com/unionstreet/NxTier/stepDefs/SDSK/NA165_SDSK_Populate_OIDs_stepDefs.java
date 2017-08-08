@@ -17,9 +17,9 @@ public class NA165_SDSK_Populate_OIDs_stepDefs {
     @When("^I navigate to line and installation details of login in incident page$")
     public void iNavigateToLineAndInstallationDetailsOfLoginInIncidentPage() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_loginIncidentPage().openReachIncident_Triage(false);
-        webModel.getServiceDesk_loginIncidentPage().assertTextOnTicketDetailsPage();
-        webModel.getServiceDesk_loginIncidentPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
+        webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
 
 
 
@@ -28,6 +28,6 @@ public class NA165_SDSK_Populate_OIDs_stepDefs {
 
     @Then("^I should be able to select a CLI and obtain its installation details$")
     public void iShouldBeAbleToSelectACLIAndObtainItsInstallationDetails() throws InterruptedException {
-        webModel.getServiceDesk_loginIncidentPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2",true);
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2",true);
     }
 }

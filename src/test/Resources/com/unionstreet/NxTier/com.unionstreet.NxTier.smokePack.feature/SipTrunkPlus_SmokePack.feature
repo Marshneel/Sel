@@ -1,3 +1,4 @@
+@sip
 Feature: SipTrunkPlus smoke pack
   Scenario: create a reseller, search and delete the account
     Given I am logged in as a master user

@@ -33,6 +33,10 @@ public class CreateTariffPage {
     public void addTariffPlan() {
         RanTariffPlanName = utils.randomName();
         utils.sendText(By.id(TARIFF_NAME_TEXT_BOX), RanTariffPlanName);
+        utils.waitForElementVisible(By.id("basetariff"));
+        utils.selectByVisibleText(By.id("basetariff"),"Sell 2p NGCS AC (+60 sec)");
+        utils.waitForElementVisible(By.id("basemarkup"));
+        utils.sendText(By.id("basemarkup"),"10");
         utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.switchToPreviousWindow(0);

@@ -9,6 +9,11 @@ Feature: NA39 - Creation Of User, Agent, Reseller permissions
     Then the agent permission group should be available for selection under drop down under agentUser creation
     And I should be able to login with agent credentials
 
+  Scenario: should not be able to create a business customer with agent and reseller contact types checked
+    Given I am logged in as an admin
+    When i navigate to the add customer page and click both agent and reseller
+    Then A validation message should be thrown
+
   Scenario: Creating a CP permission group and assigning it a CP
     Given I am logged in as an admin
     And   Have created a new CP permission group under settings

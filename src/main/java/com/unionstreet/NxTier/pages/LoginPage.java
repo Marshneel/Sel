@@ -46,6 +46,7 @@ public class LoginPage {
     Thread.sleep(1000);
 }
 
+
     public void loginAsAgent() throws InterruptedException {
         utils.waitForElementVisible(By.id(USERNAME_FIELD));
         utils.clickBtn(By.id(USERNAME_FIELD));
