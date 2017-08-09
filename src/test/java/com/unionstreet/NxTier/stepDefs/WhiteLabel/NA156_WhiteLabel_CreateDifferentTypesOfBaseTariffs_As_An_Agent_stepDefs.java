@@ -32,10 +32,10 @@ public class NA156_WhiteLabel_CreateDifferentTypesOfBaseTariffs_As_An_Agent_step
 
     @Then("^I should be able to create the (\\d+) different types of agent tariffs$")
     public void iShouldBeAbleToCreateTheDifferentTypesOfAgentTariffs(int arg0) throws InterruptedException, AWTException {
-        webModel.getCreateTariffPage().createBlankTariff("1","2","0");
+        webModel.getCreateTariffPage().createBlankTariff("3","1","0",false,true);
         webModel.getCommonMethods().search(webModel.getCreateTariffPage().RanTariffPlanName);
-        webModel.getCreateTariffPage().assertCreatedTariff("Baseline","Mobile");
-        webModel.getCreateTariffPage().assertChargesOfTariffThatIsBasedOnAnAnotherTariff("","@value",true);
+        webModel.getCreateTariffPage().assertCreatedTariff("Sell","Fixed Line");
+        webModel.getCreateTariffPage().assertChargesOfTariffThatIsBasedOnAnAnotherTariff("11","@value",true);
         webModel.getConfigManagerPage().navigateToAddTariffPlan();
         webModel.getCreateTariffPage().createTariffPlanBasedOnOtherPlan("3","2","1","0","Sell 2p NGCS AC (+60 sec)");
         webModel.getCreateTariffPage().assertChargesOfTariffThatIsBasedOnAnAnotherTariff("20","@value",true);
