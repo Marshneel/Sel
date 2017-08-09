@@ -186,10 +186,10 @@ public class ElementUtils {
 
     //browser selector
     public WebDriver browser() {
-     String browser=System.getProperty("browser");
+    String browser=System.getProperty("browser");
         try {
 
-            if (browser.equalsIgnoreCase("chrome")) {
+            if(browser.equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--start-maximized");

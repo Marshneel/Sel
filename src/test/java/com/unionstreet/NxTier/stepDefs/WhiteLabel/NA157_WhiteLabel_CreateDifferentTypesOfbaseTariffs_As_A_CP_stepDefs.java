@@ -14,7 +14,7 @@ public class NA157_WhiteLabel_CreateDifferentTypesOfbaseTariffs_As_A_CP_stepDefs
 
     @Then("^I should be able to create the (\\d+) different types of CP tariffs$")
     public void iShouldBeAbleToCreateTheDifferentTypesOfCPTariffs(int arg0) throws InterruptedException, AWTException {
-        webModel.getCreateTariffPage().createBlankTariff("3","1","0");
+        webModel.getCreateTariffPage().createBlankTariff("3","1","0",true,false);
         webModel.getCommonMethods().search(webModel.getCreateTariffPage().RanTariffPlanName);
         webModel.getCreateTariffPage().assertCreatedTariff("Sell","Fixed Line");
         webModel.getCreateTariffPage().assertChargesOfTariffThatIsBasedOnAnAnotherTariff("","@value",true);
