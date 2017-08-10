@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
-import java.util.Date;
 
 /**
  * Created by RajeshG on 21/06/2017.
@@ -48,7 +47,8 @@ public class ServiceDesk_CallerDetails_TriagePage {
     public void correspondenceDetailsValidations() {
         utils.waitForElementVisible(By.xpath(PLEASE_SELECT_A_CONTACT_OR_SPECIFY_THAT_THE_CALLER_IS_THIRD_PARTY));
         utils.waitForElementVisible(By.xpath(PLEASE_ENTER_A_CONTACT_NAME));
-        utils.waitForElementVisible(By.xpath(PLEASE_ENTER_EITHER_AN_EMAIL_ADDRESS_OR_A_CONTACT_TELEPHONE_NUMBER));
+       // utils.waitForElementVisible(By.xpath(PLEASE_ENTER_EITHER_AN_EMAIL_ADDRESS_OR_A_CONTACT_TELEPHONE_NUMBER));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Please enter a contact telephone number')]"));
     }
 
     public void clickNext() {
@@ -72,6 +72,8 @@ public class ServiceDesk_CallerDetails_TriagePage {
         utils.selectByVisibleText(By.id(SELECT_CONTACT_ON_CALLER_DETAILS_PAGE), "Adam Reed (adam.reed@unionstreet.uk.com)");
         utils.waitForElementVisible(By.id(EMAIL_ADDRESS_ON_CALLER_DETAILS_PAGE));
         utils.sendText(By.id(EMAIL_ADDRESS_ON_CALLER_DETAILS_PAGE), "adam.reed@unionstreet.uk.com");
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Please enter a contact telephone number')]"));
+        utils.sendText(By.id("ContactTelephoneNumber"),"02012345678");
         clickNext();
         utils.waitForElementVisible(By.xpath(TRAIAGE_PAGE_HEADER_TEXT));
     }
@@ -97,7 +99,8 @@ public class ServiceDesk_CallerDetails_TriagePage {
         utils.waitForElementVisible(By.xpath(TRAIAGE_PAGE_HEADER_TEXT));
         utils.waitForElementVisible(By.id(INCIDENT_OWNER));
         utils.selectByVisibleText(By.id(INCIDENT_OWNER), "Select...");
-        clickNext();
+     utils.waitForElementVisible(By.id("wizardButton_SaveIncident"));
+        utils.clickBtn(By.id("wizardButton_SaveIncident"));
         utils.waitForElementVisible(By.xpath(PLEASE_SELECT_AN_INCIDENT_TYPE));
         validationMessagesOnnTriagePage();
     }
@@ -147,21 +150,20 @@ public class ServiceDesk_CallerDetails_TriagePage {
 
         utils.waitForElementVisible(By.id(INCIDENT_TYPE));
         utils.selectByVisibleText(By.id(INCIDENT_TYPE), "Test Type Fault 3");
-        clickNext();
+        utils.waitForElementVisible(By.id("wizardButton_SaveIncident"));
+        utils.clickBtn(By.id("wizardButton_SaveIncident"));
         utils.waitForElementVisible(By.xpath(PLEASE_SELECT_AN_APPROPRIATE_SYMPTOM_FOR_THE_INCIDENT));
         utils.waitForElementVisible(By.xpath(PLEASE_SELECT_AN_INCIDENT_CATEGORY));
         populateSymptomAndCategory("Test Symptom 3", "Test Category 3");
         utils.waitForElementVisible(By.id(INCIDENT_SUMMARY_TEXT_BOX));
         utils.sendText(By.id(INCIDENT_SUMMARY_TEXT_BOX), "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" +
                 "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-        clickNext();
+        utils.waitForElementVisible(By.id("wizardButton_SaveIncident"));
+        utils.clickBtn(By.id("wizardButton_SaveIncident"));
         utils.waitForElementVisible(By.xpath(THE_SUMMARY_MUST_HAVE_NO_MORE_THAN_256_WORDS));
         populateSummaryAndOwnerDropDown();
-        try {
-            clickNext();
-        } catch (Exception e) {
-            clickNext();
-        }
+            utils.waitForElementVisible(By.id("wizardButton_SaveIncident"));
+            utils.clickBtn(By.id("wizardButton_SaveIncident"));
         utils.waitForElementVisible(By.xpath(EDIT_AN_INCIDENT_LABEL));
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueNumber='1' where ID='150'");
         utils.navigateBack();
@@ -176,10 +178,12 @@ public class ServiceDesk_CallerDetails_TriagePage {
         utils.selectByVisibleText(By.id(INCIDENT_SYMPTOM), "Test Symptom 2");
         populateSummaryAndOwnerDropDown();
         utils.waitForElementVisible(By.xpath(PRIORITY_LABEL));
-        clickNext();
+        utils.waitForElementVisible(By.id("wizardButton_SaveIncident"));
+        utils.clickBtn(By.id("wizardButton_SaveIncident"));
         utils.waitForElementVisible(By.xpath(PLEASE_ENTER_A_PRIORITY_LEVEL));
         utils.selectByIndex(By.id(PRIORITY_DROPDOWN), 1);
-        clickNext();
+        utils.waitForElementVisible(By.id("wizardButton_SaveIncident"));
+        utils.clickBtn(By.id("wizardButton_SaveIncident"));
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueNumber='0' where ID='150'");
     }
 }
