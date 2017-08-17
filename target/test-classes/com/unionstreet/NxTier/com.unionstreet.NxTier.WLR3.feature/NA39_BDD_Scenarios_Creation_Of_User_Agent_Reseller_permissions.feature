@@ -40,3 +40,4 @@ Feature: NA39 - Creation Of User, Agent, Reseller permissions
     When I access create Quote tab
     Then All required fields pertaining to a CP should be visible on the create quote window
     And all the quotes including that of the resellers and agents should be visible
+

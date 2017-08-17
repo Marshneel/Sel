@@ -36,6 +36,7 @@ public class ContactManagerPage {
 
         commonMethods.search("site2");
         utils.waitForElementVisible(By.linkText("site2"));
+      Thread.sleep(1000);
         utils.clickBtn(By.linkText("reseller"));
         utils.switchToNewWindow();
     }
@@ -78,4 +79,5 @@ public class ContactManagerPage {
         utils.waitForElementVisible(By.xpath(NON_BILLING_TEXT_UNDER_SITE_INFO));
         utils.waitForElementVisible(By.xpath("//select[@id='InvoiceAddress']//option[contains(text(),'"+mainBillingSite+"')]"));
     }
+
 }

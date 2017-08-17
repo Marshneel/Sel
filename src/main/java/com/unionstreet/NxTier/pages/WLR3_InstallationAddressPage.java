@@ -25,7 +25,7 @@ public class WLR3_InstallationAddressPage {
     private final String ADVANCED_SEARCH_ROAD_NAME = "ThoroughfareName";
     private final String ADVANCED_SEARCH_TOWN_FIELD = "Town";
     private final String ADDRESSKEY_SEARCH_TAB = "//a[text()='Address Key']";
-    private final String ADDRESS_MATCH_VALIDATION_MESSAGE="//div[@id='InstallationAddressViewSection']//span[contains(text(),'This order requires the address to match with Openreach records')]";
+    private final String ADDRESS_MATCH_VALIDATION_MESSAGE = "//div[@id='InstallationAddressViewSection']//span[contains(text(),'This order requires the address to match with Openreach records')]";
 
 
     ElementUtils utils = new ElementUtils();
@@ -38,11 +38,12 @@ public class WLR3_InstallationAddressPage {
         utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         utils.clickBtn(By.xpath(INSTALLATION_ADDRESS_BUTTON));
     }
+
     public void EnterPostCodeInSearchAddressByPostCode(String postCode) throws InterruptedException {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD));
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD));
-        utils.sendText(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD),postCode);
+        utils.sendText(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD), postCode);
         utils.clickBtn(By.id(POSTCODE_SEARCH));
     }
 
@@ -58,10 +59,11 @@ public class WLR3_InstallationAddressPage {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.INSTALLATION_ADDRESS_SUMMARY_PANEL));
         utils.jumpToPopUpWindow(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         EnterPostCodeInSearchAddressByPostCode("lu1 1dq");
-        wlr3_orderDetails_page.assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26","A00001043137");
+        wlr3_orderDetails_page.assertAddress("Kenilworth Road", "AppleGarth", "The Willows", "26", "A00001043137");
     }
+
     public void searchForAddress(String postCode) throws InterruptedException {
-       utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
+        utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         utils.clickBtn(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         EnterPostCodeInSearchAddressByPostCode(postCode);
 
@@ -69,7 +71,7 @@ public class WLR3_InstallationAddressPage {
 
     public void enterAddressKeyInSearchAddressByAddressKey(String addressKey) {
         utils.clickBtn(By.id(ADDRESSKEY_FIELD));
-        utils.sendText(By.id(ADDRESSKEY_FIELD),addressKey);
+        utils.sendText(By.id(ADDRESSKEY_FIELD), addressKey);
         utils.clickBtn(By.id(ADDRESSKEY_SEARCH));
     }
 
@@ -77,18 +79,20 @@ public class WLR3_InstallationAddressPage {
         utils.clearText(By.id(ADVANCED_SEARCH_POSTCODE_FIELD));
     }
 
-    public void enterPremiseNumber(String number) {
+    public void enterPremiseNumber(String number) throws InterruptedException {
+        Thread.sleep(1000);
         utils.clickBtn(By.id(ADVANCED_SEARCH_PREMISE_NUMBER_FIELD));
-        utils.sendText(By.id(ADVANCED_SEARCH_PREMISE_NUMBER_FIELD),number);
+        utils.sendText(By.id(ADVANCED_SEARCH_PREMISE_NUMBER_FIELD), number);
     }
 
     public void clearPremiseNumber() {
         utils.clearText(By.id(ADVANCED_SEARCH_PREMISE_NUMBER_FIELD));
     }
 
-    public void enterPremiseName(String name) {
+    public void enterPremiseName(String name) throws InterruptedException {
+       Thread.sleep(1000);
         utils.clickBtn(By.id(ADVANCED_SEARCH_PREMISE_NAME));
-        utils.sendText(By.id(ADVANCED_SEARCH_PREMISE_NAME),name);
+        utils.sendText(By.id(ADVANCED_SEARCH_PREMISE_NAME), name);
     }
 
     public void clearBuildingName() {
@@ -98,13 +102,13 @@ public class WLR3_InstallationAddressPage {
 
     public void enterPostCodeDetails(String postCode) {
         utils.clickBtn(By.id(ADVANCED_SEARCH_POSTCODE_FIELD));
-        utils.sendText(By.id(ADVANCED_SEARCH_POSTCODE_FIELD),postCode);
+        utils.sendText(By.id(ADVANCED_SEARCH_POSTCODE_FIELD), postCode);
     }
 
 
     public void enterSubPremiseName(String subPremise) {
         utils.clickBtn(By.id(ADVANCED_SEARCH_SUBPREMISE_NAME));
-        utils.sendText(By.id(ADVANCED_SEARCH_SUBPREMISE_NAME),subPremise);
+        utils.sendText(By.id(ADVANCED_SEARCH_SUBPREMISE_NAME), subPremise);
     }
 
     public void clearSubPremiseName() {
@@ -113,15 +117,15 @@ public class WLR3_InstallationAddressPage {
 
     public void enterRoad(String road) {
         utils.clickBtn(By.id(ADVANCED_SEARCH_ROAD_NAME));
-        utils.sendText(By.id(ADVANCED_SEARCH_ROAD_NAME),road);
+        utils.sendText(By.id(ADVANCED_SEARCH_ROAD_NAME), road);
     }
 
     public void enterTown(String town) {
         utils.clickBtn(By.id(ADVANCED_SEARCH_TOWN_FIELD));
-        utils.sendText(By.id(ADVANCED_SEARCH_TOWN_FIELD),town);
+        utils.sendText(By.id(ADVANCED_SEARCH_TOWN_FIELD), town);
     }
 
-    public void enterPremiseNumberRoadandTown(String number, String road, String town) {
+    public void enterPremiseNumberRoadandTown(String number, String road, String town) throws InterruptedException {
         enterPremiseNumber(number);
         enterRoad(road);
         enterTown(town);
@@ -133,7 +137,7 @@ public class WLR3_InstallationAddressPage {
         utils.clearText(By.id(ADVANCED_SEARCH_TOWN_FIELD));
     }
 
-    public void enterPremiseNameRoadandTown(String name, String road, String town) {
+    public void enterPremiseNameRoadandTown(String name, String road, String town) throws InterruptedException {
         enterPremiseName(name);
         enterRoad(road);
         enterTown(town);
@@ -177,11 +181,12 @@ public class WLR3_InstallationAddressPage {
         utils.clickBtn(By.xpath(ADDRESSKEY_SEARCH_TAB));
     }
 
-    public void assertValidationMessage(){
+    public void assertValidationMessage() {
         utils.waitForElementVisible(By.xpath(ADDRESS_MATCH_VALIDATION_MESSAGE));
 
     }
-    public void assertTheAbsenceOfAddressMatchValidationMessage(){
+
+    public void assertTheAbsenceOfAddressMatchValidationMessage() {
         utils.assertElementNotPresent(By.xpath(ADDRESS_MATCH_VALIDATION_MESSAGE));
 
     }

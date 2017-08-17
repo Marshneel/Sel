@@ -6,6 +6,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.awt.*;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
@@ -17,7 +18,8 @@ public class NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_inform
     WebModel webModel = new WebModel();
 
     @Given("^I am logged in with \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void iAmLoggedInWithAnd(String userName, String passWord) throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
+    public void iAmLoggedInWithAnd(String userName, String passWord) throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException, AWTException {
+       // webModel.getUtils().keyPressZoomOut();
         webModel.getLoginPage().login(userName, passWord);
         webModel.getServiceDeskPage().grantingServiceDeskAccess();
         webModel.getDashBoardPage().logOut();
@@ -41,7 +43,7 @@ public class NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_inform
     }
 
     @And("^When i depopulate the network calling features and edit directory information$")
-    public void whenIDepopulateTheNetworkCallingFeaturesAndEditDirectoryInformation() throws InterruptedException, SQLException {
+    public void whenIDepopulateTheNetworkCallingFeaturesAndEditDirectoryInformation() throws InterruptedException, SQLException, AWTException {
        webModel.getWlr3_networkCallingFeaturesPage().enterNetworkFeatures(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_networkCallingFeaturesPage().depopulateNetworkCallingFeatures();
         webModel.getWlr3_directoryInformationPage().editDirectoryInformation(webModel.getNewBusinessCustomerPage().RanName);

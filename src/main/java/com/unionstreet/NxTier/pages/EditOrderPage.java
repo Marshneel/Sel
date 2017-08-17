@@ -186,7 +186,10 @@ public class EditOrderPage {
     public void checkOpenReachNotificationsForOrderSuccessfulSubmission() throws InterruptedException, SQLException {
         utils.getOrdersPage();
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
-        utils.waitForElementVisible(By.xpath(LINE_TESTING_TEXT_ON_ORDERS_PAGE));
+     try{   utils.waitForElementVisible(By.xpath(LINE_TESTING_TEXT_ON_ORDERS_PAGE));}
+     catch (Exception e){utils.refreshPage();
+         utils.waitForElementVisible(By.xpath(LINE_TESTING_TEXT_ON_ORDERS_PAGE));
+     }
         ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
         utils.waitForElementVisible(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
         utils.clickBtn(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));

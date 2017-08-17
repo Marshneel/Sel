@@ -5,6 +5,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
+import java.awt.*;
+
 /**
  * Created by rajeshg on 22/09/2016.
  */
@@ -13,7 +15,7 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
     WebModel webModel = new WebModel();
 
     @Given("^CP has revoked my WLR order permissions$")
-    public void cpHasRevokedMyWLROrderPermissions() throws InterruptedException {
+    public void cpHasRevokedMyWLROrderPermissions() throws InterruptedException, AWTException {
         webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         webModel.getSettingsPage().clickSettingsButton();

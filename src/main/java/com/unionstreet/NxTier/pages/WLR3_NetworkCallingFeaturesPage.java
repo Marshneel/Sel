@@ -3,6 +3,7 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.awt.*;
 import java.sql.SQLException;
 
 /**
@@ -37,17 +38,17 @@ public class WLR3_NetworkCallingFeaturesPage {
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 
-    public void enterNetworkFeatures(String type) throws InterruptedException, SQLException {
+    public void enterNetworkFeatures(String type) throws InterruptedException, SQLException, AWTException {
 
-        wlr3_orderDetails_page.textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.NETWORK_FEATURES_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
-        Thread.sleep(1000);
         try {
+            Thread.sleep(1000);
+            utils.scrollUp(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
+            Thread.sleep(1000);
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         } catch (Exception e) {
             utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
-            Thread.sleep(1000);
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         }
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));

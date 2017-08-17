@@ -74,10 +74,10 @@ public class WLR3_NewProvide_SitePage {
         utils.waitForElementVisible(By.xpath(SITE_CONTACTS_TEXT));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         try { Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_new_provide__orderPage.NEXT_BUTTON));
+            utils.javaScriptExecutorClick(By.xpath(wlr3_new_provide__orderPage.NEXT_BUTTON));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_new_provide__orderPage.NEXT_BUTTON));
+            utils.javaScriptExecutorClick(By.xpath(wlr3_new_provide__orderPage.NEXT_BUTTON));
         }
         //verify the presence of error message
         utils.waitForElementVisible(By.xpath(PHONE_NUMBER_MANDATORY_ERROR_MESSAGE));

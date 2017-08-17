@@ -158,7 +158,10 @@ public class WLR3_LineNumberingPage {
 
     public void clickImportFromOtherNetwork() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
-        utils.clickBtn(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
+       try{ utils.clickBtn(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));}
+       catch (Exception e){utils.checkAlert();
+           utils.clickBtn(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
+       }
 
     }
 

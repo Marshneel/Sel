@@ -57,4 +57,8 @@ public class NA107_WLR3_ISDN30_Amend_stepDefs {
     }
 
 
+    @And("^I will not be able to delete this particular business customer$")
+    public void iWillNotBeAbleToDeleteThisParticularBusinessCustomer(){
+
+    }
 }

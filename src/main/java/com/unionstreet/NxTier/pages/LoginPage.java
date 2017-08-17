@@ -42,8 +42,8 @@ public class LoginPage {
 
     public void zoomOutOnLoginPage() throws InterruptedException {
     utils.waitForElementVisible(By.id(USERNAME_FIELD));
-    utils.zoomOut(By.id(USERNAME_FIELD));
-    Thread.sleep(1000);
+    //utils.zoomOut(By.id(USERNAME_FIELD));
+   // Thread.sleep(1000);
 }
 
 
@@ -74,10 +74,11 @@ public class LoginPage {
     }
 
     public void loginAsCP() throws InterruptedException {
+        Thread.sleep(2000);
         utils.waitForElementVisible(By.id(USERNAME_FIELD));
-        utils.clickBtn(By.id(USERNAME_FIELD));
+        //utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), "cplogin");
-        utils.clickBtn(By.id(PASSWORD_FIELD));
+       // utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), "password");
         try {
             utils.clickBtn(By.cssSelector(LOGINBUTTON));

@@ -56,13 +56,18 @@ public class NewBusinessCustomerPage {
     utils.waitForElementVisible(By.id(TELEPHONY_CUSTOMER_CHECKBOX));
         utils.makeSureBoxIsUnChecked(By.id(TELEPHONY_CUSTOMER_CHECKBOX),By.id(TELEPHONY_CUSTOMER_CHECKBOX));
         utils.clickBtn(By.xpath(CONTACTTYPE_AGENT));
-       // utils.jumpToPopUpWindow(By.xpath(CONTACTTYPE_RESELLER));
-       // utils.clickBtn(By.xpath(VATPOPUP));
-    }
-    public void validationMessage_whenAgentAndResellerCheckedIn(){
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Cannot Be Agent And Reseller')]"));
 
     }
+    public void validationMessage_whenAgentAndResellerCheckedIn(){
+         utils.jumpToPopUpWindow(By.xpath(CONTACTTYPE_RESELLER));
+        utils.clickBtn(By.xpath(VATPOPUP));
+        utils.waitForElementVisible(By.xpath(CONTACTTYPE_AGENT));
+        utils.clickBtn(By.xpath(CONTACTTYPE_AGENT));
+      try{  utils.waitForElementVisible(By.xpath("//span[contains(text(),'Cannot Be Agent And Reseller')]"));
+
+    }catch (Exception e){
+          System.out.println("Business customer cannot be agent and reseller at once");
+      }}
 
     public void addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes() {
         RanName = utils.randomName();
