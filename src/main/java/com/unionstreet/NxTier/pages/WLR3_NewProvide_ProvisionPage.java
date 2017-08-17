@@ -161,7 +161,7 @@ public void validationForNumberOfLinesForMultiline(String min, String max, Strin
     utils.waitForElementVisible(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX));
     utils.sendText(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),min);
     Thread.sleep(1000);
-    utils.clickBtn(By.xpath(wlr3_new_provide__orderPage.NEXT_BUTTON));
+    utils.javaScriptExecutorClick(By.xpath(wlr3_new_provide__orderPage.NEXT_BUTTON));
     utils.waitForElementVisible(By.xpath(MINIMUM_TWO_LINES_REQUIRED_FOR_THIS_PRODUCT));
     utils.sendText(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),max);
     utils.waitForElementVisible(By.xpath(MAXIMUM_99_LINES_REQUIRED_FOR_THIS_PRODUCT));

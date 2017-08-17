@@ -182,7 +182,7 @@ public class WLR3_OrderDetails_Page {
             utils.clickBtnWithWait(By.xpath(LINE_NUMBERING_BUTTON));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(LINE_NUMBERING_BUTTON));
+            utils.javaScriptExecutorClick(By.xpath(LINE_NUMBERING_BUTTON));
         }
     }
 
@@ -475,11 +475,11 @@ public class WLR3_OrderDetails_Page {
         try {
             utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(LINE_INFO_TAB));
+            utils.javaScriptExecutorClick(By.xpath(LINE_INFO_TAB));
         } catch (Exception e) {
             loadTabOnWLR3OrderSummaryPage();
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(LINE_INFO_TAB));
+            utils.javaScriptExecutorClick(By.xpath(LINE_INFO_TAB));
         }}
     public void assertNumberOfDigitsToSwitchOnOrderDetailsPage(String actualNumber){
         utils.waitForElementVisible(By.xpath("//p[@id='display_WLR3Order_digits_to_switch'][contains(text(),'"+actualNumber+"')]"));

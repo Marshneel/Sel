@@ -44,7 +44,6 @@ public class DashBoardPage {
     }
 
     public void clickContactManagerTab(){
-
             utils.waitForElementVisible(By.id(CONTACT_MANAGER_BUTTON));
             utils.clickBtn(By.id(CONTACT_MANAGER_BUTTON));
 
@@ -67,5 +66,6 @@ public class DashBoardPage {
         utils.waitForElementVisible(By.id(CONFIGMANAGER_BUTTON));
         utils.clickBtn(By.id(CONFIGMANAGER_BUTTON));
     }
+
 
 }
