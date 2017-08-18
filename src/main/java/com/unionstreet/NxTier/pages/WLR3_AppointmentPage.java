@@ -18,13 +18,15 @@ public class  WLR3_AppointmentPage {
     public void accessAppointmentpage() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.waitForElementVisible(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
+       Thread.sleep(1000);
+        utils.scrollUp(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
         try {
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
+            utils.javaScriptExecutorClick(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
         } catch (Exception e) {
             utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
+            utils.javaScriptExecutorClick(By.xpath(GET_AVAILABILITY_UNDER_APPOINTMENTPAGE));
         }
     }
     public void bookAppointmentGeneral(String date, String timeSlot) {

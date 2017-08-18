@@ -17,12 +17,17 @@ public class WLR3_NewProvide_DatePage {
     public void populateHazardAndWarningNotesUnderDATE(String hazardNotes, String warningNotes) {
         try {
             utils.waitForElementVisible(By.id(HAZARD_NOTES_TEXTBOX));
-            utils.sendText(By.id(HAZARD_NOTES_TEXTBOX),hazardNotes);
-            utils.sendText(By.id(WARNING_NOTES_TEXTBOX),warningNotes);
+            utils.sendText(By.id(HAZARD_NOTES_TEXTBOX), hazardNotes);
+            utils.sendText(By.id(WARNING_NOTES_TEXTBOX), warningNotes);
         } catch (Exception e) {
             utils.waitForElementVisible(By.id(HAZARD_NOTES_TEXTBOX));
-            utils.sendText(By.id(HAZARD_NOTES_TEXTBOX),hazardNotes);
-            utils.sendText(By.id(WARNING_NOTES_TEXTBOX),warningNotes);
+            try {
+                utils.sendText(By.id(HAZARD_NOTES_TEXTBOX), hazardNotes);
+            } catch (Exception e1) {
+                utils.checkAlert();
+                utils.sendText(By.id(HAZARD_NOTES_TEXTBOX), hazardNotes);
+            }
+            utils.sendText(By.id(WARNING_NOTES_TEXTBOX), warningNotes);
         }
     }
 }

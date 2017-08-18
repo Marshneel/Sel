@@ -209,7 +209,11 @@ public class WLR3_OrderDetails_Page {
     public void assertImportedLineWithAidOfLetterOfAuthority(String type, String importedNumber) throws InterruptedException, SQLException {
         textOnWLR3OrderPage(type);
         utils.refreshPage();
-        utils.jumpToPopUpWindow(By.xpath(ITEMID_ON_EDITORDER));
+      try {
+          utils.jumpToPopUpWindow(By.xpath(ITEMID_ON_EDITORDER));}
+      catch (Exception e){utils.checkAlert();
+          utils.jumpToPopUpWindow(By.xpath(ITEMID_ON_EDITORDER));}
+
         utils.waitForElementVisible(By.id(LINE_NUMBERING_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath("//p[@id='display_wlr3order_TelephoneNumber'][text()[contains(.,'" + importedNumber + "')]]"));
     }
@@ -487,6 +491,8 @@ public class WLR3_OrderDetails_Page {
     public void clickSiteInfo() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
         utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
+       Thread.sleep(1000);
+        utils.scrollUp(By.xpath(SITE_INFORMATION_BUTTON));
         try {Thread.sleep(1000);
             utils.clickBtnWithWait(By.xpath(SITE_INFORMATION_BUTTON));
         } catch (Exception e) {
@@ -599,10 +605,10 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath(DIRECTORY_INFORMATION_BUTTON));
         Thread.sleep(1000);
         try {
-            utils.jumpToPopUpWindow(By.xpath(DIRECTORY_INFORMATION_BUTTON));
+            utils.javaScriptExecutorClick(By.xpath(DIRECTORY_INFORMATION_BUTTON));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.jumpToPopUpWindow(By.xpath(DIRECTORY_INFORMATION_BUTTON));
+            utils.javaScriptExecutorClick(By.xpath(DIRECTORY_INFORMATION_BUTTON));
         }
     }
     public void assertChangedDirectoryType(String line){
