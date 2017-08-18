@@ -56,9 +56,11 @@ public class WLR3_New_Provide_OrderPage {
         utils.multipleCLick(By.xpath(NEXT_BUTTON), By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT), number);
     }
 
-    public void selectLineTypeForNewProvide(String lineType) {
+    public void selectLineTypeForNewProvide(String lineType) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//li[contains(@onclick,'SelectLineType')]//label[contains(text(),'" + lineType + "')]"));
+       Thread.sleep(1000);
         utils.clickBtn(By.xpath("//li[contains(@onclick,'SelectLineType')]//label[contains(text(),'" + lineType + "')]"));
+        utils.waitForElementVisible(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON));
         utils.clickBtn(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON));
     }
 

@@ -20,6 +20,7 @@ public class NxTier_smokePack_stepDefs {
         webModel.getLoginPage().OnLoginPage();
     }
 
+
     @When("^I enter valid username and password$")
     public void iEnterValidUsernameAndPassword() throws IOException, InterruptedException {
        webModel.getLoginPage().zoomOutOnLoginPage();
@@ -56,7 +57,7 @@ public class NxTier_smokePack_stepDefs {
     }
 
     @And("^Provide all the required info$")
-    public void provideAllTheRequiredInfo() {
+    public void provideAllTheRequiredInfo() throws InterruptedException {
         webModel.getNewBusinessCustomerPage().addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes();
         webModel.getNewBusinessCustomerPage().addSiteInfoForNewBusinessCustomer();
         webModel.getNewBusinessCustomerPage().addSiteContactInfoForNewBusinessCustomer();

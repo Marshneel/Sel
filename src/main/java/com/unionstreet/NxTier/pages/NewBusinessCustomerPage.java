@@ -85,12 +85,15 @@ public class NewBusinessCustomerPage {
         utils.sendText(By.id(SHORTNAME_FIELD),utils.getProperty("shortName"));
     }
 
-    public void addSiteContactInfoForNewBusinessCustomer() {
+    public void addSiteContactInfoForNewBusinessCustomer() throws InterruptedException {
         utils.clickBtn(By.id(FIRSTNAME));
         utils.sendText(By.id(FIRSTNAME),utils.getProperty("firstName"));
         utils.sendText(By.id(EMAIL_FIELD),utils.getProperty("email"));
         utils.clickBtn(By.cssSelector(SAVE_BUTTON));
-        utils.verifyStringMatch(By.id(SAVEDMESSAGE_INFO), utils.getProperty("savedMessage"));
+       Thread.sleep(1000);
+        utils.scrollUp(By.xpath("//a[text()[contains(.,'Contact Manager')]]"));
+       // utils.verifyStringMatch(By.id(SAVEDMESSAGE_INFO), utils.getProperty("savedMessage"));
+        utils.waitForElementVisible(By.xpath("//span[text()[contains(.,'Saved Successfully')]]"));
         utils.closeCurrentPage();
         utils.switchToPreviousWindow(0);
     }
