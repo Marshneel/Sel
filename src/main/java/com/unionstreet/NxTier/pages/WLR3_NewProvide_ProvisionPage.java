@@ -73,9 +73,13 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
         utils.waitForElementVisible(By.xpath(TEXT_ON_WORKING_LINES_POPUP));
         utils.clickBtn(By.xpath(WORKING_LINES_POPUP_CLOSEBTN));
     }
-    public void validateNumberOfLinesUnderProvisionForMultiline() {
+    public void validateNumberOfLinesUnderProvisionForMultiline() throws InterruptedException {
         //decrease the number of lines and assert
+
        utils.waitForElementVisible(By.xpath(DECREASE_NUMBER_OF_LINES_UNDER_INSTALLATION_INFO));
+        Thread.sleep(1000);
+        utils.scrollUp(By.xpath(DECREASE_NUMBER_OF_LINES_UNDER_INSTALLATION_INFO));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath(DECREASE_NUMBER_OF_LINES_UNDER_INSTALLATION_INFO));
         String decreaseValue = utils.getAttributeOfElement(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX), "value");
         Assert.assertEquals(decreaseValue, "1");
@@ -112,6 +116,9 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
         utils.sendText(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX), "9");
     }
     public void setProvisionTypeForNonMultiLine() throws InterruptedException {
+      utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Provision Type')]"));
+       Thread.sleep(1000);
+        utils.scrollUp(By.xpath("//legend[contains(text(),'Provision Type')]"));
         utils.waitForElementVisible(By.xpath(TAKE_OVER_WORKING_LINE_TEXT));
         utils.waitForElementVisible(By.xpath(TAKE_OVER_WORKING_LINE_RADIO_BUTTON));
         utils.clickBtn(By.xpath(TAKE_OVER_WORKING_LINE_RADIO_BUTTON));
@@ -131,6 +138,9 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
     }
 
     public void validatingNumberOfChannelsForISDN2System() throws InterruptedException {
+       utils.waitForElementVisible(By.xpath("//label[contains(text(),'Channels')]"));
+        Thread.sleep(1000);
+        utils.scrollUp(By.xpath("//label[contains(text(),'Channels')]"));
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX));
         utils.sendText(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"0");
         wlr3_new_provide__orderPage.navigateToNextScreen();

@@ -194,7 +194,10 @@ public class ServiceDesk_TicketDetailsPage {
      try{   utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_TCR_CALL_DIVERT_CLI));}
      catch (Exception e){
          System.out.println("no validation message for unpopulated call divert CLI");
-     }
+     }Thread.sleep(1000);
+        utils.scrollUp(By.xpath("//legend[contains(text(),'Temporary Call Routing')]"));
+        Thread.sleep(1000);
+        utils.waitForElementVisible(By.id(TRC_CLI_FIELD));
         utils.sendText(By.id(TRC_CLI_FIELD),"020abcdef");
         utils.waitForElementVisible(By.xpath(TCR_CALL_DIVERT_CLI_CAN_ONLY_HAVE_SPACES_AND_NUMBERS));
         utils.sendText(By.id(TRC_CLI_FIELD),"02012345678");
