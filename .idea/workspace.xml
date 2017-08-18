@@ -4,8 +4,6 @@
     <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/NewBusinessCustomerPage.class" afterPath="$PROJECT_DIR$/target/classes/com/unionstreet/NxTier/pages/NewBusinessCustomerPage.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NewBusinessCustomerPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NewBusinessCustomerPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_OrderPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_OrderPage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/smokePack/NxTier_smokePack_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/smokePack/NxTier_smokePack_stepDefs.java" />
     </list>
     <ignored path="NxTier automation.iws" />
@@ -119,8 +117,8 @@
       <file leaf-file-name="NxTier_smokePack_stepDefs.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/smokePack/NxTier_smokePack_stepDefs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="61" column="14" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
+            <state relative-caret-position="238">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -211,8 +209,8 @@
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA176_SDSK_OpenReach_Fault_Details.feature" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NewBusinessCustomerPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_New_Provide_OrderPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/smokePack/NxTier_smokePack_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/smokePack/NxTier_smokePack_stepDefs.java" />
       </list>
     </option>
   </component>
@@ -1233,13 +1231,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00310" summary="contains only 1 test for testing new jenkins">
-      <created>1499947883001</created>
-      <option name="number" value="00310" />
-      <option name="presentableId" value="LOCAL-00310" />
-      <option name="project" value="LOCAL" />
-      <updated>1499947883001</updated>
-    </task>
     <task id="LOCAL-00311" summary="contains only 1 test for testing new jenkins">
       <created>1499948096773</created>
       <option name="number" value="00311" />
@@ -1576,7 +1567,14 @@
       <option name="project" value="LOCAL" />
       <updated>1503054006306</updated>
     </task>
-    <option name="localTasksCounter" value="359" />
+    <task id="LOCAL-00359" summary="shifting WLR3 tests on to chrome browser">
+      <created>1503069013460</created>
+      <option name="number" value="00359" />
+      <option name="presentableId" value="LOCAL-00359" />
+      <option name="project" value="LOCAL" />
+      <updated>1503069013460</updated>
+    </task>
+    <option name="localTasksCounter" value="360" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1636,7 +1634,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2056239" sideWeight="0.49068767" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30339807" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30339807" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2460457" sideWeight="0.49190938" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24928367" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2152,8 +2150,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/smokePack/NxTier_smokePack_stepDefs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="61" column="14" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
+        <state relative-caret-position="238">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>

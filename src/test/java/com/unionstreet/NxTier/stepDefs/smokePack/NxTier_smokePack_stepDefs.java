@@ -20,6 +20,7 @@ public class NxTier_smokePack_stepDefs {
         webModel.getLoginPage().OnLoginPage();
     }
 
+
     @When("^I enter valid username and password$")
     public void iEnterValidUsernameAndPassword() throws IOException, InterruptedException {
        webModel.getLoginPage().zoomOutOnLoginPage();
