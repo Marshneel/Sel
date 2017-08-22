@@ -1,9 +1,9 @@
 @SDSK
 Feature: NA166 SDSK OpenReach LineTest
-#  Scenario: perform a line test and over night line test on an analogue line
-#    Given I am logged in as AdamR
-#    When I raise an open reach incident on an analogue line
-#    Then I should be able to validate the line test functionality
+  Scenario: perform a line test and over night line test on an analogue line
+    Given I am logged in as AdamR
+    When I raise an open reach incident on an analogue line
+    Then I should be able to validate the line test functionality
 
   Scenario: assert that the LineTest is unavailable for ISDN30 and virtual lines
     Given I am logged in as AdamR

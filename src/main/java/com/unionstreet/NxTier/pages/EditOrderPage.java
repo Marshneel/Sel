@@ -212,7 +212,7 @@ public class EditOrderPage {
 
     public void pushOpenReachNotificationsForSubmittedOrder(String CLI, String addressKey) throws Exception {
         RanNumberForSubmission = utils.randomNumber();
-        currentDate = utils.getCurrentDate();
+        currentDate = utils.getCurrentDate("dd/MM/yyyy");
         utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"Order Pending\" +0 " + RanNumberForSubmission + "");
         utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Acknowledged\" +0 " + RanNumberForSubmission + " notes");
         utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 " + RanNumberForSubmission + " notes " + currentDate + " " + CLI + " " + addressKey + " " + '"' + '"');
