@@ -30,6 +30,7 @@ public class ElementUtils {
     private Properties prop;
     private FileInputStream fileInputStream;
     public static ArrayList<String> allValues;
+    public static String[] split;
 
 
 
@@ -184,8 +185,8 @@ public class ElementUtils {
         driver.findElement(by).click();
     }
 
-    public String getCurrentDate() {
-        String date = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+    public String getCurrentDate(String format) {
+        String date = new SimpleDateFormat(format).format(Calendar.getInstance().getTime());
         return date;
     }
 
@@ -628,6 +629,10 @@ public class ElementUtils {
         }
         waitForElementVisible(elementWanted);
 
+    }
+    public void splitString(By by){
+        String currentSlot= driver.findElement(by).getText();
+        split = currentSlot.split(" ");
     }
 
 }

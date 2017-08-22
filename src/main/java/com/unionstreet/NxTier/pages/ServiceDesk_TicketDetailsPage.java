@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
+import static com.unionstreet.NxTier.support.ElementUtils.split;
 
 /**
  * Created by rajeshg on 08/08/2017.
@@ -71,6 +72,7 @@ public class ServiceDesk_TicketDetailsPage {
     private Date today;
     String currentDate;
     String currentTime;
+    String currentDay;
     ElementUtils utils=new ElementUtils();
 
 
@@ -252,6 +254,60 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.xpath(TRC_DEFAULTED_TO_BAND_0));
 
     }
+    public void assertServiceMaintenanceLevelsAbsent(boolean isVirtualLine, boolean isAgent) throws InterruptedException, UnsupportedEncodingException, ClassNotFoundException {
+        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Fault details')]"));
+      if(isVirtualLine)  {utils.assertElementNotPresent(By.xpath("//legend[contains(text(),'Service Maintenance Levels')]"));}
+        if(isAgent){utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Service Maintenance Levels')]"));
+            utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]"));}
+    }
+    public void assertThatServiceLevelsUnavailableForISDN30WithLevel2(){
+        utils.waitForElementVisible(By.xpath("//i[contains(text(),'Openreach will not permit expedition of repairs on products currently at Service Maintenance Level 2.')]"));
+    }
+    public void assertServiceMaintenanceLevelsPresent(){
+        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Service Maintenance Levels')]"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]"));
+
+    }
+    public void assertCurrentServiceLevel(String currentLevel){
+        utils.waitForElementVisible(By.xpath("//strong[@id='CareLvlCurrentLvl'][contains(text(),'"+currentLevel+"')]"));
+    }
+    public void selectServiceLevel(String newLevel) throws InterruptedException {
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'Yes')]"));
+        Thread.sleep(1000);
+        utils.scrollUp(By.xpath("//legend[contains(text(),'Service Maintenance Levels')]"));
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.xpath("//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]/following-sibling::ul//a[contains(text(),'Yes')]"));
+        utils.waitForElementVisible(By.id("SelectedCareLevel"));
+        utils.selectByVisibleText(By.id("SelectedCareLevel"),""+newLevel+"");
+    }
+
+    public void assertCurrentServiceLevelWithCurrent(boolean two, boolean threeOrFour) {
+        utils.waitForElementVisible(By.id("CareLvlEstFixDate"));
+        utils.splitString(By.xpath("//strong[@id='CareLvlEstFixDate'][contains(text(),'')]"));
+        String LevelDay = split[0];
+        String LevelDate = split[1];
+        String LevelTime = split[4];
+        today = new Date();
+        currentDay = new SimpleDateFormat("EEEE" + ",").format(today);
+        currentDate = new SimpleDateFormat("dd").format(today);
+        currentTime = new SimpleDateFormat("hh:mm").format(today);
+        if (two) {
+            Assert.assertNotEquals(LevelDate, currentDate);
+            Assert.assertNotEquals(LevelDay, currentDay);
+            Assert.assertNotEquals(LevelTime, currentTime);
+            Assert.assertNotEquals(LevelDate, null);
+            Assert.assertNotEquals(LevelDay, null);
+            Assert.assertNotEquals(LevelTime, null);
+            if (threeOrFour) {
+                Assert.assertNotEquals(LevelTime, currentTime);
+                Assert.assertNotEquals(LevelDate, null);
+                Assert.assertNotEquals(LevelDay, null);
+                Assert.assertNotEquals(LevelTime, null);
+
+            }
+        }
+    }
+
 
 
 }

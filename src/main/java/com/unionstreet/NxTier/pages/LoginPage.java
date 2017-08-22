@@ -107,7 +107,20 @@ public class LoginPage {
         } catch (Exception e) {
             utils.checkAlert();
         }
+    } public void loginAsAgentAdam() throws InterruptedException {
+        utils.loadBranchURLForServiceDesk();
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.clickBtn(By.id(USERNAME_FIELD));
+        utils.sendText(By.id(USERNAME_FIELD), "agentAdam");
+        utils.clickBtn(By.id(PASSWORD_FIELD));
+        utils.sendText(By.id(PASSWORD_FIELD), "abcdef");
+        try {
+            utils.clickBtn(By.cssSelector(LOGINBUTTON));
+        } catch (Exception e) {
+            utils.checkAlert();
+        }
     }
+
     public void loginAsMasterUser() throws InterruptedException {
         utils.loadSipTrunkURL();
         utils.waitForElementVisible(By.id("gwt-uid-3"));

@@ -138,7 +138,7 @@ public class ServiceDesk_CallerDetails_TriagePage {
     public void populateSummaryAndOwnerDropDown() {
         utils.sendText(By.id(INCIDENT_SUMMARY_TEXT_BOX), "summary");
         utils.waitForElementVisible(By.id(INCIDENT_OWNER));
-        utils.selectByVisibleText(By.id(INCIDENT_OWNER), "Alex");
+        utils.selectByVisibleText(By.id(INCIDENT_OWNER), "Adam Reed");
 
     }
 
