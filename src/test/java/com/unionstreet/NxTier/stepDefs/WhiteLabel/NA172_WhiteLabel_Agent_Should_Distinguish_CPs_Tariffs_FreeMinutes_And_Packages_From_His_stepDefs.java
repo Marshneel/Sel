@@ -15,7 +15,6 @@ public class NA172_WhiteLabel_Agent_Should_Distinguish_CPs_Tariffs_FreeMinutes_A
 
     @Given("^CP has given me permissions and assigned me few tariff plans, freeMinute plans and packages$")
     public void cpHasGivenMePermissionsAndAssignedMeFewTariffPlansFreeMinutePlansAndPackages() throws InterruptedException, AWTException {
-        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickConfigManager();
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10","checkbox0");

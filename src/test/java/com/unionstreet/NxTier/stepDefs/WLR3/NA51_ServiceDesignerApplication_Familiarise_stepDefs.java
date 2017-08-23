@@ -48,7 +48,6 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
 
     @Given("^I am logged in as agent and there is a service unassigned to me$")
     public void iAmLoggedInAsAgentAndThereIsAServiceUnassignedToMe() throws InterruptedException {
-        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickConfigManager();
         webModel.getWlr_and_nxTierServicesPage().accessingAssignServicePage();

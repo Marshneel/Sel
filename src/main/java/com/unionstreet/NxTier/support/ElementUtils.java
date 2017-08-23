@@ -71,13 +71,13 @@ public class ElementUtils {
         driver.findElement(by).sendKeys(txt);
     }
 
-    //method to click button with fluent wait
+   // method to click button with fluent wait
     public void clickBtnWithWait(By by) {
-        Wait wait = new FluentWait(driver)
-                .withTimeout(20, SECONDS)
-                .pollingEvery(5, SECONDS)
-                .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
-        wait.until(ExpectedConditions.elementToBeClickable(by));
+//        Wait wait = new FluentWait(driver)
+//                .withTimeout(20, SECONDS)
+//                .pollingEvery(5, SECONDS)
+//                .ignoring(WebDriverException.class);
+        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).click();
     }
 
@@ -150,7 +150,7 @@ public class ElementUtils {
 
         try {
             prop = new Properties();
-            fileInputStream = new FileInputStream("src\\test\\Resources\\com\\unionstreet\\NxTier\\config.properties");
+            fileInputStream = new FileInputStream("src/test/Resources/com/unionstreet/NxTier/config.properties");
             prop.load(fileInputStream);
 
         } catch (Exception e) {
@@ -236,7 +236,7 @@ public class ElementUtils {
     //exception handling
     public void checkAlert() {
         try {
-            if (isAlertPresent() == true) {
+            if (isAlertPresent()) {
                 Alert alert = driver.switchTo().alert();
                 alert.accept();
             }
@@ -264,7 +264,7 @@ public class ElementUtils {
         }
     }
 
-    public void closePopup(By by) throws InterruptedException {
+    public void navigateToEditOrderPopupAndClose(By by) throws InterruptedException {
         String currentWindowHandle = driver.getWindowHandle();
         driver.findElement(by).click();
         Thread.sleep(2000);
@@ -279,34 +279,7 @@ public class ElementUtils {
         driver.switchTo().window(currentWindowHandle);
     }
 
-    public void closeCurrentWindowAndJump(By by) throws InterruptedException {
-        String currentWindowHandle = driver.getWindowHandle();
-        driver.findElement(by).click();
-        Thread.sleep(2000);
-        ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
-        for (String window : windowHandles) {
-            if (!window.equals(currentWindowHandle)) {
-                driver.close();
-                driver.switchTo().window(window);
-                driver.manage().window().maximize();
-            }
-        }
-    }
-
-    public void pageJumpWithoutClose(By by) throws InterruptedException {
-        String currentWindowHandle = driver.getWindowHandle();
-        driver.findElement(by).click();
-        Thread.sleep(2000);
-        ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
-        for (String window : windowHandles) {
-
-            if (!window.equals(currentWindowHandle)) {
-                driver.switchTo().window(window);
-            }
-        }
-    }
-
-    public void javaScriptExecutorClick(By by) {
+       public void javaScriptExecutorClick(By by) {
         WebElement element = driver.findElement(by);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
@@ -502,9 +475,23 @@ public class ElementUtils {
         System.out.println(text);
     }
 
-    public void zoomOut(By by) {
+    public void zoomOut() throws AWTException {
         for (int i = 0; i < 3; i++) {
-            driver.findElement(by).sendKeys(Keys.CONTROL, Keys.SUBTRACT);
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_MINUS);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            robot.keyRelease(KeyEvent.VK_MINUS);
+
+    }}
+
+    public void setStdZoom() throws AWTException {
+        for (int i = 0; i < 3; i++) {
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_EQUALS);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            robot.keyRelease(KeyEvent.VK_EQUALS);
         }
     }
 

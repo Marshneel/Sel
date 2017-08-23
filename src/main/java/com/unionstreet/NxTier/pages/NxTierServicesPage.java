@@ -22,14 +22,16 @@ public class NxTierServicesPage {
 
     public void assertCPonlyValuePresent() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
-        utils.pageJumpWithoutClose(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(LABEL_WITHIN_A_SERVICE));
         utils.waitForElementVisible(By.xpath(CPONLY));
     }
 
     public void assertCPonlyValueNotPresent() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
-        utils.pageJumpWithoutClose(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(LABEL_WITHIN_A_SERVICE));
         utils.assertElementNotPresent(By.xpath(CPONLY));
     }

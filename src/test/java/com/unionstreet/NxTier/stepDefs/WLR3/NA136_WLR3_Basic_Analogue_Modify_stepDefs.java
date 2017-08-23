@@ -4,6 +4,7 @@ import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.awt.*;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
@@ -22,7 +23,7 @@ public class NA136_WLR3_Basic_Analogue_Modify_stepDefs {
     }
 
     @Then("^I should be able to check the flow of the modify order on basic analogue$")
-    public void iShouldBeAbleToCheckTheFlowOfTheModifyOrderOnBasicAnalogue() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+    public void iShouldBeAbleToCheckTheFlowOfTheModifyOrderOnBasicAnalogue() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException, AWTException {
 webModel.getWlr3_orderDetails_page().verifyLineTypeAndProvisionType("Basic Analogue","Change");
         webModel.getWlr3_orderDetails_page().clickSiteInfo();
         webModel.getWlr3_siteInformationPage().assertInstallTypeAbsentInModifyOrder();

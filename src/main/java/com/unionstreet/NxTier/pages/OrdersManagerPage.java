@@ -77,7 +77,7 @@ public class OrdersManagerPage {
         utils.searchAndAssertTextNotPresent(By.id(QUOTEBOX), "Select Team");
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
         Thread.sleep(1000);
-        utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
+        utils.navigateToEditOrderPopupAndClose(By.id(ORDERS_SAVEQUOTE_BUTTON));
     }
 
     public void assertCPQuotePage() throws InterruptedException {
@@ -85,7 +85,7 @@ public class OrdersManagerPage {
         utils.searchAndAssertTextPresent(By.id(QUOTEBOX), "Team");
         utils.waitForElementVisible(By.id(ORDERS_SAVEQUOTE_BUTTON));
         Thread.sleep(1000);
-        utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
+        utils.navigateToEditOrderPopupAndClose(By.id(ORDERS_SAVEQUOTE_BUTTON));
     }
 
     public void checkQuotesForAgent() throws InterruptedException {
@@ -162,7 +162,7 @@ public class OrdersManagerPage {
         Thread.sleep(1000);
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), business_customer);
         Thread.sleep(1000);
-        utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
+        utils.navigateToEditOrderPopupAndClose(By.id(ORDERS_SAVEQUOTE_BUTTON));
         utils.getOrdersPage();
     }
 
@@ -172,7 +172,7 @@ public class OrdersManagerPage {
         Thread.sleep(1000);
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), newBusinessCustomerPage.Reseller_RanName);
         Thread.sleep(1000);
-        utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
+        utils.navigateToEditOrderPopupAndClose(By.id(ORDERS_SAVEQUOTE_BUTTON));
     }
 
     public void searchQuoteByQRN() {
@@ -190,7 +190,7 @@ public class OrdersManagerPage {
         Thread.sleep(1000);
         utils.selectByVisibleText(By.id(contactManagerPage.CREATEQUOTE_SELECTSITE), utils.getProperty("shortName"));
         Thread.sleep(1000);
-        utils.closePopup(By.id(ORDERS_SAVEQUOTE_BUTTON));
+        utils.navigateToEditOrderPopupAndClose(By.id(ORDERS_SAVEQUOTE_BUTTON));
     }
 
     public void searchQuoteByBcRN() throws InterruptedException {

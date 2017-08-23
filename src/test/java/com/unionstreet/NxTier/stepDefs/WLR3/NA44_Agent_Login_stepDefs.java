@@ -37,7 +37,6 @@ public class NA44_Agent_Login_stepDefs {
     ////////////////////////////////////////two///////////////////////////////////////////////////////
     @Given("^I am logged in as an agent after the CP has created a quote for a \"([^\"]*)\" assigned to me$")
     public void iAmLoggedInAsAnAgentAfterTheCPHasCreatedAQuoteForAAssignedToMe(String customer_name) throws InterruptedException {
-       webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().doLogin();
         webModel.getNewBusinessCustomerPage().clickContactManagerButton();
         webModel.getContactManagerPage().searchForBusinessCustomer(customer_name);
