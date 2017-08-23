@@ -15,7 +15,6 @@ public class NA171_WhiteLabel_CP_Should_Distinguish_Agents_Tariffs_FreeMinutes_P
 
     @Given("^Agent has created a Tariff plan, FreeMinute plan and Package$")
     public void agentHasCreatedATariffPlanFreeMinutePlanAndPackage() throws InterruptedException, UnsupportedEncodingException, ClassNotFoundException {
-        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         webModel.getSettingsPage().clickSettingsButton();
         webModel.getSettingsPage().issueTariffAndFreeMinutePermissionsToAgent("agent");

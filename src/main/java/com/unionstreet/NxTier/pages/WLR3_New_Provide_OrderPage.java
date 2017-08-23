@@ -32,7 +32,10 @@ public class WLR3_New_Provide_OrderPage {
         utils.waitForElementVisible(By.xpath(NEXT_BUTTON));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         Thread.sleep(1000);
-        utils.closeCurrentWindowAndJump(By.xpath(NEXT_BUTTON));
+        utils.clickBtn(By.xpath(NEXT_BUTTON));
+//      Thread.sleep(1000);
+//        utils.closeCurrentPage();
+        utils.switchToNewWindow();
     }
 
     public void navigateToNextScreen() throws InterruptedException {

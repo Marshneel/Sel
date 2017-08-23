@@ -26,7 +26,8 @@ public class AddServicePage {
     public void searchAndSelectService() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
-        utils.pageJumpWithoutClose(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.clickBtn(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
         try {
             utils.clickBtn(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
@@ -57,7 +58,9 @@ public class AddServicePage {
         }
         utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
-        utils.closeCurrentWindowAndJump(By.xpath("//div[text()='" + serviceName + "']"));
+        utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
+        utils.closeCurrentPage();
+        utils.switchToNewWindow();
     }
 
     public void clickAddAProductOrService() throws InterruptedException, SQLException {

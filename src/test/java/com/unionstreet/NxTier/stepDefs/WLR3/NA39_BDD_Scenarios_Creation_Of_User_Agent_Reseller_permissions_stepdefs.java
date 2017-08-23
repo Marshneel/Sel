@@ -6,6 +6,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.awt.*;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
@@ -170,9 +171,9 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     }
 
     @Given("^I am logged in as CP$")
-    public void iAmLoggedInAsCP() throws InterruptedException {
-
-        webModel.getLoginPage().zoomOutOnLoginPage();
+    public void iAmLoggedInAsCP() throws InterruptedException, AWTException {
+       webModel.getUtils().zoomOut();
+        webModel.getUtils().setStdZoom();
         webModel.getLoginPage().loginAsCP();
     }
 

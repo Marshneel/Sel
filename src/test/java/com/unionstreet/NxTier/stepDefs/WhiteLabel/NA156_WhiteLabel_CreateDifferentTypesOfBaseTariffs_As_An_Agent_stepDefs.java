@@ -15,7 +15,6 @@ public class NA156_WhiteLabel_CreateDifferentTypesOfBaseTariffs_As_An_Agent_step
 
     @Given("^CP has give me permission to create and acess call tariffs$")
     public void cpHasGiveMePermissionToCreateAndAcessCallTariffs() throws InterruptedException, AWTException {
-        webModel.getLoginPage().zoomOutOnLoginPage();
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickConfigManager();
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10","checkbox0");
