@@ -4,6 +4,8 @@ import com.unionstreet.NxTier.support.ElementUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
+import java.awt.*;
+
 /**
  * Created by RajeshG on 23/01/2017.
  */
@@ -96,7 +98,7 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
         utils.waitForElementVisible(By.xpath(message));
     }
 
-    public void populateProvisionPageWithAssertionsForISDN30() throws InterruptedException {
+    public void populateProvisionPageWithAssertionsForISDN30() throws InterruptedException, AWTException {
         utils.waitForElementVisible(By.xpath(ORDER_NOTES_LABEL_FOR_ISDN));
         utils.clickBtn(By.id(ORDERNOTES_TOOL_TIP_CLICK));
         utils.waitForElementVisible(By.xpath(TEXT_ON_ORDER_NOTES_TOOLTIP_POPUP));
@@ -109,10 +111,13 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
         utils.sendText(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX), "8");
 
     }
-    public void provisionPageForISDN30ChangeOfAddress(){
+    public void provisionPageForISDN30ChangeOfAddress() throws AWTException, InterruptedException {
+
         utils.waitForElementVisible(By.id(FLOOR_TEXT_BOX));
         utils.sendText(By.id(FLOOR_TEXT_BOX), "1st floor");
         utils.sendText(By.id(ROOM_TEXT_BOX), "central Hall");
+        utils.zoomOut();
+        Thread.sleep(2000);
         utils.sendText(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX), "9");
     }
     public void setProvisionTypeForNonMultiLine() throws InterruptedException {

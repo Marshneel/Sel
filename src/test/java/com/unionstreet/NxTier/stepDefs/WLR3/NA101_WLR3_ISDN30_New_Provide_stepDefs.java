@@ -4,6 +4,7 @@ import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.awt.*;
 import java.sql.SQLException;
 
 /**
@@ -20,7 +21,7 @@ public class NA101_WLR3_ISDN30_New_Provide_stepDefs {
     }
 
     @Then("^I should be able to check the flow$")
-    public void iShouldBeAbleToCheckTheFlow() throws InterruptedException, SQLException {
+    public void iShouldBeAbleToCheckTheFlow() throws InterruptedException, SQLException, AWTException {
         //populate SITE with assertions
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ","A00001043137");
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateSiteContactUnderSITE("07894040256");

@@ -3,6 +3,7 @@ package com.unionstreet.NxTier.pages;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.awt.*;
 import java.sql.SQLException;
 
 /**
@@ -73,17 +74,12 @@ public class WLR3_DirectoryInformationPage {
         utils.javaScriptExecutorClick(By.xpath(commonMethods.CLOSE_POPUP));
     }
 
-    public void assertUniqueNetworkFeatureUnderDirectoryInfoForSingleLine(String feature) throws InterruptedException {
+    public void assertUniqueNetworkFeatureUnderDirectoryInfoForSingleLine(String feature) throws InterruptedException, AWTException {
         utils.waitForElementVisible(By.xpath("//div[@id='directoryInformationSummaryPanel']//b[contains(text(),'" + feature + "')]"));
-
-        try {
-            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
-        } catch (Exception e) {
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
-        }
+        utils.zoomOut();
+            Thread.sleep(3000);
+            utils.javaScriptExecutorClick(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
+        utils.setStdZoom();
         utils.waitForElementVisible(By.xpath("//ul[@id='directoryInformationNavigation']//a[contains(text(),'" + feature + "')]"));
         utils.clickBtn(By.xpath(CALL_SIGN_TAB));
         utils.waitForElementVisible(By.id(EDIT));

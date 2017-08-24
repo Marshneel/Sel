@@ -110,15 +110,8 @@ public class WLR3_SiteInformationPage {
     }
     public void loadSiteInfo() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        try {
-            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        } catch (Exception e) {
-            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
-        }
+       Thread.sleep(2000);
+        utils.javaScriptExecutorClick(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
     }
     public void populateFloorAndRoomForNewProvideIDSN2() throws InterruptedException {
         utils.sendText(By.id(FLOOR_TEXT_BOX),"floor");

@@ -68,6 +68,15 @@ public class ServiceDesk_TicketDetailsPage {
     private final String CHOOSE_LINE_FOR_MULTILINE_VALIDATION_MESSAGE = "//span[text()='The field Line must be a number.']";
     private final String FEATURE_MUST_BE_SELECTED_VALIDATION_MESSAGE = "//span[text()[contains(.,'A Feature must be selected')]]";
     private final String DOWNTIME_TEXT_BOX = "wlr3_down_time";
+    private final String VALIDATION_MESSAGE_FOR_EMPTY_SAMPLE_CALL_FIELD="//li[text()[contains(.,'A Dialled From/To is required for Sample Calls')]]";
+    private final String VALIDATION_MESSAGE_FOR_EMPTY_DOWNTIME="//span[text()[contains(.,'Please enter a Down Time')]]";
+    private final String VALIDATION_MESSAGE_FOR_UNACCEPTABLY_LENGTHY_DOWNTIME ="//span[text()[contains(.,'Downtime must be no more than 255 characters')]]";
+    private final String ESTIMATED_DATE_AND_TIME_OF_REPAIR="CareLvlEstFixDate";
+    private final String CARE_LEVEL_PLAN_DROPDOWN="SelectedCareLevel";
+    private final String SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL="//legend[contains(text(),'Service Maintenance Levels')]";
+    private final String TEXT_LABEL_EXPEDIATE_FAULT_BY_INCREASING_CARELEVEL="//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]";
+    private final String VALIDATION_MESSAGE_FOR_ISDN30_WITH_CARE_LEVEL_2="//i[contains(text(),'Openreach will not permit expedition of repairs on products currently at Service Maintenance Level 2.')]";
+    private final String YES_BUTTON_TO_EXPEDITE_FAULT="//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]/following-sibling::ul//a[contains(text(),'Yes')]";
 
     private Date today;
     String currentDate;
@@ -125,9 +134,9 @@ public class ServiceDesk_TicketDetailsPage {
         utils.performClickActionTillElementIsDetected(By.xpath(FEATURE_MUST_BE_SELECTED_VALIDATION_MESSAGE), By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.id(NETWORK_FEATURES_DROPDOWN));
         utils.selectByVisibleText(By.id(NETWORK_FEATURES_DROPDOWN), "Smart Divert");
-        utils.waitForElementToBeClickable(By.xpath("//legend[contains(text(),'Line and installation details')]"));
+        utils.waitForElementToBeClickable(By.xpath(TEXT_ON_LINE_AND_INSTALLATION_DETAILS_PAGE));
         Thread.sleep(1000);
-        utils.scrollUp(By.xpath("//legend[contains(text(),'Line and installation details')]"));
+        utils.scrollUp(By.xpath(TEXT_ON_LINE_AND_INSTALLATION_DETAILS_PAGE));
         utils.waitForElementVisible(By.xpath(PIN_LABEL));
         utils.waitForElementVisible(By.id(PIN_TEXT_FIELD));
         utils.sendText(By.id(PIN_TEXT_FIELD), "123455");
@@ -146,8 +155,8 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(DATE_IS_REQUIRED_FOR_SAMPLE_CALLS));
-        utils.waitForElementVisible(By.xpath("//li[text()[contains(.,'A Dialled From/To is required for Sample Calls')]]"));
-       try{ utils.waitForElementVisible(By.xpath("//span[text()[contains(.,'Please enter a Down Time')]]"));}
+        utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMPTY_SAMPLE_CALL_FIELD));
+       try{ utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMPTY_DOWNTIME));}
        catch (Exception e){
            System.out.println("validation message for unpopulated downtime is missing");
        }
@@ -155,7 +164,7 @@ public class ServiceDesk_TicketDetailsPage {
         utils.sendText(By.id(DOWNTIME_TEXT_BOX),"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
         utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
-        utils.waitForElementVisible(By.xpath("//span[text()[contains(.,'Downtime must be no more than 255 characters')]]"));
+        utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_UNACCEPTABLY_LENGTHY_DOWNTIME));
         Thread.sleep(1000);
         utils.sendText(By.id(DOWNTIME_TEXT_BOX),"mmmmmmmmmmm");}
 
@@ -197,7 +206,7 @@ public class ServiceDesk_TicketDetailsPage {
      catch (Exception e){
          System.out.println("no validation message for unpopulated call divert CLI");
      }Thread.sleep(1000);
-        utils.scrollUp(By.xpath("//legend[contains(text(),'Temporary Call Routing')]"));
+        utils.scrollUp(By.xpath(TEMPERORY_CALL_ROUTING_LABEL));
         Thread.sleep(1000);
         utils.waitForElementVisible(By.id(TRC_CLI_FIELD));
         utils.sendText(By.id(TRC_CLI_FIELD),"020abcdef");
@@ -232,7 +241,7 @@ public class ServiceDesk_TicketDetailsPage {
 
     public void overNightLineTest() throws InterruptedException {
         Thread.sleep(1000);
-        utils.scrollUp(By.xpath("//legend[contains(text(),'Line and installation details')]"));
+        utils.scrollUp(By.xpath(TEXT_ON_LINE_AND_INSTALLATION_DETAILS_PAGE));
         utils.waitForElementToBeClickable(By.id("refreshOrderDetails"));
         utils.clickBtn(By.id("refreshOrderDetails"));
         utils.waitForElementVisible(By.xpath(OVERNIGHT_LINE_TEST_BUTTON));
@@ -256,33 +265,35 @@ public class ServiceDesk_TicketDetailsPage {
     }
     public void assertServiceMaintenanceLevelsAbsent(boolean isVirtualLine, boolean isAgent) throws InterruptedException, UnsupportedEncodingException, ClassNotFoundException {
         utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Fault details')]"));
-      if(isVirtualLine)  {utils.assertElementNotPresent(By.xpath("//legend[contains(text(),'Service Maintenance Levels')]"));}
-        if(isAgent){utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Service Maintenance Levels')]"));
-            utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]"));}
+      if(isVirtualLine)  {utils.assertElementNotPresent(By.xpath(SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL));}
+        if(isAgent){utils.waitForElementVisible(By.xpath(SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL));
+            utils.assertElementNotPresent(By.xpath(TEXT_LABEL_EXPEDIATE_FAULT_BY_INCREASING_CARELEVEL));}
     }
     public void assertThatServiceLevelsUnavailableForISDN30WithLevel2(){
-        utils.waitForElementVisible(By.xpath("//i[contains(text(),'Openreach will not permit expedition of repairs on products currently at Service Maintenance Level 2.')]"));
+        utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_ISDN30_WITH_CARE_LEVEL_2));
     }
     public void assertServiceMaintenanceLevelsPresent(){
-        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Service Maintenance Levels')]"));
-        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]"));
+        utils.waitForElementVisible(By.xpath(SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL));
+        utils.waitForElementVisible(By.xpath(TEXT_LABEL_EXPEDIATE_FAULT_BY_INCREASING_CARELEVEL));
 
     }
     public void assertCurrentServiceLevel(String currentLevel){
         utils.waitForElementVisible(By.xpath("//strong[@id='CareLvlCurrentLvl'][contains(text(),'"+currentLevel+"')]"));
     }
     public void selectServiceLevel(String newLevel) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'Yes')]"));
+        utils.waitForElementVisible(By.xpath(YES_BUTTON_TO_EXPEDITE_FAULT));
         Thread.sleep(1000);
-        utils.scrollUp(By.xpath("//legend[contains(text(),'Service Maintenance Levels')]"));
+        utils.scrollUp(By.xpath(SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL));
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath("//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]/following-sibling::ul//a[contains(text(),'Yes')]"));
-        utils.waitForElementVisible(By.id("SelectedCareLevel"));
-        utils.selectByVisibleText(By.id("SelectedCareLevel"),""+newLevel+"");
+        utils.javaScriptExecutorClick(By.xpath(YES_BUTTON_TO_EXPEDITE_FAULT));
+        utils.waitForElementVisible(By.id(CARE_LEVEL_PLAN_DROPDOWN));
+        utils.selectByVisibleText(By.id(CARE_LEVEL_PLAN_DROPDOWN),""+newLevel+"");
     }
 
-    public void assertCurrentServiceLevelWithCurrent(boolean two, boolean threeOrFour) {
-        utils.waitForElementVisible(By.id("CareLvlEstFixDate"));
+    public void assertCurrentServiceLevelWithCurrent(boolean two, boolean threeOrFour) throws InterruptedException {
+       Thread.sleep(1000);
+        utils.scrollUp(By.xpath(SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL));
+        utils.waitForElementVisible(By.id(ESTIMATED_DATE_AND_TIME_OF_REPAIR));
         utils.splitString(By.xpath("//strong[@id='CareLvlEstFixDate'][contains(text(),'')]"));
         String LevelDay = split[0];
         String LevelDate = split[1];

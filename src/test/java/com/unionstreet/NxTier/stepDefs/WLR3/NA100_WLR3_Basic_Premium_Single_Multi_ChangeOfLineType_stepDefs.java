@@ -4,6 +4,7 @@ import com.unionstreet.NxTier.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.awt.*;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
@@ -24,7 +25,7 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
     }
 
     @Then("^I should be able to check all the required validations and complete the change order for basic to premium analogue$")
-    public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOrderForBasicToPremiumAnalogue() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+    public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOrderForBasicToPremiumAnalogue() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException, AWTException {
         webModel.getWlr3_line_information_page().setCareLevelForPremiumAndISDNLineSwitch("Level 1","2.5");
         //assert that the common features for single lines are highlighted
         webModel.getWlr3_orderDetails_page().verifyCommonNetworkCallingFeaturesForSingleLine("Call Sign","Presentation Number");
@@ -46,11 +47,13 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
     }
 
     @Then("^I should be able to check all the required validations and complete the change order for premium to basic analogue$")
-    public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOrderForPremiumToBasicAnalogue() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+    public void iShouldBeAbleToCheckAllTheRequiredValidationsAndCompleteTheChangeOrderForPremiumToBasicAnalogue() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException, AWTException {
         //assert the termination type is absent on order summary page during premium to basic line switch
         webModel.getWlr3_orderDetails_page().assertAbsenceOfTerminationType("Linebox");
         webModel.getWlr3_orderDetails_page().assertValidationMessageOnOrderDetailsPage("Contact Details have not been entered correctly");
-       webModel.getWlr3_siteInformationPage().loadSiteInfo();
+       webModel.getUtils().zoomOut();
+        webModel.getWlr3_siteInformationPage().loadSiteInfo();
+        webModel.getUtils().setStdZoom();
         webModel.getWlr3_siteInformationPage().populateTelNumberUnderSiteInfo("07894040256");
         webModel.getWlr3_siteInformationPage().assertAndPopulateTerminationTypeForBasicLineSwitch("NTTP","Line Box");
         webModel.getWlr3_siteInformationPage().setUpTRCband();

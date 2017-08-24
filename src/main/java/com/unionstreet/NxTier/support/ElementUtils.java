@@ -39,7 +39,7 @@ public class ElementUtils {
         Wait wait = new FluentWait(driver)
                 .withTimeout(20, SECONDS)
                 .pollingEvery(3, SECONDS)
-                .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
+                .ignoring(WebDriverException.class);
         return wait;
     }
 
@@ -47,7 +47,7 @@ public class ElementUtils {
         Wait wait = new FluentWait(driver)
                 .withTimeout(50, SECONDS)
                 .pollingEvery(3, SECONDS)
-                .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
+                .ignoring(WebDriverException.class);
         return wait;
     }
 
@@ -55,7 +55,7 @@ public class ElementUtils {
         Wait wait = new FluentWait(driver)
                 .withTimeout(3000, SECONDS)
                 .pollingEvery(3, SECONDS)
-                .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
+                .ignoring(WebDriverException.class);
         return wait;
     }
 
@@ -140,6 +140,19 @@ public class ElementUtils {
         for (String windowHandle : handles) {
             if (!windowHandle.equals(parentWindow)) {
                 driver.switchTo().window(windowHandle);
+                driver.manage().window().maximize();
+            }
+        }
+    }
+    public void closeCurrentWindowAndJump(By by) throws InterruptedException {
+        String currentWindowHandle = driver.getWindowHandle();
+        driver.findElement(by).click();
+        Thread.sleep(2000);
+        ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+        for (String window : windowHandles) {
+            if (!window.equals(currentWindowHandle)) {
+                driver.close();
+                driver.switchTo().window(window);
                 driver.manage().window().maximize();
             }
         }
@@ -476,7 +489,7 @@ public class ElementUtils {
     }
 
     public void zoomOut() throws AWTException {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_CONTROL);
             robot.keyPress(KeyEvent.VK_MINUS);
@@ -486,7 +499,7 @@ public class ElementUtils {
     }}
 
     public void setStdZoom() throws AWTException {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_CONTROL);
             robot.keyPress(KeyEvent.VK_EQUALS);

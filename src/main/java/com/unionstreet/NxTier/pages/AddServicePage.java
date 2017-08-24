@@ -58,9 +58,7 @@ public class AddServicePage {
         }
         utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
-        utils.clickBtn(By.xpath("//div[text()='" + serviceName + "']"));
-        utils.closeCurrentPage();
-        utils.switchToNewWindow();
+        utils.closeCurrentWindowAndJump(By.xpath("//div[text()='" + serviceName + "']"));
     }
 
     public void clickAddAProductOrService() throws InterruptedException, SQLException {
@@ -70,8 +68,6 @@ public class AddServicePage {
         } catch (Exception e) {
             utils.getOrdersPage();
             ordersManagerPage.clickOnQuote();
-
-            // ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.clickBtnWithWait(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
 

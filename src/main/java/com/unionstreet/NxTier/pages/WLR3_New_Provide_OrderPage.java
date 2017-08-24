@@ -32,10 +32,7 @@ public class WLR3_New_Provide_OrderPage {
         utils.waitForElementVisible(By.xpath(NEXT_BUTTON));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath(NEXT_BUTTON));
-//      Thread.sleep(1000);
-//        utils.closeCurrentPage();
-        utils.switchToNewWindow();
+        utils.closeCurrentWindowAndJump(By.xpath(NEXT_BUTTON));
     }
 
     public void navigateToNextScreen() throws InterruptedException {
@@ -51,6 +48,10 @@ public class WLR3_New_Provide_OrderPage {
                 utils.checkAlert();
             }
         }
+    }
+    public void navigateToNextWithJavaCLick() throws InterruptedException {
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.xpath(NEXT_BUTTON));
     }
 
     public void multipleClicksOnNextButton(int number) throws InterruptedException {
