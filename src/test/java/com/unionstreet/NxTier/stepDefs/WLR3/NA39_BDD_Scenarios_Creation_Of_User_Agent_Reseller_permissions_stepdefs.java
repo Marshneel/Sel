@@ -172,8 +172,6 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
 
     @Given("^I am logged in as CP$")
     public void iAmLoggedInAsCP() throws InterruptedException, AWTException {
-       webModel.getUtils().zoomOut();
-        webModel.getUtils().setStdZoom();
         webModel.getLoginPage().loginAsCP();
     }
 

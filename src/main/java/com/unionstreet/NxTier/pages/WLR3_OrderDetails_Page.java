@@ -87,7 +87,7 @@ public class WLR3_OrderDetails_Page {
     private final String YOU_MUST_PROVIDE_A_ROOM_FOR_DIGITAL_PRODUCTS="//div[text()[contains(.,'You must specify a Room for Digital products')]]";
     private final String YOU_MUST_PROVIDE_A_FLOOR_FOR_DIGITAL_PRODUCTS="//div[text()[contains(.,'You must specify a Floor for Digital products')]]";
     public final String ERROR_MESSAGE_STATING_SIGNAL_TYPE_MANDATORY_FOR_NTTP="//div[contains(text(),'You must select a Signal Type when the Termination Type of NTTP has been specified')]";
-
+    private final String VALIDATION_MESSAGE_FOR_EMERGENCY_INFO="//span[contains(text(),'Emergency Information can only contain alphanumeric')]";
 
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
@@ -620,7 +620,7 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXT_BOX));
         utils.sendText(By.id(EMERGENCY_INFO_TEXT_BOX),"Emer&*^%");
         utils.clickBtn(By.xpath(SAVE_EMERGENCY_INFO));
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Emergency Information can only contain alphanumeric')]"));
+        utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMERGENCY_INFO));
         utils.sendText(By.id(EMERGENCY_INFO_TEXT_BOX),"Emergency Info");
         utils.clickBtn(By.xpath(SAVE_EMERGENCY_INFO));
 

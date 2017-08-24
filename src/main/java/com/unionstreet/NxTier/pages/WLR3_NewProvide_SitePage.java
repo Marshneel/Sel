@@ -106,6 +106,7 @@ public class WLR3_NewProvide_SitePage {
         utils.waitForElementVisible(By.xpath(HIGH_LIKELY_HOOD_OF_ISDN_LINE_BEING_AVAILABLE));
     }
     public void populateEmergencyInfo(){
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'This field is required.')]"));
         utils.sendText(By.id(wlr3_orderDetails_page.EMERGENCY_INFO_TEXT_BOX), wlr3_orderDetails_page.EMERGENCY_INFO_TEXT_BOX);
     }
     public void closeWizard(){
