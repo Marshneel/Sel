@@ -58,7 +58,7 @@ public class ServiceDesk_TicketDetailsPage {
     private final String FAILED_LINE_TEST_DESC = "//strong[contains(text(),'FAULT - Line Tested OK but No Dial Tone Detected')]";
     private final String TEMPORARILY_SUSPEND_CPS_DEFAULTED_TO_NO = "//a[@href='#nav-pills-tab-5'][@aria-expanded='False'][contains(text(),'No')]";
     private final String TEMPORARILY_SUSPEND_CPS_SET_TO_YES = "//li[@class='active']//a[@href='#nav-pills-tab-6'][@aria-expanded='true'][contains(text(),'Yes')]";
-    private final String YES_BUTTON_ON_TEMPORARILY_SUSPEND_CPS = "//a[@href='#nav-pills-tab-6'][@aria-expanded='true'][contains(text(),'Yes')]";
+    private final String YES_BUTTON_ON_TEMPORARILY_SUSPEND_CPS = "//a[@href='#nav-pills-tab-6']";
     private final String TRC_CLI_FIELD = "TCRDivertTo";
     private final String VALIDATION_MESSAGE_FOR_TCR_CALL_DIVERT_CLI = "//span[contains(text(),'Please enter a divert number')]";
     private final String TCR_CALL_DIVERT_CLI_CAN_ONLY_HAVE_SPACES_AND_NUMBERS = "//span[contains(text(),'To may only contain numbers or spaces')]";
@@ -217,6 +217,9 @@ public class ServiceDesk_TicketDetailsPage {
         utils.assertElementNotPresent(By.xpath(TCR_CALL_DIVERT_CLI_CAN_ONLY_HAVE_SPACES_AND_NUMBERS));
         utils.waitForElementVisible(By.xpath(TEMPORARILY_SUSPEND_CPS_DEFAULTED_TO_NO));
         utils.assertElementNotPresent(By.xpath(TEMPORARILY_SUSPEND_CPS_SET_TO_YES));
+      Thread.sleep(1000);
+        utils.scrollUp(By.xpath(TEMPERORY_CALL_ROUTING_LABEL));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath(YES_BUTTON_ON_TEMPORARILY_SUSPEND_CPS));
         utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
