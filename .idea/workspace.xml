@@ -5,6 +5,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA176_SDSK_OpenReach_Fault_Details.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA176_SDSK_OpenReach_Fault_Details.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA181_SDSK_Service_Maintenance_Levels.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA181_SDSK_Service_Maintenance_Levels.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/_NA181_SDSK_Service_Maintenance_Levels_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/_NA181_SDSK_Service_Maintenance_Levels_stepDefs.java" />
     </list>
     <ignored path="NxTier automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +39,18 @@
       <file leaf-file-name="ServiceDesk_TicketDetailsPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="220" column="60" selection-start-line="220" selection-start-column="60" selection-end-line="220" selection-end-column="60" />
+            <state relative-caret-position="1220">
+              <caret line="392" column="60" selection-start-line="392" selection-start-column="60" selection-end-line="392" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NA179_SDSK_OpenReach_TimeReatedCharges.feature" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA179_SDSK_OpenReach_TimeReatedCharges.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -57,8 +69,8 @@
       <file leaf-file-name="_NA181_SDSK_Service_Maintenance_Levels_stepDefs.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/_NA181_SDSK_Service_Maintenance_Levels_stepDefs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="99" column="74" selection-start-line="99" selection-start-column="74" selection-end-line="99" selection-end-column="74" />
+            <state relative-caret-position="297">
+              <caret line="105" column="73" selection-start-line="105" selection-start-column="73" selection-end-line="105" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -67,8 +79,8 @@
       <file leaf-file-name="NA181_SDSK_Service_Maintenance_Levels.feature" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA181_SDSK_Service_Maintenance_Levels.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="11" />
+            <state relative-caret-position="217">
+              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -77,7 +89,7 @@
       <file leaf-file-name="ElementUtils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="214">
               <caret line="218" column="30" selection-start-line="218" selection-start-column="30" selection-end-line="218" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -86,31 +98,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="NA179_SDSK_OpenReach_TimeRelatedCharges_stepDefs.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA179_SDSK_OpenReach_TimeRelatedCharges_stepDefs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="NA176_SDSK_OpenReach_Fault_Details.feature" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA176_SDSK_OpenReach_Fault_Details.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="0" selection-start-line="2" selection-start-column="2" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServiceDesk_CallerDetails_TriagePage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_CallerDetails_TriagePage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2422">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrdersManagerPage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/OrdersManagerPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="192" column="21" selection-start-line="192" selection-start-column="21" selection-end-line="192" selection-end-column="21" />
+            <state relative-caret-position="255">
+              <caret line="15" column="68" selection-start-line="2" selection-start-column="2" selection-end-line="15" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -183,7 +185,6 @@
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA166_SDSK_OpenReach_LineTest.feature" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_CallerDetails_TriagePage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/EditOrderPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/_NA181_SDSK_Service_Maintenance_Levels_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/NxTierServicesPage.java" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/config.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/OrdersManagerPage.java" />
@@ -209,8 +210,9 @@
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA117_WLR3_ISDN30_Change_Of_Address_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/WLR3_OrderDetails_Page.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/AddServicePage.java" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA181_SDSK_Service_Maintenance_Levels.feature" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA176_SDSK_OpenReach_Fault_Details.feature" />
+        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA181_SDSK_Service_Maintenance_Levels.feature" />
+        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/_NA181_SDSK_Service_Maintenance_Levels_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java" />
       </list>
@@ -227,10 +229,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1448" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1456" />
-    <option name="height" value="916" />
+    <option name="width" value="1296" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -761,31 +763,7 @@
       <recent name="C:\Users\rajeshg\IdeaProjects\Test_analysis\src\test\Resources\com\unionstreet\NxTier\com\unionstreet\NxTier\WhiteLabel\feature" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber java.Feature: NA176_SDSK_OpenReach_Fault_Details">
-    <configuration default="false" name="Feature: NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_information" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="myFilePath" value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_information.feature" />
-      <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.WLR3" />
-      <option name="myNameFilter" value="" />
-      <option name="myGeneratedName" value="Feature: NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_information" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="com.unionstreet.NxTier_automation" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Cucumber java.Feature: NA181_SDSK_Service_Maintenance_Levels">
     <configuration default="false" name="Feature: NA64_WLR3_Analogue_Premium_Single_Transfer_line_Numbering_Options" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -869,6 +847,30 @@
       <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.SDSK" />
       <option name="myNameFilter" value="" />
       <option name="myGeneratedName" value="Feature: NA176_SDSK_OpenReach_Fault_Details" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="com.unionstreet.NxTier_automation" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Feature: NA179_SDSK_OpenReach_TimeReatedCharges" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="myFilePath" value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA179_SDSK_OpenReach_TimeReatedCharges.feature" />
+      <option name="GLUE" value="com.unionstreet.NxTier.support com.unionstreet.NxTier.stepDefs.SDSK" />
+      <option name="myNameFilter" value="" />
+      <option name="myGeneratedName" value="Feature: NA179_SDSK_OpenReach_TimeReatedCharges" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
@@ -1175,19 +1177,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Cucumber java.Feature: NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_information" />
-      <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA64_WLR3_Analogue_Premium_Single_Transfer_line_Numbering_Options" />
-      <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA87_WLR3_Analogue_multiline_New_provide" />
-      <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA181_SDSK_Service_Maintenance_Levels" />
-      <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA176_SDSK_OpenReach_Fault_Details" />
+      <item index="0" class="java.lang.String" itemvalue="Cucumber java.Feature: NA64_WLR3_Analogue_Premium_Single_Transfer_line_Numbering_Options" />
+      <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA87_WLR3_Analogue_multiline_New_provide" />
+      <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA181_SDSK_Service_Maintenance_Levels" />
+      <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA176_SDSK_OpenReach_Fault_Details" />
+      <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA179_SDSK_OpenReach_TimeReatedCharges" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Cucumber java.Feature: NA176_SDSK_OpenReach_Fault_Details" />
-        <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA181_SDSK_Service_Maintenance_Levels" />
-        <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA87_WLR3_Analogue_multiline_New_provide" />
-        <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA64_WLR3_Analogue_Premium_Single_Transfer_line_Numbering_Options" />
-        <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_information" />
+        <item index="0" class="java.lang.String" itemvalue="Cucumber java.Feature: NA181_SDSK_Service_Maintenance_Levels" />
+        <item index="1" class="java.lang.String" itemvalue="Cucumber java.Feature: NA179_SDSK_OpenReach_TimeReatedCharges" />
+        <item index="2" class="java.lang.String" itemvalue="Cucumber java.Feature: NA176_SDSK_OpenReach_Fault_Details" />
+        <item index="3" class="java.lang.String" itemvalue="Cucumber java.Feature: NA87_WLR3_Analogue_multiline_New_provide" />
+        <item index="4" class="java.lang.String" itemvalue="Cucumber java.Feature: NA64_WLR3_Analogue_Premium_Single_Transfer_line_Numbering_Options" />
       </list>
     </recent_temporary>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -1232,13 +1234,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
-    </task>
-    <task id="LOCAL-00314" summary="contains NA171,172 and 173">
-      <created>1500287824496</created>
-      <option name="number" value="00314" />
-      <option name="presentableId" value="LOCAL-00314" />
-      <option name="project" value="LOCAL" />
-      <updated>1500287824496</updated>
     </task>
     <task id="LOCAL-00315" summary="contains NA171,172 and 173">
       <created>1500288302667</created>
@@ -1576,39 +1571,46 @@
       <option name="project" value="LOCAL" />
       <updated>1503581534110</updated>
     </task>
-    <option name="localTasksCounter" value="363" />
+    <task id="LOCAL-00363" summary="shifting WLR3 tests on to chrome browser">
+      <created>1503589468736</created>
+      <option name="number" value="00363" />
+      <option name="presentableId" value="LOCAL-00363" />
+      <option name="project" value="LOCAL" />
+      <updated>1503589468736</updated>
+    </task>
+    <option name="localTasksCounter" value="364" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Feature__NA176_SDSK_OpenReach_Fault_Details - 2017.08.24 at 15h 53m 11s.xml">
-      <configuration name="Feature: NA176_SDSK_OpenReach_Fault_Details" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__NA181_SDSK_Service_Maintenance_Levels - 2017.08.25 at 14h 32m 32s.xml">
+      <configuration name="Feature: NA181_SDSK_Service_Maintenance_Levels" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__NA176_SDSK_OpenReach_Fault_Details - 2017.08.24 at 15h 53m 57s.xml">
-      <configuration name="Feature: NA176_SDSK_OpenReach_Fault_Details" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__NA181_SDSK_Service_Maintenance_Levels - 2017.08.25 at 14h 37m 26s.xml">
+      <configuration name="Feature: NA181_SDSK_Service_Maintenance_Levels" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__NA176_SDSK_OpenReach_Fault_Details - 2017.08.24 at 15h 59m 40s.xml">
-      <configuration name="Feature: NA176_SDSK_OpenReach_Fault_Details" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__NA181_SDSK_Service_Maintenance_Levels - 2017.08.25 at 14h 38m 53s.xml">
+      <configuration name="Feature: NA181_SDSK_Service_Maintenance_Levels" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__NA176_SDSK_OpenReach_Fault_Details - 2017.08.24 at 16h 06m 57s.xml">
-      <configuration name="Feature: NA176_SDSK_OpenReach_Fault_Details" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__NA181_SDSK_Service_Maintenance_Levels - 2017.08.25 at 14h 39m 45s.xml">
+      <configuration name="Feature: NA181_SDSK_Service_Maintenance_Levels" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__NA176_SDSK_OpenReach_Fault_Details - 2017.08.24 at 16h 34m 52s.xml">
-      <configuration name="Feature: NA176_SDSK_OpenReach_Fault_Details" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__NA181_SDSK_Service_Maintenance_Levels - 2017.08.25 at 14h 41m 24s.xml">
+      <configuration name="Feature: NA181_SDSK_Service_Maintenance_Levels" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__NA176_SDSK_OpenReach_Fault_Details - 2017.08.24 at 16h 37m 50s.xml">
-      <configuration name="Feature: NA176_SDSK_OpenReach_Fault_Details" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__NA181_SDSK_Service_Maintenance_Levels - 2017.08.25 at 14h 46m 04s.xml">
+      <configuration name="Feature: NA181_SDSK_Service_Maintenance_Levels" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__NA176_SDSK_OpenReach_Fault_Details - 2017.08.24 at 16h 39m 40s.xml">
-      <configuration name="Feature: NA176_SDSK_OpenReach_Fault_Details" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__NA181_SDSK_Service_Maintenance_Levels - 2017.08.25 at 14h 48m 01s.xml">
+      <configuration name="Feature: NA181_SDSK_Service_Maintenance_Levels" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__NA176_SDSK_OpenReach_Fault_Details - 2017.08.24 at 16h 40m 30s.xml">
-      <configuration name="Feature: NA176_SDSK_OpenReach_Fault_Details" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__NA181_SDSK_Service_Maintenance_Levels - 2017.08.25 at 14h 48m 59s.xml">
+      <configuration name="Feature: NA181_SDSK_Service_Maintenance_Levels" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__NA176_SDSK_OpenReach_Fault_Details - 2017.08.24 at 16h 42m 43s.xml">
-      <configuration name="Feature: NA176_SDSK_OpenReach_Fault_Details" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__NA181_SDSK_Service_Maintenance_Levels - 2017.08.25 at 14h 55m 49s.xml">
+      <configuration name="Feature: NA181_SDSK_Service_Maintenance_Levels" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__NA176_SDSK_OpenReach_Fault_Details - 2017.08.24 at 16h 43m 32s.xml">
-      <configuration name="Feature: NA176_SDSK_OpenReach_Fault_Details" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__NA181_SDSK_Service_Maintenance_Levels - 2017.08.25 at 15h 23m 21s.xml">
+      <configuration name="Feature: NA181_SDSK_Service_Maintenance_Levels" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TodoView" selected-index="4">
@@ -1621,27 +1623,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1448" y="-8" width="1456" height="916" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="728" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08454426" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08435852" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2460457" sideWeight="0.5080906" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34240687" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.05019815" sideWeight="0.493553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08084358" sideWeight="0.493553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.06340819" sideWeight="0.493553" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2056239" sideWeight="0.49068767" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43911174" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3276699" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24438573" sideWeight="0.49190938" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24928367" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36195508" sideWeight="0.49676377" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18980668" sideWeight="0.49676377" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1741,7 +1743,7 @@
           <option name="timeStamp" value="596" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="631" />
+      <option name="time" value="670" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1750,22 +1752,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.WLR3.feature/NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_stepdefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="174" column="6" selection-start-line="174" selection-start-column="6" selection-end-line="174" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -2110,30 +2096,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/_NA181_SDSK_Service_Maintenance_Levels_stepDefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="99" column="74" selection-start-line="99" selection-start-column="74" selection-end-line="99" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA181_SDSK_Service_Maintenance_Levels.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA176_SDSK_OpenReach_Fault_Details.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" selection-start-line="2" selection-start-column="2" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA176_SDSK_OpenReach_Fault_Details_stepDefs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -2142,17 +2104,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA179_SDSK_OpenReach_TimeReatedCharges.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA179_SDSK_OpenReach_TimeRelatedCharges_stepDefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA176_SDSK_OpenReach_Fault_Details.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="68" selection-start-line="2" selection-start-column="2" selection-end-line="15" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/com.unionstreet.NxTier.com.unionstreet.NxTier.SDSK.feature/NA181_SDSK_Service_Maintenance_Levels.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/_NA181_SDSK_Service_Maintenance_Levels_stepDefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="105" column="73" selection-start-line="105" selection-start-column="73" selection-end-line="105" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="220" column="60" selection-start-line="220" selection-start-column="60" selection-end-line="220" selection-end-column="60" />
+        <state relative-caret-position="1220">
+          <caret line="392" column="60" selection-start-line="392" selection-start-column="60" selection-end-line="392" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/support/ElementUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="214">
           <caret line="218" column="30" selection-start-line="218" selection-start-column="30" selection-end-line="218" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />

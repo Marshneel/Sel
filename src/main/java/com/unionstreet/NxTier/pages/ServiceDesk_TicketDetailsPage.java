@@ -6,7 +6,9 @@ import org.openqa.selenium.By;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
@@ -68,23 +70,21 @@ public class ServiceDesk_TicketDetailsPage {
     private final String CHOOSE_LINE_FOR_MULTILINE_VALIDATION_MESSAGE = "//span[text()='The field Line must be a number.']";
     private final String FEATURE_MUST_BE_SELECTED_VALIDATION_MESSAGE = "//span[text()[contains(.,'A Feature must be selected')]]";
     private final String DOWNTIME_TEXT_BOX = "wlr3_down_time";
-    private final String VALIDATION_MESSAGE_FOR_EMPTY_SAMPLE_CALL_FIELD="//li[text()[contains(.,'A Dialled From/To is required for Sample Calls')]]";
-    private final String VALIDATION_MESSAGE_FOR_EMPTY_DOWNTIME="//span[text()[contains(.,'Please enter a Down Time')]]";
-    private final String VALIDATION_MESSAGE_FOR_UNACCEPTABLY_LENGTHY_DOWNTIME ="//span[text()[contains(.,'Downtime must be no more than 255 characters')]]";
-    private final String ESTIMATED_DATE_AND_TIME_OF_REPAIR="CareLvlEstFixDate";
-    private final String CARE_LEVEL_PLAN_DROPDOWN="SelectedCareLevel";
-    private final String SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL="//legend[contains(text(),'Service Maintenance Levels')]";
-    private final String TEXT_LABEL_EXPEDIATE_FAULT_BY_INCREASING_CARELEVEL="//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]";
-    private final String VALIDATION_MESSAGE_FOR_ISDN30_WITH_CARE_LEVEL_2="//i[contains(text(),'Openreach will not permit expedition of repairs on products currently at Service Maintenance Level 2.')]";
-    private final String YES_BUTTON_TO_EXPEDITE_FAULT="//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]/following-sibling::ul//a[contains(text(),'Yes')]";
+    private final String VALIDATION_MESSAGE_FOR_EMPTY_SAMPLE_CALL_FIELD = "//li[text()[contains(.,'A Dialled From/To is required for Sample Calls')]]";
+    private final String VALIDATION_MESSAGE_FOR_EMPTY_DOWNTIME = "//span[text()[contains(.,'Please enter a Down Time')]]";
+    private final String VALIDATION_MESSAGE_FOR_UNACCEPTABLY_LENGTHY_DOWNTIME = "//span[text()[contains(.,'Downtime must be no more than 255 characters')]]";
+    private final String ESTIMATED_DATE_AND_TIME_OF_REPAIR = "CareLvlEstFixDate";
+    private final String CARE_LEVEL_PLAN_DROPDOWN = "SelectedCareLevel";
+    private final String SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL = "//legend[contains(text(),'Service Maintenance Levels')]";
+    private final String TEXT_LABEL_EXPEDIATE_FAULT_BY_INCREASING_CARELEVEL = "//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]";
+    private final String VALIDATION_MESSAGE_FOR_ISDN30_WITH_CARE_LEVEL_2 = "//i[contains(text(),'Openreach will not permit expedition of repairs on products currently at Service Maintenance Level 2.')]";
+    private final String YES_BUTTON_TO_EXPEDITE_FAULT = "//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]/following-sibling::ul//a[contains(text(),'Yes')]";
 
     private Date today;
     String currentDate;
     String currentTime;
-    String currentDay;
-    ElementUtils utils=new ElementUtils();
-
-
+    String currentDayOfTheWeek;
+    ElementUtils utils = new ElementUtils();
 
 
     public void assertTextOnTicketDetailsPage() {
@@ -103,19 +103,21 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementToVanish(By.xpath(OPEN_REACH_SPINNER));
         utils.waitForElementVisible(By.xpath(SEARCH_BOX_FOR_CLI));
         utils.sendText(By.xpath(SEARCH_BOX_FOR_CLI), "" + cli + "");
-        utils.waitForElementVisible(By.xpath("//td[text()[contains(.,'"+cli+"')]]/following-sibling::td[text()[contains(.,'LU1 1DQ')]]/following-sibling::td[3]/button[contains(text(),'Select')]"));
+        utils.waitForElementVisible(By.xpath("//td[text()[contains(.,'" + cli + "')]]/following-sibling::td[text()[contains(.,'LU1 1DQ')]]/following-sibling::td[3]/button[contains(text(),'Select')]"));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(SELECT_CLI_BUTTON));
         utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Installation Details for " + cli + "')]"));
         utils.waitForElementVisible(By.xpath("//strong[contains(text(),'" + lineType + "')]"));
-        if(notVirtualLine){   utils.waitForElementVisible(By.xpath("//strong[contains(text(),'" + numberOfLines + "')]"));
+        if (notVirtualLine) {
+            utils.waitForElementVisible(By.xpath("//strong[contains(text(),'" + numberOfLines + "')]"));
             utils.waitForElementVisible(By.xpath("//strong[contains(text(),'" + maintenanceLevel + "')]"));
             utils.waitForElementVisibleForOpenReach(By.xpath(CPS_PRESENT_RESULT));
             String valueForCPS = driver.findElement(By.xpath(CPS_PRESENT_RESULT)).getText();
             String valueForCalAndNetwrkFeatures = driver.findElement(By.xpath(CALLING_AND_NETWORK_FEATURES)).getText();
             utils.twoValueArrayList("Yes", "No");
             Assert.assertTrue(utils.allValues.contains(valueForCPS));
-            Assert.assertTrue(utils.allValues.contains(valueForCalAndNetwrkFeatures));}
+            Assert.assertTrue(utils.allValues.contains(valueForCalAndNetwrkFeatures));
+        }
     }
 
     public void faultDetails_assertionForAnalogueLines(boolean multiLine) throws InterruptedException {
@@ -146,43 +148,47 @@ public class ServiceDesk_TicketDetailsPage {
     }
 
     public void faultDetails_assertionForISDN30E() throws InterruptedException {
-      try{  utils.waitForElementVisible(By.xpath(SAMPLE_CALLS_LABEL));}
-      catch (Exception e){
-          System.out.println("Sample Calls Text is missing");
-      }
+        try {
+            utils.waitForElementVisible(By.xpath(SAMPLE_CALLS_LABEL));
+        } catch (Exception e) {
+            System.out.println("Sample Calls Text is missing");
+        }
         utils.waitForElementVisible(By.id(FAULT_SQC_DROPDOWN));
         utils.selectByVisibleText(By.id(FAULT_SQC_DROPDOWN), "Noisy");
         utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(DATE_IS_REQUIRED_FOR_SAMPLE_CALLS));
         utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMPTY_SAMPLE_CALL_FIELD));
-       try{ utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMPTY_DOWNTIME));}
-       catch (Exception e){
-           System.out.println("validation message for unpopulated downtime is missing");
-       }
+        try {
+            utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMPTY_DOWNTIME));
+        } catch (Exception e) {
+            System.out.println("validation message for unpopulated downtime is missing");
+        }
         utils.waitForElementVisible(By.id(DOWNTIME_TEXT_BOX));
-        utils.sendText(By.id(DOWNTIME_TEXT_BOX),"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+        utils.sendText(By.id(DOWNTIME_TEXT_BOX), "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
         utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_UNACCEPTABLY_LENGTHY_DOWNTIME));
         Thread.sleep(1000);
-        utils.sendText(By.id(DOWNTIME_TEXT_BOX),"mmmmmmmmmmm");}
+        utils.sendText(By.id(DOWNTIME_TEXT_BOX), "mmmmmmmmmmm");
+    }
 
 
-    public void validateSampleCalls() throws InterruptedException {  today = new Date();
+    public void validateSampleCalls() throws InterruptedException {
+        today = new Date();
         currentDate = new SimpleDateFormat("dd/MM/YYYY").format(today);
-        currentTime=new SimpleDateFormat("KK:mm").format(today);
+        currentTime = new SimpleDateFormat("KK:mm").format(today);
         utils.waitForElementVisible(By.id(SAMPLE_CALLS_DATE_FIELD));
         Thread.sleep(1000);
         utils.waitForElementVisible(By.id(SAMPLE_CALLS_DATE_FIELD));
-       utils.scrollUp(By.xpath("//legend[contains(.,'Fault details')]"));
+        utils.scrollUp(By.xpath("//legend[contains(.,'Fault details')]"));
         utils.sendText(By.id(SAMPLE_CALLS_DATE_FIELD), currentDate);
         utils.waitForElementVisible(By.id(SAMPLE_CALLS_TIME_FIELD));
         utils.sendText(By.id(SAMPLE_CALLS_TIME_FIELD), currentTime);
         utils.waitForElementVisible(By.id(SAMPLE_CALLS_CLI_FIELD));
-        utils.sendText(By.id(SAMPLE_CALLS_CLI_FIELD),"02012345678");
+        utils.sendText(By.id(SAMPLE_CALLS_CLI_FIELD), "02012345678");
         utils.waitForElementVisible(By.id(SAMPLE_CALLS_DIALLED_FROM_TO_FIELD));
-        utils.sendText(By.id(SAMPLE_CALLS_DIALLED_FROM_TO_FIELD),"02012345678");
+        utils.sendText(By.id(SAMPLE_CALLS_DIALLED_FROM_TO_FIELD), "02012345678");
         utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_2ND_ROW));
         utils.clickBtn(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_2ND_ROW));
         Thread.sleep(1000);
@@ -193,31 +199,34 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
     }
+
     public void faultDetails_assertionForISDN2() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(STD_LINE_TEST_BUTTON));
         utils.assertElementNotPresent(By.xpath(OVERNIGHT_LINE_TEST_BUTTON));
         //temporary call routing
         utils.waitForElementVisible(By.xpath(TEMPERORY_CALL_ROUTING_LABEL));
         utils.waitForElementVisible(By.xpath(TCR_DEFAULTED_TO_NONE));
-        utils.selectByVisibleText(By.id(TCR_DROPDOWN),"Call Divert");
+        utils.selectByVisibleText(By.id(TCR_DROPDOWN), "Call Divert");
         utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
-     try{   utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_TCR_CALL_DIVERT_CLI));}
-     catch (Exception e){
-         System.out.println("no validation message for unpopulated call divert CLI");
-     }Thread.sleep(1000);
+        try {
+            utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_TCR_CALL_DIVERT_CLI));
+        } catch (Exception e) {
+            System.out.println("no validation message for unpopulated call divert CLI");
+        }
+        Thread.sleep(1000);
         utils.scrollUp(By.xpath(TEMPERORY_CALL_ROUTING_LABEL));
         Thread.sleep(1000);
         utils.waitForElementVisible(By.id(TRC_CLI_FIELD));
-        utils.sendText(By.id(TRC_CLI_FIELD),"020abcdef");
+        utils.sendText(By.id(TRC_CLI_FIELD), "020abcdef");
         utils.waitForElementVisible(By.xpath(TCR_CALL_DIVERT_CLI_CAN_ONLY_HAVE_SPACES_AND_NUMBERS));
-        utils.sendText(By.id(TRC_CLI_FIELD),"02012345678");
+        utils.sendText(By.id(TRC_CLI_FIELD), "02012345678");
         utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.assertElementNotPresent(By.xpath(TCR_CALL_DIVERT_CLI_CAN_ONLY_HAVE_SPACES_AND_NUMBERS));
         utils.waitForElementVisible(By.xpath(TEMPORARILY_SUSPEND_CPS_DEFAULTED_TO_NO));
         utils.assertElementNotPresent(By.xpath(TEMPORARILY_SUSPEND_CPS_SET_TO_YES));
-      Thread.sleep(1000);
+        Thread.sleep(1000);
         utils.scrollUp(By.xpath(TEMPERORY_CALL_ROUTING_LABEL));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(YES_BUTTON_ON_TEMPORARILY_SUSPEND_CPS));
@@ -225,6 +234,7 @@ public class ServiceDesk_TicketDetailsPage {
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(TEMPORARILY_SUSPEND_CPS_SET_TO_YES));
     }
+
     public void lineTest_Fail() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001',DPType='Internal',MainFaultLocation='EX',FaultReportAdvised='Y',LineStability='Stable',NetworkStability='Stable',StabilityStatement=' Stable - no adverse line test history',TestOutcome='Fail',DiagnosisDescription='FAULT - Line Tested OK but No Dial Tone Detected',DiagnosisCode='T073' where serviceid='02063678369'");
         utils.waitForElementVisible(By.xpath(STD_LINE_TEST_BUTTON));
@@ -233,13 +243,15 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.xpath(FAILED_LINE_TEST_DESC));
         utils.waitForElementVisible(By.xpath(REPORT_LINE_FAULT));
     }
+
     public void lineTest_Pass() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001',DPType=NULL,MainFaultLocation=NULL,FaultReportAdvised=NULL,LineStability=NULL,NetworkStability=NULL,StabilityStatement=NULL,TestOutcome=NULL,DiagnosisDescription=NULL,DiagnosisCode=NULL where serviceid='02063678369'");
         utils.waitForElementVisible(By.xpath(REDO_LINE_TEXT_BUTTON));
         utils.clickBtn(By.xpath(REDO_LINE_TEXT_BUTTON));
         utils.waitForElementVisible(By.xpath(LINE_TEST_PASSED));
         utils.waitForElementVisible(By.xpath(PASSED_LINE_TEST_DESC));
-        utils.waitForElementVisible(By.xpath(NEED_NOT_REPORT_LINE_FAULT));}
+        utils.waitForElementVisible(By.xpath(NEED_NOT_REPORT_LINE_FAULT));
+    }
 
 
     public void overNightLineTest() throws InterruptedException {
@@ -255,34 +267,43 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.xpath(PASSED_LINE_TEST_DESC));
     }
 
-    public void assertLineTestAndTRCAbsentForISDN30AndVirtualLines(){
+    public void assertLineTestAndTRCAbsentForISDN30AndVirtualLines() {
         utils.waitForElementVisible(By.xpath(FAULT_DETAILS_LABEL));
         utils.assertElementNotPresent(By.xpath(LINE_TEST_LABEL));
         utils.assertElementNotPresent(By.xpath(TIME_RELATED_CHARGES_LABEL));
     }
 
-    public void validateTimeRelatedCharges(){
+    public void validateTimeRelatedCharges() {
         utils.waitForElementVisible(By.xpath(TIME_RELATED_CHARGES_LABEL));
         utils.waitForElementVisible(By.xpath(TRC_DEFAULTED_TO_BAND_0));
 
     }
+
     public void assertServiceMaintenanceLevelsAbsent(boolean isVirtualLine, boolean isAgent) throws InterruptedException, UnsupportedEncodingException, ClassNotFoundException {
         utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Fault details')]"));
-      if(isVirtualLine)  {utils.assertElementNotPresent(By.xpath(SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL));}
-        if(isAgent){utils.waitForElementVisible(By.xpath(SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL));
-            utils.assertElementNotPresent(By.xpath(TEXT_LABEL_EXPEDIATE_FAULT_BY_INCREASING_CARELEVEL));}
+        if (isVirtualLine) {
+            utils.assertElementNotPresent(By.xpath(SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL));
+        }
+        if (isAgent) {
+            utils.waitForElementVisible(By.xpath(SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL));
+            utils.assertElementNotPresent(By.xpath(TEXT_LABEL_EXPEDIATE_FAULT_BY_INCREASING_CARELEVEL));
+        }
     }
-    public void assertThatServiceLevelsUnavailableForISDN30WithLevel2(){
+
+    public void assertThatServiceLevelsUnavailableForISDN30WithLevel2() {
         utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_ISDN30_WITH_CARE_LEVEL_2));
     }
-    public void assertServiceMaintenanceLevelsPresent(){
+
+    public void assertServiceMaintenanceLevelsPresent() {
         utils.waitForElementVisible(By.xpath(SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL));
         utils.waitForElementVisible(By.xpath(TEXT_LABEL_EXPEDIATE_FAULT_BY_INCREASING_CARELEVEL));
 
     }
-    public void assertCurrentServiceLevel(String currentLevel){
-        utils.waitForElementVisible(By.xpath("//strong[@id='CareLvlCurrentLvl'][contains(text(),'"+currentLevel+"')]"));
+
+    public void assertCurrentServiceLevel(String currentLevel) {
+        utils.waitForElementVisible(By.xpath("//strong[@id='CareLvlCurrentLvl'][contains(text(),'" + currentLevel + "')]"));
     }
+
     public void selectServiceLevel(String newLevel) throws InterruptedException {
         utils.waitForElementVisible(By.xpath(YES_BUTTON_TO_EXPEDITE_FAULT));
         Thread.sleep(1000);
@@ -290,41 +311,101 @@ public class ServiceDesk_TicketDetailsPage {
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath(YES_BUTTON_TO_EXPEDITE_FAULT));
         utils.waitForElementVisible(By.id(CARE_LEVEL_PLAN_DROPDOWN));
-        utils.selectByVisibleText(By.id(CARE_LEVEL_PLAN_DROPDOWN),""+newLevel+"");
+        utils.selectByVisibleText(By.id(CARE_LEVEL_PLAN_DROPDOWN), "" + newLevel + "");
     }
 
-    public void assertCurrentServiceLevelWithCurrent(boolean two, boolean threeOrFour) throws InterruptedException {
-       Thread.sleep(1000);
+
+    public Date IfSaturday() {
+        Date Level2ExpectedSaturday = new Date();
+        Calendar calLevel2NonSaturday = Calendar.getInstance();
+        calLevel2NonSaturday.setTime(Level2ExpectedSaturday);
+        calLevel2NonSaturday.add(Calendar.DATE, 2);
+        Level2ExpectedSaturday = calLevel2NonSaturday.getTime();
+        return Level2ExpectedSaturday;
+    }
+
+    public Date NonSaturday() {
+        Date Level2ExpectedNonSaturday = new Date();
+        Calendar calLevel2NonSaturday = Calendar.getInstance();
+        calLevel2NonSaturday.setTime(Level2ExpectedNonSaturday);
+        calLevel2NonSaturday.add(Calendar.DATE, 1);
+        Level2ExpectedNonSaturday = calLevel2NonSaturday.getTime();
+        return Level2ExpectedNonSaturday;
+    }
+    public Date Level4Time(){
+        Date Level4ExpectedTime = new Date();
+        Calendar calLevel4ExpectedTime = Calendar.getInstance();
+        calLevel4ExpectedTime.setTime(Level4ExpectedTime);
+        calLevel4ExpectedTime.add(Calendar.HOUR_OF_DAY, 6);
+        Level4ExpectedTime = calLevel4ExpectedTime.getTime();
+        return Level4ExpectedTime;
+    }
+
+    public void assertCurrentServiceLevelWithCurrent(boolean level2, boolean level3, boolean level4) throws InterruptedException, ParseException {
+        Thread.sleep(1000);
         utils.scrollUp(By.xpath(SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL));
         utils.waitForElementVisible(By.id(ESTIMATED_DATE_AND_TIME_OF_REPAIR));
         utils.splitString(By.xpath("//strong[@id='CareLvlEstFixDate'][contains(text(),'')]"));
         String LevelDay = split[0];
         String LevelDate = split[1];
         String LevelTime = split[4];
+//to get the date, time and day of the week for present day
         today = new Date();
-        currentDay = new SimpleDateFormat("EEEE" + ",").format(today);
-        currentDate = new SimpleDateFormat("dd").format(today);
-        currentTime = new SimpleDateFormat("hh:mm").format(today);
-        if (two) {
-            Assert.assertNotEquals(LevelDate, currentDate);
-            Assert.assertNotEquals(LevelDay, currentDay);
-            Assert.assertNotEquals(LevelTime, currentTime);
-            Assert.assertNotEquals(LevelDate, null);
-            Assert.assertNotEquals(LevelDay, null);
-            Assert.assertNotEquals(LevelTime, null);
-            if (threeOrFour) {
-                Assert.assertNotEquals(LevelTime, currentTime);
-                Assert.assertNotEquals(LevelDate, null);
-                Assert.assertNotEquals(LevelDay, null);
-                Assert.assertNotEquals(LevelTime, null);
-
+        currentDayOfTheWeek = new SimpleDateFormat("EEEE").format(today);
+        String CurrentTime = new SimpleDateFormat("HH:mm").format(today);
+        String currentDate = new SimpleDateFormat("dd").format(today);
+        if (level2) {
+            try {
+                String ExpectedDayOfTheWeek = new SimpleDateFormat("EEEE" + ",").format(NonSaturday());
+                String ExpectedDay = new SimpleDateFormat("dd").format(NonSaturday());
+                Assert.assertEquals(LevelDay, ExpectedDayOfTheWeek);
+                Assert.assertEquals(LevelDate, ExpectedDay);
+            } catch (AssertionError e) {
+                String ExpectedDayOfTheWeek = new SimpleDateFormat("EEEE" + ",").format(IfSaturday());
+                String ExpectedDay = new SimpleDateFormat("dd").format(IfSaturday());
+                Assert.assertEquals(LevelDay, ExpectedDayOfTheWeek);
+                Assert.assertEquals(LevelDate, ExpectedDay);
+                Assert.assertNotEquals(LevelTime, CurrentTime);
+                Assert.assertEquals(LevelTime, "23:59");
             }
         }
+        if (level3) {
+            try {
+
+                try {
+                    Assert.assertEquals(LevelTime, "23:59");
+                    Assert.assertEquals(LevelDate, currentDate);
+                } catch (AssertionError e) {
+                    Assert.assertEquals(LevelTime, "13:00");
+                    String ExpectedDay = new SimpleDateFormat("dd").format(NonSaturday());
+                    Assert.assertEquals(LevelDate, ExpectedDay);
+                }
+            } catch (AssertionError e) {
+                Assert.assertEquals(LevelTime, "13:00");
+                String ExpectedDay = new SimpleDateFormat("dd").format(IfSaturday());
+                Assert.assertEquals(LevelDate, ExpectedDay);
+            }
+        }
+        if ((level4)) {
+            try {
+                String level4ExpTime = new SimpleDateFormat("HH:mm").format(Level4Time());
+                Assert.assertEquals(LevelTime, level4ExpTime);
+                Assert.assertEquals(LevelDate, currentDate);
+            } catch (AssertionError e) {
+                String level4ExpTime = new SimpleDateFormat("HH:mm").format(Level4Time());
+                Assert.assertEquals(LevelTime, level4ExpTime);
+                String ExpectedDay = new SimpleDateFormat("dd").format(NonSaturday());
+                Assert.assertEquals(LevelDate, ExpectedDay);
+
+            }
+
+        }
+
     }
 
-
-
 }
+
+
 
 
 
