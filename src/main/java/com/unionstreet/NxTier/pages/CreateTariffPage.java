@@ -90,8 +90,9 @@ public class CreateTariffPage {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+tariffName+"')]"));
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+tariffName+"')]/../following-sibling::td[contains(text(),'Baseline')]"));
     }
-    public void createBlankTariff(String tariffCategory, String tariffType, String baseTariffSetting, boolean cp, boolean agent){
+    public void createBlankTariff(String tariffCategory, String tariffType, String baseTariffSetting, boolean cp, boolean agent) throws InterruptedException {
         RanTariffPlanName = utils.randomName();
+        Thread.sleep(1000);
         utils.sendText(By.id(TARIFF_NAME_TEXT_BOX), RanTariffPlanName);
         utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
         utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));

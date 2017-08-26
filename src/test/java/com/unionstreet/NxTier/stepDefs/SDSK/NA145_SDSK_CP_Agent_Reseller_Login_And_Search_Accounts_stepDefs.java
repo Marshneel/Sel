@@ -51,7 +51,7 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
         webModel.getServiceDeskPage().searchResultsForServiceDesk("business customer agent assigned");
         webModel.getServiceDeskPage().searchResultsForServiceDesk("business customer created by CP");
         //search for reseller by account name
-        webModel.getServiceDeskPage().searchByAccountName("reseller");
+        webModel.getServiceDeskPage().searchByShortName("site called business customer");
         //results
         webModel.getServiceDeskPage().searchResultsForServiceDesk("site called business customer");
         ////search by short name////////////////////////////////////////////
