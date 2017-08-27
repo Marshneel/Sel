@@ -8,6 +8,7 @@ import cucumber.api.java.en.When;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.text.ParseException;
 
 /**
  * Created by rajeshg on 20/08/2017.
@@ -96,13 +97,13 @@ public class _NA181_SDSK_Service_Maintenance_Levels_stepDefs {
     }
 
     @Then("^The service time should drop basing on the plan i choose$")
-    public void theServiceTimeShouldDropBasingOnThePlanIChoose() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
-        webModel.getServiceDesk_ticketDetailsPage().assertCurrentServiceLevelWithCurrent(true,true);
+    public void theServiceTimeShouldDropBasingOnThePlanIChoose() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException, ParseException {
+        webModel.getServiceDesk_ticketDetailsPage().assertCurrentServiceLevelWithCurrent(true,false,false);
         webModel.getServiceDesk_ticketDetailsPage().assertCurrentServiceLevel("Level 2");
         webModel.getServiceDesk_ticketDetailsPage().selectServiceLevel("Level 3");
-        webModel.getServiceDesk_ticketDetailsPage().assertCurrentServiceLevelWithCurrent(false,true);
+        webModel.getServiceDesk_ticketDetailsPage().assertCurrentServiceLevelWithCurrent(false,true,false);
         webModel.getServiceDesk_ticketDetailsPage().selectServiceLevel("Level 4");
-        webModel.getServiceDesk_ticketDetailsPage().assertCurrentServiceLevelWithCurrent(false,true);
+        webModel.getServiceDesk_ticketDetailsPage().assertCurrentServiceLevelWithCurrent(false,false,true);
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set CareLevel='2.5' where serviceid='02063678369'");
 
 
