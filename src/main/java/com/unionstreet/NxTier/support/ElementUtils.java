@@ -206,18 +206,18 @@ public class ElementUtils {
 
     //browser selector
     public WebDriver browser() {
-         String browser=System.getProperty("browser");
+         //String browser=System.getProperty("browser");
         try {
 
-            if (browser.equalsIgnoreCase("chrome")) {
+            if (getProperty("browser").equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 driver = new ChromeDriver();
-            } else if (browser.equalsIgnoreCase("IE")) {
+            } else if (getProperty("browser").equalsIgnoreCase("IE")) {
                 DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
                 capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
                 driver = new InternetExplorerDriver(capabilities);
-            } else if (browser.equalsIgnoreCase("firefox")) {
+            } else if (getProperty("browser").equalsIgnoreCase("firefox")) {
                 driver = new FirefoxDriver();
             }
 

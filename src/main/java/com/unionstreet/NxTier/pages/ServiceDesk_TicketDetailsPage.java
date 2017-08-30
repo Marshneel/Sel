@@ -431,10 +431,9 @@ public class ServiceDesk_TicketDetailsPage {
 
         }
 
+
     }
-
-    public void navigateToBrowseIncidents() {
-
+    public void clickBrowserIncidentsButton(){
         try {
             utils.waitForElementVisible(By.xpath(LOAD_BROWSE_INCIDENTS_BUTTON));
             utils.clickBtn(By.xpath(LOAD_BROWSE_INCIDENTS_BUTTON));
@@ -445,9 +444,19 @@ public class ServiceDesk_TicketDetailsPage {
             utils.clickBtn(By.xpath(LOAD_BROWSE_INCIDENTS_BUTTON));
         }
         utils.waitForElementVisible(By.xpath(TEXT_ON_BROWSE_INCIDENTS_PAGE));
-
     }
 
+
+    public void navigateToBrowseIncidents() {
+        if (utils.isElementAbsent(By.xpath("//li[@class='has-sub active expand']"))) {
+    clickBrowserIncidentsButton();
+        }
+        if (utils.isElementPresent(By.xpath("//li[@class='has-sub active expand']")))
+        utils.clickBtn(By.xpath("//li[@class='has-sub active expand']"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'Browse Incidents')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'Browse Incidents')]"));
+        {
+    }}
     public void browserIncidents(String by, String commonSearch, String finalSearch) throws InterruptedException {
         commonMethods.searchBoxWithVariableElement(By.xpath(SEARCH_BOX_BROWSE_INCIDENTS),by);
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'" + by + "')]"));

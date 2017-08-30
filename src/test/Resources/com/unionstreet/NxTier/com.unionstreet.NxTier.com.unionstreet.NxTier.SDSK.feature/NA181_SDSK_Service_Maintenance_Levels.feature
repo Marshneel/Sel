@@ -1,4 +1,4 @@
-@SDSK
+
 Feature: NA181 SDSK Service Maintenance Levels
   Scenario: Service maintenance levels should be unavailable for virtual lines
     Given I am logged in as AdamR

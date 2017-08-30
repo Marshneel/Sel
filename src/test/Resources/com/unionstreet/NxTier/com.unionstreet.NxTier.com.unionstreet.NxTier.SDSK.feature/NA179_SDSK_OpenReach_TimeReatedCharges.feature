@@ -1,4 +1,4 @@
-@SDSK
+
 Feature: NA179_SDSK_OpenReach Time related charges
   Scenario: validate the time related charges dropdown in relation to the ISDN30 line type
     Given I am logged in as AdamR

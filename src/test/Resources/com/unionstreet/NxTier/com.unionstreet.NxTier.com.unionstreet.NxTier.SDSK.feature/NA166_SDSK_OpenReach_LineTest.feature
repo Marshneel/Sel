@@ -1,4 +1,4 @@
-@SDSK
+
 Feature: NA166 SDSK OpenReach LineTest
   Scenario: perform a line test and over night line test on an analogue line
     Given I am logged in as AdamR
