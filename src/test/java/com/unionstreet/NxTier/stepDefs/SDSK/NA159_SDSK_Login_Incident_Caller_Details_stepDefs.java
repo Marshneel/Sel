@@ -17,6 +17,7 @@ public class NA159_SDSK_Login_Incident_Caller_Details_stepDefs {
 
     @Given("^I am logged in as AdamR$")
     public void iAmLoggedInAsAdamR() throws InterruptedException {
+        webModel.getUtils().loadBranchURLForServiceDesk("");
         webModel.getLoginPage().loginAsAdamR();
 
     }

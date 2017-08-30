@@ -25,6 +25,12 @@ public class CommonMethods {
         utils.sendText(By.id(SEARCH_BUTTON), text);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
     }
+    public void searchBoxWithVariableElement(By by, String text) throws InterruptedException {
+        utils.waitForElementVisible(by);
+        Thread.sleep(1000);
+        utils.sendText(by, text);
+        utils.keyBoardEnter(by);}
+
     public void clickAndSwitchTo(String desiredEntity) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+desiredEntity+"')]"));
         Thread.sleep(1000);

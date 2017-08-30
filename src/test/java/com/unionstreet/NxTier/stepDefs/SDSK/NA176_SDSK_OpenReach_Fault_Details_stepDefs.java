@@ -17,6 +17,7 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
 
     @Given("^I am logged in as AdamR with zoom$")
     public void iAmLoggedInAsAdamRWithZoom() throws Throwable {
+        webModel.getUtils().loadBranchURLForServiceDesk("");
         webModel.getLoginPage().loginAsAdamR();
     }
 
