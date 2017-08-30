@@ -36,8 +36,8 @@ public class _NA181_SDSK_Service_Maintenance_Levels_stepDefs {
 
     }
 
-    @Given("^I am logged in as agentAdam$")
-    public void iAmLoggedInAsAgentAdam() throws InterruptedException {
+    @Given("^I am logged in as a reseller for serviceDesk$")
+    public void iAmLoggedInAsAResellerForServiceDesk() throws InterruptedException {
         webModel.getLoginPage().loginAsAgentAdam();
 
     }

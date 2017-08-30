@@ -90,7 +90,6 @@ public class LoginPage {
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
     public void loginAsAdamR() throws InterruptedException {
-        utils.loadBranchURLForServiceDesk();
         utils.waitForElementVisible(By.id(USERNAME_FIELD));
         utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), "AdamR");
@@ -102,7 +101,7 @@ public class LoginPage {
             utils.checkAlert();
         }
     } public void loginAsAgentAdam() throws InterruptedException {
-        utils.loadBranchURLForServiceDesk();
+        utils.loadBranchURLForServiceDesk("");
         utils.waitForElementVisible(By.id(USERNAME_FIELD));
         utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), "agentAdam");

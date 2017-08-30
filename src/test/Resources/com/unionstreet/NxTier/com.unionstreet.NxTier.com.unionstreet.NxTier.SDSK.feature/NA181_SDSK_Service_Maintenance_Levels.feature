@@ -5,8 +5,8 @@ Feature: NA181 SDSK Service Maintenance Levels
     And I raise an open reach incident on an either of the virtual line
     Then The service maintenance levels should be un-available for virtualLines
 
-  Scenario: agent should not be able to alter the service maintenance levels
-    Given I am logged in as agentAdam
+  Scenario: reseller should not be able to alter the service maintenance levels
+    Given I am logged in as a reseller for serviceDesk
     When I raise an open reach incident on an analogue line
     Then The service maintenance levels dropdown should be un-available for selection
 

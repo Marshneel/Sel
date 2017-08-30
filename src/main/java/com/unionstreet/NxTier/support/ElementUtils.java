@@ -20,6 +20,7 @@ import java.util.*;
 import java.util.List;
 
 import static com.unionstreet.NxTier.support.BaseClass.driver;
+import static com.unionstreet.NxTier.support.BaseClass.utils;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertTrue;
 
@@ -205,7 +206,7 @@ public class ElementUtils {
 
     //browser selector
     public WebDriver browser() {
-          String browser=System.getProperty("browser");
+         String browser=System.getProperty("browser");
         try {
 
             if (browser.equalsIgnoreCase("chrome")) {
@@ -273,6 +274,14 @@ public class ElementUtils {
             driver.findElement(by).isDisplayed();
             return true;
         } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+    public boolean isElementAbsent(By by){
+        try{
+            utils.assertElementNotPresent(by);
+            return true;
+        }catch (AssertionError error){
             return false;
         }
     }
@@ -573,8 +582,8 @@ public class ElementUtils {
         clickEnter();
     }
 
-    public void loadBranchURLForServiceDesk() {
-        driver.get("http://test01-web01/RajeshNB");
+    public void loadBranchURLForServiceDesk(String port) {
+        driver.get("http://test01-web01"+port+"/RajeshNB");
     }
 
     public void loadSipTrunkURL() {
