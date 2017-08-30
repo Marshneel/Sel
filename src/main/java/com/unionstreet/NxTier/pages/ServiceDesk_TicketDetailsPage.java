@@ -448,10 +448,10 @@ public class ServiceDesk_TicketDetailsPage {
 
 
     public void navigateToBrowseIncidents() {
-        if (utils.isElementAbsent(By.xpath("//li[@class='has-sub active expand']"))) {
+        if (utils.isElementAbsent(By.xpath("//div[@class='fade page-sidebar-fixed page-header-fixed page-container in page-sidebar-minified']"))) {
     clickBrowserIncidentsButton();
         }
-        if (utils.isElementPresent(By.xpath("//li[@class='has-sub active expand']")))
+        if (utils.isElementPresent(By.xpath("//div[@class='fade page-sidebar-fixed page-header-fixed page-container in page-sidebar-minified']")))
         utils.clickBtn(By.xpath("//li[@class='has-sub active expand']"));
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'Browse Incidents')]"));
         utils.clickBtn(By.xpath("//a[contains(text(),'Browse Incidents')]"));
