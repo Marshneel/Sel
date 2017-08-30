@@ -452,9 +452,8 @@ public class ServiceDesk_TicketDetailsPage {
     clickBrowserIncidentsButton();
         }
         if (utils.isElementPresent(By.xpath("//div[@class='fade page-sidebar-fixed page-header-fixed page-container in page-sidebar-minified']")))
-        utils.clickBtn(By.xpath("//span[contains(text(),'Service Desk')]"));
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'Browse Incidents')]"));
-        utils.clickBtn(By.xpath("//a[contains(text(),'Browse Incidents')]"));
+       utils.clickBtn(By.xpath("//span[@class='sidebar-minify-btn']"));
+        clickBrowserIncidentsButton();
         {
     }}
     public void browserIncidents(String by, String commonSearch, String finalSearch) throws InterruptedException {

@@ -119,7 +119,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="182">
-              <caret line="452" column="9" selection-start-line="452" selection-start-column="9" selection-end-line="452" selection-end-column="9" />
+              <caret line="446" column="5" selection-start-line="446" selection-start-column="5" selection-end-line="446" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1230,13 +1230,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00320" summary="updated for cross browser-testing">
-      <created>1500563326083</created>
-      <option name="number" value="00320" />
-      <option name="presentableId" value="LOCAL-00320" />
-      <option name="project" value="LOCAL" />
-      <updated>1500563326083</updated>
-    </task>
     <task id="LOCAL-00321" summary="updated for cross browser-testing">
       <created>1500711202166</created>
       <option name="number" value="00321" />
@@ -1573,13 +1566,17 @@
       <option name="project" value="LOCAL" />
       <updated>1504086349913</updated>
     </task>
-    <option name="localTasksCounter" value="369" />
+    <task id="LOCAL-00369" summary="contains NA187">
+      <created>1504086709724</created>
+      <option name="number" value="00369" />
+      <option name="presentableId" value="LOCAL-00369" />
+      <option name="project" value="LOCAL" />
+      <updated>1504086709724</updated>
+    </task>
+    <option name="localTasksCounter" value="370" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Feature__NA187_SDSK_Search_An_Incident - 2017.08.29 at 16h 27m 37s.xml">
-      <configuration name="Feature: NA187_SDSK_Search_An_Incident" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
     <history-entry file="Feature__NA187_SDSK_Search_An_Incident - 2017.08.29 at 17h 00m 55s.xml">
       <configuration name="Feature: NA187_SDSK_Search_An_Incident" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
@@ -1607,6 +1604,9 @@
     <history-entry file="Feature__NA187_SDSK_Search_An_Incident - 2017.08.30 at 10h 51m 13s.xml">
       <configuration name="Feature: NA187_SDSK_Search_An_Incident" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
+    <history-entry file="Feature__NA187_SDSK_Search_An_Incident - 2017.08.30 at 10h 56m 39s.xml">
+      <configuration name="Feature: NA187_SDSK_Search_An_Incident" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1629,11 +1629,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2460457" sideWeight="0.5080906" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34240687" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.06340819" sideWeight="0.493553" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41283125" sideWeight="0.493553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.023709903" sideWeight="0.493553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2056239" sideWeight="0.49068767" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42765042" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40186247" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24438573" sideWeight="0.49190938" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24928367" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2157,7 +2157,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
-          <caret line="452" column="9" selection-start-line="452" selection-start-column="9" selection-end-line="452" selection-end-column="9" />
+          <caret line="446" column="5" selection-start-line="446" selection-start-column="5" selection-end-line="446" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
