@@ -106,6 +106,8 @@ public class ServiceDesk_TicketDetailsPage {
     private final String PAGINATION_ACTIVE_PAGE_1="//li[@class='paginate_button active']//a[contains(text(),'1')]";
     private final String PAGINATION_ACTIVE_PAGE_2="//li[@class='paginate_button active']//a[contains(text(),'2')]";
     private final String NAVIGATE_TO_PAGE_2="//li[@class='paginate_button ']//a[contains(text(),'2')]";
+    private final String MINIFIED_SERVICE_DESK_PANEL="//div[@class='fade page-sidebar-fixed page-header-fixed page-container in page-sidebar-minified']";
+    private final String MAGNIFY_SERVICE_DESK_PANEL="//span[@class='sidebar-minify-btn']";
 
 
     private Date today;
@@ -448,11 +450,11 @@ public class ServiceDesk_TicketDetailsPage {
 
 
     public void navigateToBrowseIncidents() {
-        if (utils.isElementAbsent(By.xpath("//div[@class='fade page-sidebar-fixed page-header-fixed page-container in page-sidebar-minified']"))) {
+        if (utils.isElementAbsent(By.xpath(MINIFIED_SERVICE_DESK_PANEL))) {
     clickBrowserIncidentsButton();
         }
-        if (utils.isElementPresent(By.xpath("//div[@class='fade page-sidebar-fixed page-header-fixed page-container in page-sidebar-minified']")))
-       utils.clickBtn(By.xpath("//span[@class='sidebar-minify-btn']"));
+        if (utils.isElementPresent(By.xpath(MINIFIED_SERVICE_DESK_PANEL)))
+       utils.clickBtn(By.xpath(MAGNIFY_SERVICE_DESK_PANEL));
         clickBrowserIncidentsButton();
         {
     }}
