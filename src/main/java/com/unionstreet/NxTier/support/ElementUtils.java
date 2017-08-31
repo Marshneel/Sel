@@ -19,8 +19,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 
-import static com.unionstreet.NxTier.support.BaseClass.driver;
-import static com.unionstreet.NxTier.support.BaseClass.utils;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertTrue;
 
@@ -37,7 +35,7 @@ public class ElementUtils {
 
 
     public Wait waitForSomeTime() {
-        Wait wait = new FluentWait(driver)
+        Wait wait = new FluentWait(BaseClass.driver)
                 .withTimeout(20, SECONDS)
                 .pollingEvery(3, SECONDS)
                 .ignoring(WebDriverException.class);
@@ -45,7 +43,7 @@ public class ElementUtils {
     }
 
     public Wait waitForSomeTimeForWLR3() {
-        Wait wait = new FluentWait(driver)
+        Wait wait = new FluentWait(BaseClass.driver)
                 .withTimeout(50, SECONDS)
                 .pollingEvery(3, SECONDS)
                 .ignoring(WebDriverException.class);
@@ -53,7 +51,7 @@ public class ElementUtils {
     }
 
     public Wait waitForSomeTimeForOpenReach() {
-        Wait wait = new FluentWait(driver)
+        Wait wait = new FluentWait(BaseClass.driver)
                 .withTimeout(3000, SECONDS)
                 .pollingEvery(3, SECONDS)
                 .ignoring(WebDriverException.class);
@@ -61,15 +59,15 @@ public class ElementUtils {
     }
 
     public void findFieldAndSendKeys(By by, String filePath) {
-        driver.findElement(by).sendKeys(filePath);
+        BaseClass.driver.findElement(by).sendKeys(filePath);
     }
 
     //method to find the element, clear the box if needed and send text
     public void sendText(By by, String txt) {
         waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
-        driver.findElement(by).click();
-        driver.findElement(by).clear();
-        driver.findElement(by).sendKeys(txt);
+        BaseClass.driver.findElement(by).click();
+        BaseClass.driver.findElement(by).clear();
+        BaseClass.driver.findElement(by).sendKeys(txt);
     }
 
    // method to click button with fluent wait
@@ -79,13 +77,13 @@ public class ElementUtils {
 //                .pollingEvery(5, SECONDS)
 //                .ignoring(WebDriverException.class);
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
-        driver.findElement(by).click();
+        BaseClass.driver.findElement(by).click();
     }
 
     //method to click button
     public void clickBtn(By by) {
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
-        driver.findElement(by).click();
+        BaseClass.driver.findElement(by).click();
         checkAlert();
     }
 
@@ -93,12 +91,12 @@ public class ElementUtils {
     //method to assert element text
     public void verifyStringMatch(By by, String expectedString) {
         waitForSomeTime().until(ExpectedConditions.textToBePresentInElementLocated(by, expectedString));
-        String actualString = driver.findElement(by).getText();
+        String actualString = BaseClass.driver.findElement(by).getText();
         Assert.assertEquals(expectedString, actualString);
     }
 
     public void assertURL(String expectedURL) {
-        String actualURL = driver.getCurrentUrl();
+        String actualURL = BaseClass.driver.getCurrentUrl();
         Assert.assertEquals(expectedURL, actualURL);
     }
 
@@ -122,39 +120,39 @@ public class ElementUtils {
 
     //switching to new window
     public void switchToNewWindow() {
-        parentWindow = driver.getWindowHandle();
-        Set<String> handles = driver.getWindowHandles();
+        parentWindow = BaseClass.driver.getWindowHandle();
+        Set<String> handles = BaseClass.driver.getWindowHandles();
         for (String windowHandle : handles) {
             if (!windowHandle.equals(parentWindow)) {
-                driver.switchTo().window(windowHandle);
-                driver.manage().window().maximize();
+                BaseClass.driver.switchTo().window(windowHandle);
+                BaseClass.driver.manage().window().maximize();
 
             }
         }
     }
 
     public void switchToNewWindowByJavaExeClick(By by) throws InterruptedException {
-        parentWindow = driver.getWindowHandle();
+        parentWindow = BaseClass.driver.getWindowHandle();
         Thread.sleep(2000);
         javaScriptExecutorClick(by);
-        Set<String> handles = driver.getWindowHandles();
+        Set<String> handles = BaseClass.driver.getWindowHandles();
         for (String windowHandle : handles) {
             if (!windowHandle.equals(parentWindow)) {
-                driver.switchTo().window(windowHandle);
-                driver.manage().window().maximize();
+                BaseClass.driver.switchTo().window(windowHandle);
+                BaseClass.driver.manage().window().maximize();
             }
         }
     }
     public void closeCurrentWindowAndJump(By by) throws InterruptedException {
-        String currentWindowHandle = driver.getWindowHandle();
-        driver.findElement(by).click();
+        String currentWindowHandle = BaseClass.driver.getWindowHandle();
+        BaseClass.driver.findElement(by).click();
         Thread.sleep(2000);
-        ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+        ArrayList<String> windowHandles = new ArrayList<String>(BaseClass.driver.getWindowHandles());
         for (String window : windowHandles) {
             if (!window.equals(currentWindowHandle)) {
-                driver.close();
-                driver.switchTo().window(window);
-                driver.manage().window().maximize();
+                BaseClass.driver.close();
+                BaseClass.driver.switchTo().window(window);
+                BaseClass.driver.manage().window().maximize();
             }
         }
     }
@@ -176,27 +174,27 @@ public class ElementUtils {
     //simulate keyboard enter press
     public void keyBoardEnter(By by) {
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
-        driver.findElement(by).sendKeys(Keys.ENTER);
+        BaseClass.driver.findElement(by).sendKeys(Keys.ENTER);
     }
 
     //select data by visible text
     public void selectByVisibleText(By by, String text) {
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
         waitForSomeTime().until(ExpectedConditions.textToBePresentInElementLocated(by, text));
-        Select select = new Select(driver.findElement(by));
+        Select select = new Select(BaseClass.driver.findElement(by));
         select.selectByVisibleText(text);
     }
 
     public void selectByIndex(By by, int number) {
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
-        Select select = new Select(driver.findElement(by));
+        Select select = new Select(BaseClass.driver.findElement(by));
         select.selectByIndex(number);
     }
 
     //select date from drop down
     public void selectDay(By by, String number) {
-        driver.findElement(by).sendKeys(number);
-        driver.findElement(by).click();
+        BaseClass.driver.findElement(by).sendKeys(number);
+        BaseClass.driver.findElement(by).click();
     }
 
     public String getCurrentDate(String format) {
@@ -211,35 +209,35 @@ public class ElementUtils {
 
             if (browser.equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
-                driver = new ChromeDriver();
+                BaseClass.driver = new ChromeDriver();
             } else if (browser.equalsIgnoreCase("IE")) {
                 DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
                 capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
-                driver = new InternetExplorerDriver(capabilities);
+                BaseClass.driver = new InternetExplorerDriver(capabilities);
             } else if (browser.equalsIgnoreCase("firefox")) {
-                driver = new FirefoxDriver();
+                BaseClass.driver = new FirefoxDriver();
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return driver;
+        return BaseClass.driver;
     }
 
     public void jumpToPopUpWindow(By by) {
-        Set parentWindow = driver.getWindowHandles();
+        Set parentWindow = BaseClass.driver.getWindowHandles();
         clickBtnWithWait(by);
-        Set afterPopup = driver.getWindowHandles();
+        Set afterPopup = BaseClass.driver.getWindowHandles();
         afterPopup.removeAll(parentWindow);
         if (afterPopup.size() == 1) {
-            driver.switchTo().window((String) afterPopup.toArray()[0]);
+            BaseClass.driver.switchTo().window((String) afterPopup.toArray()[0]);
         }
     }
 
     public boolean isAlertPresent() {
         try {
-            driver.switchTo().alert();
+            BaseClass.driver.switchTo().alert();
             return true;
         }   // try
         catch (NoAlertPresentException Ex) {
@@ -251,7 +249,7 @@ public class ElementUtils {
     public void checkAlert() {
         try {
             if (isAlertPresent()) {
-                Alert alert = driver.switchTo().alert();
+                Alert alert = BaseClass.driver.switchTo().alert();
                 alert.accept();
             }
         } catch (Exception e) {
@@ -271,7 +269,7 @@ public class ElementUtils {
 
     public boolean isElementPresent(By by) {
         try {
-            driver.findElement(by).isDisplayed();
+            BaseClass.driver.findElement(by).isDisplayed();
             return true;
         } catch (NoSuchElementException e) {
             return false;
@@ -279,7 +277,7 @@ public class ElementUtils {
     }
     public boolean isElementAbsent(By by){
         try{
-            utils.assertElementNotPresent(by);
+            BaseClass.utils.assertElementNotPresent(by);
             return true;
         }catch (AssertionError error){
             return false;
@@ -287,33 +285,33 @@ public class ElementUtils {
     }
 
     public void navigateToEditOrderPopupAndClose(By by) throws InterruptedException {
-        String currentWindowHandle = driver.getWindowHandle();
-        driver.findElement(by).click();
+        String currentWindowHandle = BaseClass.driver.getWindowHandle();
+        BaseClass.driver.findElement(by).click();
         Thread.sleep(2000);
-        ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+        ArrayList<String> windowHandles = new ArrayList<String>(BaseClass.driver.getWindowHandles());
         for (String window : windowHandles) {
 
             if (!window.equals(currentWindowHandle)) {
-                driver.switchTo().window(window);
-                driver.close();
+                BaseClass.driver.switchTo().window(window);
+                BaseClass.driver.close();
             }
         }
-        driver.switchTo().window(currentWindowHandle);
+        BaseClass.driver.switchTo().window(currentWindowHandle);
     }
 
        public void javaScriptExecutorClick(By by) {
-        WebElement element = driver.findElement(by);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement element = BaseClass.driver.findElement(by);
+        JavascriptExecutor js = (JavascriptExecutor) BaseClass.driver;
         js.executeScript("arguments[0].click();", element);
     }
 
     public void switchToParentWindow() {
-        driver.switchTo().window(parentWindow);
+        BaseClass.driver.switchTo().window(parentWindow);
     }
 
     public void closeCurrentPage() {
         try {
-            driver.close();
+            BaseClass.driver.close();
         } catch (Exception e) {
             checkAlert();
         }
@@ -329,19 +327,19 @@ public class ElementUtils {
 
 
     public void searchAndAssertTextNotPresent(By by, String searchText) {
-        String actualText = driver.findElement(by).getText();
+        String actualText = BaseClass.driver.findElement(by).getText();
         Assert.assertFalse(actualText.contains(searchText));
     }
 
     public void searchAndAssertTextPresent(By by, String searchText) {
-        WebDriverWait wait = new WebDriverWait(driver, 100);
+        WebDriverWait wait = new WebDriverWait(BaseClass.driver, 100);
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-        String actualText = driver.findElement(by).getText();
+        String actualText = BaseClass.driver.findElement(by).getText();
         Assert.assertTrue(actualText.contains(searchText));
     }
 
     public void makeSureBoxIsChecked(By by1, By by2) {
-        WebElement element = driver.findElement(by1);
+        WebElement element = BaseClass.driver.findElement(by1);
         if (element.isSelected() == true) {
         } else {
             javaScriptExecutorClick(by2);
@@ -350,7 +348,7 @@ public class ElementUtils {
     }
 
     public void makeSureBoxIsUnChecked(By by1, By by2) {
-        WebElement element = driver.findElement(by1);
+        WebElement element = BaseClass.driver.findElement(by1);
         if (element.isSelected() == true) {
             javaScriptExecutorClick(by2);
         } else {
@@ -358,24 +356,24 @@ public class ElementUtils {
     }
 
     public void refreshPage() {
-        driver.navigate().refresh();
+        BaseClass.driver.navigate().refresh();
     }
 
     public void getOrdersPage() {
         try {
-            driver.get("http://test01-web01/nxtiere2e/orders/ordersmanager");
+            BaseClass.driver.get("http://test01-web01/nxtiere2e/orders/ordersmanager");
         } catch (Exception e) {
             checkAlert();
         }
     }
 
     public void getLoginPage() {
-        driver.get("http://test01-web01/nxtiere2e");
+        BaseClass.driver.get("http://test01-web01/nxtiere2e");
     }
 
     public void getDashBoardPage(String database) {
         try {
-            driver.get("http://test01-web01" + database + "/Dashboard/index");
+            BaseClass.driver.get("http://test01-web01" + database + "/Dashboard/index");
         } catch (Exception e) {
             checkAlert();
         }
@@ -383,11 +381,11 @@ public class ElementUtils {
     }
 
     public void getCpAddUserPage() {
-        driver.get("http://test01-web01/nxtiere2e/CPUsers/CPUsersList");
+        BaseClass.driver.get("http://test01-web01/nxtiere2e/CPUsers/CPUsersList");
     }
 
     public void assertElementNotPresent(By by) {
-        List<WebElement> element = driver.findElements(by);
+        List<WebElement> element = BaseClass.driver.findElements(by);
         assertTrue(element.isEmpty());
     }
 
@@ -424,20 +422,20 @@ public class ElementUtils {
     }
 
     public String getAttributeOfElement(By by, String attribute) {
-        return driver.findElement(by).getAttribute(attribute);
+        return BaseClass.driver.findElement(by).getAttribute(attribute);
     }
 
     public void jumpToParentPopUp() {
-        driver.switchTo().parentFrame();
+        BaseClass.driver.switchTo().parentFrame();
     }
 
     public void clearText(By by) {
-        driver.findElement(by).clear();
+        BaseClass.driver.findElement(by).clear();
     }
 
     public void scrollUp(By by) throws InterruptedException {
-        WebElement element = driver.findElement(by);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        WebElement element = BaseClass.driver.findElement(by);
+        ((JavascriptExecutor) BaseClass.driver).executeScript("arguments[0].scrollIntoView(true);", element);
         Thread.sleep(1000);
     }
 
@@ -485,12 +483,12 @@ public class ElementUtils {
 
 
     public void switchToPreviousWindow(int number) {
-        ArrayList<String> tabs = new ArrayList(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(number));
+        ArrayList<String> tabs = new ArrayList(BaseClass.driver.getWindowHandles());
+        BaseClass.driver.switchTo().window(tabs.get(number));
     }
 
     public void getCreateCustomerPage() {
-        driver.get("http://test01-web01/nxtiere2e/company/endcustomer?type=1");
+        BaseClass.driver.get("http://test01-web01/nxtiere2e/company/endcustomer?type=1");
     }
 
     public void checkPoint(String text) {
@@ -561,7 +559,7 @@ public class ElementUtils {
     }
 
     public void scrollBack() {
-        driver.navigate().back();
+        BaseClass.driver.navigate().back();
 
     }
 
@@ -578,25 +576,25 @@ public class ElementUtils {
     }
 
     public void enterServiceDeskURLandCLickEnter(String siteID) throws AWTException {
-        driver.get("http://test01-web01/nxtiere2e/ServiceDesk/LogIncident/?SiteID=" + siteID + "");
+        BaseClass.driver.get("http://test01-web01/nxtiere2e/ServiceDesk/LogIncident/?SiteID=" + siteID + "");
         clickEnter();
     }
 
     public void loadBranchURLForServiceDesk(String port) {
-        driver.get("http://test01-web01"+port+"/RajeshNB");
+        BaseClass.driver.get("http://test01-web01"+port+"/RajeshNB");
     }
 
     public void loadSipTrunkURL() {
-        driver.get("http://159.8.174.50:8080/#!login");
+        BaseClass.driver.get("http://159.8.174.50:8080/#!login");
     }
 
     public void assertUnchecked(By by) {
-        WebElement element = driver.findElement(by);
+        WebElement element = BaseClass.driver.findElement(by);
         Assert.assertFalse(element.isSelected());
     }
 
     public void assertChecked(By by) {
-        WebElement element = driver.findElement(by);
+        WebElement element = BaseClass.driver.findElement(by);
         Assert.assertTrue(element.isSelected());
     }
 
@@ -605,7 +603,7 @@ public class ElementUtils {
     }
 
     public void navigateBack() {
-        driver.navigate().back();
+        BaseClass.driver.navigate().back();
     }
 
     public void twoValueArrayList(String valueOne, String valueTwo) {
@@ -631,16 +629,16 @@ public class ElementUtils {
 //    }
     public void performClickActionTillElementIsDetected(By elementWanted, By clickElement) {
 
-        driver.findElement(clickElement).click();
-        if (driver.findElement(elementWanted).isDisplayed()) {
+        BaseClass.driver.findElement(clickElement).click();
+        if (BaseClass.driver.findElement(elementWanted).isDisplayed()) {
         } else {
-            driver.findElement(clickElement).click();
+            BaseClass.driver.findElement(clickElement).click();
         }
         waitForElementVisible(elementWanted);
 
     }
     public void splitString(By by){
-        String currentSlot= driver.findElement(by).getText();
+        String currentSlot= BaseClass.driver.findElement(by).getText();
         split = currentSlot.split(" ");
     }
 
