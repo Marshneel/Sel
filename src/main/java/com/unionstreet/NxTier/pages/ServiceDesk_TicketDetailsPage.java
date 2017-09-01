@@ -386,7 +386,7 @@ public class ServiceDesk_TicketDetailsPage {
         today = new Date();
         currentDayOfTheWeek = new SimpleDateFormat("EEEE").format(today);
         String CurrentTime = new SimpleDateFormat("HH:mm").format(today);
-        String currentDate = new SimpleDateFormat("dd").format(today);
+        String currentDate = new SimpleDateFormat("d").format(today);
         if (level2) {
             try {
                 String ExpectedDayOfTheWeek = new SimpleDateFormat("EEEE" + ",").format(NonSaturday());
