@@ -1,6 +1,7 @@
 package com.unionstreet.NxTier.pages;
 
 import com.gargoylesoftware.htmlunit.ElementNotFoundException;
+import com.unionstreet.NxTier.support.BaseClass;
 import com.unionstreet.NxTier.support.ElementUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -12,7 +13,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import static com.unionstreet.NxTier.support.BaseClass.driver;
 import static com.unionstreet.NxTier.support.ElementUtils.split;
 
 /**
@@ -143,8 +143,8 @@ public class ServiceDesk_TicketDetailsPage {
             utils.waitForElementVisible(By.xpath("//strong[contains(text(),'" + numberOfLines + "')]"));
             utils.waitForElementVisible(By.xpath("//strong[contains(text(),'" + maintenanceLevel + "')]"));
             utils.waitForElementVisibleForOpenReach(By.xpath(CPS_PRESENT_RESULT));
-            String valueForCPS = driver.findElement(By.xpath(CPS_PRESENT_RESULT)).getText();
-            String valueForCalAndNetwrkFeatures = driver.findElement(By.xpath(CALLING_AND_NETWORK_FEATURES)).getText();
+            String valueForCPS = BaseClass.driver.findElement(By.xpath(CPS_PRESENT_RESULT)).getText();
+            String valueForCalAndNetwrkFeatures = BaseClass.driver.findElement(By.xpath(CALLING_AND_NETWORK_FEATURES)).getText();
             utils.twoValueArrayList("Yes", "No");
             Assert.assertTrue(utils.allValues.contains(valueForCPS));
             Assert.assertTrue(utils.allValues.contains(valueForCalAndNetwrkFeatures));
@@ -373,6 +373,7 @@ public class ServiceDesk_TicketDetailsPage {
         return Level4ExpectedTime;
     }
 
+
     public void assertCurrentServiceLevelWithCurrent(boolean level2, boolean level3, boolean level4) throws InterruptedException, ParseException {
         Thread.sleep(1000);
         utils.scrollUp(By.xpath(SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL));
@@ -385,22 +386,23 @@ public class ServiceDesk_TicketDetailsPage {
         today = new Date();
         currentDayOfTheWeek = new SimpleDateFormat("EEEE").format(today);
         String CurrentTime = new SimpleDateFormat("HH:mm").format(today);
-        String currentDate = new SimpleDateFormat("dd").format(today);
+        String currentDate = new SimpleDateFormat("d").format(today);
         if (level2) {
             try {
                 String ExpectedDayOfTheWeek = new SimpleDateFormat("EEEE" + ",").format(NonSaturday());
-                String ExpectedDay = new SimpleDateFormat("dd").format(NonSaturday());
+                String ExpectedDay = new SimpleDateFormat("d").format(NonSaturday());
                 Assert.assertEquals(LevelDay, ExpectedDayOfTheWeek);
                 Assert.assertEquals(LevelDate, ExpectedDay);
             } catch (AssertionError e) {
                 String ExpectedDayOfTheWeek = new SimpleDateFormat("EEEE" + ",").format(IfSaturday());
-                String ExpectedDay = new SimpleDateFormat("dd").format(IfSaturday());
+                String ExpectedDay = new SimpleDateFormat("d").format(IfSaturday());
                 Assert.assertEquals(LevelDay, ExpectedDayOfTheWeek);
                 Assert.assertEquals(LevelDate, ExpectedDay);
                 Assert.assertNotEquals(LevelTime, CurrentTime);
                 Assert.assertEquals(LevelTime, "23:59");
             }
         }
+
         if (level3) {
             try {
 
@@ -409,12 +411,12 @@ public class ServiceDesk_TicketDetailsPage {
                     Assert.assertEquals(LevelDate, currentDate);
                 } catch (AssertionError e) {
                     Assert.assertEquals(LevelTime, "13:00");
-                    String ExpectedDay = new SimpleDateFormat("dd").format(NonSaturday());
+                  String ExpectedDay = new SimpleDateFormat("d").format(NonSaturday());
                     Assert.assertEquals(LevelDate, ExpectedDay);
                 }
             } catch (AssertionError e) {
                 Assert.assertEquals(LevelTime, "13:00");
-                String ExpectedDay = new SimpleDateFormat("dd").format(IfSaturday());
+                String ExpectedDay = new SimpleDateFormat("d").format(IfSaturday());
                 Assert.assertEquals(LevelDate, ExpectedDay);
             }
         }
@@ -426,7 +428,7 @@ public class ServiceDesk_TicketDetailsPage {
             } catch (AssertionError e) {
                 String level4ExpTime = new SimpleDateFormat("HH:mm").format(Level4Time());
                 Assert.assertEquals(LevelTime, level4ExpTime);
-                String ExpectedDay = new SimpleDateFormat("dd").format(NonSaturday());
+                String ExpectedDay = new SimpleDateFormat("d").format(NonSaturday());
                 Assert.assertEquals(LevelDate, ExpectedDay);
 
             }
@@ -436,7 +438,7 @@ public class ServiceDesk_TicketDetailsPage {
 
     }
     public void clickBrowserIncidentsButton(){
-        try {
+       try {
             utils.waitForElementVisible(By.xpath(LOAD_BROWSE_INCIDENTS_BUTTON));
             utils.clickBtn(By.xpath(LOAD_BROWSE_INCIDENTS_BUTTON));
         } catch (ElementNotFoundException e) {
@@ -460,18 +462,18 @@ public class ServiceDesk_TicketDetailsPage {
     }}
     public void browserIncidents(String by, String commonSearch, String finalSearch) throws InterruptedException {
         commonMethods.searchBoxWithVariableElement(By.xpath(SEARCH_BOX_BROWSE_INCIDENTS),by);
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'" + by + "')]"));
+        utils.waitForElementVisibleForWLR3Page(By.xpath("//span[contains(text(),'" + by + "')]"));
 
         if (utils.isElementPresent(By.xpath(IMPORT_MANAGER_DROP_DOWN))) {
             commonMethods.searchBoxWithVariableElement(By.xpath(SEARCH_BOX_BROWSE_INCIDENTS),""+commonSearch+"");
-            utils.waitForElementVisible(By.xpath("//td[contains(text(),'Adam Co.')]"));
+            utils.waitForElementVisibleForWLR3Page(By.xpath("//td[contains(text(),'Adam Co.')]"));
         }
         if(utils.isElementAbsent(By.xpath(IMPORT_MANAGER_DROP_DOWN))){
             commonMethods.searchBoxWithVariableElement(By.xpath(SEARCH_BOX_BROWSE_INCIDENTS),""+commonSearch+"");
-            utils.waitForElementVisible(By.xpath(NO_INCIDENTS_TEXT_LABEL));
+            utils.waitForElementVisibleForWLR3Page(By.xpath(NO_INCIDENTS_TEXT_LABEL));
         }
         commonMethods.searchBoxWithVariableElement(By.xpath(SEARCH_BOX_BROWSE_INCIDENTS),""+finalSearch+"");
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+finalSearch+"')]"));
+        utils.waitForElementVisibleForWLR3Page(By.xpath("//span[contains(text(),'"+finalSearch+"')]"));
     }
     public void validateColumns_BrowserIncidents() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(EXPAND_BUTTON_ON_INCIDENT));
