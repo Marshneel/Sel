@@ -48,6 +48,8 @@ public class WebModel {
     private SipTrunkPlus_DashBoardPage sipTrunkPlus_dashBoardPage;
     private SipTrunkPlus_AddResellerPage sipTrunkPlus_addResellerPage;
     private ServiceDesk_TicketDetailsPage serviceDesk_ticketDetailsPage;
+    private RestServices restServices;
+   
 
     public WebModel() {
         utils = new ElementUtils();
@@ -94,6 +96,8 @@ public class WebModel {
         sipTrunkPlus_dashBoardPage = new SipTrunkPlus_DashBoardPage();
         sipTrunkPlus_addResellerPage = new SipTrunkPlus_AddResellerPage();
         serviceDesk_ticketDetailsPage=new ServiceDesk_TicketDetailsPage();
+        restServices=new RestServices();
+
 
 
     }
@@ -270,6 +274,9 @@ public class WebModel {
         return serviceDesk_ticketDetailsPage;
     }
 
+    public RestServices getRestServices(){
+        return restServices;
+    }
 }
 
 

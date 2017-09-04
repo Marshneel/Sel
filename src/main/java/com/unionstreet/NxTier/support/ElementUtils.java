@@ -2,6 +2,8 @@ package com.unionstreet.NxTier.support;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
@@ -641,6 +643,25 @@ public class ElementUtils {
         String currentSlot= BaseClass.driver.findElement(by).getText();
         split = currentSlot.split(" ");
     }
+    public static class LoadPayloads {
+
+        public JSONObject getPayload(String fileName) {
+            JSONParser jsonParser = new JSONParser();
+            Object object = null;
+            try {
+                try {
+                    object = jsonParser.parse(new FileReader(System.getProperty("user.dir") + "/src/main/PayLoad/" + fileName + ".json"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } catch (org.json.simple.parser.ParseException e) {
+                e.printStackTrace();
+            }
+            JSONObject json = (JSONObject) object;
+            return json;
+        }
+    }
+
 
 }
 

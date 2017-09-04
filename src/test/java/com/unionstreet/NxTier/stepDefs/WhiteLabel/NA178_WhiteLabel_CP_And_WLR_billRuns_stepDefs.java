@@ -45,6 +45,7 @@ public class NA178_WhiteLabel_CP_And_WLR_billRuns_stepDefs {
     @When("^I navigate to the relevant pages then I should be able to check all the validations for WLR customer as a CP$")
     public void iNavigateToTheRelevantPagesThenIShouldBeAbleToCheckAllTheValidationsForWLRCustomerAsACP() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set agent_id=NULL,agent_contact_id=NULL, AgentContact=NULL where ID='141'");
+       webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getCommonMethods().search("WLR");
         webModel.getCommonMethods().clickAndSwitchTo("WLR");
         webModel.getCompanyMenuPage().validateBillRunForWLR_underInvoicingDetails_cutomerSetToNonWLR();
