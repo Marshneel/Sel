@@ -164,7 +164,7 @@ public class ElementUtils {
 
         try {
             prop = new Properties();
-            fileInputStream = new FileInputStream("\\src\\test\\Resources\\config.properties");
+            fileInputStream = new FileInputStream("src/test/Resources/config.properties");
             prop.load(fileInputStream);
 
         } catch (Exception e) {
