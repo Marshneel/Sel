@@ -1,4 +1,4 @@
-
+@SDSK
 Feature: NA - 187 SDSK Search An Incident
 
  Scenario Outline: As a user I should be able to search for the created incidents
