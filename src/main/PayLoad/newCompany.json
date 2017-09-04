@@ -1,0 +1,5 @@
+{
+  "CompanyId": 1,
+  "ShortName": "company",
+  "SetToEarliestCompanyBillingAddress": true
+}

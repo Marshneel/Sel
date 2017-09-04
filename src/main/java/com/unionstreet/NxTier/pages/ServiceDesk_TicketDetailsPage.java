@@ -276,12 +276,18 @@ public class ServiceDesk_TicketDetailsPage {
     }
 
     public void lineTest_Pass() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
-        utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001',DPType=NULL,MainFaultLocation=NULL,FaultReportAdvised=NULL,LineStability=NULL,NetworkStability=NULL,StabilityStatement=NULL,TestOutcome=NULL,DiagnosisDescription=NULL,DiagnosisCode=NULL where serviceid='02063678369'");
+        utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001',DPType=NULL,MainFaultLocation=NULL,FaultReportAdvised=NULL,LineStability='stable',NetworkStability='stable',StabilityStatement='stable',TestOutcome=NULL,DiagnosisDescription=NULL,DiagnosisCode=NULL where serviceid='02063678369'");
         utils.waitForElementVisible(By.xpath(REDO_LINE_TEXT_BUTTON));
         utils.clickBtn(By.xpath(REDO_LINE_TEXT_BUTTON));
         utils.waitForElementVisible(By.xpath(LINE_TEST_PASSED));
         utils.waitForElementVisible(By.xpath(PASSED_LINE_TEST_DESC));
         utils.waitForElementVisible(By.xpath(NEED_NOT_REPORT_LINE_FAULT));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Line Stability')]"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Network Stability')]"));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Stability Statement')]"));
+
+
+
     }
 
 
@@ -296,6 +302,9 @@ public class ServiceDesk_TicketDetailsPage {
         utils.clickBtn(By.xpath(REDO_LINE_TEXT_BUTTON));
         utils.waitForElementVisible(By.xpath(LINE_TEST_PASSED));
         utils.waitForElementVisible(By.xpath(PASSED_LINE_TEST_DESC));
+        utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Line Stability')]"));
+        utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Network Stability')]"));
+        utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Stability Statement')]"));
     }
 
     public void assertLineTestAndTRCAbsentForISDN30AndVirtualLines() {
