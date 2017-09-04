@@ -164,7 +164,7 @@ public class ElementUtils {
 
         try {
             prop = new Properties();
-            fileInputStream = new FileInputStream("C:\\Users\\rajeshg\\IdeaProjects\\Test_analysis\\src\\test\\Resources\\config.properties");
+            fileInputStream = new FileInputStream("src/test/Resources/config.properties");
             prop.load(fileInputStream);
 
         } catch (Exception e) {
@@ -203,7 +203,6 @@ public class ElementUtils {
         String date = new SimpleDateFormat(format).format(Calendar.getInstance().getTime());
         return date;
     }
-
     //browser selector
     public WebDriver browser() {
          String browser=System.getProperty("browser");
