@@ -203,7 +203,6 @@ public class ElementUtils {
         String date = new SimpleDateFormat(format).format(Calendar.getInstance().getTime());
         return date;
     }
-
     //browser selector
     public WebDriver browser() {
          String browser=System.getProperty("browser");
