@@ -100,7 +100,7 @@ public class WLR3_SiteInformationPage {
     }
     public void setUpTRCband(){
     //setup TRC band
-        utils.selectByVisibleText(By.id(TRC_BAND_DROPDOWN), "Band 1 - Up to 2 Hours");
+        utils.selectByVisibleText(By.id(TRC_BAND_DROPDOWN), "Band 1 - Up to 2 hours");
     }
     public void siteInfoForISDNNewProvide(String bandRange) throws InterruptedException {
       loadSiteInfo();

@@ -164,7 +164,7 @@ public class ElementUtils {
 
         try {
             prop = new Properties();
-            fileInputStream = new FileInputStream("src/test/Resources/com/unionstreet/NxTier/config.properties");
+            fileInputStream = new FileInputStream("C:\\Users\\rajeshg\\IdeaProjects\\Test_analysis\\src\\test\\Resources\\config.properties");
             prop.load(fileInputStream);
 
         } catch (Exception e) {

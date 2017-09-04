@@ -43,7 +43,7 @@ public class NA104_WLR3_ISDN30_Transfer_stepDefs {
         webModel.getWlr3_orderDetails_page().assertBusinessContinuity();
         webModel.getWlr3_newProvide__numberingPage().checkLineNumberingForISDN("Renumber", "Change no of DDIs");
         webModel.getWlr3_orderDetails_page().assertLineNumberingForISDN("Renumber", "Change DDIs");
-        webModel.getWlr3_siteInformationPage().siteInfoForISDNNewProvide("Band 1 - Up to 2 Hours");
+        webModel.getWlr3_siteInformationPage().siteInfoForISDNNewProvide("Band 1 - Up to 2 hours");
     }
 
     @Then("^I should be able to complete the order$")
