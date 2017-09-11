@@ -1,7 +1,7 @@
 package com.unionstreet.NxTier.stepDefs.WhiteLabel;
 
 import com.unionstreet.NxTier.stepDefs.WLR3.NA44_Agent_Login_stepDefs;
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

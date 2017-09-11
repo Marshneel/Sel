@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.Then;
 
 import java.io.UnsupportedEncodingException;

@@ -1,7 +1,7 @@
 package com.unionstreet.NxTier.stepDefs.API;
 
-import com.unionstreet.NxTier.support.ElementUtils;
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.ElementUtils;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -11,7 +11,7 @@ import org.junit.Assert;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
-import static com.unionstreet.NxTier.support.BaseClass.utils;
+import static com.unionstreet.support.BaseClass.utils;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
