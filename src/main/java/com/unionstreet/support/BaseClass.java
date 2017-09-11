@@ -40,7 +40,7 @@ public class BaseClass {
     @After
     public void tearDown(Scenario scenario) throws IOException {
         if (scenario.isFailed()) {
-          // utils.captureScreenShot(scenario.getName());
+           utils.captureScreenShot(scenario.getName());
             TakesScreenshot camera = (TakesScreenshot) driver;
             byte[] screenshot = camera.getScreenshotAs(BYTES);
             scenario.embed(screenshot, "image/png");
