@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/support/BaseClass.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/support/BaseClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/support/ElementUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/support/ElementUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/NA188_SipTrunkPlus_Providers.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/NA188_SipTrunkPlus_Providers.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/SipTrunkPlus_SmokePack.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/SipTrunkPlus_SmokePack.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/smokePack/NxTier_smokePack.feature" afterPath="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/smokePack/NxTier_smokePack.feature" />
     </list>
     <ignored path="NxTier automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,14 +39,14 @@
       <file leaf-file-name="ElementUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/support/ElementUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-31">
-              <caret line="536" column="16" selection-start-line="536" selection-start-column="16" selection-end-line="536" selection-end-column="16" />
+            <state relative-caret-position="343">
+              <caret line="220" column="30" selection-start-line="220" selection-start-column="30" selection-end-line="220" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseClass.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BaseClass.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/support/BaseClass.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="283">
@@ -75,11 +78,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NxTier_smokePack.feature" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NxTier_smokePack.feature" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/smokePack/NxTier_smokePack.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-116">
-              <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+            <state relative-caret-position="323">
+              <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SipTrunkPlus_SmokePack.feature" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/SipTrunkPlus_SmokePack.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -108,8 +121,8 @@
       <file leaf-file-name="NA188_SipTrunkPlus_Providers.feature" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/NA188_SipTrunkPlus_Providers.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="76" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
+            <state relative-caret-position="374">
+              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -121,18 +134,6 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NA188_SipTrunkPlus_Providers_stepDefs.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/SipTrunkPlus/stepDefs/NA188_SipTrunkPlus_Providers_stepDefs.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1029">
-              <caret line="89" column="123" selection-start-line="89" selection-start-column="123" selection-end-line="89" selection-end-column="123" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -205,15 +206,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/support/WebModel.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/SipTrunkPlus/stepDefs/SipTrunkPlus_SmokePack_stepDefs.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/SipTrunkPlus/Pages/SipTrunkPlus_DashBoardPage.java" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/SipTrunkPlus_SmokePack.feature" />
         <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/SipTrunkPlus/stepDefs/NA188_SipTrunkPlus_Providers_stepDefs.java" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/NA188_SipTrunkPlus_Providers.feature" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/WLR3/NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions.feature" />
         <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/WLR3/NA44_Agent_Login.feature" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/OrdersManagerPage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/support/ElementUtils.java" />
-        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/smokePack/NxTier_smokePack.feature" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/support/BaseClass.java" />
+        <option value="$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/smokePack/NxTier_smokePack.feature" />
+        <option value="$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/NA188_SipTrunkPlus_Providers.feature" />
+        <option value="$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/SipTrunkPlus_SmokePack.feature" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/support/ElementUtils.java" />
       </list>
     </option>
   </component>
@@ -1248,13 +1249,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00338" summary="tags seperated into @smokePack, @WhiteLabel, @WLR3, @SDSK &#10;clean test command being used">
-      <created>1501358538270</created>
-      <option name="number" value="00338" />
-      <option name="presentableId" value="LOCAL-00338" />
-      <option name="project" value="LOCAL" />
-      <updated>1501358538270</updated>
-    </task>
     <task id="LOCAL-00339" summary="tags seperated into @smokePack, @WhiteLabel, @WLR3, @SDSK &#10;clean test command being used">
       <created>1501415123823</created>
       <option name="number" value="00339" />
@@ -1591,15 +1585,19 @@
       <option name="project" value="LOCAL" />
       <updated>1505122984981</updated>
     </task>
-    <option name="localTasksCounter" value="387" />
+    <task id="LOCAL-00387" summary="contains NA187">
+      <created>1505123122619</created>
+      <option name="number" value="00387" />
+      <option name="presentableId" value="LOCAL-00387" />
+      <option name="project" value="LOCAL" />
+      <updated>1505123122619</updated>
+    </task>
+    <option name="localTasksCounter" value="388" />
     <servers />
   </component>
   <component name="TestHistory">
     <history-entry file="Feature__NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents - 2017.09.11 at 08h 11m 16s.xml">
       <configuration name="Feature: NA149_SDSK_CP_Agent_And_Reseller_Login_And_Search_For_Incidents" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__NA188_SipTrunkPlus_Providers - 2017.09.09 at 18h 37m 34s.xml">
-      <configuration name="Feature: NA188_SipTrunkPlus_Providers" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
     <history-entry file="Feature__NA188_SipTrunkPlus_Providers - 2017.09.09 at 18h 38m 06s.xml">
       <configuration name="Feature: NA188_SipTrunkPlus_Providers" configurationId="CucumberJavaRunConfigurationType" />
@@ -1623,6 +1621,9 @@
       <configuration name="Feature: NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
     <history-entry file="Feature__NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions - 2017.09.11 at 10h 40m 25s.xml">
+      <configuration name="Feature: NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions - 2017.09.11 at 10h 50m 36s.xml">
       <configuration name="Feature: NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
   </component>
@@ -2084,14 +2085,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/SipTrunkPlus_SmokePack.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/SipTrunkPlus/Pages/SipTrunkPlus_DashBoardPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="523">
@@ -2114,14 +2107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/NA188_SipTrunkPlus_Providers.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="76" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
           <folding />
         </state>
       </provider>
@@ -2163,22 +2148,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/support/ElementUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31">
-          <caret line="536" column="16" selection-start-line="536" selection-start-column="16" selection-end-line="536" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/smokePack/NxTier_smokePack.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-116">
-          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/support/BaseClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
@@ -2186,6 +2155,38 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/SipTrunkPlus_SmokePack.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com.unionstreet.SipTrunkPlus/NA188_SipTrunkPlus_Providers.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/support/ElementUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="220" column="30" selection-start-line="220" selection-start-column="30" selection-end-line="220" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/smokePack/NxTier_smokePack.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>

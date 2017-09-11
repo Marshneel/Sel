@@ -1,3 +1,4 @@
+@sipTrunkPlus
 Feature: NA - 188 SipTrunkPlus Providers
   Scenario: user should be able to add a provider and assign/add them to a reseller
     Given I am logged in as a master user
