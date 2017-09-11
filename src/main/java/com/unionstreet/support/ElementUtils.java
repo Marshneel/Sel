@@ -4,7 +4,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,7 +23,7 @@ import java.util.List;
 
 import static com.unionstreet.support.BaseClass.driver;
 import static java.util.concurrent.TimeUnit.SECONDS;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ElementUtils {
 
@@ -76,10 +75,6 @@ public class ElementUtils {
 
    // method to click button with fluent wait
     public void clickBtnWithWait(By by) {
-//        Wait wait = new FluentWait(driver)
-//                .withTimeout(20, SECONDS)
-//                .pollingEvery(5, SECONDS)
-//                .ignoring(WebDriverException.class);
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).click();
     }
@@ -96,12 +91,12 @@ public class ElementUtils {
     public void verifyStringMatch(By by, String expectedString) {
         waitForSomeTime().until(ExpectedConditions.textToBePresentInElementLocated(by, expectedString));
         String actualString = driver.findElement(by).getText();
-        Assert.assertEquals(expectedString, actualString);
+      assertEquals(expectedString, actualString);
     }
 
     public void assertURL(String expectedURL) {
         String actualURL = driver.getCurrentUrl();
-        Assert.assertEquals(expectedURL, actualURL);
+        assertEquals(expectedURL, actualURL);
     }
 
     //explicit wait element to be present
@@ -151,7 +146,7 @@ public class ElementUtils {
         String currentWindowHandle = driver.getWindowHandle();
         driver.findElement(by).click();
         Thread.sleep(2000);
-        ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+        ArrayList<String> windowHandles = new ArrayList(driver.getWindowHandles());
         for (String window : windowHandles) {
             if (!window.equals(currentWindowHandle)) {
                 driver.close();
@@ -169,7 +164,7 @@ public class ElementUtils {
             fileInputStream = new FileInputStream("src/test/Resources/config.properties");
             prop.load(fileInputStream);
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return prop.getProperty(key);
@@ -331,19 +326,19 @@ public class ElementUtils {
 
     public void searchAndAssertTextNotPresent(By by, String searchText) {
         String actualText = driver.findElement(by).getText();
-        Assert.assertFalse(actualText.contains(searchText));
+        assertFalse(actualText.contains(searchText));
     }
 
     public void searchAndAssertTextPresent(By by, String searchText) {
         WebDriverWait wait = new WebDriverWait(driver, 100);
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         String actualText = driver.findElement(by).getText();
-        Assert.assertTrue(actualText.contains(searchText));
+        assertTrue(actualText.contains(searchText));
     }
 
     public void makeSureBoxIsChecked(By by1, By by2) {
         WebElement element = driver.findElement(by1);
-        if (element.isSelected() == true) {
+        if (element.isSelected()) {
         } else {
             javaScriptExecutorClick(by2);
 
@@ -352,7 +347,7 @@ public class ElementUtils {
 
     public void makeSureBoxIsUnChecked(By by1, By by2) {
         WebElement element = driver.findElement(by1);
-        if (element.isSelected() == true) {
+        if (element.isSelected()) {
             javaScriptExecutorClick(by2);
         } else {
         }
@@ -593,12 +588,12 @@ public class ElementUtils {
 
     public void assertUnchecked(By by) {
         WebElement element = driver.findElement(by);
-        Assert.assertFalse(element.isSelected());
+      assertFalse(element.isSelected());
     }
 
     public void assertChecked(By by) {
         WebElement element = driver.findElement(by);
-        Assert.assertTrue(element.isSelected());
+        assertTrue(element.isSelected());
     }
 
     public void waitTillBoxChecked(By by) {
@@ -610,26 +605,11 @@ public class ElementUtils {
     }
 
     public void twoValueArrayList(String valueOne, String valueTwo) {
-        allValues = new ArrayList<String>();
+        allValues = new ArrayList();
         allValues.add("" + valueOne + "");
         allValues.add("" + valueTwo + "");
     }
-
-        public void loopThroughWebPagesUntilElementIsFound(By by) {
-        Iterator<String> iterate = driver.getWindowHandles().iterator();
-        String switchWindow = null;
-
-        while (iterate.hasNext()) {
-
-            if (!driver.findElement(by).isDisplayed()) {
-                switchWindow = iterate.next();
-
-            }
-            if (switchWindow!= null) driver.switchTo().window(switchWindow);
-            break;
-        }
-    }
-    public void performClickActionTillElementIsDetected(By elementWanted, By clickElement) {
+    public void performClickActionTillElementIsDetected(By elementWanted, By clickElement) throws InterruptedException {
 
         driver.findElement(clickElement).click();
         if (driver.findElement(elementWanted).isDisplayed()) {
@@ -643,7 +623,6 @@ public class ElementUtils {
         String currentSlot= driver.findElement(by).getText();
         split = currentSlot.split(" ");
     }
-    public static class LoadPayloads {
 
         public JSONObject getPayload(String fileName) {
             JSONParser jsonParser = new JSONParser();
@@ -660,7 +639,7 @@ public class ElementUtils {
             JSONObject json = (JSONObject) object;
             return json;
         }
-    }
+
     public void rightCLick(By by){
         Actions action = new Actions(driver);
         action.contextClick(driver.findElement(by)).perform();

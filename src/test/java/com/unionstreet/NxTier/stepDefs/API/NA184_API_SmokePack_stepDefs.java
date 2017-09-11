@@ -46,7 +46,7 @@ webModel.getRestServices().executeGetRequest("SystemInformation","nxtiere2e","us
 
     @Given("^I make a valid POST request to create a company$")
     public void iMakeAValidPOSTRequestToCreateACompany() throws SQLException {
-        JSONObject createCompanyPayload = new ElementUtils.LoadPayloads().getPayload("newCompany");
+        JSONObject createCompanyPayload = new ElementUtils().getPayload("newCompany");
         randomCompanyName=webModel.getUtils().randomName();
         createCompanyPayload.replace("ShortName",randomCompanyName);
         webModel.getRestServices().executePostRequest(createCompanyPayload,"SystemInformation","nxtiere2e","username","cp","password","password","/api/site");
@@ -79,7 +79,7 @@ webModel.getRestServices().executeGetRequest("SystemInformation","nxtiere2e","us
 
     @Given("^I make a valid PUT request to update an existing company details$")
     public void iMakeAValidPUTRequestToUpdateAnExistingCompanyDetails()  {
-        JSONObject updateCompanyPayload = new ElementUtils.LoadPayloads().getPayload("updateCompanyDetailsInFull");
+        JSONObject updateCompanyPayload = new ElementUtils().getPayload("updateCompanyDetailsInFull");
         randomCompanyName=webModel.getUtils().randomName();
         updateCompanyPayload.replace("SiteName",randomCompanyName);
         updateCompanyPayload.replace("ShortName",randomCompanyName);

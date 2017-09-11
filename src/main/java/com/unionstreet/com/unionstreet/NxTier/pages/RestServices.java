@@ -15,7 +15,7 @@ public class RestServices {
     public Response response;
 
     public Response executeGetRequest(String systemInformation, String databaseName, String userName, String userNameParameter, String password, String passwordParameter,String url ) {
-        this.response = given().
+        response = given().
                 header(systemInformation, databaseName).
                 header(userName, userNameParameter).
                 header(password,passwordParameter).
@@ -25,7 +25,7 @@ public class RestServices {
         return response;
     }
     public Response executeDeleteRequest(String systemInformation, String databaseName, String userName, String userNameParameter, String password, String passwordParameter,String url ) {
-        this.response = given().
+        response = given().
                 header(systemInformation, databaseName).
                 header(userName, userNameParameter).
                 header(password,passwordParameter).
@@ -35,7 +35,7 @@ public class RestServices {
         return response;
     }
     public Response executePostRequest(JSONObject payload,String systemInformation, String databaseName, String userName, String userNameParameter, String password, String passwordParameter,String url){
-        this.response = given().body(payload).
+        response = given().body(payload).
                 header(systemInformation, databaseName).
                 header(userName, userNameParameter).
                 header(password,passwordParameter).
@@ -45,7 +45,7 @@ public class RestServices {
         return response;
     }
     public Response executePUTRequest(JSONObject payload,String systemInformation, String databaseName, String userName, String userNameParameter, String password, String passwordParameter,String url){
-        this.response = given().body(payload).
+        response = given().body(payload).
                 header(systemInformation, databaseName).
                 header(userName, userNameParameter).
                 header(password,passwordParameter).
