@@ -1,3 +1,4 @@
+@API
 Feature: NA - 184 API smokePack
   Scenario: the user should be able to see a valid response code when he makes a valid GET request
     Given I make an API GET request call for sites
