@@ -47,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/support/BaseClass.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="283">
-              <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+              <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1248,13 +1248,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00337" summary="tags seperated into @smokePack, @WhiteLabel, @WLR3, @SDSK &#10;clean test command being used">
-      <created>1501333334456</created>
-      <option name="number" value="00337" />
-      <option name="presentableId" value="LOCAL-00337" />
-      <option name="project" value="LOCAL" />
-      <updated>1501333334456</updated>
-    </task>
     <task id="LOCAL-00338" summary="tags seperated into @smokePack, @WhiteLabel, @WLR3, @SDSK &#10;clean test command being used">
       <created>1501358538270</created>
       <option name="number" value="00338" />
@@ -1591,7 +1584,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505122868712</updated>
     </task>
-    <option name="localTasksCounter" value="386" />
+    <task id="LOCAL-00386" summary="contains NA187">
+      <created>1505122984981</created>
+      <option name="number" value="00386" />
+      <option name="presentableId" value="LOCAL-00386" />
+      <option name="project" value="LOCAL" />
+      <updated>1505122984981</updated>
+    </task>
+    <option name="localTasksCounter" value="387" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2182,7 +2182,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/support/BaseClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
-          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
