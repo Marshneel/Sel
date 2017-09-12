@@ -77,13 +77,13 @@ webModel.getRestServices().executeGetRequest("SystemInformation","nxtiere2e","us
      }
     }
 
-    @Given("^I make a valid PUT request to update an existing company details$")
-    public void iMakeAValidPUTRequestToUpdateAnExistingCompanyDetails()  {
+    @Given("^I make a valid PATCH request to update an existing company details$")
+    public void iMakeAValidPATCHRequestToUpdateAnExistingCompanyDetails()  {
         JSONObject updateCompanyPayload = new ElementUtils().getPayload("updateCompanyDetailsInFull");
         randomCompanyName=webModel.getUtils().randomName();
         updateCompanyPayload.replace("SiteName",randomCompanyName);
         updateCompanyPayload.replace("ShortName",randomCompanyName);
-        webModel.getRestServices().executePUTRequest(updateCompanyPayload,"SystemInformation","nxtiere2e","username","cp","password","password","/api/site/10");
+        webModel.getRestServices().executePATCHRequest(updateCompanyPayload,"SystemInformation","nxtiere2e","username","cp","password","password","/api/site/10");
 
     }
 

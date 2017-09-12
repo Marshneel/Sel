@@ -14,7 +14,7 @@ public class EditOrderPage {
     public final String ADD_PRODUCT_AND_SERVICE_BUTTON = "//span[text()='Add a product or service']";
     private final String REDCROSS = "//td[contains(@title,'Information Missing')]";
     public final String GREEN_TICK = "//td[@class='green-tick']";
-    private final String ADD_VIEW_NOTES = "//span[contains(text(),'Communications')]";
+    private final String ADD_VIEW_NOTES = "//span[contains(text(),'Messages')]";
     private final String CUSTOMER_RADIOBUTTON = "SendToCustomer";
     private final String INTERNAL_RADIOBUTTON = "SendToInternal";
     private final String SERVICE_NOT_COMPLETED_MESSAGE = "//div[text()='Error: Incomplete Services']";

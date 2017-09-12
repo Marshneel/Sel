@@ -16,6 +16,6 @@ Feature: NA - 184 API smokePack
     And I should be able to assert site deletion
 
   Scenario: the user should be able to update existing company details
-    Given I make a valid PUT request to update an existing company details
+    Given I make a valid PATCH request to update an existing company details
     Then I should be able to see the response 204
     And I should be able to assert the updated company details
