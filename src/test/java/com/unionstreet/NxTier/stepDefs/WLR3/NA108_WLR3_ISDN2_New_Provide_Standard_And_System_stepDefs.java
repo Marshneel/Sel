@@ -14,7 +14,7 @@ public class NA108_WLR3_ISDN2_New_Provide_Standard_And_System_stepDefs {
 
     @When("^I initiate a new provide ISDN Standard line order$")
     public void iInitiateANewProvideISDNStandardLineOrder() throws InterruptedException, SQLException {
-        webModel.getAddServicePage().searchAndAddService("New Provide Order");
+        webModel.getAddServicePage().searchAndAddService("New Provide Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN2 Standard");
     }
 
@@ -45,7 +45,7 @@ public class NA108_WLR3_ISDN2_New_Provide_Standard_And_System_stepDefs {
 
     @When("^I initiate a new provide ISDN System line order$")
     public void iInitiateANewProvideISDNSystemLineOrder() throws InterruptedException, SQLException {
-        webModel.getAddServicePage().searchAndAddService("New Provide Order");
+        webModel.getAddServicePage().searchAndAddService("New Provide Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN2 System");
     }
 

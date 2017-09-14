@@ -15,7 +15,7 @@ public class NA143_WLR3_ISDN2_System_And_Std_Transfer_stepDefs {
     @When("^I initiate a transfer service on ISDN(\\d+) system line$")
     public void iInitiateATransferServiceOnISDNSystemLine(int arg0) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='OI2E00000003'");
-        webModel.getAddServicePage().searchAndAddService("Transfer Order");
+        webModel.getAddServicePage().searchAndAddService("Transfer Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().enterPhoneNumberAndPostCodeToInitiateTheTransfer("01202300920", "lu1 1dq");
 
     }
@@ -38,7 +38,7 @@ public class NA143_WLR3_ISDN2_System_And_Std_Transfer_stepDefs {
     @When("^I initiate a transfer service on ISDN(\\d+) standard line$")
     public void iInitiateATransferServiceOnISDNStandardLine(int arg0) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='OI2E00000002'");
-        webModel.getAddServicePage().searchAndAddService("Transfer Order");
+        webModel.getAddServicePage().searchAndAddService("Transfer Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().enterPhoneNumberAndPostCodeToInitiateTheTransfer("01202300913", "lu1 1dq");
 
 

@@ -17,7 +17,7 @@ public class NA129_WLR3_ISDN2_Standard_To_Basic_Analogue_Change_Of_Line_Type_ste
     @When("^I initiate a change of line from ISDN(\\d+) standard to basic analogue$")
     public void iInitiateAChangeOfLineFromISDNStandardToBasicAnalogue(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='OI2E00000002'");
-        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300913","LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("ISDN2 Standard (Current)","Basic Analogue");
 
@@ -43,7 +43,7 @@ public class NA129_WLR3_ISDN2_Standard_To_Basic_Analogue_Change_Of_Line_Type_ste
     @When("^I initiate a change of line from basic analogue to ISDN(\\d+) standard$")
     public void iInitiateAChangeOfLineFromBasicAnalogueToISDNStandard(int arg0) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02012345678'");
-        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("02012345678","LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("Basic Analogue (Current)","ISDN2 Standard");
     }

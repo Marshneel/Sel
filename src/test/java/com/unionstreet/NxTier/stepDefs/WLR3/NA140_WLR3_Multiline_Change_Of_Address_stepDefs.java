@@ -16,7 +16,7 @@ public class NA140_WLR3_Multiline_Change_Of_Address_stepDefs {
     @When("^I initiate a change of address service on multiline$")
     public void iInitiateAChangeOfAddressServiceOnMultiline() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02087654321'");
-        webModel.getAddServicePage().searchAndAddService("Change of Address");
+        webModel.getAddServicePage().searchAndAddService("Change of Address",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().textOnChangeOfAddressOrderPage();
         webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("02087654321", "LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().saveLineSelection();

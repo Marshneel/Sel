@@ -19,7 +19,7 @@ public class NA94_WLR3_Analogue_Multi_Add_Remove_Aux_line_stepDefs {
     public void iInitiateAnAdd_removeAuxOrderOnTheQuote() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='01202300909'");
         //initiating the AUX line service
-        webModel.getAddServicePage().searchAndAddService("Add/Remove Aux Lines");
+        webModel.getAddServicePage().searchAndAddService("Add/Remove Aux Lines",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_addRemoveAuxLinePage().textOnAddRemoveAuxLinePage();
         webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("01202300909","LU1 1DQ");
     }

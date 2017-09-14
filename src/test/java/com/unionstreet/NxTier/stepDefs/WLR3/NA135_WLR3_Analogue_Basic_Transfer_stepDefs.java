@@ -15,7 +15,7 @@ public class NA135_WLR3_Analogue_Basic_Transfer_stepDefs {
     @When("^I initiate a transfer order on a Basic Analogue line$")
     public void iInitiateATransferOrderOnABasicAnalogueLine() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='02012345678'");
-        webModel.getAddServicePage().searchAndAddService("Transfer Order");
+        webModel.getAddServicePage().searchAndAddService("Transfer Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().enterPhoneNumberAndPostCodeToInitiateTheTransfer("02012345678", "lu1 1dq");
     }
 

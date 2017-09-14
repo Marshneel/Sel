@@ -88,7 +88,7 @@ public class CreateTariffPage {
         utils.switchToPreviousWindow(0);
         commonMethods.search(tariffName);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+tariffName+"')]"));
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+tariffName+"')]/../following-sibling::td[contains(text(),'Baseline')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+tariffName+"')]/../following-sibling::td[contains(text(),'Buy')]"));
     }
     public void createBlankTariff(String tariffCategory, String tariffType, String baseTariffSetting, boolean cp, boolean agent) throws InterruptedException {
         RanTariffPlanName = utils.randomName();

@@ -67,6 +67,9 @@ public class WLR3_New_Provide_OrderPage {
         utils.waitForElementVisible(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON));
         utils.clickBtn(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON));
     }
+    public void assertAPIpostedSiteContact(){
+        utils.waitForElementVisible(By.xpath("//option[contains(text(),'Fernanda, Lopes')]"));
+    }
 
 
 }

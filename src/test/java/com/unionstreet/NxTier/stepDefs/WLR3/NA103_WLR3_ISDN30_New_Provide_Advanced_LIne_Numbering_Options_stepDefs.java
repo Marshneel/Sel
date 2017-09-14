@@ -14,7 +14,7 @@ public class NA103_WLR3_ISDN30_New_Provide_Advanced_LIne_Numbering_Options_stepD
 
     @When("^I initiate a new provide ISDN line order and navigate to advanced line numbering options$")
     public void iInitiateANewProvideISDNLineOrderAndNavigateToAdvancedLineNumberingOptions() throws InterruptedException, SQLException {
-        webModel.getAddServicePage().searchAndAddService("New Provide Order");
+        webModel.getAddServicePage().searchAndAddService("New Provide Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN30E");
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ","A00001043137");
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateSiteContactUnderSITE("07894040256");

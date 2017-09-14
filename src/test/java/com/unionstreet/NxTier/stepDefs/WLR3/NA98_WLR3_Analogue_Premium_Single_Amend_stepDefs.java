@@ -21,7 +21,7 @@ public class NA98_WLR3_Analogue_Premium_Single_Amend_stepDefs {
     public void createAnOrderAndSubmitIt() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
         //initiating a transfer order
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='01202300908'");
-        webModel.getAddServicePage().searchAndAddService("Transfer Order");
+        webModel.getAddServicePage().searchAndAddService("Transfer Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().enterPhoneNumberAndPostCodeToInitiateTheTransfer("01202300908", "lu1 1dq");
         webModel.getWlr3_orderDetails_page().enterEmergencyInfo(webModel.getNewBusinessCustomerPage().RanName);
     }

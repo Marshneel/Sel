@@ -20,7 +20,7 @@ public class NA97_WLR3_Analogue_Premium_Single_change_Of_Address_stepDefs {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02063678369'");
        //initiating the change of address service
 
-        webModel.getAddServicePage().searchAndAddService("Change of Address");
+        webModel.getAddServicePage().searchAndAddService("Change of Address",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().textOnChangeOfAddressOrderPage();
         webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("02063678369","LU1 1DQ");
         webModel.getWlr_and_nxTierServicesPage().verifyCurrentLine("Premium Analogue (Current)");

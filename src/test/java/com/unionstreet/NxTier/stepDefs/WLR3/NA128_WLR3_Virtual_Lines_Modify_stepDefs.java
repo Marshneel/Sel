@@ -16,7 +16,7 @@ public class NA128_WLR3_Virtual_Lines_Modify_stepDefs {
     public void iInitiateAModifyOrderOnAnRemoteCallForwardVirtualLine() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='ORCF00000002'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set product='WLR3 ISDN RCF' where serviceid='ORCF00000002'");
-        webModel.getAddServicePage().searchAndAddService("Modify Order");
+        webModel.getAddServicePage().searchAndAddService("Modify Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("01202300912", "LU1 1DQ");
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);
@@ -48,7 +48,7 @@ public class NA128_WLR3_Virtual_Lines_Modify_stepDefs {
     @When("^I initiate a modify order on an Caller Redirect Virtual Line$")
     public void iInitiateAModifyOrderOnAnCallerRedirectVirtualLine() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='OCR00000002'");
-        webModel.getAddServicePage().searchAndAddService("Modify Order");
+        webModel.getAddServicePage().searchAndAddService("Modify Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("01202300911", "LU1 1DQ");
         webModel.getWlr3_orderDetails_page().textOnWLR3OrderPage(webModel.getNewBusinessCustomerPage().RanName);

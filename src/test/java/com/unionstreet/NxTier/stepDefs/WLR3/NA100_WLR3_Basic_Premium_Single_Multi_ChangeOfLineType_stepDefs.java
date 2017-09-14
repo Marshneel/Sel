@@ -18,7 +18,7 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
     public void iInitiateAChangeOfLineFromBasicSingleToPremiumSingle() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02012345678'");
 
-        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order",webModel.getNewBusinessCustomerPage().RanName);
         //former is the current line and the later is the line that you are switching to
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("02012345678","LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("Basic Analogue (Current)","Premium Analogue");
@@ -41,7 +41,7 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
     @When("^I initiate a change of line from premium analogue to basic analogue$")
     public void iInitiateAChangeOfLineFromPremiumAnalogueToBasicAnalogue() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02063678369'");
-        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("02063678369","LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("Premium Analogue (Current)","Basic Analogue");
     }
@@ -70,7 +70,7 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
     public void iInitiateAChangeOfLineFromBasicAnalogueToPremiumMultiple() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02012345678'");
 
-        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("02012345678","LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("Basic Analogue (Current)","Analogue Multiline");
     }
@@ -100,7 +100,7 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
     @When("^I initiate a change of line type from multi to basic analogue$")
     public void iInitiateAChangeOfLineTypeFromMultiToBasicAnalogue() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='01202300909'");
-        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300909","LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("Analogue Multiline (Current)","Basic Analogue");
     }
@@ -126,7 +126,7 @@ public class NA100_WLR3_Basic_Premium_Single_Multi_ChangeOfLineType_stepDefs {
 
     @When("^I initiate a change of line type service on the CLI that is not owned$")
     public void iInitiateAChangeOfLineTypeServiceOnTheCLIThatIsNotOwned() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
-        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='01202300908'");
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300908","LU1 1DQ");
     }

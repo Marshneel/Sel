@@ -16,7 +16,7 @@ public class NA109_WLR3_ISDN2_New_Provide_Line_Suitability_Dialogue_stepDefs {
 
     @When("^I initiate any of the ISDN(\\d+) new provide without addressKey$")
     public void iInitiateAnyOfTheISDNNewProvideWithoutAddressKey(int arg0) throws InterruptedException, SQLException {
-        webModel.getAddServicePage().searchAndAddService("New Provide Order");
+        webModel.getAddServicePage().searchAndAddService("New Provide Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN2 Standard");
     }
 
@@ -30,9 +30,9 @@ public class NA109_WLR3_ISDN2_New_Provide_Line_Suitability_Dialogue_stepDefs {
     public void whenIAssignAnAddressKeyUnderSiteDetailsOfThatCustomerAndInitiateTheISDNNewProvideOrder(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getAddSiteDetailsPage().assignAddressKeyToSite();
         webModel.getUtils().getOrdersPage();
-        webModel.getOrdersManagerPage().searchQuoteByBcRN();
+        webModel.getOrdersManagerPage().searchQuoteByBcRN(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
-        webModel.getAddServicePage().searchAndAddService("New Provide Order");
+        webModel.getAddServicePage().searchAndAddService("New Provide Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN2 Standard");
     }
 

@@ -11,7 +11,7 @@ import static com.jayway.restassured.RestAssured.given;
  */
 public class RestServices {
 
-    String baseUrl = "http://test01-web01:61442";
+    String baseUrl = "http://test01-web01:61441";
     public Response response;
 
     public Response executeGetRequest(String systemInformation, String databaseName, String userName, String userNameParameter, String password, String passwordParameter,String url ) {

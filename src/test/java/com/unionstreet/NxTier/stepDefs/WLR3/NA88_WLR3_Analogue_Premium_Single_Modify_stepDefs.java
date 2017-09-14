@@ -22,7 +22,7 @@ public class NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs {
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
-        webModel.getOrdersManagerPage().searchQuoteByBcRN();
+        webModel.getOrdersManagerPage().searchQuoteByBcRN(webModel.getNewBusinessCustomerPage().RanName);
        // webModel.getUtils().switchToPreviousWindow(0);
         webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
     }
@@ -30,7 +30,7 @@ public class NA88_WLR3_Analogue_Premium_Single_Modify_stepDefs {
     @When("^Initiate a modify order on the quote$")
     public void initiateAModifyOrderOnTheQuote() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02063678369'");
-        webModel.getAddServicePage().searchAndAddService("Modify Order");
+        webModel.getAddServicePage().searchAndAddService("Modify Order",webModel.getNewBusinessCustomerPage().RanName);
 
     }
 

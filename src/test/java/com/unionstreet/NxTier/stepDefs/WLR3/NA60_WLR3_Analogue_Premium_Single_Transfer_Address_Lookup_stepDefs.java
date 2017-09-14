@@ -23,14 +23,14 @@ public class NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs 
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
-        webModel.getOrdersManagerPage().searchQuoteByBcRN();
+        webModel.getOrdersManagerPage().searchQuoteByBcRN(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
     }
 
     @And("^I assign WLR transfer order service to the newly created quote$")
     public void iAssignWLRTransferOrderServiceToTheNewlyCreatedQuote() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='01202300908'");
-        webModel.getAddServicePage().searchAndAddService("Transfer Order");
+        webModel.getAddServicePage().searchAndAddService("Transfer Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().enterPhoneNumberAndPostCodeToInitiateTheTransfer("01202300908", "lu1 1dq");
     }
 

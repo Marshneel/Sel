@@ -223,7 +223,7 @@ public class ElementUtils {
         return driver;
     }
 
-    public void jumpToPopUpWindow(By by) {
+    public void jumpToPopUpWindow(By by)   {
         Set parentWindow = driver.getWindowHandles();
         clickBtnWithWait(by);
         Set afterPopup = driver.getWindowHandles();

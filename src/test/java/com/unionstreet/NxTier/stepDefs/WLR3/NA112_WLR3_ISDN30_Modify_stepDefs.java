@@ -18,7 +18,7 @@ public class NA112_WLR3_ISDN30_Modify_stepDefs {
     public void iInitiateAModifyOrderOnAnISDNLine(int arg0) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         //own the ISDN30 line
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='OI3000000001'");
-        webModel.getAddServicePage().searchAndAddService("Modify Order");
+        webModel.getAddServicePage().searchAndAddService("Modify Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='01202300908'");
         webModel.getWlr3_modify_orderPage().initiatingModifyOrderWithWrongCLI();

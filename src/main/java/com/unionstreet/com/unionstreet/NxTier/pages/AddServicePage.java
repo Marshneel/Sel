@@ -97,7 +97,7 @@ public class AddServicePage {
         utils.scrollUp(By.xpath(SERVICE_ON_QUOTE_PAGE));
     }
 
-    public void searchAndAddService(String service) throws InterruptedException, SQLException {
+    public void searchAndAddService(String service, String customerName) throws InterruptedException, SQLException {
         try {
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
@@ -105,14 +105,11 @@ public class AddServicePage {
             utils.jumpToPopUpWindow(By.xpath("//div[text()='" + service + "']"));
         } catch (Exception e) {
             utils.getOrdersPage();
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
+            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(customerName);
             utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.waitForElementVisible(By.xpath(TEXT_ON_THE_SELECTQUOTE_PAGE));
             utils.jumpToPopUpWindow(By.xpath("//div[text()='" + service + "']"));
         }
 
-    }
-
-}
-
+    }}

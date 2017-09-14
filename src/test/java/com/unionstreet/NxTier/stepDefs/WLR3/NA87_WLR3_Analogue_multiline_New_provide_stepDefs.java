@@ -17,7 +17,7 @@ public class NA87_WLR3_Analogue_multiline_New_provide_stepDefs {
 
     @And("^add WLR new provide order to the quote$")
     public void addWLRNewProvideOrderToTheQuote() throws InterruptedException, SQLException {
-        webModel.getAddServicePage().searchAndAddService("New Provide Order");
+        webModel.getAddServicePage().searchAndAddService("New Provide Order",webModel.getNewBusinessCustomerPage().RanName);
 
     }
 

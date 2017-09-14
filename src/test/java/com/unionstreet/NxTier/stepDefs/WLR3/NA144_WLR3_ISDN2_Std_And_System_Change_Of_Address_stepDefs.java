@@ -16,7 +16,7 @@ public class NA144_WLR3_ISDN2_Std_And_System_Change_Of_Address_stepDefs {
     @When("^I initiate a change of address service on ISDN(\\d+) standard line$")
     public void iInitiateAChangeOfAddressServiceOnISDNStandardLine(int arg0) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='OI2E00000002'");
-        webModel.getAddServicePage().searchAndAddService("Change of Address");
+        webModel.getAddServicePage().searchAndAddService("Change of Address",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().textOnChangeOfAddressOrderPage();
         webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("01202300913","LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().saveLineSelection();
@@ -41,7 +41,7 @@ public class NA144_WLR3_ISDN2_Std_And_System_Change_Of_Address_stepDefs {
     @When("^I initiate a change of address service on ISDN(\\d+) system line$")
     public void iInitiateAChangeOfAddressServiceOnISDNSystemLine(int arg0) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='OI2E00000003'");
-        webModel.getAddServicePage().searchAndAddService("Change of Address");
+        webModel.getAddServicePage().searchAndAddService("Change of Address",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().textOnChangeOfAddressOrderPage();
         webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("01202300920","LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().saveLineSelection();

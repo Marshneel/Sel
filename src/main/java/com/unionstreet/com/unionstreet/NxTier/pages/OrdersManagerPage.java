@@ -10,7 +10,7 @@ import java.sql.SQLException;
  */
 public class OrdersManagerPage {
 
-    private static String QUOTE_RanName;
+    public static String QUOTE_RanName;
 
     public final String QUOTE = "bodyContent";
     public final String INVISIBLE_ORDER_SERVICESID = "//input[@id='Service_ID']";
@@ -193,9 +193,8 @@ public class OrdersManagerPage {
         utils.navigateToEditOrderPopupAndClose(By.id(ORDERS_SAVEQUOTE_BUTTON));
     }
 
-    public void searchQuoteByBcRN() throws InterruptedException {
-       // commonMethods.search(newBusinessCustomerPage.RanName);
-        utils.waitForElementVisible(By.xpath("//td[text()='" + newBusinessCustomerPage.RanName + "']"));
+    public void searchQuoteByBcRN(String businessCustomer) throws InterruptedException {
+        utils.waitForElementVisible(By.xpath("//td[text()='" + businessCustomer + "']"));
     }
 
     public void clickOnQuoteID(String type) throws SQLException {

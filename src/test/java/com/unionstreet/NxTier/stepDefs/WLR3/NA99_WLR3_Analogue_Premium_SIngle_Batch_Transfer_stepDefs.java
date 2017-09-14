@@ -16,7 +16,7 @@ public class NA99_WLR3_Analogue_Premium_SIngle_Batch_Transfer_stepDefs {
 
     @When("^I initiate a batch transfer and submit it withOut selecting the order owner$")
     public void iInitiateABatchTransferAndSubmitItWithOutSelectingTheOrderOwner() throws InterruptedException, AWTException, SQLException {
-        webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
+        webModel.getAddServicePage().searchAndAddService("Batch Transfer Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_batchTransferPage().addCLIsToTheOrder("01202300908","LU1 1DQ");
         webModel.getEditOrderPage().submitBatchOrderBeforeOIDsGenerated();
     }
@@ -28,7 +28,7 @@ public class NA99_WLR3_Analogue_Premium_SIngle_Batch_Transfer_stepDefs {
 
     @When("^I initiate a batch transfer and enter the CLIs with a happy path TXT file$")
     public void iInitiateABatchTransferAndEnterTheCLIsWithAHappyPathTXTFile() throws Throwable {
-        webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
+        webModel.getAddServicePage().searchAndAddService("Batch Transfer Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_batchTransferPage().loadTXTFile("happyPathTXTFile.txt");
 
 }
@@ -40,7 +40,7 @@ public class NA99_WLR3_Analogue_Premium_SIngle_Batch_Transfer_stepDefs {
 
     @When("^I initiate a batch transfer and upload a TXT file that has no CLI$")
     public void iInitiateABatchTransferAndUploadATXTFileThatHasNoCLI() throws AWTException, InterruptedException, SQLException {
-        webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
+        webModel.getAddServicePage().searchAndAddService("Batch Transfer Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_batchTransferPage().loadTXTFile("noCLITXTFile.txt");
     }
 
@@ -53,7 +53,7 @@ public class NA99_WLR3_Analogue_Premium_SIngle_Batch_Transfer_stepDefs {
 
     @When("^I initiate a batch order and upload a TXT file with populate missing PC and EI box checked$")
     public void iInitiateABatchOrderAndUploadATXTFileWithPopulateMissingPCAndEIBoxChecked() throws AWTException, InterruptedException, SQLException {
-        webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
+        webModel.getAddServicePage().searchAndAddService("Batch Transfer Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_batchTransferPage().loadTXTFile("nopostCodeAndNoEITXTFile.txt");
 
     }
@@ -68,7 +68,7 @@ public class NA99_WLR3_Analogue_Premium_SIngle_Batch_Transfer_stepDefs {
     public void iUploadTheFileWithPopulateMissingPostCodeAndEmergencyInfoCheckedIn() throws InterruptedException, AWTException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
        webModel.getWlr3_batchTransferPage().insertPostCodeInToSite();
         webModel.getEditOrderPage().getToAddServicePage();
-        webModel.getAddServicePage().searchAndAddService("Batch Transfer Order");
+        webModel.getAddServicePage().searchAndAddService("Batch Transfer Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_batchTransferPage().checkPopulateMissingPostCodeAndEmergencyInfo();
         webModel.getWlr3_batchTransferPage().loadTXTFile("nopostCodeAndNoEITXTFile.txt");
     }

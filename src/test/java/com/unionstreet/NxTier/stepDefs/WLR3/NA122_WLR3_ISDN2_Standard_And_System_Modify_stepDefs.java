@@ -15,7 +15,7 @@ public class NA122_WLR3_ISDN2_Standard_And_System_Modify_stepDefs {
     @When("^I initiate a modify order on an ISDN(\\d+) Standard line$")
     public void iInitiateAModifyOrderOnAnISDNStandardLine(int arg0) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='OI2E00000002'");
-        webModel.getAddServicePage().searchAndAddService("Modify Order");
+        webModel.getAddServicePage().searchAndAddService("Modify Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("01202300913", "LU1 1DQ");
 
@@ -45,7 +45,7 @@ public class NA122_WLR3_ISDN2_Standard_And_System_Modify_stepDefs {
     @When("^I initiate a modify order on an ISDN(\\d+) System line$")
     public void iInitiateAModifyOrderOnAnISDNSystemLine(int arg0) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='OI2E00000003'");
-        webModel.getAddServicePage().searchAndAddService("Modify Order");
+        webModel.getAddServicePage().searchAndAddService("Modify Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("01202300920", "LU1 1DQ");
     }

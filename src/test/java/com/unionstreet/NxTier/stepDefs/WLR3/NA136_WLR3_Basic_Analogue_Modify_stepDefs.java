@@ -17,7 +17,7 @@ public class NA136_WLR3_Basic_Analogue_Modify_stepDefs {
     @When("^I initiate a modify order on a Basic Analogue line$")
     public void iInitiateAModifyOrderOnABasicAnalogueLine() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02012345678'");
-        webModel.getAddServicePage().searchAndAddService("Modify Order");
+        webModel.getAddServicePage().searchAndAddService("Modify Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_modify_orderPage().assertTextOnModifyOrderPage();
         webModel.getWlr3_modify_orderPage().initiatingModifyOrder("02012345678", "LU1 1DQ");
     }

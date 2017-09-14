@@ -76,12 +76,24 @@ public class ServiceDeskPage {
     public void assertIncidents(String incidentSummary){
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+incidentSummary+"')]"));
     }
-    public void accountStatus_And_SlaStatus(String accountStatus, String SLAstatus) throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Account Status')]/following-sibling::p[contains(text(),'"+accountStatus+"')]"));
-        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'sla')]/following-sibling::p[contains(text(),'"+SLAstatus+"')]"));
 
-    }public void clickIncidentButton(){
+    public void accountStatus_And_SlaStatus(String accountStatus, String SLAstatus) throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        if (utils.isElementPresent(By.xpath("//div[contains(text(),'agent')]"))) {
+            utils.assertElementNotPresent(By.xpath("//h4[contains(text(),'Account Status')]/following-sibling::p[contains(text(),'" + accountStatus + "')]"));
+            utils.assertElementNotPresent(By.xpath("//h4[contains(text(),'sla')]/following-sibling::p[contains(text(),'" + SLAstatus + "')]"));
+        }
+        if (utils.isElementPresent(By.xpath("//div[contains(text(),'reseller')]"))) {
+            utils.assertElementNotPresent(By.xpath("//h4[contains(text(),'Account Status')]/following-sibling::p[contains(text(),'" + accountStatus + "')]"));
+            utils.assertElementNotPresent(By.xpath("//h4[contains(text(),'sla')]/following-sibling::p[contains(text(),'" + SLAstatus + "')]"));
+        }
+        if (utils.isElementPresent(By.xpath("//div[contains(text(),'cp')]"))) {
+            utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Account Status')]/following-sibling::p[contains(text(),'" + accountStatus + "')]"));
+            utils.waitForElementVisible(By.xpath("//h4[contains(text(),'sla')]/following-sibling::p[contains(text(),'" + SLAstatus + "')]"));
+        }
+    }
+        public void clickIncidentButton() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_CLICK));
+            Thread.sleep(1000);
         utils.clickBtn(By.xpath(LOGIN_AN_INCIDENT_CLICK));
     }
     public void assertAccessGrantedToLoginIncident(){
