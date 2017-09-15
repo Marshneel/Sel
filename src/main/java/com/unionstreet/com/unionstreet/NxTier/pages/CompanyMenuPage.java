@@ -176,7 +176,16 @@ public class CompanyMenuPage {
     }
 
     public void clickCLIButton() {
+        utils.waitForElementVisible(By.id(CLI_BUTTON));
         utils.clickBtn(By.id(CLI_BUTTON));
+    }
+    public void assertCreatedCLI(String customer, String CLI) throws InterruptedException {
+       commonMethods.search(customer);
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+customer+"')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+customer+"')]"));
+        utils.switchToNewWindow();
+        clickCLIButton();
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+CLI+"')]"));
     }
 
     public void addCLIs(String ranName, String number, boolean nonWLR1, boolean nonWLR2) throws InterruptedException {

@@ -207,7 +207,7 @@ public class ServiceDesk_TicketDetailsPage {
 
     public void validateSampleCalls() throws InterruptedException {
         today = new Date();
-        currentDate = new SimpleDateFormat("dd/MM/YYYY").format(today);
+       currentDate = new SimpleDateFormat("dd/MM/YYYY").format(today);
         currentTime = new SimpleDateFormat("KK:mm").format(today);
         utils.waitForElementVisible(By.id(SAMPLE_CALLS_DATE_FIELD));
         Thread.sleep(1000);
@@ -355,11 +355,12 @@ public class ServiceDesk_TicketDetailsPage {
     }
 
 
-    public Date IfSaturday() {
+    public Date IfSaturday(boolean IncreaseByMonth) {
         Date Level2ExpectedSaturday = new Date();
         Calendar calLevel2NonSaturday = Calendar.getInstance();
         calLevel2NonSaturday.setTime(Level2ExpectedSaturday);
         calLevel2NonSaturday.add(Calendar.DATE, 2);
+        if(IncreaseByMonth){calLevel2NonSaturday.add(Calendar.YEAR, 2);}
         Level2ExpectedSaturday = calLevel2NonSaturday.getTime();
         return Level2ExpectedSaturday;
     }
@@ -403,8 +404,8 @@ public class ServiceDesk_TicketDetailsPage {
                 Assert.assertEquals(LevelDay, ExpectedDayOfTheWeek);
                 Assert.assertEquals(LevelDate, ExpectedDay);
             } catch (AssertionError e) {
-                String ExpectedDayOfTheWeek = new SimpleDateFormat("EEEE" + ",").format(IfSaturday());
-                String ExpectedDay = new SimpleDateFormat("d").format(IfSaturday());
+                String ExpectedDayOfTheWeek = new SimpleDateFormat("EEEE" + ",").format(IfSaturday(false));
+                String ExpectedDay = new SimpleDateFormat("d").format(IfSaturday(false));
                 Assert.assertEquals(LevelDay, ExpectedDayOfTheWeek);
                 Assert.assertEquals(LevelDate, ExpectedDay);
                 Assert.assertNotEquals(LevelTime, CurrentTime);
@@ -425,7 +426,7 @@ public class ServiceDesk_TicketDetailsPage {
                 }
             } catch (AssertionError e) {
                 Assert.assertEquals(LevelTime, "13:00");
-                String ExpectedDay = new SimpleDateFormat("d").format(IfSaturday());
+                String ExpectedDay = new SimpleDateFormat("d").format(IfSaturday(false));
                 Assert.assertEquals(LevelDate, ExpectedDay);
             }
         }
