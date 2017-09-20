@@ -20,4 +20,4 @@ Feature: NA - 188 SipTrunkPlus Providers
   Scenario: user should be able to edit the reseller side credentials for added provider
     Given I am logged in as a master user and a reseller with provider added have already been created
     When I navigate to the provider under reseller
-    Then I should be able to successfully edit the reseller side credentails
+    Then I should be able to successfully edit the reseller side credentials

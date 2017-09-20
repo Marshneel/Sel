@@ -214,6 +214,7 @@ public class ElementUtils {
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
                 driver = new InternetExplorerDriver(capabilities);
             } else if (browser.equalsIgnoreCase("firefox")) {
+                System.setProperty("webdriver.gecko.driver","DriverFiles\\geckodriver.exe");
                 driver = new FirefoxDriver();
             }
 

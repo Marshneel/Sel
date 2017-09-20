@@ -179,13 +179,25 @@ public class CompanyMenuPage {
         utils.waitForElementVisible(By.id(CLI_BUTTON));
         utils.clickBtn(By.id(CLI_BUTTON));
     }
-    public void assertCreatedCLI(String customer, String CLI) throws InterruptedException {
-       commonMethods.search(customer);
+    public void clickOrderButton(){
+        utils.waitForElementVisible(By.id("HrefOrders"));
+        utils.clickBtn(By.id("HrefOrders"));
+    }
+    public void searchAndNavigateToSiteMenuOfACustomer(String customer) throws InterruptedException {
+      commonMethods.search(customer);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+customer+"')]"));
         utils.clickBtn(By.xpath("//a[contains(text(),'"+customer+"')]"));
-        utils.switchToNewWindow();
+        utils.switchToNewWindow();}
+    public void assertCreatedCLIUnderSite( String CLI) throws InterruptedException {
         clickCLIButton();
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+CLI+"')]"));
+    }
+    public void assertCreatedQuoteUnderSite(String company){
+        clickOrderButton();
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'Quote')]/following-sibling::td[contains(text(),'"+company+"')]"));
+    }
+    public void assertDeletedQuoteUnderSite(){
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'No Records')]"));
     }
 
     public void addCLIs(String ranName, String number, boolean nonWLR1, boolean nonWLR2) throws InterruptedException {

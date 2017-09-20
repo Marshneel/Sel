@@ -54,5 +54,15 @@ public class RestServices {
                 patch(baseUrl + url);
         return response;
     }
+    public Response executePUTRequest(JSONObject payload,String systemInformation, String databaseName, String userName, String userNameParameter, String password, String passwordParameter,String url){
+        response = given().body(payload).
+                header(systemInformation, databaseName).
+                header(userName, userNameParameter).
+                header(password,passwordParameter).
+                contentType("application/json").
+                when().
+                put(baseUrl + url);
+        return response;
+    }
 
 }
