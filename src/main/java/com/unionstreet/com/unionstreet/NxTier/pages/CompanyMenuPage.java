@@ -199,7 +199,17 @@ public class CompanyMenuPage {
     public void assertDeletedQuoteUnderSite(){
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'No Records')]"));
     }
+    public void assertAssignedService(int quoteID, String addedService) {
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + quoteID + "')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + quoteID + "')]"));
+        utils.switchToNewWindow();
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + addedService + "')]"));
+    }
+public void assertDeletedService(String addedService){
+    utils.assertElementNotPresent(By.xpath("//a[contains(text(),'" + addedService + "')]"));
+    utils.waitForElementVisible(By.xpath("//span[contains(text(),'No Records')]"));
 
+}
     public void addCLIs(String ranName, String number, boolean nonWLR1, boolean nonWLR2) throws InterruptedException {
        if(nonWLR1){ accessCompanyMenu(ranName);}
         clickCLIButton();

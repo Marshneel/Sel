@@ -13,7 +13,7 @@ public class SipTrunkPlus_LoginPage {
     public void loginAsMasterUser() throws InterruptedException {
         utils.loadSipTrunkURL();
         utils.waitForElementVisible(By.id("gwt-uid-3"));
-        utils.sendText(By.id("gwt-uid-3"),"autotest01");
+        utils.sendText(By.id("gwt-uid-3"),"CP");
         utils.waitForElementVisible(By.id("gwt-uid-5"));
         utils.sendText(By.id("gwt-uid-5"),"Aswini747");
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Sign In')]"));

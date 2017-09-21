@@ -11,13 +11,21 @@ Feature: NA - 191 API UI Tests
     When I POST a CLI for the site
     Then I should be able to verify the newly posted CLI
 
-    Scenario: user should be able to assign a package with tariff and free minutes to a business customer
-      Given I POST a company and a package under its site
-      When I POST a tariff and free minute plan for that particular package
-      Then I should be able to verify the package details on the UI
+  Scenario: user should be able to assign a package with tariff and free minutes to a business customer
+    Given I POST a company and a package under its site
+    When I POST a tariff and free minute plan for that particular package
+    Then I should be able to verify the package details on the UI
 
-    Scenario: user should be able to a add a quote to site via API
-      Given I POST a company and a siteContact
-      When  I POST a quote for that particular company
-      Then I should be able to confirm it on the UI
-      And I should be able to delete the quote via API
+  Scenario: user should be able to a add a quote to site via API
+    Given I POST a company and a siteContact
+    When  I POST a quote for that particular company
+    Then I should be able to confirm it on the UI
+    And I should be able to delete the quote via API
+
+  Scenario: user should be able to add and delete a service from an existing quote through API
+    Given I POST a company and a siteContact
+    And   I POST a quote for that particular company
+    When I send a POST request to add a service to the quote
+    Then I should be able to verify the added service on the UI
+    And when I DELETE the service through API
+    Then I should be able to confirm that on the UI

@@ -39,6 +39,8 @@ public class NA191_API_UI_Tests_stepDefs {
     private int contactID;
     private String quoteIDfromResponse;
     private int quoteID;
+    private String orderServiceIDfromResponse;
+    private int orderServiceID;
 
     @Given("^I POST a company and a siteContact$")
     public void IPOSTACompanyAndASiteContact()  {
@@ -130,7 +132,7 @@ public class NA191_API_UI_Tests_stepDefs {
 
 
     @When("^I POST a tariff and free minute plan for that particular package$")
-    public void iPOSTATariffAndFreeMinutePlanForThatParticularPackage()   {
+    public void iPOSTATariffAndFreeMinutePlanForThatParticularPackage() throws InterruptedException {
         JSONObject assignTariffsToPackagePayload = new ElementUtils().getPayload("assignTariffsToPackage");
         webModel.getRestServices().executePUTRequest(assignTariffsToPackagePayload,"SystemInformation","nxtiere2e","username","cp","password","password","/api/package/"+packageIDint+"/tariffs");
         JSONObject assignFreeMinutesToPackagePayload = new ElementUtils().getPayload("assignFreeMinutesToPackage");
@@ -171,6 +173,36 @@ public class NA191_API_UI_Tests_stepDefs {
         webModel.getCompanyMenuPage().assertDeletedQuoteUnderSite();
 
 
+    }
+
+    @When("^I send a POST request to add a service to the quote$")
+    public void iSendAPOSTRequestToAddAServiceToTheQuote() {
+        JSONObject assignServiceToQuotePayload = new ElementUtils().getPayload("assignServiceToQuote");
+        assignServiceToQuotePayload.replace("SiteId",siteID);
+        webModel.getRestServices().executePostRequest(assignServiceToQuotePayload,"SystemInformation","nxtiere2e","username","cp","password","password","/api/order/quote/"+quoteID+"/Service");
+
+    }
+
+    @Then("^I should be able to verify the added service on the UI$")
+    public void iShouldBeAbleToVerifyTheAddedServiceOnTheUI() throws InterruptedException {
+        webModel.getLoginPage().loginAsCP();
+        webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getCompanyMenuPage().searchAndNavigateToSiteMenuOfACustomer(randomCompanyName);
+        webModel.getCompanyMenuPage().assertAssignedService(quoteID,"customService");
+        orderServiceIDfromResponse=webModel.getRestServices().response.path("Id").toString();
+        orderServiceID=Integer.parseInt(orderServiceIDfromResponse);
+    }
+
+    @And("^when I DELETE the service through API$")
+    public void whenIDELETETheServiceThroughAPI() {
+        webModel.getRestServices().executeDeleteRequest("SystemInformation","nxtiere2e","username","cp","password","password","/api/order/quote/"+quoteID+"/Service/"+orderServiceID+"");
+
+    }
+
+    @Then("^I should be able to confirm that on the UI$")
+    public void iShouldBeAbleToConfirmThatOnTheUI() {
+        webModel.getUtils().refreshPage();
+        webModel.getCompanyMenuPage().assertDeletedService("customService");
     }
 }
 
