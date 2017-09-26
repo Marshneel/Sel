@@ -20,13 +20,13 @@ public class AddSiteDetailsPage {
 
 
     public void addNewSiteForReseller() throws InterruptedException {
-        utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+      //  utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         //utils.clickBtn(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindowByJavaExeClick(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-        utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SITE_NAME));
+      //  utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SITE_NAME));
         NewBusinessCustomerPage.Reseller_RanName = utils.randomName();
         utils.sendText(By.id(companyMenuPage.SITEDETAILS_SITE_NAME), NewBusinessCustomerPage.Reseller_RanName);
-        utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME));
+       // utils.clickBtn(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME));
         utils.sendText(By.id(companyMenuPage.SITEDETAILS_SHORT_NAME), NewBusinessCustomerPage.Reseller_RanName);
         try {
             utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));

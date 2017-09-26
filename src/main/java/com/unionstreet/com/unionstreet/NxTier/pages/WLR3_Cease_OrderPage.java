@@ -32,8 +32,8 @@ public class WLR3_Cease_OrderPage {
     }
 
     public void navigateToNextScreen() {
-        utils.waitForElementVisible(By.xpath(MOVE_TO_NEXT));
-        utils.clickBtn(By.xpath(MOVE_TO_NEXT));
+        //utils.waitForElementVisible(By.xpath(MOVE_TO_NEXT));
+        utils.returnElement(By.xpath(MOVE_TO_NEXT)).click();
     }
 
     public void populateRecoveryLinePlantAndVerifyAssertion() {
@@ -45,9 +45,9 @@ public class WLR3_Cease_OrderPage {
 
     public void navigateToPreviousScreen() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
-        utils.waitForElementVisible(By.xpath(REVERT_TO_PREVIOUS));
+        //utils.waitForElementVisible(By.xpath(REVERT_TO_PREVIOUS));
         try {
-            utils.clickBtn(By.xpath(REVERT_TO_PREVIOUS));
+            utils.returnElement(By.xpath(REVERT_TO_PREVIOUS)).click();
         } catch (Exception e) {
             utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
             utils.clickBtn(By.xpath(REVERT_TO_PREVIOUS));

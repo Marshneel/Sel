@@ -55,12 +55,12 @@ public class EditOrderPage {
 
     public void clickAddProductsAndServicesButton() throws InterruptedException, SQLException {
         try {
-            utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
-            utils.clickBtnWithWait(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
+            utils.returnElement(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON)).click();
+           // utils.clickBtnWithWait(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
         } catch (NoSuchElementException e) {
             ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
-            utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
-            utils.clickBtnWithWait(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
+            utils.returnElement(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON)).click();
+           // utils.clickBtnWithWait(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
 
         }
     }
@@ -96,22 +96,22 @@ public class EditOrderPage {
     }
 
     public void accessAdd_ViewNotes() {
-        utils.waitForElementVisible(By.xpath(ADD_VIEW_NOTES));
+      //  utils.waitForElementVisible(By.xpath(ADD_VIEW_NOTES));
         utils.jumpToPopUpWindow(By.xpath(ADD_VIEW_NOTES));
-        utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
+      //  utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.clickBtn(By.id("OrderPopup"));
-        utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
+        utils.returnElement(By.cssSelector(commonMethods.ADD_BUTTON)).click();
     }
 
     public void assertCustomer_InternalTabsPresent() throws InterruptedException {
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.checkAlert();
-        utils.waitForElementVisible(By.id(CUSTOMER_RADIOBUTTON));
+       // utils.waitForElementVisible(By.id(CUSTOMER_RADIOBUTTON));
         utils.clickBtn(By.id("OrderPopup"));
-        utils.clickBtnWithWait(By.id(CUSTOMER_RADIOBUTTON));
-        utils.waitForElementVisible(By.id(INTERNAL_RADIOBUTTON));
+        utils.returnElement(By.id(CUSTOMER_RADIOBUTTON)).click();
+       // utils.waitForElementVisible(By.id(INTERNAL_RADIOBUTTON));
         utils.clickBtn(By.id("OrderPopup"));
-        utils.clickBtnWithWait(By.id(INTERNAL_RADIOBUTTON));
+        utils.returnElement(By.id(INTERNAL_RADIOBUTTON)).click();
     }
 
     public void assertCustomer_InternalTabsNotPresent() {
@@ -142,18 +142,18 @@ public class EditOrderPage {
 
     public void submitOrder() throws InterruptedException {
         utils.selectByIndex(By.id(ORDER_OWNER_DROPDOWN_ON_EDIT_ORDER_PAGE), 1);
-        utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
-        utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_QUOTE));
+      //  utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
+        utils.returnElement(By.xpath(SAVE_AND_SUBMIT_QUOTE)).click();
         utils.switchToPreviousWindow(1);
 
     }
 
     public void getToAmendOrderButton() throws InterruptedException, SQLException {
         ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
-        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
-        utils.clickBtn(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
-        utils.waitForElementVisible(By.id(AMEND_ORDER_BUTTON));
-        utils.clickBtn(By.id(AMEND_ORDER_BUTTON));
+       // utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
+        utils.returnElement(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER)).click();
+      //  utils.waitForElementVisible(By.id(AMEND_ORDER_BUTTON));
+        utils.returnElement(By.id(AMEND_ORDER_BUTTON)).click();
     }
 
     public void startOrderAmend() throws InterruptedException, SQLException {
@@ -176,10 +176,10 @@ public class EditOrderPage {
 
     public void checkOpenReachNotificationForAmend() throws InterruptedException {
         utils.refreshPage();
-        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
-        utils.clickBtn(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
-        utils.waitForElementVisible(By.xpath(OPENREACH_NOTIFICATIONS_BUTTON_ON_ORDER_SUMMARY_PAGE));
-        utils.clickBtn(By.xpath(OPENREACH_NOTIFICATIONS_BUTTON_ON_ORDER_SUMMARY_PAGE));
+    //    utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER));
+        utils.returnElement(By.xpath(wlr3_orderDetails_page.ITEMID_ON_EDITORDER)).click();
+        //utils.waitForElementVisible(By.xpath(OPENREACH_NOTIFICATIONS_BUTTON_ON_ORDER_SUMMARY_PAGE));
+        utils.returnElement(By.xpath(OPENREACH_NOTIFICATIONS_BUTTON_ON_ORDER_SUMMARY_PAGE)).click();
         utils.waitForElementVisible(By.xpath(AMEND_SENT_TEXT_ON_OPENREACH_NOTIFICATIONS));
     }
 
@@ -191,8 +191,8 @@ public class EditOrderPage {
          utils.waitForElementVisible(By.xpath(LINE_TESTING_TEXT_ON_ORDERS_PAGE));
      }
         ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
-        utils.waitForElementVisible(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
-        utils.clickBtn(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
+        //utils.waitForElementVisible(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
+        utils.returnElement(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION)).click();
         utils.waitForElementVisible(By.xpath(ORDER_PENDING_TEXT_IN_NOTIFICATIONS));
         utils.waitForElementVisible(By.xpath(ORDER_ACKNOWLEDGED_TEXT_IN_NOTIFICATIONS));
         utils.waitForElementVisible(By.xpath(ORDER_COMMITTED_TEXT_IN_NOTIFICATIONS));
@@ -202,11 +202,11 @@ public class EditOrderPage {
     public void assertCeaseIsCancelled() throws InterruptedException {
         utils.getOrdersPage();
         utils.waitForElementVisible(By.xpath(ordersManagerPage.TASK_POPUP));
-        utils.waitForElementVisible(By.xpath(ordersManagerPage.ORDERID_UNDER_TASK));
-        utils.clickBtn(By.xpath(ordersManagerPage.ORDERID_UNDER_TASK));
+       // utils.waitForElementVisible(By.xpath(ordersManagerPage.ORDERID_UNDER_TASK));
+        utils.returnElement(By.xpath(ordersManagerPage.ORDERID_UNDER_TASK));
         utils.switchToNewWindow();
-        utils.waitForElementVisible(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
-        utils.clickBtn(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
+        //utils.waitForElementVisible(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
+        utils.returnElement(By.xpath(ORDER_NOTIFICATIONS_BUTTON_AFTER_SUBMISSION));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'End User not moving')]"));
     }
 
@@ -233,10 +233,10 @@ public class EditOrderPage {
     public void submitBatchOrderBeforeOIDsGenerated() throws InterruptedException {
         utils.waitForElementVisible(By.id(ORDER_CONTACT));
         utils.selectByIndex(By.id(ORDER_CONTACT), 1);
-        utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
+    //   utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_QUOTE));
+        utils.returnElement(By.xpath(SAVE_AND_SUBMIT_QUOTE)).click();
     }
 
     public void errorMessageWhenOrderSubmittedWithOutOIDs() {

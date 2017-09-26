@@ -27,10 +27,10 @@ public class WLR3_Modify_OrderPage {
 
     public void initiatingModifyOrder(String CLI, String postCode){
         utils.clickBtn(By.id(wlr3_orderDetails_page.MANUAL_ENTRY_TAB));
-        utils.waitForElementVisible(By.id(companyMenuPage.CLI_NUMBER_FIELD));
+       // utils.waitForElementVisible(By.id(companyMenuPage.CLI_NUMBER_FIELD));
         utils.sendText(By.id(companyMenuPage.CLI_NUMBER_FIELD),CLI);
         utils.sendText(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD),postCode);
-        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+       // utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.returnElement(By.id(wlr3_orderDetails_page.SAVE)).click();
     }
 }

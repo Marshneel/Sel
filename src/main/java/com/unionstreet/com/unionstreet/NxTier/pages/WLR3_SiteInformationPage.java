@@ -49,11 +49,11 @@ public class WLR3_SiteInformationPage {
     public void depopulateSiteInformation() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SITE_INFO_SUMMARY_PANEL));
-        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+        //utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         try {
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         } catch (Exception e) {
-            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
+            //utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.SITE_INFORMATION_BUTTON));
         }
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.TEXT_ON_SITE_INFORMATION));
@@ -73,7 +73,7 @@ public class WLR3_SiteInformationPage {
 
     public void populateTelNumberUnderSiteInfo(String number) {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
-        utils.waitForElementVisible(By.id(wlr3_newProvide__sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO));
+      //  utils.waitForElementVisible(By.id(wlr3_newProvide__sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO));
         utils.sendText(By.id(wlr3_newProvide__sitePage.TELEPHONE_NUMBER_TEXTBOX_UNDER_SITEINFO), number);
     }
 
@@ -118,8 +118,8 @@ public class WLR3_SiteInformationPage {
         utils.sendText(By.id(ROOM_TEXT_BOX),"room");
     }
     public void saveSiteInfoChanges() {
-        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+     //   utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.returnElement(By.id(wlr3_orderDetails_page.SAVE)).click();
     }
     public void assertProvisionTypeAbsentInISDN30Modify() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
@@ -165,9 +165,9 @@ public class WLR3_SiteInformationPage {
         utils.waitForElementVisible(By.xpath(PLEASE_SPECIFY_SITE_CONTACT_TELEPHONE));
     }
     public void changeProvisionTypeToTakeOverWorkingLine(String CLI){
-        utils.waitForElementVisible(By.xpath(TAKE_OVER_AN_EXISTING_LINE));
-        utils.clickBtn(By.xpath(TAKE_OVER_AN_EXISTING_LINE));
-        utils.waitForElementVisible(By.id(WLR3_ORDER_TARGET_SERVICE_ID));
+      //  utils.waitForElementVisible(By.xpath(TAKE_OVER_AN_EXISTING_LINE));
+        utils.returnElement(By.xpath(TAKE_OVER_AN_EXISTING_LINE)).click();
+      //  utils.waitForElementVisible(By.id(WLR3_ORDER_TARGET_SERVICE_ID));
         utils.sendText(By.id(WLR3_ORDER_TARGET_SERVICE_ID),CLI);
     }
     public void assertTakeOverWorkingLineAbsent(){

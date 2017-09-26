@@ -31,7 +31,7 @@ public class ElementUtils {
     public String parentWindow;
     private Properties prop;
     private FileInputStream fileInputStream;
-    public static ArrayList<String> allValues;
+    public static ArrayList allValues;
     public static String[] split;
 
 
@@ -42,8 +42,19 @@ public class ElementUtils {
                 .withTimeout(20, SECONDS)
                 .pollingEvery(3, SECONDS)
                 .ignoring(WebDriverException.class);
-        return wait;
-    }
+        return wait;}
+
+    public WebElement returnElement(By by){
+        Wait wait = new FluentWait(driver)
+                .withTimeout(30, SECONDS)
+                .pollingEvery(5, SECONDS)
+                .ignoring(NoSuchElementException.class);
+
+        wait.until(ExpectedConditions.elementToBeClickable(by));
+                return driver.findElement(by);
+            }
+
+
 
     public Wait waitForSomeTimeForWLR3() {
         Wait wait = new FluentWait(driver)
@@ -67,7 +78,7 @@ public class ElementUtils {
 
     //method to find the element, clear the box if needed and send text
     public void sendText(By by, String txt) {
-        waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
+        returnElement(by);
         driver.findElement(by).click();
         driver.findElement(by).clear();
         driver.findElement(by).sendKeys(txt);
@@ -81,7 +92,7 @@ public class ElementUtils {
 
     //method to click button
     public void clickBtn(By by) {
-        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
+       returnElement(by);
         driver.findElement(by).click();
         checkAlert();
     }
@@ -132,6 +143,7 @@ public class ElementUtils {
 
     public void switchToNewWindowByJavaExeClick(By by) throws InterruptedException {
         parentWindow = driver.getWindowHandle();
+        returnElement(by);
         Thread.sleep(2000);
         javaScriptExecutorClick(by);
         Set<String> handles = driver.getWindowHandles();
@@ -144,7 +156,9 @@ public class ElementUtils {
     }
     public void closeCurrentWindowAndJump(By by) throws InterruptedException {
         String currentWindowHandle = driver.getWindowHandle();
-        driver.findElement(by).click();
+
+        //driver.findElement(by).click();
+        returnElement(by).click();
         Thread.sleep(2000);
         ArrayList<String> windowHandles = new ArrayList(driver.getWindowHandles());
         for (String window : windowHandles) {
@@ -178,7 +192,7 @@ public class ElementUtils {
 
     //select data by visible text
     public void selectByVisibleText(By by, String text) {
-        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
+       returnElement(by);
         waitForSomeTime().until(ExpectedConditions.textToBePresentInElementLocated(by, text));
         Select select = new Select(driver.findElement(by));
         select.selectByVisibleText(text);
@@ -226,7 +240,8 @@ public class ElementUtils {
 
     public void jumpToPopUpWindow(By by)   {
         Set parentWindow = driver.getWindowHandles();
-        clickBtnWithWait(by);
+        returnElement(by).click();
+        //clickBtnWithWait(by);
         Set afterPopup = driver.getWindowHandles();
         afterPopup.removeAll(parentWindow);
         if (afterPopup.size() == 1) {
@@ -285,7 +300,7 @@ public class ElementUtils {
 
     public void navigateToEditOrderPopupAndClose(By by) throws InterruptedException {
         String currentWindowHandle = driver.getWindowHandle();
-        driver.findElement(by).click();
+       returnElement(by).click();
         Thread.sleep(2000);
         ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
         for (String window : windowHandles) {

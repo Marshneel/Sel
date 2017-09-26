@@ -12,8 +12,8 @@ public class SipTrunkPlus_ProviderPage {
    public static String providerName;
 
     public void clickProvidersOnSettingDropDown(){
-       utils.waitForElementVisible(By.xpath("//span[contains(text(),'Providers')]"));
-        utils.clickBtn(By.xpath("//span[contains(text(),'Providers')]"));
+     //  utils.waitForElementVisible(By.xpath("//span[contains(text(),'Providers')]"));
+        utils.returnElement(By.xpath("//span[contains(text(),'Providers')]")).click();
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Add Provider Template')]"));
     }
     public void loadAddProviderPage() throws InterruptedException {
@@ -32,9 +32,9 @@ public class SipTrunkPlus_ProviderPage {
         return xPath;}
 
     public void clickOnExclamation(String message) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//div[@class='v-errorindicator']"));
+        //utils.waitForElementVisible(By.xpath("//div[@class='v-errorindicator']"));
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath("//div[@class='v-errorindicator']"));
+        utils.returnElement(By.xpath("//div[@class='v-errorindicator']")).click();
         utils.waitForElementVisible(By.xpath("//div[contains(text(),'"+message+"')]"));
     }
 
@@ -73,11 +73,11 @@ public class SipTrunkPlus_ProviderPage {
         checkValidationMessageForNumericFieldsOnAddProviderPage("Retry Seconds","How many seconds before a retry when a failure or timeout occurs");
         utils.sendText(By.xpath(generateXpathForAddProviderPart2("Retry Seconds")),rotarySeconds);
         utils.clickBtn(By.xpath(generateXpathForAddProviderPart2("Caller ID Type")));
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'RPID')]"));
-        utils.clickBtn(By.xpath("//span[contains(text(),'RPID')]"));
+        //utils.waitForElementVisible(By.xpath("//span[contains(text(),'RPID')]"));
+        utils.returnElement(By.xpath("//span[contains(text(),'RPID')]")).click();
         utils.clickBtn(By.xpath(generateXpathForAddProviderPart2("Register Transport")));
-        utils.waitForElementVisible(By.xpath("//span[contains(text(),'TCP')]"));
-        utils.clickBtn(By.xpath("//span[contains(text(),'TCP')]"));
+      //  utils.waitForElementVisible(By.xpath("//span[contains(text(),'TCP')]"));
+        utils.returnElement(By.xpath("//span[contains(text(),'TCP')]")).click();
        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Save')]"));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath("//span[contains(text(),'Save')]"));

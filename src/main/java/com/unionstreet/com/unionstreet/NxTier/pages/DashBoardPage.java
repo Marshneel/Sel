@@ -26,11 +26,11 @@ public class DashBoardPage {
     public void logOut() throws InterruptedException {
         try {
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
+            utils.returnElement(By.cssSelector(LOGOUT_BUTTON)).click();
         } catch (Exception e) {
             try {
                 Thread.sleep(1000);
-                utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
+                utils.returnElement(By.cssSelector(LOGOUT_BUTTON)).click();
             } catch (Exception e1) {
                 utils.checkAlert();
             }
@@ -44,8 +44,8 @@ public class DashBoardPage {
     }
 
     public void clickContactManagerTab(){
-            utils.waitForElementVisible(By.id(CONTACT_MANAGER_BUTTON));
-            utils.clickBtn(By.id(CONTACT_MANAGER_BUTTON));
+          // utils.waitForElementVisible(By.id(CONTACT_MANAGER_BUTTON));
+            utils.returnElement(By.id(CONTACT_MANAGER_BUTTON)).click();
 
 
 
@@ -54,17 +54,17 @@ public class DashBoardPage {
     public void loadServiceDesk(String database) {
         try {
           //  utils.getDashBoardPage();
-            utils.waitForElementVisible(By.id(SERVICEDESK_TAB));
-            utils.clickBtn(By.id(SERVICEDESK_TAB));
+          //  utils.waitForElementVisible(By.id(SERVICEDESK_TAB));
+            utils.returnElement(By.id(SERVICEDESK_TAB)).click();
         } catch (Exception e) {
             utils.getDashBoardPage(database);
-            utils.waitForElementVisible(By.id(SERVICEDESK_TAB));
-            utils.clickBtn(By.id(SERVICEDESK_TAB));
+            //utils.waitForElementVisible(By.id(SERVICEDESK_TAB));
+            utils.returnElement(By.id(SERVICEDESK_TAB)).click();
         }
     }
     public void clickConfigManager() {
-        utils.waitForElementVisible(By.id(CONFIGMANAGER_BUTTON));
-        utils.clickBtn(By.id(CONFIGMANAGER_BUTTON));
+        //utils.waitForElementVisible(By.id(CONFIGMANAGER_BUTTON));
+        utils.returnElement(By.id(CONFIGMANAGER_BUTTON)).click();
     }
 
 

@@ -33,26 +33,26 @@ public class CreateTariffPage {
     public void addTariffPlan() {
         RanTariffPlanName = utils.randomName();
         utils.sendText(By.id(TARIFF_NAME_TEXT_BOX), RanTariffPlanName);
-        utils.waitForElementVisible(By.id(BASE_TARIFF_DROP_DOWN));
+       // utils.waitForElementVisible(By.id(BASE_TARIFF_DROP_DOWN));
         utils.selectByVisibleText(By.id(BASE_TARIFF_DROP_DOWN),"Sell 2p NGCS AC (+60 sec)");
-        utils.waitForElementVisible(By.id(MARKUP_PERCENTAGE_FIELD));
+       // utils.waitForElementVisible(By.id(MARKUP_PERCENTAGE_FIELD));
         utils.sendText(By.id(MARKUP_PERCENTAGE_FIELD),"10");
-        utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+      //  utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
         utils.switchToPreviousWindow(0);
     }
 
     public void editTariffPlan() throws InterruptedException {
         commonMethods.search(RanTariffPlanName);
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "')]"));
-      utils.clickBtn(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "')]"));
+       // utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "')]"));
+      utils.returnElement(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "')]")).click();
         utils.switchToNewWindow();
-        utils.waitForElementVisible(By.id(TARIFF_NAME_TEXT_BOX));
+      //  utils.waitForElementVisible(By.id(TARIFF_NAME_TEXT_BOX));
         utils.sendText(By.id(TARIFF_NAME_TEXT_BOX), RanTariffPlanName + "changed name");
-        utils.waitForElementVisible(By.xpath(MOBILE_RADIO_BUTTON_UNDER_TARIFF_CAT));
-        utils.clickBtn(By.xpath(MOBILE_RADIO_BUTTON_UNDER_TARIFF_CAT));
-        utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
-        utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+     //   utils.waitForElementVisible(By.xpath(MOBILE_RADIO_BUTTON_UNDER_TARIFF_CAT));
+        utils.returnElement(By.xpath(MOBILE_RADIO_BUTTON_UNDER_TARIFF_CAT)).click();
+      // utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+        utils.returnElement(By.id(SAVE_AND_CLOSE_CREATED_TARIFF)).click();
         utils.switchToPreviousWindow(0);
         commonMethods.search(RanTariffPlanName + "changed name");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "changed name')]"));
@@ -61,13 +61,13 @@ public class CreateTariffPage {
 
     public void validationsForNewTariffScreenByCP() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(BASELINE_TARIFF_RADIO_BUTTON));
-        utils.waitForElementVisible(By.xpath(BASED_ON_TARIFF_RADIO_BUTTON));
+      //  utils.waitForElementVisible(By.xpath(BASED_ON_TARIFF_RADIO_BUTTON));
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath(BASED_ON_TARIFF_RADIO_BUTTON));
+        utils.returnElement(By.xpath(BASED_ON_TARIFF_RADIO_BUTTON)).click();
         utils.waitForElementVisible(By.xpath(BASE_LINE_RADIO_BUTTON_UNDER_BASE_TARIFF_SETTINGS));
     }
     public void validationsForNewTariffScreenByAgent() throws InterruptedException {
-        utils.waitForElementVisible(By.id(TARIFF_NAME_TEXT_BOX));
+       // utils.waitForElementVisible(By.id(TARIFF_NAME_TEXT_BOX));
         String tariffName=utils.randomName();
         utils.sendText(By.id(TARIFF_NAME_TEXT_BOX),tariffName);
         utils.waitForElementVisible(By.xpath(TARIFF_NAME_TEXT_ON_ADD_TARIFF_PAGE));
@@ -78,13 +78,13 @@ public class CreateTariffPage {
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(BASED_ON_TARIFF_RADIO_BUTTON));
         utils.assertElementNotPresent(By.xpath(BUY_RADIO_BUTTON_UNDER_BASE_TARIFF_SETTINGS));
-        utils.waitForElementVisible(By.id(BASE_TARIFF_DROP_DOWN));
+     //   utils.waitForElementVisible(By.id(BASE_TARIFF_DROP_DOWN));
         utils.selectByVisibleText(By.id(BASE_TARIFF_DROP_DOWN),"Sell 2p NGCS AC (+60 sec)");
-        utils.waitForElementVisible(By.id(MARKUP_PERCENTAGE_FIELD));
+       // utils.waitForElementVisible(By.id(MARKUP_PERCENTAGE_FIELD));
         utils.sendText(By.id(MARKUP_PERCENTAGE_FIELD),"10");
         utils.assertElementNotPresent(By.xpath(BLANK_TARIFF_RADIO_BUTTON));
-        utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
-        utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+      //  utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+        utils.returnElement(By.id(SAVE_AND_CLOSE_CREATED_TARIFF)).click();
         utils.switchToPreviousWindow(0);
         commonMethods.search(tariffName);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+tariffName+"')]"));
@@ -94,48 +94,48 @@ public class CreateTariffPage {
         RanTariffPlanName = utils.randomName();
         Thread.sleep(1000);
         utils.sendText(By.id(TARIFF_NAME_TEXT_BOX), RanTariffPlanName);
-        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
-        utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
-        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]"));
-        utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]"));
-      if (cp){  utils.waitForElementVisible(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSetting+"']"));
-        utils.clickBtn(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSetting+"']"));}
-      if(agent){  utils.waitForElementVisible(By.id(BASE_TARIFF_DROP_DOWN));
+       // utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
+        utils.returnElement(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]")).click();
+       // utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]"));
+        utils.returnElement(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]")).click();
+      if (cp){  //utils.waitForElementVisible(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSetting+"']"));
+          utils.returnElement(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSetting+"']")).click();}
+      if(agent){  //utils.waitForElementVisible(By.id(BASE_TARIFF_DROP_DOWN));
           utils.selectByVisibleText(By.id(BASE_TARIFF_DROP_DOWN),"Sell 2p NGCS AC (+60 sec)");
-          utils.waitForElementVisible(By.id(MARKUP_PERCENTAGE_FIELD));
+          //utils.waitForElementVisible(By.id(MARKUP_PERCENTAGE_FIELD));
           utils.sendText(By.id(MARKUP_PERCENTAGE_FIELD),"10");}
-        utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
-        utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+       // utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+        utils.returnElement(By.id(SAVE_AND_CLOSE_CREATED_TARIFF)).click();
         utils.switchToPreviousWindow(0);
     }
     public void createTariffPlanBasedOnOtherPlan(String tariffCategory, String tariffType ,String baseTariffSettings, String buyOrSell, String basedOnPlan) throws InterruptedException {
         RanTariffPlanName = utils.randomName();
         utils.sendText(By.id(TARIFF_NAME_TEXT_BOX), RanTariffPlanName);
-        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
-        utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
-        utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]"));
-        utils.clickBtn(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]"));
-        utils.waitForElementVisible(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSettings+"']"));
-        utils.clickBtn(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSettings+"']"));
-        utils.waitForElementVisible(By.xpath("//input[@id='buyOrSale'][@value='"+buyOrSell+"']"));
-        utils.clickBtn(By.xpath("//input[@id='buyOrSale'][@value='"+buyOrSell+"']"));
-        utils.waitForElementVisible(By.id(BASE_TARIFF_DROP_DOWN));
+       // utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]"));
+        utils.returnElement(By.xpath("//legend[contains(text(),'Tariff Category')]/following-sibling::label["+tariffCategory+"]")).click();
+      //  utils.waitForElementVisible(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]"));
+        utils.returnElement(By.xpath("//legend[contains(text(),'Tariff Type')]/following-sibling::label["+tariffType+"]")).click();
+       // utils.waitForElementVisible(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSettings+"']"));
+        utils.returnElement(By.xpath("//input[@id='BasedOnType'][@value='"+baseTariffSettings+"']")).click();
+        //utils.waitForElementVisible(By.xpath("//input[@id='buyOrSale'][@value='"+buyOrSell+"']"));
+        utils.returnElement(By.xpath("//input[@id='buyOrSale'][@value='"+buyOrSell+"']")).click();
+       // utils.waitForElementVisible(By.id(BASE_TARIFF_DROP_DOWN));
         utils.selectByVisibleText(By.id(BASE_TARIFF_DROP_DOWN),""+basedOnPlan+"");
-        utils.waitForElementVisible(By.id(MARKUP_PERCENTAGE_FIELD));
+       // utils.waitForElementVisible(By.id(MARKUP_PERCENTAGE_FIELD));
         utils.sendText(By.id(MARKUP_PERCENTAGE_FIELD),"100");
-        utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
-        utils.clickBtn(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+      //  utils.waitForElementVisible(By.id(SAVE_AND_CLOSE_CREATED_TARIFF));
+        utils.returnElement(By.id(SAVE_AND_CLOSE_CREATED_TARIFF)).click();
         utils.switchToPreviousWindow(0);}
 
 
   public void assertChargesOfTariffThatIsBasedOnAnAnotherTariff(String value,String attribute,boolean baseVal) throws InterruptedException {
       commonMethods.search(RanTariffPlanName);
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
+      //  utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
 Thread.sleep(1000);
-      utils.clickBtn(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]"));
+      utils.returnElement(By.xpath("//a[contains(text(),'"+RanTariffPlanName+"')]")).click();
        utils.switchToNewWindow();
-        utils.waitForElementVisible(By.id(TARIFF_RATES_BUTTON));
-        utils.clickBtn(By.id(TARIFF_RATES_BUTTON));
+      //  utils.waitForElementVisible(By.id(TARIFF_RATES_BUTTON));
+        utils.returnElement(By.id(TARIFF_RATES_BUTTON)).click();
         utils.checkAlert();
         utils.waitForElementVisible(By.xpath("//input[@id='RatesList_0__r_peak' and "+attribute+"='"+value+"']"));
         utils.waitForElementVisible( By.xpath("//input[@id='RatesList_0__r_offpeak' and "+attribute+"='"+value+"']"));
@@ -146,8 +146,8 @@ Thread.sleep(1000);
 
       }
 
-        utils.waitForElementVisible(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
-      utils.clickBtn(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
+       // utils.waitForElementVisible(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
+      utils.returnElement(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH)).click();
         utils.switchToPreviousWindow(0);
     }
     public void assertCreatedTariff(String tariffType, String category){
@@ -165,11 +165,11 @@ Thread.sleep(1000);
 }
     public void cpCannotAssignAgentsPlanToAnyOneElseNorCanHeRevokeIt(String plan, String tabButton, String name) throws InterruptedException {
         commonMethods.search(plan);
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+plan+"')]"));
-        utils.clickBtn(By.xpath("//a[contains(text(),'"+plan+"')]"));
+      //  utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+plan+"')]"));
+        utils.returnElement(By.xpath("//a[contains(text(),'"+plan+"')]")).click();
          utils.switchToNewWindow();
-        utils.waitForElementVisible(By.id(""+tabButton+""));
-        utils.clickBtn(By.id(""+tabButton+""));
+       // utils.waitForElementVisible(By.id(""+tabButton+""));
+        utils.returnElement(By.id(""+tabButton+"")).click();
         utils.waitForElementVisible(By.xpath("//tr[@class='SemiTransparent']//a[contains(text(),'"+name+"')]"));
         utils.assertElementNotPresent(By.xpath(NON_CREATOR_HAS_NO_CHECK_BOX_IN_ASSIGN_PLAN_PAGE));
         utils.waitForElementVisible(By.xpath(CREATOR_HAS_CHECK_BOX_IN_ASSIGN_PLAN_PAGE));

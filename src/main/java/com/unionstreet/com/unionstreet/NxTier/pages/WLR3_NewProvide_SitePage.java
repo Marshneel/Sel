@@ -36,11 +36,11 @@ public class WLR3_NewProvide_SitePage {
 
     public void loadInstallationAddress(){
         try {
-            utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
-            utils.clickBtn(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
+           // utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
+            utils.returnElement(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON)).click();
         } catch (Exception e) {
-            utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
-            utils.clickBtn(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
+           // utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
+            utils.returnElement(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON)).click();
         }
     }
 
@@ -57,13 +57,13 @@ public class WLR3_NewProvide_SitePage {
     public void populateEmergencyInfoUnderSITE(String message) throws InterruptedException {
         Thread.sleep(1000);
         try {
-            utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
-            utils.clickBtn(By.id(EMERGENCY_INFO_TEXTBOX));
+           // utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
+            utils.returnElement(By.id(EMERGENCY_INFO_TEXTBOX)).click();
             utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
         } catch (Exception e) {
-            utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
+          //  utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXTBOX));
             Thread.sleep(1000);
-            utils.clickBtn(By.id(EMERGENCY_INFO_TEXTBOX));
+            //utils.clickBtn(By.id(EMERGENCY_INFO_TEXTBOX));
             utils.sendText(By.id(EMERGENCY_INFO_TEXTBOX), message);
         }
 
@@ -93,9 +93,9 @@ public class WLR3_NewProvide_SitePage {
         } catch (Exception e) {
             utils.javaScriptExecutorClick(By.xpath(EDIT_SERVICECHARGES_BUTTON));
         }
-        utils.waitForElementVisible(By.xpath(SAVE_SERVICECHARGES_BUTTON));
+        //utils.waitForElementVisible(By.xpath(SAVE_SERVICECHARGES_BUTTON));
         utils.sendText(By.id(wlr3_summary_charges_page.FIRST_ROW_CHARGE_FIELD_UNDER_SETUP), "" + charges + "");
-        utils.clickBtn(By.xpath(SAVE_SERVICECHARGES_BUTTON));
+        utils.returnElement(By.xpath(SAVE_SERVICECHARGES_BUTTON)).click();
         utils.waitForElementVisible(By.xpath("//td[text()='£" + charges + ".00']"));
 
     }
@@ -110,8 +110,8 @@ public class WLR3_NewProvide_SitePage {
         utils.sendText(By.id(wlr3_orderDetails_page.EMERGENCY_INFO_TEXT_BOX), wlr3_orderDetails_page.EMERGENCY_INFO_TEXT_BOX);
     }
     public void closeWizard(){
-        utils.waitForElementVisible(By.xpath(CLOSE_BUTTON));
-        utils.clickBtn(By.xpath(CLOSE_BUTTON));
+       // utils.waitForElementVisible(By.xpath(CLOSE_BUTTON));
+        utils.returnElement(By.xpath(CLOSE_BUTTON)).click();
     }
 
 }

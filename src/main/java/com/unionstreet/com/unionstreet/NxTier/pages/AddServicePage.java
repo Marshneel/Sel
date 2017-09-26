@@ -24,13 +24,14 @@ public class AddServicePage {
 
 
     public void searchAndSelectService() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+      //  utils.waitForElementVisible(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
-        utils.clickBtn(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.returnElement(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE)).click();
+      //  utils.clickBtn(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
-        utils.waitForElementVisible(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
+      //  utils.waitForElementVisible(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
         try {
-            utils.clickBtn(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
+            utils.returnElement(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH)).click();
         } catch (Exception e) {
             utils.checkAlert();
         }
@@ -39,20 +40,20 @@ public class AddServicePage {
 
     public void clickService() throws InterruptedException, AWTException {
 
-        utils.waitForElementVisible(By.xpath(SERVICE_ON_QUOTE_PAGE));
-        utils.clickBtn(By.xpath(SERVICE_ON_QUOTE_PAGE));
+        utils.returnElement(By.xpath(SERVICE_ON_QUOTE_PAGE)).click();
+       // utils.clickBtn(By.xpath(SERVICE_ON_QUOTE_PAGE));
         utils.switchToNewWindow();
     }
 
     public void addServiceToQuote(String serviceName) throws InterruptedException, SQLException {
         try {
-            utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+         //   utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         } catch (Exception e) {
             utils.getOrdersPage();
             ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
-            utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-          utils.clickBtn(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+            utils.returnElement(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON)).click();
+         // utils.clickBtn(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
            utils.switchToNewWindow();
 
         }
@@ -63,13 +64,13 @@ public class AddServicePage {
 
     public void clickAddAProductOrService() throws InterruptedException, SQLException {
         try {
-            utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+         //   utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
         } catch (Exception e) {
             utils.getOrdersPage();
             ordersManagerPage.clickOnQuote();
-            utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
-            utils.clickBtnWithWait(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+            utils.returnElement(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON)).click();
+          //  utils.clickBtnWithWait(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
 
         }
     }
@@ -81,7 +82,7 @@ public class AddServicePage {
         } catch (Exception e) {
             utils.getOrdersPage();
             ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
-            utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+          //  utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.waitForElementVisible(By.xpath("//label[@id='selectedSiteLabel'][contains(text(),'vodafone')]"));
             utils.waitForElementVisible(By.xpath("//div[text()='" + serviceName + "']"));
@@ -99,14 +100,14 @@ public class AddServicePage {
 
     public void searchAndAddService(String service, String customerName) throws InterruptedException, SQLException {
         try {
-            utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+           // utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.waitForElementVisible(By.xpath(TEXT_ON_THE_SELECTQUOTE_PAGE));
             utils.jumpToPopUpWindow(By.xpath("//div[text()='" + service + "']"));
         } catch (Exception e) {
             utils.getOrdersPage();
             ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(customerName);
-            utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
+         //   utils.waitForElementVisible(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(editOrderPage.ADD_PRODUCT_AND_SERVICE_BUTTON));
             utils.waitForElementVisible(By.xpath(TEXT_ON_THE_SELECTQUOTE_PAGE));
             utils.jumpToPopUpWindow(By.xpath("//div[text()='" + service + "']"));

@@ -43,7 +43,7 @@ public class  WLR3_AppointmentPage {
     public void populateHazardAndWarningNotes() throws InterruptedException {
         Thread.sleep(1000);
         try {
-            utils.clickBtnWithWait(By.xpath(wlr3_orderDetails_page.APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE));
+            utils.returnElement(By.xpath(wlr3_orderDetails_page.APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE)).click();
         } catch (Exception e) {
             Thread.sleep(1000);
             utils.javaScriptExecutorClick(By.xpath(wlr3_orderDetails_page.APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE));

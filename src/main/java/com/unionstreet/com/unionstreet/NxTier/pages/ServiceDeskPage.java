@@ -35,7 +35,7 @@ public class ServiceDeskPage {
        utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_HEADER_TEXT));}
 
     public void searchByAccountName(String accountName) throws InterruptedException {
-        utils.waitForElementVisible(By.id(SEARCH_BY_ACCOUNT_NAME_FIELD));
+       // utils.waitForElementVisible(By.id(SEARCH_BY_ACCOUNT_NAME_FIELD));
         utils.sendText(By.id(SEARCH_BY_ACCOUNT_NAME_FIELD),accountName);
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath(INITIATE_SEARCH_BY_ACCOUNT_NAME));
@@ -43,7 +43,7 @@ public class ServiceDeskPage {
     }
 
     public void searchByShortName(String shortName) throws InterruptedException {
-        utils.waitForElementVisible(By.id(SEARCH_BY_ACCOUNT_NUMBER_FIELD));
+      //  utils.waitForElementVisible(By.id(SEARCH_BY_ACCOUNT_NUMBER_FIELD));
         utils.sendText(By.id(SEARCH_BY_ACCOUNT_NUMBER_FIELD),shortName);
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath(INITIATE_SEARCH_BY_ACCOUNT_NUMBER));
@@ -56,15 +56,15 @@ public class ServiceDeskPage {
         utils.assertElementNotPresent(By.xpath("//td[contains(text(),'"+type+"')]"));
     }
     public void searchByCLI(String CLI) throws InterruptedException {
-        utils.waitForElementVisible(By.id(SEARCH_CLI));
+       // utils.waitForElementVisible(By.id(SEARCH_CLI));
         utils.sendText(By.id(SEARCH_CLI),CLI);
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath(INITIATE_SEARCH_BY_CLI));
     }
     public void clickOnResult(String shortName) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+shortName+"')]"));
+       // utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+shortName+"')]"));
         Thread.sleep(2000);
-        utils.clickBtn(By.xpath("//td[contains(text(),'"+shortName+"')]"));
+        utils.returnElement(By.xpath("//td[contains(text(),'"+shortName+"')]")).click();
     }
     public void assertAccountDetails(String companyName){
         utils.waitForElementVisible(By.xpath("//h4[contains(text(),'"+companyName+"')]"));
@@ -92,9 +92,9 @@ public class ServiceDeskPage {
         }
     }
         public void clickIncidentButton() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_CLICK));
+        //utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_CLICK));
             Thread.sleep(1000);
-        utils.clickBtn(By.xpath(LOGIN_AN_INCIDENT_CLICK));
+        utils.returnElement(By.xpath(LOGIN_AN_INCIDENT_CLICK)).click();
     }
     public void assertAccessGrantedToLoginIncident(){
         utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_HEADER_TEXT));
@@ -112,8 +112,8 @@ public class ServiceDeskPage {
 
     public void assertAccountOnHoldRedPopUp(){
         utils.waitForElementVisible(By.xpath(YOU_CANNOT_CREATE_A_TICKET_FOR_THIS_ACCOUNT));
-        utils.waitForElementVisible(By.xpath(wlr3_lineNumberingPage.OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP));
-        utils.clickBtn(By.xpath(wlr3_lineNumberingPage.OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP));
+       // utils.waitForElementVisible(By.xpath(wlr3_lineNumberingPage.OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP));
+        utils.returnElement(By.xpath(wlr3_lineNumberingPage.OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP)).click();
     }
     public void grantingServiceDeskAccess() throws SQLException, UnsupportedEncodingException, ClassNotFoundException, InterruptedException {
         utils.sqlQuery("portal", "test01-sql01", "NxtierE2E", "select * from Group_Permissions where GTypeID='58dbb78d-8c9f-495f-99e6-0dbce29f02fe' and Name='Incident'");

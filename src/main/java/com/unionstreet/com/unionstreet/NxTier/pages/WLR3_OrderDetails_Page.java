@@ -179,7 +179,7 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.id(LINE_NUMBERING_SUMMARY_PANEL));
         try {
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(LINE_NUMBERING_BUTTON));
+            utils.returnElement(By.xpath(LINE_NUMBERING_BUTTON)).click();
         } catch (Exception e) {
             Thread.sleep(1000);
             utils.javaScriptExecutorClick(By.xpath(LINE_NUMBERING_BUTTON));
@@ -244,8 +244,8 @@ public class WLR3_OrderDetails_Page {
     }
         public void clickOnQuoteID(String type) throws InterruptedException, SQLException {
            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(type);
-            utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
-            utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
+          //  utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
+            utils.returnElement(By.xpath(ITEMID_ON_EDITORDER)).click();
             utils.waitForElementVisible(By.xpath(TEXT_ON_WLR3_ORDER_DETAIL_PAGE));
        }
 
@@ -291,7 +291,7 @@ public class WLR3_OrderDetails_Page {
             utils.clickBtn(By.xpath(EDIT_SITEINFO_FOR_INCREASE));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(EDIT_SITEINFO_FOR_INCREASE));
+            utils.returnElement(By.xpath(EDIT_SITEINFO_FOR_INCREASE)).click();
         }
     }
 
@@ -300,7 +300,7 @@ public class WLR3_OrderDetails_Page {
             utils.clickBtn(By.xpath(SITE_INFO_FOR_LINE_DECREASE));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(SITE_INFO_FOR_LINE_DECREASE));
+            utils.returnElement(By.xpath(SITE_INFO_FOR_LINE_DECREASE)).click();
         }
     }
 
@@ -317,9 +317,9 @@ public class WLR3_OrderDetails_Page {
     public void enterEmergencyInfo(String type) throws InterruptedException, SQLException {
         textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
-        utils.waitForElementVisible(By.id(EDIT_EMERGENCY_INFO_TAB));
+       // utils.waitForElementVisible(By.id(EDIT_EMERGENCY_INFO_TAB));
         // Thread.sleep(1000);
-        utils.clickBtn(By.id(EDIT_EMERGENCY_INFO_TAB));
+        utils.returnElement(By.id(EDIT_EMERGENCY_INFO_TAB)).click();
         utils.sendText(By.id(EMERGENCY_INFO_TEXT_BOX), EMERGENCY_INFO_TEXT_BOX);
         utils.clickBtn(By.xpath(SAVE_EMERGENCY_INFO));
     }
@@ -460,9 +460,9 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath(OPEN_REACH_MANAGED_ERROR_MESSAGE_FOR_ISDN30));
     }
     public void editOpenReachManaged() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(EDIT_OPENREACH_MANAGED));
+       // utils.waitForElementVisible(By.xpath(EDIT_OPENREACH_MANAGED));
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath(EDIT_OPENREACH_MANAGED));
+        utils.returnElement(By.xpath(EDIT_OPENREACH_MANAGED)).click();
         utils.selectByVisibleText(By.id(OPENREACH_MANAGED_DROP_DOWN),"No (CP Managed)");
         utils.clickBtn(By.xpath(SAVE_EDITED_OPENREACH_MANAGED));
     }
@@ -494,12 +494,12 @@ public class WLR3_OrderDetails_Page {
        Thread.sleep(1000);
         utils.scrollUp(By.xpath(SITE_INFORMATION_BUTTON));
         try {Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(SITE_INFORMATION_BUTTON));
+            utils.returnElement(By.xpath(SITE_INFORMATION_BUTTON)).click();
         } catch (Exception e) {
             utils.waitForElementVisible(By.xpath(SITE_INFORMATION_BUTTON));
             utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(SITE_INFORMATION_BUTTON));
+            utils.returnElement(By.xpath(SITE_INFORMATION_BUTTON)).click();
         }
         utils.waitForElementVisible(By.xpath(TEXT_ON_SITE_INFORMATION));
     }
@@ -514,9 +514,9 @@ public class WLR3_OrderDetails_Page {
         utils.assertElementNotPresent(By.xpath(WARNING_NOTES_REQUISITION_ERROR_MESSAGE));
     }
     public void editChannelNumberForPremiumAndISDNlines(String linesOrChannels, String minNumber, String maxNumber){
-        utils.waitForElementVisible(By.xpath(EDIT_NUMBER_OF_CHANNELS));
+       // utils.waitForElementVisible(By.xpath(EDIT_NUMBER_OF_CHANNELS));
         utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
-        utils.clickBtn(By.xpath(EDIT_NUMBER_OF_CHANNELS));
+        utils.returnElement(By.xpath(EDIT_NUMBER_OF_CHANNELS)).click();
         utils.sendText(By.id(EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"0");
         utils.clickBtn(By.xpath(SAVE_CHANGES_AFTER_QUICK_EDIT_ON_ORDER_SUMMARY_PAGE));
         // TODO: 26/04/2017  
@@ -571,8 +571,8 @@ public class WLR3_OrderDetails_Page {
     public void loadNetworkFeatures() throws InterruptedException {
         Thread.sleep(1000);
         utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
-        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'return showNetworkFeaturesPopup')]"));
-        utils.clickBtn(By.xpath("//a[contains(@onclick,'return showNetworkFeaturesPopup')]"));
+       // utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'return showNetworkFeaturesPopup')]"));
+        utils.returnElement(By.xpath("//a[contains(@onclick,'return showNetworkFeaturesPopup')]")).click();
     }
     public void assertSavedSiteContactTelephoneNumber(String telephone){
         utils.waitForElementVisible(By.xpath("//p[contains(text(),'"+telephone+"')]"));
@@ -615,9 +615,9 @@ public class WLR3_OrderDetails_Page {
         utils.waitForElementVisible(By.xpath("//b[contains(text(),'"+line+"')]/following-sibling::p[contains(text(),'No Directory Entry Required')]"));
     }
     public void checkingValidationForEmergencyInfo(){
-        utils.waitForElementVisible(By.xpath(EDIT_EMERGENCY_INFO));
-        utils.clickBtn(By.xpath(EDIT_EMERGENCY_INFO));
-        utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXT_BOX));
+      //  utils.waitForElementVisible(By.xpath(EDIT_EMERGENCY_INFO));
+        utils.returnElement(By.xpath(EDIT_EMERGENCY_INFO)).click();
+       // utils.waitForElementVisible(By.id(EMERGENCY_INFO_TEXT_BOX));
         utils.sendText(By.id(EMERGENCY_INFO_TEXT_BOX),"Emer&*^%");
         utils.clickBtn(By.xpath(SAVE_EMERGENCY_INFO));
         utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMERGENCY_INFO));

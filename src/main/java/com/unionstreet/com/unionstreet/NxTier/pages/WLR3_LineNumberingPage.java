@@ -69,9 +69,9 @@ public class WLR3_LineNumberingPage {
 
 
     public void lineNumberingAutomaticallyAssignWithAssertions() throws InterruptedException, SQLException {
-        utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
+       // utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
         try {
-            utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
+            utils.returnElement(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO)).click();
             utils.clickBtn(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
         } catch (Exception e) {
             utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
@@ -108,18 +108,18 @@ public class WLR3_LineNumberingPage {
     }
 
     public void lineNumberingSelectFromList(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
-        utils.waitForElementVisible(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));
+      //  utils.waitForElementVisible(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));
         try {
-            utils.clickBtn(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));
+            utils.returnElement(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO)).click();
         } catch (Exception e) {
-            utils.clickBtn(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));
+            utils.returnElement(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO)).click();
         }
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from dbo.reserved_numbers where number='" + number + "'");
         utils.clickBtn(By.xpath(GET_NUMBERSTAB_UNDER_SELECT_FROM_LIST_LINE_INFO));
-        utils.waitForElementVisible(By.xpath("//label[text()='" + number + "']"));
-        utils.clickBtn(By.xpath("//label[text()='" + number + "']"));
-        utils.waitForElementVisible(By.xpath(RESERVETAB_UNDER_SELECT_FROM_LIST_LINE_INFO));
-        utils.clickBtn(By.xpath(RESERVETAB_UNDER_SELECT_FROM_LIST_LINE_INFO));
+       // utils.waitForElementVisible(By.xpath("//label[text()='" + number + "']"));
+        utils.returnElement(By.xpath("//label[text()='" + number + "']")).click();
+       // utils.waitForElementVisible(By.xpath(RESERVETAB_UNDER_SELECT_FROM_LIST_LINE_INFO));
+        utils.returnElement(By.xpath(RESERVETAB_UNDER_SELECT_FROM_LIST_LINE_INFO)).click();
         utils.waitForElementVisible(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath(CONTINUETAB_UNDER_LINE_INFO));
@@ -131,11 +131,11 @@ public class WLR3_LineNumberingPage {
     }
 
     public void lineNumberingAutomaticallyAssignNumber(String number) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
-        utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
+       // utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
         try {
-            utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
+            utils.returnElement(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO)).click();
         } catch (Exception e) {
-            utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
+            utils.returnElement(By.xpath(AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO)).click();
         }
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from dbo.reserved_numbers where number='" + number + "'");
         utils.clickBtn(By.xpath(ALLOCATENOW_TAB_UNDER_AUTOMATICALLY_ASSIGN_NOW_LINE_INFO));
@@ -157,17 +157,17 @@ public class WLR3_LineNumberingPage {
     }
 
     public void clickImportFromOtherNetwork() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
-       try{ utils.clickBtn(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));}
+     //   utils.waitForElementVisible(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
+       try{ utils.returnElement(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB)).click();}
        catch (Exception e){utils.checkAlert();
-           utils.clickBtn(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB));
+           utils.returnElement(By.xpath(IMPORT_FROM_ANOTHER_NETWORK_TAB)).click();
        }
 
     }
 
     public void enterNumberOnImportFromOtherNetworkPage(String number) throws InterruptedException {
-        utils.waitForElementVisible(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
-        utils.clickBtn(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
+       // utils.waitForElementVisible(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
+       // utils.clickBtn(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.sendText(By.id(ENTER_NUMBER_TEXT_BOX_UNDER_IMPORT_FROM_ANOTHER_NETWORK), number);
     }
 
@@ -175,7 +175,7 @@ public class WLR3_LineNumberingPage {
         clickImportFromOtherNetwork();
         enterNumberOnImportFromOtherNetworkPage(number);
         utils.clickBtn(By.id(MOVE_NUMBER_FROM_ANOTHER_ADDRESS_CHECK_BOX));
-        utils.clickBtn(By.id(MOVE_NUMBER_FROM_ANOTHER_ADDRESS_POSTCODE));
+        //utils.clickBtn(By.id(MOVE_NUMBER_FROM_ANOTHER_ADDRESS_POSTCODE));
         utils.sendText(By.id(MOVE_NUMBER_FROM_ANOTHER_ADDRESS_POSTCODE), postCode);
         utils.clickBtn(By.id(RESERVETAB_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.waitForElementVisible(By.xpath("//h1[text()='" + number + "']"));
@@ -198,7 +198,7 @@ public class WLR3_LineNumberingPage {
     public void importNumberWithVic(String type, String number, String vic) throws InterruptedException, SQLException {
         depopulateImportFromOtherNetworkFields(type);
         enterNumberOnImportFromOtherNetworkPage(number);
-        utils.clickBtn(By.id(VIC_TEXTBOX_UNDER_LINE_INFO));
+      //  utils.clickBtn(By.id(VIC_TEXTBOX_UNDER_LINE_INFO));
         utils.sendText(By.id(VIC_TEXTBOX_UNDER_LINE_INFO), vic);
         utils.clickBtn(By.id(RESERVETAB_UNDER_IMPORT_FROM_ANOTHER_NETWORK));
         utils.clickBtn(By.id(CONTINUETAB_UNDER_IMPORT_FROM_OTHER_NETWORK_LINE_INFO));
@@ -206,8 +206,8 @@ public class WLR3_LineNumberingPage {
     }
 
     public void clickNoChangeTab() {
-        utils.waitForElementVisible(By.xpath(NO_CHANGE_TAB));
-        utils.clickBtn(By.xpath(NO_CHANGE_TAB));
+      //  utils.waitForElementVisible(By.xpath(NO_CHANGE_TAB));
+        utils.returnElement(By.xpath(NO_CHANGE_TAB)).click();
     }
 
     public void depopulateImportFromOtherNetworkFields(String type) throws InterruptedException, SQLException {
@@ -236,7 +236,7 @@ public class WLR3_LineNumberingPage {
     }
 
     public void assertionForLineNumberingWithOutAddress() {
-        utils.clickBtn(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
+        utils.returnElement(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM)).click();
         utils.waitForElementVisible(By.xpath(ALERT_ON_LINE_INFO));
         utils.clickBtn(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));
         utils.waitForElementVisible(By.xpath(ALERT_ON_LINE_INFO));
@@ -246,15 +246,15 @@ public class WLR3_LineNumberingPage {
     }
 
     public void addingNewSNDDIBeyondTheRangeForISDN30Modify() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(ADD_NEW_DDI));
-        utils.clickBtn(By.xpath(ADD_NEW_DDI));
+       // utils.waitForElementVisible(By.xpath(ADD_NEW_DDI));
+        utils.returnElement(By.xpath(ADD_NEW_DDI)).click();
         utils.waitForElementVisible(By.xpath(VALIDATION_TO_PREVENT_ADDITION_OF_NEW_SNDDI));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP));
     }
 
     public void deleteActionAndAddingNewSNDDIForISDN30Modify(String type) throws InterruptedException, SQLException {
-        utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN_ROW1));
+       // utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN_ROW1));
         utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW1), "Remove");
         utils.clickBtn(By.xpath(ADD_NEW_DDI));
         Thread.sleep(1000);
@@ -266,7 +266,7 @@ public class WLR3_LineNumberingPage {
     }
 
     public void revertingDeleteActionOnLineNumberingPopUpForISDN30Modify() throws InterruptedException {
-        utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN_ROW1));
+       // utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN_ROW1));
         utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW1), "Renumber");
      //   utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath(VALIDATION_TO_PREVENT_ACTIVATION_OF_EXISTING_SNDDI));
@@ -294,20 +294,20 @@ public class WLR3_LineNumberingPage {
     }
 
     public void validatePreviousNumberManagementOptionsInModifyOrder(String selectTypeOfForward, String forwardToCLI) {
-        utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
-        utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
-        utils.waitForElementVisible(By.xpath("//label[text()[contains(.,'" + selectTypeOfForward + "')]]"));
-        utils.clickBtn(By.xpath("//label[text()[contains(.,'" + selectTypeOfForward + "')]]"));
-        utils.waitForElementVisible(By.id(CLI_FIELD_FOR_CALL_REDIRECT_OR_FORWARD));
+       // utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
+        utils.returnElement(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO)).click();
+       // utils.waitForElementVisible(By.xpath("//label[text()[contains(.,'" + selectTypeOfForward + "')]]"));
+        utils.returnElement(By.xpath("//label[text()[contains(.,'" + selectTypeOfForward + "')]]")).click();
+       // utils.waitForElementVisible(By.id(CLI_FIELD_FOR_CALL_REDIRECT_OR_FORWARD));
         utils.sendText(By.id(CLI_FIELD_FOR_CALL_REDIRECT_OR_FORWARD), "" + forwardToCLI + "");
-        utils.waitForElementVisible(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
-        utils.clickBtn(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
+       // utils.waitForElementVisible(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
+        utils.returnElement(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO)).click();
     }
 
     public void takeNumberFromAnotherWorkingLine_emptyFieldValidations() {
-        utils.waitForElementVisible(By.xpath(TAKE_NUMBER_FROM_ANOTHER_WORKING_LINE_TAB));
-        utils.clickBtn(By.xpath(TAKE_NUMBER_FROM_ANOTHER_WORKING_LINE_TAB));
-        utils.waitForElementVisible(By.id(CLI_FIELD_FOR_CALL_REDIRECT_OR_FORWARD));
+       // utils.waitForElementVisible(By.xpath(TAKE_NUMBER_FROM_ANOTHER_WORKING_LINE_TAB));
+        utils.returnElement(By.xpath(TAKE_NUMBER_FROM_ANOTHER_WORKING_LINE_TAB)).click();
+      //  utils.waitForElementVisible(By.id(CLI_FIELD_FOR_CALL_REDIRECT_OR_FORWARD));
         utils.sendText(By.id(CLI_FIELD_FOR_CALL_REDIRECT_OR_FORWARD), "");
         utils.clickBtn(By.xpath(TAKE_NUMBER_BUTTON));
         utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_FOR_EMPTY_TAKE_OVER_NUMBER_FIELD));
@@ -317,7 +317,7 @@ public class WLR3_LineNumberingPage {
     }
 
     public void takeNumberFromAnotherWorkingLine_populateFields(String takeOverNumber,String forwardToCLI) throws InterruptedException {
-        utils.waitForElementVisible(By.id(TAKE_OVER_NUMBER_FIELD));
+       // utils.waitForElementVisible(By.id(TAKE_OVER_NUMBER_FIELD));
         utils.sendText(By.id(TAKE_OVER_NUMBER_FIELD), ""+takeOverNumber+"");
         utils.sendText(By.id(TAKE_OVER_NUMBER_POSTCODE), "LU1 1DQ");
         utils.sendText(By.id(CLI_FIELD_FOR_CALL_REDIRECT_OR_FORWARD), ""+forwardToCLI+"");
@@ -330,8 +330,8 @@ public class WLR3_LineNumberingPage {
     }
 
     public void validationForEmptyCallForwardCLIField_Under_SpecifyNewNumber(String selectTypeOfForward, String reserveNumber) throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        utils.waitForElementVisible(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
-        utils.clickBtn(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
+       // utils.waitForElementVisible(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
+        utils.returnElement(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM)).click();
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from dbo.reserved_numbers where number='"+reserveNumber+"'");
         utils.sendText(By.id(FIELD_TO_SPECIFY_NUMBER_FOR_RESERVATION), ""+reserveNumber+"");
         utils.waitForElementVisible(By.xpath("//label[text()[contains(.,'"+selectTypeOfForward+"')]]"));
@@ -341,30 +341,30 @@ public class WLR3_LineNumberingPage {
         utils.waitForElementVisible(By.xpath(EMPTY_FIELD_ERROR_MESSAGE));
     }
     public void checkValidationsOnEmptyCLIField_UnderAutomaticallyAssign(String selectTypeOfForward){
-        utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
-        utils.clickBtn(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
-        utils.waitForElementVisible(By.xpath("//label[text()[contains(.,'"+selectTypeOfForward+"')]]"));
-        utils.clickBtn(By.xpath("//label[text()[contains(.,'"+selectTypeOfForward+"')]]"));
-        utils.waitForElementVisible(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
-        utils.clickBtn(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
+      //  utils.waitForElementVisible(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO));
+        utils.returnElement(By.xpath(AUTOMATICALLY_ASSIGNTAB_UNDER_LINE_INFO)).click();
+       // utils.waitForElementVisible(By.xpath("//label[text()[contains(.,'"+selectTypeOfForward+"')]]"));
+        utils.returnElement(By.xpath("//label[text()[contains(.,'"+selectTypeOfForward+"')]]")).click();
+      //  utils.waitForElementVisible(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO));
+        utils.returnElement(By.xpath(CONTINUETAB_UNDER_AUTOMATICALLY_ASSIGN_LINE_INFO)).click();
         utils.waitForElementVisible(By.xpath(ERROR_MESSAGE_TO_PROVIDE_CORRECT_DETAILS));
         utils.waitForElementVisible(By.xpath(EMPTY_FIELD_ERROR_MESSAGE));
     }
     public void addingExtraSNDDI(String type) throws InterruptedException, SQLException {
         wlr3_orderDetails_page.clickLineNumbering(type);
-        utils.waitForElementVisible(By.xpath(ADD_NEW_DDI));
-        utils.clickBtn(By.xpath(ADD_NEW_DDI));
-        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+      //  utils.waitForElementVisible(By.xpath(ADD_NEW_DDI));
+        utils.returnElement(By.xpath(ADD_NEW_DDI)).click();
+        //utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
         Thread.sleep(1000);
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        utils.returnElement(By.id(wlr3_orderDetails_page.SAVE)).click();
     }
     public void addingExtraDDIRange(String type) throws InterruptedException, SQLException {
         wlr3_orderDetails_page.clickLineNumbering(type);
-        utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN_ROW1));
+       // utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN_ROW1));
         utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW1),"New DDI range");
-        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        //utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
         Thread.sleep(1000);
-        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
+        utils.returnElement(By.id(wlr3_orderDetails_page.SAVE)).click();
     }
 
 }

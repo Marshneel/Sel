@@ -21,18 +21,18 @@ public class WLR3_BusinessContinuityPage {
 
         try {
             Thread.sleep(1000);
-            utils.clickBtn(By.xpath(LOAD_BUSINESS_CONTINUITY_POPUP));
+            utils.returnElement(By.xpath(LOAD_BUSINESS_CONTINUITY_POPUP)).click();
         } catch (Exception e) {
             wlr3_orderDetails_page.loadTabOnWLR3OrderSummaryPage();
             Thread.sleep(1000);
-            utils.clickBtn(By.xpath(LOAD_BUSINESS_CONTINUITY_POPUP));
+            utils.returnElement(By.xpath(LOAD_BUSINESS_CONTINUITY_POPUP)).click();
         }
     }
 
     public void selectBusinessContinuity() throws InterruptedException, SQLException {
         try {
-            utils.waitForElementVisible(By.id(wlr3_newProvide_featuresPage.BUSINESS_CONTINUITY_CHECKBOX));
-            utils.clickBtn(By.id(wlr3_newProvide_featuresPage.BUSINESS_CONTINUITY_CHECKBOX));
+           // utils.waitForElementVisible(By.id(wlr3_newProvide_featuresPage.BUSINESS_CONTINUITY_CHECKBOX));
+            utils.returnElement(By.id(wlr3_newProvide_featuresPage.BUSINESS_CONTINUITY_CHECKBOX)).click();
         } catch (Exception e) {
             wlr3_orderDetails_page.loadTabOnWLR3OrderSummaryPage();
             Thread.sleep(1000);
