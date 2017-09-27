@@ -82,12 +82,12 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
         Thread.sleep(1000);
         utils.scrollUp(By.xpath(DECREASE_NUMBER_OF_LINES_UNDER_INSTALLATION_INFO));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath(DECREASE_NUMBER_OF_LINES_UNDER_INSTALLATION_INFO)).click();
+        utils.clickBtn(By.xpath(DECREASE_NUMBER_OF_LINES_UNDER_INSTALLATION_INFO));
         String decreaseValue = utils.getAttributeOfElement(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX), "value");
         Assert.assertEquals(decreaseValue, "1");
         //increase the number of lines and assert
-        utils.returnElement(By.xpath(INCREASE_NUMBER_OF_LINES_UNDER_INSTALLATION_INFO)).click();
-        utils.returnElement(By.xpath(INCREASE_NUMBER_OF_LINES_UNDER_INSTALLATION_INFO)).click();
+        utils.clickBtn(By.xpath(INCREASE_NUMBER_OF_LINES_UNDER_INSTALLATION_INFO));
+        utils.clickBtn(By.xpath(INCREASE_NUMBER_OF_LINES_UNDER_INSTALLATION_INFO));
         String increaseValue = utils.getAttributeOfElement(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX), "value");
         Assert.assertEquals(increaseValue, "3");
     }
@@ -103,7 +103,7 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
         utils.clickBtn(By.id(ORDERNOTES_TOOL_TIP_CLICK));
         utils.waitForElementVisible(By.xpath(TEXT_ON_ORDER_NOTES_TOOLTIP_POPUP));
         utils.clickBtn(By.xpath(wlr3_lineNumberingPage.OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP));
-     //   utils.waitForElementVisible(By.id(FLOOR_TEXT_BOX));
+        utils.waitForElementVisible(By.id(FLOOR_TEXT_BOX));
         utils.sendText(By.id(FLOOR_TEXT_BOX), "1st floor");
         utils.sendText(By.id(ROOM_TEXT_BOX), "central Hall");
         enterChannelsInISDNNewProvide("7", MINIMUM_CHANNELS_ERROR_MESSAGE);
@@ -113,7 +113,7 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
     }
     public void provisionPageForISDN30ChangeOfAddress() throws AWTException, InterruptedException {
 
-      //  utils.waitForElementVisible(By.id(FLOOR_TEXT_BOX));
+        utils.waitForElementVisible(By.id(FLOOR_TEXT_BOX));
         utils.sendText(By.id(FLOOR_TEXT_BOX), "1st floor");
         utils.sendText(By.id(ROOM_TEXT_BOX), "central Hall");
         utils.zoomOut();
@@ -125,17 +125,17 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
        Thread.sleep(1000);
         utils.scrollUp(By.xpath("//legend[contains(text(),'Provision Type')]"));
         utils.waitForElementVisible(By.xpath(TAKE_OVER_WORKING_LINE_TEXT));
-        //utils.waitForElementVisible(By.xpath(TAKE_OVER_WORKING_LINE_RADIO_BUTTON));
-        utils.returnElement(By.xpath(TAKE_OVER_WORKING_LINE_RADIO_BUTTON)).click();
+        utils.waitForElementVisible(By.xpath(TAKE_OVER_WORKING_LINE_RADIO_BUTTON));
+        utils.clickBtn(By.xpath(TAKE_OVER_WORKING_LINE_RADIO_BUTTON));
         utils.waitForElementVisible(By.id(TAKE_OVER_WORKING_CLI_BUTTON));
         wlr3_new_provide__orderPage.navigateToNextScreen();
         utils.waitForElementVisible(By.xpath(SPECIFY_WORKING_LINE_MESSAGE));
         utils.clickBtn(By.id(TAKE_OVER_WORKING_CLI_BUTTON));
         utils.waitForElementVisible(By.xpath(TEXT_ON_WORKING_LINES_POPUP));
         utils.clickBtn(By.xpath(commonMethods.CLOSE_POPUP));
-       //utils.waitForElementVisible(By.xpath(PROVIDE_LINE_RADIO_BUTTON_UNDER_PROVISION));
+       utils.waitForElementVisible(By.xpath(PROVIDE_LINE_RADIO_BUTTON_UNDER_PROVISION));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath(PROVIDE_LINE_RADIO_BUTTON_UNDER_PROVISION)).click();
+        utils.clickBtn(By.xpath(PROVIDE_LINE_RADIO_BUTTON_UNDER_PROVISION));
         utils.selectByVisibleText(By.id(EXCESS_CONSTRUCTION_CHARGES_DROPDOWN),"Band 1 - Up to £300");
     }
     public void assertUnavailabilityOfTakeOverWorkingLineForMultiLineNewProvide(){
@@ -146,7 +146,7 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
        utils.waitForElementVisible(By.xpath("//label[contains(text(),'Channels')]"));
         Thread.sleep(1000);
         utils.scrollUp(By.xpath("//label[contains(text(),'Channels')]"));
-      //  utils.waitForElementVisible(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX));
         utils.sendText(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),"0");
         wlr3_new_provide__orderPage.navigateToNextScreen();
         utils.waitForElementVisible(By.xpath(MINIMUM_TWO_CHANNELS_REQUIRED));
@@ -173,7 +173,7 @@ public void unTickOpenReachManaged(){
 
 }
 public void validationForNumberOfLinesForMultiline(String min, String max, String validInt) throws InterruptedException {
-   // utils.waitForElementVisible(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX));
+    utils.waitForElementVisible(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX));
     utils.sendText(By.id(wlr3_orderDetails_page.EDIT_NUMBER_OF_CHANNELS_TEXT_BOX),min);
     Thread.sleep(1000);
     utils.javaScriptExecutorClick(By.xpath(wlr3_new_provide__orderPage.NEXT_BUTTON));

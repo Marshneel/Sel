@@ -42,8 +42,8 @@ private final String CONFIRM_OWNERSHIP_MESSAGE="//legend[text()='Confirm Change 
         utils.clickBtn(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON));
     }
     public void saveLineSelection(){
-       // utils.waitForElementVisible(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON));
-        utils.returnElement(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON)).click();
+        utils.waitForElementVisible(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON));
+        utils.clickBtn(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON));
     }
 
 

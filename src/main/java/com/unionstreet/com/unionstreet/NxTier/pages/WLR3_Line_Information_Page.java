@@ -39,8 +39,8 @@ public class WLR3_Line_Information_Page {
         utils.waitForElementVisible(By.xpath(TEXT_ON_LINEINFO_PAGE));
         utils.waitForElementVisible(By.id(SERVICE_MAINTENANCE_TAB));
         utils.selectByVisibleText(By.id(SERVICE_MAINTENANCE_TAB), level);
-        //utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
-       utils.returnElement(By.id(wlr3_orderDetails_page.SAVE)).click();
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+       utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath("//div[@id='lineInformationSummaryPanel']//p[contains(text(),'" + level_no + "')]"));
     }
 
@@ -106,11 +106,11 @@ public class WLR3_Line_Information_Page {
         utils.clickBtn(By.xpath(wlr3_orderDetails_page.LINE_INFO_TAB));
         utils.waitForElementVisible(By.id(CHOOSE_SIGNAL_TYPE));
         utils.selectByVisibleText(By.id(CHOOSE_SIGNAL_TYPE),"Dual Tone");
-       // utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
-        utils.returnElement(By.id(wlr3_orderDetails_page.SAVE)).click();
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
     public void assertDigitsToSwitchForAllISDN(String allowedRange, String digits){
-      //  utils.waitForElementVisible(By.id(DIGITS_TO_SWITCH_TEXT_BOX));
+        utils.waitForElementVisible(By.id(DIGITS_TO_SWITCH_TEXT_BOX));
         utils.sendText(By.id(DIGITS_TO_SWITCH_TEXT_BOX),"0");
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Please enter a value between "+allowedRange+".')]"));

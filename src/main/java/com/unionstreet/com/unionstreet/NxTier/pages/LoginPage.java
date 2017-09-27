@@ -13,11 +13,11 @@ public class LoginPage {
 
     public void doLogin() throws InterruptedException {
         try {
-           // utils.waitForElementVisible(By.id(USERNAME_FIELD));
+            utils.waitForElementVisible(By.id(USERNAME_FIELD));
             utils.sendText(By.id(USERNAME_FIELD), utils.getProperty("userName"));
         } catch (Exception e) {
             utils.getLoginPage();
-            //utils.waitForElementVisible(By.id(USERNAME_FIELD));
+            utils.waitForElementVisible(By.id(USERNAME_FIELD));
             utils.sendText(By.id(USERNAME_FIELD), utils.getProperty("userName"));
         }
         utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("passWord"));
@@ -42,10 +42,10 @@ public class LoginPage {
 
 
     public void loginAsAgent() throws InterruptedException {
-       // utils.waitForElementVisible(By.id(USERNAME_FIELD));
-        //utils.returnElement(By.id(USERNAME_FIELD)).click();
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), "agentlogin");
-       // utils.clickBtn(By.id(PASSWORD_FIELD));
+        utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), "password");
         try {
             utils.clickBtn(By.cssSelector(LOGINBUTTON));
@@ -55,10 +55,10 @@ public class LoginPage {
     }
 
     public void loginAsReseller() throws InterruptedException {
-     //   utils.waitForElementVisible(By.id(USERNAME_FIELD));
-        //utils.clickBtn(By.id(USERNAME_FIELD));
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), "resellerlogin");
-        //utils.clickBtn(By.id(PASSWORD_FIELD));
+        utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), utils.getProperty("userPassword"));
         try {
             utils.clickBtn(By.cssSelector(LOGINBUTTON));
@@ -69,7 +69,7 @@ public class LoginPage {
 
     public void loginAsCP() throws InterruptedException {
         Thread.sleep(2000);
-        //utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
         //utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), "cplogin");
        // utils.clickBtn(By.id(PASSWORD_FIELD));
@@ -82,18 +82,18 @@ public class LoginPage {
     }
 
     public void login(String userName, String passWord) throws InterruptedException {
-       // utils.waitForElementVisible(By.id(USERNAME_FIELD));
-     //   utils.clickBtn(By.id(USERNAME_FIELD));
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), userName);
-      //  utils.clickBtn(By.id(PASSWORD_FIELD));
+       utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), passWord);
         utils.clickBtn(By.cssSelector(LOGINBUTTON));
     }
     public void loginAsAdamR() throws InterruptedException {
-       // utils.waitForElementVisible(By.id(USERNAME_FIELD));
-       // utils.clickBtn(By.id(USERNAME_FIELD));
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), "AdamR");
-      //  utils.clickBtn(By.id(PASSWORD_FIELD));
+        utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), "password");
         try {
             utils.clickBtn(By.cssSelector(LOGINBUTTON));
@@ -102,10 +102,10 @@ public class LoginPage {
         }
     } public void loginAsAgentAdam() throws InterruptedException {
         utils.loadBranchURLForServiceDesk("");
-      //  utils.waitForElementVisible(By.id(USERNAME_FIELD));
-       // utils.clickBtn(By.id(USERNAME_FIELD));
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), "agentAdam");
-       // utils.clickBtn(By.id(PASSWORD_FIELD));
+        utils.clickBtn(By.id(PASSWORD_FIELD));
         utils.sendText(By.id(PASSWORD_FIELD), "abcdef");
         try {
             utils.clickBtn(By.cssSelector(LOGINBUTTON));

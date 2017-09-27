@@ -20,7 +20,7 @@ public class CommonMethods {
     ElementUtils utils = new ElementUtils();
 
     public void search(String text) throws InterruptedException {
-     //   utils.waitForElementVisible(By.id(SEARCH_BUTTON));
+        utils.waitForElementVisible(By.id(SEARCH_BUTTON));
         Thread.sleep(1000);
         utils.sendText(By.id(SEARCH_BUTTON), text);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
@@ -32,10 +32,9 @@ public class CommonMethods {
         utils.keyBoardEnter(by);}
 
     public void clickAndSwitchTo(String desiredEntity) throws InterruptedException {
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+desiredEntity+"')]"));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath("//a[contains(text(),'"+desiredEntity+"')]")).click();
-       // Thread.sleep(1000);
-    //    utils.clickBtn(By.xpath("//a[contains(text(),'"+desiredEntity+"')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+desiredEntity+"')]"));
         utils.switchToNewWindow();
     }
 
@@ -48,7 +47,7 @@ public class CommonMethods {
 
     }
     public void navigateToHome(){
-        utils.returnElement(By.xpath(NAVIGATE_TO_HOME)).click();
-        //utils.clickBtn(By.xpath(NAVIGATE_TO_HOME));
+        utils.waitForElementVisible(By.xpath(NAVIGATE_TO_HOME));
+        utils.clickBtn(By.xpath(NAVIGATE_TO_HOME));
     }
 }

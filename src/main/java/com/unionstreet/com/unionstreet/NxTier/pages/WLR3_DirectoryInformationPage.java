@@ -36,7 +36,7 @@ public class WLR3_DirectoryInformationPage {
         utils.waitForElementVisible(By.id(EDIT));
         utils.scrollUp(By.id(EDIT));
         utils.clickBtn(By.id(EDIT));
-        //utils.clickBtn(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION));
+        utils.clickBtn(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION));
         utils.sendText(By.id(BUSINESS_NAME_DIRECTORY_INFORMATION), name);
     }
     public void saveAndCloseDirectoryInfo() throws InterruptedException {
@@ -57,7 +57,7 @@ public class WLR3_DirectoryInformationPage {
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         } catch (Exception e) {
 
-           // utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
+            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
             Thread.sleep(1000);
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.DIRECTORY_INFORMATION_BUTTON));
         }

@@ -24,11 +24,11 @@ public class WLR3_NetworkCallingFeaturesPage {
 
     public void populateNetworkCallingFeatures() throws InterruptedException {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.NETWORK_FEATURES_SUMMARY_PANEL));
-       // utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         try {
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         } catch (Exception e) {
-            //utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
+            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         }
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
@@ -48,7 +48,7 @@ public class WLR3_NetworkCallingFeaturesPage {
             Thread.sleep(1000);
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         } catch (Exception e) {
-          //  utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
+            utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
             utils.jumpToPopUpWindow(By.xpath(wlr3_orderDetails_page.NETWORK_FEATURES_BUTTON));
         }
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
@@ -70,8 +70,8 @@ public class WLR3_NetworkCallingFeaturesPage {
 
     }
     public void assertFeaturesForRemoteCallFor_VirtualLines(){
-                //utils.waitForElementVisible(By.xpath(RAW_CALL_DATA));
-        utils.returnElement(By.xpath(RAW_CALL_DATA)).click();
+                utils.waitForElementVisible(By.xpath(RAW_CALL_DATA));
+        utils.clickBtn(By.xpath(RAW_CALL_DATA));
         utils.waitForElementVisible(By.xpath(REMOTE_CALL_FORWARDING));
 
     }
@@ -85,25 +85,25 @@ public class WLR3_NetworkCallingFeaturesPage {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.id(ADMIN_CONTROLLED_CALL_DIV_UNDER_NTWRK_CAL_FEATURES));
         utils.sendText(By.id("Features_1__cli"),CLI);
-       // utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
-        utils.returnElement(By.id(wlr3_orderDetails_page.SAVE)).click();
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
     public void editCallFeaturesForCallerRedirect_VirtualLines(String text){
         utils.waitForElementVisible(By.id("Features_0__cli"));
         utils.sendText(By.id("Features_0__cli"),""+text+"");
-        //utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
-        utils.returnElement(By.id(wlr3_orderDetails_page.SAVE)).click();
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
     public void toggleBetweenQuarterlyToMonthly_CallerRedirectVirtualLines() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(QUARTERLY_TEXT));
         utils.waitForElementVisible(By.xpath("//input[@checked='checked'][@value='False']"));
         utils.makeSureBoxIsChecked(By.xpath("//input[@id='Features_0__monthly'][@value='True']"),By.xpath("//input[@id='Features_0__monthly'][@value='True']"));
-        //utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
-        utils.returnElement(By.id(wlr3_orderDetails_page.SAVE)).click();
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
     public void assertChangedFrequencyForCallerRedirect_VirtualLine(){
         utils.waitForElementVisible(By.xpath("//input[@checked='checked'][@value='True']"));
-       // utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
-        utils.returnElement(By.id(wlr3_orderDetails_page.SAVE)).click();
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 }

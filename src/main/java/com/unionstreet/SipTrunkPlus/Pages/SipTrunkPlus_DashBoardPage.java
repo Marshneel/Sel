@@ -40,20 +40,20 @@ public void assertCreatedReseller(){
 }
 
     public void searchAndLoadReseller(String reseller) throws InterruptedException {
-       // utils.waitForElementVisible(By.id(SEARCH_BOX));
+        utils.waitForElementVisible(By.id(SEARCH_BOX));
         utils.sendText(By.id(SEARCH_BOX),reseller);
-        //utils.waitForElementVisible(By.xpath("//div[contains(text(),'"+reseller+"')]"));
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'"+reseller+"')]"));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath("//div[contains(text(),'"+reseller+"')]")).click();
+        utils.clickBtn(By.xpath("//div[contains(text(),'"+reseller+"')]"));
     }
     public void clickOnReseller(String reseller) throws InterruptedException {
         Thread.sleep(1000);
-        utils.returnElement(By.xpath("//div[contains(text(),'"+reseller+"')]")).click();
+        utils.clickBtn(By.xpath("//div[contains(text(),'"+reseller+"')]"));
 
     }
     public void loadProvidersFromResellerDashBoard() throws InterruptedException {
-       // utils.waitForElementVisible(By.xpath("//span[contains(text(),'Providers')]"));
-        utils.returnElement(By.xpath("//span[contains(text(),'Providers')]")).click();
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Providers')]"));
+        utils.clickBtn(By.xpath("//span[contains(text(),'Providers')]"));
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Add provider')]"));
     }
 
@@ -76,20 +76,20 @@ public void assertCreatedReseller(){
         utils.javaScriptExecutorClick(By.xpath("//span[contains(text(),'Options')]"));
     }
     public void loadAdditional(){
-       // utils.waitForElementVisible(By.xpath("//span[contains(text(),'Additional')]"));
-        utils.returnElement(By.xpath("//span[contains(text(),'Additional')]")).click();
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Additional')]"));
+        utils.clickBtn(By.xpath("//span[contains(text(),'Additional')]"));
     }
     public void assign_unAssignProvider(String provider, boolean unAssign, boolean assign) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Edit')]"));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath("//span[contains(text(),'Edit')]"));
-        //utils.waitForElementVisible(By.xpath("//option[contains(text(),'"+provider+"')]"));
-        utils.returnElement(By.xpath("//option[contains(text(),'"+provider+"')]")).click();
-      if(unAssign) { //utils.waitForElementVisible(By.xpath("//div[@class='v-select-twincol v-widget v-has-width']/div[2]/div[3]"));
-        utils.returnElement(By.xpath("//div[@class='v-select-twincol v-widget v-has-width']/div[2]/div[3]")).click();}
+        utils.waitForElementVisible(By.xpath("//option[contains(text(),'"+provider+"')]"));
+        utils.clickBtn(By.xpath("//option[contains(text(),'"+provider+"')]"));
+      if(unAssign) { utils.waitForElementVisible(By.xpath("//div[@class='v-select-twincol v-widget v-has-width']/div[2]/div[3]"));
+        utils.clickBtn(By.xpath("//div[@class='v-select-twincol v-widget v-has-width']/div[2]/div[3]"));}
         if(assign){
-           // utils.waitForElementVisible(By.xpath("//div[@class='v-select-twincol v-widget v-has-width']/div[2]/div[1]"));
-            utils.returnElement(By.xpath("//div[@class='v-select-twincol v-widget v-has-width']/div[2]/div[1]")).click();
+            utils.waitForElementVisible(By.xpath("//div[@class='v-select-twincol v-widget v-has-width']/div[2]/div[1]"));
+            utils.clickBtn(By.xpath("//div[@class='v-select-twincol v-widget v-has-width']/div[2]/div[1]"));
     }}
     public void saveChanges() throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Save')]"));
@@ -117,8 +117,8 @@ public void assertCreatedReseller(){
         utils.javaScriptExecutorClick(By.xpath(ADD_NEW_CLIENT_BUTTON));
     }
     public void assertNewlyCreatedClient(){
-       // utils.waitForElementVisible(By.xpath("//div[contains(text(),'New client"+sipTrunkPlus_addResellerPage.ranResellerName+"')]"));
-        utils.returnElement(By.xpath("//div[contains(text(),'New client"+sipTrunkPlus_addResellerPage.ranResellerName+"')]")).click();
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'New client"+sipTrunkPlus_addResellerPage.ranResellerName+"')]"));
+        utils.clickBtn(By.xpath("//div[contains(text(),'New client"+sipTrunkPlus_addResellerPage.ranResellerName+"')]"));
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'New client"+sipTrunkPlus_addResellerPage.ranResellerName+"')]"));
     }
     public void loadSettings() throws InterruptedException {
@@ -132,11 +132,11 @@ public void assertCreatedReseller(){
         loadProvidersFromResellerDashBoard();
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath("//span[contains(text(),'Add provider')]"));
-        //utils.waitForElementVisible(By.xpath("//span[contains(text(),'Select Template')]/../../following-sibling::td[2]/div"));
-        utils.returnElement(By.xpath("//span[contains(text(),'Select Template')]/../../following-sibling::td[2]/div")).click();
-        //utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+provider+"')]"));
-        utils.returnElement(By.xpath("//span[contains(text(),'"+provider+"')]")).click();
-       // utils.waitForElementVisible(By.xpath(sipTrunkPlus_providerPage.generateXpathForAddProviderPart1("Password")));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'Select Template')]/../../following-sibling::td[2]/div"));
+        utils.clickBtn(By.xpath("//span[contains(text(),'Select Template')]/../../following-sibling::td[2]/div"));
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'"+provider+"')]"));
+        utils.clickBtn(By.xpath("//span[contains(text(),'"+provider+"')]"));
+        utils.waitForElementVisible(By.xpath(sipTrunkPlus_providerPage.generateXpathForAddProviderPart1("Password")));
         utils.sendText(By.xpath(sipTrunkPlus_providerPage.generateXpathForAddProviderPart1("Password")),"123");
         utils.sendText(By.xpath(sipTrunkPlus_providerPage.generateXpathForAddProviderPart1("Realm")),"123");
         utils.sendText(By.xpath(sipTrunkPlus_providerPage.generateXpathForAddProviderPart1("Username")),"123");
@@ -153,8 +153,8 @@ public void assertCreatedReseller(){
 public void deleteProvider(String provider){
     utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+provider+"')]"));
     utils.rightCLick(By.xpath("//td[contains(text(),'"+provider+"')]"));
-    //utils.waitForElementVisible(By.xpath("//span[contains(text(),'Delete')]"));
-    utils.returnElement(By.xpath("//span[contains(text(),'Delete')]")).click();}
+    utils.waitForElementVisible(By.xpath("//span[contains(text(),'Delete')]"));
+    utils.clickBtn(By.xpath("//span[contains(text(),'Delete')]"));}
 
     public void successfulDeletion() throws InterruptedException {
        yesOrOk("Yes");

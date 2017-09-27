@@ -53,9 +53,9 @@ public class WLR3_BatchTransferPage {
         utils.waitForElementVisible(By.id(UPLOAD_FILE));
         Thread.sleep(1000);
         utils.findFieldAndSendKeys(By.id(UPLOAD_FILE),"C:\\TXT files\\"+path+"");
-       // utils.waitForElementVisible(By.xpath(IMPORT_FILE_BUTTON));
+       utils.waitForElementVisible(By.xpath(IMPORT_FILE_BUTTON));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath(IMPORT_FILE_BUTTON)).click();}
+        utils.clickBtn(By.xpath(IMPORT_FILE_BUTTON));}
 
     public void assertNoErrorUponImport(){
         utils.waitForElementVisible(By.xpath(BATCH_TO_BE_TRANSFERRED_TEXT));

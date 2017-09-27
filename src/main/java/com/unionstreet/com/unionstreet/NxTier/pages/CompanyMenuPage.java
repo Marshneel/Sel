@@ -127,16 +127,16 @@ public class CompanyMenuPage {
     }
 
     public void clickCompanySitesButton() {
-        utils.returnElement(By.id(COMPANYSITES_BUTTON)).click();
-      //  utils.clickBtn(By.id(COMPANYSITES_BUTTON));
+        utils.waitForElementVisible(By.id(COMPANYSITES_BUTTON));
+        utils.clickBtn(By.id(COMPANYSITES_BUTTON));
     }
 
     public void accessCompanyMenu(String ranName) throws InterruptedException {
         newBusinessCustomerPage.clickContactManagerButton();
         utils.sendText(By.id(SEARCH_BUTTON), ranName);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
-       // utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+ranName+"')]"));
-        //Thread.sleep(1000);
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+ranName+"')]"));
+       // Thread.sleep(1000);
         utils.switchToNewWindowByJavaExeClick(By.xpath("//a[contains(text(),'"+ranName+"')]"));
     }
 
@@ -176,17 +176,16 @@ public class CompanyMenuPage {
     }
 
     public void clickCLIButton() {
-        utils.returnElement(By.id(CLI_BUTTON)).click();
-      //  utils.clickBtn(By.id(CLI_BUTTON));
+        utils.clickBtn(By.id(CLI_BUTTON));
     }
     public void clickOrderButton(){
-        utils.returnElement(By.id("HrefOrders")).click();
-       // utils.clickBtn(By.id("HrefOrders"));
+        utils.waitForElementVisible(By.id("HrefOrders"));
+        utils.clickBtn(By.id("HrefOrders"));
     }
     public void searchAndNavigateToSiteMenuOfACustomer(String customer) throws InterruptedException {
       commonMethods.search(customer);
-        utils.returnElement(By.xpath("//a[contains(text(),'"+customer+"')]")).click();
-      //  utils.clickBtn(By.xpath("//a[contains(text(),'"+customer+"')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+customer+"')]"));
+       utils.clickBtn(By.xpath("//a[contains(text(),'"+customer+"')]"));
         utils.switchToNewWindow();}
     public void assertCreatedCLIUnderSite( String CLI) throws InterruptedException {
         clickCLIButton();
@@ -200,8 +199,8 @@ public class CompanyMenuPage {
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'No Records')]"));
     }
     public void assertAssignedService(int quoteID, String addedService) {
-        utils.returnElement(By.xpath("//a[contains(text(),'" + quoteID + "')]")).click();
-    //    utils.clickBtn(By.xpath("//a[contains(text(),'" + quoteID + "')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + quoteID + "')]"));
+       utils.clickBtn(By.xpath("//a[contains(text(),'" + quoteID + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + addedService + "')]"));
     }
@@ -213,20 +212,20 @@ public void assertDeletedService(String addedService){
     public void addCLIs(String ranName, String number, boolean nonWLR1, boolean nonWLR2) throws InterruptedException {
        if(nonWLR1){ accessCompanyMenu(ranName);}
         clickCLIButton();
-      //  utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+        utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         Thread.sleep(1000);
         utils.switchToNewWindowByJavaExeClick(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         try {
-            utils.returnElement(By.id(CLI_NUMBER_FIELD)).click();
-          //  utils.clickBtn(By.id(CLI_NUMBER_FIELD));
+            utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));
+            utils.clickBtn(By.id(CLI_NUMBER_FIELD));
             utils.sendText(By.id(CLI_NUMBER_FIELD), number);
         } catch (TimeoutException e) {
             utils.sendText(By.id(CLI_NUMBER_FIELD), number);
         }
         utils.waitForElementVisible(By.id(BILLRUN_UNDER_CLI));
         utils.selectByVisibleText(By.id(BILLRUN_UNDER_CLI),"Default");
-        utils.returnElement(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON)).click();
-       // utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
+        utils.waitForElementVisible(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
      if(nonWLR2){   utils.verifyStringMatch(By.cssSelector(ADDED_CLI_CHECK_FIELD), number);
         //TODO
          utils.closeCurrentPage();
@@ -239,8 +238,8 @@ public void assertDeletedService(String addedService){
     }
 
     public void clickServiceChargesButton() {
-       utils.returnElement(By.id(SERVICECHARGE_BUTTON)).click();
-   //     utils.clickBtn(By.id(SERVICECHARGE_BUTTON));
+       utils.waitForElementVisible(By.id(SERVICECHARGE_BUTTON));
+        utils.clickBtn(By.id(SERVICECHARGE_BUTTON));
     }
 
     public void clickServiceChargesOneOffButton() {
@@ -250,7 +249,7 @@ public void assertDeletedService(String addedService){
     public void addRecurringChargesPart1() {
         clickServiceChargesButton();
         utils.jumpToPopUpWindow(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-        //utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
+        utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
         utils.sendText(By.id(SERVICECHARGE_DESC_FIELD), utils.getProperty("serviceChargeType"));
         utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));
         today = new java.util.Date().getTime();
@@ -278,9 +277,9 @@ public void assertDeletedService(String addedService){
 
     public void addOneOffChargesPart1() throws InterruptedException {
         clickServiceChargesOneOffButton();
-      //  utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+       utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.switchToNewWindowByJavaExeClick(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-   //     utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
+        utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
         utils.sendText(By.id(SERVICECHARGE_DESC_FIELD), utils.getProperty("serviceChargeOneOffDesc"));
         utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));
         utils.selectByVisibleText(By.cssSelector(SELECT_MONTH_DROPDOWN), new SimpleDateFormat("MMM").format(today));
@@ -340,7 +339,7 @@ public void assertDeletedService(String addedService){
         utils.waitForElementVisible(By.xpath(" //table[@id='fmSiteTable']//td[contains(text(),'" + FreeMinutePlan + "')]"));
         Thread.sleep(1000);
         utils.makeSureBoxIsChecked(By.id("fmSelection13_isSelected"), By.id("fmSelection13_isSelected"));
-      //  utils.waitForElementVisible(By.id(VOICE_TARIFF_FIELD_DROPDOWN));
+        utils.waitForElementVisible(By.id(VOICE_TARIFF_FIELD_DROPDOWN));
         utils.selectByVisibleText(By.id(VOICE_TARIFF_FIELD_DROPDOWN), TariffPlan);
         utils.selectByVisibleText(By.id(DATA_TARIFF_FIELD_DROPDOWN), TariffPlan);
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
@@ -360,8 +359,8 @@ public void assertDeletedService(String addedService){
         utils.javaScriptExecutorClick(By.id(ENABLE_FREEMINUTES_CHECKBOX));
         utils.selectByVisibleText(By.id(VOICE_TARIFF_FIELD_DROPDOWN), "Select");
         utils.selectByVisibleText(By.id(DATA_TARIFF_FIELD_DROPDOWN), "Select");
-     //   utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
     }
 
     public void assertAgentCannotSeeCPAssignedTariffAndFreeMinutes(String tariffPlan, String freeMinutePlan) throws InterruptedException {
@@ -381,8 +380,8 @@ public void assertDeletedService(String addedService){
     public void assignOrDeletePackageToCustomer(String packageName) {
         utils.waitForElementVisible(By.id(SELECT_A_PACKAGE_FROM_DROPDOWN));
         utils.selectByVisibleText(By.id(SELECT_A_PACKAGE_FROM_DROPDOWN), "" + packageName + "");
-      //  utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON)).click();
+       utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.checkAlert();
         utils.switchToPreviousWindow(0);
 
@@ -404,8 +403,8 @@ public void assertDeletedService(String addedService){
         utils.waitTillBoxChecked(By.id(DATA_TARIFF_FROM_PACKAGE_CHECKBOX));
         utils.waitTillBoxChecked(By.id(MOBILE_TARIFF_FROM_PACKAGE_CHECKBOX));
         utils.waitTillBoxChecked(By.id(SERVICE_CHARGE_FROM_PACKAGE_CHECKBOX));
-       // utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitTillBoxChecked(By.id(ENABLE_FREEMINUTES_CHECKBOX));
         utils.waitTillBoxChecked(By.id(FREEMINUTES_FROM_PACKAGE_CHECKBOX));
     }
@@ -414,8 +413,8 @@ public void assertDeletedService(String addedService){
         utils.makeSureBoxIsUnChecked(By.id(FREEMINUTES_FROM_PACKAGE_CHECKBOX), By.id(FREEMINUTES_FROM_PACKAGE_CHECKBOX));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+freeMinutesPackage+"')]"));
         utils.makeSureBoxIsChecked(By.xpath("//table[@id='fmSiteTable']//tr/td[contains(text(),'"+freeMinutesPackage+"')]/following-sibling::td/label"), By.xpath("//table[@id='fmSiteTable']//tr/td[contains(text(),'"+freeMinutesPackage+"')]/following-sibling::td/label"));
-    //    utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath("//table[@id='fmSiteTable']//tr/td[contains(text(),'"+freeMinutesPackage+"')]/following-sibling::td/input[@checked='checked']"));
     }
 
@@ -426,16 +425,16 @@ public void assertDeletedService(String addedService){
         utils.makeSureBoxIsUnChecked(By.id(VOICE_TARIFF_FROM_PACKAGE_CHECKBOX), By.id(VOICE_TARIFF_FROM_PACKAGE_CHECKBOX));
         utils.waitForElementVisible(By.xpath("//select[@id='"+VOICE_TARIFF_FIELD_DROPDOWN+"']//option[contains(text(),'Select')]"));
         utils.assertUnchecked(By.id(VOICE_TARIFF_FROM_PACKAGE_CHECKBOX));
-      // utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_BUTTON)).click();
+       utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitTillBoxChecked(By.id(VOICE_TARIFF_FROM_PACKAGE_CHECKBOX));
     }
 
     public void validatePricingDetailsPage_selectingNativeTariffFromDropDown(String sellTariff, String buyTariff) {
         utils.makeSureBoxIsUnChecked(By.id(VOICE_TARIFF_FROM_PACKAGE_CHECKBOX), By.id(VOICE_TARIFF_FROM_PACKAGE_CHECKBOX));
         utils.selectByVisibleText(By.id(VOICE_TARIFF_FIELD_DROPDOWN), sellTariff);
-      //  utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[@selected='selected'][contains(text(),'"+sellTariff+"')]"));
         utils.assertElementNotPresent(By.xpath("//select[@id='sinfo_LCR_Tariff']//option[contains(text(),'"+buyTariff+"')]"));
         utils.clickBtn(By.id("imgViewVoiceTariff"));
@@ -459,10 +458,10 @@ public void assertDeletedService(String addedService){
             utils.assertElementNotPresent(By.xpath(COST_PRICE_TEXT_IN_THE_EXISTING_SERVICE_CHARGE_PAGE));
             utils.assertElementNotPresent(By.xpath(BILLRUN_TEXT_IN_THE_EXISTING_SERVICE_CHARGE_PAGE));
         }
-      //  utils.waitForElementVisible(By.linkText(SERVICECHARGE_ONEOFF_BUTTON));
-        utils.returnElement(By.linkText(SERVICECHARGE_ONEOFF_BUTTON)).click();
-       // utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
-        utils.returnElement(By.xpath(commonMethods.ADD_XPATH)).click();
+        utils.waitForElementVisible(By.linkText(SERVICECHARGE_ONEOFF_BUTTON));
+        utils.clickBtn(By.linkText(SERVICECHARGE_ONEOFF_BUTTON));
+        utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
+        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
         utils.switchToNewWindow();
 
         if (user == true) {
@@ -486,8 +485,8 @@ public void assertDeletedService(String addedService){
     }
 
     public void assertResellerCannotSeeCostAndBaseLinePriceUnderServiceCharges() {
-       // utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
-        utils.returnElement(By.xpath(commonMethods.ADD_XPATH)).click();
+        utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
+        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(DESCRIPTION_TEXT_ON_ADD_SURCHARGE_PAGE));
         utils.assertElementNotPresent(By.xpath(COST_PRICE_TEXT_ON_ADD_SURCHARGE_PAGE));
@@ -516,8 +515,8 @@ public void assertDeletedService(String addedService){
     }
 
     public void addServicePage_PriceRevertsBackWhenFieldIsEmpty() {
-     //   utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
-       utils.returnElement(By.xpath(commonMethods.ADD_XPATH)).click();
+       utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
+       utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(SERVICECHARGE_CHARGETYPE_DROPDOWN));
         utils.selectByVisibleText(By.id(SERVICECHARGE_CHARGETYPE_DROPDOWN), "Analogue Basic Rental");
@@ -527,12 +526,12 @@ public void assertDeletedService(String addedService){
     }
 
     public void addServicePage_editPriceAndSaveChanges() {
-      //  utils.waitForElementVisible(By.id(FIRSTPAYMENT_DESC_FIELD));
-        utils.returnElement(By.id(FIRSTPAYMENT_DESC_FIELD)).click();
+        utils.waitForElementVisible(By.id(FIRSTPAYMENT_DESC_FIELD));
+        utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));
         today = new java.util.Date().getTime();
         day = Integer.toString(Integer.parseInt(new SimpleDateFormat("dd").format(today)));
         utils.selectDay(By.partialLinkText(day), day);
-       // utils.waitForElementVisible(By.id(SERVICECHARGE_QUANTITY_FIELD));
+        utils.waitForElementVisible(By.id(SERVICECHARGE_QUANTITY_FIELD));
         utils.sendText(By.id(SERVICECHARGE_QUANTITY_FIELD), "1");
         utils.waitForElementVisible(By.id(SERVICECHARGE_DESC_FIELD));
         RanServiceChargeName = utils.randomName();
@@ -548,28 +547,28 @@ public void assertDeletedService(String addedService){
 
     public void addServicePage_assertPriceRevertsBackWhenEmptyEvenAfterSavingChanges() {
         utils.switchToPreviousWindow(1);
-       // utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
-        utils.returnElement(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]")).click();
+       utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + RanServiceChargeName + "')]"));
         utils.switchToNewWindow();
         priceRevertsBackWhenClearedEvenAfterSaving(SALES_PRICE_FIELD, "15.0000", "13.0000");
         priceRevertsBackWhenClearedEvenAfterSaving(COST_PRICE_FIELD, "5.0000", "8.6400");
         priceRevertsBackWhenClearedEvenAfterSaving(BASELINE_COST_FIELD, "10.0000", "9.0000");
     }
     public void addServiceChargeToCustomerOrSite(String site) throws InterruptedException {
-       // utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+site+"')]"));
-        utils.returnElement(By.xpath("//a[contains(text(),'"+site+"')]")).click();
+       utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+site+"')]"));
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+site+"')]"));
         utils.switchToNewWindow();
         addRecurringChargesPart1();
         utils.selectByVisibleText(By.id(SERVICECHARGE_FREQUENCY_DROPDOWN), utils.getProperty("serviceChargeOneOffFrequency"));
         utils.selectByVisibleText(By.id(SERVICECHARGE_CARRIER_DROPDOWN), utils.getProperty("serviceChargeCarrier"));
         utils.sendText(By.id(SERVICECHARGE_QUANTITY_FIELD), utils.getProperty("serviceChargeQuantity"));
         utils.sendText(By.id(SALES_PRICE_FIELD),"100");
-      //  utils.waitForElementVisible(By.id(COST_PRICE_FIELD));
+        utils.waitForElementVisible(By.id(COST_PRICE_FIELD));
         utils.sendText(By.id(COST_PRICE_FIELD),"50");
-       // utils.waitForElementVisible(By.id(BASELINE_COST_FIELD));
+        utils.waitForElementVisible(By.id(BASELINE_COST_FIELD));
         utils.sendText(By.id(BASELINE_COST_FIELD),"25");
-        //utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.switchToPreviousWindow(0);
     }
     public void assertChargesForResellerAndAgent(String site, String charge,boolean ifReseller, boolean IfAgent) throws InterruptedException {
@@ -594,8 +593,8 @@ public void assertDeletedService(String addedService){
         String path="//select[@id='"+area+"']//option[contains(text(),'"+type+"')]";
     return path; }
     public void validateBillRunForNon_WLR_underInvoicingDetails() throws InterruptedException {
-      //  utils.waitForElementVisible(By.id(INVOICINGDETAILS_BUTTON));
-        utils.returnElement(By.id(INVOICINGDETAILS_BUTTON)).click();
+       utils.waitForElementVisible(By.id(INVOICINGDETAILS_BUTTON));
+        utils.clickBtn(By.id(INVOICINGDETAILS_BUTTON));
         utils.waitForElementVisible(By.id(BILLRUN_UNDER_INVOICINGDETAILS));
         utils.waitForElementVisible(By.xpath(returnBillRunXpath(BILLRUN_UNDER_INVOICINGDETAILS,"Default")));
         utils.waitForElementVisible(By.xpath(returnBillRunXpath(BILLRUN_UNDER_INVOICINGDETAILS,"Normal")));
@@ -604,17 +603,17 @@ public void assertDeletedService(String addedService){
         utils.assertElementNotPresent(By.xpath(returnBillRunXpath(BILLRUN_UNDER_INVOICINGDETAILS,"Hidden")));
         utils.assertElementNotPresent(By.xpath(returnBillRunXpath(BILLRUN_UNDER_INVOICINGDETAILS,"Agent Self Bills")));
         utils.selectByVisibleText(By.id(BILLRUN_UNDER_INVOICINGDETAILS),"Default");
-       // utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath("//select[@id='"+BILLRUN_UNDER_INVOICINGDETAILS+"']//option[@selected='selected'][contains(text(),'Default')]"));
     }
     public void validateBillRunForWLR_underInvoicingDetails_cutomerSetToNonWLR() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
-   //     utils.waitForElementVisible(By.id(INVOICINGDETAILS_BUTTON));
-        utils.returnElement(By.id(INVOICINGDETAILS_BUTTON)).click();
+        utils.waitForElementVisible(By.id(INVOICINGDETAILS_BUTTON));
+        utils.clickBtn(By.id(INVOICINGDETAILS_BUTTON));
         utils.waitForElementVisible(By.id(BILLRUN_UNDER_INVOICINGDETAILS));
         utils.selectByVisibleText(By.id(BILLRUN_UNDER_INVOICINGDETAILS),"Default");
-        //utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath("//select[@id='"+BILLRUN_UNDER_INVOICINGDETAILS+"']//option[@selected='selected'][contains(text(),'Default')]"));}
 
     public void validateBillRunForWLR_underInvoicingDetails_cutomerSetToWLR() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
@@ -622,13 +621,13 @@ public void assertDeletedService(String addedService){
         utils.refreshPage();
         utils.waitForElementVisible(By.xpath("//select[@id='"+BILLRUN_UNDER_INVOICINGDETAILS+"']//option[@selected='selected'][contains(text(),'Default')]"));
         utils.selectByVisibleText(By.id(BILLRUN_UNDER_INVOICINGDETAILS),"WLR");
-      //  utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.id(BILLRUN_UNDER_INVOICINGDETAILS));
        //assert BillRun under invoicing details for a WLR customer cannot be unselected.
         utils.selectByVisibleText(By.id(BILLRUN_UNDER_INVOICINGDETAILS),"Select");
-        //utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_UNSELECTED_BILLRUN));
         utils.assertElementNotPresent(By.xpath(returnBillRunXpath(BILLRUN_UNDER_INVOICINGDETAILS,"Default")));
         utils.assertElementNotPresent(By.xpath(returnBillRunXpath(BILLRUN_UNDER_INVOICINGDETAILS,"Normal")));
@@ -639,18 +638,18 @@ public void assertDeletedService(String addedService){
         utils.switchToPreviousWindow(0);
     }
     public void assertBillRunWhenLoggedInAsWLR_underInvoicingDetails(String customerName){
-      //  utils.waitForElementVisible(By.id(INVOICINGDETAILS_BUTTON));
-        utils.returnElement(By.id(INVOICINGDETAILS_BUTTON)).click();
+        utils.waitForElementVisible(By.id(INVOICINGDETAILS_BUTTON));
+        utils.clickBtn(By.id(INVOICINGDETAILS_BUTTON));
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'customerOfWLR > "+customerName+"')]"));
         utils.assertElementNotPresent(By.id(BILLRUN_UNDER_INVOICINGDETAILS));
 
 
     }
     public void validateBillRunForNon_WLR_serviceCharges(){
-       // utils.waitForElementVisible(By.id(SERVICECHARGE_BUTTON));
-        utils.returnElement(By.id(SERVICECHARGE_BUTTON)).click();
-        //utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
-        utils.returnElement(By.xpath(commonMethods.ADD_XPATH)).click();
+        utils.waitForElementVisible(By.id(SERVICECHARGE_BUTTON));
+        utils.clickBtn(By.id(SERVICECHARGE_BUTTON));
+        utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
+        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(BILLRUN_UNDER_SERVICECHARGES));
         utils.waitForElementVisible(By.xpath(returnBillRunXpath(BILLRUN_UNDER_SERVICECHARGES,"Normal")));
@@ -662,10 +661,10 @@ public void assertDeletedService(String addedService){
         utils.switchToPreviousWindow(0);
     }
     public void assertBillRunWhenLoggedInAsWLR_underServiceCharges(String customerName){
-       // utils.waitForElementVisible(By.id(SERVICECHARGE_BUTTON));
-        utils.returnElement(By.id(SERVICECHARGE_BUTTON)).click();
-       // utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
-        utils.returnElement(By.xpath(commonMethods.ADD_XPATH)).click();
+       utils.waitForElementVisible(By.id(SERVICECHARGE_BUTTON));
+        utils.clickBtn(By.id(SERVICECHARGE_BUTTON));
+       utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
+        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath("//span[text()[contains(.,'customerOfWLR>"+customerName+"')]]"));
         utils.assertElementNotPresent(By.id(BILLRUN_UNDER_SERVICECHARGES));
@@ -680,15 +679,15 @@ public void assertDeletedService(String addedService){
         utils.selectByVisibleText(By.id(SERVICECHARGE_FREQUENCY_DROPDOWN), "Base Frequency: Monthly");
         utils.selectByVisibleText(By.id(SERVICECHARGE_CARRIER_DROPDOWN), utils.getProperty("serviceChargeCarrier"));
         utils.sendText(By.id(SERVICECHARGE_QUANTITY_FIELD), utils.getProperty("serviceChargeQuantity"));
-     //  utils.waitForElementVisible(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
-        utils.returnElement(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON)).click();
+      utils.waitForElementVisible(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath("//select[@id='"+BILLRUN_UNDER_SERVICECHARGES+"']//option[@selected='selected'][contains(text(),'Default')]"));
         utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set agent_id='140',agent_contact_id='60', AgentContact='WhiteLabelReseller' where ID='141'");
         utils.refreshPage();
         utils.waitForElementVisible(By.xpath("//select[@id='"+BILLRUN_UNDER_SERVICECHARGES+"']//option[@selected='selected'][contains(text(),'Default')]"));
         utils.selectByVisibleText(By.id(BILLRUN_UNDER_SERVICECHARGES),"WLR");
-        //utils.waitForElementVisible(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
-        utils.returnElement(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
         utils.assertElementNotPresent(By.xpath(returnBillRunXpath(BILLRUN_UNDER_SERVICECHARGES,"Normal")));
         utils.assertElementNotPresent(By.xpath(returnBillRunXpath(BILLRUN_UNDER_SERVICECHARGES,"Default")));
         utils.assertElementNotPresent(By.xpath("//select[@id='"+BILLRUN_UNDER_SERVICECHARGES+"']//option[text()='BillNow']"));
@@ -697,10 +696,10 @@ public void assertDeletedService(String addedService){
        }
 
     public void validateBillRunForNon_WLR_underCLI() throws InterruptedException {
-      //  utils.waitForElementVisible(By.id(CLI_BUTTON));
-        utils.returnElement(By.id(CLI_BUTTON)).click();
-       // utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
-        utils.returnElement(By.xpath(commonMethods.ADD_XPATH)).click();
+        utils.waitForElementVisible(By.id(CLI_BUTTON));
+        utils.clickBtn(By.id(CLI_BUTTON));
+        utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
+        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(BILLRUN_UNDER_CLI));
         utils.waitForElementVisible(By.xpath(returnBillRunXpath(BILLRUN_UNDER_CLI,"Normal")));
@@ -723,8 +722,8 @@ public void assertDeletedService(String addedService){
         System.out.println("Bug: In the billRun @ CLI. pre-existing billRun is not being retained once the customer is made WLR");
     }
         utils.selectByVisibleText(By.id(BILLRUN_UNDER_CLI),"WLR");
-     //   utils.waitForElementVisible(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
-        utils.returnElement(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
         utils.waitForElementVisible(By.id(BILLRUN_UNDER_CLI));
         utils.assertElementNotPresent(By.xpath(returnBillRunXpath(BILLRUN_UNDER_CLI,"Normal")));
         utils.assertElementNotPresent(By.xpath(returnBillRunXpath(BILLRUN_UNDER_CLI,"Default")));
@@ -737,7 +736,7 @@ public void assertDeletedService(String addedService){
     }
     public void assertBillRunWhenLoggedInAsWLR_underCLI(String customerName) throws InterruptedException {
         clickCLIButton();
-       // utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+        utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         Thread.sleep(1000);
         utils.switchToNewWindowByJavaExeClick(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         utils.waitForElementVisible(By.xpath("//span[text()[contains(.,'customerOfWLR > "+customerName+"')]]"));
@@ -751,12 +750,12 @@ public void assertDeletedService(String addedService){
 
 
     public void validateBillRunForNonWLR_underRevenueAssurance(){
-       // utils.waitForElementVisible(By.id(REVENUE_ASSURANCE_BUTTON));
-        utils.returnElement(By.id(REVENUE_ASSURANCE_BUTTON)).click();
-       // utils.waitForElementVisible(By.xpath(BILLRUN_UNDER_REVENUE_ASSURANCE));
-        utils.returnElement(By.xpath(BILLRUN_UNDER_REVENUE_ASSURANCE)).click();
-      //  utils.waitForElementVisible(By.xpath(SHOW_BUTTON_UNDER_REVENUE_ASSURANCE));
-        utils.returnElement(By.xpath(SHOW_BUTTON_UNDER_REVENUE_ASSURANCE)).click();
+        utils.waitForElementVisible(By.id(REVENUE_ASSURANCE_BUTTON));
+        utils.clickBtn(By.id(REVENUE_ASSURANCE_BUTTON));
+        utils.waitForElementVisible(By.xpath(BILLRUN_UNDER_REVENUE_ASSURANCE));
+        utils.clickBtn(By.xpath(BILLRUN_UNDER_REVENUE_ASSURANCE));
+       utils.waitForElementVisible(By.xpath(SHOW_BUTTON_UNDER_REVENUE_ASSURANCE));
+        utils.clickBtn(By.xpath(SHOW_BUTTON_UNDER_REVENUE_ASSURANCE));
         utils.waitForElementVisible(By.id(BILLRUN_DROPDOWN_UNDER_REVENUE_ASSURANCE));
         utils.waitForElementVisible(By.xpath(returnBillRunXpath(BILLRUN_DROPDOWN_UNDER_REVENUE_ASSURANCE,"Default")));
         utils.waitForElementVisible(By.xpath(returnBillRunXpath(BILLRUN_DROPDOWN_UNDER_REVENUE_ASSURANCE,"Normal")));
@@ -766,12 +765,12 @@ public void assertDeletedService(String addedService){
         utils.waitForElementVisible(By.xpath(returnBillRunXpath(BILLRUN_DROPDOWN_UNDER_REVENUE_ASSURANCE,"Agent Self Bills")));
     }
     public void validateBillRunForWLR_underRevenueAssurance(){
-       // utils.waitForElementVisible(By.id(REVENUE_ASSURANCE_BUTTON));
-        utils.returnElement(By.id(REVENUE_ASSURANCE_BUTTON)).click();
-       // utils.waitForElementVisible(By.xpath(BILLRUN_UNDER_REVENUE_ASSURANCE));
-        utils.returnElement(By.xpath(BILLRUN_UNDER_REVENUE_ASSURANCE)).click();
-      //  utils.waitForElementVisible(By.xpath(SHOW_BUTTON_UNDER_REVENUE_ASSURANCE));
-        utils.returnElement(By.xpath(SHOW_BUTTON_UNDER_REVENUE_ASSURANCE)).click();
+        utils.waitForElementVisible(By.id(REVENUE_ASSURANCE_BUTTON));
+        utils.clickBtn(By.id(REVENUE_ASSURANCE_BUTTON));
+        utils.waitForElementVisible(By.xpath(BILLRUN_UNDER_REVENUE_ASSURANCE));
+        utils.clickBtn(By.xpath(BILLRUN_UNDER_REVENUE_ASSURANCE));
+        utils.waitForElementVisible(By.xpath(SHOW_BUTTON_UNDER_REVENUE_ASSURANCE));
+        utils.clickBtn(By.xpath(SHOW_BUTTON_UNDER_REVENUE_ASSURANCE));
         utils.waitForElementVisible(By.id(BILLRUN_DROPDOWN_UNDER_REVENUE_ASSURANCE));
         utils.assertElementNotPresent(By.xpath(returnBillRunXpath(BILLRUN_DROPDOWN_UNDER_REVENUE_ASSURANCE,"Default")));
         utils.assertElementNotPresent(By.xpath(returnBillRunXpath(BILLRUN_DROPDOWN_UNDER_REVENUE_ASSURANCE,"Normal")));
@@ -782,12 +781,12 @@ public void assertDeletedService(String addedService){
     }
 
     public void validateBillRun_underAgentInfo() throws InterruptedException {
-       // utils.waitForElementVisible(By.xpath(AGENTS_BUTTON_UNDER_CONTACT_MANAGER));
-        utils.returnElement(By.xpath(AGENTS_BUTTON_UNDER_CONTACT_MANAGER)).click();
+        utils.waitForElementVisible(By.xpath(AGENTS_BUTTON_UNDER_CONTACT_MANAGER));
+        utils.clickBtn(By.xpath(AGENTS_BUTTON_UNDER_CONTACT_MANAGER));
         commonMethods.search("agent");
         commonMethods.clickAndSwitchTo("agent");
-        //utils.waitForElementVisible(By.id(AGENTINFO_BUTTON));
-        utils.returnElement(By.id(AGENTINFO_BUTTON)).click();
+        utils.waitForElementVisible(By.id(AGENTINFO_BUTTON));
+        utils.clickBtn(By.id(AGENTINFO_BUTTON));
         utils.waitForElementVisible(By.id(AGENTINFO_BILLRUN));
         utils.waitForElementVisible(By.xpath(returnBillRunXpath(AGENTINFO_BILLRUN,"Agent Self Bills")));
         utils.assertElementNotPresent(By.xpath(returnBillRunXpath(AGENTINFO_BILLRUN,"Default")));

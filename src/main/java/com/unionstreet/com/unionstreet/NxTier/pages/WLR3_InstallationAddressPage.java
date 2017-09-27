@@ -35,14 +35,14 @@ public class WLR3_InstallationAddressPage {
     public void accessInstallationAddressPage(String type) throws InterruptedException, SQLException {
         wlr3_orderDetails_page.textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.INSTALLATION_ADDRESS_SUMMARY_PANEL));
-       // utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
-        utils.returnElement(By.xpath(INSTALLATION_ADDRESS_BUTTON)).click();
+        utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
+        utils.clickBtn(By.xpath(INSTALLATION_ADDRESS_BUTTON));
     }
 
     public void EnterPostCodeInSearchAddressByPostCode(String postCode) throws InterruptedException {
-       // utils.waitForElementVisible(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD));
         Thread.sleep(1000);
-        //utils.returnElement(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD)).click();
+        utils.clickBtn(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD));
         utils.sendText(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD), postCode);
         utils.clickBtn(By.id(POSTCODE_SEARCH));
     }
@@ -63,14 +63,14 @@ public class WLR3_InstallationAddressPage {
     }
 
     public void searchForAddress(String postCode) throws InterruptedException {
-     //   utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
-        utils.returnElement(By.xpath(INSTALLATION_ADDRESS_BUTTON)).click();
+        utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
+        utils.clickBtn(By.xpath(INSTALLATION_ADDRESS_BUTTON));
         EnterPostCodeInSearchAddressByPostCode(postCode);
 
     }
 
     public void enterAddressKeyInSearchAddressByAddressKey(String addressKey) {
-       // utils.clickBtn(By.id(ADDRESSKEY_FIELD));
+        utils.clickBtn(By.id(ADDRESSKEY_FIELD));
         utils.sendText(By.id(ADDRESSKEY_FIELD), addressKey);
         utils.clickBtn(By.id(ADDRESSKEY_SEARCH));
     }
@@ -81,7 +81,7 @@ public class WLR3_InstallationAddressPage {
 
     public void enterPremiseNumber(String number) throws InterruptedException {
         Thread.sleep(1000);
-       // utils.clickBtn(By.id(ADVANCED_SEARCH_PREMISE_NUMBER_FIELD));
+        utils.clickBtn(By.id(ADVANCED_SEARCH_PREMISE_NUMBER_FIELD));
         utils.sendText(By.id(ADVANCED_SEARCH_PREMISE_NUMBER_FIELD), number);
     }
 
@@ -91,7 +91,7 @@ public class WLR3_InstallationAddressPage {
 
     public void enterPremiseName(String name) throws InterruptedException {
        Thread.sleep(1000);
-        //utils.clickBtn(By.id(ADVANCED_SEARCH_PREMISE_NAME));
+        utils.clickBtn(By.id(ADVANCED_SEARCH_PREMISE_NAME));
         utils.sendText(By.id(ADVANCED_SEARCH_PREMISE_NAME), name);
     }
 
@@ -101,13 +101,13 @@ public class WLR3_InstallationAddressPage {
 
 
     public void enterPostCodeDetails(String postCode) {
-      //  utils.clickBtn(By.id(ADVANCED_SEARCH_POSTCODE_FIELD));
+        utils.clickBtn(By.id(ADVANCED_SEARCH_POSTCODE_FIELD));
         utils.sendText(By.id(ADVANCED_SEARCH_POSTCODE_FIELD), postCode);
     }
 
 
     public void enterSubPremiseName(String subPremise) {
-       // utils.clickBtn(By.id(ADVANCED_SEARCH_SUBPREMISE_NAME));
+        utils.clickBtn(By.id(ADVANCED_SEARCH_SUBPREMISE_NAME));
         utils.sendText(By.id(ADVANCED_SEARCH_SUBPREMISE_NAME), subPremise);
     }
 
@@ -116,12 +116,12 @@ public class WLR3_InstallationAddressPage {
     }
 
     public void enterRoad(String road) {
-       // utils.clickBtn(By.id(ADVANCED_SEARCH_ROAD_NAME));
+        utils.clickBtn(By.id(ADVANCED_SEARCH_ROAD_NAME));
         utils.sendText(By.id(ADVANCED_SEARCH_ROAD_NAME), road);
     }
 
     public void enterTown(String town) {
-     //   utils.clickBtn(By.id(ADVANCED_SEARCH_TOWN_FIELD));
+       utils.clickBtn(By.id(ADVANCED_SEARCH_TOWN_FIELD));
         utils.sendText(By.id(ADVANCED_SEARCH_TOWN_FIELD), town);
     }
 

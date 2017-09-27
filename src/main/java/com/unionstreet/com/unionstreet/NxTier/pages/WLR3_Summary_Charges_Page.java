@@ -20,26 +20,26 @@ public class WLR3_Summary_Charges_Page {
     private final String FIRST_ROW_DURATION_UNDER_FREQUENCY="ChargeList_0__freq_id";
 
     public void editChargesForISDN30Modify() throws InterruptedException {
-       // utils.waitForElementVisible(By.xpath(LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE));
+       utils.waitForElementVisible(By.xpath(LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE));
         Thread.sleep(1000);
-      try{  utils.returnElement(By.xpath(LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE)).click();}
+      try{  utils.clickBtn(By.xpath(LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE));}
       catch (Exception e){
           Thread.sleep(1000);
           utils.clickBtn(By.xpath(LOAD_CHARGES_ON_WLR3_EDIT_ORDER_PAGE));
       }
 
         utils.clickBtn(By.xpath(EDIT_BUTTON_ON_WLR3_CHARGE_SUMMARY_POPUP));
-      //  utils.waitForElementVisible(By.xpath(SAVE_EDITED_CHARGES_ON_WLR3_CHARGES_POPUP));
+        utils.waitForElementVisible(By.xpath(SAVE_EDITED_CHARGES_ON_WLR3_CHARGES_POPUP));
         utils.sendText(By.id(FIRST_ROW_CHARGE_FIELD_UNDER_SETUP), "100");
         utils.sendText(By.id(FIRST_ROW_CHARGE_FIELD_UNDER_RENTAL), "200");
         utils.selectByVisibleText(By.id(FIRST_ROW_DURATION_UNDER_FREQUENCY), "Annual");
-        utils.returnElement(By.xpath(SAVE_EDITED_CHARGES_ON_WLR3_CHARGES_POPUP)).click();
+        utils.clickBtn(By.xpath(SAVE_EDITED_CHARGES_ON_WLR3_CHARGES_POPUP));
         Thread.sleep(1000);
         try {
-            utils.returnElement(By.xpath(commonMethods.CLOSE_POPUP)).click();
+            utils.clickBtn(By.xpath(commonMethods.CLOSE_POPUP));
         } catch (Exception e) {
             Thread.sleep(1000);
-            utils.returnElement(By.xpath(commonMethods.CLOSE_POPUP)).click();
+            utils.clickBtn(By.xpath(commonMethods.CLOSE_POPUP));
 
         }
     }}

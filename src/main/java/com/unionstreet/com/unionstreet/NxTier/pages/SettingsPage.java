@@ -91,13 +91,13 @@ public class SettingsPage {
     }
 
     public void clickAddPermissionsButton() throws InterruptedException {
-      //  utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
+      utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
        utils.switchToNewWindowByJavaExeClick(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
        // utils.switchToNewWindow();
     }
 
     public void addAgentPermissionGroups_General() {
-      //  utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
+        utils.clickBtn(By.id(ADDPERMISSION_GROUPNAME));
         utils.sendText(By.id(ADDPERMISSION_GROUPNAME), newBusinessCustomerPage.RanName);
         utils.clickBtn(By.xpath(AGENTPERMISSION_GROUPTYPE));
     }
@@ -229,7 +229,7 @@ public class SettingsPage {
     }
 
     public void clickAddLoginUsersButton() {
-        //utils.waitForElementVisible(By.linkText(ADDLOGINUSERS));
+        utils.waitForElementVisible(By.linkText(ADDLOGINUSERS));
         utils.jumpToPopUpWindow(By.linkText(ADDLOGINUSERS));
     }
 
@@ -293,27 +293,27 @@ public class SettingsPage {
     public void createCPUserAddContactDetails() throws InterruptedException {
         Thread.sleep(1000);
         try {
-           // utils.waitForElementVisible(By.id(ADDUSERLOGIN_SITE));
-           // utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
+            utils.waitForElementVisible(By.id(ADDUSERLOGIN_SITE));
+            utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
             utils.sendText(By.id(ADDUSERLOGIN_SITE), CP_RanName);
         } catch (Exception e) {
             utils.getCpAddUserPage();
             clickAddLoginUsersButton();
             addCPloginUserSelectCompanyandSite();
             Thread.sleep(1000);
-          //  utils.waitForElementVisible(By.id(ADDUSERLOGIN_SITE));
-           // utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
+            utils.waitForElementVisible(By.id(ADDUSERLOGIN_SITE));
+            utils.clickBtn(By.id(ADDUSERLOGIN_SITE));
             utils.sendText(By.id(ADDUSERLOGIN_SITE), CP_RanName);
         }
-       // utils.clickBtn(By.id(ADDUSERLOGIN_EMAIL));
+        utils.clickBtn(By.id(ADDUSERLOGIN_EMAIL));
         utils.sendText(By.id(ADDUSERLOGIN_EMAIL), utils.getProperty("cpEmail"));
     }
 
     public void createCPUserAddLoginDetails() throws InterruptedException {
         utils.clickBtn(By.id(ADDUSERLOGIN_LOGINTAB));
-      //  utils.clickBtn(By.id(ADDUSERLOGIN_USENAME));
+       utils.clickBtn(By.id(ADDUSERLOGIN_USENAME));
         utils.sendText(By.id(ADDUSERLOGIN_USENAME), CP_RanName);
-        //utils.clickBtn(By.id(ADDUSERLOGIN_PASSWORD));
+        utils.clickBtn(By.id(ADDUSERLOGIN_PASSWORD));
         utils.sendText(By.id(ADDUSERLOGIN_PASSWORD), utils.getProperty("userPassword"));
         utils.selectByVisibleText(By.id(ADDUSERLOGIN_SELECTPERMISSION), CP_RanName);
        Thread.sleep(1000);
@@ -321,7 +321,7 @@ public class SettingsPage {
         utils.waitForElementVisible(By.id("pg"));
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
         try {
-            utils.returnElement(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON)).click();
+            utils.clickBtnWithWait(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         } catch (Exception e) {
             utils.checkAlert();
         }
@@ -339,8 +339,8 @@ public class SettingsPage {
     public void revokingAgentWLRPermissions() throws InterruptedException {
         utils.waitForElementToBeClickable(By.linkText("agent"));
         utils.switchToNewWindowByJavaExeClick(By.linkText("agent"));
-       // utils.waitForElementVisible(By.xpath(ORDERSMANAGER_ORDERS));
-        utils.returnElement(By.xpath(ORDERSMANAGER_ORDERS)).click();
+        utils.waitForElementVisible(By.xpath(ORDERSMANAGER_ORDERS));
+        utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERDETAILS));
         utils.makeSureBoxIsUnChecked(By.xpath(ORDERDETAILS_SELECTALL_WITHCHECKBOX), By.id(ORDERDETAILS_SELECTALL));
         utils.scrollUp(By.xpath(ORDERSMANAGER_ORDERS));
@@ -380,7 +380,7 @@ public class SettingsPage {
 
     public void issuingWLRPermissions() throws InterruptedException {
         commonMethods.search("agent");
-      //  utils.waitForElementVisible(By.linkText("agent"));
+        utils.waitForElementVisible(By.linkText("agent"));
       //  utils.clickBtn(By.linkText("agent"));
         utils.switchToNewWindowByJavaExeClick(By.linkText("agent"));
         utils.clickBtn(By.xpath(ORDERSMANAGER_ORDERS));
@@ -398,7 +398,7 @@ public class SettingsPage {
         utils.switchToParentWindow();
     }
     public void issueTariffAndFreeMinutePermissionsToAgent(String agentName) throws InterruptedException {
-       // utils.waitForElementToBeClickable(By.linkText(""+agentName+""));
+       utils.waitForElementToBeClickable(By.linkText(""+agentName+""));
         utils.switchToNewWindowByJavaExeClick(By.linkText(""+agentName+""));
         utils.scrollUp(By.xpath(ADDPERMISSION_CONFIGURATION));
         utils.clickBtn(By.xpath(ADDPERMISSION_CONFIGURATION));

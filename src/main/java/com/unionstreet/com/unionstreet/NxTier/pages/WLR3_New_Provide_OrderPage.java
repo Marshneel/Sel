@@ -18,18 +18,18 @@ public class WLR3_New_Provide_OrderPage {
     EditOrderPage editOrderPage = new EditOrderPage();
 
     public void clickAnalogueMultilineTab() {
-        //utils.waitForElementVisible(By.id(ANALOGUE_MULTILINE_TAB));
-        utils.returnElement(By.id(ANALOGUE_MULTILINE_TAB)).click();
+        utils.waitForElementVisible(By.id(ANALOGUE_MULTILINE_TAB));
+        utils.clickBtn(By.id(ANALOGUE_MULTILINE_TAB));
         utils.clickBtn(By.xpath(SUBMIT_BUTTON));
     }
     public void selectLineTypeTab(String lineType){
-       // utils.waitForElementVisible(By.xpath("//label[contains(text(),'"+lineType+"')]"));
-        utils.returnElement(By.xpath("//label[contains(text(),'"+lineType+"')]")).click();
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'"+lineType+"')]"));
+        utils.clickBtn(By.xpath("//label[contains(text(),'"+lineType+"')]"));
         utils.clickBtn(By.xpath(SUBMIT_BUTTON));
 
     }
     public void saveAndSwitchToOrderSummaryPage() throws InterruptedException {
-        //utils.waitForElementVisible(By.xpath(NEXT_BUTTON));
+        utils.waitForElementVisible(By.xpath(NEXT_BUTTON));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         Thread.sleep(1000);
         utils.closeCurrentWindowAndJump(By.xpath(NEXT_BUTTON));
@@ -61,11 +61,11 @@ public class WLR3_New_Provide_OrderPage {
     }
 
     public void selectLineTypeForNewProvide(String lineType) throws InterruptedException {
-      //  utils.waitForElementVisible(By.xpath("//li[contains(@onclick,'SelectLineType')]//label[contains(text(),'" + lineType + "')]"));
+       utils.waitForElementVisible(By.xpath("//li[contains(@onclick,'SelectLineType')]//label[contains(text(),'" + lineType + "')]"));
        Thread.sleep(1000);
-        utils.returnElement(By.xpath("//li[contains(@onclick,'SelectLineType')]//label[contains(text(),'" + lineType + "')]")).click();
-      //  utils.waitForElementVisible(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON));
-        utils.returnElement(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON)).click();
+        utils.clickBtn(By.xpath("//li[contains(@onclick,'SelectLineType')]//label[contains(text(),'" + lineType + "')]"));
+        utils.waitForElementVisible(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON));
+        utils.clickBtn(By.xpath(editOrderPage.VALIDATE_LINE_TYPE_BUTTON));
     }
     public void assertAPIpostedSiteContact(){
         utils.waitForElementVisible(By.xpath("//option[contains(text(),'Fernanda, Lopes')]"));

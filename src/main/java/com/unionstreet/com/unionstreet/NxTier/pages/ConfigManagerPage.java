@@ -52,8 +52,8 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.id(assignee));
         Thread.sleep(1000);
         utils.makeSureBoxIsChecked(By.id(assignee), By.id(assignee));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON)).click();
-      //  utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.checkAlert();
         utils.switchToPreviousWindow(0);
 
@@ -63,47 +63,47 @@ public class ConfigManagerPage {
         utils.waitForElementVisible(By.xpath(CONFIG_MANAGER_BLUE_LABEL));
         commonMethods.search("" + tariffplan + "");
         Thread.sleep(1000);
-        utils.returnElement(By.xpath("//a[contains(text(),'" + tariffplan + "')]")).click();
-        //Thread.sleep(1000);
-        //utils.clickBtn(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
         utils.switchToNewWindow();
-        utils.returnElement(By.id(createTariffPage.TARIFF_RATES_BUTTON)).click();
-      // utils.clickBtn(By.id(createTariffPage.TARIFF_RATES_BUTTON));
+        utils.waitForElementVisible(By.id(createTariffPage.TARIFF_RATES_BUTTON));
+       utils.clickBtn(By.id(createTariffPage.TARIFF_RATES_BUTTON));
         utils.checkAlert();
-      //  utils.waitForElementVisible(By.id(PEAK_TARIFF_RATES_LIST));
+        utils.waitForElementVisible(By.id(PEAK_TARIFF_RATES_LIST));
         utils.sendText(By.id(PEAK_TARIFF_RATES_LIST), "" + rates + "");
         utils.clickBtn(By.id(OFFPEAK_TARIFF_RATES_LIST));
-       // utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_BUTTON)).click();
-       // utils.waitForElementVisible(By.id(ASSIGN_TARIFF_TAB));
-        utils.returnElement(By.id(ASSIGN_TARIFF_TAB)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
+        utils.waitForElementVisible(By.id(ASSIGN_TARIFF_TAB));
+        utils.clickBtn(By.id(ASSIGN_TARIFF_TAB));
         assignToAnAgent(assignee);
     }
 
     public void assignFreeMinutesPlanToAgent(String freeMinutePlan, String assignee) throws InterruptedException {
         accessFreeMinutesTab();
         commonMethods.search("" + freeMinutePlan + "");
-       // utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]")).click();
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
         utils.switchToNewWindow();
-       // utils.waitForElementVisible(By.id(ASSIGN_FREE_MINUTES_TAB));
-        utils.returnElement(By.id(ASSIGN_FREE_MINUTES_TAB)).click();
+        utils.waitForElementVisible(By.id(ASSIGN_FREE_MINUTES_TAB));
+        utils.clickBtn(By.id(ASSIGN_FREE_MINUTES_TAB));
         assignToAnAgent(assignee);
     }
 
     public void assignPackageToAgent(String Package, String assignee) throws InterruptedException {
         commonMethods.search("" + Package + "");
-      //  utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + Package + "')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + Package + "')]"));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath("//a[contains(text(),'" + Package + "')]")).click();
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + Package + "')]"));
         utils.switchToNewWindow();
-      //  utils.waitForElementVisible(By.id(ASSIGN_PACKAGE_TAB));
-        utils.returnElement(By.id(ASSIGN_PACKAGE_TAB)).click();
+       utils.waitForElementVisible(By.id(ASSIGN_PACKAGE_TAB));
+        utils.clickBtn(By.id(ASSIGN_PACKAGE_TAB));
         utils.waitForElementVisible(By.id(assignee));
         utils.makeSureBoxIsChecked(By.id(assignee), By.id(assignee));
-      //  utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.checkAlert();
         utils.switchToPreviousWindow(0);
     }
@@ -122,9 +122,9 @@ public class ConfigManagerPage {
         Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
         utils.switchToNewWindow();
-      //  utils.waitForElementVisible(By.xpath(EDIT_FREE_MINUTES_ICON));
+       utils.waitForElementVisible(By.xpath(EDIT_FREE_MINUTES_ICON));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath(EDIT_FREE_MINUTES_ICON)).click();
+        utils.clickBtn(By.xpath(EDIT_FREE_MINUTES_ICON));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(EDIT_FREEMINS_DISABLED_DESCRIPTION));
         utils.waitForElementVisible(By.xpath(EDIT_FREEMINS_DISABLED_WHAT));
@@ -132,81 +132,81 @@ public class ConfigManagerPage {
 
     public void assertTariffAreNotEditable(String tariffPlan) throws InterruptedException {
         utils.switchToPreviousWindow(0);
-     //   utils.waitForElementVisible(By.xpath(TARIFF_MANAGER_TAB));
-        utils.returnElement(By.xpath(TARIFF_MANAGER_TAB)).click();
+        utils.waitForElementVisible(By.xpath(TARIFF_MANAGER_TAB));
+        utils.clickBtn(By.xpath(TARIFF_MANAGER_TAB));
         commonMethods.search(tariffPlan);
-      //  utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffPlan + "')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffPlan + "')]"));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath("//a[contains(text(),'" + tariffPlan + "')]")).click();
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + tariffPlan + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(DISABLED_TARIFF_NAME));
-        //utils.waitForElementVisible(By.id(createTariffPage.TARIFF_RATES_BUTTON));
-        utils.returnElement(By.id(createTariffPage.TARIFF_RATES_BUTTON)).click();
+        utils.waitForElementVisible(By.id(createTariffPage.TARIFF_RATES_BUTTON));
+        utils.clickBtn(By.id(createTariffPage.TARIFF_RATES_BUTTON));
         utils.waitForElementVisible(By.xpath(DISABLED_MIN_CHARGE_UNDER_TARIFF_RATES_LIST));
     }
 
     public void navigateToAddTariffPlan() throws InterruptedException {
-     //   utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
+        utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
         Thread.sleep(1000);
-        utils.returnElement(By.cssSelector(commonMethods.ADD_BUTTON)).click();
+        utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(createTariffPage.TARIFF_NAME_TEXT_BOX));
     }
 
     public void addFreeMinutesPlan() throws InterruptedException {
         accessFreeMinutesTab();
-       // utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.ADD_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.switchToNewWindow();
-       // utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_NAME_FIELD));
+        utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_NAME_FIELD));
         RanFreeMinutePlanName = utils.randomName();
         Thread.sleep(1000);
         utils.sendText(By.id(EDIT_FREE_MINUTES_NAME_FIELD), RanFreeMinutePlanName);
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_BUTTON));
-      //  utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
+        utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
         Thread.sleep(1000);
-        utils.returnElement(By.cssSelector(commonMethods.ADD_BUTTON)).click();
+        utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.switchToNewWindow();
-       // utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD));
+        utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD));
         utils.sendText(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD), "100");
         utils.selectByVisibleText(By.id(EDIT_FREE_MINUTES_WHAT_DROPDOWN), "Calls");
         utils.waitForElementVisible(By.xpath("//div[@id='divProgress'][contains(@style,'display: none;')]"));
         utils.selectByVisibleText(By.id(EDIT_FREE_MINUTES_APPLY_TO_DROPDOWN), "Per Company");
         utils.selectByVisibleText(By.id(EDIT_FREE_MINUTES_FREQUENCY_DROPDOWN), "Daily");
-      //  utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.checkAlert();
         utils.switchToPreviousWindow(0);
 
     }
 
     public void accessFreeMinutesTab() {
-     //   utils.waitForElementVisible(By.xpath(FREE_MINUTES_TAB));
-        utils.returnElement(By.xpath(FREE_MINUTES_TAB)).click();
+        utils.waitForElementVisible(By.xpath(FREE_MINUTES_TAB));
+        utils.clickBtn(By.xpath(FREE_MINUTES_TAB));
     }
 
     public void editFreeMinutePlan(String amount, String what) throws InterruptedException {
         accessFreeMinutesTab();
         commonMethods.search(RanFreeMinutePlanName);
-      //  utils.waitForElementToBeClickable(By.xpath("//a[contains(text(),'" + RanFreeMinutePlanName + "')]"));
+        utils.waitForElementToBeClickable(By.xpath("//a[contains(text(),'" + RanFreeMinutePlanName + "')]"));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath("//a[contains(text(),'" + RanFreeMinutePlanName + "')]")).click();
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + RanFreeMinutePlanName + "')]"));
         utils.switchToNewWindow();
-      //  utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_NAME_FIELD));
+        utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_NAME_FIELD));
         utils.sendText(By.id(EDIT_FREE_MINUTES_NAME_FIELD), RanFreeMinutePlanName + "changed name");
-        //utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.checkAlert();
-       // utils.waitForElementVisible(By.xpath(EDIT_FREE_MINUTES_ICON));
+        utils.waitForElementVisible(By.xpath(EDIT_FREE_MINUTES_ICON));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath(EDIT_FREE_MINUTES_ICON)).click();
+        utils.clickBtn(By.xpath(EDIT_FREE_MINUTES_ICON));
         utils.switchToNewWindow();
-       // utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD));
+        utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD));
         utils.sendText(By.id(EDIT_FREE_MINUTES_AMOUNT_FIELD), amount);
-      //  utils.waitForElementVisible(By.xpath(EDIT_FREEMINS_DISABLED_WHAT));
+        utils.waitForElementVisible(By.xpath(EDIT_FREEMINS_DISABLED_WHAT));
         utils.selectByVisibleText(By.xpath(EDIT_FREEMINS_DISABLED_WHAT), what);
-      //  utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.checkAlert();
         utils.switchToPreviousWindow(0);
         commonMethods.navigateToHome();
@@ -220,21 +220,21 @@ public class ConfigManagerPage {
 
 
     public void loadPackageManager() {
-     //   utils.waitForElementVisible(By.xpath(PACKAGE_MANAGER_TAB));
-        utils.returnElement(By.xpath(PACKAGE_MANAGER_TAB)).click();
+        utils.waitForElementVisible(By.xpath(PACKAGE_MANAGER_TAB));
+        utils.clickBtn(By.xpath(PACKAGE_MANAGER_TAB));
     }
 
     public void clickAdd() throws InterruptedException {
-      //  utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
+        utils.waitForElementVisible(By.xpath(commonMethods.ADD_XPATH));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath(commonMethods.ADD_XPATH)).click();
+        utils.clickBtn(By.xpath(commonMethods.ADD_XPATH));
         utils.switchToNewWindow();
 
     }
 
     public void createPackage(String packageType, String TariffPlan, boolean consumerPackage, boolean verifyCreatedTariffAndFreeMinutes) throws InterruptedException, UnsupportedEncodingException, ClassNotFoundException {
         RanPackageName = utils.randomName();
-       // utils.waitForElementVisible(By.id(EDIT_PACKAGE_NAME_FIELD));
+       utils.waitForElementVisible(By.id(EDIT_PACKAGE_NAME_FIELD));
         utils.sendText(By.id(EDIT_PACKAGE_NAME_FIELD), RanPackageName);
         utils.waitForElementVisible(By.xpath("//div[@id='consumerdiv']//input[" + packageType + "]"));
         Thread.sleep(1000);
@@ -248,9 +248,9 @@ public class ConfigManagerPage {
             utils.waitForElementVisible(By.xpath("//td[contains(text(),'" + RanFreeMinutePlanName + "')]"));
         } else {
         }
-      //  utils.waitForElementVisible(By.id(EDIT_PACKAGE_VOICE_TARIFF_DROPDOWN));
+        utils.waitForElementVisible(By.id(EDIT_PACKAGE_VOICE_TARIFF_DROPDOWN));
         utils.selectByVisibleText(By.id(EDIT_PACKAGE_VOICE_TARIFF_DROPDOWN), "" + TariffPlan + "");
-       // utils.waitForElementVisible(By.id(EDIT_PACKAGE_DATA_TARIFF_DROPDOWN));
+        utils.waitForElementVisible(By.id(EDIT_PACKAGE_DATA_TARIFF_DROPDOWN));
         utils.selectByVisibleText(By.id(EDIT_PACKAGE_DATA_TARIFF_DROPDOWN), "" + TariffPlan + "");
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'Mobile 250 Free Mins (UK and Mob')]/following-sibling::td/label"));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'" + RanFreeMinutePlanName + "')]/following-sibling::td/label"));
@@ -261,7 +261,7 @@ public class ConfigManagerPage {
 
     public void saveAndAssertThePackage(String consumerCheck) throws InterruptedException {
         utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON)).click();
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.checkAlert();
         utils.switchToPreviousWindow(0);
         commonMethods.search(RanPackageName);
@@ -272,9 +272,9 @@ public class ConfigManagerPage {
 
     public void assertCPAssignedPackagesAreNotEditable(String packageName) throws InterruptedException {
         commonMethods.search(packageName);
-      //  utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + packageName + "')]"));
+       utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + packageName + "')]"));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath("//a[contains(text(),'" + packageName + "')]")).click();
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + packageName + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(DISABLED_PACKAGE_NAME));
         utils.waitForElementVisible(By.xpath(DISABLED_VOICE_TARIFF_UNDER_EDIT_PACKAGE));
@@ -282,24 +282,24 @@ public class ConfigManagerPage {
     }
 
     public void editCreatedPackage() throws InterruptedException {
-     //   utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanPackageName + "')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanPackageName + "')]"));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath("//a[contains(text(),'" + RanPackageName + "')]")).click();
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + RanPackageName + "')]"));
         utils.switchToNewWindow();
-     //   utils.waitForElementVisible(By.id(EDIT_PACKAGE_NAME_FIELD));
+        utils.waitForElementVisible(By.id(EDIT_PACKAGE_NAME_FIELD));
         utils.sendText(By.id(EDIT_PACKAGE_NAME_FIELD), RanPackageName + "editedName");
         utils.waitForElementVisible(By.xpath("//table[@id='GroupTable']//td[contains(text(),'" + RanFreeMinutePlanName + "')]/following-sibling::td//label"));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath("//table[@id='GroupTable']//td[contains(text(),'" + RanFreeMinutePlanName + "')]/following-sibling::td//label"));
         utils.checkAlert();
-       // utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-        utils.returnElement(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON)).click();
+        utils.waitForElementVisible(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+        utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.checkAlert();
         utils.switchToPreviousWindow(0);
         commonMethods.search(RanPackageName + "editedName");
-       // utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanPackageName + "editedName" + "')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanPackageName + "editedName" + "')]"));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath("//a[contains(text(),'" + RanPackageName + "editedName" + "')]")).click();
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + RanPackageName + "editedName" + "')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath("//select[@id='mpackage_lcr_tariff']//option[@selected='selected'][contains(text(),'" + createTariffPage.RanTariffPlanName + "')]"));
         utils.waitForElementVisible(By.xpath("//table[@id='GroupTable']//tr/following-sibling::tr/td[contains(text(),'" + RanFreeMinutePlanName + "')]/following-sibling::td/label"));
@@ -337,12 +337,12 @@ public class ConfigManagerPage {
 
     public void cpCannotAssignAgentsFreeMinutesAndPackagesToAnyOneElseNorCanHeRevokeIt(String plan, String tabButton, String name, String row) throws InterruptedException {
         commonMethods.search(plan);
-      //  utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + plan + "')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + plan + "')]"));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath("//a[contains(text(),'" + plan + "')]")).click();
+        utils.clickBtn(By.xpath("//a[contains(text(),'" + plan + "')]"));
         utils.switchToNewWindow();
-       // utils.waitForElementVisible(By.id("" + tabButton + ""));
-        utils.returnElement(By.id("" + tabButton + "")).click();
+        utils.waitForElementVisible(By.id("" + tabButton + ""));
+        utils.clickBtn(By.id("" + tabButton + ""));
         utils.waitForElementVisible(By.xpath("//tr[@class='SemiTransparent']//td[contains(text(),'" + name + "')]"));
         utils.assertElementNotPresent(By.xpath("//td[contains(text(),'Union Street Telecoms')]/../td[" + row + "]/input[@checked='checked']"));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'agent')]/../td[" + row + "]/input[@checked='checked']"));

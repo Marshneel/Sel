@@ -25,8 +25,8 @@ public class NewBusinessCustomerPage {
     ElementUtils utils = new ElementUtils();
 
     public void clickContactManagerButton() {
-       // utils.waitForElementVisible(By.id(CONTACTMANAGER_BUTTON));
-        utils.returnElement(By.id(CONTACTMANAGER_BUTTON)).click();
+        utils.waitForElementVisible(By.id(CONTACTMANAGER_BUTTON));
+        utils.clickBtn(By.id(CONTACTMANAGER_BUTTON));
     }
 
     public void clickAddNewCustomerButton() throws InterruptedException {
@@ -35,20 +35,20 @@ public class NewBusinessCustomerPage {
         } catch (Exception e) {
             utils.getCreateCustomerPage();
         }
-       // utils.waitForElementToBeClickable(By.linkText(ADD_BUTTON));
-        utils.returnElement(By.linkText(ADD_BUTTON)).click();
+       utils.waitForElementToBeClickable(By.linkText(ADD_BUTTON));
+        utils.clickBtn(By.linkText(ADD_BUTTON));
         utils.switchToNewWindow();
     }
 
     public void companyInfoForNewBusinessCustomer() {
         RanName = utils.randomName();
         try {
-          //  utils.clickBtn(By.id(COMPANYNAME_FIELD));
+           utils.clickBtn(By.id(COMPANYNAME_FIELD));
             utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
         } catch (Exception e) {
             utils.getCreateCustomerPage();
-            //utils.waitForElementVisible(By.linkText(ADD_BUTTON));
-            utils.returnElement(By.linkText(ADD_BUTTON)).click();
+            utils.waitForElementVisible(By.linkText(ADD_BUTTON));
+            utils.clickBtn(By.linkText(ADD_BUTTON));
             utils.switchToNewWindow();
             utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
         }}
@@ -61,8 +61,8 @@ public class NewBusinessCustomerPage {
     public void validationMessage_whenAgentAndResellerCheckedIn(){
          utils.jumpToPopUpWindow(By.xpath(CONTACTTYPE_RESELLER));
         utils.clickBtn(By.xpath(VATPOPUP));
-       // utils.waitForElementVisible(By.xpath(CONTACTTYPE_AGENT));
-        utils.returnElement(By.xpath(CONTACTTYPE_AGENT)).click();
+        utils.waitForElementVisible(By.xpath(CONTACTTYPE_AGENT));
+        utils.clickBtn(By.xpath(CONTACTTYPE_AGENT));
       try{  utils.waitForElementVisible(By.xpath("//span[contains(text(),'Cannot Be Agent And Reseller')]"));
 
     }catch (Exception e){
@@ -71,7 +71,7 @@ public class NewBusinessCustomerPage {
 
     public void addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes() {
         RanName = utils.randomName();
-       // utils.clickBtn(By.id(COMPANYNAME_FIELD));
+        utils.clickBtn(By.id(COMPANYNAME_FIELD));
         try {
             utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
         } catch (Exception e) {
@@ -80,13 +80,13 @@ public class NewBusinessCustomerPage {
     }
 
     public void addSiteInfoForNewBusinessCustomer() {
-      //  utils.clickBtn(By.id(SITENAME_FIELD));
+        utils.clickBtn(By.id(SITENAME_FIELD));
         utils.sendText(By.id(SITENAME_FIELD),RanName);
         utils.sendText(By.id(SHORTNAME_FIELD),utils.getProperty("shortName"));
     }
 
     public void addSiteContactInfoForNewBusinessCustomer() throws InterruptedException {
-       // utils.clickBtn(By.id(FIRSTNAME));
+        utils.clickBtn(By.id(FIRSTNAME));
         utils.sendText(By.id(FIRSTNAME),utils.getProperty("firstName"));
         utils.sendText(By.id(EMAIL_FIELD),utils.getProperty("email"));
         utils.clickBtn(By.cssSelector(SAVE_BUTTON));

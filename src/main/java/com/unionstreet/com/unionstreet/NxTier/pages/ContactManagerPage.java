@@ -50,18 +50,18 @@ public class ContactManagerPage {
     public void searchForBusinessCustomer(String customer_name) throws InterruptedException {
         utils.sendText(By.id(SEARCH_BUTTON), customer_name);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
-      //  utils.waitForElementVisible(By.xpath("//a[text()='" + customer_name + "']"));
+       utils.waitForElementVisible(By.xpath("//a[text()='" + customer_name + "']"));
         utils.switchToNewWindowByJavaExeClick(By.xpath("//a[text()='" + customer_name + "']"));
        // utils.switchToNewWindow();
     }
 
     public void assignAnAgentForBC() {
-       // utils.waitForElementVisible(By.id(COMPANYDETAILS_BUTTON));
-        utils.returnElement(By.id(COMPANYDETAILS_BUTTON)).click();
+        utils.waitForElementVisible(By.id(COMPANYDETAILS_BUTTON));
+        utils.clickBtn(By.id(COMPANYDETAILS_BUTTON));
         utils.selectByVisibleText(By.id(newBusinessCustomerPage.CHANNELDETAILS_AGENT), "agent");
         try {
-           // utils.waitForElementToBeClickable(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
-            utils.returnElement(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON)).click();
+            utils.waitForElementToBeClickable(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
+            utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         } catch (Exception e) {
             utils.checkAlert();
         }
@@ -70,9 +70,9 @@ public class ContactManagerPage {
     }
     public  void searchAndClickBusinessCustomer(String customerName) throws InterruptedException {
         commonMethods.search(""+customerName+"");
-     //   utils.waitForElementToBeClickable(By.xpath("//a[contains(text(),'"+customerName+"')]"));
+        utils.waitForElementToBeClickable(By.xpath("//a[contains(text(),'"+customerName+"')]"));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath("//a[contains(text(),'"+customerName+"')]")).click();
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+customerName+"')]"));
 
     }
     public void assertSiteIsNonBillingSite(String mainBillingSite){

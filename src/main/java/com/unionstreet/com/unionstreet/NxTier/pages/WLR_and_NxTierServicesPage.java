@@ -18,8 +18,8 @@ public class WLR_and_NxTierServicesPage {
         utils.clickBtn(By.xpath(SERVICE_INVENTORY_MANAGER));
         utils.clickBtn(By.xpath(AGENT_AND_RESELLER_SERVICE));
         utils.switchToNewWindow();
-       // utils.waitForElementVisible(By.id(ASSIGN_SERVICE_INVENTORY));
-        utils.returnElement(By.id(ASSIGN_SERVICE_INVENTORY)).click();
+        utils.waitForElementVisible(By.id(ASSIGN_SERVICE_INVENTORY));
+        utils.clickBtn(By.id(ASSIGN_SERVICE_INVENTORY));
     }
     public void verifyCurrentLine(String line){
         utils.waitForElementVisible(By.xpath("//li[@id='line_2']//label[contains(text(),'"+line+"')]"));

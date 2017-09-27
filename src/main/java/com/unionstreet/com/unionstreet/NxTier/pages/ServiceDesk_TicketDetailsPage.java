@@ -129,10 +129,10 @@ public class ServiceDesk_TicketDetailsPage {
     }
 
     public void selectCLIToObtainInstallationDetails(String cli, String lineType, String numberOfLines, String maintenanceLevel, boolean notVirtualLine) throws InterruptedException {
-       // utils.waitForElementToBeClickable(By.xpath(SELECT_CLI_DROPDOWN));
-        utils.returnElement(By.xpath(SELECT_CLI_DROPDOWN)).click();
+        utils.waitForElementToBeClickable(By.xpath(SELECT_CLI_DROPDOWN));
+        utils.clickBtn(By.xpath(SELECT_CLI_DROPDOWN));
         utils.waitForElementToVanish(By.xpath(OPEN_REACH_SPINNER));
-       // utils.waitForElementVisible(By.xpath(SEARCH_BOX_FOR_CLI));
+        utils.waitForElementVisible(By.xpath(SEARCH_BOX_FOR_CLI));
         utils.sendText(By.xpath(SEARCH_BOX_FOR_CLI), "" + cli + "");
         utils.waitForElementVisible(By.xpath("//td[text()[contains(.,'" + cli + "')]]/following-sibling::td[text()[contains(.,'LU1 1DQ')]]/following-sibling::td[3]/button[contains(text(),'Select')]"));
         Thread.sleep(1000);
@@ -155,26 +155,26 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.xpath(INTERMITTENT_FAULT_TEXT));
         if (multiLine) {
             utils.waitForElementVisible(By.xpath(CHOOSE_LINE_FOR_MULTILINE_LABEL));
-            //utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
-            utils.returnElement(By.id(INCIDENT_SAVE_BUTTON)).click();
+            utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
+            utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
             utils.waitForElementVisible(By.xpath(CHOOSE_LINE_FOR_MULTILINE_VALIDATION_MESSAGE));
-            //utils.waitForElementVisible(By.id(CHOOSE_LINE_FOR_MULTILINE_DROPDOWN));
+            utils.waitForElementVisible(By.id(CHOOSE_LINE_FOR_MULTILINE_DROPDOWN));
             utils.selectByVisibleText(By.id(CHOOSE_LINE_FOR_MULTILINE_DROPDOWN), "1");
         }
         utils.waitForElementVisible(By.xpath(STD_LINE_TEST_BUTTON));
         utils.waitForElementVisible(By.xpath(OVERNIGHT_LINE_TEST_BUTTON));
         utils.selectByVisibleText(By.id(FAULT_SQC_DROPDOWN), "Exchange Service Facility");
         utils.performClickActionTillElementIsDetected(By.xpath(FEATURE_MUST_BE_SELECTED_VALIDATION_MESSAGE), By.id(INCIDENT_SAVE_BUTTON));
-       // utils.waitForElementVisible(By.id(NETWORK_FEATURES_DROPDOWN));
+        utils.waitForElementVisible(By.id(NETWORK_FEATURES_DROPDOWN));
         utils.selectByVisibleText(By.id(NETWORK_FEATURES_DROPDOWN), "Smart Divert");
         utils.waitForElementToBeClickable(By.xpath(TEXT_ON_LINE_AND_INSTALLATION_DETAILS_PAGE));
         Thread.sleep(1000);
         utils.scrollUp(By.xpath(TEXT_ON_LINE_AND_INSTALLATION_DETAILS_PAGE));
         utils.waitForElementVisible(By.xpath(PIN_LABEL));
-        //utils.waitForElementVisible(By.id(PIN_TEXT_FIELD));
+        utils.waitForElementVisible(By.id(PIN_TEXT_FIELD));
         utils.sendText(By.id(PIN_TEXT_FIELD), "123455");
-       // utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
-        utils.returnElement(By.id(INCIDENT_SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
+        utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(PIN_VALIDATION_MESSAGE));
     }
 
@@ -184,10 +184,10 @@ public class ServiceDesk_TicketDetailsPage {
         } catch (Exception e) {
             System.out.println("Sample Calls Text is missing");
         }
-        //utils.waitForElementVisible(By.id(FAULT_SQC_DROPDOWN));
+        utils.waitForElementVisible(By.id(FAULT_SQC_DROPDOWN));
         utils.selectByVisibleText(By.id(FAULT_SQC_DROPDOWN), "Noisy");
-       // utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
-        utils.returnElement(By.id(INCIDENT_SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
+        utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(DATE_IS_REQUIRED_FOR_SAMPLE_CALLS));
         utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMPTY_SAMPLE_CALL_FIELD));
         try {
@@ -195,10 +195,10 @@ public class ServiceDesk_TicketDetailsPage {
         } catch (Exception e) {
             System.out.println("validation message for unpopulated downtime is missing");
         }
-       // utils.waitForElementVisible(By.id(DOWNTIME_TEXT_BOX));
+        utils.waitForElementVisible(By.id(DOWNTIME_TEXT_BOX));
         utils.sendText(By.id(DOWNTIME_TEXT_BOX), "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-       // utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
-        utils.returnElement(By.id(INCIDENT_SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
+        utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_UNACCEPTABLY_LENGTHY_DOWNTIME));
         Thread.sleep(1000);
         utils.sendText(By.id(DOWNTIME_TEXT_BOX), "mmmmmmmmmmm");
@@ -214,21 +214,21 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.id(SAMPLE_CALLS_DATE_FIELD));
         utils.scrollUp(By.xpath("//legend[contains(.,'Fault details')]"));
         utils.sendText(By.id(SAMPLE_CALLS_DATE_FIELD), currentDate);
-        //utils.waitForElementVisible(By.id(SAMPLE_CALLS_TIME_FIELD));
+        utils.waitForElementVisible(By.id(SAMPLE_CALLS_TIME_FIELD));
         utils.sendText(By.id(SAMPLE_CALLS_TIME_FIELD), currentTime);
-        //utils.waitForElementVisible(By.id(SAMPLE_CALLS_CLI_FIELD));
+        utils.waitForElementVisible(By.id(SAMPLE_CALLS_CLI_FIELD));
         utils.sendText(By.id(SAMPLE_CALLS_CLI_FIELD), "02012345678");
-        //utils.waitForElementVisible(By.id(SAMPLE_CALLS_DIALLED_FROM_TO_FIELD));
+        utils.waitForElementVisible(By.id(SAMPLE_CALLS_DIALLED_FROM_TO_FIELD));
         utils.sendText(By.id(SAMPLE_CALLS_DIALLED_FROM_TO_FIELD), "02012345678");
-       // utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_2ND_ROW));
-        utils.returnElement(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_2ND_ROW)).click();
+        utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_2ND_ROW));
+        utils.clickBtn(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_2ND_ROW));
         Thread.sleep(1000);
         utils.assertElementNotPresent(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_2ND_ROW));
-       // utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_1ST_ROW));
-        utils.returnElement(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_1ST_ROW)).click();
         utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_1ST_ROW));
-      //  utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
-        utils.returnElement(By.id(INCIDENT_SAVE_BUTTON)).click();
+        utils.clickBtn(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_1ST_ROW));
+        utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_1ST_ROW));
+       utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
+        utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
     }
 
     public void faultDetails_assertionForISDN2() throws InterruptedException {
@@ -238,8 +238,8 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.xpath(TEMPERORY_CALL_ROUTING_LABEL));
         utils.waitForElementVisible(By.xpath(TCR_DEFAULTED_TO_NONE));
         utils.selectByVisibleText(By.id(TCR_DROPDOWN), "Call Divert");
-       // utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
-        utils.returnElement(By.id(INCIDENT_SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
+        utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         try {
             utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_TCR_CALL_DIVERT_CLI));
         } catch (Exception e) {
@@ -248,12 +248,12 @@ public class ServiceDesk_TicketDetailsPage {
         Thread.sleep(1000);
         utils.scrollUp(By.xpath(TEMPERORY_CALL_ROUTING_LABEL));
         Thread.sleep(1000);
-       // utils.waitForElementVisible(By.id(TRC_CLI_FIELD));
+        utils.waitForElementVisible(By.id(TRC_CLI_FIELD));
         utils.sendText(By.id(TRC_CLI_FIELD), "020abcdef");
         utils.waitForElementVisible(By.xpath(TCR_CALL_DIVERT_CLI_CAN_ONLY_HAVE_SPACES_AND_NUMBERS));
         utils.sendText(By.id(TRC_CLI_FIELD), "02012345678");
-        //utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
-        utils.returnElement(By.id(INCIDENT_SAVE_BUTTON)).click();
+        utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
+        utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.assertElementNotPresent(By.xpath(TCR_CALL_DIVERT_CLI_CAN_ONLY_HAVE_SPACES_AND_NUMBERS));
         utils.waitForElementVisible(By.xpath(TEMPORARILY_SUSPEND_CPS_DEFAULTED_TO_NO));
         utils.assertElementNotPresent(By.xpath(TEMPORARILY_SUSPEND_CPS_SET_TO_YES));
@@ -261,15 +261,15 @@ public class ServiceDesk_TicketDetailsPage {
         utils.scrollUp(By.xpath(TEMPERORY_CALL_ROUTING_LABEL));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(YES_BUTTON_ON_TEMPORARILY_SUSPEND_CPS));
-    //   utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
-        utils.returnElement(By.id(INCIDENT_SAVE_BUTTON)).click();
+      utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
+        utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(TEMPORARILY_SUSPEND_CPS_SET_TO_YES));
     }
 
     public void lineTest_Fail() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001',DPType='Internal',MainFaultLocation='EX',FaultReportAdvised='Y',LineStability='Stable',NetworkStability='Stable',StabilityStatement=' Stable - no adverse line test history',TestOutcome='Fail',DiagnosisDescription='FAULT - Line Tested OK but No Dial Tone Detected',DiagnosisCode='T073' where serviceid='02063678369'");
-       // utils.waitForElementVisible(By.xpath(STD_LINE_TEST_BUTTON));
-        utils.returnElement(By.xpath(STD_LINE_TEST_BUTTON)).click();
+        utils.waitForElementVisible(By.xpath(STD_LINE_TEST_BUTTON));
+        utils.clickBtn(By.xpath(STD_LINE_TEST_BUTTON));
         utils.waitForElementVisible(By.xpath(LINE_TEST_FAILED));
         utils.waitForElementVisible(By.xpath(FAILED_LINE_TEST_DESC));
         utils.waitForElementVisible(By.xpath(REPORT_LINE_FAULT));
@@ -277,29 +277,25 @@ public class ServiceDesk_TicketDetailsPage {
 
     public void lineTest_Pass() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001',DPType=NULL,MainFaultLocation=NULL,FaultReportAdvised=NULL,LineStability='stable',NetworkStability='stable',StabilityStatement='stable',TestOutcome=NULL,DiagnosisDescription=NULL,DiagnosisCode=NULL where serviceid='02063678369'");
-       // utils.waitForElementVisible(By.xpath(REDO_LINE_TEXT_BUTTON));
-        utils.returnElement(By.xpath(REDO_LINE_TEXT_BUTTON)).click();
+       utils.waitForElementVisible(By.xpath(REDO_LINE_TEXT_BUTTON));
+        utils.clickBtn(By.xpath(REDO_LINE_TEXT_BUTTON));
         utils.waitForElementVisible(By.xpath(LINE_TEST_PASSED));
         utils.waitForElementVisible(By.xpath(PASSED_LINE_TEST_DESC));
         utils.waitForElementVisible(By.xpath(NEED_NOT_REPORT_LINE_FAULT));
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Line Stability')]"));
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Network Stability')]"));
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'Stability Statement')]"));
-
-
-
     }
-
 
     public void overNightLineTest() throws InterruptedException {
         Thread.sleep(1000);
         utils.scrollUp(By.xpath(TEXT_ON_LINE_AND_INSTALLATION_DETAILS_PAGE));
-       // utils.waitForElementToBeClickable(By.id("refreshOrderDetails"));
-        utils.returnElement(By.id("refreshOrderDetails")).click();
-      //  utils.waitForElementVisible(By.xpath(OVERNIGHT_LINE_TEST_BUTTON));
-        utils.returnElement(By.xpath(OVERNIGHT_LINE_TEST_BUTTON)).click();
-      //  utils.waitForElementVisible(By.xpath(REDO_LINE_TEXT_BUTTON));
-        utils.returnElement(By.xpath(REDO_LINE_TEXT_BUTTON)).click();
+        utils.waitForElementToBeClickable(By.id("refreshOrderDetails"));
+        utils.clickBtn(By.id("refreshOrderDetails"));
+        utils.waitForElementVisible(By.xpath(OVERNIGHT_LINE_TEST_BUTTON));
+        utils.clickBtn(By.xpath(OVERNIGHT_LINE_TEST_BUTTON));
+       utils.waitForElementVisible(By.xpath(REDO_LINE_TEXT_BUTTON));
+        utils.clickBtn(By.xpath(REDO_LINE_TEXT_BUTTON));
         utils.waitForElementVisible(By.xpath(LINE_TEST_PASSED));
         utils.waitForElementVisible(By.xpath(PASSED_LINE_TEST_DESC));
         utils.assertElementNotPresent(By.xpath("//label[contains(text(),'Line Stability')]"));
@@ -350,7 +346,7 @@ public class ServiceDesk_TicketDetailsPage {
         utils.scrollUp(By.xpath(SERVICE_MAINTENANCE_LEVEL_TEXT_LABEL));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath(YES_BUTTON_TO_EXPEDITE_FAULT));
-       // utils.waitForElementVisible(By.id(CARE_LEVEL_PLAN_DROPDOWN));
+        utils.waitForElementVisible(By.id(CARE_LEVEL_PLAN_DROPDOWN));
         utils.selectByVisibleText(By.id(CARE_LEVEL_PLAN_DROPDOWN), "" + newLevel + "");
     }
 

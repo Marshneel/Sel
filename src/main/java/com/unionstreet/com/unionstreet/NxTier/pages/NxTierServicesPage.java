@@ -21,23 +21,23 @@ public class NxTierServicesPage {
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
 
     public void assertCPonlyValuePresent() throws InterruptedException {
-        //utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
-        utils.returnElement(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE)).click();
+        utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(LABEL_WITHIN_A_SERVICE));
         utils.waitForElementVisible(By.xpath(CPONLY));
     }
 
     public void assertCPonlyValueNotPresent() throws InterruptedException {
-       // utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
-        utils.returnElement(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE)).click();
+        utils.waitForElementVisible(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+        utils.clickBtn(By.xpath(CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.xpath(LABEL_WITHIN_A_SERVICE));
         utils.assertElementNotPresent(By.xpath(CPONLY));
     }
 
     public void populateMandatoryField() {
-       // utils.clickBtn(By.xpath(MANDATORY_CONTROL_FIELD));
+        utils.clickBtn(By.xpath(MANDATORY_CONTROL_FIELD));
         utils.sendText(By.xpath(MANDATORY_CONTROL_FIELD), "hello");
         try {
             utils.clickBtn(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));

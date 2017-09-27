@@ -74,10 +74,10 @@ public class WLR3_NewProvide_NumberingPage {
         //click advanced line numbering options
         utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         //verify the functionality of automatically assign now
-       // utils.waitForElementVisible(By.xpath(wlr3_lineNumberingPage.AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
-        utils.returnElement(By.xpath(wlr3_lineNumberingPage.AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO)).click();
-      //  utils.waitForElementVisible(By.xpath(wlr3_lineNumberingPage.ALLOCATENOW_TAB_UNDER_AUTOMATICALLY_ASSIGN_NOW_LINE_INFO));
-        utils.returnElement(By.xpath(wlr3_lineNumberingPage.ALLOCATENOW_TAB_UNDER_AUTOMATICALLY_ASSIGN_NOW_LINE_INFO)).click();
+        utils.waitForElementVisible(By.xpath(wlr3_lineNumberingPage.AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
+        utils.clickBtn(By.xpath(wlr3_lineNumberingPage.AUTOMATICALLY_ASSIGN_NOWTAB_UNDER_LINE_INFO));
+        utils.waitForElementVisible(By.xpath(wlr3_lineNumberingPage.ALLOCATENOW_TAB_UNDER_AUTOMATICALLY_ASSIGN_NOW_LINE_INFO));
+        utils.clickBtn(By.xpath(wlr3_lineNumberingPage.ALLOCATENOW_TAB_UNDER_AUTOMATICALLY_ASSIGN_NOW_LINE_INFO));
         utils.waitForElementVisible(By.xpath(wlr3_lineNumberingPage.CONTINUETAB_UNDER_LINE_INFO));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath(wlr3_lineNumberingPage.CONTINUETAB_UNDER_LINE_INFO));
@@ -113,28 +113,28 @@ public class WLR3_NewProvide_NumberingPage {
     }
 
     public void populateAndAssertSNDDIrangeForISDN30() throws InterruptedException {
-        //utils.waitForElementVisible(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW0));
+        utils.waitForElementVisible(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW0));
         utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW0), "New DDI range");
         checkDDIrangeValidationWithMessage("10000", PLEASE_ENTER_VALUE_LESS_THAN_9999);
         checkDDIrangeValidationWithMessage("9", INVALID_DDI_RANGE_RANGE_MUST_BE_BLOCKS_OF_10);
         checkDDIrangeValidationWithMessage("0", INVALID_DDI_RANGE_RANGE_MUST_BE_BLOCKS_OF_10);
         utils.sendText(By.id(DDI_RANGE_BOX_0), "100");
-        //utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
+        utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
         Thread.sleep(1000);
-        utils.returnElement(By.id(ADDNEW_DDIRANGE_BUTTON)).click();
+        utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
         utils.waitForElementVisible(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1));
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
     }
 
     public void newDDIRangeHasNoTabUnderDirInfoUnlessMBNclicked(String range) throws InterruptedException {
-        //utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
-        utils.returnElement(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING)).click();
-       // utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
+        utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
         Thread.sleep(1000);
-        utils.returnElement(By.id(ADDNEW_DDIRANGE_BUTTON)).click();
+        utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
         utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1), "New DDI range");
-        //utils.waitForElementVisible(By.id(DDI_RANGE_BOX_1));
+        utils.waitForElementVisible(By.id(DDI_RANGE_BOX_1));
         utils.sendText(By.id(DDI_RANGE_BOX_1), range);
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
@@ -142,11 +142,11 @@ public class WLR3_NewProvide_NumberingPage {
         Thread.sleep(1000);
         utils.assertElementNotPresent(By.xpath(SNDDI_TAB_ON_DIRINFO_POPUP));
         utils.clickBtn(By.xpath(commonMethods.CLOSE_POPUP));
-      //  utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING)).click();
-        //utils.waitForElementVisible(By.xpath(SET_MBN1_FOR_ISDN_LINE));
-        utils.returnElement(By.xpath(SET_MBN1_FOR_ISDN_LINE)).click();
+        utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.xpath(SET_MBN1_FOR_ISDN_LINE));
+        utils.clickBtn(By.xpath(SET_MBN1_FOR_ISDN_LINE));
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         clickMoreDirInfoTab();
@@ -171,12 +171,12 @@ public class WLR3_NewProvide_NumberingPage {
 
     public void deleteAndAssertAddedDDIRange() throws InterruptedException {
         utils.clickBtn(By.xpath(commonMethods.CLOSE_POPUP));
-       // utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING)).click();
-        //utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
+        utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
         Thread.sleep(1000);
-        utils.returnElement(By.id(ADDNEW_DDIRANGE_BUTTON)).click();
+        utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
         utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_ISDN_LINE_ROW_1));
        try{ utils.assertElementNotPresent(By.xpath(DELETE_BUTTON_FOR_ISDN_LINE_ROW_0));}
        catch (AssertionError e){
@@ -184,7 +184,7 @@ public class WLR3_NewProvide_NumberingPage {
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         utils.clickBtn(By.xpath(DELETE_BUTTON_FOR_ISDN_LINE_ROW_1));
         Thread.sleep(1000);
-        utils.returnElement(By.id(ADDNEW_DDIRANGE_BUTTON)).click();
+        utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
         utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_ISDN_LINE_ROW_3));
 
     }
@@ -193,11 +193,11 @@ public class WLR3_NewProvide_NumberingPage {
 
         try {
             Thread.sleep(1000);
-            utils.returnElement(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING)).click();
+            utils.clickBtnWithWait(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         } catch (Exception e) {
             wlr3_orderDetails_page.loadTabOnWLR3OrderSummaryPage();
             Thread.sleep(1000);
-            utils.returnElement(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING)).click();
+            utils.clickBtnWithWait(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         }
         utils.waitForElementVisible(By.xpath(ADD_REMOVE_SNDDI_OR_DDI_RANGE));
         try {
@@ -212,9 +212,9 @@ public class WLR3_NewProvide_NumberingPage {
     }
 
     public void directoryInfoForISDN2() throws InterruptedException {
-      //  utils.waitForElementVisible(By.id(CHECKBOX_TO_HIDE_DIRECTORY_INFO));
+       utils.waitForElementVisible(By.id(CHECKBOX_TO_HIDE_DIRECTORY_INFO));
         Thread.sleep(1000);
-        utils.returnElement(By.id(CHECKBOX_TO_HIDE_DIRECTORY_INFO)).click();
+        utils.clickBtn(By.id(CHECKBOX_TO_HIDE_DIRECTORY_INFO));
         utils.waitForElementToVanish(By.id(DIRECTORY_TYPE_DROPDOWN));
     }
 
@@ -227,16 +227,16 @@ public class WLR3_NewProvide_NumberingPage {
     }
 
     public void loadAdvancedLineNumbering() throws InterruptedException {
-       // utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
+        utils.waitForElementVisible(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
         utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.PAGE_LOADER_ELEMENT));
         Thread.sleep(1000);
-        utils.returnElement(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING)).click();
+        utils.clickBtn(By.xpath(ADVANCED_LINE_NUMBERING_OPTIONS_UNDER_LINE_NUMBERING));
     }
 
 
        public void ISDN2_selectFromList_fancyNumbers(String fancyNumber1, String fancyNumber2) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from reserved_numbers");
-       // utils.waitForElementVisible(By.xpath(NUMBER_OPTIONS_ALLOCATE_0));
-        utils.returnElement(By.xpath(NUMBER_OPTIONS_ALLOCATE_0)).click();
+       utils.waitForElementVisible(By.xpath(NUMBER_OPTIONS_ALLOCATE_0));
+        utils.clickBtn(By.xpath(NUMBER_OPTIONS_ALLOCATE_0));
         utils.waitForElementVisible(By.id(OPTION_RATING));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.id(OPTION_RATING));
@@ -245,16 +245,16 @@ public class WLR3_NewProvide_NumberingPage {
         utils.javaScriptExecutorClick(By.id(OPTION_NUMERIC));}
 
     public void ISDN2_selectFromList_selectingSameNumberTwice(String number) throws InterruptedException {
-        //utils.waitForElementVisible(By.xpath("//label[contains(text(),'"+number+"')]"));
-         utils.returnElement(By.xpath("//label[contains(text(),'"+number+"')]")).click();
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'"+number+"')]"));
+         utils.clickBtn(By.xpath("//label[contains(text(),'"+number+"')]"));
         utils.waitForElementVisible(By.xpath("//li[contains(@data-thenumber,'"+number+"')][@class='selectedNumber currentSelectedNumber']"));
         utils.clickBtn(By.id("add_row"));
-       // utils.waitForElementVisible(By.xpath(NUMBER_OPTIONS_ALLOCATE_1));
-        utils.returnElement(By.xpath(NUMBER_OPTIONS_ALLOCATE_1)).click();
-        //utils.waitForElementVisible(By.xpath("//li[@data-thenumber='"+number+"'][@class='selectedNumber']"));
-        utils.returnElement(By.xpath("//li[@data-thenumber='"+number+"'][@class='selectedNumber']")).click();
-        //utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
-        utils.returnElement(By.id(wlr3_orderDetails_page.SAVE)).click();
+        utils.waitForElementVisible(By.xpath(NUMBER_OPTIONS_ALLOCATE_1));
+        utils.clickBtn(By.xpath(NUMBER_OPTIONS_ALLOCATE_1));
+        utils.waitForElementVisible(By.xpath("//li[@data-thenumber='"+number+"'][@class='selectedNumber']"));
+        utils.clickBtn(By.xpath("//li[@data-thenumber='"+number+"'][@class='selectedNumber']"));
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         loadAdvancedLineNumbering();
         utils.waitForElementVisible(By.xpath(NUMBER_OPTIONS_ALLOCATE_1));
         utils.assertElementNotPresent(By.xpath("//input[@id='DDIInfo_1__new_dn'][@value='"+number+"']"));}
@@ -278,50 +278,50 @@ public class WLR3_NewProvide_NumberingPage {
 
         public void ISDN2system_selectFromList_switchingToSNDDIandAssigingASingleNumber(String number, String unAvailableNumber) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
             utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW1), "New SNDDI");
-        //utils.waitForElementVisible(By.xpath(NUMBER_OPTIONS_ALLOCATE_1));
-        utils.returnElement(By.xpath(NUMBER_OPTIONS_ALLOCATE_1)).click();
-        //utils.waitForElementVisible(By.xpath("//label[contains(text(),'"+number+"')]"));
+        utils.waitForElementVisible(By.xpath(NUMBER_OPTIONS_ALLOCATE_1));
+        utils.clickBtn(By.xpath(NUMBER_OPTIONS_ALLOCATE_1));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'"+number+"')]"));
         utils.assertElementNotPresent(By.xpath("//label[contains(text(),'"+unAvailableNumber+"')]"));
-        utils.returnElement(By.xpath("//label[contains(text(),'"+number+"')]")).click();
+        utils.clickBtn(By.xpath("//label[contains(text(),'"+number+"')]"));
         utils.waitForElementVisible(By.xpath(THIS_CHANGE_WILL_LOSE_YOUR_NUMBER_RESERVATION));
         Thread.sleep(1000);
-       // utils.waitForElementVisible(By.xpath(TEXT_LABELLED_NO));
-        utils.returnElement(By.xpath(TEXT_LABELLED_NO)).click();
-       // utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_ISDN_LINE_ROW_1));
-        utils.returnElement(By.xpath(DELETE_BUTTON_FOR_ISDN_LINE_ROW_1)).click();
+        utils.waitForElementVisible(By.xpath(TEXT_LABELLED_NO));
+        utils.clickBtn(By.xpath(TEXT_LABELLED_NO));
+        utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_ISDN_LINE_ROW_1));
+        utils.clickBtn(By.xpath(DELETE_BUTTON_FOR_ISDN_LINE_ROW_1));
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "delete from reserved_numbers");
         utils.selectByVisibleText(By.id(wlr3_lineNumberingPage.SNDDI_DDI_DROPDOWN_ROW0), "New DDI range");
         utils.sendText(By.id(DDI_RANGE_BOX_0), "10");
-       // utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
-        utils.returnElement(By.id(wlr3_orderDetails_page.SAVE)).click();}
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.SAVE));
+        utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));}
 
     public void ISDN2system_selectFromList_changingNumberCluster(String clickNumber, String availableNumber, String unAvailableNumber) throws InterruptedException {
         loadAdvancedLineNumbering();
-       // utils.waitForElementVisible(By.xpath(NUMBER_OPTIONS_ALLOCATE_0));
-        utils.returnElement(By.xpath(NUMBER_OPTIONS_ALLOCATE_0)).click();
+       utils.waitForElementVisible(By.xpath(NUMBER_OPTIONS_ALLOCATE_0));
+        utils.clickBtn(By.xpath(NUMBER_OPTIONS_ALLOCATE_0));
         utils.waitForElementVisible(By.xpath(RANGES_OF_10));
         utils.clickBtn(By.xpath("//label[contains(text(),'"+clickNumber+"')]"));
-      //utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
-      try{  utils.returnElement(By.id(ADDNEW_DDIRANGE_BUTTON)).click();}
+      utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
+      try{  utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));}
       catch (Exception e){
-       // utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.YES_BUTTON_ON_POPUP));
-        utils.returnElement(By.xpath(wlr3_orderDetails_page.YES_BUTTON_ON_POPUP));}
-      // utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
-        utils.returnElement(By.id(ADDNEW_DDIRANGE_BUTTON)).click();
-       // utils.waitForElementVisible(By.xpath(NUMBER_OPTIONS_ALLOCATE_1));
-        utils.returnElement(By.xpath(NUMBER_OPTIONS_ALLOCATE_1)).click();
+       utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.YES_BUTTON_ON_POPUP));
+        utils.clickBtn(By.xpath(wlr3_orderDetails_page.YES_BUTTON_ON_POPUP));}
+       utils.waitForElementVisible(By.id(ADDNEW_DDIRANGE_BUTTON));
+        utils.clickBtn(By.id(ADDNEW_DDIRANGE_BUTTON));
+       utils.waitForElementVisible(By.xpath(NUMBER_OPTIONS_ALLOCATE_1));
+        utils.clickBtn(By.xpath(NUMBER_OPTIONS_ALLOCATE_1));
         utils.waitForElementVisible(By.xpath("//label[contains(text(),'"+availableNumber+"')]"));
         utils.assertElementNotPresent(By.xpath("//label[contains(text(),'"+unAvailableNumber+"')]"));
     }
     public void ISDN2standard_selectingANewNumber(String number) throws InterruptedException {
-      //  utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_ISDN_LINE_ROW_1));
-        utils.returnElement(By.xpath(DELETE_BUTTON_FOR_ISDN_LINE_ROW_1)).click();
-        //utils.waitForElementVisible(By.xpath("//label[contains(text(),'"+number+"')]"));
-        utils.returnElement(By.xpath("//label[contains(text(),'"+number+"')]")).click();
+        utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_ISDN_LINE_ROW_1));
+        utils.clickBtn(By.xpath(DELETE_BUTTON_FOR_ISDN_LINE_ROW_1));
+        utils.waitForElementVisible(By.xpath("//label[contains(text(),'"+number+"')]"));
+        utils.clickBtn(By.xpath("//label[contains(text(),'"+number+"')]"));
         utils.waitForElementVisible(By.xpath(THIS_CHANGE_WILL_LOSE_YOUR_NUMBER_RESERVATION));
         Thread.sleep(1000);
-        //utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.YES_BUTTON_ON_POPUP));
-        utils.returnElement(By.xpath(wlr3_orderDetails_page.YES_BUTTON_ON_POPUP)).click();
+        utils.waitForElementVisible(By.xpath(wlr3_orderDetails_page.YES_BUTTON_ON_POPUP));
+        utils.clickBtn(By.xpath(wlr3_orderDetails_page.YES_BUTTON_ON_POPUP));
 
 
     }
