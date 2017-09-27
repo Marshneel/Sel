@@ -35,7 +35,7 @@ public class NA159_SDSK_Login_Incident_Caller_Details_stepDefs {
 
 
     @Then("^I should be able to check all the validations and populate caller details page$")
-    public void iShouldBeAbleToCheckAllTheValidationsAndPopulateCallerDetailsPage() {
+    public void iShouldBeAbleToCheckAllTheValidationsAndPopulateCallerDetailsPage() throws InterruptedException {
         webModel.getServiceDesk_callerDetailsTriagePage().clickNextWithOutPopulatingCallerDetailsTab();
         webModel.getServiceDesk_callerDetailsTriagePage().clickNextAfterPopulatingContact();
         webModel.getServiceDesk_callerDetailsTriagePage().clickPrevious();

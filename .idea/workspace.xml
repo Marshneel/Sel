@@ -4,7 +4,9 @@
     <list default="true" id="1f0017b8-c605-42a6-9fc7-979ac9a1d1f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/ServiceDesk_CallerDetails_TriagePage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/ServiceDesk_CallerDetails_TriagePage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/unionstreet/support/ElementUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/unionstreet/support/ElementUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA159_SDSK_Login_Incident_Caller_Details_stepDefs.java" afterPath="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA159_SDSK_Login_Incident_Caller_Details_stepDefs.java" />
     </list>
     <ignored path="NxTier automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +36,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="ElementUtils.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ElementUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/support/ElementUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="215" column="30" selection-start-line="215" selection-start-column="30" selection-end-line="215" selection-end-column="30" />
+            <state relative-caret-position="85">
+              <caret line="205" column="4" selection-start-line="205" selection-start-column="4" selection-end-line="205" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NA159_SDSK_Login_Incident_Caller_Details_stepDefs.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA159_SDSK_Login_Incident_Caller_Details_stepDefs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="451">
+              <caret line="40" column="71" selection-start-line="40" selection-start-column="71" selection-end-line="40" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="67" column="17" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -47,8 +69,18 @@
       <file leaf-file-name="ServiceDesk_CallerDetails_TriagePage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/ServiceDesk_CallerDetails_TriagePage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
-              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+            <state relative-caret-position="-1068">
+              <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceDesk_TicketDetailsPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="166" column="35" selection-start-line="166" selection-start-column="35" selection-end-line="166" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -94,41 +126,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SipTrunkPlus_AddResellerPage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/SipTrunkPlus/Pages/SipTrunkPlus_AddResellerPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1379">
-              <caret line="99" column="45" selection-start-line="99" selection-start-column="45" selection-end-line="99" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SipTrunkPlus_ProviderPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/SipTrunkPlus/Pages/SipTrunkPlus_ProviderPage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="595">
               <caret line="36" column="68" selection-start-line="36" selection-start-column="68" selection-end-line="36" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SipTrunkPlus_LoginPage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/SipTrunkPlus/Pages/SipTrunkPlus_LoginPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/support/WebModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1054">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -160,7 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/PayLoad/assignTariffsToPackage.json" />
         <option value="$PROJECT_DIR$/src/main/PayLoad/assignFreeMinutesToPackage.json" />
         <option value="$PROJECT_DIR$/src/main/PayLoad/newQuote.json" />
         <option value="$PROJECT_DIR$/src/test/Resources/config.properties" />
@@ -182,7 +183,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/NewBusinessCustomerPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/NxTierServicesPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/OrdersManagerPage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/SettingsPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/WLR3_AppointmentPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/WLR3_BatchTransferPage.java" />
@@ -210,7 +210,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/SipTrunkPlus/Pages/SipTrunkPlus_DashBoardPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/ServiceDeskPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/ServiceDesk_CallerDetails_TriagePage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/unionstreet/support/ElementUtils.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA159_SDSK_Login_Incident_Caller_Details_stepDefs.java" />
       </list>
     </option>
   </component>
@@ -1411,13 +1413,6 @@
       <option name="presentableId" value="Default" />
       <updated>1468923328272</updated>
     </task>
-    <task id="LOCAL-00350" summary="tags seperated into @smokePack, @WhiteLabel, @WLR3, @SDSK &#10;clean test command being used">
-      <created>1502040600916</created>
-      <option name="number" value="00350" />
-      <option name="presentableId" value="LOCAL-00350" />
-      <option name="project" value="LOCAL" />
-      <updated>1502040600916</updated>
-    </task>
     <task id="LOCAL-00351" summary="tags seperated into @smokePack, @WhiteLabel, @WLR3, @SDSK &#10;clean test command being used">
       <created>1502121884091</created>
       <option name="number" value="00351" />
@@ -1754,7 +1749,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506515467948</updated>
     </task>
-    <option name="localTasksCounter" value="399" />
+    <task id="LOCAL-00399" summary="contains NA187">
+      <created>1506517395694</created>
+      <option name="number" value="00399" />
+      <option name="presentableId" value="LOCAL-00399" />
+      <option name="project" value="LOCAL" />
+      <updated>1506517395694</updated>
+    </task>
+    <option name="localTasksCounter" value="400" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1776,8 +1778,8 @@
     <history-entry file="Feature__NA165_SDSK_Populate_OIDs - 2017.09.27 at 14h 02m 42s.xml">
       <configuration name="Feature: NA165_SDSK_Populate_OIDs" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
-    <history-entry file="Feature__SipTrunkPlus_SmokePack_(1) - 2017.09.26 at 13h 17m 39s.xml">
-      <configuration name="Feature: SipTrunkPlus_SmokePack (1)" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="Feature__NA165_SDSK_Populate_OIDs - 2017.09.27 at 15h 51m 56s.xml">
+      <configuration name="Feature: NA165_SDSK_Populate_OIDs" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
     <history-entry file="Feature__SipTrunkPlus_SmokePack_(1) - 2017.09.26 at 13h 19m 04s.xml">
       <configuration name="Feature: SipTrunkPlus_SmokePack (1)" configurationId="CucumberJavaRunConfigurationType" />
@@ -1810,7 +1812,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27741084" sideWeight="0.5157593" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34240687" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.06340819" sideWeight="0.493553" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32893" sideWeight="0.48424068" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32893" sideWeight="0.48424068" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2056239" sideWeight="0.49068767" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1932,22 +1934,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/Resources/com/unionstreet/NxTier/WLR3/NA153_WLR3_ISDN2_System__NewProvide_line_numbering__selectFromList.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/WLR3/NA153_WLR3_ISDN2_System_NewProvide__line_numbering__SelectFromList_stepDdefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/AddServicePage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
@@ -2059,14 +2045,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1114">
-          <caret line="406" column="45" selection-start-line="406" selection-start-column="45" selection-end-line="406" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -2327,18 +2305,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="67" column="17" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/ServiceDesk_TicketDetailsPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="166" column="35" selection-start-line="166" selection-start-column="35" selection-end-line="166" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/com/unionstreet/NxTier/pages/ServiceDesk_CallerDetails_TriagePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        <state relative-caret-position="-1068">
+          <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/unionstreet/support/ElementUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="215" column="30" selection-start-line="215" selection-start-column="30" selection-end-line="215" selection-end-column="30" />
+        <state relative-caret-position="85">
+          <caret line="205" column="4" selection-start-line="205" selection-start-column="4" selection-end-line="205" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/unionstreet/NxTier/stepDefs/SDSK/NA159_SDSK_Login_Incident_Caller_Details_stepDefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="40" column="71" selection-start-line="40" selection-start-column="71" selection-end-line="40" selection-end-column="71" />
           <folding />
         </state>
       </provider>

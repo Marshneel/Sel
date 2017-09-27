@@ -80,34 +80,34 @@ public class ServiceDesk_TicketDetailsPage {
     private final String TEXT_LABEL_EXPEDIATE_FAULT_BY_INCREASING_CARELEVEL = "//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]";
     private final String VALIDATION_MESSAGE_FOR_ISDN30_WITH_CARE_LEVEL_2 = "//i[contains(text(),'Openreach will not permit expedition of repairs on products currently at Service Maintenance Level 2.')]";
     private final String YES_BUTTON_TO_EXPEDITE_FAULT = "//label[contains(text(),'Would you like to expedite this fault (may incur additional charge)?')]/following-sibling::ul//a[contains(text(),'Yes')]";
-    private final String LOAD_BROWSE_INCIDENTS_BUTTON="//a[contains(text(),'Browse Incidents')]";
-    private final String SERVICE_DESK_DROPDOWN_TAB="//span[contains(text(),' Service Desk')]";
-    private final String TEXT_ON_BROWSE_INCIDENTS_PAGE="//small[contains(text(),'Browse Incidents')]";
-    private final String SEARCH_BOX_BROWSE_INCIDENTS="//input[@type='search']";
-    private final String IMPORT_MANAGER_DROP_DOWN="//span[text()=' Import Manager']";
-    private final String NO_INCIDENTS_TEXT_LABEL="//h5[contains(text(),'No Incidents Found')]";
-    private final String EXPAND_BUTTON_ON_INCIDENT="//table[@id='incidentsTable']//tbody/tr/td[1]";
-    private final String RECESSED_CATEGORY_COLUMN="//tr[@class='child']//label[text()='Category']";
-    private final String RECESSED_OWNER_COLUMN="//tr[@class='child']/td/ul/li[2]/span/label[contains(text(),'Owner')]";
-    private final String RECESSED_LOGGED_COLUMN="//tr[@class='child']/td/ul/li[3]/span/label[contains(text(),'Logged')]";
-    private final String EXPAND_BUTTON_ON_BROWSE_INCIDENTS_PAGE="//div[@id='AccountDetail']/div/div/a[2]";
-    private final String EXPANDED_LOGGED_COLUMN="//label[text()='Logged']";
-    private final String EXPANDED_OWNER_COLUMN="//label[text()='Owner']";
-    private final String EXPANDED_CATEGORY_COLUMN="//label[text()='Category']";
-    private final String INCIDENT_COLUMN="//label[text()='Incident']";
-    private final String SORTED_BY_ASC_ORDER="//th[@aria-sort='ascending']";
-    private final String SHOWS_1_TO_10_ROWS="//div[contains(text(),'Showing 1 to 10')]";
-    private final String SHOWS_51_TO_100_ROWS="//div[contains(text(),'Showing 51 to 100')]";
-    private final String FIRST_ITEM_ON_THE_FIRST_PAGE_WITH_ENTRIES_PER_PAGE_10="//td[@class='details-control sorting_1']//a[text()='1']";
-    private final String LAST_ITEM_ON_THE_FIRST_PAGE_WITH_ENTRIES_PER_PAGE_10="//td[@class='details-control sorting_1']//a[text()='10']";
-    private final String LAST_ITEM_ON_THE_FIRST_PAGE_WITH_ENTRIES_PER_PAGE_50="//td[@class='details-control sorting_1']//a[text()='50']";
-    private final String ENTRIES_PER_PAGE_DROP_DOWN="//select[@name='incidentsTable_length']";
-    private final String PAGE_FOOTER_SHOWING_1_TO_50_ROWS_PER_PAGE="//div[contains(text(),'Showing 1 to 50')]";
-    private final String PAGINATION_ACTIVE_PAGE_1="//li[@class='paginate_button active']//a[contains(text(),'1')]";
-    private final String PAGINATION_ACTIVE_PAGE_2="//li[@class='paginate_button active']//a[contains(text(),'2')]";
-    private final String NAVIGATE_TO_PAGE_2="//li[@class='paginate_button ']//a[contains(text(),'2')]";
-    private final String MINIFIED_SERVICE_DESK_PANEL="//div[@class='fade page-sidebar-fixed page-header-fixed page-container in page-sidebar-minified']";
-    private final String MAGNIFY_SERVICE_DESK_PANEL="//span[@class='sidebar-minify-btn']";
+    private final String LOAD_BROWSE_INCIDENTS_BUTTON = "//a[contains(text(),'Browse Incidents')]";
+    private final String SERVICE_DESK_DROPDOWN_TAB = "//span[contains(text(),' Service Desk')]";
+    private final String TEXT_ON_BROWSE_INCIDENTS_PAGE = "//small[contains(text(),'Browse Incidents')]";
+    private final String SEARCH_BOX_BROWSE_INCIDENTS = "//input[@type='search']";
+    private final String IMPORT_MANAGER_DROP_DOWN = "//span[text()=' Import Manager']";
+    private final String NO_INCIDENTS_TEXT_LABEL = "//h5[contains(text(),'No Incidents Found')]";
+    private final String EXPAND_BUTTON_ON_INCIDENT = "//table[@id='incidentsTable']//tbody/tr/td[1]";
+    private final String RECESSED_CATEGORY_COLUMN = "//tr[@class='child']//label[text()='Category']";
+    private final String RECESSED_OWNER_COLUMN = "//tr[@class='child']/td/ul/li[2]/span/label[contains(text(),'Owner')]";
+    private final String RECESSED_LOGGED_COLUMN = "//tr[@class='child']/td/ul/li[3]/span/label[contains(text(),'Logged')]";
+    private final String EXPAND_BUTTON_ON_BROWSE_INCIDENTS_PAGE = "//div[@id='AccountDetail']/div/div/a[2]";
+    private final String EXPANDED_LOGGED_COLUMN = "//label[text()='Logged']";
+    private final String EXPANDED_OWNER_COLUMN = "//label[text()='Owner']";
+    private final String EXPANDED_CATEGORY_COLUMN = "//label[text()='Category']";
+    private final String INCIDENT_COLUMN = "//label[text()='Incident']";
+    private final String SORTED_BY_ASC_ORDER = "//th[@aria-sort='ascending']";
+    private final String SHOWS_1_TO_10_ROWS = "//div[contains(text(),'Showing 1 to 10')]";
+    private final String SHOWS_51_TO_100_ROWS = "//div[contains(text(),'Showing 51 to 100')]";
+    private final String FIRST_ITEM_ON_THE_FIRST_PAGE_WITH_ENTRIES_PER_PAGE_10 = "//td[@class='details-control sorting_1']//a[text()='1']";
+    private final String LAST_ITEM_ON_THE_FIRST_PAGE_WITH_ENTRIES_PER_PAGE_10 = "//td[@class='details-control sorting_1']//a[text()='10']";
+    private final String LAST_ITEM_ON_THE_FIRST_PAGE_WITH_ENTRIES_PER_PAGE_50 = "//td[@class='details-control sorting_1']//a[text()='50']";
+    private final String ENTRIES_PER_PAGE_DROP_DOWN = "//select[@name='incidentsTable_length']";
+    private final String PAGE_FOOTER_SHOWING_1_TO_50_ROWS_PER_PAGE = "//div[contains(text(),'Showing 1 to 50')]";
+    private final String PAGINATION_ACTIVE_PAGE_1 = "//li[@class='paginate_button active']//a[contains(text(),'1')]";
+    private final String PAGINATION_ACTIVE_PAGE_2 = "//li[@class='paginate_button active']//a[contains(text(),'2')]";
+    private final String NAVIGATE_TO_PAGE_2 = "//li[@class='paginate_button ']//a[contains(text(),'2')]";
+    private final String MINIFIED_SERVICE_DESK_PANEL = "//div[@class='fade page-sidebar-fixed page-header-fixed page-container in page-sidebar-minified']";
+    private final String MAGNIFY_SERVICE_DESK_PANEL = "//span[@class='sidebar-minify-btn']";
 
 
     private Date today;
@@ -207,7 +207,7 @@ public class ServiceDesk_TicketDetailsPage {
 
     public void validateSampleCalls() throws InterruptedException {
         today = new Date();
-       currentDate = new SimpleDateFormat("dd/MM/YYYY").format(today);
+        currentDate = new SimpleDateFormat("dd/MM/YYYY").format(today);
         currentTime = new SimpleDateFormat("KK:mm").format(today);
         utils.waitForElementVisible(By.id(SAMPLE_CALLS_DATE_FIELD));
         Thread.sleep(1000);
@@ -227,7 +227,7 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_1ST_ROW));
         utils.clickBtn(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_1ST_ROW));
         utils.waitForElementVisible(By.xpath(DELETE_BUTTON_FOR_SAMPLECALLS_1ST_ROW));
-       utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
+        utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
     }
 
@@ -261,14 +261,17 @@ public class ServiceDesk_TicketDetailsPage {
         utils.scrollUp(By.xpath(TEMPERORY_CALL_ROUTING_LABEL));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(YES_BUTTON_ON_TEMPORARILY_SUSPEND_CPS));
-      utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
+        utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(TEMPORARILY_SUSPEND_CPS_SET_TO_YES));
     }
 
-    public void lineTest_Fail() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
+    public void lineTest_Fail() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001',DPType='Internal',MainFaultLocation='EX',FaultReportAdvised='Y',LineStability='Stable',NetworkStability='Stable',StabilityStatement=' Stable - no adverse line test history',TestOutcome='Fail',DiagnosisDescription='FAULT - Line Tested OK but No Dial Tone Detected',DiagnosisCode='T073' where serviceid='02063678369'");
         utils.waitForElementVisible(By.xpath(STD_LINE_TEST_BUTTON));
+        Thread.sleep(1000);
+        utils.scrollUp(By.xpath(STD_LINE_TEST_BUTTON));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath(STD_LINE_TEST_BUTTON));
         utils.waitForElementVisible(By.xpath(LINE_TEST_FAILED));
         utils.waitForElementVisible(By.xpath(FAILED_LINE_TEST_DESC));
@@ -277,7 +280,7 @@ public class ServiceDesk_TicketDetailsPage {
 
     public void lineTest_Pass() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001',DPType=NULL,MainFaultLocation=NULL,FaultReportAdvised=NULL,LineStability='stable',NetworkStability='stable',StabilityStatement='stable',TestOutcome=NULL,DiagnosisDescription=NULL,DiagnosisCode=NULL where serviceid='02063678369'");
-       utils.waitForElementVisible(By.xpath(REDO_LINE_TEXT_BUTTON));
+        utils.waitForElementVisible(By.xpath(REDO_LINE_TEXT_BUTTON));
         utils.clickBtn(By.xpath(REDO_LINE_TEXT_BUTTON));
         utils.waitForElementVisible(By.xpath(LINE_TEST_PASSED));
         utils.waitForElementVisible(By.xpath(PASSED_LINE_TEST_DESC));
@@ -294,7 +297,7 @@ public class ServiceDesk_TicketDetailsPage {
         utils.clickBtn(By.id("refreshOrderDetails"));
         utils.waitForElementVisible(By.xpath(OVERNIGHT_LINE_TEST_BUTTON));
         utils.clickBtn(By.xpath(OVERNIGHT_LINE_TEST_BUTTON));
-       utils.waitForElementVisible(By.xpath(REDO_LINE_TEXT_BUTTON));
+        utils.waitForElementVisible(By.xpath(REDO_LINE_TEXT_BUTTON));
         utils.clickBtn(By.xpath(REDO_LINE_TEXT_BUTTON));
         utils.waitForElementVisible(By.xpath(LINE_TEST_PASSED));
         utils.waitForElementVisible(By.xpath(PASSED_LINE_TEST_DESC));
@@ -356,7 +359,9 @@ public class ServiceDesk_TicketDetailsPage {
         Calendar calLevel2NonSaturday = Calendar.getInstance();
         calLevel2NonSaturday.setTime(Level2ExpectedSaturday);
         calLevel2NonSaturday.add(Calendar.DATE, 2);
-        if(IncreaseByMonth){calLevel2NonSaturday.add(Calendar.YEAR, 2);}
+        if (IncreaseByMonth) {
+            calLevel2NonSaturday.add(Calendar.YEAR, 2);
+        }
         Level2ExpectedSaturday = calLevel2NonSaturday.getTime();
         return Level2ExpectedSaturday;
     }
@@ -417,7 +422,7 @@ public class ServiceDesk_TicketDetailsPage {
                     Assert.assertEquals(LevelDate, currentDate);
                 } catch (AssertionError e) {
                     Assert.assertEquals(LevelTime, "13:00");
-                  String ExpectedDay = new SimpleDateFormat("d").format(NonSaturday());
+                    String ExpectedDay = new SimpleDateFormat("d").format(NonSaturday());
                     Assert.assertEquals(LevelDate, ExpectedDay);
                 }
             } catch (AssertionError e) {
@@ -443,8 +448,9 @@ public class ServiceDesk_TicketDetailsPage {
 
 
     }
-    public void clickBrowserIncidentsButton(){
-       try {
+
+    public void clickBrowserIncidentsButton() {
+        try {
             utils.waitForElementVisible(By.xpath(LOAD_BROWSE_INCIDENTS_BUTTON));
             utils.clickBtn(By.xpath(LOAD_BROWSE_INCIDENTS_BUTTON));
         } catch (ElementNotFoundException e) {
@@ -459,28 +465,31 @@ public class ServiceDesk_TicketDetailsPage {
 
     public void navigateToBrowseIncidents() {
         if (utils.isElementAbsent(By.xpath(MINIFIED_SERVICE_DESK_PANEL))) {
-    clickBrowserIncidentsButton();
+            clickBrowserIncidentsButton();
         }
         if (utils.isElementPresent(By.xpath(MINIFIED_SERVICE_DESK_PANEL)))
-       utils.clickBtn(By.xpath(MAGNIFY_SERVICE_DESK_PANEL));
+            utils.clickBtn(By.xpath(MAGNIFY_SERVICE_DESK_PANEL));
         clickBrowserIncidentsButton();
         {
-    }}
+        }
+    }
+
     public void browserIncidents(String by, String commonSearch, String finalSearch) throws InterruptedException {
-        commonMethods.searchBoxWithVariableElement(By.xpath(SEARCH_BOX_BROWSE_INCIDENTS),by);
+        commonMethods.searchBoxWithVariableElement(By.xpath(SEARCH_BOX_BROWSE_INCIDENTS), by);
         utils.waitForElementVisibleForWLR3Page(By.xpath("//span[contains(text(),'" + by + "')]"));
 
         if (utils.isElementPresent(By.xpath(IMPORT_MANAGER_DROP_DOWN))) {
-            commonMethods.searchBoxWithVariableElement(By.xpath(SEARCH_BOX_BROWSE_INCIDENTS),""+commonSearch+"");
+            commonMethods.searchBoxWithVariableElement(By.xpath(SEARCH_BOX_BROWSE_INCIDENTS), "" + commonSearch + "");
             utils.waitForElementVisibleForWLR3Page(By.xpath("//td[contains(text(),'Adam Co.')]"));
         }
-        if(utils.isElementAbsent(By.xpath(IMPORT_MANAGER_DROP_DOWN))){
-            commonMethods.searchBoxWithVariableElement(By.xpath(SEARCH_BOX_BROWSE_INCIDENTS),""+commonSearch+"");
+        if (utils.isElementAbsent(By.xpath(IMPORT_MANAGER_DROP_DOWN))) {
+            commonMethods.searchBoxWithVariableElement(By.xpath(SEARCH_BOX_BROWSE_INCIDENTS), "" + commonSearch + "");
             utils.waitForElementVisibleForWLR3Page(By.xpath(NO_INCIDENTS_TEXT_LABEL));
         }
-        commonMethods.searchBoxWithVariableElement(By.xpath(SEARCH_BOX_BROWSE_INCIDENTS),""+finalSearch+"");
-        utils.waitForElementVisibleForWLR3Page(By.xpath("//span[contains(text(),'"+finalSearch+"')]"));
+        commonMethods.searchBoxWithVariableElement(By.xpath(SEARCH_BOX_BROWSE_INCIDENTS), "" + finalSearch + "");
+        utils.waitForElementVisibleForWLR3Page(By.xpath("//span[contains(text(),'" + finalSearch + "')]"));
     }
+
     public void validateColumns_BrowserIncidents() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(EXPAND_BUTTON_ON_INCIDENT));
         utils.clickBtn(By.xpath(EXPAND_BUTTON_ON_INCIDENT));
@@ -494,6 +503,7 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.xpath(EXPANDED_CATEGORY_COLUMN));
 
     }
+
     public void validateShowEntries() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(INCIDENT_COLUMN));
         Thread.sleep(1000);
@@ -502,17 +512,17 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.xpath(SHOWS_1_TO_10_ROWS));
         utils.waitForElementVisible(By.xpath(FIRST_ITEM_ON_THE_FIRST_PAGE_WITH_ENTRIES_PER_PAGE_10));
         utils.waitForElementVisible(By.xpath(LAST_ITEM_ON_THE_FIRST_PAGE_WITH_ENTRIES_PER_PAGE_10));
-        utils.selectByVisibleText(By.xpath(ENTRIES_PER_PAGE_DROP_DOWN),"50");
+        utils.selectByVisibleText(By.xpath(ENTRIES_PER_PAGE_DROP_DOWN), "50");
         utils.waitForElementVisible(By.xpath(PAGE_FOOTER_SHOWING_1_TO_50_ROWS_PER_PAGE));
         utils.waitForElementVisible(By.xpath(LAST_ITEM_ON_THE_FIRST_PAGE_WITH_ENTRIES_PER_PAGE_50));
     }
 
-public void validatePagination(){
-    utils.waitForElementVisible(By.xpath(PAGINATION_ACTIVE_PAGE_1));
-    utils.clickBtn(By.xpath(NAVIGATE_TO_PAGE_2));
-    utils.waitForElementVisible(By.xpath(PAGINATION_ACTIVE_PAGE_2));
-    utils.waitForElementVisible(By.xpath(SHOWS_51_TO_100_ROWS));
-}
+    public void validatePagination() {
+        utils.waitForElementVisible(By.xpath(PAGINATION_ACTIVE_PAGE_1));
+        utils.clickBtn(By.xpath(NAVIGATE_TO_PAGE_2));
+        utils.waitForElementVisible(By.xpath(PAGINATION_ACTIVE_PAGE_2));
+        utils.waitForElementVisible(By.xpath(SHOWS_51_TO_100_ROWS));
+    }
 }
 
 
