@@ -202,7 +202,7 @@ public class ElementUtils {
     }
     //browser selector
     public WebDriver browser() {
-      String browser=System.getProperty("browser");
+     String browser=System.getProperty("browser");
         try {
 
             if (browser.equalsIgnoreCase("chrome")) {

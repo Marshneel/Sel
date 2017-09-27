@@ -51,10 +51,13 @@ public class ServiceDesk_CallerDetails_TriagePage {
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Please enter a contact telephone number')]"));
     }
 
-    public void clickNext() {
-       utils.waitForElementVisible(By.xpath(CLICK_NEXT));
+    public void clickNext()  {
+      try{ utils.waitForElementVisible(By.xpath(CLICK_NEXT));
+        Thread.sleep(1000);
+        utils.scrollUp(By.xpath(CLICK_NEXT));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath(CLICK_NEXT));
-    }
+    }catch (Exception e){}}
 
     public void clickPrevious() {
         utils.waitForElementVisible(By.xpath(CLICK_PREVIOUS));
