@@ -94,6 +94,8 @@ public class ServiceDeskPage {
         public void clickIncidentButton() throws InterruptedException {
         utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_CLICK));
             Thread.sleep(1000);
+            utils.scrollUp(By.xpath(LOGIN_AN_INCIDENT_CLICK));
+            Thread.sleep(1000);
         utils.clickBtn(By.xpath(LOGIN_AN_INCIDENT_CLICK));
     }
     public void assertAccessGrantedToLoginIncident(){

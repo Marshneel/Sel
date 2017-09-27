@@ -106,7 +106,7 @@ public void assertCreatedReseller(){
       deleteAccount();
        if(client){deleteAccount();}
         loadRoot();
-     //   utils.waitForElementVisible(By.id(SEARCH_BOX));
+        utils.waitForElementVisible(By.id(SEARCH_BOX));
         Thread.sleep(1000);
         utils.sendText(By.id(SEARCH_BOX),"New reseller"+sipTrunkPlus_addResellerPage.ranResellerName);
         utils.assertElementNotPresent(By.xpath("//div[contains(text(),'New reseller"+sipTrunkPlus_addResellerPage.ranResellerName+"')]"));
