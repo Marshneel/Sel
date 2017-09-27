@@ -156,6 +156,9 @@ public class ServiceDesk_TicketDetailsPage {
         if (multiLine) {
             utils.waitForElementVisible(By.xpath(CHOOSE_LINE_FOR_MULTILINE_LABEL));
             utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
+            Thread.sleep(1000);
+            utils.scrollUp(By.id(INCIDENT_SAVE_BUTTON));
+            Thread.sleep(1000);
             utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
             utils.waitForElementVisible(By.xpath(CHOOSE_LINE_FOR_MULTILINE_VALIDATION_MESSAGE));
             utils.waitForElementVisible(By.id(CHOOSE_LINE_FOR_MULTILINE_DROPDOWN));
@@ -272,7 +275,7 @@ public class ServiceDesk_TicketDetailsPage {
         Thread.sleep(1000);
         utils.scrollUp(By.xpath(STD_LINE_TEST_BUTTON));
         Thread.sleep(1000);
-        utils.clickBtn(By.xpath(STD_LINE_TEST_BUTTON));
+        utils.clickBtnWithWait(By.xpath(STD_LINE_TEST_BUTTON));
         utils.waitForElementVisible(By.xpath(LINE_TEST_FAILED));
         utils.waitForElementVisible(By.xpath(FAILED_LINE_TEST_DESC));
         utils.waitForElementVisible(By.xpath(REPORT_LINE_FAULT));

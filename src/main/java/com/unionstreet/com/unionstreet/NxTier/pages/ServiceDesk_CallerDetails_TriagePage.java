@@ -148,7 +148,7 @@ public class ServiceDesk_CallerDetails_TriagePage {
 
     }
 
-    public void non_OpenReachIncident_Triage() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
+    public void non_OpenReachIncident_Triage() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_types set cli_type='1', openreach_function='4' where RecordID='6'");
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_symptoms set Symptom='Test Symptom 3', tmp_IncidentType='Test Type Fault 3' where RecordID='35'");
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_categories set category='Test Category 3',tmp_IncidentType='Test Type Fault 3' where RecordID='13'");
@@ -157,6 +157,9 @@ public class ServiceDesk_CallerDetails_TriagePage {
         utils.waitForElementVisible(By.id(INCIDENT_TYPE));
         utils.selectByVisibleText(By.id(INCIDENT_TYPE), "Test Type Fault 3");
         utils.waitForElementVisible(By.id("wizardButton_SaveIncident"));
+        Thread.sleep(1000);
+        utils.scrollUp(By.id("wizardButton_SaveIncident"));
+        Thread.sleep(1000);
         utils.clickBtn(By.id("wizardButton_SaveIncident"));
         utils.waitForElementVisible(By.xpath(PLEASE_SELECT_AN_APPROPRIATE_SYMPTOM_FOR_THE_INCIDENT));
         utils.waitForElementVisible(By.xpath(PLEASE_SELECT_AN_INCIDENT_CATEGORY));
