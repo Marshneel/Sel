@@ -30,7 +30,7 @@ public class ServiceDesk_TicketDetailsPage {
     private final String CPS_PRESENT_RESULT = "//div[@id='installationDetailsContainer']/div/h4/following-sibling::div/div[4]/div/label/strong/label";
     private final String CALLING_AND_NETWORK_FEATURES = "//div[@id='installationDetailsContainer']/div/h4/following-sibling::div/div[5]/div/label/strong/label";
     private final String INTERMITTENT_FAULT_TEXT = "//label[text()[contains(.,'Intermittent Fault')]]";
-    private final String STD_LINE_TEST_BUTTON = "//a[text()[contains(.,'Perform a line test')]]";
+    private final String STD_LINE_TEST_BUTTON = "//h1[text()[contains(.,'Line Test')]]";
     private final String OVERNIGHT_LINE_TEST_BUTTON = "//a[text()[contains(.,'Overnight line test')]]";
     private final String FAULT_SQC_DROPDOWN = "StructuredQueryCodeId";
     private final String INCIDENT_SAVE_BUTTON = "wizardButton_SaveIncident";
@@ -268,7 +268,7 @@ public class ServiceDesk_TicketDetailsPage {
         Thread.sleep(1000);
         utils.scrollUp(By.xpath(STD_LINE_TEST_BUTTON));
         Thread.sleep(1000);
-        utils.clickBtnWithWait(By.xpath(STD_LINE_TEST_BUTTON));
+        utils.clickBtn(By.xpath("//a[text()[contains(.,'Perform a line test')]]"));
         utils.waitForElementVisible(By.xpath(LINE_TEST_FAILED));
         utils.waitForElementVisible(By.xpath(FAILED_LINE_TEST_DESC));
         utils.waitForElementVisible(By.xpath(REPORT_LINE_FAULT));

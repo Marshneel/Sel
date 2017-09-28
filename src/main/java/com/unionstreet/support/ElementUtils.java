@@ -68,10 +68,16 @@ public class ElementUtils {
 
     //method to find the element, clear the box if needed and send text
     public void sendText(By by, String txt) {
-        waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
-        driver.findElement(by).click();
-        driver.findElement(by).clear();
-        driver.findElement(by).sendKeys(txt);
+       try {
+           waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
+           driver.findElement(by).click();
+           driver.findElement(by).clear();
+           driver.findElement(by).sendKeys(txt);
+       }catch (Exception e){scrollToElement(by);
+           driver.findElement(by).click();
+           driver.findElement(by).clear();
+           driver.findElement(by).sendKeys(txt);
+       }
     }
 
    // method to click button with fluent wait
@@ -79,13 +85,21 @@ public class ElementUtils {
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).click();
     }
+    public void scrollToElement(By by)  {
+       try{ Thread.sleep(1000);
+        scrollUp(by);
+        Thread.sleep(1000);
+    }catch (Exception e){}}
 
     //method to click button
     public void clickBtn(By by) {
-        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
+      try{  waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).click();
         checkAlert();
-    }
+    }catch (Exception e){
+          scrollToElement(by);
+          driver.findElement(by).click();
+      }}
 
 
     //method to assert element text
@@ -203,7 +217,7 @@ public class ElementUtils {
     }
     //browser selector
     public WebDriver browser() {
-     String browser=System.getProperty("browser");
+    String browser=System.getProperty("browser");
         try {
 
             if (browser.equalsIgnoreCase("chrome")) {
