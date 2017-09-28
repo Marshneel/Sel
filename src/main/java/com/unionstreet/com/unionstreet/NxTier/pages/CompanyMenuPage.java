@@ -184,7 +184,7 @@ public class CompanyMenuPage {
     }
     public void searchAndNavigateToSiteMenuOfACustomer(String customer) throws InterruptedException {
       commonMethods.search(customer);
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+customer+"')]"));
+       // utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+customer+"')]"));
        utils.clickBtn(By.xpath("//a[contains(text(),'"+customer+"')]"));
         utils.switchToNewWindow();}
     public void assertCreatedCLIUnderSite( String CLI) throws InterruptedException {

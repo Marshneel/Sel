@@ -71,7 +71,7 @@ public class NewBusinessCustomerPage {
 
     public void addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes() {
         RanName = utils.randomName();
-        utils.clickBtn(By.id(COMPANYNAME_FIELD));
+       // utils.clickBtn(By.id(COMPANYNAME_FIELD));
         try {
             utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
         } catch (Exception e) {

@@ -142,7 +142,7 @@ public class EditOrderPage {
 
     public void submitOrder() throws InterruptedException {
         utils.selectByIndex(By.id(ORDER_OWNER_DROPDOWN_ON_EDIT_ORDER_PAGE), 1);
-        utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
+       // utils.waitForElementVisible(By.xpath(SAVE_AND_SUBMIT_QUOTE));
         utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_QUOTE));
         utils.switchToPreviousWindow(1);
 

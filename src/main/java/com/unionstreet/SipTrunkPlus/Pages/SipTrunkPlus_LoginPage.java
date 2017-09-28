@@ -19,7 +19,7 @@ public class SipTrunkPlus_LoginPage {
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Sign In')]"));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath("//span[contains(text(),'Sign In')]"));
-        utils.waitForElementVisible(By.xpath("//div[contains(text(),'SIP Trunk Plus by Unionsteet')]"));
+        utils.waitForElementVisible(By.xpath("//div[contains(text(),'Union Street Technologies Ltd')]"));
 
 
     }

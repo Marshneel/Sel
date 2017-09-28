@@ -395,7 +395,7 @@ public class WLR3_OrderDetails_Page {
 
     public void loadTabOnWLR3OrderSummaryPage() throws InterruptedException, SQLException {
         ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
-        utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
+       // utils.waitForElementVisible(By.xpath(ITEMID_ON_EDITORDER));
         utils.clickBtn(By.xpath(ITEMID_ON_EDITORDER));
     }
 

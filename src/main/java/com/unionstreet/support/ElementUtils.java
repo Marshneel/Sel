@@ -68,7 +68,7 @@ public class ElementUtils {
 
     //method to find the element, clear the box if needed and send text
     public void sendText(By by, String txt) {
-           waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
+           waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
            driver.findElement(by).click();
            driver.findElement(by).clear();
            driver.findElement(by).sendKeys(txt);
