@@ -189,7 +189,7 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.xpath(SAMPLE_CALLS_LABEL));
         utils.waitForElementVisible(By.id(FAULT_SQC_DROPDOWN));
         utils.selectByVisibleText(By.id(FAULT_SQC_DROPDOWN), "Noisy");
-        utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
+       // utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(DATE_IS_REQUIRED_FOR_SAMPLE_CALLS));
         utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMPTY_SAMPLE_CALL_FIELD));
