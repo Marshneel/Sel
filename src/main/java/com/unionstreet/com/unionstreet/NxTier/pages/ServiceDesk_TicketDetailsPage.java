@@ -30,7 +30,7 @@ public class ServiceDesk_TicketDetailsPage {
     private final String CPS_PRESENT_RESULT = "//div[@id='installationDetailsContainer']/div/h4/following-sibling::div/div[4]/div/label/strong/label";
     private final String CALLING_AND_NETWORK_FEATURES = "//div[@id='installationDetailsContainer']/div/h4/following-sibling::div/div[5]/div/label/strong/label";
     private final String INTERMITTENT_FAULT_TEXT = "//label[text()[contains(.,'Intermittent Fault')]]";
-    private final String STD_LINE_TEST_BUTTON = "//h1[text()[contains(.,'Line Test')]]";
+    private final String STD_LINE_TEST_BUTTON = "//a[text()[contains(.,'Perform a line test')]]";
     private final String OVERNIGHT_LINE_TEST_BUTTON = "//a[text()[contains(.,'Overnight line test')]]";
     private final String FAULT_SQC_DROPDOWN = "StructuredQueryCodeId";
     private final String INCIDENT_SAVE_BUTTON = "wizardButton_SaveIncident";
@@ -168,7 +168,10 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.xpath(STD_LINE_TEST_BUTTON));
         utils.waitForElementVisible(By.xpath(OVERNIGHT_LINE_TEST_BUTTON));
         utils.selectByVisibleText(By.id(FAULT_SQC_DROPDOWN), "Exchange Service Facility");
-        utils.performClickActionTillElementIsDetected(By.xpath(FEATURE_MUST_BE_SELECTED_VALIDATION_MESSAGE), By.id(INCIDENT_SAVE_BUTTON));
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.id(INCIDENT_SAVE_BUTTON));
+        utils.waitForElementVisible(By.xpath(FEATURE_MUST_BE_SELECTED_VALIDATION_MESSAGE));
+       // utils.performClickActionTillElementIsDetected(By.xpath(FEATURE_MUST_BE_SELECTED_VALIDATION_MESSAGE), By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.id(NETWORK_FEATURES_DROPDOWN));
         utils.selectByVisibleText(By.id(NETWORK_FEATURES_DROPDOWN), "Smart Divert");
         utils.waitForElementToBeClickable(By.xpath(TEXT_ON_LINE_AND_INSTALLATION_DETAILS_PAGE));
@@ -264,10 +267,10 @@ public class ServiceDesk_TicketDetailsPage {
 
     public void lineTest_Fail() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001',DPType='Internal',MainFaultLocation='EX',FaultReportAdvised='Y',LineStability='Stable',NetworkStability='Stable',StabilityStatement=' Stable - no adverse line test history',TestOutcome='Fail',DiagnosisDescription='FAULT - Line Tested OK but No Dial Tone Detected',DiagnosisCode='T073' where serviceid='02063678369'");
-        utils.waitForElementVisible(By.xpath(STD_LINE_TEST_BUTTON));
-        Thread.sleep(1000);
-        utils.scrollUp(By.xpath(STD_LINE_TEST_BUTTON));
-        Thread.sleep(1000);
+//        utils.waitForElementVisible(By.xpath(STD_LINE_TEST_BUTTON));
+//        Thread.sleep(1000);
+//        utils.scrollUp(By.xpath(STD_LINE_TEST_BUTTON));
+//        Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[text()[contains(.,'Perform a line test')]]"));
         utils.waitForElementVisible(By.xpath(LINE_TEST_FAILED));
         utils.waitForElementVisible(By.xpath(FAILED_LINE_TEST_DESC));

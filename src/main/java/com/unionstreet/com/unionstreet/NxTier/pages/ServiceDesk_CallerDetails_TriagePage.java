@@ -60,10 +60,6 @@ public class ServiceDesk_CallerDetails_TriagePage {
     }catch (Exception e){}}
 
     public void clickPrevious() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(CLICK_PREVIOUS));
-        Thread.sleep(1000);
-        utils.scrollUp(By.xpath(CLICK_NEXT));
-        Thread.sleep(1000);
         utils.clickBtn(By.xpath(CLICK_PREVIOUS));
     }
 

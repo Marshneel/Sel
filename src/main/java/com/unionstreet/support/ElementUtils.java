@@ -68,16 +68,10 @@ public class ElementUtils {
 
     //method to find the element, clear the box if needed and send text
     public void sendText(By by, String txt) {
-       try {
            waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
            driver.findElement(by).click();
            driver.findElement(by).clear();
            driver.findElement(by).sendKeys(txt);
-       }catch (Exception e){scrollToElement(by);
-           driver.findElement(by).click();
-           driver.findElement(by).clear();
-           driver.findElement(by).sendKeys(txt);
-       }
     }
 
    // method to click button with fluent wait
@@ -93,13 +87,9 @@ public class ElementUtils {
 
     //method to click button
     public void clickBtn(By by) {
-      try{  waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
-        driver.findElement(by).click();
-        checkAlert();
-    }catch (Exception e){
-          scrollToElement(by);
+          waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
           driver.findElement(by).click();
-      }}
+      }
 
 
     //method to assert element text
@@ -509,25 +499,25 @@ public class ElementUtils {
         System.out.println(text);
     }
 
-    public void zoomOut() throws AWTException {
-        for (int i = 0; i < 2; i++) {
+    public void zoomOut() {
+        try{for (int i = 0; i < 2; i++) {
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_CONTROL);
             robot.keyPress(KeyEvent.VK_MINUS);
             robot.keyRelease(KeyEvent.VK_CONTROL);
             robot.keyRelease(KeyEvent.VK_MINUS);
 
-    }}
+    }}catch (Exception e){}}
 
-    public void setStdZoom() throws AWTException {
-        for (int i = 0; i < 2; i++) {
+    public void setStdZoom(){
+       try{ for (int i = 0; i < 2; i++) {
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_CONTROL);
             robot.keyPress(KeyEvent.VK_EQUALS);
             robot.keyRelease(KeyEvent.VK_CONTROL);
             robot.keyRelease(KeyEvent.VK_EQUALS);
         }
-    }
+    }catch (Exception e){}}
 
     public void multipleCLick(By clickEle, By waitEle, int num) throws InterruptedException {
         for (int i = 0; i < num; i++) {
