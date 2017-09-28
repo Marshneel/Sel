@@ -40,7 +40,7 @@ public class ServiceDesk_TicketDetailsPage {
     private final String PIN_LABEL = "//label[text()[contains(.,'Pin')]]";
     private final String PIN_TEXT_FIELD = "Pin";
     private final String PIN_VALIDATION_MESSAGE = "//span[text()[contains(.,'Please enter a numeric pin of four digits')]]";
-    private final String SAMPLE_CALLS_LABEL = "//h5[text()[contains(.,'Sample calls')]]";
+    private final String SAMPLE_CALLS_LABEL = "//h5[text()[contains(.,'Sample Calls')]]";
     private final String SAMPLE_CALLS_DATE_FIELD = "SampleCalls_0__SampleCallDate";
     private final String SAMPLE_CALLS_TIME_FIELD = "SampleCalls_0__SampleCallTime";
     private final String SAMPLE_CALLS_CLI_FIELD = "SampleCalls_0__SampleCallCLI";
@@ -87,14 +87,14 @@ public class ServiceDesk_TicketDetailsPage {
     private final String IMPORT_MANAGER_DROP_DOWN = "//span[text()=' Import Manager']";
     private final String NO_INCIDENTS_TEXT_LABEL = "//h5[contains(text(),'No Incidents Found')]";
     private final String EXPAND_BUTTON_ON_INCIDENT = "//table[@id='incidentsTable']//tbody/tr/td[1]";
-    private final String RECESSED_CATEGORY_COLUMN = "//tr[@class='child']//label[text()='Category']";
-    private final String RECESSED_OWNER_COLUMN = "//tr[@class='child']/td/ul/li[2]/span/label[contains(text(),'Owner')]";
-    private final String RECESSED_LOGGED_COLUMN = "//tr[@class='child']/td/ul/li[3]/span/label[contains(text(),'Logged')]";
+    private final String RECESSED_CATEGORY_COLUMN = "//span[text()='Category']";
+    private final String RECESSED_OWNER_COLUMN = "//span[text()='Owner']";
+    private final String RECESSED_LOGGED_COLUMN = "//span[text()='Logged']";
     private final String EXPAND_BUTTON_ON_BROWSE_INCIDENTS_PAGE = "//div[@id='AccountDetail']/div/div/a[2]";
-    private final String EXPANDED_LOGGED_COLUMN = "//label[text()='Logged']";
-    private final String EXPANDED_OWNER_COLUMN = "//label[text()='Owner']";
-    private final String EXPANDED_CATEGORY_COLUMN = "//label[text()='Category']";
-    private final String INCIDENT_COLUMN = "//label[text()='Incident']";
+    private final String EXPANDED_LOGGED_COLUMN = "//th[text()='Logged']";
+    private final String EXPANDED_OWNER_COLUMN = "//th[text()='Owner']";
+    private final String EXPANDED_CATEGORY_COLUMN = "//th[text()='Category']";
+    private final String INCIDENT_COLUMN = "//th[text()='Incident']";
     private final String SORTED_BY_ASC_ORDER = "//th[@aria-sort='ascending']";
     private final String SHOWS_1_TO_10_ROWS = "//div[contains(text(),'Showing 1 to 10')]";
     private final String SHOWS_51_TO_100_ROWS = "//div[contains(text(),'Showing 51 to 100')]";
@@ -133,6 +133,7 @@ public class ServiceDesk_TicketDetailsPage {
         utils.clickBtn(By.xpath(SELECT_CLI_DROPDOWN));
         utils.waitForElementToVanish(By.xpath(OPEN_REACH_SPINNER));
         utils.waitForElementVisible(By.xpath(SEARCH_BOX_FOR_CLI));
+        Thread.sleep(1000);
         utils.sendText(By.xpath(SEARCH_BOX_FOR_CLI), "" + cli + "");
         utils.waitForElementVisible(By.xpath("//td[text()[contains(.,'" + cli + "')]]/following-sibling::td[text()[contains(.,'LU1 1DQ')]]/following-sibling::td[3]/button[contains(text(),'Select')]"));
         Thread.sleep(1000);
@@ -182,27 +183,24 @@ public class ServiceDesk_TicketDetailsPage {
     }
 
     public void faultDetails_assertionForISDN30E() throws InterruptedException {
-        try {
-            utils.waitForElementVisible(By.xpath(SAMPLE_CALLS_LABEL));
-        } catch (Exception e) {
-            System.out.println("Sample Calls Text is missing");
-        }
+        utils.waitForElementVisible(By.xpath(SAMPLE_CALLS_LABEL));
         utils.waitForElementVisible(By.id(FAULT_SQC_DROPDOWN));
         utils.selectByVisibleText(By.id(FAULT_SQC_DROPDOWN), "Noisy");
         utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(DATE_IS_REQUIRED_FOR_SAMPLE_CALLS));
         utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMPTY_SAMPLE_CALL_FIELD));
-        try {
             utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMPTY_DOWNTIME));
-        } catch (Exception e) {
-            System.out.println("validation message for unpopulated downtime is missing");
-        }
         utils.waitForElementVisible(By.id(DOWNTIME_TEXT_BOX));
+        Thread.sleep(1000);
+        utils.scrollUp(By.xpath("//label[contains(text(),'Fault Notes')]"));
+        Thread.sleep(1000);
         utils.sendText(By.id(DOWNTIME_TEXT_BOX), "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
         utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_UNACCEPTABLY_LENGTHY_DOWNTIME));
+        Thread.sleep(1000);
+        utils.scrollUp(By.xpath("//label[contains(text(),'Fault Notes')]"));
         Thread.sleep(1000);
         utils.sendText(By.id(DOWNTIME_TEXT_BOX), "mmmmmmmmmmm");
     }
@@ -256,16 +254,11 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.xpath(TCR_CALL_DIVERT_CLI_CAN_ONLY_HAVE_SPACES_AND_NUMBERS));
         utils.sendText(By.id(TRC_CLI_FIELD), "02012345678");
         utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
-        utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.assertElementNotPresent(By.xpath(TCR_CALL_DIVERT_CLI_CAN_ONLY_HAVE_SPACES_AND_NUMBERS));
         utils.waitForElementVisible(By.xpath(TEMPORARILY_SUSPEND_CPS_DEFAULTED_TO_NO));
         utils.assertElementNotPresent(By.xpath(TEMPORARILY_SUSPEND_CPS_SET_TO_YES));
-        Thread.sleep(1000);
-        utils.scrollUp(By.xpath(TEMPERORY_CALL_ROUTING_LABEL));
-        Thread.sleep(1000);
         utils.clickBtn(By.xpath(YES_BUTTON_ON_TEMPORARILY_SUSPEND_CPS));
         utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
-        utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(TEMPORARILY_SUSPEND_CPS_SET_TO_YES));
     }
 

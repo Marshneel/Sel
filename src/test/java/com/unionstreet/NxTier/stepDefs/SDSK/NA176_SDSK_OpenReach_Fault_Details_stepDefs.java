@@ -62,7 +62,7 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
         webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("01202300945","WLR3 ISDN 30 ETSI","8","4",true);
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("01202300945","WLR3 ISDN 30 ETSI","8","2",true);
 
     }
 

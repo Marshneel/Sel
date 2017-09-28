@@ -180,7 +180,7 @@ public class ServiceDesk_CallerDetails_TriagePage {
 
     }
 
-    public void choosePriorityOverCategory() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
+    public void choosePriorityOverCategory() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.waitForElementVisible(By.id(INCIDENT_TYPE));
         utils.selectByVisibleText(By.id(INCIDENT_TYPE), "Test Type Fault 3");
         utils.waitForElementVisible(By.id(INCIDENT_SYMPTOM));
@@ -188,6 +188,9 @@ public class ServiceDesk_CallerDetails_TriagePage {
         populateSummaryAndOwnerDropDown();
         utils.waitForElementVisible(By.xpath(PRIORITY_LABEL));
         utils.waitForElementVisible(By.id("wizardButton_SaveIncident"));
+        Thread.sleep(1000);
+        utils.scrollUp(By.id("wizardButton_SaveIncident"));
+        Thread.sleep(1000);
         utils.clickBtn(By.id("wizardButton_SaveIncident"));
         utils.waitForElementVisible(By.xpath(PLEASE_ENTER_A_PRIORITY_LEVEL));
         utils.selectByIndex(By.id(PRIORITY_DROPDOWN), 1);

@@ -1,5 +1,6 @@
 @SDSK
 Feature: NA176 SDSK Populating OpenReach Fault Details
+
   Scenario: validate fault details page with analogue line type
     Given I am logged in as AdamR
     When I navigate to fault details page and choose single analogue line

@@ -22,7 +22,7 @@ import java.util.*;
 import java.util.List;
 
 import static com.unionstreet.support.BaseClass.driver;
-import static com.unionstreet.support.BaseClass.utils;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.*;
 
@@ -41,7 +41,7 @@ public class ElementUtils {
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(driver)
                 .withTimeout(20, SECONDS)
-                .pollingEvery(3, SECONDS)
+                .pollingEvery(3, MILLISECONDS)
                 .ignoring(WebDriverException.class);
         return wait;}
 
@@ -49,7 +49,7 @@ public class ElementUtils {
     public Wait waitForSomeTimeForWLR3() {
         Wait wait = new FluentWait(driver)
                 .withTimeout(50, SECONDS)
-                .pollingEvery(3, SECONDS)
+                .pollingEvery(3, MILLISECONDS)
                 .ignoring(WebDriverException.class);
         return wait;
     }
@@ -612,9 +612,6 @@ public class ElementUtils {
         allValues.add("" + valueTwo + "");
     }
     public void performClickActionTillElementIsDetected(By elementWanted, By clickElement) throws InterruptedException {
-            Thread.sleep(1000);
-        utils.scrollUp(elementWanted);
-        Thread.sleep(1000);
         driver.findElement(clickElement).click();
         if (driver.findElement(elementWanted).isDisplayed()) {
         } else {
