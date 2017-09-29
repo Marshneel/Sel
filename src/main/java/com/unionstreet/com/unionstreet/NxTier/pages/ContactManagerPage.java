@@ -28,7 +28,7 @@ public class ContactManagerPage {
     }
 
     public void clickCompanySite() {
-        utils.waitForElementVisible(By.id(COMPANYSITES));
+       // utils.waitForElementVisible(By.id(COMPANYSITES));
         utils.clickBtn(By.id(COMPANYSITES));
     }
 

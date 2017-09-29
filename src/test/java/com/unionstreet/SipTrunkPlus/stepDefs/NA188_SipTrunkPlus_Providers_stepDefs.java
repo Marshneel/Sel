@@ -1,7 +1,6 @@
 package com.unionstreet.SipTrunkPlus.stepDefs;
 
 import com.unionstreet.support.WebModel;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -38,17 +37,14 @@ public class NA188_SipTrunkPlus_Providers_stepDefs {
         webModel.getSipTrunkPlus_dashBoardPage().loadRoot();
         webModel.getSipTrunkPlus_dashBoardPage().loadSettings();
         webModel.getSipTrunkPlus_providerPage().clickProvidersOnSettingDropDown();
-        webModel.getSipTrunkPlus_dashBoardPage().deleteProvider(webModel.getSipTrunkPlus_providerPage().providerName);
+        webModel.getSipTrunkPlus_dashBoardPage().deletingProviderFromResellerConfiguration(webModel.getSipTrunkPlus_providerPage().providerName);
         webModel.getSipTrunkPlus_dashBoardPage().popMessageDenyingProviderDeletion();
         webModel.getSipTrunkPlus_dashBoardPage().searchAndLoadReseller("New reseller"+webModel.getSipTrunkPlus_addResellerPage().ranResellerName);
         webModel.getSipTrunkPlus_dashBoardPage().loadOptions();
         webModel.getSipTrunkPlus_dashBoardPage().loadProvidersFromResellerDashBoard();
-        webModel.getSipTrunkPlus_dashBoardPage().deleteProvider(webModel.getSipTrunkPlus_providerPage().providerName);
+        webModel.getSipTrunkPlus_dashBoardPage().deletingProviderFromResellerConfiguration(webModel.getSipTrunkPlus_providerPage().providerName);
         webModel.getSipTrunkPlus_dashBoardPage().successfulDeletion();
         webModel.getSipTrunkPlus_dashBoardPage().loadRoot();
-        webModel.getSipTrunkPlus_dashBoardPage().loadSettings();
-        webModel.getSipTrunkPlus_providerPage().clickProvidersOnSettingDropDown();
-        webModel.getSipTrunkPlus_dashBoardPage().deleteProvider(webModel.getSipTrunkPlus_providerPage().providerName);
         webModel.getSipTrunkPlus_dashBoardPage().clickOnReseller("New reseller"+webModel.getSipTrunkPlus_addResellerPage().ranResellerName);
         webModel.getSipTrunkPlus_dashBoardPage().deleteAccount();
     }
@@ -80,7 +76,7 @@ public class NA188_SipTrunkPlus_Providers_stepDefs {
     public void whenIDeleteTheProviderFromTheSpecificResellerThenIShouldBeAbleToUnAssignTheReseller() throws InterruptedException {
         webModel.getSipTrunkPlus_dashBoardPage().loadOptions();
         webModel.getSipTrunkPlus_dashBoardPage().loadProvidersFromResellerDashBoard();
-        webModel.getSipTrunkPlus_dashBoardPage().deleteProvider("ProviderForAutoTest");
+        webModel.getSipTrunkPlus_dashBoardPage().deletingProviderFromResellerConfiguration("ProviderForAutoTest");
         webModel.getSipTrunkPlus_dashBoardPage().successfulDeletion();
         webModel.getSipTrunkPlus_dashBoardPage().loadOptions();
         webModel.getSipTrunkPlus_dashBoardPage().loadAdditional();
@@ -101,9 +97,27 @@ public class NA188_SipTrunkPlus_Providers_stepDefs {
 
     @Then("^a validation message should be shown and the reseller should not be deleted$")
     public void aValidationMessageShouldBeShownAndTheResellerShouldNotBeDeleted()  {
-        webModel.getSipTrunkPlus_dashBoardPage().assertCreatedReseller();
+        webModel.getSipTrunkPlus_dashBoardPage().assertResellerCannotBeDeleted("ResellerForAutoTest");
 
     }
 
 
+    @When("^I navigate to the provider under reseller$")
+    public void iNavigateToTheProviderUnderReseller() throws InterruptedException {
+        webModel.getSipTrunkPlus_dashBoardPage().clickSlider();
+        webModel.getSipTrunkPlus_dashBoardPage().searchAndLoadReseller("ResellerForAutoTest");
+        webModel.getSipTrunkPlus_dashBoardPage().loadOptions();
+        webModel.getSipTrunkPlus_dashBoardPage().loadProvidersFromResellerDashBoard();
+        webModel.getSipTrunkPlus_dashBoardPage().loadEditProviderScreen("ProviderForAutoTest");
+        webModel.getSipTrunkPlus_dashBoardPage(). populateResellerSideProviderCredentials("Edited123");
+        webModel.getSipTrunkPlus_dashBoardPage().loadEditProviderScreen("ProviderForAutoTest");
+
+
+    }
+
+    @Then("^I should be able to successfully edit the reseller side credentials$")
+    public void iShouldBeAbleToSuccessfullyEditTheResellerSideCredentials() throws InterruptedException {
+        webModel.getSipTrunkPlus_dashBoardPage().assertChangesToEditProviderPage("Edited123");
+
+    }
 }

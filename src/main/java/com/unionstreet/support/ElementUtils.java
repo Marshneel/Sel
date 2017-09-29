@@ -589,7 +589,7 @@ public class ElementUtils {
     }
 
     public void loadSipTrunkURL() {
-        driver.get("https://159.8.174.50/portal/#!login");
+        driver.get("https://159.8.174.54/portal/");
     }
 
     public void assertUnchecked(By by) {
