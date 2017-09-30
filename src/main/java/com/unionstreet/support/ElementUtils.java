@@ -45,50 +45,34 @@ public class ElementUtils {
                 .ignoring(WebDriverException.class);
         return wait;}
 
-
-    public Wait waitForSomeTimeForWLR3() {
-        Wait wait = new FluentWait(driver)
-                .withTimeout(50, SECONDS)
-                .pollingEvery(3, MILLISECONDS)
-                .ignoring(WebDriverException.class);
-        return wait;
-    }
-
-    public Wait waitForSomeTimeForOpenReach() {
-        Wait wait = new FluentWait(driver)
-                .withTimeout(3000, SECONDS)
-                .pollingEvery(3, SECONDS)
-                .ignoring(WebDriverException.class);
-        return wait;
-    }
-
     public void findFieldAndSendKeys(By by, String filePath) {
         driver.findElement(by).sendKeys(filePath);
     }
 
     //method to find the element, clear the box if needed and send text
     public void sendText(By by, String txt) {
-           waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
-           driver.findElement(by).click();
+        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
            driver.findElement(by).clear();
            driver.findElement(by).sendKeys(txt);
     }
 
    // method to click button with fluent wait
     public void clickBtnWithWait(By by) {
-        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
-        driver.findElement(by).click();
+        WebElement element = driver.findElement(by);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
-    public void scrollToElement(By by)  {
-       try{ Thread.sleep(1000);
-        scrollUp(by);
-        Thread.sleep(1000);
-    }catch (Exception e){}}
 
     //method to click button
     public void clickBtn(By by) {
-          waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
-          driver.findElement(by).click();
+        WebElement element = driver.findElement(by);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.elementToBeClickable(by)).click();
+
       }
 
 
@@ -106,19 +90,23 @@ public class ElementUtils {
 
     //explicit wait element to be present
     public void waitForElementVisible(By by) {
-        waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
     public void waitForElementToBeClickable(By by) {
-        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
+        WebDriverWait wait = new WebDriverWait(driver,15);
+        wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
     public void waitForElementVisibleForWLR3Page(By by) {
-        waitForSomeTimeForWLR3().until(ExpectedConditions.presenceOfElementLocated(by));
+        WebDriverWait wait = new WebDriverWait(driver,30);
+        wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
     public void waitForElementVisibleForOpenReach(By by) {
-        waitForSomeTimeForOpenReach().until(ExpectedConditions.presenceOfElementLocated(by));
+        WebDriverWait wait = new WebDriverWait(driver,50);
+       wait.until(ExpectedConditions.presenceOfElementLocated(by));
 
     }
 
@@ -177,26 +165,30 @@ public class ElementUtils {
 
     //simulate keyboard enter press
     public void keyBoardEnter(By by) {
-        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
+        WebDriverWait wait = new WebDriverWait(driver,15);
+        wait.until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).sendKeys(Keys.ENTER);
     }
 
     //select data by visible text
     public void selectByVisibleText(By by, String text) {
-        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
-        waitForSomeTime().until(ExpectedConditions.textToBePresentInElementLocated(by, text));
+        WebDriverWait wait = new WebDriverWait(driver,15);
+        wait.until(ExpectedConditions.elementToBeClickable(by));
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(by, text));
         Select select = new Select(driver.findElement(by));
         select.selectByVisibleText(text);
     }
 
     public void selectByIndex(By by, int number) {
-        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
+        WebDriverWait wait = new WebDriverWait(driver,15);
+        wait.until(ExpectedConditions.elementToBeClickable(by));
         Select select = new Select(driver.findElement(by));
         select.selectByIndex(number);
     }
 
     //select date from drop down
     public void selectDay(By by, String number) {
+        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).sendKeys(number);
         driver.findElement(by).click();
     }
@@ -444,7 +436,8 @@ public class ElementUtils {
     }
 
     public void waitForElementToVanish(By by) {
-        waitForSomeTime().until(ExpectedConditions.invisibilityOfElementLocated(by));
+        WebDriverWait wait = new WebDriverWait(driver,15);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
 
     public void restoreDB() {
@@ -524,7 +517,8 @@ public class ElementUtils {
 
             try {
                 waitForElementVisible(waitEle);
-                waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(clickEle));
+                WebDriverWait wait = new WebDriverWait(driver,15);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(clickEle));
                 Thread.sleep(1000);
                 javaScriptExecutorClick(clickEle);
             } catch (Exception e) {
@@ -603,7 +597,8 @@ public class ElementUtils {
     }
 
     public void waitTillBoxChecked(By by) {
-        waitForSomeTime().until(ExpectedConditions.elementToBeSelected(by));
+        WebDriverWait wait = new WebDriverWait(driver,15);
+        wait.until(ExpectedConditions.elementToBeSelected(by));
     }
 
     public void navigateBack() {

@@ -48,7 +48,7 @@ public class WLR3_OrderDetails_Page {
     public final String INSTALLATION_ADDRESS_SUMMARY_PANEL = "installationAddressSummaryPanel";
     public final String NETWORK_FEATURES_SUMMARY_PANEL = "networkFeaturesSummaryPanel";
     public final String DIRECTORY_INFO_SUMMARY_PANEL = "directoryInformationSummaryPanel";
-    private final String EDIT_EMERGENCY_INFO_TAB = "div_EmergencyInfo";
+    private final String EDIT_EMERGENCY_INFO_TAB = "#div_EmergencyInfo #divLabel > img";
     public final String EMERGENCY_INFO_TEXT_BOX = "EmergencyInfo";
     private final String SAVE_EMERGENCY_INFO = "//img[contains(@onclick,'jet_update_value_FromTextbox')]";
     public final String MANUAL_ENTRY_TAB = "manualEntryBtn";
@@ -122,6 +122,7 @@ public class WLR3_OrderDetails_Page {
     }
 
     public void pickAddressFromSearchResults() throws InterruptedException {
+utils.waitForElementVisible(By.id(ADDRESS_SEARCH_RESULT));
         utils.clickBtn(By.id(ADDRESS_SEARCH_RESULT));
         utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
         utils.javaScriptExecutorClick(By.xpath(CONTINUE_AFTER_ADDRESS_IS_CHOOSEN));
@@ -317,9 +318,8 @@ public class WLR3_OrderDetails_Page {
     public void enterEmergencyInfo(String type) throws InterruptedException, SQLException {
         textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.xpath(PAGE_LOADER_ELEMENT));
-        utils.waitForElementVisible(By.id(EDIT_EMERGENCY_INFO_TAB));
-        // Thread.sleep(1000);
-        utils.clickBtn(By.id(EDIT_EMERGENCY_INFO_TAB));
+         //Thread.sleep(2000);
+        utils.clickBtn(By.cssSelector(EDIT_EMERGENCY_INFO_TAB));
         utils.sendText(By.id(EMERGENCY_INFO_TEXT_BOX), EMERGENCY_INFO_TEXT_BOX);
         utils.clickBtn(By.xpath(SAVE_EMERGENCY_INFO));
     }

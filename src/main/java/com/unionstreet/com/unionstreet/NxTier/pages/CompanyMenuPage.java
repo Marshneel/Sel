@@ -141,6 +141,7 @@ public class CompanyMenuPage {
     }
 
     public void clickInvoicingDetailsButton() {
+       utils.waitForElementVisible(By.id(INVOICINGDETAILS_BUTTON));
         utils.clickBtn(By.id(INVOICINGDETAILS_BUTTON));
     }
 
@@ -156,6 +157,7 @@ public class CompanyMenuPage {
     }
 
     public void clickBillingDetailsButton() {
+       utils.waitForElementVisible(By.id(BILLINGDETAILS_BUTTON));
         utils.clickBtn(By.id(BILLINGDETAILS_BUTTON));
     }
 
@@ -176,6 +178,7 @@ public class CompanyMenuPage {
     }
 
     public void clickCLIButton() {
+utils.waitForElementVisible(By.id(CLI_BUTTON));
         utils.clickBtn(By.id(CLI_BUTTON));
     }
     public void clickOrderButton(){
@@ -184,7 +187,7 @@ public class CompanyMenuPage {
     }
     public void searchAndNavigateToSiteMenuOfACustomer(String customer) throws InterruptedException {
       commonMethods.search(customer);
-       // utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+customer+"')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+customer+"')]"));
        utils.clickBtn(By.xpath("//a[contains(text(),'"+customer+"')]"));
         utils.switchToNewWindow();}
     public void assertCreatedCLIUnderSite( String CLI) throws InterruptedException {
@@ -530,6 +533,7 @@ public void assertDeletedService(String addedService){
         utils.clickBtn(By.id(FIRSTPAYMENT_DESC_FIELD));
         today = new java.util.Date().getTime();
         day = Integer.toString(Integer.parseInt(new SimpleDateFormat("dd").format(today)));
+
         utils.selectDay(By.partialLinkText(day), day);
         utils.waitForElementVisible(By.id(SERVICECHARGE_QUANTITY_FIELD));
         utils.sendText(By.id(SERVICECHARGE_QUANTITY_FIELD), "1");

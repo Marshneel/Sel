@@ -224,7 +224,7 @@ public class WLR3_LineNumberingPage {
     }
 
     public void assertionForLineNumberingWithAddress() {
-
+utils.waitForElementVisible(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
         utils.clickBtn(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
         utils.assertElementNotPresent(By.xpath(ALERT_ON_LINE_INFO));
         utils.clickBtn(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));
@@ -234,6 +234,7 @@ public class WLR3_LineNumberingPage {
     }
 
     public void assertionForLineNumberingWithOutAddress() {
+        utils.waitForElementVisible(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
         utils.clickBtn(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
         utils.waitForElementVisible(By.xpath(ALERT_ON_LINE_INFO));
         utils.clickBtn(By.xpath(SELECT_FROM_LISTTAB_UNDER_LINE_INFO));

@@ -17,7 +17,7 @@ public class EditOrderPage {
     private final String ADD_VIEW_NOTES = "//span[contains(text(),'Messages')]";
     private final String CUSTOMER_RADIOBUTTON = "SendToCustomer";
     private final String INTERNAL_RADIOBUTTON = "SendToInternal";
-    private final String SERVICE_NOT_COMPLETED_MESSAGE = "//div[text()='Error: Incomplete Services']";
+    private final String SERVICE_NOT_COMPLETED_MESSAGE = "//div[contains(text(),'Services are not completed')]";
     private final String SAVE_AND_SUBMIT_ORDER = "//span[text()='Save & Submit Order']";
     private final String ORDER_CONTACT = "Order_order_contact_id";
     private final String ORDER_PENDING_TEXT_IN_NOTIFICATIONS = "//table[@id='orderHistory-table']//td[contains(text(),'Order Pending')]";

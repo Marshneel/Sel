@@ -37,6 +37,7 @@ public class WLR3_Cease_OrderPage {
     }
 
     public void populateRecoveryLinePlantAndVerifyAssertion() {
+        utils.waitForElementVisible(By.id(RECOVER_LINE_PLANT_CHECKBOX));
         utils.makeSureBoxIsChecked(By.id(RECOVER_LINE_PLANT_CHECKBOX), By.id(RECOVER_LINE_PLANT_CHECKBOX));
         navigateToNextScreen();
         utils.waitForElementVisible(By.id(DATE_ELEMENT));
