@@ -67,7 +67,7 @@ public class NA49_OrderServiceAutomation_stepDefs {
 
     @And("^When I add the omitted control, the quote should become valid$")
     public void whenIAddTheOmittedControlTheQuoteShouldBecomeValid() throws InterruptedException, AWTException, SQLException {
-        webModel.getAddServicePage().scrollToService();
+       // webModel.getAddServicePage().scrollToService();
         webModel.getAddServicePage().clickService();
         webModel.getNxTierServicesPage().populateMandatoryField();
         webModel.getEditOrderPage().assertValidQuoteBeforeSubmitting();

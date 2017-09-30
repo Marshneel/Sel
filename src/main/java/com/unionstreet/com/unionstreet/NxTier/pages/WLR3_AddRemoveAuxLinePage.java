@@ -27,8 +27,10 @@ public class WLR3_AddRemoveAuxLinePage {
         utils.waitForElementVisible(By.xpath(TEXT_ON_ADD_REMOVE_AUXLINE_PAGE));
     }
 
-    public void populateCLIandPostCode(String phoneNumber,String postCode){
-        utils.clickBtn(By.id(wlr3_orderDetails_page.MANUAL_ENTRY_TAB));
+    public void populateCLIandPostCode(String phoneNumber,String postCode) throws InterruptedException {
+        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.MANUAL_ENTRY_TAB));
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.id(wlr3_orderDetails_page.MANUAL_ENTRY_TAB));
         utils.sendText(By.id(companyMenuPage.CLI_NUMBER_FIELD),phoneNumber);
         utils.sendText(By.id("Postcode"),postCode);
         utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));

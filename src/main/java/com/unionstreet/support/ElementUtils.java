@@ -11,7 +11,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -22,8 +24,6 @@ import java.util.*;
 import java.util.List;
 
 import static com.unionstreet.support.BaseClass.driver;
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.*;
 
 public class ElementUtils {
@@ -37,25 +37,17 @@ public class ElementUtils {
 
 
 
-
-    public Wait waitForSomeTime() {
-        Wait wait = new FluentWait(driver)
-                .withTimeout(20, SECONDS)
-                .pollingEvery(3, MILLISECONDS)
-                .ignoring(WebDriverException.class);
-        return wait;}
-
     public void findFieldAndSendKeys(By by, String filePath) {
         driver.findElement(by).sendKeys(filePath);
     }
 
     //method to find the element, clear the box if needed and send text
     public void sendText(By by, String txt) {
-        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
-           driver.findElement(by).clear();
-           driver.findElement(by).sendKeys(txt);
-    }
-
+        try{ Thread.sleep(1000);
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.elementToBeClickable(by)).clear();
+        wait.until(ExpectedConditions.elementToBeClickable(by)).sendKeys(txt);
+    }catch (Exception e){}}
    // method to click button with fluent wait
     public void clickBtnWithWait(By by) {
         WebElement element = driver.findElement(by);
@@ -72,13 +64,13 @@ public class ElementUtils {
         actions.moveToElement(element).build().perform();
         WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.elementToBeClickable(by)).click();
-
-      }
+    }
 
 
     //method to assert element text
     public void verifyStringMatch(By by, String expectedString) {
-        waitForSomeTime().until(ExpectedConditions.textToBePresentInElementLocated(by, expectedString));
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(by, expectedString));
         String actualString = driver.findElement(by).getText();
       assertEquals(expectedString, actualString);
     }
@@ -89,10 +81,9 @@ public class ElementUtils {
     }
 
     //explicit wait element to be present
-    public void waitForElementVisible(By by) {
+    public void waitForElementVisible(By by)  {
         WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.presenceOfElementLocated(by));
-    }
+        wait.until(ExpectedConditions.presenceOfElementLocated(by));}
 
     public void waitForElementToBeClickable(By by) {
         WebDriverWait wait = new WebDriverWait(driver,15);
@@ -188,10 +179,10 @@ public class ElementUtils {
 
     //select date from drop down
     public void selectDay(By by, String number) {
-        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
-        driver.findElement(by).sendKeys(number);
-        driver.findElement(by).click();
-    }
+       try{ Thread.sleep(1000);
+        WebDriverWait wait = new WebDriverWait(driver,15);
+        wait.until(ExpectedConditions.elementToBeClickable(by)).sendKeys(number);
+    }catch (Exception e){}}
 
     public String getCurrentDate(String format) {
         String date = new SimpleDateFormat(format).format(Calendar.getInstance().getTime());

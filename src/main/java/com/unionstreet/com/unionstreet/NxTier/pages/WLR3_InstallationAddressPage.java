@@ -36,7 +36,8 @@ public class WLR3_InstallationAddressPage {
         wlr3_orderDetails_page.textOnWLR3OrderPage(type);
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.INSTALLATION_ADDRESS_SUMMARY_PANEL));
         utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
-        utils.clickBtn(By.xpath(INSTALLATION_ADDRESS_BUTTON));
+        Thread.sleep(1000);
+        utils.javaScriptExecutorClick(By.xpath(INSTALLATION_ADDRESS_BUTTON));
     }
 
     public void EnterPostCodeInSearchAddressByPostCode(String postCode) throws InterruptedException {
@@ -143,7 +144,8 @@ public class WLR3_InstallationAddressPage {
         enterTown(town);
     }
 
-    public void accessAdvancedSearchTab() {
+    public void accessAdvancedSearchTab() throws InterruptedException {
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath(ADVANCED_SEARCH_TAB));
     }
 
@@ -177,7 +179,8 @@ public class WLR3_InstallationAddressPage {
         utils.waitForElementVisible(By.xpath("//input[@id='Addresses_0__Postcode'][@value='" + postCode + "']"));
     }
 
-    public void accessAddressKeyTab() {
+    public void accessAddressKeyTab() throws InterruptedException {
+      Thread.sleep(1000);
         utils.clickBtn(By.xpath(ADDRESSKEY_SEARCH_TAB));
     }
 

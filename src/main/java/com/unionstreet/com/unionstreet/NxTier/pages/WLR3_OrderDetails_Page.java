@@ -98,9 +98,9 @@ public class WLR3_OrderDetails_Page {
 
     public void enterPhoneNumberAndPostCodeToInitiateTheTransfer(String number, String postCode) {
         utils.waitForElementVisible(By.id(SAVE));
-        utils.clickBtn(By.id(companyMenuPage.CLI_NUMBER_FIELD));
+      //  utils.clickBtn(By.id(companyMenuPage.CLI_NUMBER_FIELD));
         utils.sendText(By.id(companyMenuPage.CLI_NUMBER_FIELD), number);
-        utils.clickBtn(By.id(POSTCODE_SEARCH_POSTCODE_FIELD));
+      //  utils.clickBtn(By.id(POSTCODE_SEARCH_POSTCODE_FIELD));
         utils.sendText(By.id(POSTCODE_SEARCH_POSTCODE_FIELD), postCode);
         utils.clickBtn(By.id(SAVE));
 
