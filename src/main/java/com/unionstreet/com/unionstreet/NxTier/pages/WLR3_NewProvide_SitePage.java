@@ -34,13 +34,15 @@ public class WLR3_NewProvide_SitePage {
         utils.waitForElementVisible(By.id(wlr3_orderDetails_page.INSTALLATION_ADDRESS_SUMMARY_PANEL));
     }
 
-    public void loadInstallationAddress(){
+    public void loadInstallationAddress() throws InterruptedException {
         try {
+            Thread.sleep(1000);
            // utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
-            utils.clickBtn(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
+            utils.javaScriptExecutorClick(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
         } catch (Exception e) {
+            Thread.sleep(1000);
           //  utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
-            utils.clickBtn(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
+            utils.javaScriptExecutorClick(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
         }
     }
 

@@ -180,7 +180,7 @@ utils.waitForElementVisible(By.id(ADDRESS_SEARCH_RESULT));
         utils.waitForElementVisible(By.id(LINE_NUMBERING_SUMMARY_PANEL));
         try {
             Thread.sleep(1000);
-            utils.clickBtnWithWait(By.xpath(LINE_NUMBERING_BUTTON));
+            utils.javaScriptExecutorClick(By.xpath(LINE_NUMBERING_BUTTON));
         } catch (Exception e) {
             Thread.sleep(1000);
             utils.javaScriptExecutorClick(By.xpath(LINE_NUMBERING_BUTTON));
