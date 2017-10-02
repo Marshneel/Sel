@@ -99,6 +99,7 @@ private final String TAKE_OVER_WORKING_LINE_TEXT="//label[contains(text(),'Take 
     }
 
     public void populateProvisionPageWithAssertionsForISDN30() throws InterruptedException, AWTException {
+        utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
         utils.waitForElementVisible(By.xpath(ORDER_NOTES_LABEL_FOR_ISDN));
         utils.clickBtn(By.id(ORDERNOTES_TOOL_TIP_CLICK));
         utils.waitForElementVisible(By.xpath(TEXT_ON_ORDER_NOTES_TOOLTIP_POPUP));

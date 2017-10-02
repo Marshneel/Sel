@@ -35,13 +35,11 @@ public class WLR3_NewProvide_SitePage {
     }
 
     public void loadInstallationAddress() throws InterruptedException {
-        try {
+        try {utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
             Thread.sleep(1000);
-           // utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
             utils.javaScriptExecutorClick(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
         } catch (Exception e) {
             Thread.sleep(1000);
-          //  utils.waitForElementVisible(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
             utils.javaScriptExecutorClick(By.xpath(wlr3_installationAddressPage.INSTALLATION_ADDRESS_BUTTON));
         }
     }

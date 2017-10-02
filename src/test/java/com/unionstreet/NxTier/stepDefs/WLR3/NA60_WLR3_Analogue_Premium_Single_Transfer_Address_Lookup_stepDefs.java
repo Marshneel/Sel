@@ -36,7 +36,7 @@ public class NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs 
 
     @When("^I access postcode search under installation address tab and enter incorrect post code$")
     public void iAccessPostcodeSearchUnderInstallationAddressTabAndEnterIncorrectPostCode() throws InterruptedException, SQLException {
-        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage();
         webModel.getWlr3_installationAddressPage().EnterPostCodeInSearchAddressByPostCode("GU22 9DY");
         webModel.getWlr3_installationAddressPage().EnterPostCodeInSearchAddressByPostCode("lu11dq");
     }
@@ -61,7 +61,7 @@ public class NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs 
 
     @When("^Access addressKey search under installation address tab and enter invalid address key$")
     public void accessAddressKeySearchUnderInstallationAddressTabAndEnterInvalidAddressKey() throws InterruptedException, SQLException {
-        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage();
         webModel.getWlr3_installationAddressPage().accessAddressKeyTab();
         webModel.getWlr3_installationAddressPage().enterAddressKeyInSearchAddressByAddressKey("00001043137");
     }
@@ -85,7 +85,7 @@ public class NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs 
 
     @When("^I access advanced search under installation address tab and enter valid combinations$")
     public void iAccessAdvancedSearchUnderInstallationAddressTabAndEnterValidCombinations() throws InterruptedException, SQLException {
-        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage();
         webModel.getWlr3_installationAddressPage().accessAdvancedSearchTab();
         webModel.getWlr3_installationAddressPage().enterValidAddressSearchCombinations();
     }

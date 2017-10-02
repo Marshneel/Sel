@@ -48,12 +48,14 @@ public Wait waitForSomeTime(){
 
     //method to find the element, clear the box if needed and send text
     public void sendText(By by, String txt) {
+        waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).clear();
         driver.findElement(by).sendKeys(txt);
    }
    // method to click button with fluent wait
     public void clickBtnWithWait(By by) {
+        waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
         WebElement element = driver.findElement(by);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
@@ -63,9 +65,11 @@ public Wait waitForSomeTime(){
 
     //method to click button
     public void clickBtn(By by) {
+        waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
         WebElement element = driver.findElement(by);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
+
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
@@ -178,6 +182,7 @@ public Wait waitForSomeTime(){
     public void selectDay(By by, String number) {
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).sendKeys(number);
+        BaseClass.driver.findElement(by).click();
    }
 
     public String getCurrentDate(String format) {
@@ -186,7 +191,7 @@ public Wait waitForSomeTime(){
     }
     //browser selector
     public WebDriver browser() {
-    String browser=System.getProperty("browser");
+   String browser=System.getProperty("browser");
         try {
 
             if (browser.equalsIgnoreCase("chrome")) {

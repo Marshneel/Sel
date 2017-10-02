@@ -32,16 +32,14 @@ public class WLR3_InstallationAddressPage {
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
 
 
-    public void accessInstallationAddressPage(String type) throws InterruptedException, SQLException {
-        wlr3_orderDetails_page.textOnWLR3OrderPage(type);
-        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.INSTALLATION_ADDRESS_SUMMARY_PANEL));
-        utils.waitForElementVisible(By.xpath(INSTALLATION_ADDRESS_BUTTON));
+    public void accessInstallationAddressPage() throws InterruptedException, SQLException {
+        utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(INSTALLATION_ADDRESS_BUTTON));
     }
 
     public void EnterPostCodeInSearchAddressByPostCode(String postCode) throws InterruptedException {
-        utils.waitForElementVisible(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD));
+        utils.waitForElementVisible(By.xpath("//div[@id='pageLoader'][@class='page-loader']"));
         Thread.sleep(1000);
         utils.clickBtn(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD));
         utils.sendText(By.id(wlr3_orderDetails_page.POSTCODE_SEARCH_POSTCODE_FIELD), postCode);

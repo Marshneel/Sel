@@ -266,8 +266,8 @@ utils.waitForElementVisible(By.xpath(SPECIFY_NEW_NUMBERTAB_UNDER_LINE_NUM));
 
     public void revertingDeleteActionOnLineNumberingPopUpForISDN30Modify() throws InterruptedException {
         utils.waitForElementVisible(By.id(SNDDI_DDI_DROPDOWN_ROW1));
+        Thread.sleep(1000);
         utils.selectByVisibleText(By.id(SNDDI_DDI_DROPDOWN_ROW1), "Renumber");
-     //   utils.clickBtn(By.id(wlr3_orderDetails_page.SAVE));
         utils.waitForElementVisible(By.xpath(VALIDATION_TO_PREVENT_ACTIVATION_OF_EXISTING_SNDDI));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(OK_BUTTON_ON_NEW_OR_REACTIVATE_OLD_SNDDI_VALIDATION_POPUP));

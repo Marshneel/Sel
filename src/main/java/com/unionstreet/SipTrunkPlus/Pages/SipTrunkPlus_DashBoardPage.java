@@ -23,6 +23,7 @@ public class SipTrunkPlus_DashBoardPage {
     private String ADD_NEW_CLIENT_BUTTON = "//span[contains(text(),'Add client')]";
     private String SLIDER_BUTTON = "v-sliderpanel-caption";
     private String YES_BUTTON = "//span[contains(text(),'Yes')]";
+    String randomCredentials;
 
 
     public void clickSlider() throws InterruptedException {
@@ -102,7 +103,7 @@ public class SipTrunkPlus_DashBoardPage {
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Edit')]"));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath("//span[contains(text(),'Edit')]"));
-        utils.waitForElementVisible(By.xpath("//option[contains(text(),'" + provider + "')]"));
+        Thread.sleep(1000);
         utils.clickBtn(By.xpath("//option[contains(text(),'" + provider + "')]"));
         if (unAssign) {
             utils.waitForElementVisible(By.xpath("//div[@class='v-select-twincol v-widget v-has-width']/div[2]/div[3]"));
@@ -167,21 +168,22 @@ public class SipTrunkPlus_DashBoardPage {
         utils.clickBtn(By.xpath("//span[contains(text(),'Select Template')]/../../following-sibling::td[2]/div"));
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'" + provider + "')]"));
         utils.clickBtn(By.xpath("//span[contains(text(),'" + provider + "')]"));
-        populateResellerSideProviderCredentials("123");
+        populateResellerSideProviderCredentials();
     }
 
-    public void populateResellerSideProviderCredentials(String values) throws InterruptedException {
-        utils.sendText(By.xpath(sipTrunkPlus_providerPage.generateXpathForAddProviderPart1("Password")), "" + values + "");
-        utils.sendText(By.xpath(sipTrunkPlus_providerPage.generateXpathForAddProviderPart1("Realm")), "" + values + "");
-        utils.sendText(By.xpath(sipTrunkPlus_providerPage.generateXpathForAddProviderPart1("Username")), "" + values + "");
+    public void populateResellerSideProviderCredentials() throws InterruptedException {
+        randomCredentials=utils.randomName();
+        utils.sendText(By.xpath(sipTrunkPlus_providerPage.generateXpathForAddProviderPart1("Password")), "" + randomCredentials + "");
+        utils.sendText(By.xpath(sipTrunkPlus_providerPage.generateXpathForAddProviderPart1("Realm")), "" + randomCredentials + "");
+        utils.sendText(By.xpath(sipTrunkPlus_providerPage.generateXpathForAddProviderPart1("Username")), "" + randomCredentials + "");
         utils.waitForElementVisible(By.xpath("//span[contains(text(),'Save')]"));
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath("//span[contains(text(),'Save')]"));
     }
-    public void assertChangesToEditProviderPage(String editedValue) throws InterruptedException {
+    public void assertChangesToEditProviderPage() throws InterruptedException {
         Thread.sleep(1000);
         String value= utils.getAttributeOfElement(By.xpath("//span[contains(text(),'Realm')]/../../following-sibling::td[2]/input"),"value");
-        Assert.assertEquals(value,""+editedValue+"");
+        Assert.assertEquals(value,""+randomCredentials+"");
     }
 
     public void yesOrOk(String choice) throws InterruptedException {

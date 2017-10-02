@@ -263,7 +263,7 @@ public void assertDeletedService(String addedService){
         utils.selectByIndex(By.id(SERVICECHARGE_CHARGETYPE_DROPDOWN), 1);
     }
 
-    public void addRecurringChargesPart2() {
+    public void addRecurringChargesPart2() throws InterruptedException {
         utils.selectByIndex(By.id(SERVICECHARGE_FREQUENCY_DROPDOWN), 1);
         utils.selectByVisibleText(By.id(SELECT_CLI_DROPDOWN), RanNumber);
         utils.sendText(By.id(SERVICECHARGE_QUANTITY_FIELD), utils.getProperty("serviceChargeQuantity"));

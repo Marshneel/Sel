@@ -109,7 +109,7 @@ public class NA188_SipTrunkPlus_Providers_stepDefs {
         webModel.getSipTrunkPlus_dashBoardPage().loadOptions();
         webModel.getSipTrunkPlus_dashBoardPage().loadProvidersFromResellerDashBoard();
         webModel.getSipTrunkPlus_dashBoardPage().loadEditProviderScreen("ProviderForAutoTest");
-        webModel.getSipTrunkPlus_dashBoardPage(). populateResellerSideProviderCredentials("Edited123");
+        webModel.getSipTrunkPlus_dashBoardPage(). populateResellerSideProviderCredentials();
         webModel.getSipTrunkPlus_dashBoardPage().loadEditProviderScreen("ProviderForAutoTest");
 
 
@@ -117,7 +117,7 @@ public class NA188_SipTrunkPlus_Providers_stepDefs {
 
     @Then("^I should be able to successfully edit the reseller side credentials$")
     public void iShouldBeAbleToSuccessfullyEditTheResellerSideCredentials() throws InterruptedException {
-        webModel.getSipTrunkPlus_dashBoardPage().assertChangesToEditProviderPage("Edited123");
+        webModel.getSipTrunkPlus_dashBoardPage().assertChangesToEditProviderPage();
 
     }
 }

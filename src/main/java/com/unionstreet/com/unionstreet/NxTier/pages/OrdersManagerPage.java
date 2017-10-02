@@ -210,6 +210,7 @@ public class OrdersManagerPage {
     public void loadOrdersManagerAndClickOnQuoteID(String type) throws InterruptedException, SQLException {
         try {
             utils.switchToPreviousWindow(0);
+            utils.refreshPage();
             clickOnQuoteID(type);
         } catch (Exception e) {
             utils.getOrdersPage();
