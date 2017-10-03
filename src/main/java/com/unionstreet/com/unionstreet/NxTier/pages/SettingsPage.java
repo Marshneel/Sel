@@ -3,6 +3,9 @@ package com.unionstreet.com.unionstreet.NxTier.pages;
 import com.unionstreet.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
+
 
 /**
  * Created by rajeshg on 01/09/2016.
@@ -354,16 +357,12 @@ public class SettingsPage {
         utils.switchToParentWindow();
     }
 
-    public void assertingWLROrdersWithOutRights() throws InterruptedException {
-        try {
+    public void assertingWLROrdersWithOutRights() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+            utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set Agent_ID='108' where ID='7'");
             commonMethods.search("WLR3");
-        } catch (Exception e) {
-            utils.getOrdersPage();
-            commonMethods.search("WLR3 Quote");
-        }
         utils.waitForElementToVanish(By.id(AWAITING_PROCESS));
-        utils.waitForElementVisible(By.xpath("//td[@colspan='9'][contains(text(),'No Record')]"));
-        utils.waitForElementVisible(By.xpath("//td[@colspan='10'][contains(text(),'No Record')]"));
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'WLR3 Quote Delete')]"));
+
     }
 
     public void assertingWLROrdersWithRights() throws InterruptedException {

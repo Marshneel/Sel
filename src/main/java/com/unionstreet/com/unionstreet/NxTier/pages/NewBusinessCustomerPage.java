@@ -30,12 +30,12 @@ public class NewBusinessCustomerPage {
     }
 
     public void clickAddNewCustomerButton() throws InterruptedException {
-        try {
-            utils.waitForElementVisible(By.linkText(ADD_BUTTON));
-        } catch (Exception e) {
-            utils.getCreateCustomerPage();
-        }
-       utils.waitForElementToBeClickable(By.linkText(ADD_BUTTON));
+//        try {
+//            utils.waitForElementVisible(By.linkText(ADD_BUTTON));
+//        } catch (Exception e) {
+//            utils.getCreateCustomerPage();
+//        }
+     //  utils.waitForElementToBeClickable(By.linkText(ADD_BUTTON));
         utils.clickBtn(By.linkText(ADD_BUTTON));
         utils.switchToNewWindow();
     }

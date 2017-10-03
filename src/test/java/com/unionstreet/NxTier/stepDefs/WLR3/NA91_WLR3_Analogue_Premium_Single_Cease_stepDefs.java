@@ -19,6 +19,7 @@ public class NA91_WLR3_Analogue_Premium_Single_Cease_stepDefs {
 
     @When("^I Initiate a cease order on the quote$")
     public void iInitiateACeaseOrderOnTheQuote() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set CareLevel='2.5' where serviceid='02063678369'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02063678369'");
         //select cease service
         webModel.getAddServicePage().searchAndAddService("Cease Order",webModel.getNewBusinessCustomerPage().RanName);

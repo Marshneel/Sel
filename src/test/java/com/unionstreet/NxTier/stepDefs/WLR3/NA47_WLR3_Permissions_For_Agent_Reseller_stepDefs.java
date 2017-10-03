@@ -6,6 +6,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
 import java.awt.*;
+import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
 
 /**
  * Created by rajeshg on 22/09/2016.
@@ -23,7 +25,7 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
     }
 
     @Then("^I should not be able to see and edit them$")
-    public void iShouldNotBeAbleToSeeAndEditThem() throws InterruptedException {
+    public void iShouldNotBeAbleToSeeAndEditThem() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         //login as agent///////
         webModel.getDashBoardPage().clickOrderManagerButton();
         webModel.getSettingsPage().assertingWLROrdersWithOutRights();
