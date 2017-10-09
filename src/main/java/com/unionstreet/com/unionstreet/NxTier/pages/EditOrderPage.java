@@ -213,21 +213,21 @@ public class EditOrderPage {
     public void pushOpenReachNotificationsForSubmittedOrder(String CLI, String addressKey) throws Exception {
         RanNumberForSubmission = utils.randomNumber();
         currentDate = utils.getCurrentDate("dd/MM/yyyy");
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"Order Pending\" +0 " + RanNumberForSubmission + "");
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Acknowledged\" +0 " + RanNumberForSubmission + " notes");
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 " + RanNumberForSubmission + " notes " + currentDate + " " + CLI + " " + addressKey + " " + '"' + '"');
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 " + RanNumberForSubmission + " notes " + currentDate + " " + CLI + " " + addressKey + " " + '"' + '"');
+        utils.accessCMDAndPowerShell("cmd.exe","cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"Order Pending\" +0 " + RanNumberForSubmission + "");
+        utils.accessCMDAndPowerShell("cmd.exe","cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Acknowledged\" +0 " + RanNumberForSubmission + " notes");
+        utils.accessCMDAndPowerShell("cmd.exe","cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Committed\" +0 " + RanNumberForSubmission + " notes " + currentDate + " " + CLI + " " + addressKey + " " + '"' + '"');
+        utils.accessCMDAndPowerShell("cmd.exe","cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"OrderUpdate Completed\" +0 " + RanNumberForSubmission + " notes " + currentDate + " " + CLI + " " + addressKey + " " + '"' + '"');
     }
 
     public void acknowledgeNotificationForUCease(String CLI) throws Exception {
         RanNumberForCancellation = utils.randomNumber();
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Acknowledged\" +0 " + RanNumberForCancellation + " DMA " + CLI + " CP Requested O2 " + '"' + '"');
+        utils.accessCMDAndPowerShell("cmd.exe","cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Acknowledged\" +0 " + RanNumberForCancellation + " DMA " + CLI + " CP Requested O2 " + '"' + '"');
         System.out.println(RanNumberForCancellation);
     }
 
     public void commitAndCompletedNotificationForUCease(String CLI) throws Exception {
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Committed\" +0 " + RanNumberForCancellation + " DMA " + CLI + " CP Requested O2 " + '"' + '"' + " " + currentDate);
-        utils.accessCMD("cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Completed\" +0 " + RanNumberForCancellation + " DMA " + CLI + " CP Requested O2 " + '"' + '"' + " " + currentDate);
+        utils.accessCMDAndPowerShell("cmd.exe","cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Committed\" +0 " + RanNumberForCancellation + " DMA " + CLI + " CP Requested O2 " + '"' + '"' + " " + currentDate);
+        utils.accessCMDAndPowerShell("cmd.exe","cd \"src\\test\\Resources\\WLR3Tools\" && CmdController 10.1.9.112 \"UCeaseOrderUpdate Completed\" +0 " + RanNumberForCancellation + " DMA " + CLI + " CP Requested O2 " + '"' + '"' + " " + currentDate);
     }
 
     public void submitBatchOrderBeforeOIDsGenerated() throws InterruptedException {

@@ -30,12 +30,6 @@ public class NewBusinessCustomerPage {
     }
 
     public void clickAddNewCustomerButton() throws InterruptedException {
-//        try {
-//            utils.waitForElementVisible(By.linkText(ADD_BUTTON));
-//        } catch (Exception e) {
-//            utils.getCreateCustomerPage();
-//        }
-     //  utils.waitForElementToBeClickable(By.linkText(ADD_BUTTON));
         utils.clickBtn(By.linkText(ADD_BUTTON));
         utils.switchToNewWindow();
     }
@@ -71,7 +65,6 @@ public class NewBusinessCustomerPage {
 
     public void addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes() {
         RanName = utils.randomName();
-       // utils.clickBtn(By.id(COMPANYNAME_FIELD));
         try {
             utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
         } catch (Exception e) {

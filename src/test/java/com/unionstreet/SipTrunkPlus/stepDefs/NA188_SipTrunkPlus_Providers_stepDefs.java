@@ -120,4 +120,14 @@ public class NA188_SipTrunkPlus_Providers_stepDefs {
         webModel.getSipTrunkPlus_dashBoardPage().assertChangesToEditProviderPage();
 
     }
+
+    @When("^I POST a service charge under the site that is recently created$")
+    public void iPOSTAServiceChargeUnderTheSiteThatIsRecentlyCreated(){
+
+    }
+
+    @Then("^I should be able to verify the new service charge under site menu$")
+    public void iShouldBeAbleToVerifyTheNewServiceChargeUnderSiteMenu()  {
+
+    }
 }

@@ -17,7 +17,7 @@ public class NxTier_smokePack_stepDefs {
 
     @Given("^I am on login page$")
     public void iAmOnLoginPage() {
-        webModel.getLoginPage().OnLoginPage();
+        //webModel.getLoginPage().OnLoginPage();
     }
 
 

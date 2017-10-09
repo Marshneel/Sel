@@ -191,18 +191,18 @@ public Wait waitForSomeTime(){
     }
     //browser selector
     public WebDriver browser() {
-   String browser=System.getProperty("browser");
+   //String browser=System.getProperty("browser");
         try {
 
-            if (browser.equalsIgnoreCase("chrome")) {
+            if (getProperty("browser").equalsIgnoreCase("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
                 driver = new ChromeDriver();
-            } else if (browser.equalsIgnoreCase("IE")) {
+            } else if (getProperty("browser").equalsIgnoreCase("IE")) {
                 DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
                 capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
                 System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
                 driver = new InternetExplorerDriver(capabilities);
-            } else if (browser.equalsIgnoreCase("firefox")) {
+            } else if (getProperty("browser").equalsIgnoreCase("firefox")) {
                 System.setProperty("webdriver.gecko.driver","DriverFiles\\geckodriver.exe");
                 driver = new FirefoxDriver();
             }
@@ -528,13 +528,31 @@ public Wait waitForSomeTime(){
         System.out.println("screenShot taken");
     }
 
-    public void accessCMD(String command) throws Exception {
+    public void accessCMDAndPowerShell(String tool,String command) throws Exception {
 
         List<String> fullcmd = new ArrayList<String>();
-        fullcmd.add("cmd.exe");
+        fullcmd.add(tool);
         fullcmd.add("/c");
         fullcmd.add(command);
         ProcessBuilder builder = new ProcessBuilder(fullcmd);
+        builder.redirectErrorStream(true);
+        Process p = builder.start();
+        BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        String line;
+        while (true) {
+            line = r.readLine();
+            if (line == null) {
+                break;
+            }
+            System.out.println(line);
+        }
+    }
+    public void accessPowerSell(String command) throws Exception {
+        List<String> fullPshell = new ArrayList<String>();
+        fullPshell.add("src\\test\\Resources\\WLR3Tools\\powershell.exe");
+        fullPshell.add("/c");
+        fullPshell.add(command);
+        ProcessBuilder builder = new ProcessBuilder(fullPshell);
         builder.redirectErrorStream(true);
         Process p = builder.start();
         BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));

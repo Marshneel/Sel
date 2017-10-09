@@ -34,8 +34,15 @@ webModel.getRestServices().executeGetRequest("SystemInformation","nxtiere2e","us
     }
 
     @Then("^I should be able to see the response (\\d+)$")
-    public void iShouldBeAbleToSeeTheResponse( int actualCode)  {
-        assertThat(webModel.getRestServices().response.statusCode(),is(actualCode));
+    public void iShouldBeAbleToSeeTheResponse( int actualCode) throws Exception {
+        assertThat(webModel.getRestServices().response.statusCode(), is(actualCode));
+
+        utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='89.234.55.115' where ID='760'");
+        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='89.234.55.115' where ID='760'");
+        utils.accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
+        utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
+        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
+        utils.accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
     }
 
     @Given("^I make an invalid API GET request call for sites$")

@@ -21,3 +21,8 @@ Feature: NA - 188 SipTrunkPlus Providers
     Given I am logged in as a master user and a reseller with provider added have already been created
     When I navigate to the provider under reseller
     Then I should be able to successfully edit the reseller side credentials
+
+  Scenario: user should be able to POST a service charge under desired site
+    Given I am logged in as CP
+    When I POST a service charge under the site that is recently created
+    Then I should be able to verify the new service charge under site menu

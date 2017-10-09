@@ -30,7 +30,7 @@ public class BaseClass {
     public void startUp() {
         try {
             driver = utils.browser();
-            driver.get(utils.getProperty("url"));
+            driver.get(System.getProperty("url"));
             driver.manage().window().maximize();
         } catch (Exception e) {
             e.printStackTrace();
