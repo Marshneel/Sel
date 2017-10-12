@@ -101,7 +101,6 @@ public class NA188_SipTrunkPlus_Providers_stepDefs {
 
     }
 
-
     @When("^I navigate to the provider under reseller$")
     public void iNavigateToTheProviderUnderReseller() throws InterruptedException {
         webModel.getSipTrunkPlus_dashBoardPage().clickSlider();
@@ -111,23 +110,5 @@ public class NA188_SipTrunkPlus_Providers_stepDefs {
         webModel.getSipTrunkPlus_dashBoardPage().loadEditProviderScreen("ProviderForAutoTest");
         webModel.getSipTrunkPlus_dashBoardPage(). populateResellerSideProviderCredentials();
         webModel.getSipTrunkPlus_dashBoardPage().loadEditProviderScreen("ProviderForAutoTest");
-
-
-    }
-
-    @Then("^I should be able to successfully edit the reseller side credentials$")
-    public void iShouldBeAbleToSuccessfullyEditTheResellerSideCredentials() throws InterruptedException {
-        webModel.getSipTrunkPlus_dashBoardPage().assertChangesToEditProviderPage();
-
-    }
-
-    @When("^I POST a service charge under the site that is recently created$")
-    public void iPOSTAServiceChargeUnderTheSiteThatIsRecentlyCreated(){
-
-    }
-
-    @Then("^I should be able to verify the new service charge under site menu$")
-    public void iShouldBeAbleToVerifyTheNewServiceChargeUnderSiteMenu()  {
-
     }
 }

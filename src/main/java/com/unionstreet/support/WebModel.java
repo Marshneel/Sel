@@ -8,8 +8,7 @@ import com.unionstreet.com.unionstreet.NxTier.pages.*;
 
 public class WebModel {
 
-    private ElementUtils utils;
-    private BaseClass baseClass;
+    public ElementUtils utils;
     private LoginPage loginPage;
     private DashBoardPage dashBoardPage;
     private NewBusinessCustomerPage newBusinessCustomerPage;
@@ -59,7 +58,6 @@ public class WebModel {
 
     public WebModel() {
         utils = new ElementUtils();
-        baseClass = new BaseClass();
         loginPage = new LoginPage();
         dashBoardPage = new DashBoardPage();
         newBusinessCustomerPage = new NewBusinessCustomerPage();

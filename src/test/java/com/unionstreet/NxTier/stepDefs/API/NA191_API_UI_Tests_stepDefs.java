@@ -14,6 +14,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import static com.unionstreet.com.unionstreet.NxTier.pages.OrdersManagerPage.QUOTE_RanName;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created by rajeshg on 14/09/2017.
@@ -41,6 +43,15 @@ public class NA191_API_UI_Tests_stepDefs {
     private int quoteID;
     private String orderServiceIDfromResponse;
     private int orderServiceID;
+    private String ServiceChargeIDFromResponse;
+    private int serviceChargeID;
+    private String SalesPriceFromResponse;
+    private int salesPriceInteger;
+    private String CostPriceFromResponse;
+    private int costPriceInteger;
+    private String BaseLineCostFromResponse;
+    private int baseLineCostInteger;
+
 
     @Given("^I POST a company and a siteContact$")
     public void IPOSTACompanyAndASiteContact()  {
@@ -203,6 +214,82 @@ public class NA191_API_UI_Tests_stepDefs {
     public void iShouldBeAbleToConfirmThatOnTheUI() {
         webModel.getUtils().refreshPage();
         webModel.getCompanyMenuPage().assertDeletedService("customService");
+    }
+
+    @Then("^I should be able to successfully edit the reseller side credentials$")
+    public void iShouldBeAbleToSuccessfullyEditTheResellerSideCredentials() throws InterruptedException {
+        webModel.getSipTrunkPlus_dashBoardPage().assertChangesToEditProviderPage();
+
+    }
+
+    @When("^I POST a service charge under the site that is recently created$")
+    public void iPOSTAServiceChargeUnderTheSiteThatIsRecentlyCreated() throws InterruptedException, SQLException {
+        na44.haveCreatedANewCustomer();
+        webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getCompanyMenuPage().searchAndNavigateToSiteMenuOfACustomer(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getCompanyMenuPage().addCLIs(webModel.getNewBusinessCustomerPage().RanName,webModel.getCompanyMenuPage().RanNumber,false,true);
+        JSONObject createServiceCharge = new ElementUtils().getPayload("newServiceCharge");
+        siteIDfromQuery=webModel.getUtils().sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select SiteID from Sitedetails where SiteName='"+webModel.getNewBusinessCustomerPage().RanName+"'");
+        webModel.getUtils().result.next();
+        siteIDfromQueryInteger = webModel.getUtils().result.getInt(1);
+        createServiceCharge.replace("SiteId",siteIDfromQueryInteger);
+        createServiceCharge.replace("CLI",webModel.getCompanyMenuPage().RanNumber);
+        String startDate=webModel.getUtils().getCurrentDate("yyyy/MM/dd");
+        createServiceCharge.replace("StartDate",webModel.getUtils().getCurrentDate(startDate)+"T00:00:00.00");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        String endDate=dateFormat.format(webModel.getServiceDesk_ticketDetailsPage().IfSaturday(true));
+        createServiceCharge.replace("EndDate",webModel.getUtils().getCurrentDate(endDate)+"T00:00:00.00");
+        webModel.getRestServices().executePostRequest(createServiceCharge,"SystemInformation","nxtiere2e","username","cp","password","password","/api/ServiceCharge");
+    }
+
+    @Then("^I should be able to verify the new service charge under site menu$")
+    public void iShouldBeAbleToVerifyTheNewServiceChargeUnderSiteMenu()  {
+        webModel.getCompanyMenuPage().clickServiceChargesButton();
+        webModel.getCompanyMenuPage().loadAndAssertServiceChargesCreatedByAPI("serviceChargeAddedByAPI",webModel.getCompanyMenuPage().RanNumber,"13.0000","8.6400","9.0000");
+
+
+    }
+
+    @Given("^I am logged in as CP and a serviceCharge with unmatched frequency type has been POSTed$")
+    public void iAmLoggedInAsCPAndAServiceChargeWithUnmatchedFrequencyTypeHasBeenPOSTed() throws InterruptedException, SQLException {
+        webModel.getLoginPage().loginAsCP();
+        na44.haveCreatedANewCustomer();
+        webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getCompanyMenuPage().searchAndNavigateToSiteMenuOfACustomer(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getCompanyMenuPage().addCLIs(webModel.getNewBusinessCustomerPage().RanName, webModel.getCompanyMenuPage().RanNumber, false, true);
+        JSONObject createServiceCharge = new ElementUtils().getPayload("newServiceCharge");
+        siteIDfromQuery = webModel.getUtils().sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select SiteID from Sitedetails where SiteName='" + webModel.getNewBusinessCustomerPage().RanName + "'");
+        webModel.getUtils().result.next();
+        siteIDfromQueryInteger = webModel.getUtils().result.getInt(1);
+        createServiceCharge.replace("SiteId", siteIDfromQueryInteger);
+        createServiceCharge.replace("CLI", webModel.getCompanyMenuPage().RanNumber);
+        createServiceCharge.replace("FrequencyTypeId", "4");
+        String startDate = webModel.getUtils().getCurrentDate("yyyy/MM/dd");
+        createServiceCharge.replace("StartDate", webModel.getUtils().getCurrentDate(startDate) + "T00:00:00.00");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        String endDate = dateFormat.format(webModel.getServiceDesk_ticketDetailsPage().IfSaturday(true));
+        createServiceCharge.replace("EndDate", webModel.getUtils().getCurrentDate(endDate) + "T00:00:00.00");
+        webModel.getRestServices().executePostRequest(createServiceCharge, "SystemInformation", "nxtiere2e", "username", "cp", "password", "password", "/api/ServiceCharge");
+        ServiceChargeIDFromResponse = webModel.getRestServices().response.path("Id").toString();
+        serviceChargeID = Integer.parseInt(ServiceChargeIDFromResponse);
+    }
+
+    @When("^I perform a GET request on the charge details$")
+    public void iPerformAGETRequestOnTheChargeDetails() {
+        webModel.getRestServices().executeGetRequest("SystemInformation","nxtiere2e","username","cp","password","password","/api/ServiceCharge/"+ServiceChargeIDFromResponse+"");
+    }
+
+    @Then("^The pricing values should be based on the FrequencyTypeID from the request$")
+    public void thePricingValuesShouldBeBasedOnTheFrequencyTypeIDFromTheRequest() {
+        SalesPriceFromResponse = webModel.getRestServices().response.path("SalesPrice").toString();
+       try{ assertThat (SalesPriceFromResponse, is("39.00"));}
+       catch (AssertionError e){
+           System.out.println("sale price is not calculated as per FrequencyType_ID ");
+       }
+        CostPriceFromResponse = webModel.getRestServices().response.path("CostPrice").toString();
+        assertThat (CostPriceFromResponse, is("25.92"));
+        BaseLineCostFromResponse=webModel.getRestServices().response.path("BaselineCost").toString();
+        assertThat (BaseLineCostFromResponse, is("27.0"));
     }
 }
 

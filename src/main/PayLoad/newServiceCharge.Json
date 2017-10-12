@@ -1,0 +1,20 @@
+{
+  "SiteId": 120,
+  "Description": "serviceChargeAddedByAPI",
+  "SalesPrice": null,
+  "FirstPayment": "2017-11-04T14:34:34.868",
+  "LastPayment": "2018-11-04T14:34:34.868",
+  "FrequencyTypeId":2,
+  "ChargeId": 3,
+  "SerialNo": "sample string 3",
+  "Rental": true,
+  "CostPrice": null,
+  "CLI": "02033719225",
+  "Import": true,
+  "Suppress": true,
+  "Quantity": 1,
+  "BaselineCost": null,
+  "BillNow": true,
+  "Notes": "sample string 10",
+  "ContractId": null
+}

@@ -87,7 +87,6 @@ public Wait waitForSomeTime(){
     }
     //explicit wait element to be present
     public void waitForElementVisible(By by)  {
-
         waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));}
 
     public void waitForElementToBeClickable(By by) {
@@ -265,7 +264,7 @@ public Wait waitForSomeTime(){
     }
     public boolean isElementAbsent(By by){
         try{
-            BaseClass.utils.assertElementNotPresent(by);
+            assertElementNotPresent(by);
             return true;
         }catch (AssertionError error){
             return false;
@@ -659,6 +658,14 @@ public Wait waitForSomeTime(){
 
 }
 
+
+//IMP notes
+//        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='89.234.55.115' where ID='760'");
+//        webModel.getUtils().sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='89.234.55.115' where ID='760'");
+//        webModel.getUtils().accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
+//        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
+//        webModel.getUtils().sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
+//        webModel.getUtils().accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
 
 
 

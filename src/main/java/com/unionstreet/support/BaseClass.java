@@ -14,7 +14,8 @@ import static org.openqa.selenium.OutputType.BYTES;
 public class BaseClass {
 
     public static WebDriver driver;
-    public static ElementUtils utils = new ElementUtils();
+    WebModel webModel =new WebModel();
+
 
 //    @BeforeClass
 //    public static void databaseRollBack() {
@@ -29,7 +30,7 @@ public class BaseClass {
     @Before
     public void startUp() {
         try {
-            driver = utils.browser();
+            driver = webModel.getUtils().browser();
             driver.get(System.getProperty("url"));
             driver.manage().window().maximize();
         } catch (Exception e) {

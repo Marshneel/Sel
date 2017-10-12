@@ -69,7 +69,7 @@ public class LoginPage {
 
     public void loginAsCP() throws InterruptedException {
         Thread.sleep(2000);
-        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+     //   utils.waitForElementVisible(By.id(USERNAME_FIELD));
         //utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), "cplogin");
        // utils.clickBtn(By.id(PASSWORD_FIELD));

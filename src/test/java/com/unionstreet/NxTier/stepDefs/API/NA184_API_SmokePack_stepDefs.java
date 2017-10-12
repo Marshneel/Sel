@@ -11,7 +11,7 @@ import org.junit.Assert;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 
-import static com.unionstreet.support.BaseClass.utils;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -36,13 +36,6 @@ webModel.getRestServices().executeGetRequest("SystemInformation","nxtiere2e","us
     @Then("^I should be able to see the response (\\d+)$")
     public void iShouldBeAbleToSeeTheResponse( int actualCode) throws Exception {
         assertThat(webModel.getRestServices().response.statusCode(), is(actualCode));
-
-        utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='89.234.55.115' where ID='760'");
-        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='89.234.55.115' where ID='760'");
-        utils.accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
-        utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
-        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
-        utils.accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
     }
 
     @Given("^I make an invalid API GET request call for sites$")
@@ -60,8 +53,8 @@ webModel.getRestServices().executeGetRequest("SystemInformation","nxtiere2e","us
         siteIDfromResponse=webModel.getRestServices().response.path("Id").toString();
         siteIDfromQueryCrude=webModel.getUtils().sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select SiteID from Sitedetails where ShortName='"+randomSiteName+"'");
         webModel.getUtils().result.next();
-        String siteIDfromQueryString = utils.result.getString("SiteID");
-        siteIDfromQueryInteger = utils.result.getInt(1);
+        String siteIDfromQueryString =  webModel.getUtils().result.getString("SiteID");
+        siteIDfromQueryInteger =  webModel.getUtils().result.getInt(1);
         assertThat(siteIDfromResponse,is(siteIDfromQueryString));
 
 
@@ -78,7 +71,7 @@ webModel.getRestServices().executeGetRequest("SystemInformation","nxtiere2e","us
         siteIDfromQueryCrude=webModel.getUtils().sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select SiteID from Sitedetails where ShortName='"+randomSiteName+"'");
         webModel.getUtils().result.next();
      try {
-          utils.result.getString("SiteID");
+         webModel.getUtils().result.getString("SiteID");
      }catch (SQLException e){
          System.out.println(" no result");
      }
@@ -98,11 +91,11 @@ webModel.getRestServices().executeGetRequest("SystemInformation","nxtiere2e","us
     public void iShouldBeAbleToAssertTheUpdatedSiteDetails() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
     webModel.getUtils().sqlQuery("portal", "test01-sql01", "NxtierE2E", "select ShortName from Sitedetails where SiteName='"+randomSiteName+"'");
         webModel.getUtils().result.next();
-        String shortName=utils.result.getString("ShortName");
+        String shortName= webModel.getUtils().result.getString("ShortName");
         Assert.assertEquals(shortName,randomSiteName);
         webModel.getUtils().sqlQuery("portal", "test01-sql01", "NxtierE2E", "select SiteID from Sitedetails where SiteName='"+randomSiteName+"'");
         webModel.getUtils().result.next();
-        String SiteID=utils.result.getString("SiteID");
+        String SiteID= webModel.getUtils().result.getString("SiteID");
         Assert.assertEquals(SiteID,"10");
     }
 }

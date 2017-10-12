@@ -29,3 +29,20 @@ Feature: NA - 191 API UI Tests
     Then I should be able to verify the added service on the UI
     And when I DELETE the service through API
     Then I should be able to confirm that on the UI
+
+  Scenario: user should be able to POST a service charge under desired site
+    Given I am logged in as CP
+    When I POST a service charge under the site that is recently created
+    Then I should be able to verify the new service charge under site menu
+
+  Scenario: verify that a service charge POSTed should base all pricing calculations as per FrequencyTypeId (in CreateNewServiceCharge) rather then rc_frequency_type_ID (in recurringCharge_Types table)
+    Given I am logged in as CP and a serviceCharge with unmatched frequency type has been POSTed
+    When I perform a GET request on the charge details
+    Then The pricing values should be based on the FrequencyTypeID from the request
+
+#  Scenario: verify that an agent can only POST a service charge to the sites that he is agent for
+#    Given I am logged as an agent and I POST a service charge to a company that is not under me
+#    When I navigate go the service charge details of that particular site
+#    Then The charge should be invisible
+#    When I POST a service charge to company under me
+#    Then I should be able to see under site menu

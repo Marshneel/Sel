@@ -105,7 +105,8 @@ public class NxTier_smokePack_stepDefs {
 
     @When("^I access CLIs and service charges section under company menu and provide all required info$")
     public void iAccessCLIsAndServiceChargesSectionUnderCompanyMenuAndProvideAllRequiredInfo() throws InterruptedException {
-        webModel.getCompanyMenuPage().addCLIs(webModel.getNewBusinessCustomerPage().RanName,webModel.getCompanyMenuPage().RanNumber,true,true);
+        webModel.getCompanyMenuPage().searchAndNavigateToSiteMenuOfACustomer(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getCompanyMenuPage().addCLIs(webModel.getNewBusinessCustomerPage().RanName,webModel.getCompanyMenuPage().RanNumber,false,true);
         webModel.getCompanyMenuPage().addRecurringChargesPart1();
         webModel.getCompanyMenuPage().addRecurringChargesPart2();
         webModel.getCompanyMenuPage().addOneOffChargesPart1();
