@@ -75,6 +75,7 @@ public class NA191_API_UI_Tests_stepDefs {
     public void iNavigateToTheOrdersManagerPageAndAccessCreateQuotePopup() throws InterruptedException {
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(false,true);
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
     }
 
@@ -173,6 +174,7 @@ public class NA191_API_UI_Tests_stepDefs {
     public void iShouldBeAbleToConfirmItOnTheUI() throws InterruptedException {
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getCompanyMenuPage().searchAndNavigateToSiteMenuOfACustomer(randomCompanyName);
         webModel.getCompanyMenuPage().assertCreatedQuoteUnderSite(randomCompanyName);
     }
@@ -198,6 +200,7 @@ public class NA191_API_UI_Tests_stepDefs {
     public void iShouldBeAbleToVerifyTheAddedServiceOnTheUI() throws InterruptedException {
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getCompanyMenuPage().searchAndNavigateToSiteMenuOfACustomer(randomCompanyName);
         webModel.getCompanyMenuPage().assertAssignedService(quoteID,"customService");
         orderServiceIDfromResponse=webModel.getRestServices().response.path("Id").toString();
@@ -227,7 +230,7 @@ public class NA191_API_UI_Tests_stepDefs {
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getCompanyMenuPage().searchAndNavigateToSiteMenuOfACustomer(webModel.getNewBusinessCustomerPage().RanName);
-        webModel.getCompanyMenuPage().addCLIs(webModel.getNewBusinessCustomerPage().RanName,webModel.getCompanyMenuPage().RanNumber,false,true);
+        webModel.getCompanyMenuPage().addCLIs(true,webModel.getNewBusinessCustomerPage().RanName,webModel.getCompanyMenuPage().RanNumber,false,true);
         JSONObject createServiceCharge = new ElementUtils().getPayload("newServiceCharge");
         siteIDfromQuery=webModel.getUtils().sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select SiteID from Sitedetails where SiteName='"+webModel.getNewBusinessCustomerPage().RanName+"'");
         webModel.getUtils().result.next();
@@ -256,7 +259,7 @@ public class NA191_API_UI_Tests_stepDefs {
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getCompanyMenuPage().searchAndNavigateToSiteMenuOfACustomer(webModel.getNewBusinessCustomerPage().RanName);
-        webModel.getCompanyMenuPage().addCLIs(webModel.getNewBusinessCustomerPage().RanName, webModel.getCompanyMenuPage().RanNumber, false, true);
+        webModel.getCompanyMenuPage().addCLIs(true,webModel.getNewBusinessCustomerPage().RanName, webModel.getCompanyMenuPage().RanNumber, false, true);
         JSONObject createServiceCharge = new ElementUtils().getPayload("newServiceCharge");
         siteIDfromQuery = webModel.getUtils().sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select SiteID from Sitedetails where SiteName='" + webModel.getNewBusinessCustomerPage().RanName + "'");
         webModel.getUtils().result.next();

@@ -24,9 +24,11 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
     public void cpHasIssuedFewTariffAndFreeMinutePlans() throws InterruptedException, AWTException {
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickConfigManager();
+        webModel.getDashBoardPage().loadTariffManager();
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10","checkbox0");
         webModel.getConfigManagerPage().assignFreeMinutesPlanToAgent("Mobile 250 Free Mins (UK and Mob","checkbox0");
         webModel.getSettingsPage().clickSettingsButton();
+        webModel.getSettingsPage().loadPermissionGroups();
         webModel.getSettingsPage().issueTariffAndFreeMinutePermissionsToAgent("agent");
         webModel.getDashBoardPage().logOut();
     }
@@ -38,8 +40,9 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
 
 
     @And("^navigate to see config manager page$")
-    public void navigateToSeeConfigManagerPage() {
+    public void navigateToSeeConfigManagerPage() throws InterruptedException {
         webModel.getDashBoardPage().clickConfigManager();
+        webModel.getDashBoardPage().loadTariffManager();
     }
 
     @Then("^I should be able to see the tariff and free minute plans$")
@@ -69,7 +72,6 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
        webModel.getConfigManagerPage().navigateToAddTariffPlan();
         webModel.getCreateTariffPage().addTariffPlan();
         webModel.getConfigManagerPage().addFreeMinutesPlan();
-       webModel.getDashBoardPage().clickConfigManager();
         webModel.getCreateTariffPage().editTariffPlan();
         webModel.getConfigManagerPage().editFreeMinutePlan("1000","Minutes");
     }
@@ -97,7 +99,6 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
 
     @Then("^I should be able to assign them to my customers$")
     public void iShouldBeAbleToAssignThemToMyCustomers() throws InterruptedException {
-        webModel.getDashBoardPage().clickContactManagerTab();
         na44_agent_login_stepDefs.haveCreatedANewCustomer();
         webModel.getCommonMethods().search(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getUtils().waitForElementVisible(By.xpath("//a[contains(text(),'"+webModel.getNewBusinessCustomerPage().RanName+"')]"));
@@ -110,10 +111,12 @@ public class NA152_WhiteLabel_Agent_Permissions_stepDefs {
     public void cpHasIssuedTariffAndFreeMinutePlansToCustomersAssignedUnderMe() throws InterruptedException, AWTException {
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickConfigManager();
+        webModel.getDashBoardPage().loadTariffManager();
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10","checkbox0");
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Buy BT Wholesale","10","checkbox0");
         webModel.getConfigManagerPage().assignFreeMinutesPlanToAgent("Mobile 250 Free Mins (UK and Mob","checkbox0");
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
         webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();

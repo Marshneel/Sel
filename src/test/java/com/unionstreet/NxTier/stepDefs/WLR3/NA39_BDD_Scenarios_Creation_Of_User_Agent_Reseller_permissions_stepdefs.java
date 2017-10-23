@@ -25,7 +25,8 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
         //passing SQL query to correct the attributes of agent and reseller
         webModel.getUtils().sqlExeQuery("Portal", "test01-sql01", "nxtiere2e", "update company set is_customer = 1, is_agent = 0, is_reseller = 1 where id = 109");
         webModel.getUtils().sqlExeQuery("Portal", "test01-sql01", "nxtiere2e", "update company set is_customer = 0, is_agent = 1, is_reseller = 0 where id = 108");
-        webModel.getNewBusinessCustomerPage().clickContactManagerButton();
+        webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
         webModel.getNewBusinessCustomerPage().companyInfoForNewBusinessCustomer();
         webModel.getNewBusinessCustomerPage().createContactType();
@@ -36,6 +37,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     @And("^have created a new agent permission group$")
     public void haveCreatedANewAgentPermissionGroup() throws InterruptedException {
         webModel.getSettingsPage().clickSettingsButton();
+        webModel.getSettingsPage().loadPermissionGroups();
         webModel.getSettingsPage().clickAddPermissionsButton();
         webModel.getSettingsPage().addAgentPermissionGroups_General();
         webModel.getSettingsPage().addPermissionGroups_Configuration();
@@ -52,8 +54,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
 
     @When("^I wish to create agent contact with valid login credentials$")
     public void iWishToCreateAgentContactWithValidLoginCredentials() throws InterruptedException {
-        webModel.getSettingsPage().clickSettingsButton();
-        webModel.getSettingsPage().clickLoginUsers();
+        webModel.getSettingsPage().loadLoginUsers();
         webModel.getSettingsPage().clickAddLoginUsersButton();
         webModel.getSettingsPage().agentUserSelectCompany();
         webModel.getSettingsPage().agentUserAddContactDetails();
@@ -73,6 +74,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     @And("^Have created a new CP permission group under settings$")
     public void haveCreatedANewCPPermissionGroupUnderSettings() throws InterruptedException {
         webModel.getSettingsPage().clickSettingsButton();
+        webModel.getSettingsPage().loadPermissionGroups();
         webModel.getSettingsPage().clickAddPermissionsButton();
         webModel.getSettingsPage().addCPPermissionGroups_General();
         webModel.getSettingsPage().addPermissionGroups_Configuration();
@@ -89,8 +91,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
 
     @When("^I wish to create new CP under login users sub-menu$")
     public void iWishToCreateNewCPUnderLoginUsersSubMenu() throws InterruptedException {
-        webModel.getSettingsPage().clickSettingsButton();
-        webModel.getSettingsPage().clickLoginUsers();
+        webModel.getSettingsPage().loadLoginUsers();
         webModel.getSettingsPage().clickCPUserTab();
         webModel.getSettingsPage().clickAddLoginUsersButton();
         webModel.getSettingsPage().addCPloginUserSelectCompanyandSite();
@@ -113,13 +114,15 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     public void iAmLoggedInAsAgent() throws InterruptedException {
         webModel.getLoginPage().loginAsAgent();
     }
-
-    @When("^I access create Quote tab$")
-    public void iAccessCreateQuoteTab() throws InterruptedException {
+    @When("^I access create Quote tab for agent$")
+    public void iAccessCreateQuoteTabForAgent() throws InterruptedException {
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().onQuotePage();
     }
+
+
 
     @Then("^All required fields pertaining to an agent should be visible on the create quote window$")
     public void allRequiredFieldsPertainingToAnAgentShouldBeVisibleOnTheCreateQuoteWindow() throws
@@ -158,6 +161,7 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
     @When("^I access create Quote tab for Reseller$")
     public void iAccessCreateQuoteTabForReseller() throws InterruptedException {
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().onQuotePageForReseller();
 
@@ -191,7 +195,8 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
 
     @When("^i navigate to the add customer page and click both agent and reseller$")
     public void iNavigateToTheAddCustomerPageAndClickBothAgentAndReseller() throws InterruptedException {
-        webModel.getNewBusinessCustomerPage().clickContactManagerButton();
+        webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
         webModel.getNewBusinessCustomerPage().companyInfoForNewBusinessCustomer();
 
@@ -202,4 +207,16 @@ public class NA39_BDD_Scenarios_Creation_Of_User_Agent_Reseller_permissions_step
         webModel.getNewBusinessCustomerPage().validationMessage_whenAgentAndResellerCheckedIn();
 
     }
-}
+
+
+
+    @When("^I access create Quote tab for CP$")
+    public void iAccessCreateQuoteTabForCP() throws InterruptedException {
+                webModel.getDashBoardPage().clickOrderManagerButton();
+                webModel.getDashBoardPage().loadAllOrders(false,true);
+                webModel.getOrdersManagerPage().clickCreateQuoteButton();
+                webModel.getOrdersManagerPage().onQuotePage();
+        }
+
+    }
+

@@ -17,7 +17,6 @@ public class NA167_WhiteLabel_ValidatePricingDetailsPage_As_A_CP_stepDefs {
     @When("^I create a customer and navigate to pricing details$")
     public void iCreateACustomerAndNavigateToPricingDetails() throws InterruptedException {
         na44.haveCreatedANewCustomer();
-        webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();

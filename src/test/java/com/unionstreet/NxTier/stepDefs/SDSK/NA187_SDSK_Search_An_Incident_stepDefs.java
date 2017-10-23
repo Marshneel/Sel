@@ -23,7 +23,7 @@ public class NA187_SDSK_Search_An_Incident_stepDefs {
 
     @When("^I navigate to the browse incident page$")
     public void iNavigateToTheBrowseIncidentPage()  {
-        webModel.getDashBoardPage().loadServiceDesk(":9050/RajeshNB");
+        webModel.getDashBoardPage().loadServiceDesk();
         webModel.getServiceDesk_ticketDetailsPage().navigateToBrowseIncidents();
 
     }

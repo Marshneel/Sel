@@ -20,6 +20,7 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
     public void cpHasRevokedMyWLROrderPermissions() throws InterruptedException, AWTException {
         webModel.getLoginPage().loginAsCP();
         webModel.getSettingsPage().clickSettingsButton();
+        webModel.getSettingsPage().loadPermissionGroups();
         webModel.getSettingsPage().revokingAgentWLRPermissions();
         webModel.getDashBoardPage().logOut();
     }
@@ -28,6 +29,7 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
     public void iShouldNotBeAbleToSeeAndEditThem() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         //login as agent///////
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
         webModel.getSettingsPage().assertingWLROrdersWithOutRights();
         webModel.getDashBoardPage().logOut();
     }
@@ -40,6 +42,7 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(false,true);
         webModel.getSettingsPage().assertingWLROrdersWithRights();
         System.out.println("NA47a completed");
     }
@@ -53,6 +56,7 @@ public class NA47_WLR3_Permissions_For_Agent_Reseller_stepDefs {
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsReseller();
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(false,true);
         webModel.getSettingsPage().assertingWLROrdersWithRights();
         webModel.getUtils().checkPoint("NA47b completed");
     }

@@ -17,11 +17,13 @@ public class NA172_WhiteLabel_Agent_Should_Distinguish_CPs_Tariffs_FreeMinutes_A
     public void cpHasGivenMePermissionsAndAssignedMeFewTariffPlansFreeMinutePlansAndPackages() throws InterruptedException, AWTException {
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickConfigManager();
+        webModel.getDashBoardPage().loadTariffManager();
         webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10","checkbox0");
         webModel.getConfigManagerPage().assignFreeMinutesPlanToAgent("Mobile 250 Free Mins (UK and Mob","checkbox0");
         webModel.getConfigManagerPage().loadPackageManager();
         webModel.getConfigManagerPage().assignPackageToAgent("Winter Special Promotion","checkbox1");
         webModel.getSettingsPage().clickSettingsButton();
+        webModel.getSettingsPage().loadPermissionGroups();
         webModel.getSettingsPage().issueTariffAndFreeMinutePermissionsToAgent("agent");
         webModel.getDashBoardPage().logOut();
     }
@@ -35,8 +37,9 @@ public class NA172_WhiteLabel_Agent_Should_Distinguish_CPs_Tariffs_FreeMinutes_A
     @Then("^I should be able to distinguish from the ones CP has created$")
     public void iShouldBeAbleToDistinguishFromTheOnesCPHasCreated() throws InterruptedException {
         webModel.getDashBoardPage().clickConfigManager();
+        webModel.getDashBoardPage().loadTariffManager();
         webModel.getCreateTariffPage().distinguishCPCreatedTariff("Sell 2p NGCS AC (+60 sec)");
-        webModel.getConfigManagerPage().accessFreeMinutesTab();
+        webModel.getDashBoardPage().loadFreeMinutes();
         webModel.getConfigManagerPage().distinguishCPCreatedFreeMinutes("Mobile 250 Free Mins (UK and Mob");
         webModel.getConfigManagerPage().loadPackageManager();
         webModel.getConfigManagerPage().distinguishCPCreatedPackage("Winter Special Promotion");

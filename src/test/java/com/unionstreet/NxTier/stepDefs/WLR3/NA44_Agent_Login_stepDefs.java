@@ -15,7 +15,8 @@ public class NA44_Agent_Login_stepDefs {
 
     @And("^Have created a new customer$")
     public void haveCreatedANewCustomer() throws InterruptedException {
-        webModel.getNewBusinessCustomerPage().clickContactManagerButton();
+        webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
         webModel.getNewBusinessCustomerPage().addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes();
         webModel.getNewBusinessCustomerPage().addSiteInfoForNewBusinessCustomer();
@@ -25,6 +26,7 @@ public class NA44_Agent_Login_stepDefs {
     @When("^I access create Quote window$")
     public void iAccessCreateQuoteWindow() throws InterruptedException {
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
     }
 
@@ -38,7 +40,8 @@ public class NA44_Agent_Login_stepDefs {
     @Given("^I am logged in as an agent after the CP has created a quote for a \"([^\"]*)\" assigned to me$")
     public void iAmLoggedInAsAnAgentAfterTheCPHasCreatedAQuoteForAAssignedToMe(String customer_name) throws InterruptedException {
         webModel.getLoginPage().doLogin();
-        webModel.getNewBusinessCustomerPage().clickContactManagerButton();
+        webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getContactManagerPage().searchForBusinessCustomer(customer_name);
         webModel.getContactManagerPage().assignAnAgentForBC();
     }
@@ -54,6 +57,7 @@ public class NA44_Agent_Login_stepDefs {
     public void iAccessOrdersManager() throws InterruptedException {
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
     }
 
     @Then("^I should see that particular quote$")

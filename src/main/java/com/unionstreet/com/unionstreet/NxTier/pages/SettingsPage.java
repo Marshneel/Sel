@@ -14,7 +14,7 @@ public class SettingsPage {
     private static String CP_RanName;
     public final String SAVEANDCLOSE = "//input[@value='Save & Close']";
     public final String AWAITING_PROCESS = "DivProgress";
-    private final String SETTINGS_BUTTON = "HrefSettings";
+    private final String SETTINGS_BUTTON = "//span[contains(text(),'Settings')]";
     private final String ADDPERMISSION_GROUPNAME = "GroupName";
     private final String AGENTPERMISSION_GROUPTYPE = "//input[@id='rdoGroupType'][@value='Agent']";
     private final String CPPERMISSION_GROUPTYPE = "//input[@id='rdoGroupType'][@value='CP']";
@@ -69,7 +69,7 @@ public class SettingsPage {
     private final String ADDPERMISSIONS_WORKPLACE = "//a[@href='#'][contains(text(),'Workplace')]";
     private final String WORKPLACE_DASHBOARD = "//a[@href='#'][contains(text(),'Dashboard')]";
     private final String DASHBOARD_SELECTALL = "SelectAll_Workplace_Dashboard";
-    private final String LOGINUSERS_BUTTON = "//div[@id='subMenu']//li[5]";
+    private final String LOGINUSERS_BUTTON = "//a[contains(text(),' Login Users')]";
     private final String ADDUSER_COMPANY = "CompanyList";
     private final String USERADD_LOGIN = "Add Login";
     private final String ADDUSERLOGIN_SITE = "siteContact_christian";
@@ -88,9 +88,15 @@ public class SettingsPage {
     CommonMethods commonMethods = new CommonMethods();
 
 
-    public void clickSettingsButton() {
-        utils.waitForElementVisible(By.id(SETTINGS_BUTTON));
-        utils.clickBtn(By.id(SETTINGS_BUTTON));
+    public void clickSettingsButton() throws InterruptedException {
+            Thread.sleep(1000);
+            utils.scrollUp(By.xpath(SETTINGS_BUTTON));
+            utils.clickBtn(By.xpath(SETTINGS_BUTTON));
+        }
+
+    public void loadPermissionGroups() throws InterruptedException {
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath("//a[contains(text(),'Permission Groups')]"));
     }
 
     public void clickAddPermissionsButton() throws InterruptedException {
@@ -227,7 +233,7 @@ public class SettingsPage {
         utils.switchToParentWindow();
     }
 
-    public void clickLoginUsers() {
+    public void loadLoginUsers() {
         utils.clickBtn(By.xpath(LOGINUSERS_BUTTON));
     }
 
@@ -272,7 +278,7 @@ public class SettingsPage {
         utils.sendText(By.id(loginPage.USERNAME_FIELD), newBusinessCustomerPage.RanName);
         utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
         utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
-        utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
+        utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "Dashboard");
     }
 
     ///////////////////////////////////////////////////////CP///////////////////////////////////////////////////////////////
@@ -336,7 +342,7 @@ public class SettingsPage {
         utils.sendText(By.id(loginPage.USERNAME_FIELD), CP_RanName);
         utils.sendText(By.id(loginPage.PASSWORD_FIELD), utils.getProperty("userPassword"));
         utils.clickBtn(By.cssSelector(loginPage.LOGINBUTTON));
-        utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "DASHBOARD");
+        utils.verifyStringMatch(By.id(dashBoardPage.DASHBOARD_TITLE), "Dashboard");
     }
 
     public void revokingAgentWLRPermissions() throws InterruptedException {

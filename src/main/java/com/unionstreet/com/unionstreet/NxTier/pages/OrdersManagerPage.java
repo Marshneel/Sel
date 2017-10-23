@@ -140,12 +140,12 @@ public class OrdersManagerPage {
 
     public void assertQuote() {
         utils.getOrdersPage();
-        utils.searchAndAssertTextPresent(By.id(QUOTE), newBusinessCustomerPage.RanName);
+        utils.searchAndAssertTextPresent(By.xpath("//td[contains(text(),'"+newBusinessCustomerPage.RanName+"')]"), newBusinessCustomerPage.RanName);
     }
 
     public void assertQuoteForReseller() {
         utils.getOrdersPage();
-        utils.searchAndAssertTextPresent(By.id(QUOTE), newBusinessCustomerPage.Reseller_RanName);
+        utils.searchAndAssertTextPresent(By.xpath("//td[contains(text(),'"+newBusinessCustomerPage.Reseller_RanName+"')]"), newBusinessCustomerPage.Reseller_RanName);
     }
 
     public void assertCompanyIsAccessibleFromCompanyAndSiteDropDown() {
@@ -181,7 +181,7 @@ public class OrdersManagerPage {
     }
 
     public void assertAgentCanViewQuotes() {
-        utils.searchAndAssertTextPresent(By.id(QUOTE), QUOTE_RanName);
+        utils.searchAndAssertTextPresent(By.xpath("//td[text()='" + QUOTE_RanName + "']"), QUOTE_RanName);
     }
 
     public void createQuote() throws InterruptedException {
@@ -195,6 +195,18 @@ public class OrdersManagerPage {
 
     public void searchQuoteByBcRN(String businessCustomer) throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//td[text()='" + businessCustomer + "']"));
+    } public void AssertPresenceOfNxtiereAndWLR3ItemsInSameOrder() throws InterruptedException,SQLException
+    {
+        searchQuoteByBcRN(newBusinessCustomerPage.RanName);
+        clickOnPlusSymbolOfOrderID(newBusinessCustomerPage.RanName);
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'customService')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+        Thread.sleep(1000);
+        clickOnPlusSymbolOfOrderID(newBusinessCustomerPage.RanName);
+        Thread.sleep(1000);
+
+        loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
+
     }
 
     public void clickOnQuoteID(String type) throws SQLException {
@@ -206,7 +218,17 @@ public class OrdersManagerPage {
         utils.switchToNewWindow();}
        catch (Exception e){utils.checkAlert();}
     }
+    public void clickOnPlusSymbolOfOrderID(String type) throws SQLException
+    {
+        utils.sqlQuery("Portal", "test01-sql01", "nxtiere2e", "select order_id from orders where OrderDescription ='" + type + "'");
+        utils.result.next();
+        String one = utils.result.getString("order_id");
+        try{ utils.waitForElementVisible(By.xpath("//a[text()='" + one + "']/preceding-sibling::img[contains(@onclick,'ToggleObject')]"));
+            utils.clickBtn(By.xpath("//a[text()='" + one + "']/preceding-sibling::img[contains(@onclick,'ToggleObject')]"));
 
+        }
+        catch (Exception e){utils.checkAlert();}
+    }
     public void loadOrdersManagerAndClickOnQuoteID(String type) throws InterruptedException, SQLException {
         try {
             utils.switchToPreviousWindow(0);
@@ -240,16 +262,11 @@ public class OrdersManagerPage {
     }
 
     public void makeSureAgentDoesNotHaveAgentAndResellerService() throws InterruptedException {
-        utils.waitForElementVisible(By.id(commonMethods.SEARCH_BUTTON));
         commonMethods.search("agent");
         utils.waitForElementVisible(By.id(LOCATOR_FOR_BOX_HEADER));
         utils.waitForElementVisible(By.xpath(AGENT_TEXT));
         utils.waitForElementVisible(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
-        try {
-            utils.makeSureBoxIsUnChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
-        } catch (Exception e) {
-            utils.makeSureBoxIsUnChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
-        }
+        utils.makeSureBoxIsUnChecked(By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER), By.id(AGENT_CHECKBOX_SERVICE_FOR_AGENT_AND_RESELLER));
     }
 
     public void saveAssignServicePage() throws InterruptedException {
@@ -298,13 +315,6 @@ public class OrdersManagerPage {
         utils.waitForElementVisible(By.xpath("//div[@id='tasksContentPanel']//td[contains(text(),'" + newBusinessCustomerPage.RanName + "')]"));
     }
     public void clickOnQuote(){
-      try{  utils.waitForElementVisible(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
         utils.clickBtn(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
-      utils.switchToNewWindow();}
-      catch (Exception e){utils.getOrdersPage();
-          utils.waitForElementVisible(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
-          utils.clickBtn(By.xpath(CLICK_ON_THE_ORDER_FROM_LIST));
-          utils.switchToNewWindow();
-      }
-    }
+        utils.switchToNewWindow();}
 }

@@ -3,7 +3,6 @@ package com.unionstreet.com.unionstreet.NxTier.pages;
 import com.unionstreet.support.ElementUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
@@ -75,7 +74,7 @@ public class CompanyMenuPage {
     private final String BILLRUN_UNDER_CLI = "bill_run";
     private final String AGENTINFO_BUTTON = "HrefAgentInformation";
     private final String AGENTINFO_BILLRUN = "statement_bill_run";
-    private final String REVENUE_ASSURANCE_BUTTON = "HrefRevenueAssurance";
+    private final String REVENUE_ASSURANCE_BUTTON = "//span[contains(text(),'Revenue Assurance')]";
     private final String BILLRUN_UNDER_REVENUE_ASSURANCE = "//label[contains(text(),'Bill Run')]";
     private final String AGENTS_BUTTON_UNDER_CONTACT_MANAGER = "//a[text()[contains(.,'Agents')]]";
     private final String SHOW_BUTTON_UNDER_REVENUE_ASSURANCE = "//input[@onclick='return ShowData();']";
@@ -88,12 +87,13 @@ public class CompanyMenuPage {
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
     ConfigManagerPage configManagerPage = new ConfigManagerPage();
     CreateTariffPage createTariffPage = new CreateTariffPage();
+    DashBoardPage dashBoardPage=new DashBoardPage();
     private long today;
     private String day;
 
 
     public void addNewSite() throws InterruptedException {
-        accessCompanyMenu(NewBusinessCustomerPage.RanName);
+        accessCompanyMenu(false,NewBusinessCustomerPage.RanName);
         clickCompanySitesButton();
         utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.switchToNewWindow();
@@ -132,8 +132,12 @@ public class CompanyMenuPage {
         utils.clickBtn(By.id(COMPANYSITES_BUTTON));
     }
 
-    public void accessCompanyMenu(String ranName) throws InterruptedException {
-        newBusinessCustomerPage.clickContactManagerButton();
+    public void accessCompanyMenu(boolean recessed, String ranName) throws InterruptedException {
+        //change here
+
+        if(recessed){
+            dashBoardPage.clickContactManagerTab();}
+        dashBoardPage.load_endCustomers();
         utils.sendText(By.id(SEARCH_BUTTON), ranName);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + ranName + "')]"));
@@ -147,7 +151,7 @@ public class CompanyMenuPage {
     }
 
     public void addInvoicingDetails() throws InterruptedException {
-        accessCompanyMenu(NewBusinessCustomerPage.RanName);
+        accessCompanyMenu(false,NewBusinessCustomerPage.RanName);
         clickInvoicingDetailsButton();
         utils.selectByVisibleText(By.id(BILLING_REPORT_PROFILE_DROPDOWN), utils.getProperty("billingReportProfile"));
         utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
@@ -222,22 +226,17 @@ public class CompanyMenuPage {
 
     }
 
-    public void addCLIs(String ranName, String number, boolean nonWLR1, boolean nonWLR2) throws InterruptedException {
+    public void addCLIs(boolean recessed,String ranName, String number, boolean nonWLR1, boolean nonWLR2) throws InterruptedException {
         if (nonWLR1) {
-            accessCompanyMenu(ranName);
+            accessCompanyMenu(recessed,ranName);
         }
 
         clickCLIButton();
         utils.waitForElementToBeClickable(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
         Thread.sleep(1000);
         utils.switchToNewWindowByJavaExeClick(By.linkText(newBusinessCustomerPage.ADD_BUTTON));
-        try {
-            utils.waitForElementVisible(By.id(CLI_NUMBER_FIELD));
-            utils.clickBtn(By.id(CLI_NUMBER_FIELD));
-            utils.sendText(By.id(CLI_NUMBER_FIELD), number);
-        } catch (TimeoutException e) {
-            utils.sendText(By.id(CLI_NUMBER_FIELD), number);
-        }
+        utils.clickBtn(By.id(CLI_NUMBER_FIELD));
+        utils.sendText(By.id(CLI_NUMBER_FIELD), number);
         utils.waitForElementVisible(By.id(BILLRUN_UNDER_CLI));
         utils.selectByVisibleText(By.id(BILLRUN_UNDER_CLI), "Default");
         utils.waitForElementVisible(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
@@ -336,7 +335,7 @@ public class CompanyMenuPage {
     }
 
     public void addPricingDetails() throws InterruptedException {
-        accessCompanyMenu(NewBusinessCustomerPage.RanName);
+        accessCompanyMenu(false,NewBusinessCustomerPage.RanName);
         clickPricingDetails();
         utils.selectByIndex(By.id(SELECT_A_PACKAGE_FROM_DROPDOWN), 1);
         utils.clickBtn(By.cssSelector(newBusinessCustomerPage.SAVE_BUTTON));
@@ -756,7 +755,7 @@ public class CompanyMenuPage {
     }
 
     public void validateBillRunForWLR_underCLI() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        addCLIs("", utils.randomNumber(), false, false);
+        addCLIs(true,"", utils.randomNumber(), false, false);
         utils.waitForElementVisible(By.xpath("//select[@id='" + BILLRUN_UNDER_CLI + "']//option[@selected='selected'][contains(text(),'Default')]"));
         utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set agent_id='140',agent_contact_id='60', AgentContact='WhiteLabelReseller' where ID='141'");
         utils.refreshPage();
@@ -796,8 +795,8 @@ public class CompanyMenuPage {
 
 
     public void validateBillRunForNonWLR_underRevenueAssurance() {
-        utils.waitForElementVisible(By.id(REVENUE_ASSURANCE_BUTTON));
-        utils.clickBtn(By.id(REVENUE_ASSURANCE_BUTTON));
+        utils.clickBtn(By.xpath(REVENUE_ASSURANCE_BUTTON));
+        dashBoardPage.loadsalesCheckUnderRevenueAssurance();
         utils.waitForElementVisible(By.xpath(BILLRUN_UNDER_REVENUE_ASSURANCE));
         utils.clickBtn(By.xpath(BILLRUN_UNDER_REVENUE_ASSURANCE));
         utils.waitForElementVisible(By.xpath(SHOW_BUTTON_UNDER_REVENUE_ASSURANCE));
@@ -812,8 +811,8 @@ public class CompanyMenuPage {
     }
 
     public void validateBillRunForWLR_underRevenueAssurance() {
-        utils.waitForElementVisible(By.id(REVENUE_ASSURANCE_BUTTON));
-        utils.clickBtn(By.id(REVENUE_ASSURANCE_BUTTON));
+        utils.clickBtn(By.xpath(REVENUE_ASSURANCE_BUTTON));
+        dashBoardPage.loadsalesCheckUnderRevenueAssurance();
         utils.waitForElementVisible(By.xpath(BILLRUN_UNDER_REVENUE_ASSURANCE));
         utils.clickBtn(By.xpath(BILLRUN_UNDER_REVENUE_ASSURANCE));
         utils.waitForElementVisible(By.xpath(SHOW_BUTTON_UNDER_REVENUE_ASSURANCE));
@@ -828,8 +827,8 @@ public class CompanyMenuPage {
     }
 
     public void validateBillRun_underAgentInfo() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(AGENTS_BUTTON_UNDER_CONTACT_MANAGER));
-        utils.clickBtn(By.xpath(AGENTS_BUTTON_UNDER_CONTACT_MANAGER));
+        dashBoardPage.clickContactManagerTab();
+       dashBoardPage.loadAgentsUnderContactManager();
         commonMethods.search("agent");
         commonMethods.clickAndSwitchTo("agent");
         utils.waitForElementVisible(By.id(AGENTINFO_BUTTON));

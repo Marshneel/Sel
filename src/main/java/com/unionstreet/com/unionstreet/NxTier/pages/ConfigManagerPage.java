@@ -11,9 +11,9 @@ import java.io.UnsupportedEncodingException;
  */
 public class ConfigManagerPage {
 
-    private final String CONFIG_MANAGER_BLUE_LABEL = "//div[contains(text(),'Config Manager')]";
+    private final String CONFIG_MANAGER_BUTTON = "//span[contains(text(),'Config Manager')]";
     private final String FREE_MINUTES_TAB = "//a[contains(@href,'freeminuteslistview')]";
-    private final String PACKAGE_MANAGER_TAB = "//a[contains(@href,'configuration/packagemanager')]";
+    private final String PACKAGE_MANAGER_TAB = "//a[contains(text(),'Package Manager')]";
     private final String PEAK_TARIFF_RATES_LIST = "RatesList_0__r_peak";
     private final String OFFPEAK_TARIFF_RATES_LIST = "RatesList_0__r_offpeak";
     private final String ASSIGN_TARIFF_TAB = "HrefAssignTarrifs";
@@ -59,8 +59,8 @@ public class ConfigManagerPage {
 
     }
 
+
     public void assignTariffPlanToAgent(String tariffplan, String rates, String assignee) throws InterruptedException, AWTException {
-        utils.waitForElementVisible(By.xpath(CONFIG_MANAGER_BLUE_LABEL));
         commonMethods.search("" + tariffplan + "");
         Thread.sleep(1000);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffplan + "')]"));
@@ -81,7 +81,7 @@ public class ConfigManagerPage {
     }
 
     public void assignFreeMinutesPlanToAgent(String freeMinutePlan, String assignee) throws InterruptedException {
-        accessFreeMinutesTab();
+        dashBoardPage.loadFreeMinutes();
         commonMethods.search("" + freeMinutePlan + "");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + freeMinutePlan + "')]"));
         Thread.sleep(1000);
@@ -132,8 +132,7 @@ public class ConfigManagerPage {
 
     public void assertTariffAreNotEditable(String tariffPlan) throws InterruptedException {
         utils.switchToPreviousWindow(0);
-        utils.waitForElementVisible(By.xpath(TARIFF_MANAGER_TAB));
-        utils.clickBtn(By.xpath(TARIFF_MANAGER_TAB));
+        dashBoardPage.loadTariffManager();
         commonMethods.search(tariffPlan);
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + tariffPlan + "')]"));
         Thread.sleep(1000);
@@ -146,15 +145,14 @@ public class ConfigManagerPage {
     }
 
     public void navigateToAddTariffPlan() throws InterruptedException {
-        utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
-        Thread.sleep(1000);
+        dashBoardPage.loadTariffManager();
         utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(createTariffPage.TARIFF_NAME_TEXT_BOX));
     }
 
     public void addFreeMinutesPlan() throws InterruptedException {
-        accessFreeMinutesTab();
+        dashBoardPage.loadFreeMinutes();
         utils.waitForElementVisible(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.clickBtn(By.cssSelector(commonMethods.ADD_BUTTON));
         utils.switchToNewWindow();
@@ -180,17 +178,11 @@ public class ConfigManagerPage {
 
     }
 
-    public void accessFreeMinutesTab() {
-        utils.waitForElementVisible(By.xpath(FREE_MINUTES_TAB));
-        utils.clickBtn(By.xpath(FREE_MINUTES_TAB));
-    }
+
 
     public void editFreeMinutePlan(String amount, String what) throws InterruptedException {
-        accessFreeMinutesTab();
-        commonMethods.search(RanFreeMinutePlanName);
-        utils.waitForElementToBeClickable(By.xpath("//a[contains(text(),'" + RanFreeMinutePlanName + "')]"));
-        Thread.sleep(1000);
-        utils.clickBtn(By.xpath("//a[contains(text(),'" + RanFreeMinutePlanName + "')]"));
+        dashBoardPage.loadFreeMinutes();
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+RanFreeMinutePlanName+"')]"));
         utils.switchToNewWindow();
         utils.waitForElementVisible(By.id(EDIT_FREE_MINUTES_NAME_FIELD));
         utils.sendText(By.id(EDIT_FREE_MINUTES_NAME_FIELD), RanFreeMinutePlanName + "changed name");
@@ -209,9 +201,8 @@ public class ConfigManagerPage {
         utils.clickBtn(By.cssSelector(commonMethods.SAVE_AND_CLOSE_BUTTON));
         utils.checkAlert();
         utils.switchToPreviousWindow(0);
-        commonMethods.navigateToHome();
-        dashBoardPage.clickConfigManager();
-        accessFreeMinutesTab();
+
+       dashBoardPage.loadFreeMinutes();
         commonMethods.search(RanFreeMinutePlanName + "changed name");
         utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanFreeMinutePlanName + "changed name')]"));
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'" + amount + "')]"));
@@ -220,7 +211,6 @@ public class ConfigManagerPage {
 
 
     public void loadPackageManager() {
-        utils.waitForElementVisible(By.xpath(PACKAGE_MANAGER_TAB));
         utils.clickBtn(By.xpath(PACKAGE_MANAGER_TAB));
     }
 
@@ -307,18 +297,18 @@ public class ConfigManagerPage {
     }
 
     public void distinguishAgentCreatedFreeMinutes() throws InterruptedException {
-        accessFreeMinutesTab();
+        dashBoardPage.loadFreeMinutes();
         commonMethods.search(RanFreeMinutePlanName);
         utils.waitForElementVisible(By.xpath("//tr[@class='table_row  Bold']//a[contains(text(),'" + RanFreeMinutePlanName + "')]"));
     }
 
     public void distinguishCPCreatedFreeMinutes(String freeMinutesPackage) throws InterruptedException {
-        accessFreeMinutesTab();
+        dashBoardPage.loadFreeMinutes();
         commonMethods.search(freeMinutesPackage);
         try {
             utils.waitForElementVisible(By.xpath(createTariffPage.SEMI_TRANSPARENT_UNION_STREET_TEXT));
         } catch (Exception e) {
-            accessFreeMinutesTab();
+            dashBoardPage.loadFreeMinutes();
             commonMethods.search(freeMinutesPackage);
             utils.waitForElementVisible(By.xpath(createTariffPage.SEMI_TRANSPARENT_UNION_STREET_TEXT));
         }
@@ -330,7 +320,7 @@ public class ConfigManagerPage {
     }
 
     public void distinguishCPCreatedPackage(String Package) throws InterruptedException {
-        accessFreeMinutesTab();
+        dashBoardPage.loadFreeMinutes();
         commonMethods.search(Package);
         utils.waitForElementVisible(By.xpath(createTariffPage.SEMI_TRANSPARENT_UNION_STREET_TEXT));
     }

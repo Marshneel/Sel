@@ -28,7 +28,6 @@ public class ServiceDesk_CallerDetails_TriagePage {
     private final String THE_SUMMARY_MUST_HAVE_NO_MORE_THAN_256_WORDS = "//span[contains(text(),'The Summary must be no more than 256 characters')]";
     private final String THE_SUMMARY_CAN_BE_NO_MORE_THAN_80_CHARACTERS = "//span[contains(text(),'The Summary must be no more than 80 characters')]";
     private final String PLEASE_ENTER_A_SUMMARY_FOR_INCIDENT = "//span[contains(text(),'Please enter a brief Summary for this Incident')]";
-    private final String EDIT_AN_INCIDENT_LABEL = "//h1[contains(text(),'Edit an incident')]";
     private final String PRIORITY_LABEL = "//label[contains(text(),'Priority')]";
     private final String PRIORITY_DROPDOWN = "IncidentPriority";
     private final String INCIDENT_TYPE = "IncidentType";
@@ -143,6 +142,14 @@ public class ServiceDesk_CallerDetails_TriagePage {
         utils.selectByVisibleText(By.id(INCIDENT_OWNER), "Adam Reed");
 
     }
+    public int getNonOpenReachIncidentID() throws SQLException {
+        utils.sqlQuery("Portal", "moe\\devsql2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "SELECT TOP 1 RecordID FROM incidents ORDER BY RecordID DESC");
+        utils.result.next();
+        String createdID = utils.result.getString("RecordID");
+       int createdID_int=Integer.parseInt(createdID);
+
+        return createdID_int;
+    }
 
     public void non_OpenReachIncident_Triage() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_types set cli_type='1', openreach_function='4' where RecordID='6'");
@@ -169,7 +176,7 @@ public class ServiceDesk_CallerDetails_TriagePage {
         populateSummaryAndOwnerDropDown();
             utils.waitForElementVisible(By.id("wizardButton_SaveIncident"));
             utils.clickBtn(By.id("wizardButton_SaveIncident"));
-        utils.waitForElementVisible(By.xpath(EDIT_AN_INCIDENT_LABEL));
+        utils.waitForElementVisible(By.xpath("//h1[contains(text(),'Incident #"+getNonOpenReachIncidentID()+"')]"));
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueNumber='1' where ID='150'");
         utils.navigateBack();
         //clickPrevious();

@@ -7,65 +7,72 @@ import org.openqa.selenium.By;
 public class DashBoardPage {
 
 
-    public final String DASHBOARD_TITLE = "menutitle";
+    public final String DASHBOARD_TITLE = "sub-page-heading";
     //TODO
-    public final String LOGOUT_BUTTON = ".logout";
+    public final String LOGOUT_BUTTON = "//a[contains(@href,'Logout')]";
     public final String QUOTE = "bodyContent";
-    private final String ORDERSMANAGER_BUTTON = "HrefOrdersManager";
-    private final String CONTACT_MANAGER_BUTTON = "HrefContactManager";
-    private final String CONFIGMANAGER_BUTTON = "HrefConfigManager";
-    private final String SERVICEDESK_TAB="HrefServiceDesk";
+    private final String ORDERSMANAGER_BUTTON = "//span[contains(text(),'Orders Manager')]";
+    private final String CONTACT_MANAGER_BUTTON = "//span[contains(text(),'Contact Manager')]";
+    private final String CONFIGMANAGER_BUTTON = "//span[contains(text(),'Config Manager')]";
+    private final String SERVICEDESK_TAB="//span[contains(text(),'Service Desk')]";
+    public final String LOAD_ENDCUSTOMERS="//a[contains(text(),'End Customers')]";
 
 
     ElementUtils utils = new ElementUtils();
 
     public void assertLogin() {
-        utils.verifyStringMatch(By.id(DASHBOARD_TITLE), "DASHBOARD");
+        utils.waitForElementVisible(By.xpath("//small[contains(text(),'Dashboard')]"));
     }
 
     public void logOut() throws InterruptedException {
-        try {
-            Thread.sleep(1000);
-            utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
-        } catch (Exception e) {
-            try {
-                Thread.sleep(1000);
-                utils.clickBtnWithWait(By.cssSelector(LOGOUT_BUTTON));
-            } catch (Exception e1) {
-                utils.checkAlert();
-            }
-        }
-    }
+     try{   utils.clickBtn(By.xpath(LOGOUT_BUTTON));
+    }catch (Exception e){ utils.clickBtn(By.cssSelector(".logout"));}}
 
     public void clickOrderManagerButton() throws InterruptedException {
-        utils.waitForElementVisible(By.id(ORDERSMANAGER_BUTTON));
-        utils.scrollUp(By.id(ORDERSMANAGER_BUTTON));
-        utils.clickBtn(By.id(ORDERSMANAGER_BUTTON));
+        utils.clickBtn(By.xpath(ORDERSMANAGER_BUTTON));
+    }
+    public void loadAllOrders(boolean agent_reseller, boolean CP) throws InterruptedException {
+       if(agent_reseller) {utils.clickBtn(By.xpath("//a[contains(text(),'All Orders')]"));}
+      if (CP){ utils.clickBtn(By.xpath("//span[contains(text(),'All Orders')]"));
+          utils.clickBtn(By.xpath("//a[@href='/nxtiere2e/orders/ordersmanager?Type=AllOrders&Ownership=All']"));}
+
+
     }
 
     public void clickContactManagerTab(){
-           utils.waitForElementVisible(By.id(CONTACT_MANAGER_BUTTON));
-            utils.clickBtn(By.id(CONTACT_MANAGER_BUTTON));
-
-
-
+            utils.clickBtn(By.xpath(CONTACT_MANAGER_BUTTON));
+    }
+    public void load_endCustomers() throws InterruptedException {
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath(LOAD_ENDCUSTOMERS));
     }
 
-    public void loadServiceDesk(String database) {
-        try {
-          //  utils.getDashBoardPage();
-            utils.waitForElementVisible(By.id(SERVICEDESK_TAB));
-            utils.clickBtn(By.id(SERVICEDESK_TAB));
-        } catch (Exception e) {
-            utils.getDashBoardPage(database);
-            utils.waitForElementVisible(By.id(SERVICEDESK_TAB));
-            utils.clickBtn(By.id(SERVICEDESK_TAB));
-        }
+    public void loadServiceDesk()
+
+
+
+
+    {
+       try{ Thread.sleep(1000);}catch (Exception e){}
+        utils.clickBtn(By.xpath(SERVICEDESK_TAB));
     }
     public void clickConfigManager() {
-        utils.waitForElementVisible(By.id(CONFIGMANAGER_BUTTON));
-        utils.clickBtn(By.id(CONFIGMANAGER_BUTTON));
+        utils.clickBtn(By.xpath(CONFIGMANAGER_BUTTON));
     }
+    public void loadTariffManager() throws InterruptedException {
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath("//a[contains(text(),'Tariff Manager')]"));
+    }
+    public void loadFreeMinutes() {
+        utils.clickBtn(By.xpath("//a[contains(text(),'Free Minutes')]"));
+    }
+
+  public void loadsalesCheckUnderRevenueAssurance(){
+      utils.clickBtn(By.xpath("//a[contains(text(),'Sales Check')]"));
+  }
+  public void loadAgentsUnderContactManager(){
+      utils.clickBtn(By.xpath("//a[contains(text(),'Agents')]"));
+  }
 
 
 }

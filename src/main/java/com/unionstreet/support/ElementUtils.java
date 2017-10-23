@@ -41,6 +41,14 @@ public Wait waitForSomeTime(){
             .ignoring(WebDriverException.class);
     return wait;
 }
+    public Wait waitForSomeTimeForOpenReach(){
+        Wait wait = new FluentWait(BaseClass.driver)
+                .withTimeout(5000, SECONDS)
+                .pollingEvery(3, SECONDS)
+                .ignoring(WebDriverException.class);
+        return wait;
+    }
+
 
     public void findFieldAndSendKeys(By by, String filePath) {
         driver.findElement(by).sendKeys(filePath);
@@ -69,7 +77,6 @@ public Wait waitForSomeTime(){
         WebElement element = driver.findElement(by);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
-
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
@@ -89,17 +96,15 @@ public Wait waitForSomeTime(){
     public void waitForElementVisible(By by)  {
         waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));}
 
+    public void waitForElementVisibleForOpenReach(By by){
+        waitForSomeTimeForOpenReach().until(ExpectedConditions.presenceOfElementLocated(by));
+        }
     public void waitForElementToBeClickable(By by) {
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
     }
 
     public void waitForElementVisibleForWLR3Page(By by) {
         waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));
-    }
-
-    public void waitForElementVisibleForOpenReach(By by) {
-       waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));
-
     }
 
     //switching to new window
@@ -319,8 +324,7 @@ public Wait waitForSomeTime(){
     }
 
     public void searchAndAssertTextPresent(By by, String searchText) {
-        WebDriverWait wait = new WebDriverWait(driver, 100);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
         String actualText = driver.findElement(by).getText();
         assertTrue(actualText.contains(searchText));
     }

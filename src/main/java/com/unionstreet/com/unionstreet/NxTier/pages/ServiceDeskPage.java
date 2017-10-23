@@ -10,7 +10,7 @@ import java.sql.SQLException;
  * Created by RajeshG on 28/05/2017.
  */
 public class ServiceDeskPage {
-
+    private final String LOGIN_AN_INCIDENT_BUTTON="//a[contains(text(),'Log an Incident')]";
     private final String LOGIN_AN_INCIDENT_HEADER_TEXT="//h1[contains(text(),'Log an incident')]";
     private final String LOGIN_AN_INCIDENT_CLICK="//span[contains(text(),'Log an Incident')]";
     private final String ACCESS_DENIED="//div[contains(text(),'Access Denied')]";
@@ -31,8 +31,15 @@ public class ServiceDeskPage {
 
 
 
-    public void assertTextOnServiceDesk() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
-       utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_HEADER_TEXT));}
+    public void loadLoginIncidentPageAndAssertTextOnServiceDesk() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
+     Thread.sleep(1000);
+       utils.clickBtn(By.xpath(LOGIN_AN_INCIDENT_BUTTON));
+        utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_HEADER_TEXT));}
+    public void clickLogAnIncidentButton() throws InterruptedException {
+        Thread.sleep(1000);
+        utils.clickBtn(By.xpath(LOGIN_AN_INCIDENT_BUTTON));
+
+    }
 
     public void searchByAccountName(String accountName) throws InterruptedException {
         utils.waitForElementVisible(By.id(SEARCH_BY_ACCOUNT_NAME_FIELD));
@@ -48,8 +55,10 @@ public class ServiceDeskPage {
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.xpath(INITIATE_SEARCH_BY_ACCOUNT_NUMBER));
     }
-    public void searchResultsForServiceDesk(String type){
+    public void searchResultsForServiceDesk(String type) throws InterruptedException {
+        Thread.sleep(2000);
         utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+type+"')]"));
+
 
     }
     public void assertNotFound(String type){
@@ -136,6 +145,7 @@ public class ServiceDeskPage {
 
     }
     public void assertServiceDeskAccessDenied(){
+
         utils.waitForElementVisible(By.xpath(ACCESS_DENIED));
     }
 

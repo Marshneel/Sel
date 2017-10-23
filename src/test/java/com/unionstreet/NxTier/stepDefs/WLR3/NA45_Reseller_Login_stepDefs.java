@@ -16,6 +16,7 @@ public class NA45_Reseller_Login_stepDefs {
     @And("^have created a new site for a company$")
     public void haveCreatedANewSiteForACompany() throws InterruptedException {
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getContactManagerPage().clickOnResellerUnderCustomerDetails();
         webModel.getContactManagerPage().clickCompanySite();
         webModel.getAddSiteDetailsPage().addNewSiteForReseller();
@@ -23,8 +24,8 @@ public class NA45_Reseller_Login_stepDefs {
 
     @When("^I access create Quote tab and select the above company from the company dropdown$")
     public void iAccessCreateQuoteTabAndSelectTheAboveCompanyFromTheCompanyDropdown() throws InterruptedException {
-        webModel.getAddSiteDetailsPage().navigateToHomePage();
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
     }
 
     @Then("^The newly created site should appear under the site drop down$")

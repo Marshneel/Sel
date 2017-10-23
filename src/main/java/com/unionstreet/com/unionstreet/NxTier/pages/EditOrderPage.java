@@ -46,6 +46,7 @@ public class EditOrderPage {
     OrdersManagerPage ordersManagerPage = new OrdersManagerPage();
     NewBusinessCustomerPage newBusinessCustomerPage = new NewBusinessCustomerPage();
     WLR3_OrderDetails_Page wlr3_orderDetails_page = new WLR3_OrderDetails_Page();
+    NxTierServicesPage nxTierServicesPage=new NxTierServicesPage();
 
     public void getToAddServicePage() throws InterruptedException, SQLException {
         utils.getOrdersPage();
@@ -133,6 +134,25 @@ public class EditOrderPage {
             utils.waitForElementVisible(By.xpath(GREEN_TICK));
         }
         System.out.println("NA87 completed");
+    }
+    public void verifyOrderCompletionForNxtierAndWlr3ItemsForCP(String NxtierService,String Wlr3Item) throws InterruptedException, SQLException
+    {
+
+        utils.switchToPreviousWindow(1);
+
+        ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
+
+        utils.waitForElementVisible(By.xpath("//a[text()='"+NxtierService+"']"));
+        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+
+        utils.selectByIndex(By.id(ORDER_OWNER_DROPDOWN_ON_EDIT_ORDER_PAGE), 1);
+        Thread.sleep(1000);
+        utils.scrollUp(By.xpath("//span[text()='Save & Submit Order']"));
+        utils.waitForElementVisible(By.xpath("//span[text()='Save & Submit Order']"));
+        utils.clickBtn(By.xpath("//span[text()='Save & Submit Order']"));
+        utils.switchToPreviousWindow(0);
+        ordersManagerPage.AssertPresenceOfNxtiereAndWLR3ItemsInSameOrder();
+
     }
 
     public void accessOrder() throws InterruptedException, SQLException {

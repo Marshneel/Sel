@@ -15,11 +15,9 @@ public class WLR_and_NxTierServicesPage {
     ElementUtils utils = new ElementUtils();
 
     public void accessingAssignServicePage() throws InterruptedException {
-       utils.waitForElementVisible(By.xpath(SERVICE_INVENTORY_MANAGER));
         utils.clickBtn(By.xpath(SERVICE_INVENTORY_MANAGER));
         utils.clickBtn(By.xpath(AGENT_AND_RESELLER_SERVICE));
         utils.switchToNewWindow();
-        utils.waitForElementVisible(By.id(ASSIGN_SERVICE_INVENTORY));
         utils.clickBtn(By.id(ASSIGN_SERVICE_INVENTORY));
     }
     public void verifyCurrentLine(String line){

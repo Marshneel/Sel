@@ -17,6 +17,7 @@ public class NA169_WhiteLabel_CP_vs_Agent_misc_stepDefs {
     public void iNavigateToCreateServiceChargePage() throws InterruptedException {
 
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getCommonMethods().search("business customer agent assigned");
     }
     @Then("^I should be able to see the cost, sell and baseline prices during the charge creation$")
@@ -31,6 +32,7 @@ public class NA169_WhiteLabel_CP_vs_Agent_misc_stepDefs {
     public void cpHasAssignedAServiceChargeToOneOfMyCustomers() throws InterruptedException {
        webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getCommonMethods().search("business customer agent assigned");
         webModel.getCompanyMenuPage().addServiceChargeToCustomerOrSite("business customer agent assigned");
         webModel.getDashBoardPage().logOut();
@@ -39,6 +41,7 @@ public class NA169_WhiteLabel_CP_vs_Agent_misc_stepDefs {
     @And("^navigate to that particular charge page$")
     public void navigateToThatParticularChargePage() throws InterruptedException {
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getCommonMethods().search("business customer agent assigned");
 
 

@@ -28,7 +28,9 @@ public class CreateTariffPage {
 
     ElementUtils utils=new ElementUtils();
     CommonMethods commonMethods=new CommonMethods();
+    DashBoardPage dashBoardPage=new DashBoardPage();
     public static String RanTariffPlanName;
+
 
     public void addTariffPlan() {
         RanTariffPlanName = utils.randomName();
@@ -43,8 +45,9 @@ public class CreateTariffPage {
     }
 
     public void editTariffPlan() throws InterruptedException {
+      dashBoardPage.loadTariffManager();
         commonMethods.search(RanTariffPlanName);
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "')]"));
+        Thread.sleep(1000);
       utils.clickBtn(By.xpath("//a[contains(text(),'" + RanTariffPlanName + "')]"));
         utils.switchToNewWindow();
        utils.waitForElementVisible(By.id(TARIFF_NAME_TEXT_BOX));

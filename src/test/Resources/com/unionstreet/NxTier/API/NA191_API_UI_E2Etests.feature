@@ -40,9 +40,7 @@ Feature: NA - 191 API UI Tests
     When I perform a GET request on the charge details
     Then The pricing values should be based on the FrequencyTypeID from the request
 
-#  Scenario: verify that an agent can only POST a service charge to the sites that he is agent for
-#    Given I am logged as an agent and I POST a service charge to a company that is not under me
-#    When I navigate go the service charge details of that particular site
-#    Then The charge should be invisible
-#    When I POST a service charge to company under me
-#    Then I should be able to see under site menu
+#  Scenario: verify that an agent should be able to see a service charge POSTed by CP, under his company
+#    Given I am logged in as an agent and CP has already POSTed a service charge to one of the companies that i am agent for
+#    When I navigate to the site menu page of that particular company
+#    Then I should be able to see the service charge

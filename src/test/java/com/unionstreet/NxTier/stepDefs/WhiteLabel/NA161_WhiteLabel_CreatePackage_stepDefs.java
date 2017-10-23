@@ -87,6 +87,7 @@ public class NA161_WhiteLabel_CreatePackage_stepDefs {
     public void iAddAPackageToABusinessCustomer() throws InterruptedException {
         iAssignAPackageToAgent();
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
         webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
@@ -99,11 +100,11 @@ public class NA161_WhiteLabel_CreatePackage_stepDefs {
     public void theAgentWillBeAbleToSeeAndDeleteThePackageOnlyButCannotReAssignItUnlessHeHasPermissions() throws InterruptedException {
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
         webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
         webModel.getCompanyMenuPage().assignOrDeletePackageToCustomer("Select");
-        webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
         webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();

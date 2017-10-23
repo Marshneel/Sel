@@ -10,7 +10,7 @@ public class NewBusinessCustomerPage {
     //TODO
     public final String SAVE_BUTTON = ".save";
     public final String SAVEDMESSAGE_INFO = "Message_Info";
-    public final String CONTACTMANAGER_BUTTON = "HrefContactManager";
+    public final String CONTACTMANAGER_BUTTON = "//span[contains(text(),'Contact Manager')]";
     private final String COMPANYNAME_FIELD = "DCompany_name";
     private final String SITENAME_FIELD = "DSiteDetails_SiteName";
     private final String SHORTNAME_FIELD = "DSiteDetails_ShortName";
@@ -24,10 +24,6 @@ public class NewBusinessCustomerPage {
 
     ElementUtils utils = new ElementUtils();
 
-    public void clickContactManagerButton() {
-        utils.waitForElementVisible(By.id(CONTACTMANAGER_BUTTON));
-        utils.clickBtn(By.id(CONTACTMANAGER_BUTTON));
-    }
 
     public void clickAddNewCustomerButton() throws InterruptedException {
         utils.clickBtn(By.linkText(ADD_BUTTON));
@@ -65,12 +61,8 @@ public class NewBusinessCustomerPage {
 
     public void addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes() {
         RanName = utils.randomName();
-        try {
-            utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
-        } catch (Exception e) {
-            utils.sendText(By.id(COMPANYNAME_FIELD),RanName);
-        }
-    }
+        utils.sendText(By.id(COMPANYNAME_FIELD),RanName);}
+
 
     public void addSiteInfoForNewBusinessCustomer() {
         utils.clickBtn(By.id(SITENAME_FIELD));

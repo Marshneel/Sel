@@ -19,9 +19,8 @@ public class ContactManagerPage {
 
 
 
-    public void assertNewBusinessCustomer() {
+    public void assertNewBusinessCustomer() throws InterruptedException {
 
-        newBusinessCustomerPage.clickContactManagerButton();
         utils.sendText(By.id(SEARCH_BUTTON), newBusinessCustomerPage.RanName);
         utils.keyBoardEnter(By.id(SEARCH_BUTTON));
         utils.verifyStringMatch(By.linkText(newBusinessCustomerPage.RanName), newBusinessCustomerPage.RanName);
@@ -33,7 +32,7 @@ public class ContactManagerPage {
     }
 
     public void clickOnResellerUnderCustomerDetails() throws InterruptedException {
-
+       utils.waitForElementVisible(By.xpath("//h1[contains(text(),'Contact Manager')]"));
         commonMethods.search("site2");
         utils.waitForElementVisible(By.linkText("site2"));
       Thread.sleep(1000);

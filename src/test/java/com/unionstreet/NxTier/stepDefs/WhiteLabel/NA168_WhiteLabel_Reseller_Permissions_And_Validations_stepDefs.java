@@ -19,6 +19,7 @@ public class NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs {
     public void cpHasAddedAServiceChargeToOneOfMySites() throws InterruptedException {
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getCommonMethods().search("site called business customer");
         webModel.getCompanyMenuPage().addServiceChargeToCustomerOrSite("site called business customer");
     }
@@ -28,6 +29,7 @@ public class NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs {
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsReseller();
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getCommonMethods().search("site called business customer");
 
     }
@@ -48,6 +50,7 @@ public class NA168_WhiteLabel_Reseller_Permissions_And_Validations_stepDefs {
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsCP();
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer(webModel.getNewBusinessCustomerPage().Reseller_RanName);
         webModel.getUtils().switchToNewWindow();
         webModel.getContactManagerPage().assertSiteIsNonBillingSite("reseller");

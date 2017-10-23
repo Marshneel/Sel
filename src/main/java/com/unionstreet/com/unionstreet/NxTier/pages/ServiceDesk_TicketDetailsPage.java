@@ -1,6 +1,5 @@
 package com.unionstreet.com.unionstreet.NxTier.pages;
 
-import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.unionstreet.support.BaseClass;
 import com.unionstreet.support.ElementUtils;
 import org.junit.Assert;
@@ -8,6 +7,7 @@ import org.openqa.selenium.By;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -108,18 +108,80 @@ public class ServiceDesk_TicketDetailsPage {
     private final String NAVIGATE_TO_PAGE_2 = "//li[@class='paginate_button ']//a[contains(text(),'2')]";
     private final String MINIFIED_SERVICE_DESK_PANEL = "//div[@class='fade page-sidebar-fixed page-header-fixed page-container in page-sidebar-minified']";
     private final String MAGNIFY_SERVICE_DESK_PANEL = "//span[@class='sidebar-minify-btn']";
-
+    private final String SELECTAPPOINTMENTBTN = "//a[contains(text(),'Select Appointment')]";
+    private final String SELECT_APPOINTMENT_SLOT_TEXT="//h4[contains(text(),'Select Appointment Slot')]";
+    private final String CANCELBTN="//a[@id='reserveAppointment']//preceding-sibling::a[text()='Cancel']";
+    private final String RESERVEBTN="//a[@id='reserveAppointment']";
+    private final String NO_APPOINTMENT_RESERVED="//h5[text()=' Appointment Reserved: ']//strong[@id='AppointmentDateFriendly'][contains(text(),'No appointment reserved')]";
 
     private Date today;
     String currentDate;
     String currentTime;
     String currentDayOfTheWeek;
+    String NextweekDays;
+    Date currentDatePlusOne;
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
 
 
     public void assertTextOnTicketDetailsPage() {
         utils.waitForElementVisible(By.xpath(TEXT_ON_LINE_AND_INSTALLATION_DETAILS_PAGE));
+    }
+    public void BookAnAppointment(String slotTime) throws InterruptedException,ClassNotFoundException,UnsupportedEncodingException,java.lang.Exception,ClassNotFoundException
+    {
+        today=new Date();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar c = Calendar.getInstance();
+        c.setTime(today);
+        c.add(Calendar.DATE,1);
+        currentDatePlusOne = c.getTime();
+        NextweekDays=df.format(currentDatePlusOne);
+        utils.waitForElementVisibleForOpenReach(By.xpath(SELECTAPPOINTMENTBTN));
+        utils.jumpToPopUpWindow(By.xpath(SELECTAPPOINTMENTBTN));
+        utils.waitForElementVisible(By.xpath(SELECT_APPOINTMENT_SLOT_TEXT));
+        Thread.sleep(1000);
+        utils.waitForElementVisibleForOpenReach(By.xpath("//a[@data-slotdate='"+NextweekDays+"'][@data-slottime='Wlr3AppointmentTimeslotEM'][contains(text(),'"+slotTime+"')]"));
+        utils.clickBtn(By.xpath("//a[@data-slotdate='"+NextweekDays+"'][@data-slottime='Wlr3AppointmentTimeslotEM'][contains(text(),'"+slotTime+"')]"));
+        //utils.waitForSomeTime();
+        utils.waitForElementVisible(By.xpath(RESERVEBTN));
+        utils.clickBtn(By.xpath(RESERVEBTN));
+        //Thread.sleep(1000);
+        utils.switchToPreviousWindow(0);
+
+
+    } public void AssertAppointmentIsReserved(String slotTime) throws InterruptedException,ParseException,ClassNotFoundException,UnsupportedEncodingException,java.lang.Exception
+    {
+        Thread.sleep(1000);
+        String currentMonth = new SimpleDateFormat("MMMM").format(today);
+        String currentday=new SimpleDateFormat("EEEE").format(currentDatePlusOne);
+        String DatePart=NextweekDays.substring(0,2);
+        String YearPart=NextweekDays.substring(6,10);
+        utils.waitForElementVisible(By.xpath("//h5[text()=' Appointment Reserved: ']//strong[@id='AppointmentDateFriendly'][contains(text(),'"+currentday+", "+currentMonth+" "+DatePart+", "+YearPart+" "+slotTime+"')]"));
+        utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
+        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
+        utils.accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
+
+    }
+
+    public void CancelAnAppointment(String slotTime) throws InterruptedException,ClassNotFoundException,UnsupportedEncodingException,java.lang.Exception
+    {
+
+        utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='89.234.55.115' where ID='760'");
+        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='89.234.55.115' where ID='760'");
+        utils.accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
+        utils.jumpToPopUpWindow(By.xpath(SELECTAPPOINTMENTBTN));
+        Thread.sleep(5000);
+        utils.waitForElementVisible(By.xpath(SELECT_APPOINTMENT_SLOT_TEXT));
+        utils.clickBtn(By.xpath("//a[contains(text(),'"+slotTime+"')]"));
+        utils.waitForElementVisible(By.xpath(CANCELBTN));
+        utils.clickBtn(By.xpath(CANCELBTN));
+        utils.switchToPreviousWindow(0);
+        Thread.sleep(1000);
+        utils.waitForElementVisible(By.xpath(NO_APPOINTMENT_RESERVED));
+        utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
+        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
+        utils.accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
+
     }
 
     public void clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode() {
@@ -128,19 +190,17 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisible(By.xpath(THE_CONFIRM_POST_CODE_IS_REQUIRED));
     }
 
-    public void selectCLIToObtainInstallationDetails(String cli, String lineType, String numberOfLines, String maintenanceLevel, boolean notVirtualLine) throws InterruptedException {
+    public void selectCLIToObtainInstallationDetails(boolean appointmentSelection, String cli, String lineType, String numberOfLines, String maintenanceLevel, boolean notVirtualLine, String postCode) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         utils.waitForElementToBeClickable(By.xpath(SELECT_CLI_DROPDOWN));
         utils.clickBtn(By.xpath(SELECT_CLI_DROPDOWN));
         utils.waitForElementToVanish(By.xpath(OPEN_REACH_SPINNER));
-        utils.waitForElementVisible(By.xpath(SEARCH_BOX_FOR_CLI));
-        Thread.sleep(1000);
         utils.sendText(By.xpath(SEARCH_BOX_FOR_CLI), "" + cli + "");
-        utils.waitForElementVisible(By.xpath("//td[text()[contains(.,'" + cli + "')]]/following-sibling::td[text()[contains(.,'LU1 1DQ')]]/following-sibling::td[3]/button[contains(text(),'Select')]"));
+        utils.waitForElementVisible(By.xpath("//td[text()[contains(.,'" + cli + "')]]/following-sibling::td[text()[contains(.,'"+postCode+"')]]/following-sibling::td[3]/button[contains(text(),'Select')]"));
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(SELECT_CLI_BUTTON));
         utils.waitForElementVisible(By.xpath("//h4[contains(text(),'Installation Details for " + cli + "')]"));
         utils.waitForElementVisible(By.xpath("//strong[contains(text(),'" + lineType + "')]"));
-        if (notVirtualLine) {
+      if(appointmentSelection){  if (notVirtualLine) {
             utils.waitForElementVisible(By.xpath("//strong[contains(text(),'" + numberOfLines + "')]"));
             utils.waitForElementVisible(By.xpath("//strong[contains(text(),'" + maintenanceLevel + "')]"));
             utils.waitForElementVisibleForOpenReach(By.xpath(CPS_PRESENT_RESULT));
@@ -150,7 +210,7 @@ public class ServiceDesk_TicketDetailsPage {
             Assert.assertTrue(utils.allValues.contains(valueForCPS));
             Assert.assertTrue(utils.allValues.contains(valueForCalAndNetwrkFeatures));
         }
-    }
+    }}
 
     public void faultDetails_assertionForAnalogueLines(boolean multiLine) throws InterruptedException {
         utils.waitForElementVisible(By.xpath(INTERMITTENT_FAULT_TEXT));
@@ -440,27 +500,15 @@ public class ServiceDesk_TicketDetailsPage {
                 Assert.assertEquals(LevelTime, level4ExpTime);
                 String ExpectedDay = new SimpleDateFormat("d").format(NonSaturday());
                 Assert.assertEquals(LevelDate, ExpectedDay);
-
             }
 
         }
 
-
     }
 
     public void clickBrowserIncidentsButton() {
-        try {
-            utils.waitForElementVisible(By.xpath(LOAD_BROWSE_INCIDENTS_BUTTON));
             utils.clickBtn(By.xpath(LOAD_BROWSE_INCIDENTS_BUTTON));
-        } catch (ElementNotFoundException e) {
-            utils.waitForElementVisible(By.xpath(SERVICE_DESK_DROPDOWN_TAB));
-            utils.clickBtn(By.xpath(SERVICE_DESK_DROPDOWN_TAB));
-            utils.waitForElementVisible(By.xpath(LOAD_BROWSE_INCIDENTS_BUTTON));
-            utils.clickBtn(By.xpath(LOAD_BROWSE_INCIDENTS_BUTTON));
-        }
-        utils.waitForElementVisible(By.xpath(TEXT_ON_BROWSE_INCIDENTS_PAGE));
     }
-
 
     public void navigateToBrowseIncidents() {
         if (utils.isElementAbsent(By.xpath(MINIFIED_SERVICE_DESK_PANEL))) {

@@ -21,6 +21,7 @@ public class NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs 
     public void iCreateANewBusinessCustomerAndQuote() throws InterruptedException, SQLException {
         na44_agent_login_stepDefs.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(false,true);
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
         webModel.getOrdersManagerPage().searchQuoteByBcRN(webModel.getNewBusinessCustomerPage().RanName);

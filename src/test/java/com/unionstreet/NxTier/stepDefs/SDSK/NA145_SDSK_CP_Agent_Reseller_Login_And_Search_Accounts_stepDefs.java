@@ -16,19 +16,29 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
     WebModel webModel = new WebModel();
 
 
+
+
+    @Given("^I am logged in as CP and assign service desk permissions$")
+    public void iAmLoggedInAsCPAndAssignServiceDeskPermissions() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
+        webModel.getLoginPage().loginAsCP();
+        webModel.getServiceDeskPage().grantingServiceDeskAccess();
+        webModel.getDashBoardPage().logOut();
+        webModel.getLoginPage().loginAsCP();
+
+    }
     @And("^have created a business customer and assigned required data$")
     public void haveCreatedABusinessCustomerAndAssignedRequiredData() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getServiceDeskPage().grantingServiceDeskAccess();
+       // webModel.getServiceDeskPage().grantingServiceDeskAccess();
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03012345678'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03087654321'");
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "delete from CustomerCLIBase where CLI='03012348765'");
-        webModel.getCompanyMenuPage().addCLIs("business customer created by CP", "03012345678",true,true);
+        webModel.getCompanyMenuPage().addCLIs(true,"business customer created by CP", "03012345678",true,true);
         webModel.getUtils().closeCurrentPage();
         webModel.getUtils().switchToPreviousWindow(0);
-        webModel.getCompanyMenuPage().addCLIs("business customer agent assigned", "03087654321",true,true);
+        webModel.getCompanyMenuPage().addCLIs(false,"business customer agent assigned", "03087654321",true,true);
         webModel.getUtils().closeCurrentPage();
         webModel.getUtils().switchToPreviousWindow(0);
-        webModel.getCompanyMenuPage().addCLIs("site called business customer", "03012348765",true,true);
+        webModel.getCompanyMenuPage().addCLIs(false,"site called business customer", "03012348765",true,true);
         webModel.getUtils().closeCurrentPage();
         webModel.getUtils().switchToPreviousWindow(0);
 
@@ -37,8 +47,8 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @When("^I am on the service desk page$")
     public void iAmOnTheServiceDeskPage() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
-        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
-        webModel.getServiceDeskPage().assertTextOnServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getServiceDeskPage().loadLoginIncidentPageAndAssertTextOnServiceDesk();
     }
 
     @Then("^I should be able search by Account name, Account number & CLI and get all the relevant details in the CP search$")
@@ -96,8 +106,8 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @When("^I am on the service desk page as an agent$")
     public void iAmOnTheServiceDeskPageAsAnAgent() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
-        webModel.getServiceDeskPage().assertTextOnServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getServiceDeskPage().loadLoginIncidentPageAndAssertTextOnServiceDesk();
     }
 
     @Then("^I should be able search by Account name, Account number & CLI and get all the relevant details in the agent search$")
@@ -156,8 +166,8 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
 
     @When("^I am on the service desk page as a reseller$")
     public void iAmOnTheServiceDeskPageAsAReseller() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getDashBoardPage().loadServiceDesk("/nxtiere2e");
-        webModel.getServiceDeskPage().assertTextOnServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getServiceDeskPage().loadLoginIncidentPageAndAssertTextOnServiceDesk();
 
     }
 
@@ -202,13 +212,5 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
     }
 
 
-    @Given("^I am logged in as CP and assign service desk permissions$")
-    public void iAmLoggedInAsCPAndAssignServiceDeskPermissions() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
-        webModel.getLoginPage().loginAsCP();
-       webModel.getServiceDeskPage().grantingServiceDeskAccess();
-        webModel.getDashBoardPage().logOut();
-        webModel.getLoginPage().loginAsCP();
-
-    }
 
 }

@@ -88,7 +88,7 @@ public class WLR3_OrderDetails_Page {
     private final String YOU_MUST_PROVIDE_A_FLOOR_FOR_DIGITAL_PRODUCTS="//div[text()[contains(.,'You must specify a Floor for Digital products')]]";
     public final String ERROR_MESSAGE_STATING_SIGNAL_TYPE_MANDATORY_FOR_NTTP="//div[contains(text(),'You must select a Signal Type when the Termination Type of NTTP has been specified')]";
     private final String VALIDATION_MESSAGE_FOR_EMERGENCY_INFO="//span[contains(text(),'Emergency Information can only contain alphanumeric')]";
-
+    private final String CANCEL_ORDER = "//button[contains(text(),'Cancel Order')]";
 
     CompanyMenuPage companyMenuPage = new CompanyMenuPage();
     ElementUtils utils = new ElementUtils();
@@ -197,7 +197,26 @@ utils.waitForElementVisible(By.id(ADDRESS_SEARCH_RESULT));
         utils.clickBtn(By.xpath(APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE));
         utils.waitForElementVisible(By.xpath(TEXT_ON_APPOINTMENT_PAGE));
     }
+    public void clickCancelOrderForWLR3() throws InterruptedException,SQLException
+    {
+        utils.scrollUp(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+        utils.javaScriptExecutorClick(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+        utils.switchToNewWindow();
+        Thread.sleep(500);
+        utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+        utils.javaScriptExecutorClick(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
+        Thread.sleep(500);
+        utils.waitForElementVisible(By.xpath("//h3[contains(text(),'WLR3 Order')]"));
+        utils.waitForElementVisible(By.xpath(CANCEL_ORDER));
+        utils.clickBtn(By.xpath(CANCEL_ORDER));
+        utils.jumpToPopUpWindow(By.id("modal-dialog-CancelOrder"));
+        utils.selectByIndex(By.id("CancelReason"),1);
+        utils.waitForElementVisible(By.xpath("//button[contains(text(),'Send Cancel Request')]"));
+        utils.clickBtn(By.xpath("//button[contains(text(),'Send Cancel Request')]"));
 
+        utils.switchToPreviousWindow(0);
+    }
 
     public void assertImportedLineWithChangeOfPostCodeAndAidOfGoldAddress(String type, String importedNumber) throws InterruptedException, SQLException {
         textOnWLR3OrderPage(type);
@@ -236,8 +255,6 @@ utils.waitForElementVisible(By.id(ADDRESS_SEARCH_RESULT));
     }
 
     public void getToWLR3QuotePage(String type) throws InterruptedException, SQLException {
-//        Thread.sleep(2000);
-//        utils.getOrdersPage();
         utils.switchToPreviousWindow(0);
         clickOnQuoteID(type);
     }

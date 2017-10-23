@@ -15,12 +15,14 @@ public class NA49_OrderServiceAutomation_stepDefs {
     WebModel webModel = new WebModel();
     NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
-    @And("^Have created a quote$")
-    public void haveCreatedAQuote() throws InterruptedException {
+    @And("^Have created a quote as a CP$")
+    public void haveCreatedAQuoteAsACP() throws InterruptedException {
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(false,true);
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
+
     }
 
     @When("^I add a service from the quote details page$")
@@ -45,6 +47,7 @@ public class NA49_OrderServiceAutomation_stepDefs {
     @And("^Have created a quote for reseller$")
     public void haveCreatedAQuoteForReseller() throws InterruptedException {
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuoteForReseller();
 
@@ -94,5 +97,15 @@ public class NA49_OrderServiceAutomation_stepDefs {
         webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().Reseller_RanName);
         webModel.getEditOrderPage().clickAddProductsAndServicesButton();
         webModel.getAddServicePage().searchAndSelectService();
+    }
+
+
+    @And("^Have created a quote as an agent$")
+    public void haveCreatedAQuoteAsAnAgent() throws InterruptedException {
+        na44.haveCreatedANewCustomer();
+        webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().createQuote();
     }
 }

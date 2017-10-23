@@ -32,8 +32,7 @@ public class CommonMethods {
         utils.keyBoardEnter(by);}
 
     public void clickAndSwitchTo(String desiredEntity) throws InterruptedException {
-        utils.waitForElementVisible(By.xpath("//a[contains(text(),'"+desiredEntity+"')]"));
-        Thread.sleep(1000);
+       Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[contains(text(),'"+desiredEntity+"')]"));
         utils.switchToNewWindow();
     }

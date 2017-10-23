@@ -12,6 +12,7 @@ public class NA173_WhiteLabel_CP_Should_Not_Assign_The_Stuff_Agent_Has_Created_T
     @Then("^I should not be able to assign that particular plan to any one else and I should not be able to revoke the permissions of the creator$")
     public void iShouldNotBeAbleToAssignThatParticularPlanToAnyOneElseAndIShouldNotBeAbleToRevokeThePermissionsOfTheCreator() throws InterruptedException {
         webModel.getDashBoardPage().clickConfigManager();
+        webModel.getDashBoardPage().loadTariffManager();
         webModel.getCreateTariffPage().cpCannotAssignAgentsPlanToAnyOneElseNorCanHeRevokeIt(webModel.getCreateTariffPage().RanTariffPlanName, "HrefAssignTarrifs", "Abacus Consultants");
         try {
             webModel.getCommonMethods().navigateToHome();
@@ -20,7 +21,7 @@ public class NA173_WhiteLabel_CP_Should_Not_Assign_The_Stuff_Agent_Has_Created_T
         }
         webModel.getDashBoardPage().clickConfigManager();
 
-        webModel.getConfigManagerPage().accessFreeMinutesTab();
+        webModel.getDashBoardPage().loadFreeMinutes();
         webModel.getConfigManagerPage().cpCannotAssignAgentsFreeMinutesAndPackagesToAnyOneElseNorCanHeRevokeIt(webModel.getConfigManagerPage().RanFreeMinutePlanName, "HrefAssignFreeMinutes", "Abacus Consultants","4");
         try {
             webModel.getCommonMethods().navigateToHome();
