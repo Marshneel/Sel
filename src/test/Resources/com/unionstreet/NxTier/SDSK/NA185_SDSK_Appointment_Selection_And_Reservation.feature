@@ -1,4 +1,4 @@
-
+@SDSK
 Feature:NA185_SDSK Appointment Selection And Reservation Functionality
 
   Scenario Outline: Validating The Appointment Selection and Reservation Functionality

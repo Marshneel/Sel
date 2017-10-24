@@ -147,6 +147,19 @@ public class OrdersManagerPage {
         utils.getOrdersPage();
         utils.searchAndAssertTextPresent(By.xpath("//td[contains(text(),'"+newBusinessCustomerPage.Reseller_RanName+"')]"), newBusinessCustomerPage.Reseller_RanName);
     }
+    public void assertOrderCancellationForNxtierAndWLR3Services() throws InterruptedException,SQLException
+    {
+        loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
+        utils.clickBtn(By.xpath("//a[contains(text(),'customService')]"));
+        utils.switchToNewWindow();
+        utils.waitForElementVisible(By.xpath("//h4[contains(text(),'The service has been aborted by Salesman 2')]"));
+        utils.waitForElementVisible(By.xpath("//a[contains(text(),'Close')]"));
+        utils.switchToPreviousWindow(0);
+        utils.refreshPage();
+        utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+newBusinessCustomerPage.RanName+"')]/following-sibling::td[3][contains(text(),'Aborted')]"));
+    }
+
+
 
     public void assertCompanyIsAccessibleFromCompanyAndSiteDropDown() {
         utils.waitForElementVisible(By.id(contactManagerPage.CREATEQUOTE_SELECTCOMPANY));

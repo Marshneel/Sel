@@ -104,7 +104,7 @@ public Wait waitForSomeTime(){
     }
 
     public void waitForElementVisibleForWLR3Page(By by) {
-        waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));
+        waitForSomeTimeForOpenReach().until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
     //switching to new window
@@ -291,7 +291,8 @@ public Wait waitForSomeTime(){
         driver.switchTo().window(currentWindowHandle);
     }
 
-       public void javaScriptExecutorClick(By by) {
+       public void
+       javaScriptExecutorClick(By by) {
         WebElement element = driver.findElement(by);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);

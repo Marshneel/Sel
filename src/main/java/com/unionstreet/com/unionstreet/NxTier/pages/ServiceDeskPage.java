@@ -34,7 +34,7 @@ public class ServiceDeskPage {
     public void loadLoginIncidentPageAndAssertTextOnServiceDesk() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
      Thread.sleep(1000);
        utils.clickBtn(By.xpath(LOGIN_AN_INCIDENT_BUTTON));
-        utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_HEADER_TEXT));}
+       utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_HEADER_TEXT));}
     public void clickLogAnIncidentButton() throws InterruptedException {
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(LOGIN_AN_INCIDENT_BUTTON));
@@ -51,13 +51,12 @@ public class ServiceDeskPage {
 
     public void searchByShortName(String shortName) throws InterruptedException {
         utils.waitForElementVisible(By.id(SEARCH_BY_ACCOUNT_NUMBER_FIELD));
-        utils.sendText(By.id(SEARCH_BY_ACCOUNT_NUMBER_FIELD),shortName);
+        utils.sendText(By.id(SEARCH_BY_ACCOUNT_NUMBER_FIELD), shortName);
         Thread.sleep(1000);
-        utils.javaScriptExecutorClick(By.xpath(INITIATE_SEARCH_BY_ACCOUNT_NUMBER));
-    }
+        utils.javaScriptExecutorClick(By.xpath(INITIATE_SEARCH_BY_ACCOUNT_NUMBER));}
     public void searchResultsForServiceDesk(String type) throws InterruptedException {
-        Thread.sleep(2000);
-        utils.waitForElementVisible(By.xpath("//td[contains(text(),'"+type+"')]"));
+
+        utils.waitForElementVisibleForWLR3Page(By.xpath("//td[contains(text(),'"+type+"')]"));
 
 
     }

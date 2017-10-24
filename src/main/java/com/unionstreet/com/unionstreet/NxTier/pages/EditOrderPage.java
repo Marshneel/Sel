@@ -2,7 +2,6 @@ package com.unionstreet.com.unionstreet.NxTier.pages;
 
 import com.unionstreet.support.ElementUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 
 import java.sql.SQLException;
 
@@ -55,15 +54,7 @@ public class EditOrderPage {
 
 
     public void clickAddProductsAndServicesButton() throws InterruptedException, SQLException {
-        try {
-            utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
-            utils.clickBtnWithWait(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
-        } catch (NoSuchElementException e) {
-            ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
-            utils.waitForElementVisible(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
-            utils.clickBtnWithWait(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
-
-        }
+        utils.clickBtn(By.xpath(ADD_PRODUCT_AND_SERVICE_BUTTON));
     }
 
     public void assertInvalidQuoteBeforeSubmitting() throws InterruptedException, SQLException {
@@ -135,16 +126,12 @@ public class EditOrderPage {
         }
         System.out.println("NA87 completed");
     }
-    public void verifyOrderCompletionForNxtierAndWlr3ItemsForCP(String NxtierService,String Wlr3Item) throws InterruptedException, SQLException
+    public void verifyOrderCompletionForNxtierAndWlr3ItemsForCP(String NxtierService) throws InterruptedException, SQLException
     {
-
-        utils.switchToPreviousWindow(1);
-
+       // utils.switchToPreviousWindow(1);
         ordersManagerPage.loadOrdersManagerAndClickOnQuoteID(newBusinessCustomerPage.RanName);
-
         utils.waitForElementVisible(By.xpath("//a[text()='"+NxtierService+"']"));
         utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
-
         utils.selectByIndex(By.id(ORDER_OWNER_DROPDOWN_ON_EDIT_ORDER_PAGE), 1);
         Thread.sleep(1000);
         utils.scrollUp(By.xpath("//span[text()='Save & Submit Order']"));

@@ -23,11 +23,15 @@ public class AddServicePage {
     NewBusinessCustomerPage newBusinessCustomerPage=new NewBusinessCustomerPage();
 
 
-    public void searchAndSelectService() throws InterruptedException {
-        utils.waitForElementVisible(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
+    public void searchAndSelectService(String service, boolean populateMandatoryField) throws InterruptedException {
+        utils.waitForElementVisible(By.xpath(service));
         utils.clickBtn(By.xpath("//div[@class='info_panel_1 fullwidth box-content']"));
         utils.clickBtn(By.xpath(nxTierServicesPage.CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE));
         utils.switchToNewWindow();
+      if(populateMandatoryField) {
+          utils.clickBtn(By.xpath(nxTierServicesPage.MANDATORY_CONTROL_FIELD));
+          utils.sendText(By.xpath(nxTierServicesPage.MANDATORY_CONTROL_FIELD), "hello");
+      }
         utils.waitForElementVisible(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));
         try {
             utils.clickBtn(By.xpath(commonMethods.SAVE_AND_CLOSE_XPATH));

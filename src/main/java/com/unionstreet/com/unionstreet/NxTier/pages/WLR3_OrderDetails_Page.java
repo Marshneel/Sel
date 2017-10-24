@@ -3,6 +3,7 @@ package com.unionstreet.com.unionstreet.NxTier.pages;
 import com.unionstreet.support.ElementUtils;
 import org.openqa.selenium.By;
 
+import java.awt.*;
 import java.sql.SQLException;
 
 /**
@@ -197,8 +198,7 @@ utils.waitForElementVisible(By.id(ADDRESS_SEARCH_RESULT));
         utils.clickBtn(By.xpath(APPOINTMENT_TAB_ON_WLR3_ORDER_PAGE));
         utils.waitForElementVisible(By.xpath(TEXT_ON_APPOINTMENT_PAGE));
     }
-    public void clickCancelOrderForWLR3() throws InterruptedException,SQLException
-    {
+    public void clickCancelOrderForWLR3() throws InterruptedException, SQLException, AWTException {
         utils.scrollUp(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
         utils.waitForElementVisible(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
         utils.javaScriptExecutorClick(By.xpath("//a[contains(@onclick,'OpenNewWLR3OrderDetailPopup')]"));
@@ -211,9 +211,9 @@ utils.waitForElementVisible(By.id(ADDRESS_SEARCH_RESULT));
         utils.waitForElementVisible(By.xpath(CANCEL_ORDER));
         utils.clickBtn(By.xpath(CANCEL_ORDER));
         utils.jumpToPopUpWindow(By.id("modal-dialog-CancelOrder"));
-        utils.selectByIndex(By.id("CancelReason"),1);
+        try{utils.selectByIndex(By.id("CancelReason"),1);
         utils.waitForElementVisible(By.xpath("//button[contains(text(),'Send Cancel Request')]"));
-        utils.clickBtn(By.xpath("//button[contains(text(),'Send Cancel Request')]"));
+        utils.clickBtn(By.xpath("//button[contains(text(),'Send Cancel Request')]"));}catch (Exception e){utils.clickEnter();}
 
         utils.switchToPreviousWindow(0);
     }

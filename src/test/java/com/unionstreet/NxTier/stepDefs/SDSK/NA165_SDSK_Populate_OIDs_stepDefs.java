@@ -28,6 +28,6 @@ public class NA165_SDSK_Populate_OIDs_stepDefs {
 
     @Then("^I should be able to select a CLI and obtain its installation details$")
     public void iShouldBeAbleToSelectACLIAndObtainItsInstallationDetails() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"02063678369","PSTN Single Line","2","2",true,"LU1 1DQ");
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"02063678369","WLR Single Line","2","2",true,"LU1 1DQ");
     }
 }

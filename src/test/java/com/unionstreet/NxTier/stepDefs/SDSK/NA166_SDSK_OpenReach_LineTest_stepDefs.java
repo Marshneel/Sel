@@ -21,7 +21,7 @@ public class NA166_SDSK_OpenReach_LineTest_stepDefs {
         webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"02063678369","PSTN Single Line","2","2",true,"LU1 1DQ");
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"02063678369","WLR Single Line","2","2",true,"LU1 1DQ");
     }
 
     @Then("^I should be able to validate the line test functionality$")

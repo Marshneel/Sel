@@ -72,7 +72,7 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
         //research results for agent by short name
         webModel.getServiceDeskPage().searchByShortName("agent");
         //results
-        webModel.getServiceDeskPage().searchResultsForServiceDesk("business customer agent assigned");
+        webModel.getServiceDeskPage().searchResultsForServiceDesk("agent");
         //search for reseller by short name
         webModel.getServiceDeskPage().searchByShortName("site called business customer");
         //results
@@ -99,6 +99,9 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
     @Given("^I am logged in as agent and CP has already assigned me a business customer$")
     public void iAmLoggedInAsAgentAndCPHasAlreadyAssignedMeABusinessCustomer() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getLoginPage().loginAsCP();
+        webModel.getSettingsPage().clickSettingsButton();
+        webModel.getSettingsPage().loadPermissionGroups();
+        webModel.getSettingsPage().issuingServiceDeskPermissionsToAgent("agent");
         haveCreatedABusinessCustomerAndAssignedRequiredData();
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsAgent();
@@ -111,7 +114,10 @@ public class NA145_SDSK_CP_Agent_Reseller_Login_And_Search_Accounts_stepDefs {
     }
 
     @Then("^I should be able search by Account name, Account number & CLI and get all the relevant details in the agent search$")
-    public void iShouldBeAbleSearchByAccountNameAccountNumberCLIAndGetAllTheRelevantDetailsInTheAgentSearch() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+    public void
+
+
+    iShouldBeAbleSearchByAccountNameAccountNumberCLIAndGetAllTheRelevantDetailsInTheAgentSearch() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
 
         ////search by account name///////////////////////////////////////
         //search for CP and agent by account name

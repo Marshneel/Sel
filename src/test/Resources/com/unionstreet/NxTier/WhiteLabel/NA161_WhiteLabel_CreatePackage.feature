@@ -13,7 +13,8 @@ Feature: NA - 161 create a package as an Agent and CP
    Then He should not be able to edit it
 
   Scenario: agent should be able to edit a package created by him
-    Given I am logged in as agent
+    Given CP has issued tariff and free minute permissions
+    And I am logged in as agent
     When  I create a package
     Then I should be able to edit it
 

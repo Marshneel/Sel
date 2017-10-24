@@ -414,8 +414,13 @@ public class SettingsPage {
         utils.clickBtn(By.xpath(CONFIGURATION_TARIFFMANAGER));
         utils.makeSureBoxIsChecked(By.id(CONFIGURATION_TARIFFMANAGER_SELECTALL),By.id(CONFIGURATION_TARIFFMANAGER_SELECTALL));
         saveAndCloseAddPermissions();
-
-
+    }
+    public void issuingServiceDeskPermissionsToAgent(String agentName) throws InterruptedException {
+        utils.waitForElementToBeClickable(By.linkText(""+agentName+""));
+        utils.switchToNewWindowByJavaExeClick(By.linkText(""+agentName+""));
+        utils.clickBtn(By.xpath("//a[contains(text(),'Service Desk')]"));
+        utils.makeSureBoxIsChecked(By.id("SelectAll_ServiceDesk"),By.id("SelectAll_ServiceDesk"));
+        saveAndCloseAddPermissions();
 
     }
 }

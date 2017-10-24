@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -118,8 +117,7 @@ public class ServiceDesk_TicketDetailsPage {
     String currentDate;
     String currentTime;
     String currentDayOfTheWeek;
-    String NextweekDays;
-    Date currentDatePlusOne;
+    String ExpectedDay;
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
 
@@ -127,44 +125,32 @@ public class ServiceDesk_TicketDetailsPage {
     public void assertTextOnTicketDetailsPage() {
         utils.waitForElementVisible(By.xpath(TEXT_ON_LINE_AND_INSTALLATION_DETAILS_PAGE));
     }
-    public void BookAnAppointment(String slotTime) throws InterruptedException,ClassNotFoundException,UnsupportedEncodingException,java.lang.Exception,ClassNotFoundException
-    {
-        today=new Date();
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        Calendar c = Calendar.getInstance();
-        c.setTime(today);
-        c.add(Calendar.DATE,1);
-        currentDatePlusOne = c.getTime();
-        NextweekDays=df.format(currentDatePlusOne);
+    public void BookAnAppointment(String slotTime) throws java.lang.Exception {
+        ExpectedDay = new SimpleDateFormat("dd/MM/yyyy").format(NonSaturday());
         utils.waitForElementVisibleForOpenReach(By.xpath(SELECTAPPOINTMENTBTN));
-        utils.jumpToPopUpWindow(By.xpath(SELECTAPPOINTMENTBTN));
+        utils.clickBtn(By.xpath(SELECTAPPOINTMENTBTN));
         utils.waitForElementVisible(By.xpath(SELECT_APPOINTMENT_SLOT_TEXT));
         Thread.sleep(1000);
-        utils.waitForElementVisibleForOpenReach(By.xpath("//a[@data-slotdate='"+NextweekDays+"'][@data-slottime='Wlr3AppointmentTimeslotEM'][contains(text(),'"+slotTime+"')]"));
-        utils.clickBtn(By.xpath("//a[@data-slotdate='"+NextweekDays+"'][@data-slottime='Wlr3AppointmentTimeslotEM'][contains(text(),'"+slotTime+"')]"));
-        //utils.waitForSomeTime();
-        utils.waitForElementVisible(By.xpath(RESERVEBTN));
+        utils.waitForElementVisibleForOpenReach(By.xpath("//a[@data-slotdate='"+ExpectedDay+"'][@data-slottime='Wlr3AppointmentTimeslotEM'][contains(text(),'"+slotTime+"')]"));
+        utils.clickBtn(By.xpath("//a[@data-slotdate='"+ExpectedDay+"'][@data-slottime='Wlr3AppointmentTimeslotEM'][contains(text(),'"+slotTime+"')]"));
         utils.clickBtn(By.xpath(RESERVEBTN));
-        //Thread.sleep(1000);
         utils.switchToPreviousWindow(0);
 
 
-    } public void AssertAppointmentIsReserved(String slotTime) throws InterruptedException,ParseException,ClassNotFoundException,UnsupportedEncodingException,java.lang.Exception
-    {
+    } public void AssertAppointmentIsReserved(String slotTime) throws Exception {
         Thread.sleep(1000);
-        String currentMonth = new SimpleDateFormat("MMMM").format(today);
-        String currentday=new SimpleDateFormat("EEEE").format(currentDatePlusOne);
-        String DatePart=NextweekDays.substring(0,2);
-        String YearPart=NextweekDays.substring(6,10);
-        utils.waitForElementVisible(By.xpath("//h5[text()=' Appointment Reserved: ']//strong[@id='AppointmentDateFriendly'][contains(text(),'"+currentday+", "+currentMonth+" "+DatePart+", "+YearPart+" "+slotTime+"')]"));
+        String currentMonth = new SimpleDateFormat("MMMM").format(NonSaturday());
+        String currentday=new SimpleDateFormat("EEEE").format(NonSaturday());
+        String DatePart=ExpectedDay.substring(0,2);
+        String YearPart=ExpectedDay.substring(6,10);
+        utils.waitForElementVisibleForOpenReach(By.xpath("//h5[text()=' Appointment Reserved: ']//strong[@id='AppointmentDateFriendly'][contains(text(),'"+currentday+", "+currentMonth+" "+DatePart+", "+YearPart+" "+slotTime+"')]"));
         utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
         utils.accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
 
     }
 
-    public void CancelAnAppointment(String slotTime) throws InterruptedException,ClassNotFoundException,UnsupportedEncodingException,java.lang.Exception
-    {
+    public void CancelAnAppointment(String slotTime) throws java.lang.Exception {
 
         utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='89.234.55.115' where ID='760'");
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='89.234.55.115' where ID='760'");
@@ -327,10 +313,6 @@ public class ServiceDesk_TicketDetailsPage {
 
     public void lineTest_Fail() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001',DPType='Internal',MainFaultLocation='EX',FaultReportAdvised='Y',LineStability='Stable',NetworkStability='Stable',StabilityStatement=' Stable - no adverse line test history',TestOutcome='Fail',DiagnosisDescription='FAULT - Line Tested OK but No Dial Tone Detected',DiagnosisCode='T073' where serviceid='02063678369'");
-//        utils.waitForElementVisible(By.xpath(STD_LINE_TEST_BUTTON));
-//        Thread.sleep(1000);
-//        utils.scrollUp(By.xpath(STD_LINE_TEST_BUTTON));
-//        Thread.sleep(1000);
         utils.clickBtn(By.xpath("//a[text()[contains(.,'Perform a line test')]]"));
         utils.waitForElementVisible(By.xpath(LINE_TEST_FAILED));
         utils.waitForElementVisible(By.xpath(FAILED_LINE_TEST_DESC));
