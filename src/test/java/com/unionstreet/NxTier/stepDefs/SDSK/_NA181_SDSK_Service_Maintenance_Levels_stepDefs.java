@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.SDSK;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -24,7 +24,7 @@ public class _NA181_SDSK_Service_Maintenance_Levels_stepDefs {
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set product='WLR RCF' where serviceid='ORCF00000002'");
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("01202300912","WLR RCF","2","2",false);
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"01202300912","WLR RCF","2","2",false,"LU1 1DQ");
 
 
     }
@@ -56,16 +56,13 @@ public class _NA181_SDSK_Service_Maintenance_Levels_stepDefs {
         webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("01202300945","WLR3 ISDN 30 ETSI","8","2",true);
-
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"01202300945","WLR3 ISDN 30 ETSI","8","2",true,"LU1 1DQ");
     }
 
     @Then("^A validation message stating the unavailability of service maintenance levels should be thrown$")
     public void aValidationMessageStatingTheUnavailabilityOfServiceMaintenanceLevelsShouldBeThrown() throws UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getServiceDesk_ticketDetailsPage().assertThatServiceLevelsUnavailableForISDN30WithLevel2();
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set CareLevel='4' where serviceid='OI3000000001'");
-
-
     }
 
     @When("^I raise an open reach incident on \"([^\"]*)\" with \"([^\"]*)\", \"([^\"]*)\" and \"([^\"]*)\"$")
@@ -74,7 +71,7 @@ public class _NA181_SDSK_Service_Maintenance_Levels_stepDefs {
         webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(line,type,numberOfLines,maintenanceLevel,true);
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,line,type,numberOfLines,maintenanceLevel,true,"LU1 1DQ");
 
 
 
@@ -93,7 +90,7 @@ public class _NA181_SDSK_Service_Maintenance_Levels_stepDefs {
         webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2",true);
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"02063678369","WLR Single Line","2","2",true,"LU1 1DQ");
     }
 
     @Then("^The service time should drop basing on the plan i choose$")

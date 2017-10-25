@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.smokePack;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -17,7 +17,7 @@ public class NxTier_smokePack_stepDefs {
 
     @Given("^I am on login page$")
     public void iAmOnLoginPage() {
-        webModel.getLoginPage().OnLoginPage();
+        //webModel.getLoginPage().OnLoginPage();
     }
 
 
@@ -50,7 +50,8 @@ public class NxTier_smokePack_stepDefs {
 
     @When("^I access add new business customer page$")
     public void iAccessAddNewBusinessCustomerPage() throws InterruptedException {
-        webModel.getNewBusinessCustomerPage().clickContactManagerButton();
+        webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
     }
 
@@ -69,7 +70,8 @@ public class NxTier_smokePack_stepDefs {
 
     @And("^I have added a new business customer$")
     public void iHaveAddedANewBusinessCustomer() throws InterruptedException {
-        webModel.getNewBusinessCustomerPage().clickContactManagerButton();
+        webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getNewBusinessCustomerPage().clickAddNewCustomerButton();
         webModel.getNewBusinessCustomerPage().addCompanyInfoForNewBusinessCustomerCreatedWithDefaultContactTypes();
         webModel.getNewBusinessCustomerPage().addSiteInfoForNewBusinessCustomer();
@@ -100,12 +102,13 @@ public class NxTier_smokePack_stepDefs {
     public void invoiceDetailsAndBillingDetailsOfThatParticularCustomerShouldBeUpdatedRespectively() throws InterruptedException {
         webModel.getCompanyMenuPage().assertSavedInvoiceDetails();
         webModel.getCompanyMenuPage().assertSavedBillingDetails();
-        webModel.getDashBoardPage().logOut();
+
     }
 
     @When("^I access CLIs and service charges section under company menu and provide all required info$")
     public void iAccessCLIsAndServiceChargesSectionUnderCompanyMenuAndProvideAllRequiredInfo() throws InterruptedException {
-        webModel.getCompanyMenuPage().addCLIs(webModel.getNewBusinessCustomerPage().RanName,webModel.getCompanyMenuPage().RanNumber,true,true);
+        webModel.getCompanyMenuPage().searchAndNavigateToSiteMenuOfACustomer(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getCompanyMenuPage().addCLIs(true,webModel.getNewBusinessCustomerPage().RanName,webModel.getCompanyMenuPage().RanNumber,false,true);
         webModel.getCompanyMenuPage().addRecurringChargesPart1();
         webModel.getCompanyMenuPage().addRecurringChargesPart2();
         webModel.getCompanyMenuPage().addOneOffChargesPart1();
@@ -128,7 +131,6 @@ public class NxTier_smokePack_stepDefs {
     @Then("^Pricing details of that particular customer  should be updated$")
     public void pricingDetailsOfThatParticularCustomerShouldBeUpdated() throws InterruptedException {
 //        webModel.getCompanyMenuPage().assertAddedPricingDetails();
-        webModel.getDashBoardPage().logOut();
     }
 
 }

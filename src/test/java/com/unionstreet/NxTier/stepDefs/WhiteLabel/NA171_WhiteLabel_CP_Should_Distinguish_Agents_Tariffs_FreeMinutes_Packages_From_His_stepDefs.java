@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WhiteLabel;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -17,6 +17,7 @@ public class NA171_WhiteLabel_CP_Should_Distinguish_Agents_Tariffs_FreeMinutes_P
     public void agentHasCreatedATariffPlanFreeMinutePlanAndPackage() throws InterruptedException, UnsupportedEncodingException, ClassNotFoundException {
         webModel.getLoginPage().loginAsCP();
         webModel.getSettingsPage().clickSettingsButton();
+        webModel.getSettingsPage().loadPermissionGroups();
         webModel.getSettingsPage().issueTariffAndFreeMinutePermissionsToAgent("agent");
         webModel.getDashBoardPage().logOut();
         webModel.getLoginPage().loginAsAgent();
@@ -25,6 +26,7 @@ public class NA171_WhiteLabel_CP_Should_Distinguish_Agents_Tariffs_FreeMinutes_P
         webModel.getCreateTariffPage().addTariffPlan();
         webModel.getConfigManagerPage().addFreeMinutesPlan();
         webModel.getConfigManagerPage().loadPackageManager();
+
         webModel.getConfigManagerPage().clickAdd();
         webModel.getConfigManagerPage().createPackage("1",webModel.getCreateTariffPage().RanTariffPlanName,true,true);
         webModel.getConfigManagerPage().saveAndAssertThePackage("[@disabled='True']");
@@ -41,8 +43,9 @@ public class NA171_WhiteLabel_CP_Should_Distinguish_Agents_Tariffs_FreeMinutes_P
     @Then("^I should be able to distinguish from the ones agent has created$")
     public void iShouldBeAbleToDistinguishFromTheOnesAgentHasCreated() throws InterruptedException {
         webModel.getDashBoardPage().clickConfigManager();
+        webModel.getDashBoardPage().loadTariffManager();
         webModel.getCreateTariffPage().distinguishAgentCreatedTariffs();
-        webModel.getConfigManagerPage().accessFreeMinutesTab();
+        webModel.getDashBoardPage().loadFreeMinutes();
         webModel.getConfigManagerPage().distinguishAgentCreatedFreeMinutes();
         webModel.getConfigManagerPage().loadPackageManager();
         webModel.getConfigManagerPage().distinguishAgentCreatedPackages();

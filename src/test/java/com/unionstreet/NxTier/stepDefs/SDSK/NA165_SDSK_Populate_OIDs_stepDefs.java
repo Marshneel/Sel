@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.SDSK;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -27,7 +27,7 @@ public class NA165_SDSK_Populate_OIDs_stepDefs {
     }
 
     @Then("^I should be able to select a CLI and obtain its installation details$")
-    public void iShouldBeAbleToSelectACLIAndObtainItsInstallationDetails() throws InterruptedException {
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2",true);
+    public void iShouldBeAbleToSelectACLIAndObtainItsInstallationDetails() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"02063678369","WLR Single Line","2","2",true,"LU1 1DQ");
     }
 }

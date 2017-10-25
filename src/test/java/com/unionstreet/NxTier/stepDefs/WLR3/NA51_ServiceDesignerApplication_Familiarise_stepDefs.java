@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -16,16 +16,6 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
     WebModel webModel = new WebModel();
     NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
-
-    @When("^I access add_view notes on edit order page$")
-    public void iAccessAdd_viewNotesOnEditOrderPage() throws InterruptedException, SQLException {
-        na44.haveCreatedANewCustomer();
-        webModel.getDashBoardPage().clickOrderManagerButton();
-        webModel.getOrdersManagerPage().clickCreateQuoteButton();
-        webModel.getOrdersManagerPage().createQuote();
-        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
-        webModel.getEditOrderPage().accessAdd_ViewNotes();
-    }
 
     @Then("^customer and internal tabs should be present and accessible$")
     public void customerAndInternalTabsShouldBePresentAndAccessible() throws InterruptedException {
@@ -59,6 +49,7 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
     @When("^I access the services page$")
     public void iAccessTheServicesPage() throws InterruptedException, SQLException {
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
         webModel.getOrdersManagerPage().clickOnQuote();
 
        // webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
@@ -77,6 +68,7 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
         webModel.getOrdersManagerPage().saveAssignServicePage();
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
       //  webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
        webModel.getOrdersManagerPage().clickOnQuote();
         webModel.getAddServicePage().clickAddAProductOrService();
@@ -85,4 +77,26 @@ public class NA51_ServiceDesignerApplication_Familiarise_stepDefs {
     }
 
 
+    @When("^I access add_view notes on edit order page as a CP$")
+    public void iAccessAdd_viewNotesOnEditOrderPageAsACP() throws InterruptedException, SQLException {
+        na44.haveCreatedANewCustomer();
+        webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(false,true);
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().createQuote();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getEditOrderPage().accessAdd_ViewNotes();
+
+    }
+
+    @When("^I access add_view notes on edit order page as an agent$")
+    public void iAccessAdd_viewNotesOnEditOrderPageAsAnAgent() throws InterruptedException, SQLException {
+        na44.haveCreatedANewCustomer();
+        webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().createQuote();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getEditOrderPage().accessAdd_ViewNotes();
+    }
 }

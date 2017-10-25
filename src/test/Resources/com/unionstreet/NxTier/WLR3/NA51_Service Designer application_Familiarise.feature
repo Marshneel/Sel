@@ -3,7 +3,7 @@ Feature: NA51 - Service designer application familiarization
 
   Scenario: Verify that the customer and internal tabs are present and accessible under add/view notes under edit order page
     Given I am logged in as CP
-    When I access add_view notes on edit order page
+    When I access add_view notes on edit order page as a CP
     Then customer and internal tabs should be present and accessible
 
   Scenario: Verify the customer and internal tabs are absent under add/view notes under edit order page
@@ -15,7 +15,7 @@ Feature: NA51 - Service designer application familiarization
 
   Scenario: Verify the customer and internal tabs are absent under add/view notes under edit order page
     Given I am logged in as agent
-    When I access add_view notes on edit order page
+    When I access add_view notes on edit order page as an agent
     Then customer and internal tabs should be absent
 
   Scenario: Assert that an assigned service is unavailable to agent and vice versa

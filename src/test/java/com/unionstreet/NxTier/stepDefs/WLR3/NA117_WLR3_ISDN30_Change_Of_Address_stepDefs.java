@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -16,7 +16,7 @@ public class NA117_WLR3_ISDN30_Change_Of_Address_stepDefs {
     @When("^I initiate a change of address service for ISDN(\\d+)$")
     public void iInitiateAChangeOfAddressServiceForISDN(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='OI3000000001'");
-        webModel.getAddServicePage().searchAndAddService("Change of Address");
+        webModel.getAddServicePage().searchAndAddService("Change of Address",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().textOnChangeOfAddressOrderPage();
         webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("01202300945","LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().confirmChangeOfOwnerShip();

@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.SDSK;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -26,8 +26,8 @@ public class NA159_SDSK_Login_Incident_Caller_Details_stepDefs {
     public void iNavigateToTheCallerDetailsPageOfTheIncidentWizard() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         webModel.getUtils().sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_types set is_default=NULL");
         webModel.getUtils().sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueNumber='1' where ID='156'");
-        webModel.getDashBoardPage().loadServiceDesk("/RajeshNB");
-        webModel.getServiceDeskPage().assertTextOnServiceDesk();
+        webModel.getDashBoardPage().loadServiceDesk();
+        webModel.getServiceDeskPage().loadLoginIncidentPageAndAssertTextOnServiceDesk();
         webModel.getServiceDeskPage().searchByShortName("Adam As A Reseller");
         webModel.getServiceDeskPage().clickOnResult("Adam As A Reseller");
         webModel.getServiceDeskPage().clickIncidentButton();
@@ -35,7 +35,7 @@ public class NA159_SDSK_Login_Incident_Caller_Details_stepDefs {
 
 
     @Then("^I should be able to check all the validations and populate caller details page$")
-    public void iShouldBeAbleToCheckAllTheValidationsAndPopulateCallerDetailsPage() {
+    public void iShouldBeAbleToCheckAllTheValidationsAndPopulateCallerDetailsPage() throws InterruptedException {
         webModel.getServiceDesk_callerDetailsTriagePage().clickNextWithOutPopulatingCallerDetailsTab();
         webModel.getServiceDesk_callerDetailsTriagePage().clickNextAfterPopulatingContact();
         webModel.getServiceDesk_callerDetailsTriagePage().clickPrevious();

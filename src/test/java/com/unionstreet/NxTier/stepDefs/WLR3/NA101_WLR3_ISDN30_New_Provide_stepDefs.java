@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -15,7 +15,7 @@ public class NA101_WLR3_ISDN30_New_Provide_stepDefs {
 
     @When("^I initiate a new provide ISDN line order$")
     public void iInitiateANewProvideISDNLineOrder() throws InterruptedException, SQLException {
-        webModel.getAddServicePage().searchAndAddService("New Provide Order");
+        webModel.getAddServicePage().searchAndAddService("New Provide Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN30E");
 
     }

@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -17,7 +17,7 @@ public class NA138_WLR3_ISDN2System_AnalogueBasic_Change_Of_Line_Type_And_ViceVe
     @When("^I initiate a change of line from ISDN(\\d+) system to basic analogue$")
     public void iInitiateAChangeOfLineFromISDNSystemToBasicAnalogue(int arg0) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='OI2E00000003'");
-        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300920", "LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("ISDN2 System (Current)", "Basic Analogue");
     }
@@ -47,7 +47,7 @@ public class NA138_WLR3_ISDN2System_AnalogueBasic_Change_Of_Line_Type_And_ViceVe
     @When("^I initiate a change of line from basic analogue to ISDN(\\d+) system$")
     public void iInitiateAChangeOfLineFromBasicAnalogueToISDNSystem(int arg0) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02012345678'");
-        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("02012345678", "LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("Basic Analogue (Current)", "ISDN2 System");
     }

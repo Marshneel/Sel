@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.SDSK;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -23,7 +23,7 @@ public class NA187_SDSK_Search_An_Incident_stepDefs {
 
     @When("^I navigate to the browse incident page$")
     public void iNavigateToTheBrowseIncidentPage()  {
-        webModel.getDashBoardPage().loadServiceDesk(":9050/RajeshNB");
+        webModel.getDashBoardPage().loadServiceDesk();
         webModel.getServiceDesk_ticketDetailsPage().navigateToBrowseIncidents();
 
     }

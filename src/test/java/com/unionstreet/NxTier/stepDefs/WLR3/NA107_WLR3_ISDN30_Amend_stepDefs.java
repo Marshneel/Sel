@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -19,7 +19,7 @@ public class NA107_WLR3_ISDN30_Amend_stepDefs {
     public void thereIsAnISDNNewProvideOrderAlreadySubmittedAndInProcessingStage(int arg0) throws InterruptedException, SQLException {
        //creation of business customer, quote and ISDN30 new provide creation and submission
         na88.iCreateANewBusinessCustomerWithAQuote();
-        webModel.getAddServicePage().searchAndAddService("New Provide Order");
+        webModel.getAddServicePage().searchAndAddService("New Provide Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_new_provide__orderPage().selectLineTypeForNewProvide("ISDN30E");
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateAndAssertInstallationAddressUnderSITE("LU1 1DQ","A00001043137");
         webModel.getwlr3_newProvide_anaMultLine_sitePage().populateSiteContactUnderSITE("07894040256");

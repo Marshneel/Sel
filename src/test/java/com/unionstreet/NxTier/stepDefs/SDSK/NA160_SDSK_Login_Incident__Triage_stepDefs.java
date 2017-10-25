@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.SDSK;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -29,6 +29,7 @@ public class NA160_SDSK_Login_Incident__Triage_stepDefs {
     public void iShouldBeAbleToCheckAllTheValidationsAndPopulateIt() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getServiceDesk_callerDetailsTriagePage().clickNextWithOutPopulatingTriage();
         webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(true);
+
         webModel.getServiceDesk_callerDetailsTriagePage().non_OpenReachIncident_Triage();
         webModel.getUtils().loadBranchURLForServiceDesk("");
         webModel.getLoginPage().loginAsAdamR();

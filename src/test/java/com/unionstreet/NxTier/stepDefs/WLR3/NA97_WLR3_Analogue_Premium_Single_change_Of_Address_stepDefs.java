@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -18,9 +18,10 @@ public class NA97_WLR3_Analogue_Premium_Single_change_Of_Address_stepDefs {
     @When("^I initiate a change of address service$")
     public void iInitiateAChangeOfAddressService() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02063678369'");
+        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set CareLevel='2.5' where serviceid='02063678369'");
        //initiating the change of address service
 
-        webModel.getAddServicePage().searchAndAddService("Change of Address");
+        webModel.getAddServicePage().searchAndAddService("Change of Address",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().textOnChangeOfAddressOrderPage();
         webModel.getWlr3_addRemoveAuxLinePage().populateCLIandPostCode("02063678369","LU1 1DQ");
         webModel.getWlr_and_nxTierServicesPage().verifyCurrentLine("Premium Analogue (Current)");

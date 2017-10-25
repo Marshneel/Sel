@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -16,7 +16,7 @@ public class NA126_WLR3_Analogue_Basic_To_ISDN30E_Change_Of_Line_Type_stepDefs {
     @When("^I initiate a change of line type from analogue basic single to ISDN(\\d+)E$")
     public void iInitiateAChangeOfLineTypeFromAnalogueBasicSingleToISDNE(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='02012345678'");
-        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order",webModel.getNewBusinessCustomerPage().RanName);
         //former is the current line and the later is the line that you are switching to
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("02012345678", "LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("Basic Analogue (Current)", "ISDN30E");
@@ -49,7 +49,7 @@ public class NA126_WLR3_Analogue_Basic_To_ISDN30E_Change_Of_Line_Type_stepDefs {
     @When("^I initiate a change of line from ISDN(\\d+)E to analogue basic$")
     public void iInitiateAChangeOfLineFromISDNEToAnalogueBasic(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='OI3000000001'");
-        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order",webModel.getNewBusinessCustomerPage().RanName);
         //former is the current line and the later is the line that you are switching to
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300945", "LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("ISDN30E (Current)", "Basic Analogue");

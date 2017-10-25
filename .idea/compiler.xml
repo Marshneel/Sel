@@ -27,7 +27,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="com.unionstreet.NxTier_automation" target="1.5" />
+      <module name="com.unionstreet.NxTier_automation" target="1.7" />
       <module name="NxTier automation" target="1.5" />
     </bytecodeTargetLevel>
   </component>

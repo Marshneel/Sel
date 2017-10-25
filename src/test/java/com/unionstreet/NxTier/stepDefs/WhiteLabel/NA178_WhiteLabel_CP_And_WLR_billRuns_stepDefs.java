@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WhiteLabel;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
@@ -30,6 +30,8 @@ public class NA178_WhiteLabel_CP_And_WLR_billRuns_stepDefs {
 
     @When("^I navigate to the relevant pages then I should be able to check all the validations for non-WLR customer as a CP$")
     public void iNavigateToTheRelevantPagesThenIShouldBeAbleToCheckAllTheValidationsForNonWLRCustomerAsACP() throws InterruptedException {
+       webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getCommonMethods().search("ABC Ltd");
         webModel.getCommonMethods().clickAndSwitchTo("Head Office");
         webModel.getCompanyMenuPage().validateBillRunForNon_WLR_underInvoicingDetails();
@@ -38,7 +40,6 @@ public class NA178_WhiteLabel_CP_And_WLR_billRuns_stepDefs {
         webModel.getCommonMethods().clickAndSwitchTo("Head Office");
         webModel.getCompanyMenuPage().validateBillRunForNon_WLR_underCLI();
         webModel.getCompanyMenuPage().validateBillRunForNonWLR_underRevenueAssurance();
-        webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getCompanyMenuPage().validateBillRun_underAgentInfo();
     }
 
@@ -46,6 +47,7 @@ public class NA178_WhiteLabel_CP_And_WLR_billRuns_stepDefs {
     public void iNavigateToTheRelevantPagesThenIShouldBeAbleToCheckAllTheValidationsForWLRCustomerAsACP() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update company set agent_id=NULL,agent_contact_id=NULL, AgentContact=NULL where ID='141'");
        webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getCommonMethods().search("WLR");
         webModel.getCommonMethods().clickAndSwitchTo("WLR");
         webModel.getCompanyMenuPage().validateBillRunForWLR_underInvoicingDetails_cutomerSetToNonWLR();
@@ -78,6 +80,8 @@ public class NA178_WhiteLabel_CP_And_WLR_billRuns_stepDefs {
 
     @When("^I navigate to the relevant pages then I should be able to check all the validations for WLR customer as a WhiteLabelReseller$")
     public void iNavigateToTheRelevantPagesThenIShouldBeAbleToCheckAllTheValidationsForWLRCustomerAsAWhiteLabelReseller() throws InterruptedException {
+        webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getCommonMethods().search("WLR");
         webModel.getCommonMethods().clickAndSwitchTo("WLR");
         webModel.getCompanyMenuPage().assertBillRunWhenLoggedInAsWLR_underInvoicingDetails("customerOfWLR");

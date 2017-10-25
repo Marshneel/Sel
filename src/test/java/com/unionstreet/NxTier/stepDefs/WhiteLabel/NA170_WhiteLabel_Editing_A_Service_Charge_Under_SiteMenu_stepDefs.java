@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WhiteLabel;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -12,6 +12,7 @@ public class NA170_WhiteLabel_Editing_A_Service_Charge_Under_SiteMenu_stepDefs {
     @When("^I search for a business customer and navigate to add service charge page$")
     public void iSearchForABusinessCustomerAndNavigateToAddServiceChargePage() throws InterruptedException {
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
          webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickServiceChargesButton();

@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -19,7 +19,6 @@ public class NA61_WLR3_Analogue_Premium_Single_Transfer_Obtaining_Initial_inform
 
     @Given("^I am logged in with \"([^\"]*)\" and \"([^\"]*)\"$")
     public void iAmLoggedInWithAnd(String userName, String passWord) throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException, AWTException {
-       // webModel.getUtils().keyPressZoomOut();
         webModel.getLoginPage().login(userName, passWord);
         webModel.getServiceDeskPage().grantingServiceDeskAccess();
         webModel.getDashBoardPage().logOut();

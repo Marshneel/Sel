@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -15,7 +15,7 @@ public class NA127_WLR3_Virtual_Lines_NewProvide_stepDefs {
 
     @When("^I initiate a virtual line order for ISDN Remote Call Forward$")
     public void iInitiateAVirtualLineOrderForISDNRemoteCallForward() throws InterruptedException, SQLException {
-        webModel.getAddServicePage().searchAndAddService("Remote Call Forward");
+        webModel.getAddServicePage().searchAndAddService("Remote Call Forward",webModel.getNewBusinessCustomerPage().RanName);
     }
 
     @Then("^I should be able to check the flow and complete the virtual line order for ISDN remote call forward$")
@@ -52,7 +52,7 @@ public class NA127_WLR3_Virtual_Lines_NewProvide_stepDefs {
 
     @When("^I initiate a virtual line order for ISDN Caller Redirect$")
     public void iInitiateAVirtualLineOrderForISDNCallerRedirect() throws InterruptedException, SQLException {
-        webModel.getAddServicePage().searchAndAddService("Caller Redirect");
+        webModel.getAddServicePage().searchAndAddService("Caller Redirect",webModel.getNewBusinessCustomerPage().RanName);
     }
 
     @Then("^I should be able to check the flow and complete the virtual line order for ISDN Caller Redirect$")

@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
@@ -14,10 +14,11 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
     WebModel webModel = new WebModel();
     NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
-    @And("^create a new quote and access a service$")
-    public void createANewQuoteAndAccessAService() throws InterruptedException, SQLException {
+    @And("^create a new quote and access a service for CP$")
+    public void createANewQuoteAndAccessAServiceForCP() throws InterruptedException, SQLException {
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(false,true);
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
         webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
@@ -46,4 +47,16 @@ public class NA52_Accessing_controls_In_Services_with_different_permissions_CP_A
     }
 
 
+    @And("^create a new quote and access a service for agent$")
+    public void createANewQuoteAndAccessAServiceForAgent() throws InterruptedException, SQLException {
+        na44.haveCreatedANewCustomer();
+        webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().createQuote();
+        webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
+//        TODO
+        webModel.getAddServicePage().addServiceToQuote("permissions");
+
+    }
 }

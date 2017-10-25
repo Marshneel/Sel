@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -15,7 +15,7 @@ public class NA125_WLR3_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_stepDefs {
     @When("^I initiate a change of line from analogue multi to ISDN(\\d+)E$")
     public void iInitiateAChangeOfLineFromAnalogueMultiToISDNE(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='01202300909'");
-        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order",webModel.getNewBusinessCustomerPage().RanName);
         //former is the current line and the later is the line that you are switching to
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300909","LU1 1DQ");
         webModel.getWlr3_changeOfLineTypeOrderPage().chooseLineType("Analogue Multiline (Current)","ISDN30E");
@@ -50,7 +50,7 @@ public class NA125_WLR3_Analogue_Multi_To_ISDN30E_Change_Of_Line_Type_stepDefs {
 
     @When("^I initiate a change of line from ISDN(\\d+)E to analogue multi$")
     public void iInitiateAChangeOfLineFromISDNEToAnalogueMulti(int arg0) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
-        webModel.getAddServicePage().searchAndAddService("Change Line Type Order");
+        webModel.getAddServicePage().searchAndAddService("Change Line Type Order",webModel.getNewBusinessCustomerPage().RanName);
         //former is the current line and the later is the line that you are switching to
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns='490871001' where serviceid='OI3000000001'");
         webModel.getWlr3_changeOfLineTypeOrderPage().addCLIsToTheOrder("01202300930","LU1 1DQ");

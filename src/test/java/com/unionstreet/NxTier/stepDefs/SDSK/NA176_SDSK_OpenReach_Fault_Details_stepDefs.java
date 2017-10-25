@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.SDSK;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -29,7 +29,7 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
         webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("02063678369","PSTN Single Line","2","2",true);
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"02063678369","WLR Single Line","2","2",true,"LU1 1DQ");
     }
 
     @Then("^I should be able to check validations pertaining to single analogue line$")
@@ -46,7 +46,7 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
         webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("01202300909","PSTN Multi Line Aux","2","2",true);
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"01202300909","PSTN Multi Line Aux","2","2",true,"LU1 1DQ");
 
     }
 
@@ -62,7 +62,7 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
         webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("01202300945","WLR3 ISDN 30 ETSI","8","4",true);
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"01202300945","WLR3 ISDN 30 ETSI","8","2",true,"LU1 1DQ");
 
     }
 
@@ -78,7 +78,7 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
         webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails("01202300920","WLR3 ISDN 2e System","2","2",true);
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"01202300920","WLR3 ISDN 2e System","2","2",true,"LU1 1DQ");
 
 
     }

@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -17,7 +17,7 @@ public class NA104_WLR3_ISDN30_Transfer_stepDefs {
     @When("^I initiate a transfer service on the line that has business continuity set$")
     public void iInitiateATransferServiceOnTheLineThatHasBusinessContinuitySet() throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='OI3000000001'");
-        webModel.getAddServicePage().searchAndAddService("Transfer Order");
+        webModel.getAddServicePage().searchAndAddService("Transfer Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().enterPhoneNumberAndPostCodeToInitiateTheTransfer("01202300945", "lu1 1dq");
     }
 
@@ -29,7 +29,7 @@ public class NA104_WLR3_ISDN30_Transfer_stepDefs {
 
     @And("^I initiate a transfer service on ISDN line$")
     public void iInitiateATransferServiceOnISDNLine() throws InterruptedException, SQLException {
-        webModel.getAddServicePage().searchAndAddService("Transfer Order");
+        webModel.getAddServicePage().searchAndAddService("Transfer Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().enterPhoneNumberAndPostCodeToInitiateTheTransfer("01202300800", "lu1 1dq");
 
     }

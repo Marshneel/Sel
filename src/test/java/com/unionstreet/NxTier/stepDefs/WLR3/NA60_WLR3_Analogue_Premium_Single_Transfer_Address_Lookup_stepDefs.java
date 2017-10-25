@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -21,22 +21,23 @@ public class NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs 
     public void iCreateANewBusinessCustomerAndQuote() throws InterruptedException, SQLException {
         na44_agent_login_stepDefs.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(false,true);
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
-        webModel.getOrdersManagerPage().searchQuoteByBcRN();
+        webModel.getOrdersManagerPage().searchQuoteByBcRN(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
     }
 
     @And("^I assign WLR transfer order service to the newly created quote$")
     public void iAssignWLRTransferOrderServiceToTheNewlyCreatedQuote() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set OwningDuns=NULL where serviceid='01202300908'");
-        webModel.getAddServicePage().searchAndAddService("Transfer Order");
+        webModel.getAddServicePage().searchAndAddService("Transfer Order",webModel.getNewBusinessCustomerPage().RanName);
         webModel.getWlr3_orderDetails_page().enterPhoneNumberAndPostCodeToInitiateTheTransfer("01202300908", "lu1 1dq");
     }
 
     @When("^I access postcode search under installation address tab and enter incorrect post code$")
     public void iAccessPostcodeSearchUnderInstallationAddressTabAndEnterIncorrectPostCode() throws InterruptedException, SQLException {
-        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage();
         webModel.getWlr3_installationAddressPage().EnterPostCodeInSearchAddressByPostCode("GU22 9DY");
         webModel.getWlr3_installationAddressPage().EnterPostCodeInSearchAddressByPostCode("lu11dq");
     }
@@ -61,7 +62,7 @@ public class NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs 
 
     @When("^Access addressKey search under installation address tab and enter invalid address key$")
     public void accessAddressKeySearchUnderInstallationAddressTabAndEnterInvalidAddressKey() throws InterruptedException, SQLException {
-        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage();
         webModel.getWlr3_installationAddressPage().accessAddressKeyTab();
         webModel.getWlr3_installationAddressPage().enterAddressKeyInSearchAddressByAddressKey("00001043137");
     }
@@ -85,7 +86,7 @@ public class NA60_WLR3_Analogue_Premium_Single_Transfer_Address_Lookup_stepDefs 
 
     @When("^I access advanced search under installation address tab and enter valid combinations$")
     public void iAccessAdvancedSearchUnderInstallationAddressTabAndEnterValidCombinations() throws InterruptedException, SQLException {
-        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage(webModel.getNewBusinessCustomerPage().RanName);
+        webModel.getWlr3_installationAddressPage().accessInstallationAddressPage();
         webModel.getWlr3_installationAddressPage().accessAdvancedSearchTab();
         webModel.getWlr3_installationAddressPage().enterValidAddressSearchCombinations();
     }

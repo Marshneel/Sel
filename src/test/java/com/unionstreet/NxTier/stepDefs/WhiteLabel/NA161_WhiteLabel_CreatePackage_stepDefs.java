@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WhiteLabel;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -87,6 +87,7 @@ public class NA161_WhiteLabel_CreatePackage_stepDefs {
     public void iAddAPackageToABusinessCustomer() throws InterruptedException {
         iAssignAPackageToAgent();
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
         webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
@@ -99,11 +100,11 @@ public class NA161_WhiteLabel_CreatePackage_stepDefs {
     public void theAgentWillBeAbleToSeeAndDeleteThePackageOnlyButCannotReAssignItUnlessHeHasPermissions() throws InterruptedException {
         webModel.getLoginPage().loginAsAgent();
         webModel.getDashBoardPage().clickContactManagerTab();
+        webModel.getDashBoardPage().load_endCustomers();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
         webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
         webModel.getCompanyMenuPage().assignOrDeletePackageToCustomer("Select");
-        webModel.getDashBoardPage().clickContactManagerTab();
         webModel.getContactManagerPage().searchAndClickBusinessCustomer("business customer agent assigned");
         webModel.getUtils().switchToNewWindow();
         webModel.getCompanyMenuPage().clickPricingDetails();
@@ -111,4 +112,15 @@ public class NA161_WhiteLabel_CreatePackage_stepDefs {
 
     }
 
+    @Given("^CP has issued tariff and free minute permissions$")
+    public void cpHasIssuedTariffAndFreeMinutePermissions() throws InterruptedException, AWTException {
+        webModel.getLoginPage().doLogin();
+        webModel.getDashBoardPage().clickConfigManager();
+        webModel.getDashBoardPage().loadTariffManager();
+        webModel.getConfigManagerPage().assignTariffPlanToAgent("Sell 2p NGCS AC (+60 sec)","10","checkbox0");
+        webModel.getSettingsPage().clickSettingsButton();
+        webModel.getSettingsPage().loadPermissionGroups();
+        webModel.getSettingsPage().issueTariffAndFreeMinutePermissionsToAgent("agent");
+        webModel.getDashBoardPage().logOut();
+    }
 }

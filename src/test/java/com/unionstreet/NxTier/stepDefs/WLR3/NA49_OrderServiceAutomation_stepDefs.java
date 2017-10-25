@@ -1,6 +1,6 @@
 package com.unionstreet.NxTier.stepDefs.WLR3;
 
-import com.unionstreet.NxTier.support.WebModel;
+import com.unionstreet.support.WebModel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -15,12 +15,14 @@ public class NA49_OrderServiceAutomation_stepDefs {
     WebModel webModel = new WebModel();
     NA44_Agent_Login_stepDefs na44 = new NA44_Agent_Login_stepDefs();
 
-    @And("^Have created a quote$")
-    public void haveCreatedAQuote() throws InterruptedException {
+    @And("^Have created a quote as a CP$")
+    public void haveCreatedAQuoteAsACP() throws InterruptedException {
         na44.haveCreatedANewCustomer();
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(false,true);
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuote();
+
     }
 
     @When("^I add a service from the quote details page$")
@@ -45,6 +47,7 @@ public class NA49_OrderServiceAutomation_stepDefs {
     @And("^Have created a quote for reseller$")
     public void haveCreatedAQuoteForReseller() throws InterruptedException {
         webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
         webModel.getOrdersManagerPage().clickCreateQuoteButton();
         webModel.getOrdersManagerPage().createQuoteForReseller();
 
@@ -55,7 +58,7 @@ public class NA49_OrderServiceAutomation_stepDefs {
     public void iAccessQuoteDetailsAndAddAServiceWithoutSelectingTheMandatoryControl() throws InterruptedException, SQLException {
         webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getEditOrderPage().clickAddProductsAndServicesButton();
-        webModel.getAddServicePage().searchAndSelectService();
+        webModel.getAddServicePage().searchAndSelectService(webModel.getNxTierServicesPage().CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE,false);
     }
 
     @Then("^The quote should become invalid$")
@@ -67,7 +70,7 @@ public class NA49_OrderServiceAutomation_stepDefs {
 
     @And("^When I add the omitted control, the quote should become valid$")
     public void whenIAddTheOmittedControlTheQuoteShouldBecomeValid() throws InterruptedException, AWTException, SQLException {
-        webModel.getAddServicePage().scrollToService();
+       // webModel.getAddServicePage().scrollToService();
         webModel.getAddServicePage().clickService();
         webModel.getNxTierServicesPage().populateMandatoryField();
         webModel.getEditOrderPage().assertValidQuoteBeforeSubmitting();
@@ -86,13 +89,23 @@ public class NA49_OrderServiceAutomation_stepDefs {
     public void iAccessQuoteDetailsAndAddAServiceWithoutSelectingTheMandatoryControlForAgent() throws SQLException, InterruptedException {
         webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().RanName);
         webModel.getEditOrderPage().clickAddProductsAndServicesButton();
-        webModel.getAddServicePage().searchAndSelectService();
+        webModel.getAddServicePage().searchAndSelectService(webModel.getNxTierServicesPage().CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE,false);
     }
 
     @When("^I access quote details and add a service without selecting the mandatory control for reseller$")
     public void iAccessQuoteDetailsAndAddAServiceWithoutSelectingTheMandatoryControlForReseller() throws InterruptedException, SQLException {
         webModel.getOrdersManagerPage().loadOrdersManagerAndClickOnQuoteID(webModel.getNewBusinessCustomerPage().Reseller_RanName);
         webModel.getEditOrderPage().clickAddProductsAndServicesButton();
-        webModel.getAddServicePage().searchAndSelectService();
+        webModel.getAddServicePage().searchAndSelectService(webModel.getNxTierServicesPage().CUSTOM_SERVICE_ON_ADD_SERVICE_PAGE,false);
+    }
+
+
+    @And("^Have created a quote as an agent$")
+    public void haveCreatedAQuoteAsAnAgent() throws InterruptedException {
+        na44.haveCreatedANewCustomer();
+        webModel.getDashBoardPage().clickOrderManagerButton();
+        webModel.getDashBoardPage().loadAllOrders(true,false);
+        webModel.getOrdersManagerPage().clickCreateQuoteButton();
+        webModel.getOrdersManagerPage().createQuote();
     }
 }
