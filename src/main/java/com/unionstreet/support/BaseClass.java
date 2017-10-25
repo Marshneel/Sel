@@ -31,7 +31,7 @@ public class BaseClass {
     public void startUp() {
         try {
             driver = webModel.getUtils().browser();
-            driver.get(System.getProperty("url"));
+            driver.get(webModel.getUtils().getProperty("url"));
             driver.manage().window().maximize();
         } catch (Exception e) {
             e.printStackTrace();

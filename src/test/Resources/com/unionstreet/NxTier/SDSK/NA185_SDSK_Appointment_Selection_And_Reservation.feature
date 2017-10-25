@@ -10,7 +10,6 @@ Feature:NA185_SDSK Appointment Selection And Reservation Functionality
       |   slotTime    |
       |  7am - 8am    |
 
-
   Scenario Outline: Validating the Appointment Cancellation Functionality
     Given I am logged in as AdamR
     When I am on ServiceDesk Ticket Details Page to Cancel an Appointment

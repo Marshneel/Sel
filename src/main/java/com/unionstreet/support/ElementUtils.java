@@ -2,6 +2,8 @@ package com.unionstreet.support;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.*;
@@ -33,6 +35,9 @@ public class ElementUtils {
     private FileInputStream fileInputStream;
     public static ArrayList allValues;
     public static String[] split;
+    public  PDDocument pdfFile;
+    public String file;
+
 
 public Wait waitForSomeTime(){
     Wait wait = new FluentWait(BaseClass.driver)
@@ -659,7 +664,12 @@ public Wait waitForSomeTime(){
         action.contextClick(driver.findElement(by)).perform();
 
     }
-
+public void readPDFfile(String filePath) throws IOException {
+    pdfFile=PDDocument.load(new File(filePath));
+    PDFTextStripper readpdfFile=new PDFTextStripper();
+   // System.out.println(readpdfFile.getText(pdfFile));
+    file=readpdfFile.getText(pdfFile);
+}
 
 }
 

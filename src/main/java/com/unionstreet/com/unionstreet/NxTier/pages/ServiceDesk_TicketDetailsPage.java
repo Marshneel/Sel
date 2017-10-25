@@ -144,29 +144,19 @@ public class ServiceDesk_TicketDetailsPage {
         String DatePart=ExpectedDay.substring(0,2);
         String YearPart=ExpectedDay.substring(6,10);
         utils.waitForElementVisibleForOpenReach(By.xpath("//h5[text()=' Appointment Reserved: ']//strong[@id='AppointmentDateFriendly'][contains(text(),'"+currentday+", "+currentMonth+" "+DatePart+", "+YearPart+" "+slotTime+"')]"));
-        utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
-        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
-        utils.accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
 
     }
 
     public void CancelAnAppointment(String slotTime) throws java.lang.Exception {
-
-        utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='89.234.55.115' where ID='760'");
-        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='89.234.55.115' where ID='760'");
-        utils.accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
-        utils.jumpToPopUpWindow(By.xpath(SELECTAPPOINTMENTBTN));
-        Thread.sleep(5000);
-        utils.waitForElementVisible(By.xpath(SELECT_APPOINTMENT_SLOT_TEXT));
+       utils.waitForElementVisibleForOpenReach(By.xpath(SELECTAPPOINTMENTBTN));
+        utils.clickBtn(By.xpath(SELECTAPPOINTMENTBTN));
+        utils.waitForElementVisibleForOpenReach(By.xpath(SELECT_APPOINTMENT_SLOT_TEXT));
+        utils.waitForElementVisibleForOpenReach(By.xpath("//a[contains(text(),'"+slotTime+"')]"));
         utils.clickBtn(By.xpath("//a[contains(text(),'"+slotTime+"')]"));
-        utils.waitForElementVisible(By.xpath(CANCELBTN));
         utils.clickBtn(By.xpath(CANCELBTN));
         utils.switchToPreviousWindow(0);
-        Thread.sleep(1000);
         utils.waitForElementVisible(By.xpath(NO_APPOINTMENT_RESERVED));
-        utils.sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
-        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
-        utils.accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
+
 
     }
 

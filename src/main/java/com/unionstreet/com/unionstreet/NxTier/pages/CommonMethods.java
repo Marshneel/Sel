@@ -16,6 +16,7 @@ public class CommonMethods {
     public final String ADD_XPATH="//a[contains(text(),'Add')]";
     public final String SAVE_XPATH="//input[contains(@onclick,'Save')]";
     public final String NAVIGATE_TO_HOME="//span[@class='home']";
+    public final String LOGOUT_BUTTON=".logout";
 
     ElementUtils utils = new ElementUtils();
 
