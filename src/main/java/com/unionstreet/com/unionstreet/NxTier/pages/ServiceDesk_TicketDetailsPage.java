@@ -4,9 +4,11 @@ import com.unionstreet.support.BaseClass;
 import com.unionstreet.support.ElementUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -112,18 +114,43 @@ public class ServiceDesk_TicketDetailsPage {
     private final String CANCELBTN="//a[@id='reserveAppointment']//preceding-sibling::a[text()='Cancel']";
     private final String RESERVEBTN="//a[@id='reserveAppointment']";
     private final String NO_APPOINTMENT_RESERVED="//h5[text()=' Appointment Reserved: ']//strong[@id='AppointmentDateFriendly'][contains(text(),'No appointment reserved')]";
+    private final String SITE_INFORMATION_TEXT = "//legend[contains(text(),'Site Information')]";
+    private final String ACCESS_DETAILS_TEXTAREA = "wlr3_access_arrangements";
+    private final String HAZARD_NOTES_TEXTAREA = "wlr3_hazard_notes";
+    private final String IS_THE_SITEACCESIBLE_TEXT = "//label[contains(text(),'Is the site accesible 24 hours a day?')]";
 
+    private final String SITE_ACCESIBLE_NO_BUTTON = "//label[contains(text(),'Is the site accesible 24 hours a day?')]/following-sibling::div//a[contains(text(),'No')]";
+    private final String SITE_ACCESIBLE_FROM_TEXT = "//label[contains(text(),'Site accessible from')]";
+    private final String CAL_AVAIL_FROM_DATE = "//input[@id='AvailFromDate']//following-sibling::span[@class='input-group-addon']";
+    private final String CAL_AVAIL_FROM_TIME = "//input[@id='AvailFromTime']//following-sibling::span[@class='input-group-addon']";
+    private final String CAL_AVAIL_TO_DATE = "//input[@id='AvailToDate']//following-sibling::span[@class='input-group-addon']";
+    private final String CAL_AVAIL_TO_TIME = "//input[@id='AvailToTime']//following-sibling::span[@class='input-group-addon']";
+    private final String SAVE_AND_SUBMIT_BUTTON = "//a[@href='#'][@id='wizardButton_SaveIncident']";
+    private final String TEXT_ON_VIEW_AND_AMEND_DETAILS_PAGE = "//h1[@class='page-header']//small[contains(text(),'View and Amend Details')]";
+    private final String SITE_ACCESIBLE_FROM_AND_UNTIL_VALIDATION_TEXT = "//span[contains(text(),'Please enter Site accessible from and until')]";
+    private final String SITE_ACCESIBLE_TO_AND_UNTIL_VALIDATION_TEXT = "//span[contains(text(),'Please enter Site accessible to and until')]";
+    private final String ACCESS_AVAILABILITY_VALIDATION_TEXT = "//span[contains(text(),'Please enter Access Availability')]";
+    private final String ACCESS_AVAILABILITY_TEXTAREA = "AccessAvailability";
     private Date today;
     String currentDate;
     String currentTime;
     String currentDayOfTheWeek;
     String ExpectedDay;
+    private long presentday;
+    private String day;
+
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
 
 
     public void assertTextOnTicketDetailsPage() {
         utils.waitForElementVisible(By.xpath(TEXT_ON_LINE_AND_INSTALLATION_DETAILS_PAGE));
+    }
+    public void assertAbsenceOfAccessDetailsAndHazardNotes()
+    {
+        utils.assertElementNotPresent(By.xpath(SITE_INFORMATION_TEXT));
+        utils.assertElementNotPresent(By.xpath(ACCESS_DETAILS_TEXTAREA));
+        utils.assertElementNotPresent(By.xpath(HAZARD_NOTES_TEXTAREA));
     }
     public void BookAnAppointment(String slotTime) throws java.lang.Exception {
         ExpectedDay = new SimpleDateFormat("dd/MM/yyyy").format(NonSaturday());
@@ -164,6 +191,66 @@ public class ServiceDesk_TicketDetailsPage {
         utils.clickBtn(By.id(OBTAIN_ORDER_DETAILS));
         utils.waitForElementVisible(By.xpath(SELECT_CLI_FIELD_IS_REQUIRED));
         utils.waitForElementVisible(By.xpath(THE_CONFIRM_POST_CODE_IS_REQUIRED));
+    }
+public void SelectDateTimeForSiteInformation()
+{
+    utils.clickBtn(By.xpath(CAL_AVAIL_FROM_DATE));
+    utils.clickBtn(By.xpath(CAL_AVAIL_FROM_TIME));
+    String level4ExpTime = new SimpleDateFormat("HH:mm").format(Level4Time());
+    utils.sendText(By.id("AvailFromTime"),level4ExpTime);
+    utils.clickBtn(By.xpath(CAL_AVAIL_FROM_TIME));
+    utils.clickBtn(By.xpath(CAL_AVAIL_TO_DATE));
+    ExpectedDay = new SimpleDateFormat("dd/MM/YYYY").format(NonSaturday());
+    utils.sendText(By.id("AvailToDate"),ExpectedDay);
+    utils.clickBtn(By.xpath(CAL_AVAIL_TO_TIME));
+    utils.sendText(By.id("AvailToTime"),level4ExpTime);
+}
+public void assertValidationsForSiteInformation()
+{
+    utils.waitForElementVisible(By.xpath(SITE_INFORMATION_TEXT));
+    utils.waitForElementVisible(By.xpath(IS_THE_SITEACCESIBLE_TEXT));
+    utils.clickBtn(By.xpath(SITE_ACCESIBLE_NO_BUTTON));
+    utils.waitForElementVisible(By.xpath(SITE_ACCESIBLE_FROM_TEXT));
+    utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_BUTTON));
+    utils.waitForElementVisible(By.xpath(SITE_ACCESIBLE_FROM_AND_UNTIL_VALIDATION_TEXT));
+    utils.waitForElementVisible(By.xpath(SITE_ACCESIBLE_TO_AND_UNTIL_VALIDATION_TEXT));
+}
+    public void AccessSiteInformation(boolean ISDN2,boolean ISDN30,boolean Analogue) throws InterruptedException,ParseException
+    {
+        if(Analogue)
+        {
+            assertValidationsForSiteInformation();
+            SelectDateTimeForSiteInformation();
+
+        }
+
+        if(ISDN2)
+            {
+                assertValidationsForSiteInformation();
+                SelectDateTimeForSiteInformation();
+
+            }
+        if(ISDN30)
+        {
+            utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_BUTTON));
+            utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMPTY_DOWNTIME));
+            utils.waitForElementVisible(By.id(DOWNTIME_TEXT_BOX));
+            utils.sendText(By.id(DOWNTIME_TEXT_BOX), "downtime");
+            utils.clickBtn(By.xpath(SITE_ACCESIBLE_NO_BUTTON));
+            utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_BUTTON));
+            utils.waitForElementVisible(By.xpath(ACCESS_AVAILABILITY_VALIDATION_TEXT));
+            utils.waitForElementVisible(By.id(ACCESS_AVAILABILITY_TEXTAREA));
+            utils.sendText(By.id(ACCESS_AVAILABILITY_TEXTAREA),"Access availabilty");
+            utils.waitForElementVisible(By.xpath(SITE_ACCESIBLE_FROM_TEXT));
+            SelectDateTimeForSiteInformation();
+
+        }
+            utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_BUTTON));
+    }
+    public void assertIncidentViewAndAmendDetails() throws InterruptedException
+    {
+        utils.waitForElementVisible(By.xpath(TEXT_ON_VIEW_AND_AMEND_DETAILS_PAGE));
+        Thread.sleep(5000);
     }
 
     public void selectCLIToObtainInstallationDetails(boolean appointmentSelection, String cli, String lineType, String numberOfLines, String maintenanceLevel, boolean notVirtualLine, String postCode) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {

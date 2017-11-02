@@ -200,7 +200,7 @@ public Wait waitForSomeTime(){
     }
     //browser selector
     public WebDriver browser() {
-   //String browser=System.getProperty("browser");
+   String browser=getProperty("browser");
         try {
 
             if (getProperty("browser").equalsIgnoreCase("chrome")) {
