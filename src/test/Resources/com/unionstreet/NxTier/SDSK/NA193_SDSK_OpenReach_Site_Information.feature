@@ -1,6 +1,6 @@
 @SDSK
 
- Feature: NA193 SDSK OpenReach Site Information
+ Feature: NA - 193 SDSK OpenReach Site Information
 
   Scenario: Validating the absence of Access Details and Hazard Notes for Virtual Lines
    Given I am logged in as AdamR

@@ -2,6 +2,7 @@ package com.unionstreet.com.unionstreet.NxTier.pages;
 
 import com.unionstreet.support.BaseClass;
 import com.unionstreet.support.ElementUtils;
+import org.apache.xpath.functions.FuncSubstring;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
@@ -126,22 +127,19 @@ public class ServiceDesk_TicketDetailsPage {
     private final String CAL_AVAIL_TO_DATE = "//input[@id='AvailToDate']//following-sibling::span[@class='input-group-addon']";
     private final String CAL_AVAIL_TO_TIME = "//input[@id='AvailToTime']//following-sibling::span[@class='input-group-addon']";
     private final String SAVE_AND_SUBMIT_BUTTON = "//a[@href='#'][@id='wizardButton_SaveIncident']";
-    private final String TEXT_ON_VIEW_AND_AMEND_DETAILS_PAGE = "//h1[@class='page-header']//small[contains(text(),'View and Amend Details')]";
     private final String SITE_ACCESIBLE_FROM_AND_UNTIL_VALIDATION_TEXT = "//span[contains(text(),'Please enter Site accessible from and until')]";
     private final String SITE_ACCESIBLE_TO_AND_UNTIL_VALIDATION_TEXT = "//span[contains(text(),'Please enter Site accessible to and until')]";
     private final String ACCESS_AVAILABILITY_VALIDATION_TEXT = "//span[contains(text(),'Please enter Access Availability')]";
     private final String ACCESS_AVAILABILITY_TEXTAREA = "AccessAvailability";
+
     private Date today;
     String currentDate;
     String currentTime;
     String currentDayOfTheWeek;
     String ExpectedDay;
-    private long presentday;
-    private String day;
 
     ElementUtils utils = new ElementUtils();
     CommonMethods commonMethods = new CommonMethods();
-
 
     public void assertTextOnTicketDetailsPage() {
         utils.waitForElementVisible(By.xpath(TEXT_ON_LINE_AND_INSTALLATION_DETAILS_PAGE));
@@ -173,7 +171,6 @@ public class ServiceDesk_TicketDetailsPage {
         utils.waitForElementVisibleForOpenReach(By.xpath("//h5[text()=' Appointment Reserved: ']//strong[@id='AppointmentDateFriendly'][contains(text(),'"+currentday+", "+currentMonth+" "+DatePart+", "+YearPart+" "+slotTime+"')]"));
 
     }
-
     public void CancelAnAppointment(String slotTime) throws java.lang.Exception {
        utils.waitForElementVisibleForOpenReach(By.xpath(SELECTAPPOINTMENTBTN));
         utils.clickBtn(By.xpath(SELECTAPPOINTMENTBTN));
@@ -205,6 +202,24 @@ public void SelectDateTimeForSiteInformation()
     utils.clickBtn(By.xpath(CAL_AVAIL_TO_TIME));
     utils.sendText(By.id("AvailToTime"),level4ExpTime);
 }
+public void assertAccessAvailabilityForISDN30E()
+{
+    utils.clickBtn(By.xpath(SITE_ACCESIBLE_NO_BUTTON));
+    utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_BUTTON));
+    utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMPTY_DOWNTIME));
+    utils.waitForElementVisible(By.xpath(ACCESS_AVAILABILITY_VALIDATION_TEXT));
+    utils.waitForElementVisible(By.xpath(SITE_ACCESIBLE_FROM_TEXT));
+    utils.waitForElementVisible(By.id(DOWNTIME_TEXT_BOX));
+    utils.sendText(By.id(DOWNTIME_TEXT_BOX), "downtime");
+    utils.waitForElementVisible(By.id(ACCESS_AVAILABILITY_TEXTAREA));
+    utils.sendText(By.id(ACCESS_AVAILABILITY_TEXTAREA),"Access availabilty");
+
+
+}
+public void SaveAndSubmitIncident()
+{
+    utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_BUTTON));
+}
 public void assertValidationsForSiteInformation()
 {
     utils.waitForElementVisible(By.xpath(SITE_INFORMATION_TEXT));
@@ -232,25 +247,12 @@ public void assertValidationsForSiteInformation()
             }
         if(ISDN30)
         {
-            utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_BUTTON));
-            utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMPTY_DOWNTIME));
-            utils.waitForElementVisible(By.id(DOWNTIME_TEXT_BOX));
-            utils.sendText(By.id(DOWNTIME_TEXT_BOX), "downtime");
-            utils.clickBtn(By.xpath(SITE_ACCESIBLE_NO_BUTTON));
-            utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_BUTTON));
-            utils.waitForElementVisible(By.xpath(ACCESS_AVAILABILITY_VALIDATION_TEXT));
-            utils.waitForElementVisible(By.id(ACCESS_AVAILABILITY_TEXTAREA));
-            utils.sendText(By.id(ACCESS_AVAILABILITY_TEXTAREA),"Access availabilty");
-            utils.waitForElementVisible(By.xpath(SITE_ACCESIBLE_FROM_TEXT));
+
+            assertAccessAvailabilityForISDN30E();
             SelectDateTimeForSiteInformation();
 
         }
-            utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_BUTTON));
-    }
-    public void assertIncidentViewAndAmendDetails() throws InterruptedException
-    {
-        utils.waitForElementVisible(By.xpath(TEXT_ON_VIEW_AND_AMEND_DETAILS_PAGE));
-        Thread.sleep(5000);
+
     }
 
     public void selectCLIToObtainInstallationDetails(boolean appointmentSelection, String cli, String lineType, String numberOfLines, String maintenanceLevel, boolean notVirtualLine, String postCode) throws InterruptedException, UnsupportedEncodingException, SQLException, ClassNotFoundException {
@@ -294,7 +296,6 @@ public void assertValidationsForSiteInformation()
         Thread.sleep(1000);
         utils.javaScriptExecutorClick(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(FEATURE_MUST_BE_SELECTED_VALIDATION_MESSAGE));
-       // utils.performClickActionTillElementIsDetected(By.xpath(FEATURE_MUST_BE_SELECTED_VALIDATION_MESSAGE), By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.id(NETWORK_FEATURES_DROPDOWN));
         utils.selectByVisibleText(By.id(NETWORK_FEATURES_DROPDOWN), "Smart Divert");
         utils.waitForElementToBeClickable(By.xpath(TEXT_ON_LINE_AND_INSTALLATION_DETAILS_PAGE));
@@ -312,7 +313,6 @@ public void assertValidationsForSiteInformation()
         utils.waitForElementVisible(By.xpath(SAMPLE_CALLS_LABEL));
         utils.waitForElementVisible(By.id(FAULT_SQC_DROPDOWN));
         utils.selectByVisibleText(By.id(FAULT_SQC_DROPDOWN), "Noisy");
-       // utils.waitForElementVisible(By.id(INCIDENT_SAVE_BUTTON));
         utils.clickBtn(By.id(INCIDENT_SAVE_BUTTON));
         utils.waitForElementVisible(By.xpath(DATE_IS_REQUIRED_FOR_SAMPLE_CALLS));
         utils.waitForElementVisible(By.xpath(VALIDATION_MESSAGE_FOR_EMPTY_SAMPLE_CALL_FIELD));

@@ -7,7 +7,7 @@ import cucumber.api.java.en.When;
 
 import java.text.ParseException;
 
-public class NA193_SDSK_OpenReach_Site_Information_stepdefs {
+public class NA193_SDSK_OpenReach_Site_Information_stepDefs {
 
   WebModel webModel=new WebModel();
   NA160_SDSK_Login_Incident__Triage_stepDefs na160=new NA160_SDSK_Login_Incident__Triage_stepDefs();
@@ -24,13 +24,14 @@ public class NA193_SDSK_OpenReach_Site_Information_stepdefs {
     public void iAccessSiteInformationAndSaveIt() throws InterruptedException,ParseException
     {
          webModel.getServiceDesk_ticketDetailsPage().AccessSiteInformation(false,false,true);
+         webModel.getServiceDesk_ticketDetailsPage().SaveAndSubmitIncident();
     }
 
     @Then("^I should be able to see Incident View and Amend Details Page$")
     public void iShouldBeAbleToSeeIncidentViewAndAmendDetailsPage() throws InterruptedException,java.lang.Exception
     {
-        webModel.getServiceDesk_ticketDetailsPage().assertIncidentViewAndAmendDetails();
-        //webModel.getDashBoardPage().switchGateway("10.1.9.112");
+        webModel.getServiceDesk_actionsPage().assertIncidentViewAndAmendDetails();
+
     }
 
     @And("^I navigate to service desk page to raise an openreach incident with Analogue linetype$")
@@ -58,13 +59,14 @@ public class NA193_SDSK_OpenReach_Site_Information_stepdefs {
         webModel.getDashBoardPage().switchGateway("10.1.9.112");
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
         webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(false,"01202300945", "WLR3 ISDN 30 ETSI", "2", "2", true,"LU1 1DQ");
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(false,"01202300945", "WLR3 ISDN 30 ETSI", "2", "4", true,"LU1 1DQ");
     }
 
     @When("^I access site information for ISDN(\\d+) linetype  and save it$")
     public void iAccessSiteInformationForISDNLinetypeAndSaveIt(int arg0) throws java.lang.Exception
     {
         webModel.getServiceDesk_ticketDetailsPage().AccessSiteInformation(true,false,false);
+        webModel.getServiceDesk_ticketDetailsPage().SaveAndSubmitIncident();
 
     }
 
@@ -74,6 +76,7 @@ public class NA193_SDSK_OpenReach_Site_Information_stepdefs {
     public void iAccessSiteInformationForISDNLinetypesAndSaveIt(int arg0) throws java.lang.Exception
     {
         webModel.getServiceDesk_ticketDetailsPage().AccessSiteInformation(false,true,false);
+        webModel.getServiceDesk_ticketDetailsPage().SaveAndSubmitIncident();
     }
 
     @When("^I navigate to service desk page to raise an openreach incident with virtual linetype$")

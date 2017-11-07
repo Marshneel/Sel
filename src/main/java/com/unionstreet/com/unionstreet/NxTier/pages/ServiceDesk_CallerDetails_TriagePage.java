@@ -1,7 +1,13 @@
 package com.unionstreet.com.unionstreet.NxTier.pages;
 
+import com.sun.org.glassfish.gmbal.NameValue;
+import com.unionstreet.support.BaseClass;
 import com.unionstreet.support.ElementUtils;
+import jdk.internal.dynalink.beans.StaticClass;
+import org.apache.bcel.generic.ACONST_NULL;
+import org.jsoup.Connection;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
@@ -17,7 +23,7 @@ public class ServiceDesk_CallerDetails_TriagePage {
     private final String CLICK_NEXT = "//a[contains(text(),'Next')]";
     private final String CLICK_PREVIOUS = "//a[contains(text(),'Previous')]";
     private final String CALLER_DETAILS_LABEL = "//span[contains(text(),'Caller Details')]";
-    private final String SELECT_CONTACT_ON_CALLER_DETAILS_PAGE = "ContactId";
+    public final String SELECT_CONTACT_ON_CALLER_DETAILS_PAGE = "ContactId";
     private final String PLEASE_ENTER_A_PRIORITY_LEVEL = "//span[contains(text(),'Please enter a Priority level for this Incident')]";
     private final String EMAIL_ADDRESS_ON_CALLER_DETAILS_PAGE = "ContactEmailAddress";
     private final String TRAIAGE_PAGE_HEADER_TEXT = "//span[contains(text(),'Triage')]";
@@ -38,7 +44,12 @@ public class ServiceDesk_CallerDetails_TriagePage {
     private final String CONTACT_IS_THIRD_PARTY_CHECKBOX = "//label[contains(text(),'Contact is third-party')]";
     private final String CONTACT_NAME_FIELD = "ContactName";
     private final String CONTACT_EMAILID = "ContactEmailAddress";
-
+    public WebElement ContactName;
+    public WebElement Email;
+    public WebElement TelephoneNumber;
+    public static String NameValue;
+    public static String EmailValue;
+    public static String TelValue;
 
 
     ElementUtils utils = new ElementUtils();
@@ -78,6 +89,30 @@ public class ServiceDesk_CallerDetails_TriagePage {
         clickNext();
         utils.waitForElementVisible(By.xpath(TRAIAGE_PAGE_HEADER_TEXT));
     }
+    public void ValidateContactTelephoneNumberOnIncidentContactInformationModal()
+    {
+        utils.sendText(By.id("ContactTelephoneNumber"),"abcdefgh");
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'The telephone number must be made up of numeric characters only')]"));
+        utils.sendText(By.id("ContactTelephoneNumber"),"020123");
+        utils.waitForElementVisible(By.xpath("//span[contains(text(),'The telephone number should be between 7 and 11 characters')]"));
+    }
+    public void populateContactIsThirdPartyOnIncidentContactInformationModal()
+    {
+        utils.waitForElementVisible(By.xpath(CONTACT_IS_THIRD_PARTY_CHECKBOX));
+        utils.clickBtn(By.xpath(CONTACT_IS_THIRD_PARTY_CHECKBOX));
+        ValidateContactTelephoneNumberOnIncidentContactInformationModal();
+        utils.sendText(By.id(CONTACT_NAME_FIELD), "Adam R");
+        ContactName= BaseClass.driver.findElement(By.id(CONTACT_NAME_FIELD));
+        NameValue = ContactName.getAttribute("value");
+        utils.sendText(By.id(CONTACT_EMAILID), "adam.reed@union.uk.com");
+        Email = BaseClass.driver.findElement(By.id(CONTACT_EMAILID));
+        EmailValue = Email.getAttribute("value");
+        ValidateContactTelephoneNumberOnIncidentContactInformationModal();
+        utils.sendText(By.id("ContactTelephoneNumber"),"56489237");
+        TelephoneNumber = BaseClass.driver.findElement(By.id("ContactTelephoneNumber"));
+        TelValue = TelephoneNumber.getAttribute("value");
+    }
+
 
     public void populateThirdParty() {
         utils.waitForElementVisible(By.xpath(CONTACT_IS_THIRD_PARTY_CHECKBOX));
@@ -150,6 +185,16 @@ public class ServiceDesk_CallerDetails_TriagePage {
 
         return createdID_int;
     }
+    public int getIncidentID() throws SQLException {
+        utils.sqlQuery("Portal", "moe\\devsql2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "SELECT TOP 1 RecordID FROM incidents ORDER BY RecordID DESC");
+        utils.result.next();
+        String createdID = utils.result.getString("RecordID");
+        int createdID_int=Integer.parseInt(createdID);
+
+        return createdID_int;
+    }
+
+
 
     public void non_OpenReachIncident_Triage() throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_types set cli_type='1', openreach_function='4' where RecordID='6'");
@@ -178,7 +223,7 @@ public class ServiceDesk_CallerDetails_TriagePage {
             utils.clickBtn(By.id("wizardButton_SaveIncident"));
         utils.waitForElementVisible(By.xpath("//h1[contains(text(),'Incident #"+getNonOpenReachIncidentID()+"')]"));
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueNumber='1' where ID='150'");
-        utils.navigateBack();
+        //utils.navigateBack();
         //clickPrevious();
 
     }

@@ -54,7 +54,10 @@ public class WebModel {
     private RestServices restServices;
     private SipTrunkPlus_LoginPage sipTrunkPlus_loginPage;
     private SipTrunkPlus_ProviderPage sipTrunkPlus_providerPage;
-   
+
+    private ServiceDesk_ActionsPage serviceDesk_actionsPage;
+
+
 
     public WebModel() {
         utils = new ElementUtils();
@@ -103,6 +106,8 @@ public class WebModel {
         restServices=new RestServices();
         sipTrunkPlus_loginPage=new SipTrunkPlus_LoginPage();
         sipTrunkPlus_providerPage=new SipTrunkPlus_ProviderPage();
+        serviceDesk_actionsPage=new ServiceDesk_ActionsPage();
+
 
 
 
@@ -289,6 +294,11 @@ public class WebModel {
     public SipTrunkPlus_ProviderPage getSipTrunkPlus_providerPage(){
         return sipTrunkPlus_providerPage;
     }
+
+    public ServiceDesk_ActionsPage getServiceDesk_actionsPage(){
+        return serviceDesk_actionsPage;
+    }
+
 }
 
 

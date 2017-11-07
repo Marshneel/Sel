@@ -194,6 +194,7 @@ public Wait waitForSomeTime(){
         BaseClass.driver.findElement(by).click();
    }
 
+
     public String getCurrentDate(String format) {
         String date = new SimpleDateFormat(format).format(Calendar.getInstance().getTime());
         return date;
@@ -642,8 +643,12 @@ public Wait waitForSomeTime(){
         String currentSlot= driver.findElement(by).getText();
         split = currentSlot.split(" ");
     }
+    public void splitStringInSQLquery(String attribute){
+        split = attribute.split(" ");
+    }
 
-        public JSONObject getPayload(String fileName) {
+
+    public JSONObject getPayload(String fileName) {
             JSONParser jsonParser = new JSONParser();
             Object object = null;
             try {
@@ -670,6 +675,11 @@ public void readPDFfile(String filePath) throws IOException {
    // System.out.println(readpdfFile.getText(pdfFile));
     file=readpdfFile.getText(pdfFile);
 }
+    public void clearField(By by){
+        waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
+        driver.findElement(by).clear();
+    }
+
 
 }
 
@@ -681,6 +691,7 @@ public void readPDFfile(String filePath) throws IOException {
 //        webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "NxtierE2E", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
 //        webModel.getUtils().sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueString='10.1.9.112' where ID='760'");
 //        webModel.getUtils().accessCMDAndPowerShell("src\\test\\Resources\\WLR3Tools\\powershell.exe","Get-Service -Name Abillity_Server_PortalTest -ComputerName test01-ds01 | Restart-Service");
+
 
 
 
