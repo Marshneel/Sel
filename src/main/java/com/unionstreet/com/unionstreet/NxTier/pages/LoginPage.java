@@ -89,8 +89,22 @@ public class LoginPage {
         } catch (Exception e) {
             utils.checkAlert();
         }
-    } public void loginAsAgentAdam() throws InterruptedException {
-        utils.loadBranchURLForServiceDesk(":9050");
+    }
+
+    public void loginAsAdamReseller() throws InterruptedException {
+        utils.waitForElementVisible(By.id(USERNAME_FIELD));
+        utils.clickBtn(By.id(USERNAME_FIELD));
+        utils.sendText(By.id(USERNAME_FIELD), "adam.reseller");
+        utils.clickBtn(By.id(PASSWORD_FIELD));
+        utils.sendText(By.id(PASSWORD_FIELD), "password");
+        try {
+            utils.clickBtn(By.cssSelector(LOGINBUTTON));
+        } catch (Exception e) {
+            utils.checkAlert();
+        }
+    }
+    public void loginAsAgentAdam() throws InterruptedException {
+        utils.loadBranchURLForServiceDesk("");
         utils.waitForElementVisible(By.id(USERNAME_FIELD));
         utils.clickBtn(By.id(USERNAME_FIELD));
         utils.sendText(By.id(USERNAME_FIELD), "agentAdam");

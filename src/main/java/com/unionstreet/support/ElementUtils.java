@@ -21,6 +21,7 @@ import java.io.*;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Date;
 import java.util.List;
 
 import static com.unionstreet.support.BaseClass.driver;
@@ -198,6 +199,15 @@ public Wait waitForSomeTime(){
     public String getCurrentDate(String format) {
         String date = new SimpleDateFormat(format).format(Calendar.getInstance().getTime());
         return date;
+    }
+    public String AddingNdaysToCurrentDate(String format,int numberOfDays)
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        c.add(Calendar.DATE,numberOfDays);
+        String output = sdf.format(c.getTime());
+        return output;
     }
     //browser selector
     public WebDriver browser() {
@@ -599,7 +609,9 @@ public Wait waitForSomeTime(){
     }
 
     public void loadBranchURLForServiceDesk(String port) {
-        driver.get("http://test01-web01"+port+"/RajeshNB");
+        //driver.get("http://test01-web01"+port+"/RajeshNB");
+        driver.get("http://test01-web01"+port+"/MJ");
+
     }
 
     public void loadSipTrunkURL() {
@@ -614,6 +626,11 @@ public Wait waitForSomeTime(){
     public void assertChecked(By by) {
         WebElement element = driver.findElement(by);
         assertTrue(element.isSelected());
+    }
+    public void assertIsEnabled(By by)
+    {
+        WebElement element = driver.findElement(by);
+        assertFalse(element.isEnabled());
     }
 
     public void waitTillBoxChecked(By by) {

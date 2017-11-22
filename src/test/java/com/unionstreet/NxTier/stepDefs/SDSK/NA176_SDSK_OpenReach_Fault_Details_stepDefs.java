@@ -26,7 +26,7 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
     @When("^I navigate to fault details page and choose single analogue line$")
     public void iNavigateToFaultDetailsPageAndChooseSingleAnalogueLine() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
         webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"02063678369","WLR Single Line","2","2",true,"LU1 1DQ");
@@ -43,7 +43,7 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
     @When("^I navigate to fault details page and choose multi-line$")
     public void iNavigateToFaultDetailsPageAndChooseMultiLine() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
         webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"01202300909","PSTN Multi Line Aux","2","2",true,"LU1 1DQ");
@@ -59,7 +59,7 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
     @When("^I navigate to fault details page and choose ISDN(\\d+)E$")
     public void iNavigateToFaultDetailsPageAndChooseISDNE(int arg0) throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
         webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"01202300945","WLR3 ISDN 30 ETSI","8","2",true,"LU1 1DQ");
@@ -75,7 +75,7 @@ public class NA176_SDSK_OpenReach_Fault_Details_stepDefs {
     @When("^I navigate to fault details page and choose ISDN(\\d+) System$")
     public void iNavigateToFaultDetailsPageAndChooseISDNSystem(int arg0) throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
         webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"01202300920","WLR3 ISDN 2e System","2","2",true,"LU1 1DQ");

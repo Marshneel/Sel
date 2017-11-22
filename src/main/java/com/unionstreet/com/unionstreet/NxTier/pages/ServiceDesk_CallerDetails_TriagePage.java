@@ -113,6 +113,12 @@ public class ServiceDesk_CallerDetails_TriagePage {
         TelValue = TelephoneNumber.getAttribute("value");
     }
 
+    public void assertPresenceOfPriorityComponent() throws InterruptedException
+    {
+        utils.waitForElementVisible(By.xpath(PRIORITY_LABEL));
+        Thread.sleep(5000);
+    }
+
 
     public void populateThirdParty() {
         utils.waitForElementVisible(By.xpath(CONTACT_IS_THIRD_PARTY_CHECKBOX));
@@ -127,7 +133,7 @@ public class ServiceDesk_CallerDetails_TriagePage {
 
     public void validationMessagesOnnTriagePage() {
         utils.waitForElementVisible(By.xpath(PLEASE_SELECT_AN_APPROPRIATE_SYMPTOM_FOR_THE_INCIDENT));
-        utils.waitForElementVisible(By.xpath(PLEASE_SELECT_AN_INCIDENT_CATEGORY));
+        //utils.waitForElementVisible(By.xpath(PLEASE_SELECT_AN_INCIDENT_CATEGORY));
         utils.waitForElementVisible(By.xpath(PLEASE_SELECT_AN_OWNER_FOR_INCIDENT));
     }
 
@@ -141,7 +147,29 @@ public class ServiceDesk_CallerDetails_TriagePage {
         validationMessagesOnnTriagePage();
     }
 
-    public void openReachIncident_Triage(Boolean nextOrNot) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
+//    public void openReachIncident_Triage(Boolean nextOrNot) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
+//        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_types set cli_type='1', openreach_function='1' where RecordID='4'");
+//        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_symptoms set Symptom='Test Symptom 1', tmp_IncidentType='Test Type Fault 1' where RecordID='33'");
+//        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_categories set category='Test Category 1',tmp_IncidentType='Test Type Fault 1' where RecordID='11'");
+//        utils.waitForElementVisible(By.id(INCIDENT_TYPE));
+//        utils.selectByVisibleText(By.id(INCIDENT_TYPE), "Test Type Fault 1");
+//        utils.waitForElementVisible(By.id(INCIDENT_OWNER));
+//        utils.selectByVisibleText(By.id(INCIDENT_OWNER), "Select...");
+//        clickNext();
+//        validationMessagesOnnTriagePage();
+//        clickNext();
+//        utils.waitForElementVisible(By.xpath(PLEASE_ENTER_A_SUMMARY_FOR_INCIDENT));
+//        populateSymptomAndCategory("Test Symptom 1", "Test Category 1");
+//        utils.waitForElementVisible(By.id(INCIDENT_SUMMARY_TEXT_BOX));
+//        utils.sendText(By.id(INCIDENT_SUMMARY_TEXT_BOX), "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+//        utils.waitForElementVisible(By.xpath(THE_SUMMARY_CAN_BE_NO_MORE_THAN_80_CHARACTERS));
+//        populateSummaryAndOwnerDropDown();
+//        clickNext();
+//        utils.waitForElementVisible(By.xpath("//a[@href='#tab3'][@aria-expanded='true']"));
+//        if (nextOrNot == true)
+//            clickPrevious();
+//    }
+public void openReachIncident_Triage(Boolean nextOrNot,boolean prioritylevel,boolean agent) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_types set cli_type='1', openreach_function='1' where RecordID='4'");
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_symptoms set Symptom='Test Symptom 1', tmp_IncidentType='Test Type Fault 1' where RecordID='33'");
         utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update incident_categories set category='Test Category 1',tmp_IncidentType='Test Type Fault 1' where RecordID='11'");
@@ -151,18 +179,29 @@ public class ServiceDesk_CallerDetails_TriagePage {
         utils.selectByVisibleText(By.id(INCIDENT_OWNER), "Select...");
         clickNext();
         validationMessagesOnnTriagePage();
-        clickNext();
+        //clickNext();
         utils.waitForElementVisible(By.xpath(PLEASE_ENTER_A_SUMMARY_FOR_INCIDENT));
         populateSymptomAndCategory("Test Symptom 1", "Test Category 1");
         utils.waitForElementVisible(By.id(INCIDENT_SUMMARY_TEXT_BOX));
         utils.sendText(By.id(INCIDENT_SUMMARY_TEXT_BOX), "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
         utils.waitForElementVisible(By.xpath(THE_SUMMARY_CAN_BE_NO_MORE_THAN_80_CHARACTERS));
         populateSummaryAndOwnerDropDown();
+        if(agent)
+        {
+            utils.waitForElementVisible(By.xpath("//p[contains(text(),'The Owner you have selected is missing required contact information. Please complete this information or select a different Owner to continue.')]"));
+            utils.selectByVisibleText(By.id(INCIDENT_OWNER), "Jeanette Staton");
+        }
+        if(prioritylevel)
+        {
+            utils.waitForElementVisible(By.xpath(PLEASE_ENTER_A_PRIORITY_LEVEL));
+            utils.selectByIndex(By.id(PRIORITY_DROPDOWN), 2);
+        }
         clickNext();
         utils.waitForElementVisible(By.xpath("//a[@href='#tab3'][@aria-expanded='true']"));
         if (nextOrNot == true)
             clickPrevious();
     }
+
 
     public void populateSymptomAndCategory(String symptom, String category) {
         utils.waitForElementVisible(By.id(INCIDENT_SYMPTOM));
@@ -175,8 +214,7 @@ public class ServiceDesk_CallerDetails_TriagePage {
         utils.sendText(By.id(INCIDENT_SUMMARY_TEXT_BOX), "summary");
        utils.waitForElementVisible(By.id(INCIDENT_OWNER));
         utils.selectByVisibleText(By.id(INCIDENT_OWNER), "Adam Reed");
-
-    }
+            }
     public int getNonOpenReachIncidentID() throws SQLException {
         utils.sqlQuery("Portal", "moe\\devsql2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "SELECT TOP 1 RecordID FROM incidents ORDER BY RecordID DESC");
         utils.result.next();
@@ -236,14 +274,16 @@ public class ServiceDesk_CallerDetails_TriagePage {
         populateSummaryAndOwnerDropDown();
         utils.waitForElementVisible(By.xpath(PRIORITY_LABEL));
         utils.waitForElementVisible(By.id("wizardButton_SaveIncident"));
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         utils.scrollUp(By.id("wizardButton_SaveIncident"));
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         utils.clickBtn(By.id("wizardButton_SaveIncident"));
         utils.waitForElementVisible(By.xpath(PLEASE_ENTER_A_PRIORITY_LEVEL));
         utils.selectByIndex(By.id(PRIORITY_DROPDOWN), 1);
-        utils.waitForElementVisible(By.id("wizardButton_SaveIncident"));
+      //utils.waitForElementVisible(By.id("wizardButton_SaveIncident"));
         utils.clickBtn(By.id("wizardButton_SaveIncident"));
-        utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueNumber='0' where ID='150'");
+        Thread.sleep(1000);
+
+        //utils.sqlExeQuery("portal", "MOE\\DEVSQL2008", "Raj_BackUp_Of_Sn_DB_10_11_17", "update Defaultvalues set ValueNumber='0' where ID='150'");
     }
 }

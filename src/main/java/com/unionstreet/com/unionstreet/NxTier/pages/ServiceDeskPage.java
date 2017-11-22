@@ -34,7 +34,8 @@ public class ServiceDeskPage {
     public void loadLoginIncidentPageAndAssertTextOnServiceDesk() throws InterruptedException, SQLException, UnsupportedEncodingException, ClassNotFoundException {
      Thread.sleep(1000);
        utils.clickBtn(By.xpath(LOGIN_AN_INCIDENT_BUTTON));
-       utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_HEADER_TEXT));}
+       //utils.waitForElementVisible(By.xpath(LOGIN_AN_INCIDENT_HEADER_TEXT));
+  }
     public void clickLogAnIncidentButton() throws InterruptedException {
         Thread.sleep(1000);
         utils.clickBtn(By.xpath(LOGIN_AN_INCIDENT_BUTTON));

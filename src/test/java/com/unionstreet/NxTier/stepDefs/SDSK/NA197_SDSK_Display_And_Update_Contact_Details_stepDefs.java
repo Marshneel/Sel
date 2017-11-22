@@ -15,8 +15,8 @@ public class NA197_SDSK_Display_And_Update_Contact_Details_stepDefs
     {
         webModel.getDashBoardPage().switchGateway("10.1.9.112");
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(false,"02063678369", "WLR Single Line", "1", "3", true,"LU1 1DQ");
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(false,"02063678369", "PSTN Single Line", "1", "3", true,"LU1 1DQ");
         webModel.getServiceDesk_ticketDetailsPage().SaveAndSubmitIncident();
     }
 

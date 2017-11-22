@@ -18,10 +18,10 @@ public class NA166_SDSK_OpenReach_LineTest_stepDefs {
     @When("^I raise an open reach incident on an analogue line$")
     public void iRaiseAnOpenReachIncidentOnAnAnalogueLine() throws ClassNotFoundException, SQLException, InterruptedException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"02063678369","WLR Single Line","2","2",true,"LU1 1DQ");
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"02063678369","PSTN Single Line","2","2",true,"LU1 1DQ");
     }
 
     @Then("^I should be able to validate the line test functionality$")
@@ -39,7 +39,7 @@ public class NA166_SDSK_OpenReach_LineTest_stepDefs {
     @When("^I navigate to obtain installation details page$")
     public void iNavigateToObtainInstallationDetailsPage() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
 

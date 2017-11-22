@@ -15,7 +15,7 @@ public class NA185_Appointment_Selection_And_Reservation_stepDefs {
     public void iAmOnServiceDeskTicketDetailsPageToSelectAndReserveAnAppointment(String slotTime) throws Exception {
        webModel.getDashBoardPage().switchGateway("89.234.55.115");
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(false,"01142733952", "WLR3 ISDN 2e Standard", "1", "2", true,"SW14 8JP");
         webModel.getServiceDesk_ticketDetailsPage().BookAnAppointment(slotTime);
     }
@@ -30,7 +30,7 @@ public class NA185_Appointment_Selection_And_Reservation_stepDefs {
     public void iAmOnServiceDeskTicketDetailsPageToCancelAnAppointment() throws Exception {
         webModel.getDashBoardPage().switchGateway("89.234.55.115");
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(false,"01142733952", "WLR3 ISDN 2e Standard", "1", "2", true,"SW14 8JP");
     }
 

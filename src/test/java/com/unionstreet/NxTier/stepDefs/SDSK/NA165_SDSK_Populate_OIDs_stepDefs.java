@@ -17,7 +17,7 @@ public class NA165_SDSK_Populate_OIDs_stepDefs {
     @When("^I navigate to line and installation details of login in incident page$")
     public void iNavigateToLineAndInstallationDetailsOfLoginInIncidentPage() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
 

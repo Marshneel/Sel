@@ -20,7 +20,7 @@ public class _NA181_SDSK_Service_Maintenance_Levels_stepDefs {
     @And("^I raise an open reach incident on an either of the virtual line$")
     public void iRaiseAnOpenReachIncidentOnAnEitherOfTheVirtualLine() throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set product='WLR RCF' where serviceid='ORCF00000002'");
@@ -53,7 +53,7 @@ public class _NA181_SDSK_Service_Maintenance_Levels_stepDefs {
     public void iRaiseAnOpenReachIncidentOnAnISDNLineWithCareLevelPlan(int arg0, int arg1) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set CareLevel='2' where serviceid='OI3000000001'");
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
         webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"01202300945","WLR3 ISDN 30 ETSI","8","2",true,"LU1 1DQ");
@@ -68,7 +68,7 @@ public class _NA181_SDSK_Service_Maintenance_Levels_stepDefs {
     @When("^I raise an open reach incident on \"([^\"]*)\" with \"([^\"]*)\", \"([^\"]*)\" and \"([^\"]*)\"$")
     public void iRaiseAnOpenReachIncidentOnWithAnd(String line, String type, String numberOfLines, String maintenanceLevel) throws InterruptedException, SQLException, ClassNotFoundException, UnsupportedEncodingException {
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
         webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,line,type,numberOfLines,maintenanceLevel,true,"LU1 1DQ");
@@ -87,7 +87,7 @@ public class _NA181_SDSK_Service_Maintenance_Levels_stepDefs {
     public void iRaiseAnOpenReachIncidentOnALineThatHasCareLevel(int arg0) throws UnsupportedEncodingException, SQLException, ClassNotFoundException, InterruptedException {
         webModel.getUtils().sqlExeQuery("portal", "test01-sql01", "MockCVF", "update installations set CareLevel='2' where serviceid='02063678369'");
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().assertTextOnTicketDetailsPage();
         webModel.getServiceDesk_ticketDetailsPage().clickObtainInstallationDetailsWithOutPopulatingCLIAndPostCode();
         webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(true,"02063678369","WLR Single Line","2","2",true,"LU1 1DQ");

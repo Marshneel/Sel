@@ -15,7 +15,7 @@ public class NA196_SDSK_OpenReach_Access_Availability_stepDefs
     {
         webModel.getDashBoardPage().switchGateway("10.1.9.112");
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(false,"01202300945", "WLR3 ISDN 30 ETSI", "2", "4", true,"LU1 1DQ");
 
     }

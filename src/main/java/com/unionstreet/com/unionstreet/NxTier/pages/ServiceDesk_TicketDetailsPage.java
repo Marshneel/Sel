@@ -216,9 +216,10 @@ public void assertAccessAvailabilityForISDN30E()
 
 
 }
-public void SaveAndSubmitIncident()
+public void SaveAndSubmitIncident() throws InterruptedException
 {
     utils.clickBtn(By.xpath(SAVE_AND_SUBMIT_BUTTON));
+    Thread.sleep(5000);
 }
 public void assertValidationsForSiteInformation()
 {

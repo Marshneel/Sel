@@ -39,8 +39,8 @@ public class NA193_SDSK_OpenReach_Site_Information_stepDefs {
     {
         webModel.getDashBoardPage().switchGateway("10.1.9.112");
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
-        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(false,"02063678369", "WLR Single Line", "1", "3", true,"LU1 1DQ");
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
+        webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(false,"02063678369", "PSTN Single Line", "1", "3", true,"LU1 1DQ");
 
     }
 
@@ -49,7 +49,7 @@ public class NA193_SDSK_OpenReach_Site_Information_stepDefs {
     {
         webModel.getDashBoardPage().switchGateway("10.1.9.112");
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(false,"01202300920", "WLR3 ISDN 2e System", "2", "4", true,"LU1 1DQ");
     }
 
@@ -58,7 +58,7 @@ public class NA193_SDSK_OpenReach_Site_Information_stepDefs {
     {
         webModel.getDashBoardPage().switchGateway("10.1.9.112");
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(false,"01202300945", "WLR3 ISDN 30 ETSI", "2", "4", true,"LU1 1DQ");
     }
 
@@ -84,7 +84,7 @@ public class NA193_SDSK_OpenReach_Site_Information_stepDefs {
     {
         webModel.getDashBoardPage().switchGateway("10.1.9.112");
         na160.iNavigateToTheTriagePageOfTheIncidentWizard();
-        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false);
+        webModel.getServiceDesk_callerDetailsTriagePage().openReachIncident_Triage(false,false,false);
         webModel.getServiceDesk_ticketDetailsPage().selectCLIToObtainInstallationDetails(false,"01202300912", "WLR RCF", "0", "0", false,"LU1 1DQ");
 
     }
