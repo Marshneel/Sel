@@ -609,10 +609,8 @@ public Wait waitForSomeTime(){
     }
 
     public void loadBranchURLForServiceDesk(String port) {
-        //driver.get("http://test01-web01"+port+"/RajeshNB");
-        driver.get("http://test01-web01"+port+"/MJ");
-
-    }
+        driver.get("http://test01-web01"+port+"/RajeshNB");
+            }
 
     public void loadSipTrunkURL() {
         driver.get("https://159.8.174.54/portal/");

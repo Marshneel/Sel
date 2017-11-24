@@ -213,6 +213,30 @@ public class ServiceDesk_ActionsPage
         utils.clickBtn(By.xpath("//button[contains(text(),'Ok')]"));
 
     }
+    public void RejectFaultOptionPopup()
+    {
+        utils.waitForElementVisible(By.id("modal-alert-label"));
+        utils.waitForElementVisible(By.xpath("//p[contains(text(),'Please select a reason for rejecting this trouble report.')"));
+        utils.clickBtn(By.id("Reason"));
+        // write code to select a particular option from dropdown
+        utils.selectByVisibleText(By.id("Reason"),"");
+        utils.waitForElementVisible(By.xpath("//label[@for='ReasonNote'][contains(text(),'Notes')]"));
+        utils.sendText(By.xpath("//label[@for='ReasonNote'][contains(text(),'Notes')]"),"Reason for rejecting");
+        utils.clickBtn(By.xpath("//button[@id='modal-button-Openreach-RejectFault'][contains(text(),'Ok')]"));
+    }
+    public void ClearFaultOptionPopup()
+    {
+        // webModel.getUtils().waitForElementVisible(By.id("modal-alert-label"));
+       utils.waitForElementVisible(By.xpath("//h4[@id='modal-alert-label'][contains(text(),'Clear Fault')]"));
+        utils.waitForElementVisible(By.xpath("//p[contains(text(),'Please select a reason for clearing this trouble report.')"));
+
+        utils.clickBtn(By.id("Reason"));
+        utils.selectByVisibleText(By.id("Reason"),"");
+
+        utils.waitForElementVisible(By.xpath("//label[@for='ReasonNote'][contains(text(),'Notes')]"));
+        utils.sendText(By.xpath("//label[@for='ReasonNote'][contains(text(),'Notes')]"),"Reason for clearing");
+        utils.clickBtn(By.xpath("//button[@id='modal-button-Openreach-RejectFault'][contains(text(),'Ok')]"));
+    }
 
 
     public void assertAbsenceOfHoursFieldOnActionsPopUp(){
@@ -278,9 +302,7 @@ public class ServiceDesk_ActionsPage
     public void retrieveCurrentStatusOfAnIncident(String currentStatus)
     {
         utils.waitForElementVisible(By.xpath("//h1[contains(text(),'"+currentStatus+"')]"));
-       //utils.getAttributeOfElement(By.xpath("//h1[@class='m-t-4 text-primary']"),"Value");
-//       String s=BaseClass.driver.findElement(By.xpath("//h1[@class='m-t-4 text-primary']")).getText();
-//       System.out.println(s);
+
     }
     public void assertOpenReachLoggedActionEntry() throws InterruptedException {
         utils.waitForElementVisible(By.xpath("//a[text()[contains(.,'"+utils.getCurrentDate("dd/MM/yyyy")+"')]]/../following-sibling::td[2][contains(text(),'Logged with Openreach')]"));
@@ -291,8 +313,7 @@ public class ServiceDesk_ActionsPage
     }
     public void clickdefaultActionCreatedOnStatusChange(String currentStatus,String newStatus)
     {
-        //utils.waitForElementVisible(By.xpath("//td[contains(text(),'Status changed from "+ currentStatus +" to "+ newStatus +"')]/preceding-sibling::td[contains(text(),'Status Change')]/preceding-sibling::a[text[contains(.,'"+utils.getCurrentDate("MM/dd/yyyy")+"')]]"));
-       // utils.clickBtn(By.xpath("//td[contains(text(),'Status changed from "+ currentStatus +" to "+ newStatus +"')]/preceding-sibling::td[contains(text(),'Status Change')]/preceding-sibling::a[text[contains(.,'"+utils.getCurrentDate("MM/dd/yyyy")+"')]]"));
+
         utils.waitForElementVisible(By.xpath("//a[text()[contains(.,'"+utils.getCurrentDate("dd/MM/yyyy")+"')]]/../following-sibling::td[2][contains(text(),'Status changed from "+ currentStatus +" to "+ newStatus +"')]"));
        utils.clickBtn(By.xpath("//a[text()[contains(.,'"+utils.getCurrentDate("dd/MM/yyyy")+"')]]"));
 
@@ -310,7 +331,7 @@ public class ServiceDesk_ActionsPage
     public void assertMarkAsRespondedIsCheckedAndIsNotEnabled()
     {
         utils.assertChecked(By.xpath(MARK_AS_RESPONDED_CHCKBOX));
-        //utils.assertIsEnabled(By.xpath(MARK_AS_RESPONDED_CHCKBOX));
+
     }
     public void selectMarkAsRespondedCheckbox()
     {
